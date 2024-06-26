@@ -12,4 +12,4 @@ The goal is for each folder to correspond to a course, book, research paper, art
 Please feel free to enter any folder, explore my projects and use my notes. Most projects will be small and thus not have its own repo, but who knows, in the future a project may be expanded and have its own dedicated repo.
 
 # Folders
-- The Complete 2024 Web Development Bootcamp by Dr. Angela Yu 
+- [The Complete 2024 Web Development Bootcamp by Dr. Angela Yu](https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp) 
