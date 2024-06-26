@@ -9,4 +9,7 @@ Now, I'm going to take a different approach. For one, each book, course, video, 
 The goal is for each folder to correspond to a course, book, research paper, article, video, etc. If the video / book is long there may be folders or multiple files to separate the topics / chapters. However, I am not just going to take down notes. Notes are great but you need to do more to fully understand the material. So, in addition to notes, I am going to try to create how-to-wikis, projects, answer textbook questions, and more, to try and fully understand the topics. Each folder will be more than just notes.
 
 # What Next
-Please feel free to enter any folder, explore my projects and use my notes. Most projects will be small and thus not have its own repo, but who knows, in the future a project may be expanded and have its own dedicated repo. 
+Please feel free to enter any folder, explore my projects and use my notes. Most projects will be small and thus not have its own repo, but who knows, in the future a project may be expanded and have its own dedicated repo.
+
+# Folders
+- The Complete 2024 Web Development Bootcamp by Dr. Angela Yu 
