@@ -41,7 +41,28 @@
    - Why do we need a paragraph element? The paragraph element would allow us to separate blocks of texts (paragraphs) to make content easier to read
 
 ** Section 2.4: Self Closing Tags
+   - What is a void element? A void element is an element you are forebidden to put content inside the tag
+   - So how do tags work with no content? These elements are called self-closing tags and it only has one tag (self-closing) instead of one opening and one closing
+   
+   #+BEGIN_SRC html
+     <hr />
+   #+END_SRC
 
+   - Notice how it opens with an angle bracket and then uses a forward slash and then angle bracket similar (but in different way) to closing tags
+   - ~<hr />~ is the horizontal rule which divides or adds a horizontal rule or "line"
+   - Other void elements are the break element denoted as ~<br />~ and this element is used to separate content (text) into separate lines
+   - Note when to use ~<br />~ and when to use ~<p>~; if you need to create another paragraph do not use ~<br />~ instead create a new paragraph element
+   - Only use ~<br />~ when you need to separate lines but it is still the same paragraph like a poem or an address
+   - Also the forward slash is not required; with the latest HTML it simply ignores the forward slash but it is good practice to add so it can be more understandable when viewing your code
+
+** Section 2.5: How to Ace This Course (And Keep You Motivated)
+   - In order to keep you motivatd, set yourself goals ask yourself the following question
+   - Why do I want to learn this skill? I want to expand my skillset and create my own website agency company eventually
+   - What will I achieve if I learn this skill? Possibly new career options and be able to full services on behalf of myself and not a company
+   - How will this skill change my life and my career? Possibly get a higher position job and be able to work on my own company
+   - How will learning this skill impact the lives of my family, friends, and coworkers? If I am able to target a higher position job or start a company then I'll be able to help the ones I love and help others start with own business
+   - How will I feel if I never accomplish this? I'll feel like I failed. I'll feel like I have nothing to look forward to
+   - What would my life look like if I manage to accomplish this? Hopefuly my life would look more fulfilled and more prosperous with possibly having a side business of my own
 
 * Keywords
 
