@@ -4,6 +4,43 @@
 * Introduction to HTML (Notes)
 
 ** Section 2.1: What is HTML?
+   - Every browser take different files and render them into a website
+   - Websites cannot be made with just the CSS file or JS but you can make a website with just a HTML file
+   - Remember HTML is just for structure and content
+   - HTML stands for HyperText Markup Language
+   - HyperText means it can have text with links (hyperlinks) so the browser (user) can be redirected
+   - Markup Language means there are ways to "mark" text to have appear or behave some type of way; this is done with HTML tags
+
+** Section 2.2: HTML Heading Elements
+   #+BEGIN_SRC html
+     <h1>Hello World</h1>
+   #+END_SRC
+
+   - Notice the opening and ending tag; the difference is the closing tag has a forward slash
+   - The content of that HTML element is placed inside the tags
+   - Tag vs Element? The tag are the actual ~<h1>~ and ~</h1>~ are the tags and the element is the entire thing including the tags and the content
+   - The highest ("smallest") heading is ~<h6>~
+   - Level 1 (~<h1>~) is the largest heading while level 6 (~<h6>~) is the smallest
+   - Don't try to have multiple ~h1~ espeically back to back
+   - Don't skip header levels so go in order (e.g. ~h1~ to ~h2~ etc.) not from ~h1~ to ~h3~
+     
+*** Section 2.2.1: Resources
+
+**** Section 2.2.1.1: [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements][The HTML Section Heading Elements by MDN Web Docs]]
+     - ~h1~ to ~h6~ represent six levels of section headings with ~h1~ being the largest and ~h6~ being the smallest
+     - By default, headings start on a new line and take up the full width available in their containing block and thus create a "box-level" box in the layout
+     - The headings can be used as a table of contents, do not use them to resize text and don't skip heading levels
+     - Avoid using multiple ~<h1>~ elements on one page (the top level should describe the content of the page similar to a title of a book)
+
+** Section 2.3: HTML Paragraph Elements
+   #+BEGIN_SRC html
+     <p>This is a paragraph</p>
+   #+END_SRC
+
+   - Similar to the heading element; you have the opening and closing tag and then the content in between
+   - Why do we need a paragraph element? The paragraph element would allow us to separate blocks of texts (paragraphs) to make content easier to read
+
+** Section 2.4: Self Closing Tags
 
 * Keywords
 
