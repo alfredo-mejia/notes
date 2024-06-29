@@ -1,0 +1,31 @@
+#+title: 003.000.Intermediate HTML
+#+author: Alfredo Mejia
+
+* Intermediate HTML (Notes)
+
+** Section 3.1: The List Element
+   #+BEGIN_SRC html
+     <!-- Unordered List -->
+     <ul>
+       <li>Item 1</li>
+       <li>Item 2</li>
+       <li>Item 3</li>
+     </ul>
+
+     <!-- Ordered List -->
+     <ol>
+       <li>Item 1</li>
+       <li>Item 2</li>
+       <li>Item 3</li>
+     </ol>
+   #+END_SRC
+
+   - There are two types of lists: unordered (~<ul>~) and ordered (~<ol>~) lists
+   - The tags go on separate lines because content goes in between and in between the tags goes list item elements (~<li>~)
+   - All list items are enclosed inside unordered list tags or ordered list tags 
+
+* Keywords
+
+* Questions
+
+* Summary
