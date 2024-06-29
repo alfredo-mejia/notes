@@ -31,7 +31,7 @@
      - By default, headings start on a new line and take up the full width available in their containing block and thus create a "box-level" box in the layout
      - The headings can be used as a table of contents, do not use them to resize text and don't skip heading levels
      - Avoid using multiple ~<h1>~ elements on one page (the top level should describe the content of the page similar to a title of a book)
-
+       
 ** Section 2.3: HTML Paragraph Elements
    #+BEGIN_SRC html
      <p>This is a paragraph</p>
@@ -65,7 +65,17 @@
    - What would my life look like if I manage to accomplish this? Hopefuly my life would look more fulfilled and more prosperous with possibly having a side business of my own
 
 * Keywords
-
+  - HTML: HyperText Markup Language
+  - HTML Tag: Actual "tag" that indicates which element it is
+  - HTML Element: It is the HTML tags and the content it represents
+  - HTML Header Element: Element that allows to provide and format titles and subtitles
+  - HTML Paragraph Element: Element to display blocks of text
+  - HTML Self Closing Elements: HTML elements that do not require content or a closing tag
+      
 * Questions
+  - Q: If headers behave as a box where it takes the whole width of the page, is it possible to change that behavior? A: Possibly but we'll need CSS for that
 
 * Summary
+  - HTML stands for HyperText Markup Language which is a way to format text into titles, paragraphs, underline, bold, italicized, etc.
+  - There are many HTML elements like headers, paragraph, self closing elements, and format and display content differently; these elements need an opening HTML tag and a closing HTML tag and the content goes in between while other are self-closing with no content
+  - Not all HTML elements affect text, some add lines or images; also although there are not rules with some HTML there are standards such as only using one ~<h1>~ in a page and no skipping header levels
