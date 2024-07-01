@@ -24,6 +24,36 @@
    - The tags go on separate lines because content goes in between and in between the tags goes list item elements (~<li>~)
    - All list items are enclosed inside unordered list tags or ordered list tags 
 
+** Section 3.2: Nesting and Indentation
+   - We can nest a list inside another list (e.g. unordered list inside a ordered list, vice versa, or nested lists of the same type)
+   - How does that work? Well inside of list items tags (in-between), you add the list (~<ul>~ and ~<li>~) in between the tags
+   - Indentation is important when nesting because it allows for better readability in your code
+
+** Section 3.3: Anchor Elements
+   - Anchor elements allows us to create hyper links
+   - To create a link you need the anchor tags (~<a>~ and ~</a>~) but in addition you need an attribute
+   - Attributes are added inside the opening tag just after the name of the tag and before the end of the opening tag (angle bracket)
+
+   #+BEGIN_SRC html
+     <a href="www.google.com">Google Link</a>
+   #+END_SRC
+
+   - Attributes add additional information to the element (in this case it says where to take you when the link is clicked on)
+
+   #+BEGIN_SRC html
+     <tag attrbiute=value attribute2=value>Content</tag>
+   #+END_SRC
+
+   - By default an anchor element with a link will, by default, be styled to showcase it is a hyper link
+   - There are specific attributes to an element (only can be applied to that element) and there are global attributes that can be used on any element
+   -    
+
+
+*** Section 3.3.1: Resources
+
+**** Section 3.3.1.1: [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a][The Anchor Element]]
+
+   
 * Keywords
 
 * Questions
