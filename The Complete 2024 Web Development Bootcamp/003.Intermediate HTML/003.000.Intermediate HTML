@@ -45,8 +45,7 @@
    #+END_SRC
 
    - By default an anchor element with a link will, by default, be styled to showcase it is a hyper link
-   - There are specific attributes to an element (only can be applied to that element) and there are global attributes that can be used on any element
-   -    
+   - There are specific attributes to an element (only can be applied to that element) and there are global attributes that can be used on any element    
 
 
 *** Section 3.3.1: Resources
