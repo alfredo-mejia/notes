@@ -45,13 +45,22 @@
    #+END_SRC
 
    - By default an anchor element with a link will, by default, be styled to showcase it is a hyper link
-   - There are specific attributes to an element (only can be applied to that element) and there are global attributes that can be used on any element    
-
+   - There are specific attributes to an element (only can be applied to that element) and there are global attributes that can be used on any element
+   - Normally, text are enclosed by quotations (like the value of the href attribute) to differentiate reserved words from text
 
 *** Section 3.3.1: Resources
 
 **** Section 3.3.1.1: [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a][The Anchor Element]]
-
+     - The Anchor element (~<a>~) along with its ~href~ attribute creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address
+     - In between the tags should present content that explains the hyperlink and pressing enter while focused on the anchor element will activate it
+     - There are various attributes such as specifying header content on http requests, treating links a certain way, links opening a new tab or not, and much much more
+     - Some accessibility tips:
+       1. The link should indicate where the link goes, instead of saying [here][link] it should say [view our story][link]
+       2. Don't use anchor elements as fake buttons
+       3. Indicate what the link will do, open a new tab, download a file, etc. (e.g. [download the file][link], [view our story (new tab)][link]
+       4. If icons or images are used along with text, make sure the icons and images have an alt text
+       5. Consider skip links which point to the beginning of the page's main content and allows users to bypass content repeated throughout multiple pages, such as a header navigation
+       6. Make sure that spacing and size of the link is adequate enough to be clicked and not mis-clicked; this is important because people may have motor-control issues and may find it difficult if links are bunched up or small
    
 * Keywords
 
