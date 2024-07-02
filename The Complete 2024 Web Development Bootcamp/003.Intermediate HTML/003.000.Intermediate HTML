@@ -62,6 +62,13 @@
        5. Consider skip links which point to the beginning of the page's main content and allows users to bypass content repeated throughout multiple pages, such as a header navigation
        6. Make sure that spacing and size of the link is adequate enough to be clicked and not mis-clicked; this is important because people may have motor-control issues and may find it difficult if links are bunched up or small
    
+** Section 3.4: Image Elements
+   #+BEGIN_SRC html
+     <img src="url" />
+   #+END_SRC
+
+   - The image tag is simple, similar to the anchor tag, 
+
 * Keywords
 
 * Questions
