@@ -67,10 +67,36 @@
      <img src="url" />
    #+END_SRC
 
-   - The image tag is simple, similar to the anchor tag, 
+   - The image tag is simple, similar to the anchor tag, the main component that renders the image is the attribute called src (which tells the image element what is the source of the image)
+   - The value of src is the location of the image
+   - The image tag is self-closing tag
+   - Another important attribute is the alt attribute (alternate text description) because when an image cannot be rendered or a user use visual impairment assistance then the alt text will be read out to them 
+
+** Section 3.5: Birthday Invite (Project)
+   - Create a webpage that will be a party invite so it will have some headers, an image, some details (in list form) and a link to the address
+
+** Section 3.6: Habit Building with the Calendar Trick
+   - Mark some time in your day to code and do this for every day at least 20 minutes
+   - This will build a habit and you will continuing want to complete your allocated time of coding for the day
 
 * Keywords
+  - Unordered lists: A list with bullet points that have no order
+  - Ordered lists: A list with some indicator "indicating" the sequential order
+  - List item: A single item in a list (either unordered or ordered)
+  - Anchor Element: Anchor elements allows us to create hyper links
+  - Attributes: Attributes provide additional information to the HTML tags
+  - Image Element: Image element allows you to render an image and there are various attributes to indicate the image, size, etc
 
 * Questions
+  - Q: How can we format the list to go horizontally instead of vertically? A: This is definitely doable but this will require CSS to change the behavior
+  - Q: Can we make a list of images? A: Yes that is also possible, just insert the image elements inside the list items
 
 * Summary
+  - You can make a list in HTML by using either the ordered or unordered list element
+  - The list element then has a subelement called the list item; each list item will represent an entry in the list
+  - Indentation is important because it allows you to easily read your code (although indentation won't affect the way your code runs)
+  - You can create links using anchor elements
+  - There are some suggestions when using anchor elements such as being descriptive with the link, don't use anchor elements as fake buttons, specify what will the link do, and more
+  - The anchor element is used with one of its attribute called href to specify the URL
+  - There are specific attributes for a specific HTML element or global attributes that can be applied to any element
+  - The image element is used to render images; it is self-closing and uses the src attribute to specify the location of the image
