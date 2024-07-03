@@ -55,7 +55,10 @@
    - Only use ~<br />~ when you need to separate lines but it is still the same paragraph like a poem or an address
    - Also the forward slash is not required; with the latest HTML it simply ignores the forward slash but it is good practice to add so it can be more understandable when viewing your code
 
-** Section 2.5: How to Ace This Course (And Keep You Motivated)
+** Section 2.5: Movie Ranking (Project)
+   - Create a webpage ranking your favorite movies with what you learned (headers, paragraph, and self closing tags) 
+
+** Section 2.6: How to Ace This Course (And Keep You Motivated)
    - In order to keep you motivatd, set yourself goals ask yourself the following question
    - Why do I want to learn this skill? I want to expand my skillset and create my own website agency company eventually
    - What will I achieve if I learn this skill? Possibly new career options and be able to full services on behalf of myself and not a company
