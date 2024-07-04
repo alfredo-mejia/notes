@@ -13,4 +13,4 @@ Please feel free to enter any folder, explore my projects and use my notes. Most
 
 # Folders
 - [The Complete 2024 Web Development Bootcamp by Dr. Angela Yu](https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp) 
-- [The Web Developer Bootcamp 2024 by Colt Steele]
+- [The Web Developer Bootcamp 2024 by Colt Steele](https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024)
