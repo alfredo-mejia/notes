@@ -1,0 +1,31 @@
+#+title: 003.000.HTML The Essentials
+#+author: Alfredo Mejia
+
+[[file:./003.HTML The Essentials Slides.pdf][HTML The Essentials Slides]]
+
+* HTML The Essentials (Notes)
+
+** Section 3.1: What Matters In This Section
+   - Paragraph elements, HTML headings, HTML lists, HTML anchor tags, HTML images, and HTML boilerplate are crucial parts of this section
+   - MDN is an important resource
+
+** Section 3.2: Introduction to HTML
+   - HTML is the what is on the page (buttons, lists, headers, etc.)
+   - HTML is HyperText Markup Language, it is not a programming language (you can't implemenet logic with HTML)
+   - All that HTML does is "markup" a document or annotate a document or add more information to the current document
+   - The goal of HTML is to take text (a document) and markup and add some structure to the document
+   - For example, if you have a sentence like "I like donuts!"; how do you bold it and italicize it? Some syntax can be used to describe that "markup"
+   - So what is this syntax? The syntax is HTML and HTML has HTML elements
+   - Each HTML elements have something caled tags and the content you want to "markup" is enclosed by these tags (e.g. ~<tag> content </tag>~ )
+   - So now you have a way to markup text in a document to be bold or italicized (although note that are some self-closing tags but those typically do not markup text in a document)
+   - For example, if we want "I like donuts!" to be in bold I can just do "<b>I like donuts!</b>", notice how we now have a syntax to markup text
+   - In reality, HTML has various HTML elements that used in a HTML document with various elements being nested in each other
+   - Now we can do a lot with HTML like bold, headers, paragraphs, links, display images, lists, etc
+     
+** Our Very First HTML Page
+
+* Keywords
+
+* Questions
+
+* Summary
