@@ -1,10 +1,36 @@
 #+title: 002.000.An Introduction to Web Development
 #+author: Alfredo Mejia
 
+[[file://.002.An Introduction to Web Development Slides.pdf][Section 2: An Introduction to Web Development Slides]]
+
 * An Introduction to Web Development (Notes)
 
 ** Section 2.1: What Matters In This Section?
+   - Each section will have a "what matters" video at the beginning
+   - The crucial part of this section is understanding the difference between html, css, and js
+   - Important topics (but not crucial) is understanding the web, how the internet works, and HTTP request / response cycle
 
+** Section 2.2: The Internet in 5 Minutes
+   - The internet is basically just many connected devices (computers)
+   - If we were to connect every computer with every other computer this would not be scalable to what we have now
+   - Instead, routing is used, where one computer connects to another computer (router) and the router's job is to essentially route the connection from the sender to the sendee
+   - Each computer are identified by IP addresses so the router knows where to connect you to
+   - The internet are essentially networks on networks where you are routed to another computer and that computer is part of another network and route connections as well
+   - Data is sent over cables in the internet, your wifi rotuer is connected to a modem and that modem to connected to a internet provider cable which eventually meet other cables and other computers
+   - The sea cables of the internet use light more specifically electrons to transmit data (but that is too low level for us)
+   - In summary, the intenet is a global network of networks, there are computers (servers), cables, and more to form the internet and connect various computers are connected with each other and transmit data to each other
+
+** Section 2.3: Intro to the Web
+   - The internet is the infrastructure that enables many things like emails, the web, streaming services, online gaming, etc
+   - The web is just a part of what the internet transmits throughout the cables
+   - The web (world wide web) is an information system where documents and others resources are available over the internet
+   - These documents and resources are identified by URLs (uniform resource locators)
+   - Documents and resources are transferred through the web (internet) through a protocol called http (hyper text transfer protocol)
+   - HTTP is the foundation of how the world wide web works and communicates
+   - HTTP is protocol which set rules on how the communication between computers should work
+   - HTTP is just one protocol but the internet uses a whole stack of protocols like TCP/IP protocol and HTTP is just one protocol in that stack
+   - So how does HTTP work? 
+   
 * Keywords
 
 * Questions
