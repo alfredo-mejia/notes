@@ -36,9 +36,55 @@
    - The web server can make sure the request (client) has necessary permissions, the resource exists, and any other rules implented in the web server
    - The client is any program / computer requesting a resource thus a browser is a client program
    - The server side is anything done in the web server like the rules, sending the resource, etc
-   
+     
+** Section 2.4: The Request / Response Cycle
+   - The browser sends a HTTP request, the web server responds with a web page (by sending the documents over to the client), and then the browser renders the documents and thus displays the web page
+   - The server responds with documents and the documents are basically "instructions" for the browser to render for the user
+   - What are these documents? What are these instructions? The documents are the HTML files, CSS files, and JS files
+   - Whenever you search in google, you send a request ~google.com/search?q=chickens~ to Google's servers; Google's servers do some logic in the backend and then responds with HTML, CSS, and JS files
+
+** Section 2.5: Front-End and Back-End
+   - There are two types of jobs: front-end and back-end
+   - The back-end is the code and logic happening in the back-end servers (e.g. when you give google a query it has to figure out the links it needs to display, rank pages, figure out which ads to display, etc. that is the back-end code)
+   - The front-end is the code returned by the server which includes HTML, CSS, and JS
+   - Front-end development focuses what is run in the browser (HTML, CSS, and JS)
+   - Back-end development focuses what is run in the back-end and it can Java, C++, C, Python and other technologies
+   - The browser renders the front-end code to display the web page
+
+** Section 2.6: What do HTML / CSS / JS do?
+   - The browser only understands HTML, CSS, and JS
+   - HTML is the what, the content, it describes the things (buttons, headers, etc.)
+   - CSS describes HTML elements, it helps visualize HTML elements (fonts, colors, styling etc.)
+   - JS describes the what the HTML elements do, the actions and interactions (the logic, click this what should it do, search and autocomplete, etc.)
+
+** Section 2.7: Setting Up Our Development Environment
+     - Download Chrome
+     - VS Code
+
 * Keywords
-
+  - Router: A computer that routes connections between computers
+  - IP Address: A unique identifier for a computer
+  - URLs: Uniform resource locators, a special string that identifies resources
+  - HTTP Protocol: A protocol (set of rules) that establishes the way communication occurs between computers from a web client and a web server
+  - Client: A program / user sending a request or asking for some type of resource
+  - Web Server: A program awaiting for requests to fulfill and respond with the necessary documents / resources asked by the client
+  - HTML Files: This displays the content of the page
+  - CSS Files: Changes the looks of the HTML elements
+  - JS Files: Adds behavior / functionality / interaction to the HTML elements
+  - Front-End: Code in the form of HTML, CSS, and JS, this is what the browser renders
+  - Back-End: Code that is ran in the web server and this can be Java, C++, C, Python, etc
+    
 * Questions
-
+  - Q: Do browsers only process HTML, CSS, and JS files? Yes, other frameworks and languages (if any) are compiled into HTML, CSS, and JS
+    
 * Summary
+  - The internet is just networks of networks
+  - Routers help "route" connections between computers to establish the necessary connection
+  - Data is transferred between computers through wires
+  - The internet is the infrastructure that enables many things like gaming, streaming services, and world wide web
+  - The web is an information system where documents and other resources are shared between clients and web servers
+  - HTTP protocol is the protocol used to transfer data between web clients and web servers; it starts with a HTTP request and then web server sends the data back using HTTP
+  - The client is any program asking for a resource with a request (e.g. browser sends a HTTP request) and the web server receives the request, processes it, and sends some resource / documents back
+  - Front-end is the development that runs in the browser like the HTML, CSS, and JS
+  - Back-end is the developement that runs in the web server, like what is the client asking for, what does it need to send back, etc. and this can be done in Java, C++, C, Python, etc
+  - HTML is the content of the page, CSS is how the content looks, and JS is what does the content do
