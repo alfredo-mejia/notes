@@ -29,7 +29,13 @@
    - HTTP is the foundation of how the world wide web works and communicates
    - HTTP is protocol which set rules on how the communication between computers should work
    - HTTP is just one protocol but the internet uses a whole stack of protocols like TCP/IP protocol and HTTP is just one protocol in that stack
-   - So how does HTTP work? 
+   - So how does HTTP work? When a URL is visited, a request is created for a particular resource and eventually a server responds to the request by providing the resource requested
+   - The browser then gets these resources and renders the webpage to the user
+   - There are different types of server but in our case we are concerned with web servers who's sole purpose is to satisfy web requests
+   - Thus, HTTP is a protocol to share resources between computers (client and server)
+   - The web server can make sure the request (client) has necessary permissions, the resource exists, and any other rules implented in the web server
+   - The client is any program / computer requesting a resource thus a browser is a client program
+   - The server side is anything done in the web server like the rules, sending the resource, etc
    
 * Keywords
 
