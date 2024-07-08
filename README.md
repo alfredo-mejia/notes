@@ -12,6 +12,6 @@ The goal is for each folder to correspond to a course, book, research paper, art
 Please feel free to enter any folder, explore my projects and use my notes. Most projects will be small and thus not have its own repo, but who knows, in the future a project may be expanded and have its own dedicated repo.
 
 # Folders
-- [HTML & CSS (Design and Build Websites)](https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20(Design%20and%20Build%20Websites))
+- [HTML & CSS (Design and Build Websites) by Jon Duckett](https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20(Design%20and%20Build%20Websites))
 - [The Complete 2024 Web Development Bootcamp by Dr. Angela Yu](https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp) 
 - [The Web Developer Bootcamp 2024 by Colt Steele](https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024)
