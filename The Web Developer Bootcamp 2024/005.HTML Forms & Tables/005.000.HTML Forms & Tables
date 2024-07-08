@@ -5,8 +5,84 @@
 
 * HTML Forms & Tables Slides (Notes)
 
+** Section 5.1: What Matters In This Section
+   - Crucial topics: table basics (e.g. ~<table>~, ~<tr>~, ~<td>~, ~<th>~), form element basics, button elements, labels, and common input types
+   - Important topics: tale sections (e.g. ~<thead>~, ~<tfoot>~, ~<tbody>~), range and text areas, and form validations
+   - Nice to understand topics: table colspan and rowspan
+
+** Section 5.2: Unit Goals
+   - Last unit exclusively on HTML
+   - Cover tables and forms (important topics)
+   - We'll do validation in the forms but also make them accessible
+     
+** Section 5.3: Introducing HTML Tables
+   - Before in the 90s and early 2000s tables were used to layout websites
+   - Now, we do not do that or shouldn't do that; we now only use tables to display tabular data
+
+** Section 5.4: Tables: TR, TD, and TH Elements
+   - There are various table elements: ~<table>~, ~<td>~, ~<tr>~, ~<th>~, ~<thead>~, ~<tbody>~, ~<tfoot>~, ~<colgroup>~, and ~<caption>~
+   - In this section we just focus on ~<table>~, ~<td>~, and ~<tr>~
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table][Mozilla Table Element]]
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td][Mozilla Tabel Data Cell Element]] - Defines a cell of a table that contains data and may be used as a child of the ~<tr>~ element
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr][Mozilla Table Row Element]] - Defines a row of cells in a table and then the row's cell can then be established using a mix of ~<td>~ and ~<th>~
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th][Mozilla Table Header Element]] - Defines a cell as the header of a group of table cells and may be used as a child of the ~<tr>~ element
+   - The nature of the header is defined by the scope and header attributes
+
+** Section 5.5: Tables: Thead, Tbody, and Tfoot Elements
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead][Mozilla Table Head Element]] - Encapsulates a set of table rows indicating that they comprise the head of a table with information about the table's columns
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody][Mozilla Table Body Element]] - Encapsulates a set of table rows indicating that they comrpise the body of a table's (main) data
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot][Mozilla Table Foot Element]] - Encapsulates a set of table rows indicating that they comprise the foot of a table with information about the table's columns (e.g. sum of a column)
+   - These elements do not do much besides break your table into logical sections where you can distinguish the header of table, the main content (body) of the table, and the footer of the table
+
+** Section 5.6: Tables: Colspan & Rowspan
+   - We can make a cell span multiple rows or multiple columns (e.g. one cell takes 3 row spaces or one cell takes 2 column spaces)
+   - This can be specified in the ~<td>~ element with the attribute called colspan or rowspan
+   - Both attributes accept a non-negative integer value that indicates how many columns / rows the data cell spans or extends (default value is 1)
+
+** Section 5.7: The Form Element
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form][Mozilla Form Element]] represents a document section containing interactive controls for submitting information
+   - The form element itself is a shell or container that doesn't have any visual impact; it will have a bunch of individual form controls like text inputs, checkboxes, password inputs, etc. all of that will be a form
+   - Thus the form is just a container for form elements (e.g. text inputs, checkboxes, password input, radio, etc.)   
+   - The form element is not just to group form element together but the form element dictates where the form data should be sent when the form is submitted; the form element specifies how and where the data is going to be sent
+   - The action attribute of the form element is important because it specifies where the data should be sent (it is the URL that processes the form submission)
+   - The method attribute of the form element specifies the HTTP method to submit the form with like post, get, and dialog
+   - The form will be sent as a HTTP request and HTTP method can be specified
+   - For example, in reddit, you send a HTTP request to an endpoint with your data, the server will do some processing and send the data back to your browser
+   
+** Section 5.8: Common Input Types
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input][Mozilla Input (Form Input) Element]] - HTML element used to create interactive controls for web-based forms in order to accept data from the user
+   - The input element is a versatile element because you can crete different types of input from text, date pickers, checkboxes, etc
+   - It all depends on the attribute called "type"; depending on the value of type will the input element behave differently
+   - Input is self-closing element
+   - "placeholder" is another attribute which valid only for cetain types of inut which provides a brief hint to the user as to what kind of information is expected in the field
+
+** Section 5.9: The All-Important Label
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label][Mozilla Label Element]] - Represents a caption for an item in a user interface
+   - Many times label are disregarded but are important in terms of accessbility and making your forms easier to use
+   - Since input is self-closing it might not always be clear what is the input element asking so you create a label that will be associated with the input element
+   - Thus screen readers will be able to see the label is associated with the input element because if a ~<p>~ element was used then it wouldn't understand it is part of the input; the screen reader would think it is just a paragraph
+   - In addition, labels can also become part of the input, for example if the input is a checkbox then the user can click on the label and that will enable / disable the checkbox as if the user clicked on the checkbox itself (this is useful for people with small screens or poor eyesight)
+   - So we need some label for our inputs and the label element gives us a way to do so
+   - So how do we make these connections between a label and an input? We do this by using an attribute of input called id and we give our input an id
+   - Then in the label element we use an attribute called "for" and we set the value of the for attribute to be the name or the value of the input id
+   - Note these ids should be unique and only one element in a given page should have a given id
+   - Label element is an inline-level element
+   - Any way to associate them is to nest the input inside the label element but it is less common and has some drawbacks but benefit is that you don't need to specify the for or the id attributes as both elements will automatically be associated with each other (the first way is better to stylize and this way is more intuitive but less common)
+
+** Section 5.10: HTML Buttons
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button][Mozilla Button Element]] - Interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology
+   - By default, if you have button inside a form and it is not specified to not submit the form then it will submit the form when clicked
+   - You can use the attribute called "type" to specify the behavior of the button; you can have "submit" which submits the form data to the server, "reset" button which resets all the controls to their initial values or "button" which has no default behavior and does nothing when pressed by default
+   - Another way to make a submit button is by creating an input element of type "submit"
+
+** Section 5.11: The Name Attribute
+   - Another important attribute to the input element is "name"
+   - When the data is sent to the server, the server must need a way to identify each input value and thus each input has a unique name and this is specified by the attribute called name
+   - Often these names are short, simple, with no spaces because server will need to identify them
+   - According to the docs, name is submitted along with the control's value when the form data is submitted; if name is empty the input's value is not submitted with the form
+
 * Keywords
 
 * Questions
-
+  - Q: Are labels (label element) automatically associated with the input element? A: The label element has an attribute called for and the value should be a single id for a labelable form-related element in the same document as the label element so any given label element can be associated with only one form control (this assume the form-related element already has an id by using the id attribute)
 * Summary
