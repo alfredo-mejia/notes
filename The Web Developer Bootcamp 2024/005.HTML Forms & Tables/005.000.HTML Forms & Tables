@@ -159,7 +159,7 @@
   - Form Validation: Form validation is a way to make sure the input of the user is what we expect and follows our specified rules    
   
 * Questions
-  - Q: Are labels (label element) automatically associated with the input element? A: The label element has an attribute called for and the value should be a single id for a labelable form-related element in the same document as the label element so any given label element can be associated with only one form control (this assume the form-related element already has an id by using the id attribute)
+  - Q: Are labels (label element) automatically associated with the input element? A: The label element has an attribute called for and the value should be a single id of a form-related element in the same document as the label element so any given label element can be associated with only one form control (this assume the form-related element already has an id by using the id attribute)
   - Q: How does the value attribute work in the input element? A: [[https://www.w3schools.com/tags/att_input_value.asp][W3 Schools Answer]]
        - The value attribute is used differently for different input types
        - For button, reset, and submit, it defines the text on the button
@@ -168,7 +168,7 @@
     
 * Summary
   - To create tables you use the table element
-  - There are various elements used to create a table; firstly it can be separated into three sections using the table head eleement, the table body, and the table footer
+  - There are various elements used to create a table; firstly it can be separated into three sections using the table head element, the table body, and the table footer
   - Then you can specify a table row and then you can specify if the cell is a table header or just a regular data cell
   - These data cells can then be modified to span multiple rows and columns
   - Another important component are forms
