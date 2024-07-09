@@ -58,15 +58,46 @@
    - Before the body element you will often see a head element
    - The head element contains information about the page (rather than information that is shown within the main part of the browser)
    - You will usually find a title element inside the head element
-   - The contents of the title element are either shown in the top of the browser on the title bar or on the tab of the  page
+   - The contents of the title element are either shown in the top of the browser on the title bar or on the tab of the page
 
 ** Section 1.5: HTML (HyperText Markup Language)
    - HTML stands for HyperText Markup Language
    - HyperText refers to the fact that HTML allows you to create links that allow visitors to move from one page to another quickly and easily
    - Markup language refers that it allows you to syntatically annotate text and these annotations provide additional meaning to the contents of a document (e.g. the tags we add in HTML are the markup)
 
+** Section 1.6: Creating A Webpage
+   - Let's create a webpage with a simple head and body
+   - In the head it will have a title and in the body it will have a header and a paragraph
+
 * Keywords
+  - Internet Service Provider (ISP): Companies that provides customers and businesses access to the internet
+  - Domain Name System (DNS) Server: Server that acts like a phonebook; looking up the IP address of the URL
+  - IP Address: A unique identifier (or address) that identifies a computer on the internet or local network
+  - Uniform Resource Locator (URL): A address of a unique resource on the internet or local network
+  - HTML Elements: Elements have (usually) two tags and the content and tell the browser how to markup the text enclosed by the tags
+  - HTML Tags: A set of characters indicating the start or end of a HTML element
+  - Attribute: Attributes are specified in the starting tag of a HTML element and it provides additional information about the contents of an element
+  - HTML Body Element: Element that everything inside the element is shown inside the main browser
+  - HTML Head Element: Element that contains information about the page (rather than information that is shwon within the main part of the browser)
+  - HTML Title Element: Element that contains the title of the web page and displays it in the browser's title bar or on the tab of the page
+  - HyperText Markup Language (HTML): A markup language that allows you to syntatically annotate text and these annotations provide additional meaning to the contents of a document (e.g. create links)
 
 * Questions
+  - Q: What new elements were introduced with HTML5? A: [[https://www.tutorialspoint.com/html5/html5_new_tags.htm][Tutorials Point HTML5 New Tags]]
+       - Turns out a lot of new elements for article, nav, section, time, footer, header, and more
+       - Many are semantic elements and we'll learn about them later
 
 * Summary
+  - The way the internet works is that your ISP (internet service provider) provides you the internet with their infrastructure (cables, servers, etc.)
+  - Thus whenever you want to connect to a web page using a URL, your browser will first connect to a Domain Name System (DNS) server
+  - The DNS server will act like a phonebook and look for the IP address of the URL you typed in
+  - The DNS server will then send back the IP address of the URL you have typed and the browser will then send a HTTP request to the IP address
+  - The web server will fulfill the request by sending back the resources and documents back to your browser and your browser will render the files into a webpage
+  - It will send HTML, CSS, and JS file to your browser because those are the only things your browser understands
+  - For now we are going over HTML; HTML has structure like a book, article, newspaper, etc
+  - HTML has elements that provide the structure such as a head for metadata and a body to display information on the browser
+  - HTML also has elements to provide headings, paragraphs, subheadings, and more just as you would see in an article or newspaper
+  - HTML stands for hypertext markup language and this is because you can add links to other webpages and each element has tags to markup text; thus any text in between those tags will be markup and rendered in some way by the browser
+  - Finally, each element can have attributes which are specified in the opening tag and those serve to provide additional information to the element
+  - Each element has a different purpose and each attribute has a different purpose
+  - There are some global attributes and specific element attributes and usually the attributes have some predefined values (it all depends on the attributes used)
