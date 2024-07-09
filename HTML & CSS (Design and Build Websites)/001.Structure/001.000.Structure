@@ -3,6 +3,68 @@
 
 * Chapter 1: Structure (Notes)
 
+** Section 1.1: How the Web Works
+   - When you connect to the web you do so via an Internet Service Provider (ISP)
+   - When you type a URL in the browser, your browser will first connect to a Domain Name System (DNS) server
+   - DNS servers act like phone books; they tell your computer the IP address associated with the requested domain name
+   - IP addresses are like telephone numbers for computers (it is a way to reach and communicate computers; basically a way to identify / reach them)
+   - The unique number (IP address) that was returned from the DNS server will be used by your browser to contact the web server that hosts the website you requested
+   - The web server sends you the documents and resources back to the browser and your browser renders the web page
+
+** Section 1.2: How Does HTML Describe Structure
+   - First, HTML code is made up of characters that live inside angled brackets - these are called HTML elements
+   - Elements are usually made up of two tags: an opening tag and a closing tag (although some HTML elements are self-closing meaning it does not need a closing tag)
+   - Each HTML element tells the browser something about the information that sits between its opening and closing tags
+   
+   #+BEGIN_SRC html
+     <html>
+       <body>
+         <h1>Heading</h1>
+	 <p>Some paragraph</p>
+
+	 <h2>Sub-heading</h2>
+	 <p>Other paragraph</p>
+
+	 <h2>Another sub-heading</h2>
+	 <p>Another paragraph</p>
+       </body>
+     </html>
+   #+END_SRC
+
+   - Looking at the sample code above we see the ~<html>~ tag indicates anything between it and its closing tag is HTML code
+   - The body indicates anything between its tag should be shown inside the main browser window
+   - The words between ~<h1>~ are the main heading and the words between ~<h2>~ are the sub-heading
+   - The text between ~<p>~ are the paragraphs
+   - Notice how the document has structure with the ~<html>~ then ~<body>~ and then the headings and paragraph
+   - What is the difference between element and tag? Element comprises the opening tag and closing tag and any content that lies between them
+   - While a tag is simply the opening or closing tag
+
+** Section 1.3: Attributes
+   - Attributes provide additional information about the contents of an element
+   - Attributes appear on the opening tag of the element and are made up of two parts: a name and a value separate by an equals sign
+
+   #+BEGIN_SRC html
+     <p lang="en-us">Paragraph in English</p>
+   #+END_SRC
+
+   - The attribute name indicates what kind of extra information you are supplying about the element's content (should be written in lowercase)
+   - The value is the information or setting for the attribute (it should be placed in double quotes)
+   - Different attributes can have different values
+   - Majority of attributes are specific to the element but there are some that can be applied to any element like ~lang~
+   - Most attribute values are either pre-defined or follow a stipulated format
+
+** Section 1.4: Body, Head, & Title
+   - The body element means everything inside this element is shown inside the main browser window
+   - Before the body element you will often see a head element
+   - The head element contains information about the page (rather than information that is shown within the main part of the browser)
+   - You will usually find a title element inside the head element
+   - The contents of the title element are either shown in the top of the browser on the title bar or on the tab of the  page
+
+** Section 1.5: HTML (HyperText Markup Language)
+   - HTML stands for HyperText Markup Language
+   - HyperText refers to the fact that HTML allows you to create links that allow visitors to move from one page to another quickly and easily
+   - Markup language refers that it allows you to syntatically annotate text and these annotations provide additional meaning to the contents of a document (e.g. the tags we add in HTML are the markup)
+
 * Keywords
 
 * Questions
