@@ -1,0 +1,36 @@
+#+title: 002.000.Text
+#+author: Alfredo Mejia
+
+* Chapter 2: Text (Notes)
+
+** Section 2.1: Headings
+   - HTML has six levels of headings with ~<h1>~ being used for the main headings, ~<h2>~ for subheading, ~<h3>~, and so forth all the way to ~<h6>~
+   - Browsers disply the contents of the headings at differnet sizes with h1 being the largest size and h6 being the smallest (this can later be changed with CSS)
+
+** Section 2.2: Paragraphs
+   - The paragraph element uses the following tags: ~<p> </p>~
+   - By default, a browser will show each paragraph on a new line with some space between it and any subsequent paragraphs
+
+** Section 2.3: Bold & Italic
+   - Enclosing text with the tags ~<b> </b>~ can make characters appear bold
+   - The bring-to-attention element can represent a section of text that would be presented in a visually different way (e.g. keywords in a paragraph) although the use of bring-to-attention element does not imply any additional meaning (we will later learn about the strong element)
+   - Enclosing text with the tags ~<i> </i>~ can make characters appear italic
+   - The idiomatic element can represent a section of text that would be said in a different way from surrounding content (e.g. names of ships, foreign words, or other words that would usually be italicized) but agan does not imply any additional meaning only formatting (we will later learn about the emphasis element)
+
+** Section 2.4: SuperScript & SubScript
+   - The superscript element is used to contain characters that should be superscript commonly used with suffixes of dates or mathematical concepts (e.g. exponent)
+   - The subscript element is used to contain characters that should be subscript commonly used with foot notes or chemical formulas
+
+** Section 2.5: Whitespace, Line Breaks, & Horizontal Rules
+   - When the browser comes across two or more spaces next to each other, it only displays one space
+   - Similarly if you have a line break in your code, it will treat it as a single space too; this is known as white space collapsing
+   - So how do you add a line break inside the middle of a paragraph? You can add line breaks by using the ~<br />~ element
+   - Another element used is a horiztonal rule (basically a horizontal line); this break can be done because of a change of topic or scene in a play or between sections
+   - The line break and horizontal rule are self-closing elements and thus have only one self-closing tag which is written different: ~<tag />~
+
+* Keywords
+
+* Questions
+
+* Summary
+
