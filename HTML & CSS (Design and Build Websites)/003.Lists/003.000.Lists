@@ -33,7 +33,18 @@
    - It will have an unordered list (to outline ingredients) and an ordered list to describe the steps
 
 * Keywords
+  - Ordered list: A list where each item in the list is numbered
+  - Unordered list: A list where each item in the ist is not numbered
+  - Definition List: A list made up of a set of terms along with the definitions for each of those terms
+  - List Item: A single item inside of a list
 
 * Questions
+  - Q: Are definition lists still used? A: Yes it still used because semantically it is different than ~<ol>~ or ~<ul>~; it is just less instances that it can be used as key-value pairs ([[https://stackoverflow.com/questions/38950923/why-are-ol-and-dl-not-deprecated][Stackoverflow Answer]])
 
 * Summary
+  - There are three types of lists: unordered lists, ordered lists, and definition lists
+  - The unordered lists create lists without numeric numbering
+  - The ordered lists create lists with numeric numbering
+  - The definition lists create key-value pairs to list the terms and definitions
+  - Unordered and ordered lists can be modified to change the style of bulleting by using attributes
+  - You can nest lists within other lists
