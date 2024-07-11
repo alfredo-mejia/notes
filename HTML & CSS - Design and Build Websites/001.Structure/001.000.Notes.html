@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-07-11 Thu 15:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ch.1 Structure</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Ch.1 Structure</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org3ee8862">Navigation</a></li>
+<li><a href="#org60f96e7">Notes</a>
+<ul>
+<li><a href="#orgbbf336b">Section 1.1: How the Web Works</a></li>
+<li><a href="#orgf97ff35">Section 1.2: How Does HTML Describe Structure</a></li>
+<li><a href="#org89bfb44">Section 1.3: Attributes</a></li>
+<li><a href="#orgb1dc621">Section 1.4: Body, Head, &amp; Title</a></li>
+<li><a href="#org464f63d">Section 1.5: HTML (HyperText Markup Language)</a></li>
+<li><a href="#org36c7572">Section 1.6: Creating A Webpage</a></li>
+</ul>
+</li>
+<li><a href="#org7fe95cc">Keywords</a></li>
+<li><a href="#orgc502e73">Questions</a></li>
+<li><a href="#org47cfc99">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3ee8862" class="outline-2">
+<h2 id="org3ee8862">Navigation</h2>
+<div class="outline-text-2" id="text-org3ee8862">
+<p>
+<b>Prev:</b> Home [<a href="../000.Home.html">html</a>] [<a href="../000.Home.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites">github</a>]
+</p>
+
+<p>
+<b>Next:</b> Ch.2 Text [<a href="../002.Text/002.000.Notes.html">html</a>] [<a href="../002.Text/002.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/002.Text">github</a>]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org60f96e7" class="outline-2">
+<h2 id="org60f96e7">Notes</h2>
+<div class="outline-text-2" id="text-org60f96e7">
+</div>
+<div id="outline-container-orgbbf336b" class="outline-3">
+<h3 id="orgbbf336b">Section 1.1: How the Web Works</h3>
+<div class="outline-text-3" id="text-orgbbf336b">
+<ul class="org-ul">
+<li>When you connect to the web you do so via an Internet Service Provider (ISP)</li>
+<li>When you type a URL in the browser, your browser will first connect to a Domain Name System (DNS) server</li>
+<li>DNS servers act like phone books; they tell your computer the IP address associated with the requested domain name</li>
+<li>IP addresses are like telephone numbers for computers (it is a way to reach and communicate computers; basically a way to identify / reach them)</li>
+<li>The unique number (IP address) that was returned from the DNS server will be used by your browser to contact the web server that hosts the website you requested</li>
+<li>The web server sends you the documents and resources back to the browser and your browser renders the web page</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf97ff35" class="outline-3">
+<h3 id="orgf97ff35">Section 1.2: How Does HTML Describe Structure</h3>
+<div class="outline-text-3" id="text-orgf97ff35">
+<ul class="org-ul">
+<li>First, HTML code is made up of characters that live inside angled brackets - these are called HTML elements</li>
+<li>Elements are usually made up of two tags: an opening tag and a closing tag (although some HTML elements are self-closing meaning it does not need a closing tag)</li>
+<li>Each HTML element tells the browser something about the information that sits between its opening and closing tags</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Heading&lt;/h1&gt;
+    &lt;p&gt;Some paragraph&lt;/p&gt;
+
+    &lt;h2&gt;Sub-heading&lt;/h2&gt;
+    &lt;p&gt;Other paragraph&lt;/p&gt;
+
+    &lt;h2&gt;Another sub-heading&lt;/h2&gt;
+    &lt;p&gt;Another paragraph&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Looking at the sample code above we see the <code>&lt;html&gt;</code> tag indicates anything between it and its closing tag is HTML code</li>
+<li>The body indicates anything between its tag should be shown inside the main browser window</li>
+<li>The words between <code>&lt;h1&gt;</code> are the main heading and the words between <code>&lt;h2&gt;</code> are the sub-heading</li>
+<li>The text between <code>&lt;p&gt;</code> are the paragraphs</li>
+<li>Notice how the document has structure with the <code>&lt;html&gt;</code> then <code>&lt;body&gt;</code> and then the headings and paragraph</li>
+<li>What is the difference between element and tag? Element comprises the opening tag and closing tag and any content that lies between them</li>
+<li>While a tag is simply the opening or closing tag</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org89bfb44" class="outline-3">
+<h3 id="org89bfb44">Section 1.3: Attributes</h3>
+<div class="outline-text-3" id="text-org89bfb44">
+<ul class="org-ul">
+<li>Attributes provide additional information about the contents of an element</li>
+<li>Attributes appear on the opening tag of the element and are made up of two parts: a name and a value separate by an equals sign</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;p lang="en-us"&gt;Paragraph in English&lt;/p&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The attribute name indicates what kind of extra information you are supplying about the element's content (should be written in lowercase)</li>
+<li>The value is the information or setting for the attribute (it should be placed in double quotes)</li>
+<li>Different attributes can have different values</li>
+<li>Majority of attributes are specific to the element but there are some that can be applied to any element like <code>lang</code></li>
+<li>Most attribute values are either pre-defined or follow a stipulated format</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb1dc621" class="outline-3">
+<h3 id="orgb1dc621">Section 1.4: Body, Head, &amp; Title</h3>
+<div class="outline-text-3" id="text-orgb1dc621">
+<ul class="org-ul">
+<li>The body element means everything inside this element is shown inside the main browser window</li>
+<li>Before the body element you will often see a head element</li>
+<li>The head element contains information about the page (rather than information that is shown within the main part of the browser)</li>
+<li>You will usually find a title element inside the head element</li>
+<li>The contents of the title element are either shown in the top of the browser on the title bar or on the tab of the page</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org464f63d" class="outline-3">
+<h3 id="org464f63d">Section 1.5: HTML (HyperText Markup Language)</h3>
+<div class="outline-text-3" id="text-org464f63d">
+<ul class="org-ul">
+<li>HTML stands for HyperText Markup Language</li>
+<li>HyperText refers to the fact that HTML allows you to create links that allow visitors to move from one page to another quickly and easily</li>
+<li>Markup language refers that it allows you to syntatically annotate text and these annotations provide additional meaning to the contents of a document (e.g. the tags we add in HTML are the markup)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org36c7572" class="outline-3">
+<h3 id="org36c7572">Section 1.6: Creating A Webpage</h3>
+<div class="outline-text-3" id="text-org36c7572">
+<ul class="org-ul">
+<li>Let's create a webpage with a simple head and body</li>
+<li>In the head it will have a title and in the body it will have a header and a paragraph</li>
+<li><a href="001.006.Creating A Webpage/index.html">Here is the finished web page</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7fe95cc" class="outline-2">
+<h2 id="org7fe95cc">Keywords</h2>
+<div class="outline-text-2" id="text-org7fe95cc">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Internet Service Provider (ISP)</b></td>
+<td class="org-left">Companies that provides customers and businesses access to the internet</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Domain Name System (DNS) Server</b></td>
+<td class="org-left">Server that acts like a phonebook; looking up the IP address of the URL (domain)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>IP Address</b></td>
+<td class="org-left">A unique identifier (or address) that identifies a computer on the internet or local network</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Uniform Resource Locator (URL)</b></td>
+<td class="org-left">A address of a unique resource on the internet or local network</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Elements</b></td>
+<td class="org-left">Elements have (usually) two tags and the content and tell the browser how to markup the text enclosed by the tags</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Tags</b></td>
+<td class="org-left">A set of characters indicating the start or end of a HTML element</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Attribute</b></td>
+<td class="org-left">Attributes are specified in the starting tag of a HTML element and it provides additional information about the contents of an element</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Body Element</b></td>
+<td class="org-left">Element that everything inside the element is shown inside the main browser</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Head Element</b></td>
+<td class="org-left">Element that contains information about the page (rather than information that is shwon within the main part of the browser)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Title Element</b></td>
+<td class="org-left">Element that contains the title of the web page and displays it in the browser's title bar or on the tab of the page</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HyperText Markup Language (HTML)</b></td>
+<td class="org-left">A markup language that allows you to syntatically annotate text and these annotations provide additional meaning to the contents of a document (e.g. create links)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc502e73" class="outline-2">
+<h2 id="orgc502e73">Questions</h2>
+<div class="outline-text-2" id="text-orgc502e73">
+<ul class="org-ul">
+<li><b>Q</b>: What new elements were introduced with HTML5?
+<ul class="org-ul">
+<li><a href="https://www.tutorialspoint.com/html5/html5_new_tags.htm">Tutorials Point HTML5 New Tags</a> (explains the new elements introduced in HTML5)</li>
+<li>Turns out a lot of new elements for article, nav, section, time, footer, header, and more</li>
+<li>Many are semantic elements and we'll learn about them later</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org47cfc99" class="outline-2">
+<h2 id="org47cfc99">Summary</h2>
+<div class="outline-text-2" id="text-org47cfc99">
+<ul class="org-ul">
+<li>The way the internet works is that your ISP (internet service provider) provides you the internet with their infrastructure (cables, servers, etc.)</li>
+<li>Thus whenever you want to connect to a web page using a URL, your browser will first connect to a Domain Name System (DNS) server</li>
+<li>The DNS server will act like a phonebook and look for the IP address of the URL you typed in</li>
+<li>The DNS server will then send back the IP address of the URL you have typed and the browser will then send a HTTP request to the IP address</li>
+<li>The web server will fulfill the request by sending back the resources and documents back to your browser and your browser will render the files into a webpage</li>
+<li>It will send HTML, CSS, and JS file to your browser because those are the only things your browser understands</li>
+<li>For now we are going over HTML; HTML has structure like a book, article, newspaper, etc</li>
+<li>HTML has elements that provide the structure such as a head for metadata and a body to display information on the browser</li>
+<li>HTML also has elements to provide headings, paragraphs, subheadings, and more just as you would see in an article or newspaper</li>
+<li>HTML stands for hypertext markup language and this is because you can add links to other webpages and each element has tags to markup text; thus any text in between those tags will be markup and rendered in some way by the browser</li>
+<li>Finally, each element can have attributes which are specified in the opening tag and those serve to provide additional information to the element</li>
+<li>Each element has a different purpose and each attribute has a different purpose</li>
+<li>There are some global attributes and specific element attributes and usually the attributes have some predefined values (it all depends on the attributes used)</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

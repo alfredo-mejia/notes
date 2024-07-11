@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-07-11 Thu 14:13 -->
+<!-- 2024-07-11 Thu 15:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HTML &amp; CSS - Design and Build Websites</title>
+<title>Ch.3 Lists</title>
 <meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,39 +193,117 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel="stylesheet" type="text/css" href="../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+<link rel="stylesheet" type="text/css" href="../../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">HTML &amp; CSS - Design and Build Websites</h1>
+<h1 class="title">Ch.3 Lists</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8cb2d95">Navigation</a></li>
-<li><a href="#org93a6d38">Book Details</a></li>
-<li><a href="#orgef34ab4">Contents</a></li>
-<li><a href="#org5a9007f">My Thoughts</a></li>
+<li><a href="#orga830300">Navigation</a></li>
+<li><a href="#org33284e9">Notes</a>
+<ul>
+<li><a href="#orgdac1a87">Section 3.1: Ordered Lists</a></li>
+<li><a href="#org0feee21">Section 3.2: Unoredered Lists</a></li>
+<li><a href="#org593d93b">Section 3.3: Definition Lists</a></li>
+<li><a href="#orgef4f53d">Section 3.4: Nested Lists</a></li>
+<li><a href="#orgf29c016">Section 3.5: Creating A HTML Page With Lists</a></li>
+</ul>
+</li>
+<li><a href="#orgec3f53b">Keywords</a></li>
+<li><a href="#org86ea416">Questions</a></li>
+<li><a href="#org50e6b4e">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8cb2d95" class="outline-2">
-<h2 id="org8cb2d95">Navigation</h2>
-<div class="outline-text-2" id="text-org8cb2d95">
+<div id="outline-container-orga830300" class="outline-2">
+<h2 id="orga830300">Navigation</h2>
+<div class="outline-text-2" id="text-orga830300">
 <p>
-<b>Prev</b>: README [<a href="../README.html">html</a>] [<a href="../README.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main">github</a>]
+<b>Home</b> [<a href="../000.Home.html">html</a>] [<a href="../000.Home.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites">github</a>]
 </p>
 
 <p>
-<b>Next</b>: Ch.1 Structure [<a href="001.Structure/001.000.Notes.html">html</a>] [<a href="001.Structure/001.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure">github</a>]
+<b>Prev</b>: Ch.2 Text [<a href="../002.Text/002.000.Notes.html">html</a>] [<a href="../002.Text/002.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/002.Text">github</a>]
+</p>
+
+<p>
+<b>Next</b>: Ch.4 Links [<a href="../004.Links/004.000.Notes.html">html</a>] [<a href="../004.Links/004.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/004.Links">github</a>]
 </p>
 </div>
 </div>
 
-<div id="outline-container-org93a6d38" class="outline-2">
-<h2 id="org93a6d38">Book Details</h2>
-<div class="outline-text-2" id="text-org93a6d38">
+<div id="outline-container-org33284e9" class="outline-2">
+<h2 id="org33284e9">Notes</h2>
+<div class="outline-text-2" id="text-org33284e9">
+</div>
+<div id="outline-container-orgdac1a87" class="outline-3">
+<h3 id="orgdac1a87">Section 3.1: Ordered Lists</h3>
+<div class="outline-text-3" id="text-orgdac1a87">
+<ul class="org-ul">
+<li>Ordered lists are lists where each item in the list is numbered (e.g. set of steps for a recipe where order is important)</li>
+<li>The ordered list is created with the <code>&lt;ol&gt;</code> element (this signfies an ordered list but does not create items in the list yet)</li>
+<li>Each item in the list is placed between an opening <code>&lt;li&gt;</code> tag and a closing <code>&lt;/li&gt;</code> tag (these are nested inside the <code>&lt;ol&gt;</code> element)</li>
+<li>Browsers may indent the list items</li>
+<li>You may specify the starting value of the list or even the type of numbering (numbers, letters, roman numerals, etc.) with attributes specified in the <code>&lt;ol&gt;</code> but it is recommended for CSS to take care of that</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0feee21" class="outline-3">
+<h3 id="org0feee21">Section 3.2: Unoredered Lists</h3>
+<div class="outline-text-3" id="text-org0feee21">
+<ul class="org-ul">
+<li>Unordered lists are lists that begin with a bullet point (rather than characters that indicate order)</li>
+<li>Unorder list is created with the <code>&lt;ul&gt;</code> element</li>
+<li>Each item in the list is placed between an opening <code>&lt;li&gt;</code> tag and a closing <code>&lt;/li&gt;</code> tag</li>
+<li>Attributes can be used in the <code>&lt;ul&gt;</code> element to specify the type of bullet point (circles, squares, diamonds, and so on) but CSS can also do that</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org593d93b" class="outline-3">
+<h3 id="org593d93b">Section 3.3: Definition Lists</h3>
+<div class="outline-text-3" id="text-org593d93b">
+<ul class="org-ul">
+<li>Definition lists are made up of a set of terms along with the definitions for each of those terms</li>
+<li>The definition list is created with the <code>&lt;dl&gt;</code> element and usually consists of a series of terms and their definitions</li>
+<li>Inside the <code>&lt;dl&gt;</code> element you will usually see pairs of <code>&lt;dt&gt;</code> and <code>&lt;dd&gt;</code> elements</li>
+<li><code>&lt;dt&gt;</code> is used to contain the term being defined (the definition term)</li>
+<li><code>&lt;dd&gt;</code> is used to contain the definition (you may see two terms used for the same definition or two different definitions for the same term)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgef4f53d" class="outline-3">
+<h3 id="orgef4f53d">Section 3.4: Nested Lists</h3>
+<div class="outline-text-3" id="text-orgef4f53d">
+<ul class="org-ul">
+<li>You can always nest lists within other lists</li>
+<li>You can put a second list inside an <code>&lt;li&gt;</code> element to create a sublist or nested list</li>
+<li>Browsers display nested lists indented further than the parent list (usually browsers will change the style of the bullet point for nested lists)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf29c016" class="outline-3">
+<h3 id="orgf29c016">Section 3.5: Creating A HTML Page With Lists</h3>
+<div class="outline-text-3" id="text-orgf29c016">
+<ul class="org-ul">
+<li>We'll create a web page with a main heading followed by an introductory paragraph</li>
+<li>It will have an unordered list (to outline ingredients) and an ordered list to describe the steps</li>
+<li><a href="./003.005.Creating A HTML Page With Lists/index.html">Here is the finished web page</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec3f53b" class="outline-2">
+<h2 id="orgec3f53b">Keywords</h2>
+<div class="outline-text-2" id="text-orgec3f53b">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -234,55 +312,62 @@
 
 <col  class="org-left" />
 </colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="org-left">Title</td>
-<td class="org-left">HTML &amp; CSS - Design and Build Websites</td>
+<td class="org-left"><b>Ordered List</b></td>
+<td class="org-left">A list where each item in the list is numbered</td>
 </tr>
 
 <tr>
-<td class="org-left">Edition</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><b>Unordered List</b></td>
+<td class="org-left">A list where each item in the ist is not numbered</td>
 </tr>
 
 <tr>
-<td class="org-left">Author</td>
-<td class="org-left">Jon Duckett</td>
+<td class="org-left"><b>Definition List</b></td>
+<td class="org-left">A list made up of a set of terms along with the definitions for each of those terms</td>
 </tr>
 
 <tr>
-<td class="org-left">Publisher</td>
-<td class="org-left">John Wiley &amp; Sons, Inc.</td>
-</tr>
-
-<tr>
-<td class="org-left">ISBN</td>
-<td class="org-left">978-1-118-00818-8</td>
+<td class="org-left"><b>List Item</b></td>
+<td class="org-left">A single item inside of a list</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-
-<div id="outline-container-orgef34ab4" class="outline-2">
-<h2 id="orgef34ab4">Contents</h2>
-<div class="outline-text-2" id="text-orgef34ab4">
-<ol class="org-ol">
-<li>Structure [<a href="001.Structure/001.000.Notes.html">html</a>] [<a href="001.Structure/001.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure">github</a>]</li>
-<li>Text [<a href="002.Text/002.000.Notes.html">html</a>] [<a href="./002.Text/002.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/002.Text">github</a>]</li>
-<li>Lists [<a href="003.Lists/003.000.Notes.html">html</a>] [<a href="003.Lists/003.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/003.Lists">github</a>]</li>
-<li>Links [<a href="004.Links/004.000.Notes.html">html</a>] [<a href="004.Links/004.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/004.Links">github</a>]</li>
-</ol>
+<div id="outline-container-org86ea416" class="outline-2">
+<h2 id="org86ea416">Questions</h2>
+<div class="outline-text-2" id="text-org86ea416">
+<ul class="org-ul">
+<li><b>Q</b>: Are definition lists still used?
+<ul class="org-ul">
+<li>Yes it still used because semantically it is different than <code>&lt;ol&gt;</code> or <code>&lt;ul&gt;</code></li>
+<li>There is just less occasions that it can be used as key-value pairs</li>
+<li>Here is <a href="https://stackoverflow.com/questions/38950923/why-are-ol-and-dl-not-deprecated">Stackoverflow Answer</a> that talks more about the importance of each type of list</li>
+</ul></li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-org5a9007f" class="outline-2">
-<h2 id="org5a9007f">My Thoughts</h2>
-<div class="outline-text-2" id="text-org5a9007f">
-<p>
-<i>Not Yet Finsihed</i>
-</p>
+<div id="outline-container-org50e6b4e" class="outline-2">
+<h2 id="org50e6b4e">Summary</h2>
+<div class="outline-text-2" id="text-org50e6b4e">
+<ul class="org-ul">
+<li>There are three types of lists: unordered lists, ordered lists, and definition lists</li>
+<li>The unordered lists create lists without numeric numbering</li>
+<li>The ordered lists create lists with numeric numbering</li>
+<li>The definition lists create key-value pairs to list the terms and definitions</li>
+<li>Unordered and ordered lists can be modified to change the style of bulleting by using attributes</li>
+<li>You can nest lists within other lists</li>
+</ul>
 </div>
 </div>
 </div>
