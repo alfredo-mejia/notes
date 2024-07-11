@@ -1,7 +1,12 @@
 #+title: Home
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="./scratch/bulma/css/bulma.css" />
+#+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+*Prev*: README [[[file:../README.html][html]]] [[[file:../README.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main][github]]]
+
+*Next*: Structure [[[file:001.Structure/001.000.Notes.html][html]]] [[[file:001.Structure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure][github]]]
 
 * Book Details
 | Title     | HTML & CSS - Design and Build Websites |
@@ -12,7 +17,10 @@
 
 
 * Contents
-
+1. Structure [[[file:001.Structure/001.000.Notes.html][html]]] [[[file:001.Structure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure][github]]]
+2. Text [[[file:002.Text/002.000.Notes.html][html]]] [[[file:./002.Text/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/002.Text][github]]]
+3. Lists [[[file:003.Lists/003.000.Notes.html][html]]] [[[file:003.Lists/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/003.Lists][github]]]
+4. Links [[[file:004.Links/004.000.Notes.html][html]]] [[[file:004.Links/004.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/004.Links][github]]]
 
 * My Thoughts
 /Not Yet Finsihed/
