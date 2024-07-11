@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-07-11 Thu 17:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sec.2 An Introduction to Web Development</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Sec.2 An Introduction to Web Development</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org7331e05">Navigation</a></li>
+<li><a href="#org9a5a032">Resources</a></li>
+<li><a href="#org2940e66">Notes</a>
+<ul>
+<li><a href="#org6125ec9">Section 2.1: What Matters In This Section?</a></li>
+<li><a href="#orga2c3cbe">Section 2.2: The Internet in 5 Minutes</a></li>
+<li><a href="#orgb7b8ae6">Section 2.3: Intro to the Web</a></li>
+<li><a href="#orgddb98bf">Section 2.4: The Request / Response Cycle</a></li>
+<li><a href="#orgc8bbace">Section 2.5: Front-End and Back-End</a></li>
+<li><a href="#orga81c465">Section 2.6: What do HTML / CSS / JS do?</a></li>
+<li><a href="#orgf84baf7">Section 2.7: Setting Up Our Development Environment</a></li>
+</ul>
+</li>
+<li><a href="#org4aef263">Keywords</a></li>
+<li><a href="#org8ab4fb9">Questions</a></li>
+<li><a href="#orgfb5f0e6">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7331e05" class="outline-2">
+<h2 id="org7331e05">Navigation</h2>
+<div class="outline-text-2" id="text-org7331e05">
+<p>
+<b>Home</b> [<a href="../000.Home.html">html</a>] [<a href="../000.Home.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024">github</a>]
+</p>
+
+<p>
+<b>Prev</b>: Sec.1 Course Orientation [<a href="../001.Course Orientation/001.000.Notes.html">html</a>] [<a href="../001.Course Orientation/001.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/001.Course%20Orientation">github</a>]
+</p>
+
+<p>
+<b>Next</b>: Sec.3 HTML - The Essentials [<a href="../003.HTML - The Essentials/003.000.Notes.html">html</a>] [<a href="../003.HTML - The Essentials/003.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/003.HTML%20-%20The%20Essentials">github</a>]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9a5a032" class="outline-2">
+<h2 id="org9a5a032">Resources</h2>
+<div class="outline-text-2" id="text-org9a5a032">
+<p>
+<a href="002.An Introduction to Web Development Slides.pdf">Section 2: An Introduction to Web Development Slides</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2940e66" class="outline-2">
+<h2 id="org2940e66">Notes</h2>
+<div class="outline-text-2" id="text-org2940e66">
+</div>
+<div id="outline-container-org6125ec9" class="outline-3">
+<h3 id="org6125ec9">Section 2.1: What Matters In This Section?</h3>
+<div class="outline-text-3" id="text-org6125ec9">
+<ul class="org-ul">
+<li>Each section will have a "what matters" video at the beginning</li>
+<li>The crucial part of this section is understanding the difference between html, css, and js</li>
+<li>Important topics (but not crucial) is understanding the web, how the internet works, and HTTP request / response cycle</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga2c3cbe" class="outline-3">
+<h3 id="orga2c3cbe">Section 2.2: The Internet in 5 Minutes</h3>
+<div class="outline-text-3" id="text-orga2c3cbe">
+<ul class="org-ul">
+<li>The internet is basically just many connected devices (computers)</li>
+<li>If we were to connect every computer with every other computer this would not be scalable to what we have now</li>
+<li>Instead, routing is used, where one computer connects to another computer (router) and the router's job is to essentially route the connection from the sender to the sendee</li>
+<li>Each computer are identified by IP addresses so the router knows where to connect you to</li>
+<li>The internet are essentially networks on networks where you are routed to another computer and that computer is part of another network and route connections as well</li>
+<li>Data is sent over cables in the internet, your wifi rotuer is connected to a modem and that modem to connected to a internet provider cable which eventually meet other cables and other computers</li>
+<li>The sea cables of the internet use light more specifically electrons to transmit data (but that is too low level for us)</li>
+<li>In summary, the intenet is a global network of networks, there are computers (servers), cables, and more to form the internet and connect various computers are connected with each other and transmit data to each other</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb7b8ae6" class="outline-3">
+<h3 id="orgb7b8ae6">Section 2.3: Intro to the Web</h3>
+<div class="outline-text-3" id="text-orgb7b8ae6">
+<ul class="org-ul">
+<li>The internet is the infrastructure that enables many things like emails, the web, streaming services, online gaming, etc</li>
+<li>The web is just a part of what the internet transmits throughout the cables</li>
+<li>The web (world wide web) is an information system where documents and others resources are available over the internet</li>
+<li>These documents and resources are identified by URLs (uniform resource locators)</li>
+<li>Documents and resources are transferred through the web (internet) through a protocol called http (hyper text transfer protocol)</li>
+<li>HTTP is the foundation of how the world wide web works and communicates</li>
+<li>HTTP is protocol which set rules on how the communication between computers should work</li>
+<li>HTTP is just one protocol but the internet uses a whole stack of protocols like TCP/IP protocol and HTTP is just one protocol in that stack</li>
+<li>So how does HTTP work? When a URL is visited, a request is created for a particular resource and eventually a server responds to the request by providing the resource requested</li>
+<li>The browser then gets these resources and renders the webpage to the user</li>
+<li>There are different types of server but in our case we are concerned with web servers who's sole purpose is to satisfy web requests</li>
+<li>Thus, HTTP is a protocol to share resources between computers (client and server)</li>
+<li>The web server can make sure the request (client) has necessary permissions, the resource exists, and any other rules implented in the web server</li>
+<li>The client is any program / computer requesting a resource thus a browser is a client program</li>
+<li>The server side is anything done in the web server like the rules, sending the resource, etc</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgddb98bf" class="outline-3">
+<h3 id="orgddb98bf">Section 2.4: The Request / Response Cycle</h3>
+<div class="outline-text-3" id="text-orgddb98bf">
+<ul class="org-ul">
+<li>The browser sends a HTTP request, the web server responds with a web page (by sending the documents over to the client), and then the browser renders the documents and thus displays the web page</li>
+<li>The server responds with documents and the documents are basically "instructions" for the browser to render for the user</li>
+<li>What are these documents? What are these instructions? The documents are the HTML files, CSS files, and JS files</li>
+<li>Whenever you search in google, you send a request <code>google.com/search?q=chickens</code> to Google's servers; Google's servers do some logic in the backend and then responds with HTML, CSS, and JS files</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc8bbace" class="outline-3">
+<h3 id="orgc8bbace">Section 2.5: Front-End and Back-End</h3>
+<div class="outline-text-3" id="text-orgc8bbace">
+<ul class="org-ul">
+<li>There are two types of jobs: front-end and back-end</li>
+<li>The back-end is the code and logic happening in the back-end servers (e.g. when you give google a query it has to figure out the links it needs to display, rank pages, figure out which ads to display, etc. that is the back-end code)</li>
+<li>The front-end is the code returned by the server which includes HTML, CSS, and JS</li>
+<li>Front-end development focuses what is run in the browser (HTML, CSS, and JS)</li>
+<li>Back-end development focuses what is run in the back-end and it can Java, C++, C, Python and other technologies</li>
+<li>The browser renders the front-end code to display the web page</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga81c465" class="outline-3">
+<h3 id="orga81c465">Section 2.6: What do HTML / CSS / JS do?</h3>
+<div class="outline-text-3" id="text-orga81c465">
+<ul class="org-ul">
+<li>The browser only understands HTML, CSS, and JS</li>
+<li>HTML is the what, the content, it describes the things (buttons, headers, etc.)</li>
+<li>CSS describes HTML elements, it helps visualize HTML elements (fonts, colors, styling etc.)</li>
+<li>JS describes the what the HTML elements do, the actions and interactions (the logic, click this what should it do, search and autocomplete, etc.)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf84baf7" class="outline-3">
+<h3 id="orgf84baf7">Section 2.7: Setting Up Our Development Environment</h3>
+<div class="outline-text-3" id="text-orgf84baf7">
+<ul class="org-ul">
+<li>Download Chrome</li>
+<li>VS Code</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4aef263" class="outline-2">
+<h2 id="org4aef263">Keywords</h2>
+<div class="outline-text-2" id="text-org4aef263">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Router</b></td>
+<td class="org-left">A computer that routes connections between computers</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>IP Address</b></td>
+<td class="org-left">A unique identifier for a computer</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>URLs</b></td>
+<td class="org-left">Uniform resource locators, a special string that identifies resources</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTTP Protocol</b></td>
+<td class="org-left">A protocol (set of rules) that establishes the way communication occurs between computers from a web client and a web server</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Client</b></td>
+<td class="org-left">A program / user sending a request or asking for some type of resource</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Web Server</b></td>
+<td class="org-left">A program awaiting for requests to fulfill and respond with the necessary documents / resources asked by the client</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Files</b></td>
+<td class="org-left">This displays the content of the page</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>CSS Files</b></td>
+<td class="org-left">Changes the looks of the HTML elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>JS Files</b></td>
+<td class="org-left">Adds behavior / functionality / interaction to the HTML elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Front-End</b></td>
+<td class="org-left">Code in the form of HTML, CSS, and JS, this is what the browser renders</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Back-End</b></td>
+<td class="org-left">Code that is ran in the web server and this can be Java, C++, C, Python, etc</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org8ab4fb9" class="outline-2">
+<h2 id="org8ab4fb9">Questions</h2>
+<div class="outline-text-2" id="text-org8ab4fb9">
+<ul class="org-ul">
+<li><b>Q</b>: Do browsers only process HTML, CSS, and JS files?
+<ul class="org-ul">
+<li>Yes, other frameworks and languages (if any) are compiled into HTML, CSS, and JS so the browser can render the web page</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfb5f0e6" class="outline-2">
+<h2 id="orgfb5f0e6">Summary</h2>
+<div class="outline-text-2" id="text-orgfb5f0e6">
+<ul class="org-ul">
+<li>The internet is just networks of networks</li>
+<li>Routers help "route" connections between computers to establish the necessary connection</li>
+<li>Data is transferred between computers through wires</li>
+<li>The internet is the infrastructure that enables many things like gaming, streaming services, and world wide web</li>
+<li>The web is an information system where documents and other resources are shared between clients and web servers</li>
+<li>HTTP protocol is the protocol used to transfer data between web clients and web servers; it starts with a HTTP request and then web server sends the data back using HTTP</li>
+<li>The client is any program asking for a resource with a request (e.g. browser sends a HTTP request) and the web server receives the request, processes it, and sends some resource / documents back</li>
+<li>Front-end is the development that runs in the browser like the HTML, CSS, and JS</li>
+<li>Back-end is the developement that runs in the web server, like what is the client asking for, what does it need to send back, etc. and this can be done in Java, C++, C, Python, etc</li>
+<li>HTML is the content of the page, CSS is how the content looks, and JS is what does the content do</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

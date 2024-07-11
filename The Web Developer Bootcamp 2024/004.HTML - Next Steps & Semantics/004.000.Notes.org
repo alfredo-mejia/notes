@@ -1,10 +1,19 @@
-#+title: 004.000.HTML Next Steps & Semantics
+#+title: Sec.4 HTML - Next Steps & Semantics
 #+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
-[[file:./004.HTML Next Steps & Semantics Slides.pdf][HTML Next Steps & Semantics Slides]]
+* Navigation
+*Home* [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024][github]]]
 
-* HTML Next Steps & Semantics (Notes)
+*Prev*: Sec.3 HTML - The Essentials [[[file:../003.HTML - The Essentials/003.000.Notes.html][html]]] [[[file:../003.HTML - The Essentials/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/003.HTML%20-%20The%20Essentials][github]]]
 
+*Next*: Sec.5 HTML - Forms & Tables [[[file:../005.HTML - Forms & Tables/005.000.Notes.html][html]]] [[[file:../005.HTML - Forms & Tables/005.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/005.HTML%20-%20Forms%20%26%20Tables][github]]]
+
+* Resources
+[[file:004.HTML - Next Steps & Semantics Slides.pdf][Section 4: HTML - Next Steps & Semantics Slides]]
+
+* Notes
 ** Section 4.1: What Matters In This Section
    - The crucial components of this section are: understanding what HTML is, block vs inline elements, span and div elements, semantic elements (header, footer, nav, etc.)
    - Nice to have (or understand) of this section are: sub element, horizontal break element, sup element, and break element
@@ -81,52 +90,59 @@
    - [[https://emmet.io][Emmet Website]]
      
 * Keywords
-  - HTML5: HTML 5 refers to the newest version of HTML which includes a bundle of new elements and a set of modern web technologies
-  - Block-Level Element: Block level element takes the whole space of the container and starts in a new line
-  - Inline-Level Element: Inline level element fits alongside other elements and do not take up the whole width of the container and do not start in a new line
-  - Div Element: Generic (non-semantic) block-level container that is able to group elements and can be stylized using CSS
-  - Span Element: Generic (non-semantic) inline-level container that is able to group elements and can be styalized using CSS
-  - Horizontal Rule Element: Self-closing element that adds a horizontal line to the web page to divide sections
-  - Line Break Element: Self-closing element that produces a line break in text
-  - Superscript Element: An element that specifies inline text which is suppose to be displayed as superscript
-  - Subscript Element: An element that specifies inline text which is suppose to be displayed as subscript
-  - HTML Entity Codes: Code that are signified by an amerpsand in the beginning and semicolon at the end and it is able to display characters (that are not in the keyboard or hard to type)
-  - Semantic Elements: There are various elements that behavior simialarily to div and span but have semanic meaning which means the element has a purpose or a meaning than just being a generic container (e.g. a nav is a container for navigation links)
-  - Main Element: Semantic element for the dominant content of the body of a document
-  - Navigation Element: Semantic element for a section of a page whose purpose is to provide navigation links
-  - Section Element: Semantic element for a generic standalone section of a document
-  - Article Element: Semantic element for a self-contained composition in a document page
-  - Aside Element: Semantic element whose content is only indirectly related to the document's main content
-  - Header Element: Semantic element that represents introductory content
-  - Footer Element: Semantic element that represetns a footer for its nearest ancestor sectioning content or sectioning root element
-    
+| Term                      | Definition                                                                                                                                                                                                                            |
+|---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *HTML5*                   | HTML 5 refers to the newest version of HTML which includes a bundle of new elements and a set of modern web technologies                                                                                                              |
+| *Block-Level Element*     | Block level element takes the whole space of the container and starts in a new line                                                                                                                                                   |
+| *Inline-Level Element*    | Inline level element fits alongside other elements and do not take up the whole width of the container and do not start in a new line                                                                                                 |
+| *Div Element*             | Generic (non-semantic) block-level container that is able to group elements and can be stylized using CSS                                                                                                                             |
+| *Span Element*            | Generic (non-semantic) inline-level container that is able to group elements and can be styalized using CSS                                                                                                                           |
+| *Horizontal Rule Element* | Self-closing element that adds a horizontal line to the web page to divide sections                                                                                                                                                   |
+| *Line Break Element*      | Self-closing element that produces a line break in text                                                                                                                                                                               |
+| *Superscript Element*     | An element that specifies inline text which is suppose to be displayed as superscript                                                                                                                                                 |
+| *Subscript Element*       | An element that specifies inline text which is suppose to be displayed as subscript                                                                                                                                                   |
+| *HTML Entity Codes*       | Code that are signified by an amerpsand in the beginning and semicolon at the end and it is able to display characters (that are not in the keyboard or hard to type)                                                                 |
+| *Semantic Elements*       | There are various elements that behavior simialarily to div and span but have semanic meaning which means the element has a purpose or a meaning than just being a generic container (e.g. a nav is a container for navigation links) |
+| *Main Element*            | Semantic element for the dominant content of the body of a document                                                                                                                                                                   |
+| *Navigation Element*      | Semantic element for a section of a page whose purpose is to provide navigation links                                                                                                                                                 |
+| *Section Element*         | Semantic element for a generic standalone section of a document                                                                                                                                                                       |
+| *Article Element*         | Semantic element for a self-contained composition in a document page                                                                                                                                                                  |
+| *Aside Element*           | Semantic element whose content is only indirectly related to the document's main content                                                                                                                                              |
+| *Header Element*          | Semantic element that represents introductory content                                                                                                                                                                                 |
+| *Footer Element*          | Semantic element that represetns a footer for its nearest ancestor sectioning content or sectioning root element                                                                                                                                                                                                                                      |
+  
 * Questions
-  - Q: What is the difference between section and article? A: [[https://www.geeksforgeeks.org/difference-between-article-tag-and-section-tag/][GeeksForGeeks Answer]]. [[https://stackoverflow.com/questions/33910294/what-is-the-difference-between-article-and-section-in-html5][Stackoverflow Answer]].
-       - Both are semantic elements
-       - The article element contains *independent* content that doesn't require any other context
-       - The article element can be inside the main content but each article should contain independent content within it
-       - The article element is self-contained and can theoretically be grabbed and be placed anywhere in the document without losing context
-       - The section element is used to split a page into sections like introduction, contact info, details, etc
-       - The section element is used to divide content like chapters and the sections are not self-contained; for example section 2 (chapter 2) may be dependent on section 1 (chapter 1)
+  - *Q*: What is the difference between section and article?
+         - [[https://www.geeksforgeeks.org/difference-between-article-tag-and-section-tag/][GeeksForGeeks Answer]]
+	 - [[https://stackoverflow.com/questions/33910294/what-is-the-difference-between-article-and-section-in-html5][Stackoverflow Answer]]
+         - Both are semantic elements
+         - The article element contains *independent* content that doesn't require any other context
+         - The article element can be inside the main content but each article should contain independent content within it
+         - The article element is self-contained and can theoretically be grabbed and be placed anywhere in the document without losing context
+         - The section element is used to split a page into sections like introduction, contact info, details, etc
+         - The section element is used to divide content like chapters and the sections are not self-contained; for example section 2 (chapter 2) may be dependent on section 1 (chapter 1)
 	 
-  - Q: Can we nest sections and articles? [[https://stackoverflow.com/questions/9527378/should-sections-have-articles-or-should-articles-have-sections][Stackoverflow Answer]].
-       - An article may have multiple articles nested with each other or multiple sections nested with each other
-       - A section may have multiple sections nested with each other or multiple articles nested with each other
-       - If the nesting makes sense then it is possible
-       - For example, a section may talk about browsers and each has a description of a specific browser
-       - Each description can be an article because you won't lose the context of what you are talking about (a specific browser); thus it is self-contained
-       - Then inside each article you can have sections to divide the technologies of that browser
-       - Or inside each article you can have further articles if the content is self-contained
-       - Just remember each article should be identified by including a heading as a child of the article and normally so do sections
+  - *Q*: Can we nest sections and articles?
+         - [[https://stackoverflow.com/questions/9527378/should-sections-have-articles-or-should-articles-have-sections][Stackoverflow Answer]]
+         - An article may have multiple articles nested with each other or multiple sections nested with each other
+         - A section may have multiple sections nested with each other or multiple articles nested with each other
+         - If the nesting makes sense then it is possible
+         - For example, a section may talk about browsers and each has a description of a specific browser
+         - Each description can be an article because you won't lose the context of what you are talking about (a specific browser); thus it is self-contained
+         - Then inside each article you can have sections to divide the technologies of that browser
+         - Or inside each article you can have further articles if the content is self-contained
+         - Just remember each article should be identified by including a heading as a child of the article and normally so do sections
 	 
-  - Q: How should main, header, footer, section, article, etc. be used? A: [[https://www.w3schools.com/html/html5_semantic_elements.asp][W3 Schools HTML Semantic Elements Explanation]]. [[https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html][Mozilla Semantics in HTML Explanation]].
-       - There is not an easy answer for this question
-       - Depending on your content and how you want organize your elements you can use the semantic elements in various ways
-       - For example, headers can be inside main or section or article
-       - Footer can be inside main or section or article
-       - Sections can be inside main or article or sections itself
-       - Articles can be inside main, sections, or articles itself
-       - It all depends on what you are doing but make sure the content you are doing is semantically correct with the elements you are using
+  - *Q*: How should main, header, footer, section, article, etc. be used?
+         - [[https://www.w3schools.com/html/html5_semantic_elements.asp][W3 Schools HTML Semantic Elements Explanation]]
+	 - [[https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html][Mozilla Semantics in HTML Explanation]]
+         - There is not an easy answer for this question
+         - Depending on your content and how you want organize your elements you can use the semantic elements in various ways
+         - For example, headers can be inside main or section or article
+         - Footer can be inside main or section or article
+         - Sections can be inside main or article or sections itself
+         - Articles can be inside main, sections, or articles itself
+         - It all depends on what you are doing but make sure the content you are doing is semantically correct with the elements you are using
     
 * Summary
   - HTML5 introduced various new elements but also a set of modern web technologies so it isn't just about the new HTML5 elements

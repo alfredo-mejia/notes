@@ -1,9 +1,20 @@
-#+title: 002.000.An Introduction to Web Development
+#+title: Sec.2 An Introduction to Web Development
 #+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
-[[file://.002.An Introduction to Web Development Slides.pdf][Section 2: An Introduction to Web Development Slides]]
+* Navigation
+*Home* [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024][github]]]
 
-* An Introduction to Web Development (Notes)
+*Prev*: Sec.1 Course Orientation [[[file:../001.Course Orientation/001.000.Notes.html][html]]] [[[file:../001.Course Orientation/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/001.Course%20Orientation][github]]]
+
+*Next*: Sec.3 HTML - The Essentials [[[file:../003.HTML - The Essentials/003.000.Notes.html][html]]] [[[file:../003.HTML - The Essentials/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/003.HTML%20-%20The%20Essentials][github]]]
+
+* Resources
+
+[[file:002.An Introduction to Web Development Slides.pdf][Section 2: An Introduction to Web Development Slides]]
+
+* Notes
 
 ** Section 2.1: What Matters In This Section?
    - Each section will have a "what matters" video at the beginning
@@ -62,20 +73,24 @@
      - VS Code
 
 * Keywords
-  - Router: A computer that routes connections between computers
-  - IP Address: A unique identifier for a computer
-  - URLs: Uniform resource locators, a special string that identifies resources
-  - HTTP Protocol: A protocol (set of rules) that establishes the way communication occurs between computers from a web client and a web server
-  - Client: A program / user sending a request or asking for some type of resource
-  - Web Server: A program awaiting for requests to fulfill and respond with the necessary documents / resources asked by the client
-  - HTML Files: This displays the content of the page
-  - CSS Files: Changes the looks of the HTML elements
-  - JS Files: Adds behavior / functionality / interaction to the HTML elements
-  - Front-End: Code in the form of HTML, CSS, and JS, this is what the browser renders
-  - Back-End: Code that is ran in the web server and this can be Java, C++, C, Python, etc
-    
+| Term            | Definition                                                                                                                   |
+|-----------------+------------------------------------------------------------------------------------------------------------------------------|
+| *Router*        | A computer that routes connections between computers                                                                         |
+| *IP Address*    | A unique identifier for a computer                                                                                           |
+| *URLs*          | Uniform resource locators, a special string that identifies resources                                                        |
+| *HTTP Protocol* | A protocol (set of rules) that establishes the way communication occurs between computers from a web client and a web server |
+| *Client*        | A program / user sending a request or asking for some type of resource                                                       |
+| *Web Server*    | A program awaiting for requests to fulfill and respond with the necessary documents / resources asked by the client          |
+| *HTML Files*    | This displays the content of the page                                                                                        |
+| *CSS Files*     | Changes the looks of the HTML elements                                                                                       |
+| *JS Files*      | Adds behavior / functionality / interaction to the HTML elements                                                             |
+| *Front-End*     | Code in the form of HTML, CSS, and JS, this is what the browser renders                                                      |
+| *Back-End*      | Code that is ran in the web server and this can be Java, C++, C, Python, etc                                                                                                                             |
+
+
 * Questions
-  - Q: Do browsers only process HTML, CSS, and JS files? Yes, other frameworks and languages (if any) are compiled into HTML, CSS, and JS
+  - *Q*: Do browsers only process HTML, CSS, and JS files?
+         - Yes, other frameworks and languages (if any) are compiled into HTML, CSS, and JS so the browser can render the web page
     
 * Summary
   - The internet is just networks of networks

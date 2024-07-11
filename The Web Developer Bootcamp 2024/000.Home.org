@@ -1,0 +1,26 @@
+#+title: The Web Developer Bootcamp 2024
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+*Prev*: README [[[file:../README.html][html]]] [[[file:../README.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main][github]]]
+
+*Next*: Sec.1 Course Orientation [[[file:./001.Course Orientation/001.000.Notes.html][html]]] [[[file:./001.Course Orientation/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/001.Course%20Orientation][github]]]
+
+* Course Details
+| Title    | The Web Developer Bootcamp 2024                         |
+| Author   | Colt Steele                                             |
+| Platform | Udemy                                                   |
+| URL      | [[https://www.udemy.com/course/the-web-developer-bootcamp]] |
+
+* Contents
+1. Course Orientation [[[file:./001.Course Orientation/001.000.Notes.html][html]]] [[[file:./001.Course Orientation/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/001.Course%20Orientation][github]]]
+2. An Introduction to Web Development [[[file:002.An Introduction to Web Development/002.000.Notes.html][html]]] [[[file:./002.An Introduction to Web Development/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/002.An%20Introduction%20to%20Web%20Development][github]]]
+3. HTML - The Essentials [[[file:003.HTML - The Essentials/003.000.Notes.html][html]]] [[[file:003.HTML - The Essentials/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/003.HTML%20-%20The%20Essentials][github]]]
+4. HTML - Next Steps & Semantics [[[file:./004.HTML - Next Steps & Semantics/004.000.Notes.html][html]]] [[[file:./004.HTML - Next Steps & Semantics/004.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/004.HTML%20-%20Next%20Steps%20%26%20Semantics][github]]]
+5. HTML - Forms & Tables [[[file:./005.HTML - Forms & Tables/005.000.Notes.html][html]]] [[[file:./005.HTML - Forms & Tables/005.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/005.HTML%20-%20Forms%20%26%20Tables][github]]]
+6. CSS - The Very Basics [[[file:./006.CSS - The Very Basics/006.000.Notes.html][html]]] [[[file:./006.CSS - The Very Basics/006.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/006.CSS%20-%20The%20Very%20Basics][github]]]
+
+* My Thoughts
+/Not Yet Finished/
