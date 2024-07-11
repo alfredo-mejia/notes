@@ -1,0 +1,18 @@
+#+title: Home
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="./scratch/bulma/css/bulma.css" />
+
+* Book Details
+| Title     | HTML & CSS - Design and Build Websites |
+| Edition   |                                        |
+| Author    | Jon Duckett                            |
+| Publisher | John Wiley & Sons, Inc.                |
+| ISBN      | 978-1-118-00818-8                      |
+
+
+* Contents
+
+
+* My Thoughts
+/Not Yet Finsihed/
