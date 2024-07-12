@@ -4,7 +4,7 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-*Prev*: README [[[file:../README.html][html]]] [[[file:../README.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main][github]]]
+*Prev*: Main Index [[[file:../index.html][html]]] [[[file:../index.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main][github]]]
 
 *Next*: Ch.1 Structure [[[file:001.Structure/001.000.Notes.html][html]]] [[[file:001.Structure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure][github]]]
 
