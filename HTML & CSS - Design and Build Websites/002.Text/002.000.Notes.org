@@ -6,7 +6,7 @@
 * Navigation
 *Home* [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
 
-*Prev*: Ch.1 Text [[[file:~/Documents/notes/HTML & CSS - Design and Build Websites/001.Structure/001.000.Notes.html][html]]] [[[file:../001.Structure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure][github]]]
+*Prev*: Ch.1 Text [[[file:../001.Structure/001.000.Notes.html][html]]] [[[file:../001.Structure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure][github]]]
 
 *Next*: Ch.3 Lists [[[file:../003.Lists/003.000.Notes.html][html]]] [[[file:../003.Lists/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/003.Lists][github]]]
 
