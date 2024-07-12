@@ -1,0 +1,25 @@
+#+title: The Complete 2024 Web Development Bootcamp
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+*Prev*: README [[[file:../README.html][html]]] [[[file:../README.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main][github]]]
+
+*Next*: Sec.1 Front-End Web Development [[[file:./001.Front-End Web Development/001.000.Notes.html][html]]] [[[file:./001.Front-End Web Development/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/001.Front-End%20Web%20Development][github]]]
+
+* Course Details
+| Title    | The Complete 2024 Web Development Bootcamp                         |
+| Author   | Dr.Angela Yu                                                       |
+| Platform | Udemy                                                              |
+| URL      | [[https://www.udemy.com/course/the-complete-web-development-bootcamp]] |
+
+* Contents
+1. Front-End Web Development [[[file:./001.Front-End Web Development/001.000.Notes.html][html]]] [[[file:./001.Front-End Web Development/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/001.Front-End%20Web%20Development][github]]]
+2. Introduction to HTML [[[file:./002.Introduction to HTML/002.000.Notes.html][html]]] [[[file:002.Introduction to HTML/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/002.Introduction%20to%20HTML][github]]]
+3. Intermediate HTML [[[file:./003.Intermediate HTML/003.000.Notes.html][html]]] [[[file:./003.Intermediate HTML/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/003.Intermediate%20HTML][github]]]
+4. Multi-Page Websites [[[file:004.Multi-Page Websites/004.000.Notes.html][html]]] [[[file:./004.Multi-Page Websites/004.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/004.Multi-Page%20Websites][github]]]
+5. Introduction to CSS [[[file:./005.Introduction to CSS/005.000.Notes.html][html]]] [[[file:./005.Introduction to CSS/005.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/005.Introduction%20to%20CSS][github]]]
+
+* My Thoughts
+/Not Yet Finished/

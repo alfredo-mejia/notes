@@ -1,0 +1,22 @@
+#+title: Sec.5 Introduction to CSS
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+*Home* [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp][github]]]
+
+*Prev*: Sec.4 Multi-Page Websites [[[file:../004.Multi-Page Websites/004.000.Notes.html][html]]] [[[file:../004.Multi-Page Websites/004.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/004.Multi-Page%20Websites][github]]]
+
+*Next*: Sec.6 CSS Properties [[[file:../006.CSS Properties/006.000.Notes.html][html]]] [[[file:../006.CSS Properties/006.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/006.CSS%20Properties][github]]]
+
+* Notes
+
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+
+* Summary

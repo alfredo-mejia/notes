@@ -1,7 +1,16 @@
-#+title: 002.000.Introduction to HTML
+#+title: Sec.2 Introduction to HTML
 #+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
-* Introduction to HTML (Notes)
+* Navigation
+*Home* [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp][github]]]
+
+*Prev*: Sec.1 Front-End Web Development [[[file:~/Documents/notes/The Complete 2024 Web Development Bootcamp/001.Front-End Web Development/001.000.Notes.html][html]]] [[[file:~/Documents/notes/The Complete 2024 Web Development Bootcamp/001.Front-End Web Development/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/001.Front-End%20Web%20Development][github]]]
+
+*Next*: Sec.3 Intermediate HTML [[[file:../003.Intermediate HTML/003.000.Notes.html][html]]] [[[file:../003.Intermediate HTML/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/003.Intermediate%20HTML][github]]]
+
+* Notes
 
 ** Section 2.1: What is HTML?
    - Every browser take different files and render them into a website
@@ -23,6 +32,7 @@
    - Level 1 (~<h1>~) is the largest heading while level 6 (~<h6>~) is the smallest
    - Don't try to have multiple ~h1~ espeically back to back
    - Don't skip header levels so go in order (e.g. ~h1~ to ~h2~ etc.) not from ~h1~ to ~h3~
+   - [[file:002.002.HTML Heading Elements/index.html][Completed HTML Heading Elements Exercise]]
      
 *** Section 2.2.1: Resources
 
@@ -39,7 +49,8 @@
 
    - Similar to the heading element; you have the opening and closing tag and then the content in between
    - Why do we need a paragraph element? The paragraph element would allow us to separate blocks of texts (paragraphs) to make content easier to read
-
+   - [[file:002.003.HTML Paragraph Elements/index.html][Completed HTML Paragraph Elements Exercise]]
+     
 ** Section 2.4: Self Closing Tags
    - What is a void element? A void element is an element you are forebidden to put content inside the tag
    - So how do tags work with no content? These elements are called self-closing tags and it only has one tag (self-closing) instead of one opening and one closing
@@ -54,10 +65,12 @@
    - Note when to use ~<br />~ and when to use ~<p>~; if you need to create another paragraph do not use ~<br />~ instead create a new paragraph element
    - Only use ~<br />~ when you need to separate lines but it is still the same paragraph like a poem or an address
    - Also the forward slash is not required; with the latest HTML it simply ignores the forward slash but it is good practice to add so it can be more understandable when viewing your code
-
-** Section 2.5: Movie Ranking (Project)
+   - [[file:./002.004.Self Closing Tags/index.html][Completed HTML Self Closing Tags Exercise]]
+     
+** Section 2.5: Movie Ranking Project
    - Create a webpage ranking your favorite movies with what you learned (headers, paragraph, and self closing tags) 
-
+   - [[file:002.005.Movie Ranking Project/index.html][Completed Move Ranking Project]]
+     
 ** Section 2.6: How to Ace This Course (And Keep You Motivated)
    - In order to keep you motivatd, set yourself goals ask yourself the following question
    - Why do I want to learn this skill? I want to expand my skillset and create my own website agency company eventually
@@ -66,17 +79,21 @@
    - How will learning this skill impact the lives of my family, friends, and coworkers? If I am able to target a higher position job or start a company then I'll be able to help the ones I love and help others start with own business
    - How will I feel if I never accomplish this? I'll feel like I failed. I'll feel like I have nothing to look forward to
    - What would my life look like if I manage to accomplish this? Hopefuly my life would look more fulfilled and more prosperous with possibly having a side business of my own
-
+   - [[file:002.006.How to Ace This Course (And Keep You Motivated) Questions Template.pdf][How to Ace This Course (And Keep You Motivated) Questions Template (PDF)]]
+     
 * Keywords
-  - HTML: HyperText Markup Language
-  - HTML Tag: Actual "tag" that indicates which element it is
-  - HTML Element: It is the HTML tags and the content it represents
-  - HTML Header Element: Element that allows to provide and format titles and subtitles
-  - HTML Paragraph Element: Element to display blocks of text
-  - HTML Self Closing Elements: HTML elements that do not require content or a closing tag
-      
+| Term                         | Definition                                                     |
+|------------------------------+----------------------------------------------------------------|
+| *HTML*                       | HyperText Markup Language                                      |
+| *HTML Tag*                   | Actual "tag" that indicates which element it is                |
+| *HTML Element*               | It is the HTML tags and the content it represents              |
+| *HTML Header Element*        | Element that allows to provide and format titles and subtitles |
+| *HTML Paragraph Element*     | Element to display blocks of text                              |
+| *HTML Self Closing Elements* | HTML elements that do not require content or a closing tag     |
+    
 * Questions
-  - Q: If headers behave as a box where it takes the whole width of the page, is it possible to change that behavior? A: Possibly but we'll need CSS for that
+  - *Q*: If headers behave as a box where it takes the whole width of the page, is it possible to change that behavior?
+         - Possibly but we'll need CSS for that
 
 * Summary
   - HTML stands for HyperText Markup Language which is a way to format text into titles, paragraphs, underline, bold, italicized, etc.
