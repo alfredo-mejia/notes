@@ -4,7 +4,7 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-*Prev*: Home [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp][github]]]
+*Home*: The Complete 2024 Web Development Bootcamp [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp][github]]]
 
 *Next*: Sec.2 Introduction to HTML [[[file:../002.Introduction to HTML/002.000.Notes.html][html]]] [[[file:../002.Introduction to HTML/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/002.Introduction%20to%20HTML][github]]]
 

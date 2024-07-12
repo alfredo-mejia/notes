@@ -4,7 +4,7 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-*Home* [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024][github]]]
+*Home*: The Web Developer Bootcamp 2024 [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024][github]]]
 
 *Prev*: Sec.4 HTML - Next Steps & Semantics [[[file:../004.HTML - Next Steps & Semantics/004.000.Notes.html][html]]] [[[file:../004.HTML - Next Steps & Semantics/004.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/004.HTML%20-%20Next%20Steps%20%26%20Semantics][github]]]
 
