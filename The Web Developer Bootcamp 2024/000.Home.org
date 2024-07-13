@@ -23,4 +23,15 @@
 6. CSS - The Very Basics [[[file:./006.CSS - The Very Basics/006.000.Notes.html][html]]] [[[file:./006.CSS - The Very Basics/006.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024/006.CSS%20-%20The%20Very%20Basics][github]]]
 
 * My Thoughts
+** Part 1: HTML
+The first section of this course explained the format of the course and what should be expected. For example, Colt revealed that starting each section he would create a video and state what topics are crucial, what topics are important, and what topics are nice to know. However, I sometimes felt that the video was unnecessary because that information can be given as the topics come up. I felt like a whole video dedicated to explaining what is crucial, what is importnat, and what topics are nice to know are bit of a waste of time. Not only that, if the end-user never heard of the topics then the user would not understand why it is important and again leads to me to feel like the video is a waste of time.
+
+However, Colt mentions various resources that he created to help students like the Trello Board and provides the slides to each section. In addition, he provides resources outside the course like the Mozilla Developer Resources.
+
+Once Colt starts to teach HTML it is easy to follow and understand the topics. I did enjoy that he covered a lot of elements but sometimes I felt like he was just skimming over the elements by visiting the Mozilla docs. It would be better to have small exercises for these elements than just skimming the Mozilla docs.
+
+One feature about this course that I truly enjoy are the small coding exercises directly embedded into the course. This gives us, the students, a chance to not only test what we learned but if we fail, get enough feedback to understand what we did wrong and correct it. I think this is a great way to learn and I wish Colt used more coding exercises throughout the first part of this course. Overall, the first part of the course was good it gave a solid foundation to HTML.
+
+** Part 2: CSS
+
 /Not Yet Finished/

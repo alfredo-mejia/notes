@@ -22,4 +22,17 @@
 5. Introduction to CSS [[[file:./005.Introduction to CSS/005.000.Notes.html][html]]] [[[file:./005.Introduction to CSS/005.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp/005.Introduction%20to%20CSS][github]]]
 
 * My Thoughts
+** Part 1: HTML
+At the start of the course Dr.Yu explains what is needed to succeed and encourages people to develop good habits and to not feel discouraged. I really enjoyed her opening videos and her book "12 Rules to Learn Code". I have a background in CS but it gave me new ideas in how to approach learning new topics.
+
+I really enjoyed how Dr.Yu kept many of the topics simple and it was easy to follow. I also enjoyed how she has many exercises at the end of each topic. This allows us to learn the topic but also practice the topic.
+
+In addition, I really enjoy how she has capstone projects without a solution or coding walkthrough. This allows us to take some set of requirements and build something from what we know and our creativity.
+
+The one knock I would give the first part is how little breadth of HTML elements are covered. I think we go over the most common elements but at least Dr.Yu should have mentioned some misc elements and expose the students to other elements if they would like to learn on their own. Unless Dr. Yu feels like understanding HTML is more important than understanding elements as it can be googled later.
+
+Anyhow, overall, the first part of the course was good, it included a lot of exercises, capstone projects and Dr.Yu made the topics easy to follow.
+
+** Part 2: CSS
+
 /Not Yet Finished/
