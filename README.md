@@ -15,9 +15,7 @@ The HTML file will use the default export options of Emacs but the only differen
 # Calendar
 Besides notes, I will have a calendar in HTML to help me set goals for myself. The calendar will tell me what do I need to accomplish by a certain date. For example, on date 02/20/2024 I need to have finished a chapter, section, video, tutorial or finished a component on one of my projects. This is for my personal self so I can be organized and be goal-driven. This will also allow me to evaluate myself by seeing if I am hitting my goals, underperforming, or exaggerated with unrealistic goals. 
 
-## 2024
-[2024 Calendar - Github](ttps://github.com/alfredo-mejia/notes/tree/main/calendar/2024)
-
+## [2024](https://github.com/alfredo-mejia/notes/tree/main/calendar/2024)
 The year 2024 is all about learning web development: front-end and back-end. I started around July of 2024 so that gives me 6 months to learn as much as I can. The point of learning web developemnt are a couple of reasons:
     1. Expand my tech skills
     2. Build my website portfolio
