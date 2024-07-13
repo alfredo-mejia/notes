@@ -12,10 +12,12 @@ In addition, each folder will have an org-file and a HTML file. The org-file wou
 
 The HTML file will use the default export options of Emacs but the only difference is that I will be using [Bulma](https://bulma.io) CSS to simply style my headings, paragraphs, etc. I will simply attach the Bulma's CSS file to the HTML file. Other than that no changes will be made to the HTML file.
 
-# The Calendar
+# Calendar
 Besides notes, I will have a calendar in HTML to help me set goals for myself. The calendar will tell me what do I need to accomplish by a certain date. For example, on date 02/20/2024 I need to have finished a chapter, section, video, tutorial or finished a component on one of my projects. This is for my personal self so I can be organized and be goal-driven. This will also allow me to evaluate myself by seeing if I am hitting my goals, underperforming, or exaggerated with unrealistic goals. 
 
-## [2024](ttps://github.com/alfredo-mejia/notes/tree/main/calendar/2024)
+## 2024
+[2024 Calendar - Github](ttps://github.com/alfredo-mejia/notes/tree/main/calendar/2024)
+
 The year 2024 is all about learning web development: front-end and back-end. I started around July of 2024 so that gives me 6 months to learn as much as I can. The point of learning web developemnt are a couple of reasons:
     1. Expand my tech skills
     2. Build my website portfolio
@@ -35,3 +37,6 @@ Depending on how you are navigating my notes (html, org, or Github) you can clic
 - [HTML & CSS - Design and Build Websites by Jon Duckett](https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites)
 - [The Complete 2024 Web Development Bootcamp by Dr. Angela Yu](https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp) 
 - [The Web Developer Bootcamp 2024 by Colt Steele](https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024)
+
+# Github Pages
+- https://alfredo-mejia.github.io/notes/
