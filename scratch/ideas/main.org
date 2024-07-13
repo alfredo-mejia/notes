@@ -1,0 +1,57 @@
+#+title: Project Ideas
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* List of Project Ideas
+** Calendar / Todo / Life Manager
+   - This pp can be on IOS, Android, Windows, and Mac
+   - It will be a simple calendar that you can view yearly, monthly, weekly, daily, or by the hour
+   - You'll be able to add events, goals, etc. on each day
+   - You'll be able to add todo list for each day
+   - You'll be able to add goals and dependencies to those goals
+     - For example, in order to accomplish a goal you might need to complete another goal before or a set of tasks
+   - Based on these goals, tasks, and dependecies you can create a visual roadmap throughout the weeks, months, or years
+   - In addition, you'll be able to set your scheule (like events)
+     - For example at 6am I wake up, at 7am I need to clock in, at 12pm I take my lunch, 4pm I clock out, 5pm I run, 6pm I shower, 6:30pm I study, etc.
+   - Based on your schedule the app would notify you how much time you have left for that event
+     - For example, you at 30 minutes left to study
+   - Also based on your schedule it can determine when do you need to go to work, go to the park and run
+   - The app would try to recommend commute time, eating time, misc time to fit a schedule that can realistically be followed
+   - The app would also notify you when you go over the time and create suggestions to reaccommodate your priorties
+   - The app would even be able to create your own schedule (without the user doing it manually) based on user's priorities, todo items, events, and goals 
+
+** Raffle Manager
+   - A web application where organizer can setup a raffle
+   - The organizer would be able to share a link to their raffle
+   - The organizer can have various options for the raffle such as limits, do they need a code, do they need to send accept requests and only if the organizer approves it do they get an entry, do they need to scan a QR code etc
+   - The user can enter their information name and phone number / email
+   - If the phone number is used then they will receive a text with their confirmed entry and their status link with the raffle information such as when will the winner be drawn, where (if applicable, e.g. a location or link), the amount of total entries, how many entries do they have, and the user's information
+   - If they enter an email then it will be sent to their email instead of text
+   - The user id would be the phone number or email so if a phone number appears multiple times as entries it will be linked to the same user
+   - The organizer would be able to easily draw a winner
+   - The organizer would be able to livestream the event and share a link to the livestream
+   - The raffle application would have animations (such as a triangle with "balls" dropping down similar to Stake), or "balls" rolling in a sphere, etc
+   - The organizer would have the option to draw directly a winner or have a "elimination" game
+     - For example, it will eliminate half, then half, until there is 5 players left, and then draw a winner from there
+   - Each entry can be represented as a sphere, ticket, car, character, player, etc.
+   - We need to show that if a user has 5 entries then 5 entries are present
+
+** Embroidery Manager
+   - A web application that is simple
+   - It asks the organizer to sign-in first and select their location (so I can know where to send it to)
+   - Then whenever a customer wants to do a name, the organzier can use their own tablet or they send them a organizer-specific link
+   - The link will display the wait time, ask for their phone number, the name they want to type, font, and color
+   - It will dynamically show them a preview and confirm everything is correct
+   - They may be requirements if the name is too long for the font or the character is not shown for the font etc
+   - The request will be sent to the organizer and the embroider operator
+   - The organizer and embroider operator can always cancel orders on their end and can notify the customer
+   - Specific information can be requested to the customer such as a different color, name, or font if necessary by sending them a text
+   - The embroider operator would click on the orders as they are working on them to indicate it is in-progress
+   - Once it is finished the operator can indicate it is finished and give it to the organizer
+   - The organizer can indicate it is finished and it will send a text to the customer
+   - The customer can always check their waittime and position in the queue with the link sent when they register
+   - The app would be able to calculate the time to pick-up, deliver, position in queue, and to embroider to give an accurate waittime
+   - In addition to this, it would be cool to create an app that automatically create these names into DST files and sends them to the embroidery machine (this way we skip having to create the DST names ourselves and it is automated)
+     - This would be a litte harder but I think definitely doable
+     - So as the customer sends the request the machine would already know the font and the size to create a DST file and send it to the machine so the operator can just embroider and not have to create the DST file as well 
