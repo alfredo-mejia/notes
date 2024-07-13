@@ -30,7 +30,7 @@ However, Colt mentions various resources that he created to help students like t
 
 Once Colt starts to teach HTML it is easy to follow and understand the topics. I did enjoy that he covered a lot of elements but sometimes I felt like he was just skimming over the elements by visiting the Mozilla docs. It would be better to have small exercises for these elements than just skimming the Mozilla docs.
 
-One feature about this course that I truly enjoy are the small coding exercises directly embedded into the course. This gives us, the students, a chance to not only test what we learned but if we fail, get enough feedback to understand what we did wrong and correct it. I think this is a great way to learn and I wish Colt used more coding exercises throughout the first part of this course. Overall, the first part of the course was good it gave a solid foundation to HTML.
+One feature about this course that I truly enjoy are the small coding exercises directly embedded into the course. This gives us, the students, a chance to not only test what we learned but if we fail, get enough feedback to understand what we did wrong and correct it. I think this is a great way to learn and I wish Colt used more coding exercises throughout the first part of this course. Overall, the first part of the course was good and it gave a solid foundation to HTML.
 
 ** Part 2: CSS
 
