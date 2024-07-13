@@ -17,6 +17,20 @@ In addition, each folder will have an org-file and a HTML file. The org-file wou
 
 The HTML file will use the default export options of Emacs but the only difference is that I will be using [[https://bulma.io][Bulma]] CSS to simply style my headings, paragraphs, etc. I will simply attach the Bulma's CSS file to the HTML file. Other than that no changes will be made to the HTML file.
 
+* Calendar
+Besides notes, I will have a calendar in HTML to help me set goals for myself. The calendar will tell me what do I need to accomplish by a certain date. For example, on date 02/20/2024 I need to have finished a chapter, section, video, tutorial or finished a component on one of my projects. This is for my personal self so I can be organized and be goal-driven. This will also allow me to evaluate myself by seeing if I am hitting my goals, underperforming, or exaggerated with unrealistic goals.
+
+** [[file:calendar/2024/index.html][2024]]
+The year 2024 is all about learning web development: front-end and back-end. I started around July of 2024 so that gives me 6 months to learn as much as I can. The point of learning web developemnt are a couple of reasons:
+1. Expand my tech skills
+2. Build my website portfolio
+3. Build websites to demonstrate my side projects
+4. Be able to freelance as a web developer
+
+Finally, because I am just starting with web development I am not able to build a beautiful calendar. Thus I resorted to using Emacs to help me build the HTML files for the year 2024. Emacs has a feature where it allows you to export the calendar as HTML files. So if my calendar looks like a 90s web page or isn't responsive to the device screen, that would be why. One of my ideas for 2025 would be to create my own calendar / to-do wepage to use instead of Emacs but that would be for 2025.
+
+Anything before July 2024 the calendar will be empty but anything after will be updated periodically. Take a look at my calendar at anytime.
+
 * What Next
 Please feel free to enter any folder, explore my projects and use my notes. Most projects will be small and thus will not have its own repo, but who knows, in the future a project may be expanded and have its own dedicated repo.
 
