@@ -17,10 +17,11 @@ Besides notes, I will have a calendar in HTML to help me set goals for myself. T
 
 ## [2024](https://github.com/alfredo-mejia/notes/tree/main/calendar/2024)
 The year 2024 is all about learning web development: front-end and back-end. I started around July of 2024 so that gives me 6 months to learn as much as I can. The point of learning web developemnt are a couple of reasons:
-    1. Expand my tech skills
-    2. Build my website portfolio
-    3. Build websites to demonstrate my side projects
-    4. Be able to freelance as a web developer
+
+1. Expand my tech skills
+2. Build my website portfolio
+3. Build websites to demonstrate my side projects
+4. Be able to freelance as a web developer
 
 Finally, because I am just starting with web development I am not able to build a beautiful calendar. Thus I resorted to using Emacs to help me build the HTML files for the year 2024. Emacs has a feature where it allows you to export the calendar as HTML files. So if my calendar looks like a 90s web page or isn't responsive to the device screen, that would be why. One of my ideas for 2025 would be to create my own calendar / to-do wepage to use instead of Emacs but that would be for 2025.
 
