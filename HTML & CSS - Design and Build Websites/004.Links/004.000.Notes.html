@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-07-11 Thu 22:42 -->
+<!-- 2024-07-14 Sun 21:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ch.4 Links</title>
@@ -202,22 +202,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1938502">Navigation</a></li>
-<li><a href="#org3fa243c">Notes</a>
+<li><a href="#orgc7ea36f">Navigation</a></li>
+<li><a href="#org84de433">Notes</a>
 <ul>
-<li><a href="#org0f8c257">Section 4.1: Introduction to Links</a></li>
+<li><a href="#org1abf6b2">Section 4.1: Introduction to Links</a></li>
+<li><a href="#org2d26fb5">Section 4.2: Linking to Other Sites &amp; Linking to Other Pages On The Same Site</a></li>
+<li><a href="#orgbaca12c">Section 4.3: Email Links &amp; Opening Links in a New Window</a></li>
+<li><a href="#orgb272e84">Section 4.4: Linking to a Specific Part of the Same Page</a></li>
+<li><a href="#org0999627">Section 4.5: Linking to a Specific Part of Another Page</a></li>
+<li><a href="#orgd2e22bb">Section 4.6: Creating a Simple Web Page With Links</a></li>
 </ul>
 </li>
-<li><a href="#org513e4b1">Keywords</a></li>
-<li><a href="#org673ebb3">Questions</a></li>
-<li><a href="#orgf19656d">Summary</a></li>
+<li><a href="#org4b40541">Keywords</a></li>
+<li><a href="#orgf2756e2">Questions</a></li>
+<li><a href="#org0e578c9">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1938502" class="outline-2">
-<h2 id="org1938502">Navigation</h2>
-<div class="outline-text-2" id="text-org1938502">
+<div id="outline-container-orgc7ea36f" class="outline-2">
+<h2 id="orgc7ea36f">Navigation</h2>
+<div class="outline-text-2" id="text-orgc7ea36f">
 <p>
 <b>Home</b>: HTML &amp; CSS - Design and Build Websites [<a href="../000.Home.html">html</a>] [<a href="../000.Home.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites">github</a>]
 </p>
@@ -232,25 +237,180 @@
 </div>
 </div>
 
-<div id="outline-container-org3fa243c" class="outline-2">
-<h2 id="org3fa243c">Notes</h2>
-<div class="outline-text-2" id="text-org3fa243c">
+<div id="outline-container-org84de433" class="outline-2">
+<h2 id="org84de433">Notes</h2>
+<div class="outline-text-2" id="text-org84de433">
 </div>
-<div id="outline-container-org0f8c257" class="outline-3">
-<h3 id="org0f8c257">Section 4.1: Introduction to Links</h3>
+<div id="outline-container-org1abf6b2" class="outline-3">
+<h3 id="org1abf6b2">Section 4.1: Introduction to Links</h3>
+<div class="outline-text-3" id="text-org1abf6b2">
+<ul class="org-ul">
+<li>Links are the defining feature of the web because they allow you to move from one web page to another, thus enabling the very idea of browsing or surfing</li>
+<li>Links are used in different ways: one website to another, one page to another within the same website, links to a section within the same page, links that open in a new tab, links that open your email app and address a new email to someone, etc</li>
+<li>Links are created using the <code>&lt;a&gt;</code> element and anything can be specified within the opening and closing tags</li>
+<li>So how does it know where to "link" to? Well, it uses the <code>href</code> attribute and using that attribute you enter the URL where you want the link to direct you to</li>
+<li>The content inside the element is called the link text and should specify to the users where they will be taken if they click on it (instead of just saying "click here")</li>
+<li>Good link text can help people with screen readers and give a good impression of your website so to write good link text you can think of words people use when searching for the page that you are linking to</li>
+<li>For example, if you have a link of the fastest cars then the link text could say "fastest cars in the world" (something people would search for the page I am directing them to)</li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-org513e4b1" class="outline-2">
-<h2 id="org513e4b1">Keywords</h2>
+<div id="outline-container-org2d26fb5" class="outline-3">
+<h3 id="org2d26fb5">Section 4.2: Linking to Other Sites &amp; Linking to Other Pages On The Same Site</h3>
+<div class="outline-text-3" id="text-org2d26fb5">
+<ul class="org-ul">
+<li>Users can click on anything that appears between the opening (<code>&lt;a&gt;</code>) and closing (<code>&lt;/a&gt;</code>) tags</li>
+<li>When you link to a <i>different</i> website, the value of the <code>href</code> attribute will be the full web address for the site, which is known as an absolute URL</li>
+<li>URL stands for Uniform Resource Locator and every web page has its own URL</li>
+<li>An absolute URL starts with the domain name for that site followed by the path to a specific page and if no specific page is specified it will default to the home page of the domain (note you'll still need to include <code>http</code> and depending also <code>www</code>)</li>
+<li>When you are linking to another page within the same site you don't need to specify the absolute URL instead you can specify the relative URL</li>
+<li>Relative URLs use a short-form syntax to be able to indicate where the page is relative to the current page; this way it is easier to do linking without using the domain</li>
+<li>It is often a good idea to organize your code by placing pages for each different section of the site into a new folder</li>
+<li>Normally, each section has a homepage called <code>index.html</code> because web servers are usally set up to return the <code>index.html</code> file if no file name is specified thus if you have a folder called movies then if the URL is typed as /domian.com/movies then it will return <code>index.html</code> in the movies folder</li>
+<li>To indicate the current directory you use <code>./</code> and to indicate a parent directory you use <code>../</code> for relative urls, so for example if you need to go to your grandparent's folder and select a file you will do something like <code>../../index.html</code></li>
+</ul>
+</div>
 </div>
 
-<div id="outline-container-org673ebb3" class="outline-2">
-<h2 id="org673ebb3">Questions</h2>
+<div id="outline-container-orgbaca12c" class="outline-3">
+<h3 id="orgbaca12c">Section 4.3: Email Links &amp; Opening Links in a New Window</h3>
+<div class="outline-text-3" id="text-orgbaca12c">
+<ul class="org-ul">
+<li>To create a link that starts up the user's email program and addresses an email to a specified email address you use the same <code>&lt;a&gt;</code> element and the same <code>href</code> attribute</li>
+<li>However, this time the value of the <code>href</code> attribute starts with <code>mailto:</code> followed by the email address you want the email to be sent to</li>
+<li>Thus it will appear as a link but when clicked the user's email program will open a new email message and address it to the person specified in the link</li>
+<li>If you want a link to open in a new window (tap), you can use the <code>target</code> attribute on the opening <code>&lt;a&gt;</code> tag and the value should be <code>_blank</code></li>
+<li>Generally the blank value is used because the web page author want the user to return to their web page and if we do we should inform the users that the link will open a new window (tab) before they click on it</li>
+</ul>
+</div>
 </div>
 
-<div id="outline-container-orgf19656d" class="outline-2">
-<h2 id="orgf19656d">Summary</h2>
+<div id="outline-container-orgb272e84" class="outline-3">
+<h3 id="orgb272e84">Section 4.4: Linking to a Specific Part of the Same Page</h3>
+<div class="outline-text-3" id="text-orgb272e84">
+<ul class="org-ul">
+<li>Many people create links within the same page to allow the users to be able to navigate a long page easily</li>
+<li>Before you can link to a specific part of a page, you need to identify the points in the page that the link will go to and you do this by using the <code>id</code> attribute which is a global attribute (it works on every HTML element)</li>
+<li>The value of the <code>id</code> attribute should start with a letter or an underscore (not a number or any other character) and on a single page no two <code>id</code> attributes should have the same value</li>
+<li>To link to an element that uses an <code>id</code> attribute you use the same <code>&lt;a&gt;</code> element and the same <code>href</code> tag but now the value of <code>href</code> starts with the <code>#</code> symbol followed by the value of the <code>id</code> attribute of the element you want to link to</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0999627" class="outline-3">
+<h3 id="org0999627">Section 4.5: Linking to a Specific Part of Another Page</h3>
+<div class="outline-text-3" id="text-org0999627">
+<ul class="org-ul">
+<li>A similar approach used to link to a specific part (element) of another page</li>
+<li>As long as that page uses the <code>id</code> attributes and the web author knows the value again as the <code>id</code> you can simply give the <code>href</code> attribute the value of the path to the page followed by <code>#</code> and the <code>id</code> attribute value</li>
+<li>Therefore, the href attribute will contain the address for the page (either by using absolute URL or relative URL) followed by the <code>#</code> symbol followed by the value of the <code>id</code> attribute that is used on the element you are linking to</li>
+<li>Here is an example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;a href="http:/www.htmlandcssbook.com/#bottom"&gt;Example&lt;/a&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd2e22bb" class="outline-3">
+<h3 id="orgd2e22bb">Section 4.6: Creating a Simple Web Page With Links</h3>
+<div class="outline-text-3" id="text-orgd2e22bb">
+<ul class="org-ul">
+<li><a href="./004.006.Creating a Simple Web Page With Links/index.html">Completed creating a simple web page with links exercise</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4b40541" class="outline-2">
+<h2 id="org4b40541">Keywords</h2>
+<div class="outline-text-2" id="text-org4b40541">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>HTML Anchor Element</b></td>
+<td class="org-left">The <code>&lt;a&gt;</code> element is used to create links to different web pages and can even be used to send an email</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Link Text</b></td>
+<td class="org-left">The text in between the opening and closing tags of the anchor element</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>URL</b></td>
+<td class="org-left">Unifrom Resource Locator which is a unique path to a resource</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Absolute URL</b></td>
+<td class="org-left">An URL that has the domain and the path to the resource</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Relative URL</b></td>
+<td class="org-left">An URL that is relative to the current page and thus describes the path relative to the current working directory</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>ID Attribute</b></td>
+<td class="org-left">A global attribute that can be used on any HTML element to identify a specific HTML element</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgf2756e2" class="outline-2">
+<h2 id="orgf2756e2">Questions</h2>
+<div class="outline-text-2" id="text-orgf2756e2">
+<ul class="org-ul">
+<li><b>Q</b>: According to the book we should avoid opening links in a new window. Is it still the case?
+<ul class="org-ul">
+<li><a href="https://ux.stackexchange.com/questions/104154/should-external-link-open-in-same-tab-or-new-tab">UX StackExchange Explanation</a></li>
+<li>The general consensus is that a new tab <b>should not</b> be opened</li>
+<li>Generally, we should open links within the same tab for various reasons:
+<ol class="org-ol">
+<li>Screen readers and users using accessibility software may get lost and disoriented</li>
+<li>Not every user are tech savy and thus do not always work with tabs or understand how to use tabs</li>
+<li>Your back button does not work anymore and many people navigate the web using the back button</li>
+<li>Mobile usage becomes more cumbersome</li>
+</ol></li>
+<li>So only if need should you open a new tab but like the book says: it should generally be avoided</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0e578c9" class="outline-2">
+<h2 id="org0e578c9">Summary</h2>
+<div class="outline-text-2" id="text-org0e578c9">
+<ul class="org-ul">
+<li>The anchor element along with the <code>href</code> attribute is used to specify link text and the URL to the resource you are linking it to</li>
+<li>If you are linking to another site then use the absolute URL but if you are linking another page within your site it is best to use a relative URL</li>
+<li>You can also send emails with the anchor element and the <code>href</code> attribute</li>
+<li>You can specify if you want the link to open within the same tab or in a new tab</li>
+<li>You can also link to a specific part (element) of a page either within the same page or another page</li>
+<li>This is done by simply adding an id attribute to the HTML element you want to link to and specifying in the <code>href</code> attribute the <code>#</code> followed by the name of the id</li>
+<li>If it is within the same page just specify using the <code>#</code> symbol and the id name but if it is a different page then specify the URL followed by <code>#</code> and the name of the id</li>
+</ul>
+</div>
 </div>
 </div>
 </body>

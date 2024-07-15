@@ -1,0 +1,36 @@
+#+title: Ch.5 Images
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
+
+*Prev*: Ch.4 Links [[[file:../004.Links/004.000.Notes.html][html]]] [[[file:../004.Links/004.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/004.Links][github]]]
+
+*Next*: Ch.6 Tables [[[file:../006.Tables/006.000.Notes.html][html]]] [[[file:../006.Tables/006.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/006.Tables][github]]]
+
+* Notes
+
+** Section 5.1: Introduction to Images
+   - There are many reasons why we need images in our web page but we need to do it right; for now we learn how to deal with images using HTML but later we'll learn how to include images using CSS
+   - The first task is getting great looking images and this can be done using stock images from stock photo companies
+   - Another tip is that if we have several images in a web page then putting them on a simple and consistent background helps the images look better as a group
+   - So here are what images should do and be:
+     1. Be relevant
+     2. Convey information
+     3. Convey the right mood
+     4. Be instantly recognizable
+     5. Fit the color palette
+   - A good practice would be to create a folder for all of the images the web page uses, this way you have all your assets in one folder
+   - 
+
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*:
+
+* Summary
