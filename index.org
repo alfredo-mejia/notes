@@ -1,7 +1,7 @@
 #+title: Notes
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="./scratch/bulma/css/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="./scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Welcome
 Welcome to my repository called notes. This repo will have notes about anything I wish to take notes on. This can be a YouTube video, a course, a book, a process, like how to wash a car properly, research papers, articles, technologies, etc. Many of the times, when I take down notes on whatever it may be, I either delete the files, throw out the paper, or simply take down bad notes.
