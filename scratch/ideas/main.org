@@ -55,3 +55,28 @@
    - In addition to this, it would be cool to create an app that automatically create these names into DST files and sends them to the embroidery machine (this way we skip having to create the DST names ourselves and it is automated)
      - This would be a litte harder but I think definitely doable
      - So as the customer sends the request the machine would already know the font and the size to create a DST file and send it to the machine so the operator can just embroider and not have to create the DST file as well 
+
+** Social Media Accounts / Brand
+   - Use social media to increase your brand, expand your service, gain new customers, gain more views, use social media to our advantage
+   - We can create a social media account that teach about how tech works like WiFi, the internet, domains, AI, ChatGPT, etc
+   - The social media can make short videos and even full videos in YouTube
+   - For short videos we can interview people in the streets and ask how much do they make, does technology scare you, quizzes with prizes, and post the full video on YouTube
+   - Make short videos about how you make software for fun / good causes (help elderly, help dogs, etc) and full video on YouTube
+   - Make short videos about how you make software for short clips like every time the ball hits the border it creates two until the computer crashes, or draw circles until the screen is full something colorful and interesting
+   - Interview famous or important people in the tech world such as professors, professionals, etc. and make short and long videos on YouTube
+   - Make videos about working with cities, businesses, non-profits, etc. in how we can solve their problems (short and long videos)
+   - Go to people (children, elderly people, people with not much computer access) and ask if they need help with any tech problems and try to solve it
+   - Make videos about helping businesses with tech
+   - Go to the streets get a podium and buzzers and have a game between contestants and if they win they get a prize
+
+** Technology Agency
+   - Learn how to create full stack websites
+   - Learn how to design websites
+   - Learn how to create full stack mobile applications
+   - Learn how to design mobile apps
+   - Learn how to create full stack desktop applications
+   - Learn how to design desktop applications
+   - Learn how to create full stack VR apps, wear OS apps, etc.
+   - Learn how to design IOT apps
+   - Learn how to create full stack games
+   - Learn how to design full stack games

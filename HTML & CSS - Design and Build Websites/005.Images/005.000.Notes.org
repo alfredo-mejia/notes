@@ -23,14 +23,144 @@
      4. Be instantly recognizable
      5. Fit the color palette
    - A good practice would be to create a folder for all of the images the web page uses, this way you have all your assets in one folder
-   - 
+   - If you needed then you can create subfolders under the single asset folder
 
+** Section 5.2: Adding Images
+   - To add an image into the page you need to use an ~<img />~ element
+   - This is an empty element (no closing tag) and it must have the following two attributes: ~src~ and ~alt~
+   - ~src~ tells the browser where it can find the image file (usually be a relative URL pointing to some image in your own site or it could be an absolute URL)
+   - ~alt~ provides a text description (usally called alt text) of the image which describes the image if the image cannot be rendered and displayed on the browser
+   - The alt text should give an accurate description of the image content so it can be understood by screen reader software and search engines
+   - If the image is just to make a page look more attractive and it has no meaning then the alt attribute should still be used but the quotes should be left empty
+   - ~title~ attribute can be used with ~<img/>~ element to provide additional information about the image and most browsers will display the attribute text in a tooltip when the user hoves over the image
+   - There two other attributes that specify the size of the image: ~height~ and ~width~
+   - The attributes ~height~ and ~width~ are used and specified in pixels and since HTML is loaded quicker than images it is a good idea to specify the size of the image so that the browser can render the rest of the text on the page while leaving the right amount of space for the image that is still loading
+   - However, the size of the image is normally specified by CSS
+
+** Section 5.3: Positioning Images
+   - There are a couple ways to place images: before a paragraph, inside the start of a paragraph, or in the middle of the a paragraph
+   - When you do it before a paragraph, the paragraph starts on a new line after the image
+   - When you do it inside the start of a paragraph the first row of text aligns with the bottom of the image
+   - When you do it in the middle of a paragraph the image is placed between the words of the paragraph that it appears in
+   - To understand placement we must understand block elements and inline elements
+   - Block elements always appear on a new line (examples of block elements include ~<h1>~ and ~<p>~)
+   - If the ~<img>~ is followed by a block level element (such as a paragraph) then the block level element will sit on a new line after the image
+   - Inline elements sit within a block level element and do not start on a new line (examples include ~<b>~, ~<em>~, and ~<img>~ elements)
+   - If the ~<img>~ element is inside a block level element, any text or other inline elements will flow around the image
+
+** Section 5.4: Aligning Images
+   - The ~align~ attribute was commonly used to indicate how the other parts of a page should flow around an image (it has thus been removed from HTML5 and now CSS is used to align images)
+   - However in older code to align an image horizontally you can specify two horizontal values: ~left~ and ~right~
+   - The left value aligns the image to the left allowing text to flow around its right-hand side
+   - The right value aligns the image to the right allowing text to flow around its left-hand side
+   - Using left or right allows the image to placed on the left or right and allows the text to flow around it; padding and margins can be increased so the space between text and the image can make it more readable but that is done using CSS
+   - You can also align it vertically using the one of the following values: ~top~, ~middle~, and ~bottom~
+   - ~top~ aligns the first line of the surrounding text with the top of the image and subsequent lines of the text appear under the image
+   - ~middle~ aligns the first line of the surrounding text with the vertical middle of the image and subsequent lines of text appear under the image
+   - ~bottom~ aligns the first line of the surrounding text with the bottom of the image and subsequent lines of the text appear under the image
+   - CSS can be used to add margin and padding and it can also be used to use the float property which can make all the text wrap around the image (rather than just one line of text)
+
+** Section 5.5: Rules & Tools for Images
+   - There are 3 rules to remember when you are creating images for your website which are:
+     1. Save images in the right format (using the wrong format can cause the quality of the image to go down and make the web page slower to load)
+     2. Save images at the right size (you should save the image the same way it will appear on the website - measured in pixels)
+	- If not specified correctly the image may not display, looked scretched or disoriented
+     3. Measure images in pixels
+   - A great tool to have when dealing with images is Adobe Photoshop
+
+** Section 5.6: Different Types of Images
+   - JPEG: Good format to use whenever you have many different colors in a picture
+   - GIF or PNG: Good formats when saving images with a few colors or large areas of the same color (called flat color)
+     - Flat colors are normally used in logos, illustrations, and diagrams
+     - Photography of the sky for example are not flat colors because the photo or sky may be made up of different shades of the same color and thus not a flat color and are not suited for GIF or PNG
+
+** Section 5.7: Image Size
+   - The images you use on your website should be saved at the same width and height that you want them to appear on the page
+   - You can reduce the image size allowing the web page to load the image faster because it the image is smaller
+   - You can increase the image size but the image quality will be poor (it could end up looking blurry or blocky)
+   - You can also crop the image and thus changing the image size without losing valuable information or quality
+   - When cropping images it is important not to lose valuable information and it is best to source images that are the correct shape if possible
+   - For example cropping may remove subjects from the photo or some other information
+   - When sizing an image for use on the screen you should always set dimensions of the image in terms of pixels (not centimeters or inches)
+   - Pixels are tiny squares that make up a computer screen
+   - The resolution of the screen is the number of pixels represented on it and on most computers you can increase it or decrease it
+   - For example, the screen could be 640 x 480 pixels and that can be increased to 1024 x 768 pixels and thus we have more pixels per inch (PPI)
+   - When creating images for print it is best to save them at a resolution of 300 dots per inch (DPI) or higher to ensure that they look sharp
+   - On the web, however, the resolution of an image is irrelevant and we only need to think of the size of the image in terms of its dimensions in pixels
+   - Why? Because the image may be one resolution but the screen may be a lower resolution thus screens determine the size of an image based solely on its width and height in pixels
+   - Thus we need images to be measured by width and height in pixels because an image that is 300 x 300 pixels at 72 ppi will look the same as 300 x 300 pixels at 500 ppi because the height and width does not change just the number of pixels per inch thus at 500 ppi the image may look smaller because there are more pixels per inch but the resolution stays the same because the image is the same size in both cases
+   - Vector images on the other hand are resolution-independent and differ from bitmap images
+   - Vector images allow you to change the dimensions of the image without affecting the quality of it
+   - Vector images are normally saved in SVG formats and allows the developer to display vector images directly on the web
+
+** Section 5.8: Animated GIFs
+   - Animated GIFs show seveal frames of an image in sequence and therefore can be used to create simple animations
+   - The downfall of GIFs is that the more frames you add to the GIF the bigger the memory size the file will be and thus cause more time for it to load
+   - You can also create images that are partially transparent or "see-through" or even only having a fully transparent background (there are a couple of options) but to do this you will need either a GIF file or a PNG file
+
+** Section 5.9: HTML Elements Figure and Figure Caption
+   - HTML5 has introduced a new ~<figure>~ element to contain images and their caption so that the two are associated
+   - You can have more than one image inside the ~<figure>~ element as long as they all share the same caption
+   - Browsers sometimes indent the contents of the ~<figure>~ element
+   - The ~<figcaption>~ element has been added to HTML5 in order to allow web page authors to add a caption to an image
+   - Before there was no way to associate an ~<img>~ element with its caption
+
+** Section 5.10: Creating a Simple Web Page with Images
+   - [[file:005.010.Creating a Simple Web Page with Images/index.html][Creating a Simple Web Page with Images]]
+     
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term                   | Definition                                                                                                                                                            |
+|------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ~<img />~ Element      | This HTML element embeds an image into the HTML document                                                                                                              |
+| Block Elements         | Block elements always appear on a new line                                                                                                                            |
+| Inline Elements        | Inline elements do not start on a new line and sit within a block level element only using the space needed                                                           |
+| JPEG Format            | A format to save images and used whenever you have many different colors and shade of colors in a picture (e.g. photography)                                          |
+| GIF Format             | A format to save images or multiple images to demonstrate an animation and it is used when the images have a few colors or large areas of the same color              |
+| PNG Format             | A format to save images and it is good for images with few colors or large areas of the same color and same shade too (e.g. logos and illustrations)                  |
+| Flat Color             | The same color is used in a large area is called a flat color (the sky is not a flat color because the sky is made up different shades of blue)                       |
+| Pixels                 | A pixel is a small square that makes up a screen of a computer                                                                                                        |
+| Resolution             | There are image resolution, image dimension and screen resolution; screen resolution expresses how many pixels are present in the entire screen                       |
+| Pixels Per Inch        | Refers to the number of pixels contained within each inch of a digital device                                                                                         |
+| Dots Per Inch          | Refers to the number of printed dots contained within each inch of an image printed by a printer                                                                      |
+| ~<Figure>~ Element     | HTML element represents a self-contained figure (content) potentially with an optional caption (the figure, the caption, and the content are refered as a single unit |
+| ~<figcaption>~ Element | HTML element that represents a caption or legend describing the rest of the contents of its parent ~<figure>~ element                                                 |
 
 * Questions
-  - *Q*:
+  - *Q*: What are the difference between image resolution, image dimension, and screen resolution?
+         - Let's first talk about screen resolution which is the number of how many pixels are present in the entire screen
+	 - For example, let's say our resolution is 1,920 x 1,080 that means we have 1,920 rows of pixels by 1,080 columns of pixels
+	 - The higher the resolution the sharper your screen will appear and thus the images and text will also look sharper
+	 - What if we have a computer or monitor with the same resolution but the screen is much bigger?
+	 - If the monitor is bigger and it has the same number of pixels then the PPI (pixels per inch) will be less because a single pixel will need to cover more screen real estate
+	 - This allows for sizes of your images, text, icon to look the same relative to the screen compared to a monitor that is smaller but the quality may drop
+	 - This is because a pixel will have to cover more real estate causing the screen to look disoriented
+	 - Image resolution on the other hand refer to the number of dots (sometimes referred as pixels) within the image itself and is indepedent of the screen resolution
+	 - Of course, an image with lower DPI will be more blurry and an image with higher DPI will be more sharp
+	 - Image dimension is related to the screen resolution
+	 - For example, if you state an image is 100 x 300 pixels then it will display 100 x 300 pixels in the screen and depending on the screen's resolution it may appear differently in different screens
+	 - For example, monitor A has a higher PPI then 100 x 300 pixels will be smaller because one pixel takes less screen real estate while a monitor B with a lower PPI and the same dimension will be larger because a pixel takes up more space
+	 - The image may look the same but the dimensions is what matters when it comes to displaying images on screens	
 
 * Summary
+  - Images are sometimes necessary in a website, images should be relevant, convey information, convey the right mood, be insantly recognizable, and fit the color palette
+  - A great way to be organized is to create a folder for all the images (with subfolders if necessary)
+  - The ~<img />~ element is used to embed an image into the page
+  - The ~src~ attribute is used to specify a relative or absolute URL indicating where the image is
+  - The ~alt~ attribute is used to provide a text description of the image and often used by screen reader software and search engines
+  - The ~title~ attribute is used to provide additional information about the image and will be displayed whenever the user hovers over the image
+  - The ~height~ and ~width~ attribute are used to specify the height and width of the image in pixels
+  - The image is a inline element and if there are other elements after the image the content will flow just around the image
+  - The ~align~ attribute can indicate how the other parts of a page should flow around an image; the values can be left, right, top, middle, and bottom but this is not used as much no more and now CSS is used along with the float property to handle other content around the image
+  - More tips in handling images are: save the images in the right format, save images in the right size, and measure images in pixels
+  - JPEG is often used for photography or images with many different colors in a picture
+  - PNG is used for images with a few colors or large areas of the same color often called as flat color
+  - Flat colors are often used in logos and illustrations but rarely seen in photography because a single color may have different shades due to lighting, exposure, etc.
+  - GIF is used to animate images often PNG images; in other words GIF is used to animate images that have a few colors or large areas of the same color
+  - Always save images at the same width and height that you want them to appear on the page
+  - There are ways to change an image size such as shrinking, expanding, cropping, and thus the developer must make the right decision
+  - In a screen an image resolution is irrelevant and we are only concerned with the image's dimensions in pixels thus we must specify the dimensions and hopefully the image will already be saved in that dimension to prevent the quality of the image to go down
+  - Vector images on the other hand are resolution-indepedent and allow you to change the dimensions of the image without affecting the quality of it
+  - Vector images are normally saved in SVG formats
+  - Finally, the element ~<figure>~ can be used to associate an image or multiple images with a caption
+  - ~<figure>~ is more of a semantic element than a functional
+  - To specify a caption for the ~<figure>~ element we use the ~<figcaption>~ element
