@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6 Question 1</title>
+  </head>
+  <body>
+    <h2>Only Table Element Border Works</h2>
+    <table border="2">
+      <thead>
+        <tr border="4">
+          <td>First Name</td>
+          <td>Last Name</td>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr>
+          <td border="100">Bob</td>
+          <td>Smith</td>
+        </tr>
+      </tbody>
+    
+      <tfoot>
+        <tr>
+          <td colspan="2">Total People: 1</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <h2>Other Borders Do Not Work</h2>
+    <table>
+      <thead>
+        <tr border="4">
+          <td>First Name</td>
+          <td>Last Name</td>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr>
+          <td border="100">Bob</td>
+          <td>Smith</td>
+        </tr>
+      </tbody>
+    
+      <tfoot>
+        <tr>
+          <td colspan="2">Total People: 1</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

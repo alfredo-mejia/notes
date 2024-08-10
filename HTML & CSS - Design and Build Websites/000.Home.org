@@ -21,6 +21,9 @@
 2. Text [[[file:002.Text/002.000.Notes.html][html]]] [[[file:./002.Text/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/002.Text][github]]]
 3. Lists [[[file:003.Lists/003.000.Notes.html][html]]] [[[file:003.Lists/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/003.Lists][github]]]
 4. Links [[[file:004.Links/004.000.Notes.html][html]]] [[[file:004.Links/004.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/004.Links][github]]]
-
+5. Images [[[file:./005.Images/005.000.Notes.html][html]]] [[[file:./005.Images/005.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/005.Images][github]]]
+6. Tables [[[file:./006.Tables/006.000.Notes.html][html]]] [[[file:./006.Tables/006.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/006.Tables][github]]]
+7. Forms
+       
 * My Thoughts
 /Not Yet Finsihed/

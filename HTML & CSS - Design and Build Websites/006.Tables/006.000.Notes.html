@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-08-09 Fri 20:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ch.6 Tables</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Ch.6 Tables</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org30ebba9">Navigation</a></li>
+<li><a href="#org30cb522">Notes</a>
+<ul>
+<li><a href="#org042a080">Section 6.1: Introduction to Tables</a></li>
+<li><a href="#orgacd1dbd">Section 6.2: Basic Table Structure</a></li>
+<li><a href="#org8711eb5">Section 6.3: Spanning Columns &amp; Spanning Rows</a></li>
+<li><a href="#org7d0d509">Section 6.4: Long Tables</a></li>
+<li><a href="#org5079cb4">Section 6.5: Old Outdate Code in Tables</a></li>
+<li><a href="#org014b3b0">Section 6.6: Creating a Simple Table</a></li>
+</ul>
+</li>
+<li><a href="#org5d5f855">Keywords</a></li>
+<li><a href="#org5b5ea73">Questions</a></li>
+<li><a href="#org4487285">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org30ebba9" class="outline-2">
+<h2 id="org30ebba9">Navigation</h2>
+<div class="outline-text-2" id="text-org30ebba9">
+<p>
+<b>Home</b>: HTML &amp; CSS - Design and Build Websites [<a href="../000.Home.html">html</a>] [<a href="../000.Home.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites">github</a>]
+</p>
+
+<p>
+<b>Prev</b>: Ch.5 Images [<a href="../005.Images/005.000.Notes.html">html</a>] [<a href="../005.Images/005.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/005.Images">github</a>]
+</p>
+
+<p>
+<b>Next</b>: Ch.7 Forms [<a href="../007.Forms/007.000.Notes.html">html</a>] [<a href="../007.Forms/007.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/007.Forms">github</a>]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org30cb522" class="outline-2">
+<h2 id="org30cb522">Notes</h2>
+<div class="outline-text-2" id="text-org30cb522">
+</div>
+<div id="outline-container-org042a080" class="outline-3">
+<h3 id="org042a080">Section 6.1: Introduction to Tables</h3>
+<div class="outline-text-3" id="text-org042a080">
+<ul class="org-ul">
+<li>A table represents information in a grid format (e.g. financial reports, TV schedules, and sports results)</li>
+<li>Grids allow us to understand complex data by referencing information on two axes</li>
+<li>Each block in the grid is referred to as a table cell</li>
+<li>In HTML a table is written out row by row</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgacd1dbd" class="outline-3">
+<h3 id="orgacd1dbd">Section 6.2: Basic Table Structure</h3>
+<div class="outline-text-3" id="text-orgacd1dbd">
+<ul class="org-ul">
+<li><code>&lt;table&gt;</code> element is used to create a table and the contents are written out row by row</li>
+<li><code>&lt;tr&gt;</code> indicate the start of each row using the opening <code>&lt;tr&gt;</code> tag (table row)</li>
+<li>It is then followed by one or more <code>&lt;td&gt;</code> elements (one for each cell in that row) and at the end of the row you use a closing <code>&lt;/tr&gt;</code> tag</li>
+<li>Each cell of a table is represented using a <code>&lt;td&gt;</code> element (table data) and at the end of each cell you use a closing <code>&lt;/td&gt;</code> tag</li>
+<li><code>&lt;th&gt;</code> element is used just like the <code>&lt;td&gt;</code> element but its purpose is to represent the heading for either a column or a row (th stands for table heading)</li>
+<li>Even if a cell has no conent you should still use a <code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element to represent the presence of an empty cell otherwise the table will not render correctly (unless using colspan or rowspan)</li>
+<li>The table heading is useful for search engines, screen readers, and helps you control the appearance using CSS</li>
+<li>You can use the <code>scope</code> attribute in the <code>&lt;th&gt;</code> element to specify if the heading is for a column or row (e.g. <code>&lt;th scope="row"&gt;Row Heading&lt;/th&gt;</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8711eb5" class="outline-3">
+<h3 id="org8711eb5">Section 6.3: Spanning Columns &amp; Spanning Rows</h3>
+<div class="outline-text-3" id="text-org8711eb5">
+<ul class="org-ul">
+<li>The <code>colspan</code> attribute can be used on a <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> element and indicates how many columns that cell should run across</li>
+<li>When a cell extends across more than one column, the <code>&lt;th&gt;</code> or <code>&lt;th&gt;</code> cells that would have been in the place of the wider cells are not included in the code</li>
+<li>The <code>rowspan</code> attribute can be used on a <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> element to indicate how many rows a cell should span down the table</li>
+<li>Just like <code>colspan</code>, with <code>rowspan</code> you do not need to specify the <code>&lt;td&gt;</code> elements</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7d0d509" class="outline-3">
+<h3 id="org7d0d509">Section 6.4: Long Tables</h3>
+<div class="outline-text-3" id="text-org7d0d509">
+<ul class="org-ul">
+<li>There are three semantic elements that help distinguish between the main content, the first few rows (e.g. headers) and the last few rows (e.g. summary, accumulation, etc.)</li>
+<li>These elements help people who use screen readers and also allow you to style these sections in a different manner than the rest of the table</li>
+<li><code>&lt;thead&gt;</code> element is used to encapsulate a set of table rows indicating that they comprise the head of a table with information about the table's columns</li>
+<li><code>&lt;tbody&gt;</code> element encapsulates a set of table rows indicating that they comprise the body of a table's (main) data</li>
+<li><code>&lt;tfoot&gt;</code> element encapsulates a set of table rows indicating that they comprise the foot of a table with information about the table's columns (this is usually a summary of the columns like a sum of the given numbers in a column)</li>
+<li>Another feature that can be implemented because of these elements that separate the table is that when you have a long table you can keep visible the table header and the table footer and make the table body scrollable</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5079cb4" class="outline-3">
+<h3 id="org5079cb4">Section 6.5: Old Outdate Code in Tables</h3>
+<div class="outline-text-3" id="text-org5079cb4">
+<ul class="org-ul">
+<li>Some of the following attributes can still be found in old websites but are no longer used and is substituted by CSS</li>
+<li><code>width</code> attribute indicate how wide that table should be (if added to the table element) and how wide the cells should be (if added to the <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> element)</li>
+<li><code>width</code> attribute is specified in pixels</li>
+<li>The columns in a table need to form a straight line so you often only see the <code>width</code> attribute on the first row and all subsequent rows follow / use that setting</li>
+<li><code>cellpading</code> attribute can be used in the <code>&lt;table&gt;</code> element to add space inside each cell of the table and <code>cellspacing</code> attribute can be used to create space between each cell of the table; again the values are specified in pixels</li>
+<li>Other attributes include <code>border</code> and <code>bgcolor</code> (background color)</li>
+<li>The <code>border</code> attribute adds a border to the element and it is specified in pixels</li>
+<li>The <code>bgcolor</code> attribute adds a background color of the element and usually is specified as a hex code</li>
+<li>Nowadays these are not used; instead you should use CSS</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org014b3b0" class="outline-3">
+<h3 id="org014b3b0">Section 6.6: Creating a Simple Table</h3>
+<div class="outline-text-3" id="text-org014b3b0">
+<ul class="org-ul">
+<li><a href="./006.006.Creating a Simple Table/index.html">Creating a Simple Table</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5d5f855" class="outline-2">
+<h2 id="org5d5f855">Keywords</h2>
+<div class="outline-text-2" id="text-org5d5f855">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Table</td>
+<td class="org-left">Represents a information in a grid format</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;table&gt;</code> Element</td>
+<td class="org-left">HTML element used to create a atable and the contents are written out row by row</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;tr&gt;</code> Element</td>
+<td class="org-left">Table row element is used to indicate the start of each row using the opening tag and the ending of the row using the closing tag</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;td&gt;</code> Element</td>
+<td class="org-left">Table data element is used to encapsulate a single cell inside the table row element</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;th&gt;</code> Element</td>
+<td class="org-left">Table heading is used similar to table data it is used to encapsulate a single cell that is used a heading for a specific row or column</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Scope</code> Attribute</td>
+<td class="org-left">The scope attribute is used in <code>&lt;th&gt;</code> element to specify if the heading belongs to a column or a row</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Colspan</code> and <code>Rowspan</code> Attribute</td>
+<td class="org-left">Both attributes are used for either <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> and extend the table cell across either multiple columns or multiple rows</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;thead&gt;</code> Element</td>
+<td class="org-left">An element used inside the <code>&lt;table&gt;</code> element and it encapsulates a set of table rows indicating that they comprise the head of a table with information about the table's columns</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;tbody&gt;</code> Element</td>
+<td class="org-left">An element used inside the <code>&lt;table&gt;</code> (typically after the table head) and it encapsulates a set of table rows indicating that they comprise the body of a table's main data</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;tfoot&gt;</code> Element</td>
+<td class="org-left">An element used inside the <code>&lt;table&gt;</code> (typically after the table body) and it encapsulates a set of table rows indicating that they comprise the foot of a table with information about the table's columns (this is usually a summary of the columns like a sum of the given numbers in a column)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Width</code> Attribute</td>
+<td class="org-left">The width attribute is an old attribute that is no longer used because CSS is used instead but this attribute indicate how wide the table should be or how wide the cells should be</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Cellpadding</code> and <code>Cellspacing</code> Attribute</td>
+<td class="org-left">Both attributes are older attributes that are no longer used because of CSS but cellpadding controls the space inside each cell while cellspacing controls the space between each cell of the table</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Border</code> and <code>BgColor</code> Attribute</td>
+<td class="org-left">Both attributes are older attributes that are no longer used because of CSS but border allows you to specify a border to the table or cell and background color allows you to specify a background color to the table or cell</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org5b5ea73" class="outline-2">
+<h2 id="org5b5ea73">Questions</h2>
+<div class="outline-text-2" id="text-org5b5ea73">
+<ul class="org-ul">
+<li><b>Q</b>: Can you have different borders for table and cells?
+<ul class="org-ul">
+<li>No you cannot</li>
+<li>The border attribute seems like it would only work in the table element and not in any of the children element such as <code>thead</code>, <code>tr</code> or <code>td</code></li>
+<li>Here is an example: <a href="./006.007.Questions/q1.html">HTML Example</a></li>
+<li>Why is that the case? This is because once you specify the <code>border</code> attribute will have borders in all cells and rows</li>
+<li>The border attribute doesn't work in cells or rows because this will simply be overwritten by the table border since it does rows and cells</li>
+</ul></li>
+
+<li><b>Q</b>: Can you have different background colors for different cells?
+<ul class="org-ul">
+<li>Yes you can</li>
+<li>The <code>bgcolor</code> attribute can be used on the table, table head, table body, table foot, table row, table data (cell), table header (<code>&lt;th&gt;</code>), and many more elements</li>
+<li>Here is an example: <a href="./006.007.Questions/q2.html">HTML Example</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4487285" class="outline-2">
+<h2 id="org4487285">Summary</h2>
+<div class="outline-text-2" id="text-org4487285">
+<ul class="org-ul">
+<li>A table represents information in a grid format</li>
+<li>In HTML a table is written out row by row</li>
+<li><code>&lt;table&gt;</code> element is used to create a table and the contents are written out row by row</li>
+<li><code>&lt;tr&gt;</code> element is used to create a table row</li>
+<li><code>&lt;td&gt;</code> element is used to create a table cell and using that element you specify the contents of the cell</li>
+<li><code>&lt;th&gt;</code> element is used to create a table heading cell to indicate the heading for a row or a column</li>
+<li>You can use the attribute <code>scope</code> inside <code>&lt;th&gt;</code> to specify if the heading cell is for a row or a column</li>
+<li>A single cell can span multiple columns or multiple rows using the attribute <code>colspan</code> or <code>rowspan</code> and specify the amount of rows / columns you want it to span</li>
+<li>The attribute <code>colspan</code> and <code>rowspan</code> can only be specified in table cell elements such as <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code></li>
+<li>You can separate the table into three parts: <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, and <code>&lt;tfoot&gt;</code></li>
+<li>The table head encapsulates the rows at the beginning of the table that often describe information about the table's columns</li>
+<li>The table body encapsulates the rows in the middle of the table that often hold the main data information of the table</li>
+<li>The table foot encapsulates the last rows of the table that often hold summary information of the columns or rows such as sum of a column</li>
+<li>There are some outdated attributes that are no longer used because CSS is used instead but these include: <code>width</code>, <code>cellpadding</code>, <code>cellspacing</code>, <code>border</code>, and <code>bgcolor</code></li>
+<li>The width can specify the width of the table or cell, the cell padding specifies how much space to add inside a cell of the table, the cell spacing specifies how much space to add between cells, border specifies how thick (or no border) you want the border of the table, and the background color specifies what color you want the background to be of the table or table cell</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
