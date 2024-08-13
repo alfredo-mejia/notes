@@ -12,6 +12,38 @@
 
 * Notes
 
+** Section 7.1: Introduction to Forms
+   - A form has referred to a /printed/ document that contains spaces for you to fill in information
+   - HTML borrows the concept of a form to refer to different elements that allow you to collect information / data from visitors (users) to your site
+   - An example of forms used in HTML are search boxes used by google or any search engine, when creating a new account online, when shopping online, or when signing up for newsletters or mailing lists
+   - There are several types of form controls that you can use to collect information from visitors to your site
+     - Text Input: Used for a single line of text such as email addresses and names
+     - Password Input: Like a single line text box but it masks (hides) the characters entered
+     - Text Area: For longer areas of text that need / can span multiple lines such as messages or comments
+     - Radio Buttons: Used when a user must select *one* of a number of options
+     - Checkboxes: Used when a user needs select or unselect one or more options
+     - Drop-down Boxes: Used when a user must pick one of a number of options from a list
+     - Submit Buttons: Used to submit data from your form to another web page
+     - Image Buttons: Similar to submit buttons but they allow you to use an image as the button
+     - File Upload: Allows users to upload files to a website
+
+** Section 7.2: How Forms Work
+   - A user fills in a form and then presses a button to submit the information to the server
+   - The name of each form control is sent to the server along with the value the user enters or selects
+   - The server processes the information using a programming language (PHP, C#, VB.net, or Java) in the backend server and the backend server may even communicate with a database
+   - The server creates a new page to send back to the browser based on the information received or sends some type of data back to the browser for the browser to display some update either a success or an error
+   - Keep in mind a form may have several form controls, each gather different information and the backend server needs to know which piece of inputted data corresponds with which form element
+   - To differentiate between various pieces of inputted data, information is sent from the browser to the server using name / value pairs
+   - What does it mean by name / value pairs? For example, let's say we have a form that asks for a username and the user enters john123 then what is sent the server is ~username=john123~
+   - A pair is sent to the server; this pair includes the name of the data and the value of the data
+   - How do we specify that in the form element? We use the ~name~ attribute to specify the name of the data (in the example of above we need specify "username") and to specify the value, you either get it from the user or if it is a fixed set of answers then you use the ~value~ attribute to specify the value of the data (or input)
+   - Remember, how would a server distinguish between multiple inputs? It will distinguish them by their "names" thus when specified in the ~name~ attribute you have to make sure the backend server understands the name because using the name it will retrieve the value for that specific input control
+
+** Section 7.3: Form Structure
+   - Form controls live inside a ~<form>~ element and this element should always carry the action attribute and will usually have a method and id attribute too
+   - The ~action~ attribute is required and its value is the URL for the page on the server that will receive the information in the form when it is submitted (in other words it is the URL that the browser will send the information to)
+   - Recall a URL is an address for a server, in our case, this will be the backend server
+     
 * Keywords
 | Term | Definition |
 |------+------------|
