@@ -43,7 +43,109 @@
    - Form controls live inside a ~<form>~ element and this element should always carry the action attribute and will usually have a method and id attribute too
    - The ~action~ attribute is required and its value is the URL for the page on the server that will receive the information in the form when it is submitted (in other words it is the URL that the browser will send the information to)
    - Recall a URL is an address for a server, in our case, this will be the backend server
-     
+   - Forms can be sent using one of two methods: get or post
+   - With the get method, the values from the form are added to the end of the URL specified in the ~action~ attribute
+   - The get method is ideal for:
+     - Short forms such as search boxes
+     - When you are just retrieving data from the web server (not sending information that should be added to or deleted from a database)
+   - With the post method the values are sent in what are known as HTTP headers
+   - The post method is ideal for:
+     - Allowing users to upload a file in your form
+     - The form is very long
+     - If the form may contain sensitive data such as passwords
+     - The form adds information to or deletes information from a database
+   - You specify the type of method using the ~method~ attribute and specify either ~get~ or ~post~
+   - If the method attribute is not used, the form data will be sent using the get method by default
+   - Finally, it is ideal to add an ~id~ attribute to the form element to distinct it from other elements on the page which are often used by scripts for input validation
+
+** Section 7.4: Text Input
+   - The ~<input>~ element is used to create several different form controls depending on the value of the ~type~ attribute
+   - The ~type~ attribute determines what kind of input they will be creating
+   - The ~<input>~ are used for single-line text inputs
+   - We also have ~<textarea>~ element which is used to create multi-line text inputs
+
+*** Section 7.4.1: Input Type Text
+    - The ~type="text"~ means the ~type~ attribute has a value of ~text~ which creates a single-line text input
+    - The ~name~ attribute identifies the form control and is sent along with the information they entered to the server
+    - Recall from our previous discussion, the data is sent a name/value pair so we need to tell the server the name of the form control and its value
+    - The name is specified by the ~name~ attribute so the server knows which form control each piece of data was entered into
+    - Although name is not required, in the sense that the browser will not render, but it is recommneded ("required") in the sense if not specified there is no way to retrieve the value in the backend
+    - Another attribute to input type text is ~size~ however using ~size~ is no longer recommended but it was an older way to indicate the width of the text input measured by the number of characters that would be seen at one time in the text box
+    - In new forms, CSS is used to control the width of form elements
+    - ~maxlength~ is another attribute to input type text and it limits the number of characters a user may enter into the text field
+    - The value of the attribute ~maxlength~ is the number of of characters they may enter 
+
+*** Section 7.4.2: Input Type Password
+    - Another type of input is the password type and can be specified by having the type attribute to be ~type="password"~
+    - When the type attribute has a value of password it creates a text box that acts just like a single-line text input, except the characters are blocked / masked / hidden out
+    - The same attributes can be applied here as the input type text; you can specify the ~name~, the ~size~, and the ~maxlength~
+    - Note that just because the password is hidden does not mean that the data in a password control is sent securely to the server
+    - For full security, the server needs to be set up to communicate with the users' browsers using Secure Sockets Layer (SSL) (this topic is beyond the scope of the book)
+
+*** Section 7.4.3: Text Area
+    - The ~<textarea>~ element is used to create a multi-line text input
+    - Unlike the ~<input>~ element this element does not have to be an empty element, you can add text to inside the element
+    - Therefore this element has an opening and closing tag
+    - Any text that appears between the opening ~<textarea>~ and closing ~</textarea>~ tags will appear in the text box when the page loads so the user may to append to the text or delete the existing text or leave it how it is
+    - If the user does not delete any text between these tags, this message (what is inside the element) will be sent to the server along with whatever the user has typed
+    - Some sites use JavaScript to clear the text when the user clicks in the text area and those cites use the text inside the element as a hint using JS
+    - Some older attributes include ~cols~ and ~rows~ which specify how many columns (basically how many characters you want the width to be) and how many rows (space taken vertically) you want the text area to have thus controlling the width and height of the text area
+    - This is not recommended as now CSS is used to control the width and height of a text area
+
+** Section 7.5: Multiple Options Input
+   - We continue using the ~<input>~ element but now we use the ~type="radio"~; radio buttons allow users to pick just one of a number of options
+   - Another type using the ~<input>~ element is the ~type="checkbox"~; checkboxes allow users to select and deselect one or more options for a question
+   - The ~<select>~ element creates a drop down list box (also known as a select box) that allows users to select one option from a drop down list
+
+*** Section 7.5.1: Input Type Radio
+    - To create a single radio button you use the ~<input>~ element and specify the type to be ~type="radio"~
+    - However, when dealing with radio buttons you are normally dealing with multiple radio buttons, not just one
+    - So how do you group multiple single radio buttons to associated with a single question? The answer is giving them the same name
+    - Radio buttons allow users to pick just one of a number of options so there will be only one value for one name
+    - Thus the value of the ~name~ attribute should be the same for all the radio buttons used for the same question as this is the value that will be sent to the server along with the name
+    - The ~value~ attribute indicates the value that is sent to the server for the selected option thus the value of each of the radio buttons in a group should be different because they represent different options and will be sent to the server so it wouldn't make sense for multiple radio buttons to have the same value because then the server will treat them the same
+    - The radio buttons need different values for the server to distinguish the options and respond appropriately
+    - The ~checked~ attribute can be used like ~checked="checked"~ to indicate which value (if any) should the default selection when the page loads
+    - Only one radio button in a group should use this attribute
+    - Note, once a radio button has been selected it cannot be deselected, it can only be changed by selecting a different option
+    - If you need an input option that allows user to select and deselect it'll be better to use a checkbox (even if it is a single checkbox and not multiple); an example is a checkbox indicating if the user agrees to the terms and conditions
+
+*** Section 7.5.2: Input Type Checkbox
+    - To create checkboxes you use the ~<input>~ element with the type attribute to be ~type="checkbox"~
+    - Checkboxes allow users to select (and deselect) one or more options on an answer to a question
+    - Again using the ~<input>~ with the type of the type checkbox, it creates one checkbox, you need to state multiple ~<input>~ with the type checkbox to create multile checkboxes
+    - How do you group them? The same way you group the radio buttons by giving them the same value in the ~name~ attribute
+    - The value of option is specified in the ~value~ attribute and should be different for each checkbox in the same question / name
+    - The ~checked~ attribute can also be used to indicate the default values of which checkbox should be checked when the page loads
+
+*** Section 7.5.3: Drop Down List Box
+    - Using the ~<select>~ element you can create a drop down list box (also known as a select box) which allows users to select one option from a drop down list
+    - Inside the ~<select>~ element you use two or more ~<option>~ elements to specify the options in the drop down list
+    - The attribute ~name~ is specified in the ~<select>~ element and it is the name of the form control being sent to the server along with the value the user has selected
+    - Like stated, ~<option>~ element is used to specify the options that the user can select from
+    - The words between the opening and closing tags of ~<option>~ will be shown to the user in the drop down box
+    - The value of the ~<option>~ is stated using the ~value~ attribute in the ~<option>~ element and it will indicate the value that is sent to the server along with the name (stated in the ~<select>~ element) of the form control
+    - You can also specify the ~selected~ attribute to indicate the default option that will be by default selected when the page loads, the attribute should be specify like ~selected="selected"~
+    - If this attribute is not used the first option will be shown when the page loads and if the user did not select an option (left it how it is) then the first item will be sent to the server as the value for this form control
+    - You can only choose one option from the drop down list; so what makes it different than the radio buttons? Well for smaller number of options radio buttons work best but for a long list of options then a drop down is best
+    - Another useful attribute in the ~<select>~ element is the ~size~ attribute
+    - The ~size~ attribute can turn a drop down select box from displaying only one option to showing multiple options at once
+    - The value of the ~size~ attribute should be the number of options you want to show at once
+    - Finally, another attribute is ~multiple="multiple"~, using this attribute you allow users to select multiple options from the list
+    - If you are going to allow the user to select multiple options then it is best to indicate to the user they are able to select more than one option at a time
+
+** Section 7.6: Other Types of Input
+
+*** Section 7.6.1: Input Type File
+    - If you want to allow users to upload a file like an image, pdf, etc. you will need to use a file input with the type ~type="file"~
+    - This type of input creates a box that looks like a text input followed by a ~Browse~ button
+    - When the user clicks on the ~Browse~ button, a window opens up that allows them to select a file from their computer to be uploaded to the website
+    - When you are allowing users to upload files, the ~method~ attribute of the ~<form>~ element must have a value of ~post~ as you cannot send files using HTTP ~get~ method
+
+*** Section 7.6.2: Submit Button
+    - 
+      
+
 * Keywords
 | Term | Definition |
 |------+------------|
