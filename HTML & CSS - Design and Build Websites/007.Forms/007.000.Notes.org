@@ -142,16 +142,117 @@
     - When the user clicks on the ~Browse~ button, a window opens up that allows them to select a file from their computer to be uploaded to the website
     - When you are allowing users to upload files, the ~method~ attribute of the ~<form>~ element must have a value of ~post~ as you cannot send files using HTTP ~get~ method
 
-*** Section 7.6.2: Submit Button
-    - 
-      
+*** Section 7.6.2: Input Type Submit Button
+    - You can also use the input to be of type ~type="submit"~ which will create a submit button that will send the form to the server
+    - It can use the ~name~ attribute but it does not need to have one
+    - The ~value~ attribute is used to control the text that appears on the input button (the default text is "Submit" so it is best to override this with the attribute ~value~)
+    - Browsers have a default styling for input buttons but this can be changed with CSS or image buttons
 
+*** Section 7.6.3: Input Type Image Button
+    - You can also use the input to be of type ~type="image"~ if you want to use an image for the submit button
+    - To specify the image you will need to specify the ~src~ attribute in the input element
+    - The ~width~, ~height~, and ~alt~ attributes will all work for the input element as they do for the ~<img>~ element
+
+*** Section 7.6.4: Buttons
+    - The ~<button>~ element was introduced to allow users more control over how their buttons appear and to allow other elements to appear inside the button
+    - This means you can combine text and images between the opening and closing tags of the button element
+    - For example:
+      #+BEGIN_SRC html
+      <button>
+        <img />
+	text
+      </button>
+      #+END_SRC
+
+*** Section 7.6.5: Input Type Hidden
+    - The input type ~type="hidden"~ and these form controls are not shown on the page (although you can see them if you use the View Source option in the browser)
+    - They allow page authors to add values to form that users cannot see
+    - For example, a hidden form control can be added to indicate which page the user was on when they submitted a form
+
+** Section 7.7: Labeling & Grouping Form Elements
+
+*** Section 7.7.1: Labeling Form Controls
+    - When creating a single-line text box in a form you use the input element and the type to be text but how would the user know what to type? A hint can be used but a prompt outside the text box would be best
+    - How do you add a prompt outside the text box? You could just add text with the ~<p>~ element before or after you include the text element but the best way is to use a ~<label>~ element
+    - Each form control should have its own ~<label>~ element as this makes the form accessible to vision-impaired users who are using screen-reader software
+    - There are two ways to use the label element
+      1. Create an opening and closing tag for the label element; Inside the tags you will write down the description *and* the the form control (e.g. input element) so both the description and form control are inside the label element
+	 #+BEGIN_SRC html
+	   <label>First Name: <input type="text" name="firstname" /> </label>
+	 #+END_SRC
+      2. The second way is to keep the label and the form control separate and *not* embedded; So how do you associate (connect) them together? You use the ~for~ attribute on the label and give it the value of the id of the form control
+	 - For example, let's say we want the first name of the user so we create a label and inside the label we add the text description
+	 - After closing the label element we can then add the form control and give the form control an id called "fc_firstname"
+	 - You associate them by adding the ~for~ attribute to the ~<label>~ element and giving it the value of the id of the form control, in this case, "fc_firstname" as shown below
+	   #+BEGIN_SRC html
+	     <label for="fc_firstname">First Name: </label>
+	     <input id="fc_firstname" type="text" name="firstname" />
+	   #+END_SRC
+    - The ~for~ attribute in the label states which form control the label belongs to
+    - The value of the for attribute matches that of the id attribute on the form control it is labeling
+    - This technique using the ~for~ and ~id~ attributes can be used on any form control
+    - In addition, when the label is used with the form control then the users can click on either the form control or the label to select the form control
+    - The position of the label is very important to clearly indicate where the form control is and what the form control is asking
+    - Here are the best practices, you place the label above or the left of the form control for the following form controls:
+      - Text inputs
+      - Text areas
+      - Select boxes
+      - File uploads
+    - You place the label to right of the form controls for the following form controls:
+      - Individual checkboxes
+      - Individual radio buttons
+
+*** Section 7.7.2: Grouping Form Elements
+    - You can group related form controls together inside the ~<fieldset>~ element (helpful for longer forms)
+    - Most browsers will show the ~fieldset~ element with a line around the edge to show how they are related but the appearance can be changed or adjusted using CSS
+    - The ~<legened>~ element can come directly after the opening ~<fieldset>~ tag and contains a caption which identify the purpose of that group of form controls
+    - For example,
+      #+BEGIN_SRC html
+      <fieldset>
+        <legend>Contact Details</legend>
+	<label for="fc_email">Email: </label>
+	<input id="fc_email" type="text" name="email" />
+      </fieldset>
+      #+END_SRC
+
+** Section 7.8: HTML5 Form Validation
+   - Form validation was normally done with JS but now wth HTML5 there are some form validations that can be done in HTML
+   - Validating the form before it is sent to the server helps reduce the amount of work the server has to do, enables users to see if there are problems with the form rather than waiting on the server, and makes sure the server doesn't crash with unexpected data
+   - One of the form validations is the ~required~ attribute
+   - For HTML5, you can simply add the required attribute with no value but for HTML4 you must give it a value like so ~required="required"~
+   - The required attribute ensures that form control is filled out by the user before submitting to the server
+   - There are more ways to validate input with HTML5 but those kind of go in hand with the different types of input discussed in the next section
+     
+** Section 7.9: HTML5 Inputs
+
+*** Section 7.9.1: Input Type Date
+    - Before various information such as dates, emails, urls, etc. were gathered using text inputs but now with HTML5 we have dedicated input types for them
+    - The input type ~type="date"~ will create a date input for users to enter a specific date
+    - The appearance can be changed with CSS
+
+*** Section 7.9.2: Input Type Email
+    - For emails, you can specify for the ~<input>~ element the type to be ~type="email"~
+    - Using this type will make browsers check that the user has provided an email in the correct format of a legitimate email address
+
+*** Section 7.9.3: Input Type URL
+    - For web page address, you can specify for the ~<input>~ element the type to be ~type="url"~
+    - Using this type will make browsers check that the user has provided a URL in the correct format of a URL
+
+*** Section 7.9.4: Input Type Search
+    - For a dedicated form control (single-line) for search queries, you specify for the ~<input>~ element the type to be ~type="search"~
+    - Different browsers treat the input type search differently but browsers may treat the input type search slighlty different than just a regular single-line text box
+    - Also on *any* text input, you can also use an attribute called ~placeholder~ whose value is the text that will be shown in the text box until the user clicks in that area (it is basically a hint for text form controls)
+
+** Section 7.10: Creating a Web Page with Forms
+   - [[file:./007.010.Creating a Web Page with Forms/index.html][Creating a Web Page with Forms]]
+     
 * Keywords
 | Term | Definition |
 |------+------------|
 |      |            |
 
 * Questions
-  - *Q*:
+  - *Q*: What is the difference between buttons and inputs type submit in a form? Do they behave the same? Does behavior change with the number of buttons / input type submits in the form?
 
+  - *Q*: How do forms and field sets elements work together?
 * Summary
