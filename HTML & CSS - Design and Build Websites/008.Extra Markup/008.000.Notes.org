@@ -28,6 +28,48 @@
    - In 2014 the W3C (World Wide Wide Consortium - an international standards organization for the World Wide Web) finally issued HTML5 as a W3C recommendation
    - HTML5 has since replaced both HTML4 and XHTML 1.0 with new elements, new attributes, and a new way to web develop
 
+** Section 8.2: DOCTYPES & Comments in HTML
+   - There are several verisons of HTML so each web page should begin with a ~DOCTYPE~ declaration to tell a browser which version of HTML the page is using
+   - Although browsers usually still render the web page without it, it is generally a good idea to state the ~DOCTYPE~
+   - How do you specify HTML5? You simply state ~<!DOCTYPE html>~
+   - If you want to add a comment to your code that will *not* be visilbe in the user's browser, you can add text in-between the characters ~<!-- comment -->~
+   - The comments are only for the developer in HTML files and usually a good idea to add comments to make your code understandable for those reading your code (including yourself)
+   - Although comments cannot be seen, if a user inspects the source code then the comments will appear
+   - Comments can be used to indicate where sections of a page start and end, contain notes, or prevent elements from displaying
+
+** Section 8.3: ID and Class Attribute (Global Attributes)
+   - Every HTML element have global attributes including the ~id~ attribute and the ~class~ attribute
+   - The id attribute is used to uniquely identify the element from other elements on the page
+   - The id can only start with a letter or an underscore
+   - No other id can be shared, all ids must be unique for that page
+   - Using an id and CSS can help you style the element differently from other instances of the same HTML element (since you can identify that particular instance by using the id)
+   - Not just CSS but also JS can be used with ids to allow a script to work with that particular element
+   - What if you want to identify several elements as being different from other elements on the page? You do this by using the class attribute
+   - The class attribute's value should describe the class it belongs to which can include zero, one, or many HTML elements
+   - The class attribute is similar to id except it can distinguish a whole group of HTML elements (not just a single HTML element)
+   - Thus the class attribute on any element can share the same name; it does not need to be the same one HTML element to have the same class
+   - A HTML element can also have both an id and class attribute
+   - Adding these attributes will not affect the presentation of an element (it actually does not do anything presentational just by adding them)
+   - It is when you use CSS rules targeting the specified id or the specified class that HTML elements change in the way it is presented (styled)
+   - Finally, a HTML element may have multiple classes and this is specified by simply separating the class names with a space (e.g. ~class="class1 class2 class3"~)
+
+** Section 8.4: Block Elements and Inline Elements
+   - Some elements will always apear to start on a new line in the browser window; these are known as block level elements (e.g. ~<h1>~, ~<p>~, ~<ul>~, etc.)
+   - Thus if you declare a block level element it will start on a new line
+   - Some elements will always appear to continue on the same line as their neighboring elements; these are known as inline elements (e.g. ~<a>~, ~<b>~, ~<em>~, etc.)
+   - Thus if you declare an inline level element it will continue right next to the previous element declared
+
+** Section 8.5: Grouping Text & Elements in a Block
+   - The ~<div>~ element allows you to group a set of elements together in one block-level box
+   - For example, you might create a ~<div>~ element to contain all of the elements for the header of your site (like I said this book is outdated, HTML5 introduced new semantic elements that are similar to ~<div>~ such as ~<header>~ and ~<nav>~ that would be better suited for the header of your site)
+   - The ~<div>~ element is simply a generic container which allows you to group a set of elements togehter in a one block-level bos but it has no effect on the content or layout until it is styled in some way using CSS
+   - The ~<div>~ element can also use the id attribute and class attribute to be styled later with CSS
+   - This includes how much space the div block takes and changing the appearance of all the elements contained with it since CSS has inheritance properties when applying styling to a parent element
+   - Div elements can be nested each other if needed to break down further groups of HTML elements
+   - Div elements can make it easier to understand and follow your code since you are grouping together elements and thus breaking down your web page into small sections
+   - Comments would be also useful to describe what is the purpose for the div element
+   - TODO: *Note* that with HTML5 a lot of semantic elements were introduced 
+     
 * Keywords
 | Term | Definition |
 |------+------------|
@@ -38,5 +80,9 @@
          - [[https://softwareengineering.stackexchange.com/questions/149839/is-xhtml5-dead-or-is-it-just-an-synonym-of-html5][StackExchange Answer]]
 	 - [[https://retrocomputing.stackexchange.com/questions/29933/why-did-xml-lose-out-to-xhtml-then-html-5-on-the-web][Another StackExchange Answer]]
 	 - [[https://www.reddit.com/r/webdev/comments/410s0a/is_xhtml_dead/][Reddit Discussion]]
+
+  - *Q*: If you declare a block level element and then an inline level element, would the inline element be right next to the block level element or start on a new line?
+
+  - *Q*: Are ~<div>~ elements block elements?
     
 * Summary
