@@ -8,7 +8,7 @@
 
 *Prev*: Ch.7 Forms [[[file:../007.Forms/007.000.Notes.html][html]]] [[[file:../007.Forms/007.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/007.Forms][github]]]
 
-*Next*: Ch.9 Flash, Video & Audio [[[file:../009.Flash, Video & Audio/009.000.Notes.html][html]]] [[[file:../009.Flash, Video & Audio/009.000.Notes.org][org]]]
+*Next*: Ch.9 Flash, Video & Audio [[[file:../009.Flash, Video & Audio/009.000.Notes.html][html]]] [[[file:../009.Flash, Video & Audio/009.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/009.Flash%2C%20Video%20%26%20Audio][github]]]
 
 * Notes
 
