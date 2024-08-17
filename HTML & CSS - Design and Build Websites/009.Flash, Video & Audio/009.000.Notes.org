@@ -2,3 +2,25 @@
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
 #+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+
+* Notes
+
+** Section 8.1: Introduction to Flash
+   - *Note* this book is over a decade old (published in 2011) and web developement has changed since then, with that in mind, Adobe Flash has since been discountined and no longer used by virtually everyone
+   - For the sake of completing the book, we will still continue with this section
+   - Flash *was* a very popular technology used to add animations, video, and audio to websites
+   - The files you put on your websites in Falsh were referred to as Flash movies
+   - To create Flash movies you needed to purchase the Flash authoring environment from Adobe
+   - When saving a Flash movie it is saved using the extension /.fla/ but to use it in your website you would have to export it into a file with the extension /.swf/
+   - The file will then have the code that you can use to embed the flash movie into your website
+   - In the beginning, this code inolved using the HTML elements ~<object>~ and ~<embed>~ but later started to use JavaScript
+   - To run Flash movies in browsers, the browser must have installed a plugin called the Flash Player
+   - Slowly over time the use of Flash decreased with the introduction of new HTML5 elements and JavaScript libraries allowing for people to easily add audio, video, and animations
+
+* Keywords
+
+* Questions
+
+* Summary

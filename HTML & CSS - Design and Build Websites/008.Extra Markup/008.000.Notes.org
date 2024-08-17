@@ -12,12 +12,31 @@
 
 * Notes
 
+** Section 8.1: The Evolution of HTML
+   - HTML4 was released in 1997 and although new elements were added in HTML5 many of them have been available since HTML4
+   - Some presentational elements from HTML4 have been deprecated because almost all presentational elements can be replicated using CSS
+   - In 1998 XML was introduced allowing people to write their own markup languages which had stricter rules than HTML
+   - Thus it decided that HTML4 should be reformulated to follow the fules of XML and it was renamed to XHTML and thus XHTML 1.0 was released in 2000
+   - Since XHTML was conforming to XML rules it worked seamlessly with programs that create and process XML documents and it worked well with other data formats such as SVG which was written in XML
+   - There are other formats such as MathML and CML that also use XML
+   - To help the transition there were 3 flavors of XHTML
+     1. Strict XHTML 1.0: Authors had to follow the rules to the letter
+     2. Transitional XHTML 1.0: Authors could still follow older practices, elements, and attributes that may be removed in the future
+     3. XHTML 1.0 Frameset: Authors could partition a browser window into several "frames" and each frame would hold a different HTML page
+   - XHTML 1.0 is based off HTML4
+   - HTML5 was first published in 2008
+   - In 2014 the W3C (World Wide Wide Consortium - an international standards organization for the World Wide Web) finally issued HTML5 as a W3C recommendation
+   - HTML5 has since replaced both HTML4 and XHTML 1.0 with new elements, new attributes, and a new way to web develop
+
 * Keywords
 | Term | Definition |
 |------+------------|
 |      |            |
 
 * Questions
-  - *Q*:
+  - *Q*: What happened to XHTML?
+         - [[https://softwareengineering.stackexchange.com/questions/149839/is-xhtml5-dead-or-is-it-just-an-synonym-of-html5][StackExchange Answer]]
+	 - [[https://retrocomputing.stackexchange.com/questions/29933/why-did-xml-lose-out-to-xhtml-then-html-5-on-the-web][Another StackExchange Answer]]
+	 - [[https://www.reddit.com/r/webdev/comments/410s0a/is_xhtml_dead/][Reddit Discussion]]
     
 * Summary
