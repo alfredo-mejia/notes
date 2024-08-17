@@ -38,7 +38,7 @@
    - A pair is sent to the server; this pair includes the name of the data and the value of the data
    - How do we specify that in the form element? We use the ~name~ attribute to specify the name of the data (in the example of above we need specify "username") and to specify the value, you either get it from the user or if it is a fixed set of answers then you use the ~value~ attribute to specify the value of the data (or input)
    - Remember, how would a server distinguish between multiple inputs? It will distinguish them by their "names" thus when specified in the ~name~ attribute you have to make sure the backend server understands the name because using the name it will retrieve the value for that specific input control
-
+     
 ** Section 7.3: Form Structure
    - Form controls live inside a ~<form>~ element and this element should always carry the action attribute and will usually have a method and id attribute too
    - The ~action~ attribute is required and its value is the URL for the page on the server that will receive the information in the form when it is submitted (in other words it is the URL that the browser will send the information to)
@@ -91,7 +91,7 @@
     - Some sites use JavaScript to clear the text when the user clicks in the text area and those cites use the text inside the element as a hint using JS
     - Some older attributes include ~cols~ and ~rows~ which specify how many columns (basically how many characters you want the width to be) and how many rows (space taken vertically) you want the text area to have thus controlling the width and height of the text area
     - This is not recommended as now CSS is used to control the width and height of a text area
-
+      
 ** Section 7.5: Multiple Options Input
    - We continue using the ~<input>~ element but now we use the ~type="radio"~; radio buttons allow users to pick just one of a number of options
    - Another type using the ~<input>~ element is the ~type="checkbox"~; checkboxes allow users to select and deselect one or more options for a question
@@ -247,12 +247,72 @@
    - [[file:./007.010.Creating a Web Page with Forms/index.html][Creating a Web Page with Forms]]
      
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term              | Definition                                                                                                                                                                                                                                                                                                                   |
+|-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Form              | Document that contains spaces or "form controls" for the user to fill in information                                                                                                                                                                                                                                         |
+| Backend Server    | A computer that the user cannot see which receives information from the browser and processes the information and responds in some way                                                                                                                                                                                       |
+| Form Element      | This releemnt represents a document section containing interactive controls for submitting information                                                                                                                                                                                                                       |
+| Get Method        | Get method is a HTTP request method which appends data to the URL and sends it the server                                                                                                                                                                                                                                    |
+| Post Method       | Post method is a HTTP request method which appends the data to the request body of the HTTP request                                                                                                                                                                                                                          |
+| Input Element     | HTML element used to create interactive controls for web-based forms and a variety of types are available depending on the value given in the ~type~ attribute                                                                                                                                                               |
+| Text Area Element | HTML element used to represent a multi-line plain text editing control                                                                                                                                                                                                                                                       |
+| Select Element    | A HTML element that represents a control that provides a menu of options (it is basically a way to create a menu to add options you simply use the ~option~ element)                                                                                                                                                         |
+| Option Elment     | HTML element used to define an item contains in a ~select~, an ~optgroup~, or a ~datalist~ element; in our case we are concerned in the select element and shows an option to a list of options (a menu)                                                                                                                     |
+| Button Element    | An interactive HTML element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology and can be used in forms as submit buttons                                                                                                                                                      |
+| Label Element     | A HTML element used to represent a caption for an item in a user interface (in our case we can add a description to a form control to let the user know what we are asking and what they need to do)                                                                                                                         |
+| Fieldset Element  | A fieldset element is used to group several form controsl as well as labels within a web form (e.g. we have a long form divided into two parts personal info and hobbies, that means we can divide the form into two distict parts by grouping the form controls using fieldset; one for personal info the other for hobbies |
+| Legend Element    | A HTML element that represents a caption for the content of its parent ~fieldset~ (basically it adds a description for the fieldset element)                                                                                                                                                                                 |
+| Form Validation   | Form validation is ensuring the data inputted by the user is correct and in a format that is expected for the server to gracefully accept or reject                                                                                                                                                                          |
 
 * Questions
   - *Q*: What is the difference between buttons and inputs type submit in a form? Do they behave the same? Does behavior change with the number of buttons / input type submits in the form?
-
+         - According to the [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input][Input Element Mozilla docs]] input is used to create interactive controls and using it with the ~type=submit~ it states that a button will be created and when clicked it will submit the form
+	 - According to the [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button][Button Element Mozilla docs]] button is an already interactive element activated by the user and with the ~type=submit~ it states the button submits the form data to the server
+	 - According to the docs, the ~type=submit~ is the default for button if the attribute is not specified for buttons associated with a ~<form>~ or if the attribute is an empty or invalid value
+	 - So how are buttons associated with a ~<form>~ element? You could specify the ~form~ attribute in the button element and the value must be the id of a ~<form>~ element in the same document
+	 - If the attribute ~form~ is not then the button will be associated with its parent ancestor ~<form>~ element if any; in other words, if button is inside the form element it will automatically be associated if the ~form~ attribute is not used
+	 - Here's an example a form with an input and some buttons [[file:./007.011.Questions/q1.html][example with multiple inputs and buttons]]
+	 - As seen in the example, the number of inputs or buttons do not change behavior; if the input is type submit, it will submit the form doesn't matter the number of inputs
+	 - The buttons will submit the form if no type is specified (or if submit type is specified) and it has a form associated (directly or indirectly) no matter the number of buttons having the same specs
+	 - As to the behavior, both have the same function but for form submission it is generally best to use buttons because "input" semantically suggests the control is /editable/ when it is not because it is just a button
+	 - According to other devs, buttons are easier to style with CSS which can help later, you can also nest inside other elements in button unlike the self closing input element
+	 - Finally, to follow standards HTML5 spec suggests to use button instead of input
+	   
   - *Q*: How do forms and field sets elements work together?
+         - According to the [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form][docs]] for the form element, the form element represetns a document section containing interactive controls for submitting information
+	 - What does this mean? This means somewhere in the web page there is a section that will contain interactive controls in some way thus form element is used to describe that section
+	 - According to the [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset][docs]] for the fieldset element, the fieldset element is used to group several controls as well as labels *within* a web form
+	 - Thus form element is used to describe a section with form controls and fielset element is used to group form controls within a form
+	 - So how are connected? Well you create a form and /within/ that form you may want to divide the form into different sections or just group certain form controls together
+	 - That is when you use fieldset element to group form controls and distinguish them differently from other grouped or non-grouped form controls
+	 - You can make it different by changing the styling, adding a legend element, or some other way
+	   
 * Summary
+  - HTML can create a form using different form elements to alow the user to enter information and the website stores this information and uses it in some way
+  - Some examples of HTML form elements include text input, password input, text area, radio buttons, checkboxes, drop down boxes, submit boxes, image buttons, file uploads, etc.
+  - This information is then sent to the backends server as name-value pairs; in other words each form control as a name to distinguish it from other form controls and a value to understand what info is the form control holding
+  - How do we specify a name? We use the ~name~ attribute in the form control
+  - How do we specify a value? Depending on the form control, we either use the ~value~ attribute or we get it from the user
+  - The form element is used to represent a form and you use the ~action~ attribute to include the URL that will process the form submission data
+  - There are two ways to submit forms: get or post
+  - Get is great for short forms and post is great for large forms and sensitive information
+  - Get attaches the info at the end of the URL while post uses HTTP headers
+  - By default the method used is get but can be specified in the form element using the ~method~ attribute and specifying either ~get~ or ~post~
+  - The input element is used to create several different form controls depending on the value of the ~type~ attribute
+  - For example, you can use ~type~ to equal ~text~ or ~password~ which are single line text areas except for password the browsers hides or masks the characters typed
+  - Another element is the text area element which represents a multi-line plain text editing controls used when you need the user to type long amounts of data
+  - Other types of input are checkboxes and radio buttons, what is the difference? Well checkboxes can be deselected and you can select multiple checkboxes while radiobuttons cannot be deselect unless another option is selected meaning you can only have one option
+  - How do you group checkboxes or radio buttons? You provide the ~name~ attribute for all checkboxes / radio buttons and give it the same value thus each should have the same name attribute
+  - Another form control is the select element which provide a dropdown menu
+  - To add options to the dropdown you add the ~option~ element inside the ~select~ element
+  - There are other types of input including file input, submit buttons, image buttons, hidden input, date input, email input, url input, search input, and more
+  - The input type submit are similar to regular buttons, the difference is simply the input can only be used for submit forms while buttons can be used more generally including submitting forms (just like the input submit button)
+  - Each form control should have a description for the user or assistive technology to understand what the form control is asking and expecting; to give it a description we use the ~label~ element
+  - The label element will allow you to add a description for a form control but how do you associate a label and a form control? Well, you give the form control an id and then you give the label the ~for~ attribute and the value will be the id of whatever form control the label pertains to
+  - Another way is to create a label and inside the label element you add the form control, so there are two ways to associate a form control with a label
+  - What if you have a large form and want to group form elements into sections within a single form? In this case, you use the ~fieldset~ element
+  - The fieldset element allows you to group form controls together which is helpful when you want to separate different parts of a form
+  - You use the ~legend~ element inside the ~fieldset~ to give the fieldset element a description or title
+  - Form validation was previously handled by JS but with the introduction of new input forms and new attributes some input validation can be done in HTML
+  - For example, you can add required to HTML elements, a min / max number of characters, or you can use specific input types like date, url, email addresses which provide some input validation like ensuring the user can only select a date, the url conforms the format of a URL, the email addresses conforms the format of a legitimate email address, etc.
+  

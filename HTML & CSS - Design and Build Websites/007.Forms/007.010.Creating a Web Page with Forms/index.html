@@ -7,10 +7,10 @@
   </head>
 
   <body>
-    <form>
+    <form action="some-place" method="get">
       
       <fieldset>
-	<legend>Your Details</legend>
+	<legend>Your Details:</legend>
 	<label for="fc_name">Name: </label>
 	<input id="fc_name" type="text" name="name" />
 	<br />
@@ -18,8 +18,40 @@
 	<input id="fc_email" type="email" name="email" />
       </fieldset>
 
+      <br />
+      
       <fieldset>
-	<legend
+	<legend>Your Review:</legend>
+
+	<p>
+	  <label for="fc_dropdown">How did you hear about us? </label>
+	  <select id="fc_dropdown" name="hearUs">
+	    <option value="friend">Friend</option>
+	    <option value="google" selected>Google</option>
+	    <option value="newspaper">Newspaper</option>
+	    <option value="social">Social Media</option>
+	  </select>
+	</p>
+
+	<p>
+	  Would you visit again <br />
+	  <label>  <input type="radio" name="visit" value="yes" /> Yes </label>
+	  <label>  <input type="radio" name="visit" value="no" /> No </label>
+	  <label>  <input type="radio" name="visit" value="Maybe" /> Maybe </label>
+	</p>
+
+	<p>
+	  <label for="fc_comments">Comments:</label>
+	  <br />
+	  <textarea id="fc_comments" name="comments" rows="10" cols="50">Enter your comments here...</textarea>
+	</p>
+
+	<p>
+	  <input id="signup" name="signup" type="checkbox" checked />
+	  <label for="signup">Sign me up for email updates</label>
+	</p>
+
+	<input id="submit" type="submit" value="Submit Review"/>
       </fieldset>
     
     </form>
