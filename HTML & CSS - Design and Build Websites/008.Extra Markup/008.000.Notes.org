@@ -16,7 +16,7 @@
    - HTML4 was released in 1997 and although new elements were added in HTML5 many of them have been available since HTML4
    - Some presentational elements from HTML4 have been deprecated because almost all presentational elements can be replicated using CSS
    - In 1998 XML was introduced allowing people to write their own markup languages which had stricter rules than HTML
-   - Thus it decided that HTML4 should be reformulated to follow the fules of XML and it was renamed to XHTML and thus XHTML 1.0 was released in 2000
+   - Thus it decided that HTML4 should be reformulated to follow the rules of XML and it was renamed to XHTML and thus XHTML 1.0 was released in 2000
    - Since XHTML was conforming to XML rules it worked seamlessly with programs that create and process XML documents and it worked well with other data formats such as SVG which was written in XML
    - There are other formats such as MathML and CML that also use XML
    - To help the transition there were 3 flavors of XHTML
@@ -90,23 +90,103 @@
    - ~seamless~ is an attribute introduced in HTML5 and removes the scrollbars but since then the ~seamless~ attribute has been removed and no longer exists ([[https://stackoverflow.com/questions/4804604/html5-iframe-seamless-attribute][more information in a Reddit post]])
 
 ** Section 8.7: Metadata Info About Web Pages
-   - 
+   - The ~<meta>~ elements lives inside the ~<head>~ element and contains information about that specific web page
+   - It is not visible to users but fulfills a number of purposes such as telling search engines about your page, who created it, whether or not it is time sensitive, and more
+   - The ~<meta>~ element is a self-closing element so it does not have a closing tag and it uses the attributes to carry the information
+   - The most common attributes are the ~name~ and ~content~ attributes which are often used together as these attributes specify properties of the entire page
+   - The value of the ~name~ attribute is the property you are setting
+   - The value of the ~content~ attribute is the value that you want to give to this property
+   - For example, you do something like ~<meta name="description" content="Some description about the page">~ which here we are setting the description property and the value is provided by the content attribute
+   - Technically, the value of the ~name~ attribute can be anything you want to it be but the browsers can only understand certain predefined values for the ~name~ attribute here is a  [[https://www.reddit.com/r/learnprogramming/comments/66ca34/can_anyone_explain_in_laymans_terms_how_the_meta/][Reddit post about the discussion]]
+   - Some defined values for this attribute that are commonly used are:
+     1. ~description~: contains a description of the page and commonly used by search engines to understand what the page is about and is sometimes displayed in the search engine results
+     2. ~keywords~: contains a list of comma-separated words that a user might search to find that page
+     3. ~robots~: indicates whether search engines should add this page to their search results or not; a value of ~noindex~ can be used if this page should not be added and a vaue of ~nofollow~ can be used if search engines should add this page in their results but not any pages that it links to
+   - The ~meta~ element also uses the ~http-equiv~ and ~content~ attributes in pairs (similar to name and content but now it is http-equiv and content)
+   - Some defined values for ~http-equiv~ are:
+     1. ~author~: defines the author of the page
+     2. ~pragma~: prevents the browser from caching the page (that is storing the files locally to be faster on subsequent visits)
+     3. ~expires~: browsers often cache websites so this indicates when the page should expire and no longer be cached
+   - When specifying a value for ~name~ or ~http-equiv~ you must also specify the value in ~content~
+
+** Section 8.8: Escape Characters
+   - There are reserved characters that are used and reserved in HTML code
+   - But what if you want to display these characters like the angled brackets? Well in order to do this you need to use "escape" characters
+   - For example, to write a left angled bracket you can either write ~&lt;~ or ~&#60;~
+   - These escape characters or escape codes shown above are special codes that can be used to show symbols such as copyright, trademark, currency symbols, mathematical characters, and punctuation marks
+   - When using escape characters make sure it is appearing correcting in your page because not all fonts support all of the characters so you might need to specify a different font for these characters (a font that actually supports these characters) in your CSS code
+
+** Section 8.9: Simple Web Page with Extra Markup
+   - [[file:./008.009.Simple Web Page with Extra Markup/index.html][Simple Web Page with Extra Markup]]
 
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term              | Definition                                                                                                                                                                                                                                                 |
+|-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| HTML4             | HTML markup language version 4 published as a W3C recommendation in 1997                                                                                                                                                                                   |
+| HTML5             | HTML markup language version 5 published as a W3C recommendation in 2014                                                                                                                                                                                   |
+| XML               | Markup language that can allow others to create their own markup language and it is used to format data, store data, and transmit data                                                                                                                     |
+| XHTML             | An extensible version of HTML created to work with XML                                                                                                                                                                                                     |
+| HTML Comments     | HTML comments are specified by ~<!-- comment -->~ and are ignored by the browsers; comments are there just for the developer to see                                                                                                                        |
+| ID Attribute      | A unique value given to an element to unqiue identify it, it cannot share the id value with any other element in the page                                                                                                                                  |
+| Class Attribute   | A unique value given to a /group/ of elements to unique identify /the/ group, the elements in the group do not have to be same type of HTML element, an element may have more than one class, and the group should be named differently than another group |
+| Block Elements    | If an element is a block element will start on a new line and by default take up the whole width of the new line regardless of the content                                                                                                                 |
+| Inline Elements   | If an element is an inline element will take up the space of only the content and continue right next to the previous element; in other words, it will not start on a new line or take up the whole width of the new line                                  |
+| Div Element       | Generic block level container element to group elements; it has no affect on content or layout                                                                                                                                                             |
+| Span Element      | Generic inline level container element to group elements; it has no affect on content or layout                                                                                                                                                            |
+| iFrame Element    | An element that can be used to embed another website into a window in your page                                                                                                                                                                            |
+| Meta Element      | An element used to represent metadata that cannot be represent by any other element; often the meta element is used with attributes to provide metadata about the page and often used by browsers and search-engines                                       |
+| Escape Characters | A sequence of characters that are able to represent characters that are either unable to represent with a keyboard or conflict with characters used in the markup language                                                                                 |
 
 * Questions
   - *Q*: What happened to XHTML?
          - [[https://softwareengineering.stackexchange.com/questions/149839/is-xhtml5-dead-or-is-it-just-an-synonym-of-html5][StackExchange Answer]]
 	 - [[https://retrocomputing.stackexchange.com/questions/29933/why-did-xml-lose-out-to-xhtml-then-html-5-on-the-web][Another StackExchange Answer]]
 	 - [[https://www.reddit.com/r/webdev/comments/410s0a/is_xhtml_dead/][Reddit Discussion]]
-
+         - The short answer is that it basically got replaced with HTML5
+	 - The problem with HTML4 was it did not have strict rules like XML and it was also hard to gather information from websites using HTML
+	 - What was the solution? Use XML to have stricter rules and be able to parse XML payloads from websites via XML parsing technologies
+	 - The problem was developers weren't so motivated to XHTML, browsers often did not support all features or misunderstood XHTML support, and standards were not as high as it is today leading to bad adoption
+	 - In addition, with the introduction of web APIs and JSON there was no need to use XML payloads but instead use web apis to get JSON payloads
+	 - Thus when HTML5 was introduced to fix various flaws of HTML4 and introduce new features to keep up with modern web technologies
+	 - So XHTML lost favor with HTML5 because HTML5 along with JSON are great tools and very sufficient for today's standards
+	   
   - *Q*: If you declare a block level element and then an inline level element, would the inline element be right next to the block level element or start on a new line?
+         - Let's test it then, here is the [[file:./008.010.Questions/q2.html][web page test]]
+	 - The answer is that the inline element will be in the next line after the block level element
+	 - Why is that? This is because the block element will take up the whole width of the screen (block) or a width specified in CSS
+	 - In other words, the block element will act as a block of its surrounding areas and if any element tries to be placed then it will need to be done outside of the block
+	 - This is why block elements take up a whole new line because they will use all the new line even if it doesn't have content so when a new element (e.g. an inline element) appears it will start in a new line because the current new line is occupied by the block element (div)
 
   - *Q*: Are ~<div>~ elements block elements?
+         - Yes div elements are block level elements ([[https://developer.mozilla.org/en-US/docs/Glossary/Block-level_content][Mozilla Block Level Content Docs]])
     
   - *Q*: Are iFrames still used? Do we need the height and width attribute in an iFrame, can we use CSS instead?
+         - [[https://www.reddit.com/r/webdev/comments/y8fxkp/do_modern_developers_actually_use_iframes_for/][Reddit Discussion]]
+	 - iFrames are still used but they are mostly used to embed 3rd party services into web pages such as videos from YouTube, Google Maps, Tweets, payment services, and more
+	 - Yes you can use CSS to specify height and width for an iframe element as shown in the [[file:./008.010.Questions/q4.html][example test]]
+	 - In the example test we use CSS to specify the height and width
 
 * Summary
+  - HTML4 was released in 1997; it had many presentational elements such as centering elements
+  - In 1998, XML was introduced and XHTML was created in 2000; XHTML reformulated (or extended) HTML4 to follow XML rules and work well with other XML data formats
+  - XHTML never got full traction and in 2014 HTML5 was introduced getting rid of presentational elements and leaving it to CSS, introducing semantic elements, new elements and technologies for the modern web, and more, essentially replacing XHTML and HTML4
+  - You can specify the HTML version by using ~DOCTYPE~ in the beginning of the file before writing the ~<html>~ tags (to specify HTML5 you write ~<!DOCTYPE html>~
+  - You can write comments using ~<!-- comment -->~ which are ignored by the browser and are only there for the developer to see
+  - The id attribute is used to provide a unique value given to an element to unqiue identify it, it cannot share the id value with any other element in the page
+  - The class attribute is used to a unique value given to a /group/ of elements to unique identify /the/ group, the elements in the group do not have to be same type of HTML element, an element may have more than one class, and the group should be named differently than another group
+  - Block elements are elements that will start on a new line and by default take up the whole width of the new line regardless of the content
+  - Inline elements are elements that will take up the space of only the content and continue right next to the previous element; in other words, it will not start on a new line or take up the whole width of the new line
+  - Div element is a generic *block* level container element to group elements; it has no affect on content or layout (besides being block level)
+  - Span element is a generic *inline* level container element to group elements; it has no affect on content or layout (besides being inline level)
+  - These are often used with ids and classes to style that particular group of elements
+  - With HTML5, semantics elements were introduced, these semantic elements behave similarly to div and span but now have some sense of meaning; how so? Well now we can give a group of elements a purpose with a semantic element instead of using the div element
+  - Although div elements can still be used instead of these semantic elements, semantic elements are better for assistive technology and developers because they give meaning to a group of elements or for that section (e.g. instead of using div to group elements that composes the navigation section of the web page we can now use the ~<nav>~ element)
+  - The ~<iframe>~ element can be used to designate a window in your page to show another website in the window; it is often used with videos from Vimeo and Youtube, tweets, Google Maps, or any other 3rd party service
+  - The book presents various attributes for ~<iframe>~ but the attributes are outdate and most no longer exist in HTML5
+  - The meta element is used to represent metadata that cannot be represent by any other element; often the meta element is used with attributes to provide metadata about the page and often used by browsers and search-engines
+  - Often the meta element is used with the attributes ~name~ and ~content~ as name / content pairs
+  - You use the name attribute to specify what info do you want to provide and you use the content attribute to give the value to the info you want to provide (to what you specified in the name attribute)
+  - You can also use the ~http-equiv~ and ~content~ pairs which is similar to name / content pairs but instead of the name attribute you use the ~http-equiv~ attribute
+  - Finally, you can use escape characters in HTML to display symbols or characters that are hard to type or conflict with the HTML
+  - However, not all fonts support all characters, if the font you are using does not support the symbol you are trying to display, you will need to change font to a font that does support the symbol using CSS
+    
