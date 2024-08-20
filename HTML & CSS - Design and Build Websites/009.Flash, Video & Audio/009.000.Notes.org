@@ -12,7 +12,7 @@
 
 * Notes
 
-** Section 8.1: Introduction to Flash
+** Section 9.1: Introduction to Flash
    - *Note* this book is over a decade old (published in 2011) and web developement has changed since then, with that in mind, Adobe Flash has since been discountined and no longer used by virtually everyone
    - For the sake of completing the book, we will still continue with this section
    - Flash *was* a very popular technology used to add animations, video, and audio to websites
@@ -24,8 +24,31 @@
    - To run Flash movies in browsers, the browser must have installed a plugin called the Flash Player
    - Slowly over time the use of Flash decreased with the introduction of new HTML5 elements and JavaScript libraries allowing for people to easily add audio, video, and animations
 
+** Section 9.2: Adding a Flash Movie
+   - Although no longer relevant let's continue with adding a flash movie to our web page
+   - The most popular way of adding Flash into a web page is using JavaScript and one of the scripts that allow you to do so is called SWFObject
+   - You add a ~<script>~ element for the SWFObject script and you add a another ~<script>~ element using one of the functions to embed the flash file with the extension ~.swf~
+   - After adding the script elements, you create a ~<div>~ element where the flash movie should sit
+   - The div element will have an id attribute whose value is used by the SWFObject script and if it can replace the ~<div>~ with the ~.swf~ file
+   - Inside the ~<div>~ element you can place the alternative content for users who are not able to play flash
+
+** Section 9.3 Understanding Video Formats & Video Players
+   - There are many video formats such as AVI, Flash Video, H264, MPEG, Ogg Theora, MP4, and more
+   - Some browsers may only support certain formats so you will need to convert a video into another format sometimes referred to as "encoding" the video
+   - Before 2010 browsers did not have a video player built in and you would have to use another program called a video player or install a plugin but nowadays all browsers have built-in video players that support HTML5's ~<video>~ element
+   - The question is do you host the video in your website or do use a hosting service like YouTube or Vimeo?
+   - Using Youtube or Vimeo would allow you to use their technologies and not have to worry if your browser supports the video or worry about encoding videos, you would simply embed the video into your page
+   - In addition, if you host your video in YouTube or Vimeo it is free while if you self-host it in your website then it may be costly due to the bandwidth and size of the video
+   - There are some disadvantages of hosting your video with other companies like following policies, forcing ads in your video, the video won't be exclusive to your website, and possibly a change of resolution to limit memory consumption
+
+** Section 9.4: 
+     
 * Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
 
 * Questions
-
+  - *Q*:
+    
 * Summary
