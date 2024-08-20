@@ -68,8 +68,30 @@
    - Div elements can be nested each other if needed to break down further groups of HTML elements
    - Div elements can make it easier to understand and follow your code since you are grouping together elements and thus breaking down your web page into small sections
    - Comments would be also useful to describe what is the purpose for the div element
-   - TODO: *Note* that with HTML5 a lot of semantic elements were introduced 
-     
+   - *Note* that with HTML5 a lot of semantic elements were introduced that behave as ~<div>~ but semantically it means differently, it represents a specific type of group such as a header, footer, navigation, etc. basically it is like a div with a meaning
+   - Another container element that is similar ~<div>~ is the ~<span>~ element
+   - So what's the difference? The ~<span>~ element acts like an inline equivalent of the ~<div>~ element (div element is a block-level container while span is a inline-level container)
+   - The ~<span>~ element is used to either a contain a section of text where there is no other suitable element to differentiate it from its surrounding text or inside the span element there are a number of inline elements that will be grouped using ~<span>~
+   - The most common reason people use ~<span>~ is so that they can control the appearance of the content or inline elements inside the ~<span>~ element
+   - To further have control of styling the ~<span>~ element, developers often use the ~<span>~ element with the id or class attribute
+   - Finally, *note* that in HTML5 semantics elements were also introduced to behave similar to ~<span>~ (inline container elements) just like there are semantic elements for ~<div>~ there are semantics elements for ~<span>~ such as the ~<time>~ element
+   - These semantic elements are encourgaed when applicable than just a regular ~<div>~ or ~<span>~ because it is possible to just use div or span but semantic elements had meaning to your code and to assisitive technology which makes development and accessibility great in turn making a good website
+
+** Section 8.6: IFrames
+   - An iFrame is like a little window that has been cut into your page and inside the window that was cut you will be able to see another page
+   - iFrame comes from the abbreviation of inline frame
+   - Common uses of iFrames including embedding content from 3rd party websites such as YouTube videos, Google Maps, Tweets, Vimeo, secure payment flows, etc
+   - An iframe is created using the ~<iframe>~ element but there are a few attributes that will be needed to use iframe correctly
+   - One attribute is ~src~ which specifies the URL of the page to show in the frame
+   - The ~height~ and ~width~ specify the height and width of the frame in pixels 
+   - ~scrolling~ attribute will not be supported in HTML5 but in HTML4 and XHTML it is supported and indicates whether the iframe should have scrollbars or not
+   - The ~scrolling~ attribute can be one of the three values: yes (show scrollbar), no (hide scrollbar), and auto (show only if needed)
+   - ~frameborder~ will not be supported in HTML5 but in HTML4 and XHTML it indicates whether the frame should have a border or not (value of 0 indicates no border and value of 1 indicates a border)
+   - ~seamless~ is an attribute introduced in HTML5 and removes the scrollbars but since then the ~seamless~ attribute has been removed and no longer exists ([[https://stackoverflow.com/questions/4804604/html5-iframe-seamless-attribute][more information in a Reddit post]])
+
+** Section 8.7: Metadata Info About Web Pages
+   - 
+
 * Keywords
 | Term | Definition |
 |------+------------|
@@ -85,4 +107,6 @@
 
   - *Q*: Are ~<div>~ elements block elements?
     
+  - *Q*: Are iFrames still used? Do we need the height and width attribute in an iFrame, can we use CSS instead?
+
 * Summary
