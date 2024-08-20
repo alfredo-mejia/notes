@@ -1,0 +1,11 @@
+#+title: Ch.10 Introducing CSS
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
+
+*Prev*: Ch.9 Flash, Video & Audio [[[file:../009.Flash, Video & Audio/009.000.Notes.html][html]]] [[[file:../009.Flash, Video & Audio/009.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/009.Flash%2C%20Video%20%26%20Audio][github]]]
+
+*Next*: Ch.11 Color [[[file:../011.Color/011.000.Notes.html][html]]] [[[file:../011.Color/011.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/011.Color][github]]]
