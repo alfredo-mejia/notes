@@ -41,7 +41,16 @@
    - In addition, if you host your video in YouTube or Vimeo it is free while if you self-host it in your website then it may be costly due to the bandwidth and size of the video
    - There are some disadvantages of hosting your video with other companies like following policies, forcing ads in your video, the video won't be exclusive to your website, and possibly a change of resolution to limit memory consumption
 
-** Section 9.4: 
+** Section 9.4: Preparing A Flash Video For Your Site
+   - (1): Convert your video into FLV format
+   - (2): Find an FLV player to play the video
+   - (3): Include the player and video in your page
+   - To include it into your page you will use the SWFObject script, the same script we have previously discussed and used to embed a flash movie
+   - Using the SWFObject and the ~<script>~ elements in the head, you will be able to specify what script you are using, what video player you are using, and what video you want the player to play
+   - Depending on the video player you will need the video file to be in a specific format
+
+** Section 9.5: Preparing and Adding Videos To Your Page
+     
      
 * Keywords
 | Term | Definition |
