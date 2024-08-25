@@ -1,13 +1,13 @@
-#+title: OBIEE. Oracle Business Intelligence Enterprise Edition
+#+title: Oracle Business Intelligence Enterprise Edition
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
 
 *Home*: Oracle Documentation [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs][github]]]
 
-*Next*: User's Guide for Oracle Business Intelligence Enterprise Edition
+*Next*: User's Guide for Oracle Business Intelligence Enterprise Edition [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.html][html]]] [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
 
 * Documentation Details
 | Title  | Oralce Business Intelligence Enterprise Edition 12.2.1.4.0 |
@@ -19,8 +19,8 @@
 
 [[https://docs.oracle.com/middleware/bi12214/biee/docs.htm][Oracle Docs for Oracle Business Intelligence Enterprise Edition 12.2.1.4.0]]
 
-* Contents (alphabetically)
-- UGOBIEE. User's Guide for Oracle Business Intelligence Enterprise Edition
+* Contents
+1. User's Guide for Oracle Business Intelligence Enterprise Edition [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.html][html]]] [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
 
 * My Thoughts
 /Not Yet Finished/
