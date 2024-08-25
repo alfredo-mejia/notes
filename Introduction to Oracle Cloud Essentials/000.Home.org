@@ -15,8 +15,8 @@
 | URL      | https://mylearn.oracle.com/ou/learning-path/introduction-to-oracle-cloud-essentials/115954 |
 
 * Contents
-1. Getting Started with Oracle Cloud Infrastructure [[[file:./001.Getting Started with Oracle Cloud Infrastructure/001.000.Notes.html][html]]] [[[file:./001.Getting Started with Oracle Cloud Infrastructure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials][github]]]
-2. Getting Started with Oracle Cloud Applications [[[file:./002.Getting Started with Oracle Cloud Applications/002.000.Notes.html][html]]] [[[file:./002.Getting Started with Oracle Cloud Applications/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials/001.Getting%20Started%20with%20Oracle%20Cloud%20Infrastructure][github]]]
+1. Getting Started with Oracle Cloud Infrastructure [[[file:./001.Getting Started with Oracle Cloud Infrastructure/001.000.Notes.html][html]]] [[[file:./001.Getting Started with Oracle Cloud Infrastructure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials/001.Getting%20Started%20with%20Oracle%20Cloud%20Infrastructure][github]]]
+2. Getting Started with Oracle Cloud Applications [[[file:./002.Getting Started with Oracle Cloud Applications/002.000.Notes.html][html]]] [[[file:./002.Getting Started with Oracle Cloud Applications/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials/002.Getting%20Started%20with%20Oracle%20Cloud%20Applications][github]]]
 
 * My Thoughts
 /Not Yet Finished/

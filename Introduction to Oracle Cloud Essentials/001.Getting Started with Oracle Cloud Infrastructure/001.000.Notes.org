@@ -6,7 +6,7 @@
 * Navigation
 *Home*: Introduction to Oracle Cloud Essentials [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials][github]]]
 
-*Next*: Sec.2 Getting Started with Oracle Cloud Applications [[[file:../002.Getting Started with Oracle Cloud Applications/002.000.Notes.html][html]]] [[[file:../002.Getting Started with Oracle Cloud Applications/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials/001.Getting%20Started%20with%20Oracle%20Cloud%20Infrastructure][github]]]
+*Next*: Sec.2 Getting Started with Oracle Cloud Applications [[[file:../002.Getting Started with Oracle Cloud Applications/002.000.Notes.html][html]]] [[[file:../002.Getting Started with Oracle Cloud Applications/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials/002.Getting%20Started%20with%20Oracle%20Cloud%20Applications][github]]]
 
 * Notes
 
