@@ -19,6 +19,7 @@ Depending on how you are navigating my notes (html, org, or Github) you can clic
 
 # Folders
 - [HTML & CSS - Design and Build Websites by Jon Duckett](https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites)
+- [Introduction to Oracle Cloud Essentials by Oracle University(https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials)
 - [The Complete 2024 Web Development Bootcamp by Dr. Angela Yu](https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp) 
 - [The Web Developer Bootcamp 2024 by Colt Steele](https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024)
 - [User's Guide for Oracle Business Intelligence Enterprise Edition by Oracle Docs](https://github.com/alfredo-mejia/notes/tree/main/User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition)
