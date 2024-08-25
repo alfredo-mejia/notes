@@ -1,0 +1,27 @@
+#+title: OBIEE. Oracle Business Intelligence Enterprise Edition
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+
+*Home*: Oracle Documentation [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs][github]]]
+
+*Next*: User's Guide for Oracle Business Intelligence Enterprise Edition
+
+* Documentation Details
+| Title  | Oralce Business Intelligence Enterprise Edition 12.2.1.4.0 |
+| Author | Oracle                                                     |
+| URL    | https://docs.oracle.com/middleware/bi12214/biee/docs.htm   |
+
+* Resources
+[[https://docs.oracle.com/en/middleware/bi/index.html][Oracle Business Intelligence Middleware Index Page]]
+
+[[https://docs.oracle.com/middleware/bi12214/biee/docs.htm][Oracle Docs for Oracle Business Intelligence Enterprise Edition 12.2.1.4.0]]
+
+* Contents (alphabetically)
+- UGOBIEE. User's Guide for Oracle Business Intelligence Enterprise Edition
+
+* My Thoughts
+/Not Yet Finished/
+

@@ -8,13 +8,13 @@
 
 *Next*: OBIEE.Oracle Business Intelligence Enterprise Edition
 
-* Details
+* Documentation Details
 | Title  | Oracle Documentation    |
 | Author | Oracle                  |
 | URL    | https://docs.oracle.com |
 
 * Contents (alphabetically)
-- OBIEE.Oracle Business Intelligence Enterprise Edition
+- OBIEE. Oracle Business Intelligence Enterprise Edition
 
 * My Thoughts
 /Not Yet Finished/
