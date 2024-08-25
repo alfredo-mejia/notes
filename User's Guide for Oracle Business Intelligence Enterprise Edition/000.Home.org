@@ -1,0 +1,29 @@
+#+title: User's Guide for Oracle Business Intelligence Enterprise Edition
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+*Prev*: Main Index [[[file:../index.html][html]]] [[[file:../index.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main][github]]]
+
+*Next*: Ch.1 Preface, New Features & Intro to OBIEE
+
+* Book Details
+| Title     | User's Guide for Oracle Business Intelligence Enterprise Edition |
+| Edtition  |                                                                  |
+| Author    | [[https://docs.oracle.com/en/][Oracle Docs]]                                                      |
+| Publisher | Oracle                                                           |
+| ISBN      |                                                                  |
+
+* Resources
+[[https://docs.oracle.com/en/][Oracle Documentation Home Page]]
+
+[[https://docs.oracle.com/en/middleware/bi/index.html][Oracle Business Intelligence Middleware Index Page]]
+
+[[https://docs.oracle.com/middleware/bi12214/biee/docs.htm][Oracle Docs Home for Oracle Business Intelligence Enterprise Edition 12.2.1.4.0]]
+
+[[https://docs.oracle.com/middleware/bi12214/biee/BIEUG/toc.htm][Oracle Guide Book: Fusion Middleware User's Guide for Oracle Business Intelligence Enterprise Edition]]
+
+* Content
+1. 
+
