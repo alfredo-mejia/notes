@@ -4,9 +4,9 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-*Home*: Oracle Business Intelligence Enterprise Edition [[[file:../001.000.Home.html][html]]] [[[file:../001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
+*Home*: Oracle Business Intelligence Enterprise Edition [[[file:../001.000.Home.html][html]]] [[[file:../001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Documentation/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
 
-*Next*: Sec.1 Preface, New Features & Intro to OBIEE [[[file:./001.001.001.Preface, New Features & Intro to OBIEE/001.001.001.000.Notes.html][html]]] [[[file:./001.001.001.Preface, New Features & Intro to OBIEE/001.001.001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.001.Preface%2C%20New%20Features%20%26%20Intro%20to%20OBIEE][github]]]
+*Next*: Sec.1 Preface, New Features & Intro to OBIEE [[[file:./001.001.001.Preface, New Features & Intro to OBIEE/001.001.001.000.Notes.html][html]]] [[[file:./001.001.001.Preface, New Features & Intro to OBIEE/001.001.001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Documentation/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.001.Preface%2C%20New%20Features%20%26%20Intro%20to%20OBIEE][github]]]
 
 * Documentation Details
 | Title  | User's Guide for Oracle Business Intelligence Enterprise Edition |
@@ -14,8 +14,8 @@
 | URL    | https://docs.oracle.com/middleware/bi12214/biee/BIEUG/toc.htm    |
 
 * Contents
-1. Preface, New Features & Intro to OBIEE [[[file:./001.001.001.Preface, New Features & Intro to OBIEE/001.001.001.000.Notes.html][html]]] [[[file:./001.001.001.Preface, New Features & Intro to OBIEE/001.001.001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.001.Preface%2C%20New%20Features%20%26%20Intro%20to%20OBIEE][github]]]
-2. Creating Analyses [[[file:./001.001.002.Creating Analyses/001.001.002.000.Notes.html][html]]] [[[file:./001.001.002.Creating Analyses/001.001.002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.002.Creating%20Analyses][github]]]
+1. Preface, New Features & Intro to OBIEE [[[file:./001.001.001.Preface, New Features & Intro to OBIEE/001.001.001.000.Notes.html][html]]] [[[file:./001.001.001.Preface, New Features & Intro to OBIEE/001.001.001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Documentation/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.001.Preface%2C%20New%20Features%20%26%20Intro%20to%20OBIEE][github]]]
+2. Creating Analyses [[[file:./001.001.002.Creating Analyses/001.001.002.000.Notes.html][html]]] [[[file:./001.001.002.Creating Analyses/001.001.002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Documentation/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.002.Creating%20Analyses][github]]]
 
 * My Thoughts
 /Not Yet Finished/

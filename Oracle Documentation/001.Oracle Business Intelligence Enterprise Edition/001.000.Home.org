@@ -5,9 +5,9 @@
 
 * Navigation
 
-*Home*: Oracle Documentation [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs][github]]]
+*Home*: Oracle Documentation [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Documentation][github]]]
 
-*Next*: User's Guide for Oracle Business Intelligence Enterprise Edition [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.html][html]]] [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
+*Next*: User's Guide for Oracle Business Intelligence Enterprise Edition [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.html][html]]] [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Documentation/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
 
 * Documentation Details
 | Title  | Oralce Business Intelligence Enterprise Edition 12.2.1.4.0 |
@@ -20,7 +20,7 @@
 [[https://docs.oracle.com/middleware/bi12214/biee/docs.htm][Oracle Docs for Oracle Business Intelligence Enterprise Edition 12.2.1.4.0]]
 
 * Contents
-1. User's Guide for Oracle Business Intelligence Enterprise Edition [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.html][html]]] [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
+1. User's Guide for Oracle Business Intelligence Enterprise Edition [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.html][html]]] [[[file:./001.001.User's Guide for Oracle Business Intelligence Enterprise Edition/001.001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Documentation/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.001.User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
 
 * My Thoughts
 /Not Yet Finished/

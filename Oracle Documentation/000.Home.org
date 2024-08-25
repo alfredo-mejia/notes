@@ -6,7 +6,7 @@
 * Navigation
 *Prev*: Main Index [[[file:../index.html][html]]] [[[file:../index.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main][github]]]
 
-*Next*: Oracle Business Intelligence Enterprise Edition
+*Next*: Oracle Business Intelligence Enterprise Edition [[[file:./001.Oracle Business Intelligence Enterprise Edition/001.000.Home.html][html]]] [[[file:./001.Oracle Business Intelligence Enterprise Edition/001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Documentation/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
 
 * Documentation Details
 | Title  | Oracle Documentation    |
@@ -17,7 +17,7 @@
 [[https://docs.oracle.com/en/middleware/bi/index.html][Oracle Business Intelligence Middleware Index Page]]
 
 * Contents
-1. Oracle Business Intelligence Enterprise Edition [[[file:./001.Oracle Business Intelligence Enterprise Edition/001.000.Home.html][html]]] [[[file:./001.Oracle Business Intelligence Enterprise Edition/001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
+1. Oracle Business Intelligence Enterprise Edition [[[file:./001.Oracle Business Intelligence Enterprise Edition/001.000.Home.html][html]]] [[[file:./001.Oracle Business Intelligence Enterprise Edition/001.000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Documentation/001.Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
 
 * My Thoughts
 /Not Yet Finished/

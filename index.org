@@ -24,6 +24,6 @@ Depending on how you are navigating my notes (html, org, or Github) you can clic
 
 * Folders
 - HTML & CSS - Design and Build Websites by Jon Duckett [[[file:HTML & CSS - Design and Build Websites/000.Home.html][html]]] [[[file:HTML & CSS - Design and Build Websites/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
-- Oracle Documentation by [[https://docs.oracle.com][Oracle Docs]] [[[file:./Oracle Docs/000.Home.html][html]]] [[[file:./Oracle Docs/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Docs][github]]]
+- Oracle Documentation by [[https://docs.oracle.com][Oracle Docs]] [[[file:./Oracle Docs/000.Home.html][html]]] [[[file:./Oracle Docs/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Oracle%20Documentation][github]]]
 - The Complete 2024 Web Development Bootcamp by Dr. Angela Yu [[[file:The Complete 2024 Web Development Bootcamp/000.Home.html][html]]] [[[file:./The Complete 2024 Web Development Bootcamp/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp][github]]]
 - The Web Developer Bootcamp 2024 by Colt Steele [[[file:./The Web Developer Bootcamp 2024/000.Home.html][html]]] [[[file:./The Web Developer Bootcamp 2024/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024][github]]]
