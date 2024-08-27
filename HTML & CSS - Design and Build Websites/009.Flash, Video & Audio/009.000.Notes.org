@@ -16,7 +16,7 @@
    - *Note* this book is over a decade old (published in 2011) and web developement has changed since then, with that in mind, Adobe Flash has since been discountined and no longer used by virtually everyone
    - For the sake of completing the book, we will still continue with this section
    - Flash *was* a very popular technology used to add animations, video, and audio to websites
-   - The files you put on your websites in Falsh were referred to as Flash movies
+   - The files you put on your websites in Flash were referred to as Flash movies
    - To create Flash movies you needed to purchase the Flash authoring environment from Adobe
    - When saving a Flash movie it is saved using the extension /.fla/ but to use it in your website you would have to export it into a file with the extension /.swf/
    - The file will then have the code that you can use to embed the flash movie into your website
@@ -107,11 +107,15 @@
 
 ** Section 9.7: Creating a Web Page with Video & Audio
    - [[file:./009.007.Creating a Web Page with Video & Audio/index.html][Example of Creating a Web Page with Video & Audio]]
-       
+     
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term        | Definition                                                                                                                                  |
+|-------------+---------------------------------------------------------------------------------------------------------------------------------------------|
+| Adobe Flash | Software platform used to create animations, rich web applications, video players, audio players, games, and more but has been discountined |
+| ~<script>~  | The script element is used to embed executable code or data; typically used to embed or refer to JavaScript code                            |
+| ~<video>~   | A HTML element that embeds media player which supports video playback into the web page                                                     |
+| ~<audio>~   | A HTML element that embeds sound content in documents                                                                                       |
+| ~<source>~  | A HTML element that specifies one or more media resources for the ~<picture>~, ~<audio>~, and ~<video>~ elements; it is a self-closing element, commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for media file formats |
 
 * Questions
   - *Q*: If we have multiple ~<source>~ in ~<video>~ which one is played first? Do they have to be the same video but in different formats or can they be completely different videos?
@@ -138,3 +142,24 @@
 	 - Thus, you don't need anything else to play video or audio in one page while the user browses other pages if you are using HTML5  
     
 * Summary
+  - Adobe Flash was used a lot in the early 2000s to create animations, video, audio, video players, audio players but with the introduction of new technologies, libraries in JS, and HTML5 flash got discountined
+  - To run flash in the 2000s you must have installed a plugin into your browser called the Flash Player
+  - Flash movies or flash files were often in the format of ~.swf~ extension
+  - Most popular way to add a Flash movie was using a script called SWFObject
+  - Using the ~<script>~ tag you will able to add the script SWFObject and then using the ~<script>~ tag again you were able to embed the flash movie by specifying JavaScript code
+  - Using the JavaScript code you were able to specify the HTML element to replace and add the Flash movie, this be an animation, a video player, a game, an audio player, or any other object created in Flash
+  - To embed a video into your website there are 3 ways: using a Flash video player (discountined), host your video in a hosting service like YouTube and then use their API to embed their services into your web page and not have to worry about encoding and controls as everything will be provided, or embed the video yourself using HTML5 ~<video>~ element
+  - If you are going to use Flash (which is probably no longer possible) you need to convert the video to a correct format (FLV - Flash Video), find a Flash video player, and include the video and video player into your web page using the SWFObject script and the ~<script>~ element
+  - If you are going to use HTML5 ~<video>~ element, note that browsers may support different formats of videos so if you are going to embed the video yourself make sure you provide the necessary formats for the browser to render the video
+  - The ~<video>~ element has various attributes to specify controls, autoplay, looping, and more
+  - The ~<video>~ element has opening and closing tags and you could specify elements inside the video element
+  - To specify the video file you'd like to use you can use the ~src~ attribute in the video element or you could use the ~<source>~ element inside the video element
+  - If the browser cannot render the video then it will display whatever is inside the ~<video>~ besides the ~<source>~ element since the source element does not display anything
+  - The ~<source>~ element is used to specify the video file and the type of the video (e.g. mp4)
+  - There can be any number of ~<source>~ elements inside ~<video>~ but only one will be displayed, so what is the purpose? Since browsers may support different formats you can include multiple ~<sources>~ each specifying the video in a different format
+  - The browser will use the first ~<source>~ video that it supports
+  - Thus the source element is self closing and it is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for media file formats
+  - The ~<audio>~ element is very similar to the video element but instead for video it is for audio; it provides a native audio player and using the attributes can specify if controls are needed, looping, autoplay, and you can specify the source in the attributes of audio or you can also use the ~<source>~ element
+  - The ~<source>~ element works the same way in ~<audio>~ like in ~<video>~; the audio element has an opening and closing tag and will use the first source element that is compatibile with the browser
+  - Just like video, if the audio cannot be rendered because of the source elements provide a usable source then the browser will fall back to displaying the content included between the element's opening and closing tags (disregrading the source elements since those elements do not display anything)
+  
