@@ -49,15 +49,73 @@
    - Using the SWFObject and the ~<script>~ elements in the head, you will be able to specify what script you are using, what video player you are using, and what video you want the player to play
    - Depending on the video player you will need the video file to be in a specific format
 
+** Section 9.4: Preparing A Flash Video For Your Site (Duplicate)
+   - There are 3 steps you need to follow to add a Flash Video to your web page:
+     1. Convert your video into FLV format
+     2. Find an FLV player (written in Flash) to play the video
+     3. Include the player & video in your page (using JS like SWFObject)
+   - So how do you add it to your page? Similar way to how we have discussed SWFObject, you had a ~<script>~ element in the head to specify the SWFObject script
+   - Then using another ~<script>~ element you add JavaScript to indicate where the FLV video is located, where is the FLV player in a SWF format since it is written in Flash, it specifies which element to replace, the size of the player, and the version of flash
+   - It is very similar to what we have seen before in adding a flash movie into your web page
+
 ** Section 9.5: Preparing and Adding Videos To Your Page
-     
-     
+   - With HTML5, it introduced a new element called ~<video>~ which allows to include videos into your web page without needing a player
+   - When it was introduced some issues arose such as depending on the browser it may acceptable different video formats, the video player and controls are native to the browser thus each browser will have a different style of controls (not uniform), and there are no ways to handle copyrights of the video
+   - However, there were many benefits to HTML5's new ~<video>~ element such has having a native video player and resolving issues with how other elements behave near the video player
+   - So how do you add the video to your page? You add the ~<video>~ element and the element has a number of attributes which allow you to control video playback such as:
+     - ~src~: specifies the path to the video
+     - ~poster~: specifies an image to show while the video is downloading or until the user tells the video to player
+     - ~width~ & ~height~: specifies the size of the player in pixels
+     - ~controls~: indicates to the browser it should supply its own controls for playback
+     - ~autoplay~: specifies that the video should play automatically
+     - ~loop~: indicates that the video should start playing again once it has ended
+     - ~preload~: tells the browser what to do when the page loads it can have one of three values:
+       1. ~none~: browser should not load the video until the user presses play
+       2. ~auto~: browser should download the video when the page loads
+       3. ~metadata~: browser shoudl just collect information such as the size, first frame, track list, and duration
+   - You do not need to specify all the attributes; if omitted the attribute will be disable, if present the attribute will be enabled
+   - If the video player does not render then it will display whatever is inside the ~<video>~ element
+   - Since the ~<video>~ element has an opening and closing element you can nest elements inside the ~<video>~ element
+   - Instead of using ~src~ attribute you can then use the ~<source>~ element inside the ~<video>~ element
+   - The ~<source>~ thus replaces the attribute ~src~ in the ~<video>~ element and you can specify multiple ~<source>~ elements to specify that the video is available in different formats
+   - The ~<source>~ element is self-closing and some of the following attributes are:
+     - ~src~: specifies the path to the video
+     - ~type~: specifies what format the video is in
+       - Inside the ~type~ attribute you can include a ~codecs~ parameters which allows you to more precisely describe the format of the data within them
+   - You can many things with video such as create your own controls, provide different resolution videos for different sized screens, and tell different parts of a page to change when the video reaches a certain point
+
+** Section 9.6: Adding Audio Sources
+   - The most popular format for putting audio on web pages is MP3
+   - There are 3 ways to add audio to your web page:
+     1. Use a hosted service such as sound cloud where you upload your audio and the hosted service provides you with a player to embed into your page
+     2. Use flash as there are several flash movies that allow you to play MP3 files from one trakc to complex players that allow you to create playlists and juke boxes
+     3. Use HTML5 new ~<audio>~ element which browsers provide their own controls similar to the ~<video>~ element
+   - *Note* I am not sure of the status now but before, playing music while the user moves from one page to another was difficult to do so what developers would do would be to offer audio players in new windows so that listeners are not interrupted when they move between pages
+   - There are many MP3 players that have already been written in Flash and each player has different functionality
+   - To a flash MP3 player you use the SWFObject script as discussed previously; it is very similar to what we have seen, you specify the script you are using (SWFObject) and then you use another ~<script>~ element to specify the audio file, the MP3 player, the element it is replacing, the size of the player, and the version of Flash
+   - To add audio using HTML5, you include the ~<audio>~ element and each browser will have their audio player and may expect different audio formats
+   - The ~<audio>~ element has a number of attributes which allow you to control audio playback:
+     - ~src~: specifies the path to the audio file
+     - ~controls~: indicates whether or not the player should display controls (if you omit you then no controls will be displayed and you can specify your own controls using JS)
+     - ~autoplay~: the presence of the attribute indicates that the audio should start playing automatically (however best practice to let users choose to play the audio)
+     - ~preload~: indicates what the browser should do if the player is not set to ~autoplay~ and it has the same values we saw for the ~<video>~ element
+     - ~loop~: specifies that the audio track should play again once it has finished
+   - Similar to ~<video>~ you can use the ~<source>~ element nested inside the ~<audio>~ element
+   - You can specify more than one audio file using the ~<source>~ element nested between the ~<audio>~ opening and closing tags instead of the ~src~ attribute on the opening ~<audio>~ tag
+   - This is great for specifying different formats of audio files since browsers may support different formats
+   - The ~<source>~ element has the ~src~ and ~type~ attributes to indicate where the audio file is located and the type of audio
+
+** Section 9.7: Creating a Web Page with Video & Audio
+   - [[file:./009.007.Creating a Web Page with Video & Audio/index.html][Example of Creating a Web Page with Video & Audio]]
+       
 * Keywords
 | Term | Definition |
 |------+------------|
 |      |            |
 
 * Questions
-  - *Q*:
+  - *Q*: If we have multiple ~<source>~ in ~<video>~ which one is played first? Do they have to be the same video but in different formats or can they be completely different videos?
+  - *Q*: What is are ~codecs~ parameter?
+  - *Q*: How do you let audio play in one page while the user browses other pages? 
     
 * Summary
