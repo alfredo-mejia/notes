@@ -115,7 +115,26 @@
 
 * Questions
   - *Q*: If we have multiple ~<source>~ in ~<video>~ which one is played first? Do they have to be the same video but in different formats or can they be completely different videos?
-  - *Q*: What is are ~codecs~ parameter?
-  - *Q*: How do you let audio play in one page while the user browses other pages? 
+         - [[https://stackoverflow.com/questions/22698718/can-a-html-5-video-tag-have-multiple-mp4-sources-with-different-codecs][Stackoverflow Answer]]
+	 - [[https://www.w3schools.com/tags/tag_video.asp#:~:text=The%20tag%20contains%20one,support%20the%20element.][W3 Schools Video Tag]]
+	 - First there can be any number of source elements nested inside the video element
+	 - The source element could care less what video it is referring to; it does not have to be the same video; it can be completely different videos but generally it is the same video in a different format (because what is the point of different videos if only one video wil be played)
+	 - So what video will be rendered? The browser will do a fall-through order (sequential order) from the first source to the last source and it will display the video from the first source tag with a /compatible/ video file for the current device / browser
+	 - A similar approach is taken for the audio element
+	     
+  - *Q*: What are ~codecs~ parameter?
+         - [[https://developer.mozilla.org/en-US/docs/Web/Media/Formats/codecs_parameter][Mozilla Codecs in Common Media Types]]
+	 - [[https://www.techtarget.com/searchunifiedcommunications/definition/codec][What is a Codec - Tech Target]]
+	 - In simple terms, codec is a software based process that compresses and decompresses large amounts of data
+	 - Codecs are used in applications to play and create media files for users and send media files over a network
+	 - Thus codecs compress media files in order to save device space and send those files over a network
+	 - So you can use the ~codecs~ parameter to the attribute ~type~ to describe the media content and what format is used to encode the file
+	 - In summary, ~codecs~ parameter allow you to specify an encoder to your file
+	 - Encoding is the process of converting data into a format and each codec may or may not use some type of compression
+	   
+  - *Q*: How do you let audio play in one page while the user browses other pages?
+         - When it comes to audio, if you are using the ~<audio>~ element it will continue to play despite the user going to a different web page
+	 - When it comes to video, if you are using the ~<video>~ element it will also continue to play despite the user going to a different web page or tab
+	 - Thus, you don't need anything else to play video or audio in one page while the user browses other pages if you are using HTML5  
     
 * Summary
