@@ -9,6 +9,61 @@
 *Next*: Sec.2 Getting Started with Oracle Cloud Applications [[[file:../002.Getting Started with Oracle Cloud Applications/002.000.Notes.html][html]]] [[[file:../002.Getting Started with Oracle Cloud Applications/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials/002.Getting%20Started%20with%20Oracle%20Cloud%20Applications][github]]]
 
 * Notes
+** Section 1.1: Why Oracle Cloud?
+   - Oracle Cloud is unique because it can offer cloud infrastructure such as storage, compute, networking, etc. and cloud applications such as finanical apps, healthcare apps, retail apps, human captial management app, etc. all in one cloud
+   - They can also bring 3rd party apps
+   - Oracle also has various developer services such as APEX, kubernetes, AI services, and more
+   - Oracle also have "distributed cloud", they can get the services through the public cloud, hybrid cloud (in-prem), or dedicated cloud where the services are running in customer data centers (OCI dedicated region)
+   - Oracle is also investing in multicloud interacting with other cloud providers
+
+** Section 1.2: Oracle Cloud Introduction
+   - Oracle Cloud may have over 100 services, at a high-level, it can be classified into two categories: Oracle Cloud Infrastructure and Oracle Cloud Applications
+   - Oracle Cloud Infrastructure (OCI) are the infrstructure services that are designed to run any type of application (e.g. modern cloud-native application or any other mission critical workload)
+   - The global cloud data center infrastructure is the physical foundation organized into geographic regions that comprise the OCI platform (think of these regions as cities or regions where you want your OCI services to run)
+
+*** Section 1.2.1: Oracle Cloud Infrastructure (OCI)
+    - The core services of OCI are: compute, storage, and networking
+    - Compute service provides compute capacity with CPUs and memory (RAM & persistent compute storage) often provisioned as virtual machines
+    - Storage provides different service types for securely storing your data
+    - Networking services allow you to manage and scale public or private networks providing many connectivity options for internal or external components
+    - Other services provided by OCI are databases, developer services, containers & functions, application integrations, ML & AI, Data Lakehouse, analytics, and more
+    - There are security services at every layer to meet regulations, compliance and security requirements
+    - This is all for allowing customers to run their applications in the Oracle Cloud Infrastructure
+
+*** Section 1.2.2: Oracle Cloud Applications
+    - There are also applications (by Oracle in the cloud) that customers may be able to use and these software are referred to as Software as a Service or SaaS
+    - Some examples include Oracle Fusion Cloud Enterprise Resource Planning (ERP) which is a complete modern enterprise resource-planning suite that provides financials, general ledger, accounts payable and receivables, and more
+    - Other apps are Supply Chain Management, Human Captial Management, Advertising and Customer Experience, Industry Applications (purposely built applications e.g. construction, engineering, etc.)
+
+** Section 1.3: Oracle Cloud Infrastructure (OCI) Architecture
+   - There are 3 main constructs of the physical architecture of OCI: regions, availability domains, fault domains
+   - A *region* represents a localized geographic area that is comprised of one or more *availability domains* (ADs) which are essentially physical data centers located within that region
+   - These availability domains are connected to each other by a low latency, high bandwidth network
+   - The fault domain is a grouping of hardware and infrastructure within each availability domain
+   - Fault domains allow you to distribute your cloud resources such as compute instances to ensure that they are not running on the same physical hardware within a single availability domain, helping to avoid any single point of failure
+   - Why would you want a cloud provider with multiple regions? Well if your application is growing in Europe then you would like to allocate resources in a region in Europe to reduce the latency your application has with your customers
+
+*** Section 1.3.1: Choosing A Region
+    1. You'd like a region closest to your users for lowest latency and highest performance
+    2. Data residency and compliance for storing enterprise data meaning many countries have strict data residency requirements (thus any factor to take into account; the laws and rules of storing data in that country / region)
+    3. Another factor to keep in mind are OCI service availability as some services are not offered everywhere and new cloud services can be made available based on regional demand, regulatory compliance, resource availability, and other factors
+
+*** Section 1.3.2: Availability Domains
+    - Although there may be multiple availability domains within a region, each availability domain are still isolated from each other
+    - This provides fault tolerance and becomes very unlikely for more than one availability domain to fail at the same time because the physical infrastructure are not shared between availability domains
+    - Thus a fail in one availability domain will not impact another availbility domain
+
+*** Section 1.3.3: Fault Domains
+    - Fault domains are a grouping of hardware and insfrastructure within an availability domain
+    - You control the placement of your infrastructure resources such as VMs or cloud storage to specific fault domains as you're configuring the provisioning of those resources
+    - The reason for using separate fault domains is to protect against any unexpected hardware failure or planned outages during maintenance
+    - Each availability domain provide 3 fault domains allowing you to distribute resources
+    - Fault domains can be thought as logical data centers within an availability domain which AD is itself a physical data center
+    - Thus resources placed in different FDs will not share single points of hardware failure
+    - In summary, OCI architecture is organized into geographic regions and each region contains one or more data centers (availability domains) and each data center is subdivided further into 3 fault domains, and these fault domains can be thought as logical data centers placing resources in them
+
+** Section 1.4: OCI Console Walkthrough Demo
+
 
 * Keywords
 | Term | Definition |
