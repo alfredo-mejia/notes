@@ -1,0 +1,29 @@
+body {
+    font-family: monospace;
+}
+
+h1, p {
+    color: purple;
+}
+
+h2 {
+    color: green;
+}
+
+h3 {
+    color: orange;
+}
+
+h4 {
+    color: blue;
+}
+
+h5 {
+    color: red;
+    font-family: Arial;
+    border-style: solid;
+}
+
+h6 {
+    color: aqua;
+}

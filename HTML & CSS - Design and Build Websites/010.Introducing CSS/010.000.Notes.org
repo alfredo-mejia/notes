@@ -9,3 +9,60 @@
 *Prev*: Ch.9 Flash, Video & Audio [[[file:../009.Flash, Video & Audio/009.000.Notes.html][html]]] [[[file:../009.Flash, Video & Audio/009.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/009.Flash%2C%20Video%20%26%20Audio][github]]]
 
 *Next*: Ch.11 Color [[[file:../011.Color/011.000.Notes.html][html]]] [[[file:../011.Color/011.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/011.Color][github]]]
+
+* Notes
+
+** Section 10.1: Introduction to CSS
+   - THe key to understanding how CSS works is to imagine that there is an invisible box around every HTML element
+   - Recall what are block level elements and inline level elements: block level elements start on a new line while inline elements flow within the text and do not start on a new line
+   - CSS allows you to create rules that control the way that each individual box and the contets of that box is presented
+   - For example, for elements or "boxes" you can add a border around any of the boxes and specify the width, height, color, style, background color, and more
+   - For text inside a box you can control the typeface (e.g. font which is a specific style of the typeface like Roboto which is the typeface and the font is Roboto Regular or Roboto Thin), size, color, italics, bold, uppercase, lowercase, and more
+   - However there are specific rules in CSS to specifically specify the ways you want to style certain elements
+
+*** Section 10.1.1: CSS Rules
+    - CSS works by associating rules with HTML elements
+    - What do we mean by that? These rules govern how the content of specified elements should be displayed
+    - A CSS rule contains two parts: a *selector* and a *declaration*
+    - For example:
+
+    #+BEGIN_SRC css
+      p {
+	  font-family: Arial;
+      }
+    #+END_SRC
+
+    - The p is the selector and indicates that all ~<p>~ elements should be shown in the Arial typeface
+    - The declaration is the ~font-family: Arial~
+    - Selectors indicate which element the rule applies to and the same rule can apply to more than one element if you separate the elemet names with commas like ~p, h1, div {}~ (the declaraction will be applied to ~<p>~, ~<h1>~, and ~<div>~ elements)
+    - Declarations indicate how the elements referred to in the selector should be styled
+
+*** Section 10.1.2: CSS Declaration Rules
+    - Declarations are split into two parts: a property and a value
+    - The property and value are separated by a colon and it ends with a semi-colon
+    - CSS declarations sit inside curly brackets after specifying the selectors
+    - Several /properties/ can be specified in one declaration by separating the property / value pair by a semi-color
+    - Properties indicate the aspects of the element you want to change (e.g. color, font, width, etc.)
+    - Values specify the settings you want to use for the chosen properties (e.g. green for color, Roboto for typeface, etc.)
+    - For example:
+
+    #+BEGIN_SRC css
+      h1, h2, h3 {
+	  font-family: Arial;
+	  color: yellow;
+      }
+    #+END_SRC
+
+    - The example above says for h1, h2, and h3 elements I want the typeface to be Arial and the text color to be yellow
+    - Let's do an [[file:./010.001.First CSS Example/index.html][exmaple with HTML and CSS]]
+
+      
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*:
+
+* Summary

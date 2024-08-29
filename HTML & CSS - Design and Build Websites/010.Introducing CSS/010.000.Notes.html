@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-08-29 Thu 14:39 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ch.10 Introducing CSS</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Ch.10 Introducing CSS</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2e74172">Navigation</a></li>
+<li><a href="#orgc28182a">Notes</a>
+<ul>
+<li><a href="#org186db91">Section 10.1: Introduction to CSS</a>
+<ul>
+<li><a href="#orge0dc5d9">Section 10.1.1: CSS Rules</a></li>
+<li><a href="#orgb15a582">Section 10.1.2: CSS Declaration Rules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb563d05">Keywords</a></li>
+<li><a href="#orgc513f98">Questions</a></li>
+<li><a href="#org57509d3">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2e74172" class="outline-2">
+<h2 id="org2e74172">Navigation</h2>
+<div class="outline-text-2" id="text-org2e74172">
+<p>
+<b>Home</b>: HTML &amp; CSS - Design and Build Websites [<a href="../000.Home.html">html</a>] [<a href="../000.Home.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites">github</a>]
+</p>
+
+<p>
+<b>Prev</b>: Ch.9 Flash, Video &amp; Audio [<a href="../009.Flash, Video &amp; Audio/009.000.Notes.html">html</a>] [<a href="../009.Flash, Video &amp; Audio/009.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/009.Flash%2C%20Video%20%26%20Audio">github</a>]
+</p>
+
+<p>
+<b>Next</b>: Ch.11 Color [<a href="../011.Color/011.000.Notes.html">html</a>] [<a href="../011.Color/011.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/011.Color">github</a>]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc28182a" class="outline-2">
+<h2 id="orgc28182a">Notes</h2>
+<div class="outline-text-2" id="text-orgc28182a">
+</div>
+<div id="outline-container-org186db91" class="outline-3">
+<h3 id="org186db91">Section 10.1: Introduction to CSS</h3>
+<div class="outline-text-3" id="text-org186db91">
+<ul class="org-ul">
+<li>THe key to understanding how CSS works is to imagine that there is an invisible box around every HTML element</li>
+<li>Recall what are block level elements and inline level elements: block level elements start on a new line while inline elements flow within the text and do not start on a new line</li>
+<li>CSS allows you to create rules that control the way that each individual box and the contets of that box is presented</li>
+<li>For example, for elements or "boxes" you can add a border around any of the boxes and specify the width, height, color, style, background color, and more</li>
+<li>For text inside a box you can control the typeface (e.g. font which is a specific style of the typeface like Roboto which is the typeface and the font is Roboto Regular or Roboto Thin), size, color, italics, bold, uppercase, lowercase, and more</li>
+<li>However there are specific rules in CSS to specifically specify the ways you want to style certain elements</li>
+</ul>
+</div>
+
+<div id="outline-container-orge0dc5d9" class="outline-4">
+<h4 id="orge0dc5d9">Section 10.1.1: CSS Rules</h4>
+<div class="outline-text-4" id="text-orge0dc5d9">
+<ul class="org-ul">
+<li>CSS works by associating rules with HTML elements</li>
+<li>What do we mean by that? These rules govern how the content of specified elements should be displayed</li>
+<li>A CSS rule contains two parts: a <b>selector</b> and a <b>declaration</b></li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-css">p {
+    font-family: Arial;
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The p is the selector and indicates that all <code>&lt;p&gt;</code> elements should be shown in the Arial typeface</li>
+<li>The declaration is the <code>font-family: Arial</code></li>
+<li>Selectors indicate which element the rule applies to and the same rule can apply to more than one element if you separate the elemet names with commas like <code>p, h1, div {}</code> (the declaraction will be applied to <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, and <code>&lt;div&gt;</code> elements)</li>
+<li>Declarations indicate how the elements referred to in the selector should be styled</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb15a582" class="outline-4">
+<h4 id="orgb15a582">Section 10.1.2: CSS Declaration Rules</h4>
+<div class="outline-text-4" id="text-orgb15a582">
+<ul class="org-ul">
+<li>Declarations are split into two parts: a property and a value</li>
+<li>The property and value are separated by a colon and it ends with a semi-colon</li>
+<li>CSS declarations sit inside curly brackets after specifying the selectors</li>
+<li>Several <i>properties</i> can be specified in one declaration by separating the property / value pair by a semi-color</li>
+<li>Properties indicate the aspects of the element you want to change (e.g. color, font, width, etc.)</li>
+<li>Values specify the settings you want to use for the chosen properties (e.g. green for color, Roboto for typeface, etc.)</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-css">h1, h2, h3 {
+    font-family: Arial;
+    color: yellow;
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The example above says for h1, h2, and h3 elements I want the typeface to be Arial and the text color to be yellow</li>
+<li>Let's do an <a href="./010.001.First CSS Example/index.html">exmaple with HTML and CSS</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb563d05" class="outline-2">
+<h2 id="orgb563d05">Keywords</h2>
+<div class="outline-text-2" id="text-orgb563d05">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc513f98" class="outline-2">
+<h2 id="orgc513f98">Questions</h2>
+<div class="outline-text-2" id="text-orgc513f98">
+<ul class="org-ul">
+<li><b>Q</b>:</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org57509d3" class="outline-2">
+<h2 id="org57509d3">Summary</h2>
+</div>
+</div>
+</body>
+</html>
