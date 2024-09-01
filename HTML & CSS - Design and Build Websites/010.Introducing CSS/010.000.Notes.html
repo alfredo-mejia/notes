@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-29 Thu 14:39 -->
+<!-- 2024-08-31 Sat 20:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ch.10 Introducing CSS</title>
@@ -202,27 +202,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2e74172">Navigation</a></li>
-<li><a href="#orgc28182a">Notes</a>
+<li><a href="#org4f9e2b8">Navigation</a></li>
+<li><a href="#org550ea35">Notes</a>
 <ul>
-<li><a href="#org186db91">Section 10.1: Introduction to CSS</a>
+<li><a href="#org85c4c19">Section 10.1: Introduction to CSS</a>
 <ul>
-<li><a href="#orge0dc5d9">Section 10.1.1: CSS Rules</a></li>
-<li><a href="#orgb15a582">Section 10.1.2: CSS Declaration Rules</a></li>
+<li><a href="#org215207e">Section 10.1.1: CSS Rules</a></li>
+<li><a href="#orgd3b0377">Section 10.1.2: CSS Declaration Rules</a></li>
 </ul>
 </li>
+<li><a href="#org761efee">Section 10.2: Using CSS</a>
+<ul>
+<li><a href="#orgd0f9c72">Section 10.2.1: Using External CSS</a></li>
+<li><a href="#org024bc80">Section 10.2.2: Using Internal CSS</a></li>
+<li><a href="#org30aed14">Section 10.2.3: Using Inline CSS</a></li>
 </ul>
 </li>
-<li><a href="#orgb563d05">Keywords</a></li>
-<li><a href="#orgc513f98">Questions</a></li>
-<li><a href="#org57509d3">Summary</a></li>
+<li><a href="#orga0ad7d8">Section 10.3: CSS Selectors</a></li>
+</ul>
+</li>
+<li><a href="#org1c1ab09">Keywords</a></li>
+<li><a href="#org924be7d">Questions</a></li>
+<li><a href="#org8ba1d0e">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2e74172" class="outline-2">
-<h2 id="org2e74172">Navigation</h2>
-<div class="outline-text-2" id="text-org2e74172">
+<div id="outline-container-org4f9e2b8" class="outline-2">
+<h2 id="org4f9e2b8">Navigation</h2>
+<div class="outline-text-2" id="text-org4f9e2b8">
 <p>
 <b>Home</b>: HTML &amp; CSS - Design and Build Websites [<a href="../000.Home.html">html</a>] [<a href="../000.Home.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites">github</a>]
 </p>
@@ -237,13 +245,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgc28182a" class="outline-2">
-<h2 id="orgc28182a">Notes</h2>
-<div class="outline-text-2" id="text-orgc28182a">
+<div id="outline-container-org550ea35" class="outline-2">
+<h2 id="org550ea35">Notes</h2>
+<div class="outline-text-2" id="text-org550ea35">
 </div>
-<div id="outline-container-org186db91" class="outline-3">
-<h3 id="org186db91">Section 10.1: Introduction to CSS</h3>
-<div class="outline-text-3" id="text-org186db91">
+<div id="outline-container-org85c4c19" class="outline-3">
+<h3 id="org85c4c19">Section 10.1: Introduction to CSS</h3>
+<div class="outline-text-3" id="text-org85c4c19">
 <ul class="org-ul">
 <li>THe key to understanding how CSS works is to imagine that there is an invisible box around every HTML element</li>
 <li>Recall what are block level elements and inline level elements: block level elements start on a new line while inline elements flow within the text and do not start on a new line</li>
@@ -254,9 +262,9 @@
 </ul>
 </div>
 
-<div id="outline-container-orge0dc5d9" class="outline-4">
-<h4 id="orge0dc5d9">Section 10.1.1: CSS Rules</h4>
-<div class="outline-text-4" id="text-orge0dc5d9">
+<div id="outline-container-org215207e" class="outline-4">
+<h4 id="org215207e">Section 10.1.1: CSS Rules</h4>
+<div class="outline-text-4" id="text-org215207e">
 <ul class="org-ul">
 <li>CSS works by associating rules with HTML elements</li>
 <li>What do we mean by that? These rules govern how the content of specified elements should be displayed</li>
@@ -280,9 +288,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgb15a582" class="outline-4">
-<h4 id="orgb15a582">Section 10.1.2: CSS Declaration Rules</h4>
-<div class="outline-text-4" id="text-orgb15a582">
+<div id="outline-container-orgd3b0377" class="outline-4">
+<h4 id="orgd3b0377">Section 10.1.2: CSS Declaration Rules</h4>
+<div class="outline-text-4" id="text-orgd3b0377">
 <ul class="org-ul">
 <li>Declarations are split into two parts: a property and a value</li>
 <li>The property and value are separated by a colon and it ends with a semi-colon</li>
@@ -308,12 +316,174 @@
 </div>
 </div>
 </div>
+
+<div id="outline-container-org761efee" class="outline-3">
+<h3 id="org761efee">Section 10.2: Using CSS</h3>
+<div class="outline-text-3" id="text-org761efee">
+</div>
+<div id="outline-container-orgd0f9c72" class="outline-4">
+<h4 id="orgd0f9c72">Section 10.2.1: Using External CSS</h4>
+<div class="outline-text-4" id="text-orgd0f9c72">
+<ul class="org-ul">
+<li>The <code>&lt;link&gt;</code> element can be used in a HTML document to tell the browser where to find the CSS file to style the page</li>
+<li>The <code>&lt;link&gt;</code> element is a self-closing tag and it is inside the <code>&lt;head&gt;</code> element and it should use three attributes:
+<ol class="org-ol">
+<li><code>href</code>: specifies the path to the CSS file (often placed in a folder called css or styles)</li>
+<li><code>type</code>: specifies the type of document being linked to (e.g. <code>text/css</code>)</li>
+<li><code>ref</code>: specifies the relationship between the HTML page and the file it is linked to (e.g. <code>stylesheet</code>)</li>
+</ol></li>
+<li>An HTML page can use more than one CSS style sheet</li>
+<li>To do this it could have a <code>&lt;link&gt;</code> element for every CSS file it uses (e.g. one CSS file to control presentation and a second to control the layout)</li>
+<li><p>
+Here is an example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;An Example Using External CSS&lt;/title&gt;
+    &lt;link href="css/styles.css" type="text/css" rel="stylesheet" /&gt;
+  &lt;/head&gt;
+&lt;/html&gt;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org024bc80" class="outline-4">
+<h4 id="org024bc80">Section 10.2.2: Using Internal CSS</h4>
+<div class="outline-text-4" id="text-org024bc80">
+<ul class="org-ul">
+<li>You can use the <code>&lt;style&gt;</code> element which sits inside the <code>&lt;head&gt;</code> element which allows you to include CSS rules within an HTML page by placing them inside the <code>&lt;style&gt;</code> element</li>
+<li>The <code>&lt;style&gt;</code> element should use the <code>type</code> attribute to indicate that the styles are specified in CSS (e.g. <code>text/css</code> specifies the style is in CSS)</li>
+<li>Although you can use internal CSS with HTML, it is best to use an external CSS style sheet especially when building a site with more than one page</li>
+<li>The benefits of using external CSS style sheet are:
+<ul class="org-ul">
+<li>Same style sheet can be applied to multiple pages instead of repeating them</li>
+<li>Keeps the content separate from how the page looks</li>
+<li>Can change the style of all pages by modifying only one file</li>
+</ul></li>
+<li><p>
+Here is an example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;An Example Using Internal CSS&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+      body {
+        font-family: arial;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+&lt;/html&gt;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org30aed14" class="outline-4">
+<h4 id="org30aed14">Section 10.2.3: Using Inline CSS</h4>
+<div class="outline-text-4" id="text-org30aed14">
+<ul class="org-ul">
+<li>Another way to specify CSS are by the <code>style</code> attribute which is avaiable in most of the elements that appear in the body of a page</li>
+<li>The CSS rules that appeared within the value of the attribute would only apply to that one element</li>
+<li><p>
+Here's an example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;p style="color:red;"&gt;This is an example&lt;/p&gt;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga0ad7d8" class="outline-3">
+<h3 id="orga0ad7d8">Section 10.3: CSS Selectors</h3>
+<div class="outline-text-3" id="text-orga0ad7d8">
+<ul class="org-ul">
+<li>Recall a CSS rule has one or more selectors and a declaration</li>
+<li>The declaration can have one or more properties which specify some CSS property to a HTML element?</li>
+<li>What are CSS selectors? CSS selectors are a pattern of elements and other terms to basically tell the browser which HTML elements should be selected to have the CSS property values declared in the declaration of the CSS rule</li>
+<li>There are many different types of CSS selectors that allow you to target rules to specific elements in a HTML document</li>
+<li>CSS selectors are case sensitive so they must match element names and attribute values exactly (e.g. class names, ids, any other attribute because it can be used to select a HTML element)</li>
+<li>There are advanced selectors which allow you to select elements based on attributes and their values</li>
+<li>Here are the list of selectors:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">Meaning</th>
+<th scope="col" class="org-left">Example</th>
+<th scope="col" class="org-left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Universal Selector</td>
+<td class="org-left">Applies to all elements in the document</td>
+<td class="org-left"><code>* {}</code></td>
+<td class="org-left">Notice how the "*" indicates all the properties declared in the declaration will be applied to every HTML element declared in the page</td>
+</tr>
+
+<tr>
+<td class="org-left">Type Selector</td>
+<td class="org-left">Applies to HTML elements with the same name</td>
+<td class="org-left"><code>h1, h2, h3 {}</code></td>
+<td class="org-left">Notice how it will use the names and match it with the HTML elements' names; multiple html elements can be specified all having the same declaration declared instead of repeating the same declaration</td>
+</tr>
+
+<tr>
+<td class="org-left">Class Selector</td>
+<td class="org-left">Matches an element whose <code>class</code> attribute has a value that matches the one specified after the period symbol</td>
+<td class="org-left"><code>.note {}</code> or <code>p.note {}</code></td>
+<td class="org-left">Notice to use a class selector you must use a period which will apply to HTML elements with that class or you can target HTML elements with that class attribute but the HTML element must be a specific element for the properties to be applied (e.g. <code>p.note</code> specifies only <code>&lt;p&gt;</code> elements whose <code>class</code> attribute has a value of <code>note</code>)</td>
+</tr>
+
+<tr>
+<td class="org-left">ID Selector</td>
+<td class="org-left">Matches an element whose <code>id</code> attribute has a value that matches the one specified after the pound or hash symbol</td>
+<td class="org-left"><code>#introduction {}</code></td>
+<td class="org-left">Notice to use a id selector you must use the pound symbol and targets a specific HTML element with the same id attribute</td>
+</tr>
+
+<tr>
+<td class="org-left">Attribute Selector</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
 
-<div id="outline-container-orgb563d05" class="outline-2">
-<h2 id="orgb563d05">Keywords</h2>
-<div class="outline-text-2" id="text-orgb563d05">
+<div id="outline-container-org1c1ab09" class="outline-2">
+<h2 id="org1c1ab09">Keywords</h2>
+<div class="outline-text-2" id="text-org1c1ab09">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -338,17 +508,17 @@
 </div>
 </div>
 
-<div id="outline-container-orgc513f98" class="outline-2">
-<h2 id="orgc513f98">Questions</h2>
-<div class="outline-text-2" id="text-orgc513f98">
+<div id="outline-container-org924be7d" class="outline-2">
+<h2 id="org924be7d">Questions</h2>
+<div class="outline-text-2" id="text-org924be7d">
 <ul class="org-ul">
-<li><b>Q</b>:</li>
+<li><b>Q</b>: Besides CSS files, can <code>&lt;link&gt;</code> elements be used for other purposes? Does it need to be inside the <code>&lt;head&gt;</code> element? Can it be inside other elements?</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org57509d3" class="outline-2">
-<h2 id="org57509d3">Summary</h2>
+<div id="outline-container-org8ba1d0e" class="outline-2">
+<h2 id="org8ba1d0e">Summary</h2>
 </div>
 </div>
 </body>

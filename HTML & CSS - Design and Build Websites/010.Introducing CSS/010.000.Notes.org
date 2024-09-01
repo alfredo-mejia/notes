@@ -56,6 +56,78 @@
     - The example above says for h1, h2, and h3 elements I want the typeface to be Arial and the text color to be yellow
     - Let's do an [[file:./010.001.First CSS Example/index.html][exmaple with HTML and CSS]]
 
+** Section 10.2: Using CSS
+
+*** Section 10.2.1: Using External CSS
+   - The ~<link>~ element can be used in a HTML document to tell the browser where to find the CSS file to style the page
+   - The ~<link>~ element is a self-closing tag and it is inside the ~<head>~ element and it should use three attributes:
+     1. ~href~: specifies the path to the CSS file (often placed in a folder called css or styles)
+     2. ~type~: specifies the type of document being linked to (e.g. ~text/css~)
+     3. ~ref~: specifies the relationship between the HTML page and the file it is linked to (e.g. ~stylesheet~)
+   - An HTML page can use more than one CSS style sheet
+   - To do this it could have a ~<link>~ element for every CSS file it uses (e.g. one CSS file to control presentation and a second to control the layout)
+   - Here is an example:
+
+     #+BEGIN_SRC html
+       <!DOCTYPE html>
+       <html>
+	 <head>
+	   <title>An Example Using External CSS</title>
+	   <link href="css/styles.css" type="text/css" rel="stylesheet" />
+	 </head>
+       </html>
+     #+END_SRC
+     
+*** Section 10.2.2: Using Internal CSS
+   - You can use the ~<style>~ element which sits inside the ~<head>~ element which allows you to include CSS rules within an HTML page by placing them inside the ~<style>~ element
+   - The ~<style>~ element should use the ~type~ attribute to indicate that the styles are specified in CSS (e.g. ~text/css~ specifies the style is in CSS)
+   - Although you can use internal CSS with HTML, it is best to use an external CSS style sheet especially when building a site with more than one page
+   - The benefits of using external CSS style sheet are:
+     - Same style sheet can be applied to multiple pages instead of repeating them
+     - Keeps the content separate from how the page looks
+     - Can change the style of all pages by modifying only one file
+   - Here is an example:
+     
+     #+BEGIN_SRC html
+       <!DOCTYPE html>
+       <html>
+	 <head>
+	   <title>An Example Using Internal CSS</title>
+	   <style type="text/css">
+	     body {
+	       font-family: arial;
+	     }
+	   </style>
+	 </head>
+       </html>
+     #+END_SRC
+
+*** Section 10.2.3: Using Inline CSS
+    - Another way to specify CSS are by the ~style~ attribute which is avaiable in most of the elements that appear in the body of a page
+    - The CSS rules that appeared within the value of the attribute would only apply to that one element
+    - Here's an example:
+
+      #+BEGIN_SRC html
+	<p style="color:red;">This is an example</p>
+      #+END_SRC
+
+** Section 10.3: CSS Selectors
+   - Recall a CSS rule has one or more selectors and a declaration
+   - The declaration can have one or more properties which specify some CSS property to a HTML element?
+   - What are CSS selectors? CSS selectors are a pattern of elements and other terms to basically tell the browser which HTML elements should be selected to have the CSS property values declared in the declaration of the CSS rule
+   - There are many different types of CSS selectors that allow you to target rules to specific elements in a HTML document
+   - CSS selectors are case sensitive so they must match element names and attribute values exactly (e.g. class names, ids, any other attribute because it can be used to select a HTML element)
+   - There are advanced selectors which allow you to select elements based on attributes and their values
+   - Here are the list of selectors:
+
+   | Selector            | Meaning                                                                                                           | Example                   | Explanation                                                                                                                                                                                                                                                                                                                                   |
+   |---------------------+-------------------------------------------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | Universal Selector  | Applies to all elements in the document                                                                           | ~* {}~                    | Notice how the "*" indicates all the properties declared in the declaration will be applied to every HTML element declared in the page                                                                                                                                                                                                        |
+   | Type Selector       | Applies to HTML elements with the same name                                                                       | ~h1, h2, h3 {}~           | Notice how it will use the names and match it with the HTML elements' names; multiple html elements can be specified all having the same declaration declared instead of repeating the same declaration                                                                                                                                       |
+   | Class Selector      | Matches an element whose ~class~ attribute has a value that matches the one specified after the period symbol     | ~.note {}~ or ~p.note {}~ | Notice to use a class selector you must use a period which will apply to HTML elements with that class or you can target HTML elements with that class attribute but the HTML element must be a specific element for the properties to be applied (e.g. ~p.note~ specifies only ~<p>~ elements whose ~class~ attribute has a value of ~note~) |
+   | ID Selector         | Matches an element whose ~id~ attribute has a value that matches the one specified after the pound or hash symbol | ~#introduction {}~        | Notice to use a id selector you must use the pound symbol and targets a specific HTML element with the same id attribute                                                                                                                                                                                                                      |
+   | Attribute Selector  |                                                                                                                   |                           |                                                                                                                                                                                                                                                                                                                                               |
+     
       
 * Keywords
 | Term | Definition |
@@ -63,6 +135,6 @@
 |      |            |
 
 * Questions
-  - *Q*:
+  - *Q*: Besides CSS files, can ~<link>~ elements be used for other purposes? Does it need to be inside the ~<head>~ element? Can it be inside other elements? 
 
 * Summary
