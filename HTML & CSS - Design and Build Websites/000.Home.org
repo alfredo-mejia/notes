@@ -16,6 +16,8 @@
 | Year      | 2011                                   |
 | ISBN      | 978-1-118-00818-8                      |
 
+* Resources
+[[https://wtf.tw/ref/duckett.pdf][Online PDF Book Link]]
 
 * Contents
 1. Structure [[[file:001.Structure/001.000.Notes.html][html]]] [[[file:001.Structure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure][github]]]

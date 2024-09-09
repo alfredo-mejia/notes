@@ -193,13 +193,11 @@
    - Best way to find such nuances in your website is to test your site in multiple browsers in multiple OS
    - If something does not display as expected you can either find a solution or change the CSS rule
    - Normally when a CSS property does not display as expected it is generally referred to as a browser quirk or CSS bug
-
-** Section 10.8: 
    
 * Keywords
 | Term | Definition |
 |------+------------|
-|      |            |
+| CSS  |            |
 
 * Questions
   - *Q*: Besides CSS files, can ~<link>~ elements be used for other purposes? Does it need to be inside the ~<head>~ element? Can it be inside other elements? 
