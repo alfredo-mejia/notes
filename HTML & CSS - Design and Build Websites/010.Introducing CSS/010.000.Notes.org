@@ -158,7 +158,7 @@
 ** Section 10.5: Inheritance
    - There are some CSS properties that when applied to the element then all descendants of that element will inherit the same property
    - For example, if you specify the ~font-family~ or the ~color~ properties on the ~<body>~ element then they will be applied to most child elements
-   - THis is because those properties are inherited by the child elements
+   - This is because those properties are inherited by the child elements
    - There are other properties that are not inherited by child elements (e.g. ~background-color~, ~border~, ~width~, etc.)
    - However, you can force a lot of properties to inheirt values from their parent elements by using ~inherit~ for the value of the properties
    - For example:
@@ -195,11 +195,60 @@
    - Normally when a CSS property does not display as expected it is generally referred to as a browser quirk or CSS bug
    
 * Keywords
-| Term | Definition |
-|------+------------|
-| CSS  |            |
+| Term                     | Definition                                                                                                                                                                                                                        |
+|--------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CSS                      | Cascading Style Sheets (CSS) is a style sheet language used for specifying the presentation and styling of a document written in HTML or XML                                                                                      |
+| Block-level Elements     | Block level elements are elements that start on a new line and take up the school width of its parent regardless of its content                                                                                                   |
+| Inline-level Elements    | Inline-level elements are elements that only take up space as needed and do not start on a new line                                                                                                                               |
+| CSS Rule                 | CSS rules dictate what styling should be applied to what element; the css rule has two parts the selector and the declaration                                                                                                     |
+| CSS Selectors            | Part of the CSS rule, the selector indicates which element the rule will be applied to; the same rule can apply to more than one element                                                                                          |
+| CSS Declaration          | Part of the CSS rule, indicates how the elements selector should be styled and again can be applied to more than one element; it has two parts: a property and a value                                                            |
+| CSS Declaration Property | Properties indicate a certain aspect of the element you want to change (e.g. color, font, width, etc); a declaration may have declared multiple properties                                                                        |
+| CSS Declaration Value    | Values specify the settings you want to use for the chosen properties (e.g. green for color, Roboto for typeface, etc.)                                                                                                           |
+| ~<link>~ Element         | The link element specifies relationships between the current document and an external resource (in our case the CSS stylesheets)                                                                                                  |
+| ~<style>~ Element        | It is a HTML element that contains CSS (style information) for the document or part of the document                                                                                                                               |
+| ~!important~             | This can be used at the end of a CSS value to indicate that the CSS property is more important than any other rule that is applies to the same element thus overriding any other rule applies to the element including inline CSS |
+| ~inherit~                | This is used as a value to a CSS property and it inherits the values for that property from their parent                                                                                                                          |
 
 * Questions
   - *Q*: Besides CSS files, can ~<link>~ elements be used for other purposes? Does it need to be inside the ~<head>~ element? Can it be inside other elements? 
+         - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link][Mozilla Link Element Docs]]
+         - According to the Mozilla docs the ~<link>~ element specifies relationships between the current document and an external resource
+         - It is commonly used to link stylesheets but can also be used establish site icons (favicon, icons for home screen, etc.)
+         - Recall a favicon is a small 16x16 pixels icon used as a shortcut icon for your website often used in bookmarks and tabs
+         - For example,
+	   
+	   #+BEGIN_SRC html
+	       <link rel="icon" href="favicon.ico" />
+	   #+END_SRC
+
+	 - For stylesheets ~rel~ becomes ~stylesheet~
+	 - The ~rel~ attribute stands for "relationship" and denotes how the item being linked to is related to the containing document
+         - The ~<link>~ element can be in either the ~<head>~ or the ~<body>~ element depending on whether it has a "link-type" that is allowed in the body
+	 - The ~rel~ attribute has various relations from bookmark, stylesheet, icon, author, and more
+         - Here is the list of values for ~rel~: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel
 
 * Summary
+  - CSS is used to style and specify the presentation of HTML
+  - In order to understand how to use CSS we must remember the difference between block-level and inline elements
+  - You can do a lot of customization with CSS such as font, color, borders, etc. but to do so you need to specify rules in CSS to apply the style changes to certain elements
+  - These are called CSS rules and the CSS rules have two parts to them: the selector and the declaration
+  - The selector specifies which element this rule will be applied to, the selector can be specific like one element or it can be more general and be applied to many elements, or a mixutre but point is the selector chooses the element to apply the rule
+  - The declaration are the properties that will be applied to the elements declared in the selector so it basically indicates how the elements selected should be styled and these can be zero to many elements
+  - The declaration can be split into two parts: a property and a value
+  - Each property and value are separated by a colon and it ends with a semi-colon; a declaration may have multiple properties (property/value pair) it is not limited to just one but it can be many
+  - Properties indicate certain aspects  of the element you want to change of the element selected such as color, font, width, etc. and the values specify the settings you want to use for the chosen property such as green for color, Roboto for the typeface, etc.
+  - Some properties will only work for certain elements while other properties are universal (global)
+  - There are three ways to use CSS: external, internal, and inline
+  - To use CSS externally, you create a CSS file and add the CSS rules there then you link the HTML file and CSS file by adding the ~<link>~ element in the ~<head>~ element of the HTML document
+  - You can add multiple CSS files by adding more ~<link>~ elements to the head of the HTML document
+  - To use CSS internally, you use the ~<style>~ element; in-between the opening and closing tags you add the CSS rules instead in a separate file; there is no difference it is the same CSS rules but it is generally recommended to separate CSS in a separate file
+  - Another way to add CSS is by using the inline CSS, each element has an attribute called ~style~ and you can declare the style attribute in any element you would like to style and for its value you add the CSS declaration (properties and values) and the declaration will be applied to only that element; again this is not recommended
+  - There are many ways to combine syntax and use CSS selectors
+  - For example, there are ways to select children of an element, a specific element or group of elements by using ids and class names, siblings of an element, adjacent elements, grandchilren, etc. there are many rules that can be used in CSS selectors
+  - Another question is what if there are multiple rules that apply to the same element? Well, it tries to use the rule that is more specific to that element (e.g. uses the id instead of the element) if the selectors are the same then it uses the last rule it encounters, however, you can add ~!important~ that the end of any property which will be consider more important than any other rule that is applies to the element thus overriding any cascading properties
+  - There are also some properties that when applied to an element, it's descendents will inherit the same property (e.g. font if applied to the ~<body>~ element)
+  - Not all properties will be inherited but you can inherit it's parent property by using the ~inherit~ as the CSS value to a property indicating for that property you would like to inherit its parent's styling
+  - External CSS is encouraged because you separate HTML and CSS, web pages will share a common stylesheet, it only requires changes to one file if needed, and it is easier to understand when the styling and content are separated
+  - CSS properites may present itself differently in different browsers and if the CSS property does not display as expected it is referred to as a CSS bug
+ 
