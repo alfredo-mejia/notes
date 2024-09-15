@@ -9,3 +9,94 @@
 *Prev*: Ch.10 Introducing CSS [[[file:../010.Introducing CSS/010.000.Notes.html][html]]] [[[file:../010.Introducing CSS/010.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/010.Introducing%20CSS][github]]]
 
 *Next*: Ch.12 Text [[[file:../012.Text/012.000.Notes.html][html]]] [[[file:../012.Text/012.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/012.Text][github]]]
+
+* Notes
+
+** Section 11.1: Foreground and Background Color
+   - The ~color~ property allows you to specify the color of text inside an element
+   - You can specify the color in CSS in one of three ways: RGB values, Hex codes, or color names
+   - For RGB, you use ~rgb(100,100,90)~ for example with some values, for hex code you use the pound sign like ~#ee3e80~ followed by a code of the color and for color names there are 147 predefined color names that are recongized by the browsers like "red"
+   - RGB and Hex codes basically allow you to create a color based on how much red, blue, and green are in the color
+   - Another /new/ way to introduce a color is by HSLA which was introduced in CSS3 we'll have a section about HSLA later
+   - As a side note, we can add comments to the CSS file by using the characters ~/* */~ and everything in between will be ignored by the browser (those will be the comments)
+   - Comments are useful to specify why certain rules are there, separate the file into sections, and more
+   - Moving on, CSS treats each HTML element as if it appears in a box, and the ~background-color~ property sets the color of the background for that box
+   - You can specify your choice of background color in the same three ways you can specify foreground colors: RGB values, Hex codes, and color names
+   - If you do not specify a background color, then the background is transparent
+   - You can change the entire browser window, most browser windows have a white background, but browser users can set a background color for their windows by using the ~background-color~ property on the ~<body>~ element
+
+** Section 11.2: Understanding Color
+   - Every color on a computer screen is created by mixing amounts of red, green, and blue
+   - Computer monitors are made up of thousands of tiny squares called pixels
+   - When the monitor is on, the monitor emits light so each pixel can be a different color thus creating a picture
+   - The color of every pixel on the screen is expressed in terms of a mix of red, green, and blue
+   - RGB Values: Values for red, green, and blue are expressed as numbers between 0 and 255
+   - Hex Codes: Hex values represent values for red, green, and blue in hexadecimal code (hex decimals are not case sensitive and can be abbreviated to three characters if all characters are the same)
+   - Color Names: colors are represented by predifned names, however, they are very limited in number thus it is not commonly used
+   - Hue: The colloquial idea of color (basically it is a color), however, a color can also have saturation and brightness as well as hue
+   - Saturation refers to the amount of grey in a color; at maximum saturation there would be no grey in the color and at minimum saturation the color would be mostly grey
+   - Brightness refers to how much black is in a color; at maximum brightness there would be no black in the color and at minimum brightness the color would be very dark
+
+** Section 11.3: Contrast & Opacity
+   - When picking foreground and background colors, it is important to ensure that there is enough contrast for the text to be legible
+   - Text is harder to read when there is low contrast between background and foreground colors, text is easier to read when there is higher contrast between background and foreground colors, and for long spans of text reducing the contrast a little bit imrpvoes readability
+   - A lack of contrast would be hard for people who have visual impairments and color blindness, and it'll be hard to read with poor monitors or when direct sunlight is on the screens
+   - If you have a lot of text for users to read then too much contrast can make it harder to read, thus you can reduce the contrast by using dark gray text on a white background or an off-white text on a dark background
+   - If text is reversed out (a light color on a dark background), you can increase the height between lines and the weight of the font to make it easier to read
+   - CSS3 introduces the ~opacity~ property which allows you to specify the opacity of an element and any of its child elements
+   - The CSS3 ~rgba~ property allows you to specify a color, just like you would with a RGB value, but adds a fourth value to indicate opacity
+   - This value is known as an alpha value and is a number between 0.0 and 1.0 (e.g. 0.5 is 50% opacity and 0.15 is 15% opacity)
+   - The ~rgba~ value will only affect the element on which it is applied (not child elements)
+   - *NOTE* that ~rgba~ is legacy code now and now you just use ~rgb~ with special syntax to indicate an alpha value for opacity
+
+** Section 11.4: CSS: HSL & HSLA
+   - CSS3 introuces an entirely new and intuitive way to specify colors using hue, saturation, and lightness values
+   - Hue is the colloquial idea of color, in HSL colors, hue is often represented as a color circle where the angle represents the color although it may also be shown as a slider with values from 0 to 360
+   - Saturation is the amount of gray in a color, saturation is represented as a percentage where 100% is full saturation (no grey) and 0% is a shade of grey
+   - Lightness is the amount of white (lightness) or black (darkness) in a color and it is represented as a percentage where 0% lightness is black, 100% lightness is white, and 50% lightness is normal (lightness is sometimes referred to as luminosity)
+   - Note lightness is not the same as brightness because brightness only adds black while lightness offers both white and black
+   - The ~hsl~ color property has been introduced in CSS3 as an alternative way to specify colors, the value of the property starts with the letters ~hsl~ followed by individual values inside parentheses for: hue (expressed as an angle between 0 and 360), saturation (expressed as a percentage), and lightness (expressed as a percentage with 0% being white, 50% being normal, and 100% being black)
+   - The ~hsla~ color property allows you to specify color properties using hue, saturation, lightness, and it adds a fourth value which represents transparency (similar to ~rgba~)
+   - Again, a is for the alpha value expressed as a number between 0 and 1.0 where 0.5 represents 50% transparent and 1 represents 100% (fully) transparent
+   - *Note*: ~hsla~ is legacy code and now you just use ~hsl~ and you use special syntax to specify the alpha (transparent) value
+
+** Section 11.5: Creating a Web Page with CSS Colors
+   - [[file:./011.005.Creating a Web Page with CSS Colors/index.html][Example of a web page using CSS colors]]
+   
+
+* Keywords
+| Term                        | Definition                                                                                            |
+|-----------------------------+-------------------------------------------------------------------------------------------------------|
+| RGB                         | Color model that allows you to control how much red, green, or blue are added together to form colors |
+| ~color~ property            | Color property controls the color of text inside an element                                           |
+| ~background-color~ property | Background color property controls the color of the background for that box element                   |
+| Hue                         | The colloquial idea of color                                                                          |
+| Saturation                  | Amount of grey in a color                                                                             |
+| Brightness                  | Amount of black in a color                                                                            |
+| Opacity                     | The amount of how opaque something is; not transparent to fully transparent                           |
+| Lightness                   | Amount of white (lightness) or blck (darkness) in a color                                             |
+
+* Questions
+  - *Q*: From the options of ~rgb~, ~hsl~, hex values, and color names, which is the best option to use?
+         - [[https://stackoverflow.com/questions/26059228/css-hsl-or-rgba-colors][Stack Overflow Answer]]
+	 - In the end, it does not matter
+	 - Color names are only a few so might not be the best as it is limited
+	 - RGB and Hex values are machine readable and are great options
+	 - HSL on the other hand, is very easy for humans to understand as the first value picks the color, then the second controls the saturation, and the third controls the lightness
+	 - The stackoverflow shows some image examples
+	 - So intuitively HSL makes more sense for humans
+	 - In the end, for the most part it does not matter, RGB, hex, and HSL are good options but if you want to understand what color you are picking then HSL is the best option as it make human sense once you understand how HSL works 
+
+* Summary
+  - You can change the color of text by specifying the ~color~ property
+  - You can change the color of the background of element by specifying the property ~background-color~
+  - What about the value? The value can be specified either by ~rgb~, ~hsl~, ~#~ (hex code), or the color name
+  - RGB specifies how much red, green, and blue there is and each value can be from 0 - 256
+  - You can add a fourth paramater to RGB to specify the opacity called the alpha value and that is specified from 0.0 to 1.0 where 0 is no opacity and 1 is fully transparent
+  - Hex codes are basically RGB values (how much red, green, and blue there is) but instead of three values it is specified in a single hex number
+  - Note that to understand color, you must understand that hue is a color, saturation refers to the amount of grey in a color, and brightness refersto the amount of black is in a color
+  - You want a high contrast when it comes to reading because low contrast will make it hard to read but for long readings you don't extreme high contrast but rather bit less than really high contrast like a dark grey text on a white background
+  - There are other CSS rules that can help readability in your website
+  - Instead of rgb, hex, or color names, CSS3 introduced ~hsl~ which uses hue, saturation, and lightness; hue is represented from a number between 0 - 360 and saturation and lightness are represented using percentages
+  - You can also add a fourth argument to represent the alpha value in ~hsl~, the alpha is similar to ~rgb~ it is a value from 0.0 to 1.0 and it is optional
+    

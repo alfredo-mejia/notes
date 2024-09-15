@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-15 Sun 14:07 -->
+<!-- 2024-09-15 Sun 18:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ch.11 Color</title>
@@ -202,14 +202,26 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge01fc08">Navigation</a></li>
+<li><a href="#org594636f">Navigation</a></li>
+<li><a href="#orgc454849">Notes</a>
+<ul>
+<li><a href="#org43c0e92">Section 11.1: Foreground and Background Color</a></li>
+<li><a href="#org6eb9967">Section 11.2: Understanding Color</a></li>
+<li><a href="#orgf074f8f">Section 11.3: Contrast &amp; Opacity</a></li>
+<li><a href="#org8c12ff0">Section 11.4: CSS: HSL &amp; HSLA</a></li>
+<li><a href="#orge291a4a">Section 11.5: Creating a Web Page with CSS Colors</a></li>
+</ul>
+</li>
+<li><a href="#org3b2f5a9">Keywords</a></li>
+<li><a href="#org3566cec">Questions</a></li>
+<li><a href="#orgb8f689d">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge01fc08" class="outline-2">
-<h2 id="orge01fc08">Navigation</h2>
-<div class="outline-text-2" id="text-orge01fc08">
+<div id="outline-container-org594636f" class="outline-2">
+<h2 id="org594636f">Navigation</h2>
+<div class="outline-text-2" id="text-org594636f">
 <p>
 <b>Home</b>: HTML &amp; CSS - Design and Build Websites [<a href="../000.Home.html">html</a>] [<a href="../000.Home.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites">github</a>]
 </p>
@@ -219,7 +231,195 @@
 </p>
 
 <p>
-<b>Next</b>: Ch.12 Text [<a href="../012.Text/012.000.Notes.html">html</a>] [<a href="../012.Text/012.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/012.Text">github</a>]</p>
+<b>Next</b>: Ch.12 Text [<a href="../012.Text/012.000.Notes.html">html</a>] [<a href="../012.Text/012.000.Notes.html">org</a>] [<a href="https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/012.Text">github</a>]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc454849" class="outline-2">
+<h2 id="orgc454849">Notes</h2>
+<div class="outline-text-2" id="text-orgc454849">
+</div>
+<div id="outline-container-org43c0e92" class="outline-3">
+<h3 id="org43c0e92">Section 11.1: Foreground and Background Color</h3>
+<div class="outline-text-3" id="text-org43c0e92">
+<ul class="org-ul">
+<li>The <code>color</code> property allows you to specify the color of text inside an element</li>
+<li>You can specify the color in CSS in one of three ways: RGB values, Hex codes, or color names</li>
+<li>For RGB, you use <code>rgb(100,100,90)</code> for example with some values, for hex code you use the pound sign like <code>#ee3e80</code> followed by a code of the color and for color names there are 147 predefined color names that are recongized by the browsers like "red"</li>
+<li>RGB and Hex codes basically allow you to create a color based on how much red, blue, and green are in the color</li>
+<li>Another <i>new</i> way to introduce a color is by HSLA which was introduced in CSS3 we'll have a section about HSLA later</li>
+<li>As a side note, we can add comments to the CSS file by using the characters <code>/* */</code> and everything in between will be ignored by the browser (those will be the comments)</li>
+<li>Comments are useful to specify why certain rules are there, separate the file into sections, and more</li>
+<li>Moving on, CSS treats each HTML element as if it appears in a box, and the <code>background-color</code> property sets the color of the background for that box</li>
+<li>You can specify your choice of background color in the same three ways you can specify foreground colors: RGB values, Hex codes, and color names</li>
+<li>If you do not specify a background color, then the background is transparent</li>
+<li>You can change the entire browser window, most browser windows have a white background, but browser users can set a background color for their windows by using the <code>background-color</code> property on the <code>&lt;body&gt;</code> element</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6eb9967" class="outline-3">
+<h3 id="org6eb9967">Section 11.2: Understanding Color</h3>
+<div class="outline-text-3" id="text-org6eb9967">
+<ul class="org-ul">
+<li>Every color on a computer screen is created by mixing amounts of red, green, and blue</li>
+<li>Computer monitors are made up of thousands of tiny squares called pixels</li>
+<li>When the monitor is on, the monitor emits light so each pixel can be a different color thus creating a picture</li>
+<li>The color of every pixel on the screen is expressed in terms of a mix of red, green, and blue</li>
+<li>RGB Values: Values for red, green, and blue are expressed as numbers between 0 and 255</li>
+<li>Hex Codes: Hex values represent values for red, green, and blue in hexadecimal code (hex decimals are not case sensitive and can be abbreviated to three characters if all characters are the same)</li>
+<li>Color Names: colors are represented by predifned names, however, they are very limited in number thus it is not commonly used</li>
+<li>Hue: The colloquial idea of color (basically it is a color), however, a color can also have saturation and brightness as well as hue</li>
+<li>Saturation refers to the amount of grey in a color; at maximum saturation there would be no grey in the color and at minimum saturation the color would be mostly grey</li>
+<li>Brightness refers to how much black is in a color; at maximum brightness there would be no black in the color and at minimum brightness the color would be very dark</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf074f8f" class="outline-3">
+<h3 id="orgf074f8f">Section 11.3: Contrast &amp; Opacity</h3>
+<div class="outline-text-3" id="text-orgf074f8f">
+<ul class="org-ul">
+<li>When picking foreground and background colors, it is important to ensure that there is enough contrast for the text to be legible</li>
+<li>Text is harder to read when there is low contrast between background and foreground colors, text is easier to read when there is higher contrast between background and foreground colors, and for long spans of text reducing the contrast a little bit imrpvoes readability</li>
+<li>A lack of contrast would be hard for people who have visual impairments and color blindness, and it'll be hard to read with poor monitors or when direct sunlight is on the screens</li>
+<li>If you have a lot of text for users to read then too much contrast can make it harder to read, thus you can reduce the contrast by using dark gray text on a white background or an off-white text on a dark background</li>
+<li>If text is reversed out (a light color on a dark background), you can increase the height between lines and the weight of the font to make it easier to read</li>
+<li>CSS3 introduces the <code>opacity</code> property which allows you to specify the opacity of an element and any of its child elements</li>
+<li>The CSS3 <code>rgba</code> property allows you to specify a color, just like you would with a RGB value, but adds a fourth value to indicate opacity</li>
+<li>This value is known as an alpha value and is a number between 0.0 and 1.0 (e.g. 0.5 is 50% opacity and 0.15 is 15% opacity)</li>
+<li>The <code>rgba</code> value will only affect the element on which it is applied (not child elements)</li>
+<li><b>NOTE</b> that <code>rgba</code> is legacy code now and now you just use <code>rgb</code> with special syntax to indicate an alpha value for opacity</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8c12ff0" class="outline-3">
+<h3 id="org8c12ff0">Section 11.4: CSS: HSL &amp; HSLA</h3>
+<div class="outline-text-3" id="text-org8c12ff0">
+<ul class="org-ul">
+<li>CSS3 introuces an entirely new and intuitive way to specify colors using hue, saturation, and lightness values</li>
+<li>Hue is the colloquial idea of color, in HSL colors, hue is often represented as a color circle where the angle represents the color although it may also be shown as a slider with values from 0 to 360</li>
+<li>Saturation is the amount of gray in a color, saturation is represented as a percentage where 100% is full saturation (no grey) and 0% is a shade of grey</li>
+<li>Lightness is the amount of white (lightness) or black (darkness) in a color and it is represented as a percentage where 0% lightness is black, 100% lightness is white, and 50% lightness is normal (lightness is sometimes referred to as luminosity)</li>
+<li>Note lightness is not the same as brightness because brightness only adds black while lightness offers both white and black</li>
+<li>The <code>hsl</code> color property has been introduced in CSS3 as an alternative way to specify colors, the value of the property starts with the letters <code>hsl</code> followed by individual values inside parentheses for: hue (expressed as an angle between 0 and 360), saturation (expressed as a percentage), and lightness (expressed as a percentage with 0% being white, 50% being normal, and 100% being black)</li>
+<li>The <code>hsla</code> color property allows you to specify color properties using hue, saturation, lightness, and it adds a fourth value which represents transparency (similar to <code>rgba</code>)</li>
+<li>Again, a is for the alpha value expressed as a number between 0 and 1.0 where 0.5 represents 50% transparent and 1 represents 100% (fully) transparent</li>
+<li><b>Note</b>: <code>hsla</code> is legacy code and now you just use <code>hsl</code> and you use special syntax to specify the alpha (transparent) value</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge291a4a" class="outline-3">
+<h3 id="orge291a4a">Section 11.5: Creating a Web Page with CSS Colors</h3>
+<div class="outline-text-3" id="text-orge291a4a">
+<ul class="org-ul">
+<li><a href="./011.005.Creating a Web Page with CSS Colors/index.html">Example of a web page using CSS colors</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3b2f5a9" class="outline-2">
+<h2 id="org3b2f5a9">Keywords</h2>
+<div class="outline-text-2" id="text-org3b2f5a9">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">RGB</td>
+<td class="org-left">Color model that allows you to control how much red, green, or blue are added together to form colors</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>color</code> property</td>
+<td class="org-left">Color property controls the color of text inside an element</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>background-color</code> property</td>
+<td class="org-left">Background color property controls the color of the background for that box element</td>
+</tr>
+
+<tr>
+<td class="org-left">Hue</td>
+<td class="org-left">The colloquial idea of color</td>
+</tr>
+
+<tr>
+<td class="org-left">Saturation</td>
+<td class="org-left">Amount of grey in a color</td>
+</tr>
+
+<tr>
+<td class="org-left">Brightness</td>
+<td class="org-left">Amount of black in a color</td>
+</tr>
+
+<tr>
+<td class="org-left">Opacity</td>
+<td class="org-left">The amount of how opaque something is; not transparent to fully transparent</td>
+</tr>
+
+<tr>
+<td class="org-left">Lightness</td>
+<td class="org-left">Amount of white (lightness) or blck (darkness) in a color</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org3566cec" class="outline-2">
+<h2 id="org3566cec">Questions</h2>
+<div class="outline-text-2" id="text-org3566cec">
+<ul class="org-ul">
+<li><b>Q</b>: From the options of <code>rgb</code>, <code>hsl</code>, hex values, and color names, which is the best option to use?
+<ul class="org-ul">
+<li><a href="https://stackoverflow.com/questions/26059228/css-hsl-or-rgba-colors">Stack Overflow Answer</a></li>
+<li>In the end, it does not matter</li>
+<li>Color names are only a few so might not be the best as it is limited</li>
+<li>RGB and Hex values are machine readable and are great options</li>
+<li>HSL on the other hand, is very easy for humans to understand as the first value picks the color, then the second controls the saturation, and the third controls the lightness</li>
+<li>The stackoverflow shows some image examples</li>
+<li>So intuitively HSL makes more sense for humans</li>
+<li>In the end, for the most part it does not matter, RGB, hex, and HSL are good options but if you want to understand what color you are picking then HSL is the best option as it make human sense once you understand how HSL works</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb8f689d" class="outline-2">
+<h2 id="orgb8f689d">Summary</h2>
+<div class="outline-text-2" id="text-orgb8f689d">
+<ul class="org-ul">
+<li>You can change the color of text by specifying the <code>color</code> property</li>
+<li>You can change the color of the background of element by specifying the property <code>background-color</code></li>
+<li>What about the value? The value can be specified either by <code>rgb</code>, <code>hsl</code>, <code>#</code> (hex code), or the color name</li>
+<li>RGB specifies how much red, green, and blue there is and each value can be from 0 - 256</li>
+<li>You can add a fourth paramater to RGB to specify the opacity called the alpha value and that is specified from 0.0 to 1.0 where 0 is no opacity and 1 is fully transparent</li>
+<li>Hex codes are basically RGB values (how much red, green, and blue there is) but instead of three values it is specified in a single hex number</li>
+<li>Note that to understand color, you must understand that hue is a color, saturation refers to the amount of grey in a color, and brightness refersto the amount of black is in a color</li>
+<li>You want a high contrast when it comes to reading because low contrast will make it hard to read but for long readings you don't extreme high contrast but rather bit less than really high contrast like a dark grey text on a white background</li>
+<li>There are other CSS rules that can help readability in your website</li>
+<li>Instead of rgb, hex, or color names, CSS3 introduced <code>hsl</code> which uses hue, saturation, and lightness; hue is represented from a number between 0 - 360 and saturation and lightness are represented using percentages</li>
+<li>You can also add a fourth argument to represent the alpha value in <code>hsl</code>, the alpha is similar to <code>rgb</code> it is a value from 0.0 to 1.0 and it is optional</li>
+</ul>
 </div>
 </div>
 </div>
