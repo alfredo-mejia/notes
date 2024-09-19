@@ -3,3 +3,108 @@
 #+options: num:nil html-postamble:nil
 #+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
+* Navigation
+*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
+
+*Prev*: Ch.11 Color [[[file:../011.Color/011.000.Notes.html][html]]] [[[file:../011.Color/011.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/011.Color][github]]]
+
+*Next*: Ch.13 Boxes [[[file:../013.Boxes/013.000.Notes.html][html]]] [[[file:../013.Boxes/013.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/013.Boxes][github]]]
+
+* Notes
+
+** Section 12.1: Introduction to Text
+   - Formating your text can have a significant effect on how readable your pages are
+   - Appearance of text can be split into two groups: font and the font's appearance (e.g. typeface, bold or italic, font size, etc.) and appearance regardless of font such as color text, spacing, etc.
+
+** Section 12.2: Typeface Terminology
+   - Serif fonts have extra details on the end of the main strokes of the letters; these details are known as serifs
+   - In print, serif fonts were traditionally used for long passages of text because they were considered easier to read
+   - Sans-Serif fonts have straight ends to letters, and therefore have a much cleaner designer
+   - Screens have a lower resolution than print so if the text is small, sans-serif fonts can be clearer to read
+   - Every letter in a monospace (or fixed-width) font is the same width (non-monospace fonts have different widths)
+   - Monospace fonts are commonly used for code because they algin nicely, making the text easier to follow
+   - Weight: The font weight not only adds emphasis but can also affect the amount of white space and contrast on a page (e.g. light, medium, bold, black)
+   - Style: Italic fonts have a cursive aspect to some of the lettering ; oblique font styles take the normal style and put it on an angle (e.g. normal, italic, oblique)
+   - Stretch: In condensed (or narrow) versions of the font, letters are thinner and closer together and in expanded versions they are thicker and further apart (condensed, regular, extended)
+
+** Section 12.3: Choosing A TypeFace
+   - When choosing a typeface, it is important to understand that a browser will usually only display it if it's installed on that user's computer
+   - So recall, serif fonts have extra details on the end of the main strokes of the letters, sans-serif fonts have straight ends to letters and have a cleaner design, monospace have the same width for each character, cursive fonts have joining strokes or other cursive characteristics, and fantasy fonts usually have decorative fonts and are often used for titles
+   - So back to choosing a typeface, most sites often use a small set of typefaces that are installed on most computers although there are some techniques to get around this limitation (discussed later in this chapter)
+   - It is possible to specify more than one typeface and create an order of preference (in case the user does not have your first choice of typeface installed) sometimes referred to as a font stack
+   - Browsers are supposed to support at least one typeface from each of the group: serif, sans-serif, monospace, cursive, and fantasy
+   - For this reason, it is common to add the generic font name (the default typeface for that group) after your preferred choice of typefaces
+
+** Section 12.4: Specifying Typefaces
+   - The ~font-family~ property allows you to specify the typeface that should be used for any text inside the element(s) to which a CSS rule applies
+   - The value of this property is the name of the typeface you want to use
+   - The people who are visiting your site need the typeface you have specified installed on their computer in order for it to be displayed
+   - You can specify a list of fonts separated by commas so that, if the user does not have your first choice of typeface installed, the browser can try to use an alternative font from the list
+   - It is common to end up with a generic font name for that type of font
+   - If the font is made up of more than one word then it should be put in double quotes
+   - Pages usually look better if they use no more than 3 typefaces on a page
+
+** Section 12.5: Font-Size
+   - The ~font-size~ property enables you to specify a size for the font
+   - There are several ways to specify the size of a font the most common are: pixels, percentages, ems
+   - Pixels are commonly used because they allow web designers very precise control over how much space their text takes up
+   - Percentages are based on the default pixel size (usually 16px) so 75% would be 12px and 200% would be 32px
+   - You can propagate multiple percentages for example if you use 75% for the body then it would be 12px and then you use 75% again for the headers then it will be 9px because it is using the parent's font size
+   - An em is equivalent to the width of a letter m
+   - It is best to follow the scale developed by European typographers in the 16th century which is basically 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 18pt, 24pt, etc.
+   - Points are for print while pixels are for screens but a pixel roughly equates to a point
+   - You try to keep the proportions the same so if you use 16px for the body then the headers have to be more; if you use 12px for the body then 24px can be used for headings
+   - A lot of developers have used 12px for the body but more and more are using 16px because it is bigger and easier to read
+   - Best way to set the font size is by pixels since em and percentages may vary espeicallly if the default size is different
+   - Pixels depends on screen resolution so the size may look larger or smaller on certain screens
+   - You can also use pt instead of px but you should only use this when creating style sheets for printer-friendly versions of pages
+   - Percentages are good for proportions relative to the default text size
+   - Ems allow you to change the size of text relative to the size of the text in the parent element
+
+** Section 12.6: More Font Choice
+   - ~@font-face~ allows you to use a font, even if it is not installed on the computer of the person browsing by allowing you to specify a path to a copy of the font which will be downloaded if it is not on the user's machine
+   - Just make sure the font's license permits it to be used that way
+   - ~font-family~: specifies the name of the font; the name is used as the value of the ~font-family~ property in the rest of the style sheet (this applies to when it is inside ~@font-face~ you are giving the font you are downloading a name)
+   - ~src~ property (inside ~@font-face~) specifies the path to the font; you use the ~url()~ function and inside you specify the string path to the font but you may need to specify paths to a few different verisons of the font
+   - Along with ~url~ you also specify ~format~ in the value of ~src~ which specifies the format that the font is supplied in
+   - Different browsers support different formats for fonts such as eot, woff, ttf, otf, and svg
+   - There are programs that will convert the formats to differnet formats online
+   - So you can use the ~src~ as ~src: url('font/somefont.ttf') format('woff');~
+   - Again check the licenses
+   - Google provides open source fonts and usually you can link the font by their own CSS file and font files on their servers
+
+** Section 12.7: Text Appearance
+   - ~font-weight~ property allows you to create bold text (e.g. normal or bold)
+   - ~font-style~ property allows you to create normal, italic, or oblique text
+   - ~text-transform~ property allows you to uppercase, lowercase, or capitalize text
+   - ~text-decoration~ property allows you to underline, overline, line-through (strighthrough), or blink (flash on and off) text
+   - ~line-height~ property 
+     
+* Keywords
+| Term                       | Definition                                                                                                                                                                                                                    |
+|----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Serif                      | Serif fonts have extra details on the end of the main strokes of the letters; these details are known as serifs                                                                                                               |
+| Sans-Serif                 | Sans-Serif fonts have straight ends to letters, and therefore have a much cleaner designer                                                                                                                                    |
+| Monospace                  | Every letter in a monospace (or fixed-width) font is the same width (non-monospace fonts have different widths)                                                                                                               |
+| ~font-family~ Property     | The ~font-family~ property allows you to specify the typeface that should be used for any text inside the element(s) to which a CSS rule applies                                                                              |
+| ~font-size~ Property       | The ~font-size~ property enables you to specify a size for the font                                                                                                                                                           |
+| ~@font-face~               | ~@font-face~ allows you to use a font, even if it is not installed on the computer of the person browsing by allowing you to specify a path to a copy of the font which will be downloaded if it is not on the user's machine |
+| ~font-family~ Property     | ~font-family~ inside ~@font-face~  specifies the name of the font; the name is used as the value of the ~font-family~ property in the rest of the style sheet (if it is used inside ~@font-face~)                             |
+| ~font-weight~ Property     | ~font-weight~ property allows you to create bold text (e.g. normal or bold)                                                                                                                                                   |
+| ~font-style~ Property      | ~font-style~ property allows you to create normal, italic, or oblique text                                                                                                                                                    |
+| ~text-transform~ Property  | ~text-transform~ property allows you to uppercase, lowercase, or capitalize text                                                                                                                                              |
+| ~text-decoration~ Property | ~text-decoration~ property allows you to underline, overline, line-through (strighthrough), or blink (flash on and off) text                                                                                                  |
+|                            |                                                                                                                                                                                                                               |
+     
+* Keywords                                                                                                                                                                                                                              |
+     
+* Keywords                                                                                                                                                                                                                              |
+
+* Keywords                                                                                                                                                                                                                              |
+
+
+* Questions
+  - *Q*:
+    
+* Summary
+

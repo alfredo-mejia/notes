@@ -63,7 +63,7 @@
 ** Section 11.5: Creating a Web Page with CSS Colors
    - [[file:./011.005.Creating a Web Page with CSS Colors/index.html][Example of a web page using CSS colors]]
    
-
+     
 * Keywords
 | Term                        | Definition                                                                                            |
 |-----------------------------+-------------------------------------------------------------------------------------------------------|
