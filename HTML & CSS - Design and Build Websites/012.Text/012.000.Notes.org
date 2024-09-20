@@ -78,33 +78,107 @@
    - ~font-style~ property allows you to create normal, italic, or oblique text
    - ~text-transform~ property allows you to uppercase, lowercase, or capitalize text
    - ~text-decoration~ property allows you to underline, overline, line-through (strighthrough), or blink (flash on and off) text
-   - ~line-height~ property 
-     
+   - To understand ~line-height~ we must understand what is a descender and an ascender
+   - Descender is the part of a letter that drops beneath the baseline while the highest point of a letter is  called the ascender
+   - Leading is a term used for the vertical space between lines of text and it is measured from the bottom of the descender on one line to the top of the ascender on the next
+   - ~line-height~ property sets the height of an entire line of text, so the different between the font-size and the line-height is equivalent to the leading (thus increasing ~line-height~ makes the vertical gap between the lines of text larger) 
+   - Increasing the default amount of leading can make text easier to read
+   - The verical space between lines should be larger than the space between each word as this helps the eve move along the line instead of down them
+   - A good starter for ~line-height~ is around 1.4 to 1.5em
+   - It is best to use em so it can be relative to the size of text the user has selected by default instead of pixels which is fixed and the default font size could vary
+   - Kerning is the term used for the space between each letter
+   - ~letter-spacing~ can control the space between each letter
+   - It is helpful to increase the letter spacing when your heading or sentence is all in uppercase, however if it is in normal case then increasing or decreasing letter spacing may be hard to read
+   - ~word-spacing~ can control the space between each word
+   - When using these properties, it should be given in ems and it will be added on top of the default value specified by the font
+   - The default gap between words is set by the typeface and it is unlikely that you would need to change this property regularly
+   - If you increased letter spacing then increasing word spacing may help with readability
+   - ~text-align~ property allows you to control the alignment of text, it can take one of four values: left, right, center, justify
+   - Left indicates that the text should be left aligned, right indicates that the text should be right aligned, center allows you to center text, and justify indicates that every line in a paragraph, except the last line, should be set to take up the full width of the containing box
+   - Justified text looks at the words on each inidivdual line and creates an equal gap between those words (it can look odd if you end up with large gaps between some words and smaller gaps between others)
+   - It is considered easiest to read if the text is left-aligned
+   - ~vertical-align~ is not intended to allow you to vertically align text in the middle of block level elements such as ~<p>~ and ~<div>~ (even it can when used with ~<td>~ and ~<th>~)
+   - Instead ~vertical-align~ is commonly used with inline elements such as ~<img>~, ~<em>~, ~<strong>~ elements and it performs a task very similar to HTML ~align~ attribute used on the ~<img>~ element
+   - ~vertical-align~ can take up the following values: ~baseline~, ~sub~, ~super~, ~top~, ~text-top~, ~middle~, ~bottom~, and ~text-bottom~
+   - ~vertical-align~ can also take a length (usually specified in pixels or ems) or a percentage of the line height
+   - In other words, ~vertical-align~ sets vertical alignment of an inline, inline-block or table-cell box (e.g. a inline element can be in the middle of the line height or the bottom or the top, etc.)
+   - ~text-indent~ property allows you to indent the first line of text within an element and the amount you want the line to be indented by can be specified in a number of ways but is ususally given in pixels or ems
+   - ~text-indent~ can take a negative value which means it can be used to push text off the browser window; why would you do that? Well to hide text if you want but still have the text in HTML code for search engines it is more of a hack than a proposed way of doing something
+   - ~text-shadow~ property is used to create a drop shadow which is a dark version of the word just behind it and slightly offset
+   - It can be used to create an embossed effect by adding a shadow that is slightly lighter than the text
+   - The value of ~text-shadow~ takes up three lengths and a color for the drop shadow: first length indicates how far to the left / right the shadow should fall, the second value indicates how far to the top / bottom the shadow should fall, and third value indicates how much of a blur should be applied to the drop shadow, and the fourth is the color of the drop shadow
+
+** Section 12.8: Text Appearance Using Pseudo Elements & Pseudo Classes
+   - Recall pseudo elements can be used at the end of the selector and then specify the declarations as you would normally for any other element
+   - Pseudo elements act like an extra element in the code
+   - ~:first-letter~ allows you to style the first letter of the selector you have used
+   - ~:first-line~ allows you to style the first line of the selector you have used
+   - ~:link~ allows you to set styles for links that have not yet been visited
+   - ~:visited~ allows you to set styles for links that have been clicked on
+   - These two are commonly used to control colors of the links and also whether they are to appear underlined or not
+   - There are other pseudo classes such as ~:hover~ which allows you to style when the user is hovering over a certain text (does not work in touch screen devices because there is no way to tell if they are hovering over an element or not)
+   - ~:active~ allows you to style when an element is being activated by a user (e.g. a button is being clicked by the user)
+   - ~:focus~ allows you to style when an element is in focus; focus occurs when a browser discovers that you are ready to interact with an element on the page (e.g. when your cursor is in a form input ready to accept typing, that element is said to have focus)
+
+** Section 12.9: Attribute Selectors
+   - Before we took a look at different ways to select elements but you can also select elements based on their attributes
+
+   | Selector  | Meaning                                                                                      | Example                                                                                                                                          |
+   |-----------+----------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------|
+   | Existence | ~[]~ matches a specific attribute (whatever its value)                                       | ~p[class]~ targets any ~<p>~ element with an attribute called class                                                                              |
+   | Equality  | ~[=]~ matches a specific attriute with a specific value                                      | ~p[class="dog"]~ targets any ~<p>~ element with an attribute called class whose value is dog                                                     |
+   | Space     | ~[_~_=]~ matches a specific attribute whose value appears in a space-separated list of words | ~p[class_~_="dog"]~ targets any ~<p>~ element with an attribute called class whose value is a list of space-separated words, one of which is dog |
+   | Prefix    | ~[^=]~ matches a specific attribute whose value begins with a specific string                | ~p[attr^"d"]~ targets any ~<p>~ element with an attribute whose value begins with the letter "d"                                                 |
+   | Substring | ~[*=]~ matches a specific attribute whose value contains a specific substring                | ~p[attr*"do"]~ targets any ~<p>~ element with an attribute whose value contains the letters "do"                                                 |
+   | Suffix    | ~[$=]~ matches a specific attribute whose value ends with a specific string                  | ~p[attr$"g"]~ targets any ~<p>~ element with an attribute whose value ends with the letter "g"                                                   |
+
+** Section 12.10: Chapter 12 Web Page Example
+   - [[file:./012.010.Chapter 12 Web Page Example/index.html][Chapter 12 Web Page Example]]
+   
 * Keywords
-| Term                       | Definition                                                                                                                                                                                                                    |
-|----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Serif                      | Serif fonts have extra details on the end of the main strokes of the letters; these details are known as serifs                                                                                                               |
-| Sans-Serif                 | Sans-Serif fonts have straight ends to letters, and therefore have a much cleaner designer                                                                                                                                    |
-| Monospace                  | Every letter in a monospace (or fixed-width) font is the same width (non-monospace fonts have different widths)                                                                                                               |
-| ~font-family~ Property     | The ~font-family~ property allows you to specify the typeface that should be used for any text inside the element(s) to which a CSS rule applies                                                                              |
-| ~font-size~ Property       | The ~font-size~ property enables you to specify a size for the font                                                                                                                                                           |
-| ~@font-face~               | ~@font-face~ allows you to use a font, even if it is not installed on the computer of the person browsing by allowing you to specify a path to a copy of the font which will be downloaded if it is not on the user's machine |
-| ~font-family~ Property     | ~font-family~ inside ~@font-face~  specifies the name of the font; the name is used as the value of the ~font-family~ property in the rest of the style sheet (if it is used inside ~@font-face~)                             |
-| ~font-weight~ Property     | ~font-weight~ property allows you to create bold text (e.g. normal or bold)                                                                                                                                                   |
-| ~font-style~ Property      | ~font-style~ property allows you to create normal, italic, or oblique text                                                                                                                                                    |
-| ~text-transform~ Property  | ~text-transform~ property allows you to uppercase, lowercase, or capitalize text                                                                                                                                              |
-| ~text-decoration~ Property | ~text-decoration~ property allows you to underline, overline, line-through (strighthrough), or blink (flash on and off) text                                                                                                  |
-|                            |                                                                                                                                                                                                                               |
-     
-* Keywords                                                                                                                                                                                                                              |
-     
-* Keywords                                                                                                                                                                                                                              |
-
-* Keywords                                                                                                                                                                                                                              |
-
+| Term                           | Definition                                                                                                                                                                                                                                                       |
+|--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Serif                          | Serif fonts have extra details on the end of the main strokes of the letters; these details are known as serifs                                                                                                                                                  |
+| Sans-Serif                     | Sans-Serif fonts have straight ends to letters, and therefore have a much cleaner designer                                                                                                                                                                       |
+| Monospace                      | Every letter in a monospace (or fixed-width) font is the same width (non-monospace fonts have different widths)                                                                                                                                                  |
+| ~font-family~ Property         | The ~font-family~ property allows you to specify the typeface that should be used for any text inside the element(s) to which a CSS rule applies                                                                                                                 |
+| ~font-size~ Property           | The ~font-size~ property enables you to specify a size for the font                                                                                                                                                                                              |
+| ~@font-face~                   | ~@font-face~ allows you to use a font, even if it is not installed on the computer of the person browsing by allowing you to specify a path to a copy of the font which will be downloaded if it is not on the user's machine                                    |
+| ~font-family~ Property         | ~font-family~ inside ~@font-face~  specifies the name of the font; the name is used as the value of the ~font-family~ property in the rest of the style sheet (if it is used inside ~@font-face~)                                                                |
+| ~font-weight~ Property         | ~font-weight~ property allows you to create bold text (e.g. normal or bold)                                                                                                                                                                                      |
+| ~font-style~ Property          | ~font-style~ property allows you to create normal, italic, or oblique text                                                                                                                                                                                       |
+| ~text-transform~ Property      | ~text-transform~ property allows you to uppercase, lowercase, or capitalize text                                                                                                                                                                                 |
+| ~text-decoration~ Property     | ~text-decoration~ property allows you to underline, overline, line-through (strighthrough), or blink (flash on and off) text                                                                                                                                     |
+| ~line-height~ Property         | ~line-height~ property sets the height of an entire line of text, so the different between the font-size and the line-height is equivalent to the leading (thus increasing ~line-height~ makes the vertical gap between the lines of text larger)                |
+| ~letter-spacing~ Property      | ~letter-spacing~ can control the space between each letter                                                                                                                                                                                                       |
+| ~word-spacing~ Property        | ~word-spacing~ can control the space between each word                                                                                                                                                                                                           |
+| ~text-algin~ Property          | ~text-align~ property allows you to control the alignment of text, it can take one of four values: left, right, center, justify                                                                                                                                  |
+| ~vertical-align~ Property      | ~vertical-align~ sets vertical alignment of an inline, inline-block or table-cell box (e.g. a inline element can be in the middle of the line height or the bottom or the top, etc.)                                                                             |
+| ~text-indent~ Property         | ~text-indent~ property allows you to indent the first line of text within an element and the amount you want the line to be indented by can be specified in a number of ways but is ususally given in pixels or ems                                              |
+| ~text-shadow~ Property         | ~text-shadow~ property is used to create a drop shadow which is a dark version of the word just behind it and slightly offset                                                                                                                                    |
+| ~:first-letter~ Pseudo Element | ~:first-letter~ allows you to style the first letter of the selector you have used                                                                                                                                                                               |
+| ~:first-line~ Pseudo Element   | ~:first-line~ allows you to style the first line of the selector you have used                                                                                                                                                                                   |
+| ~:link~ Pseudo Class           | ~:link~ allows you to set styles for links that have not yet been visited                                                                                                                                                                                        |
+| ~:visited~ Pseudo Class        | ~:visited~ allows you to set styles for links that have been clicked on                                                                                                                                                                                          |
+| ~:hover~ Pseudo Class          | Allows you to style when the user is hovering over a certain text (does not work in touch screen devices because there is no way to tell if they are hovering over an element or not)                                                                            |
+| ~:active~ Pseudo Class         | ~:active~ allows you to style when an element is being activated by a user (e.g. a button is being clicked by the user)                                                                                                                                          |
+| ~:focus~ Pseudo Class          | ~:focus~ allows you to style when an element is in focus; focus occurs when a browser discovers that you are ready to interact with an element on the page (e.g. when your cursor is in a form input ready to accept typing, that element is said to have focus) |
 
 * Questions
-  - *Q*:
+  - *Q*: What is the difference between pseudo elements and pseudo classes?
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements][Mozilla Docs Pseudo Elements]]
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes][Mozilla Docs Pseudo Classes]]
+         - According to Mozilla: A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element
+	 - Double colons (::) are used for pseudo-elements. This distinguishes pseudo-elements from pseudo-classes that use a single colon (:) in their notation.
+	 - A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s), for example, the pseudo-class :hover can be used to select a button when a user's pointer hovers over the button and this selected button can then be styled
+	 - Thus the difference makes sense: pseudo elements let's you style a specific part of the selected element while a pseudo class let's you style an element under a special state of the selected element
+
+  - *Q*: Can ~:link~ and ~:visited~ only be applied to the ~<a>~ elements?
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/:visited][Mozilla Docs Visited]]
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/:link][Mozilla Docs Link]]
+	 - The pseudo-class applies only to ~<a>~ and ~<area>~ elements that have an ~href~ attribute
+	 - The ~<area>~ element ([[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area][Mozilla Docs Area]]) defines an area inside an image map that has predefined clickable areas
+	 - So only those two can be visited and link be used in and only if they have the ~href~ attribute
     
 * Summary
 
