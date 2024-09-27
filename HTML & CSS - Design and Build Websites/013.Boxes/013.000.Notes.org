@@ -1,0 +1,110 @@
+#+title: Ch.13 Boxes
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
+
+*Prev*: Ch.12 Text [[[file:../012.Text/012.000.Notes.html][html]]] [[[file:../012.Text/012.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/012.Text][github]]]
+
+*Next*: Ch.15 Lists, Tables & Forms [[[file:../015.Lists, Tables & Forms/015.000.Notes.html][html]]] [[[file:../015.Lists, Tables & Forms/015.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/015][github]]]
+
+* Notes
+
+** Section 13.1: Introduction to Box Properties
+   - By default a box is sized just big enough to hold its content
+   - To set your own dimensions for a box you can use the ~height~ and ~width~ properties
+   - These properties can use pixels, percentages or ems; when you use percentages the size of the box is relative to the size of the browser window or if the box is encased within another box, it is a percentage of the size of the containing box; when you use ems, the size of the box is based on the size of text within it
+   - You can also specify ~min-width~ and ~max-width~ because some designs expand and shrink to fit the size of the user's screen so this specifies the smallest size box it can be displayed and maximum width a box can stretch
+   - These can help ensure that the box is not too narrow or not too large
+   - You can also specify ~min-height~ and ~max-height~ which is similar to ~min-width~ and ~max-width~ but for height now
+   - If the box is not bigh enough to hold the content, and the content expands outside the box it can look very messy because it will overflow and lay on top of the next elements
+   - To control what happens when there is not enough space for the content of a box, you can use the ~overflow~ property
+   - The ~overflow~ property tells the browser what to do if the content within a box is larger than the box itself
+   - ~overflow~ can have two values: ~hidden~ which simply hides any extra content that does not fit in the box or ~scroll~ which adds a scrollbar to the box so that users can scroll to see the missing content
+
+** Section 13.2: Boxes Appearances
+   - ~border-width~ property is used to control the width of a border, the value given can be in pixels or using thin, medium, and thick (you cannot use percentages with this property)
+   - You can control the individaul size of borders using four separate properties: ~border-top-width~, ~border-right-width~, ~border-bottom-width~, and ~border-left-width~
+   - You can also specify different widths for the four border values in one property (e.g. ~border-width: 2px 1px 1px 2px;~) - the values here appear in clockwise order: top, right, bottom, left
+   - You can control the style of a border using the ~border-style~ property and it can take up the following values: ~solid~, ~dotted~, ~dashed~, ~double~, ~groove~, ~ridge~, ~inset~, ~hidden~ or ~none~
+   - You can individually change the styles of different borders using: ~border-top-style~, ~border-left-style~, ~border-right-style~, and ~border-bottom-style~
+   - You can specify the color of a border using either RGB values, hex codes, HSL values, or CSS color names
+   - You do so by using the ~border-color~ property and it is possible to individually control the colors of the borders on different sides of a box using: ~border-top-color~, ~border-right-color~, ~border-bottom-color~, and ~border-left-color~
+   - Again you can use one property to specify all four border colors (e.g. ~border-color: darkcyan deeppink darkcyan deeppink;~ again values here appear in clockwise order)
+   - ~border~ property allows you to specify the width, style, and color of a border in one property and the values should be coded in that specific order)
+
+** Section 13.3 Margin & Padding
+   - Every box has three available properties that can be adjusted to control its appearance: border, margin, and padding
+   - Every box has a border even if it is 0px wide; the border separates the edge of one box from another
+   - Margin sits outside the edge of the border and you can set the width of a margin to create a gap between the borders of two adjacent boxes
+   - Padding is the space between the border of a box and any content contained within it; adding padding can increase the readability of its contents
+   - If you sepcfy a width for a box then the borders, margin, and padding are added to its width and height
+   - The ~padding~ and ~margin~ properties are very helpful in adding space between various items on the page
+   - Designers refer to the space between items on a page as white space
+   - Thus white space is used to help with readability however there may be some nuances (e.g. if the bottom margin of any box touches the top margin of another, the browser will render it differently it will only show the large of the two margins and if they are the same it will only show one)
+   - We went over border now let's go over padding and margin
+   - ~padding~ allows you to specify how much space should appear between the content of an element and its border
+   - The value can take pixels, percentages or ems; if percentage is used the padding is a percentage of the browser window or the containing box if it is inside another box
+   - If a width is specified for a box, padding is added onto the width of the box
+   - You can specify different values for each side of a box using ~padding-top~, ~padding-right~, ~padding-bottom~, and ~padding-left~ or you can use the shorthand by just using ~padding~ and the values are in clockwise order
+   - ~padding~ property is not inherited by child elements so you need to specify the ~padding~ for every element that needs to use it
+   - ~margin~ property controls the gap between boxes and its value can be given in pixels, percentages, or ems
+   - If one box sits on top of another margins collapsed which means the larger of the two margins will be used and the smaller will be disregarded
+   - If the width of a box is specified then the margin is added to the width of the box
+   - You can specify values for each side of a box using ~margin-top~, ~margin-right~, ~margin-bottom~, and ~margin-left~ or you can use the shorthand ~margin~ where the values are in clockwise order
+   - You can also specify top/bottom and left/right such as (e.g. ~margin: 20px 10px;~)
+   - The same short hand be applied to padding
+   - The value of ~margin~ is not inherited by the child elements so you need to specify the margin for every element that needs to use it
+      
+** Section 13.4: Centering Content
+   - If you want to center a box on the page (or inside the element it sits in) you can set the ~left-margin~ and ~right-margin~ to ~auto~
+   - Setting the left and right margins to auto will make the browser put an equal gap on each side of the box thus centing the box on the page (or within the element that the box sits inside)
+
+** Section 13.5: More Box Properties
+   - The ~display~ property allows you to turn an inline element into a block-level element or vice verse and can also be used to hide an element from the page
+   - The values this property can take are: ~inline~ (causes a block-level element to act like an inline element), ~block~ (causes a inline element to act like a block-level element), and ~inline-block~ (causes a block-level element to flow like an inline elment while retaining other features of a block-level element), and ~none~ (hides an element from the page)
+   - Using ~none~ will treat the element as if it is not on the page at all
+   - ~visibility~ property allows you to hide boxes from users but it leaves a space where the element would have been
+   - ~visibility~ can take two values: ~hidden~ which hides the element or ~visible~ which shows the element
+   - If ~visibility~ of an element is set to hidden, a blank space will appear in its place and if you do not want a blank space to appear then you should use the ~display~ property with a value of ~none~ instead
+
+** Section 13.6: CSS3 Border Properties
+   - ~border-image~ property applies an image to the border of any box; it takes a background image and slices it into nine pieces
+   - The corners of the image is placed in the corners of the box but we have a choice whether the sides are stretched or repeated from the image to the border
+   - The property requires three pieces of information:
+     1. URL of the image
+     2. Where to slice the image
+     3. What to do with the straight edges; the possible values are: stretch (stretches the image), repeat (repeats the image), or round (like repeat but if the tiles do not fit exactly, scales the tile image so they will)
+   - The box must also have a border width for the image to be shown
+   - The ~box-shadow~ property allows you to add a drop shadow around a box, it works just like the ~text-shadow~ property
+   - It must use at least the first of the two values as well as a color: horizontal offset, vertical offset, blur distance, and spread of shadow (if used a positive value will cause the shadow to expand in all directions and a negative value will make it contract)
+   - The ~insert~ keyword can also be used before these values to create an inner-shadow
+   - ~border-radius~ can be used to create rounded corners on any box, the value indicates the size of the radius in pixels
+   - You can specify individual values for each conrner of a box using: ~border-top-right-radius~, ~border-bottom-right-radius~, ~border-bottom-left-radius~, and ~border-top-left-radius~
+   - You can use a shorthand of these four properites in clockwise order just using ~border-radius~
+   - To create more complex shapes, you can specify different distances for the horizontal and vertical parts of the rounded corners
+   - For example ~border-top-left-radius: 80px 50px~ will create a radius that is wider than it is tall
+   - There is a shorthand for targetting all four corners at once: first you specify the four horizontal values then the four vertical values
+   - You can even create a circle by taking a square box and making the ~border-radius~ the same height as the square
+
+** Section 13.7: Chapter 13 Example
+   - [[file:./013.007.Chapter 13 Example/index.html][Chapter 13 Example]]
+   
+* Keywords
+
+*Note*: I won't be adding properties unless important or common to the keywords because those are easily forgettable and searchable and there are simply just too many of them which will dilute the significance of the keywords section
+
+| Term    | Definition                                                                                                                                                                                                                                                            |
+|---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Border  | Every box has a border (even if it is not visible or is specified to be 0 pixels wide). The border separates the edge of one box from another. The border can signify the border of a web element, outside the border is not part of a page element and inside it is. |
+| Margin  | Margin sits outside the edge of the border. You can set the width of a margin to create a gap between the borders of two adjacent boxes. In other words margin is the space outisde of a page element (outside the border).                                           |
+| Padding | Padding is the space between the border of a box and any content contained within it. Padding defines the space surrounding the content within a web element (within the borders).                                                                                    |
+| Width   | The width of element but it DOES NOT include the margin, border, and padding                                                                                                                                                                                          |
+
+* Questions
+  - *Q*: Is it true that if the bottom margin of any box touches the top margin of another then it will only show the large of the two margins? (If it is the same then it will only show one)
+    
+
+* Summary

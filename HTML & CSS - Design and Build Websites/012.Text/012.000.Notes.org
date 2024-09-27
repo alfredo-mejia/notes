@@ -181,4 +181,13 @@
 	 - So only those two can be visited and link be used in and only if they have the ~href~ attribute
     
 * Summary
-
+  - Formating of text can have a significant effect on how readable your website is
+  - Serif have extra details on the end of the main strokes of the letters, sans-serif do not have those strokes, monospace has the same width for every letter, and cursive are letters that connect to each other
+  - Some fonts can have weight such as light, medium, bold, black, some fonts can have style normal, italic, oblique, and some can be stretched which is condensed, regular, and extend
+  - When choosing a typeface it is best to use the default typefaces so it can ensure the user has that typeface, otherwise you will need to download the typeface which may cause your website to load slower
+  - To specify typeface you use the ~font-family~ property and you can specify a list of fonts separated by commas so that if the user does not have your first choice of typeface installed, the browser can try to use an alternative font from the list
+  - ~font-size~ property enables you to specify a size for the font and it can be specified in pixels, percentages, and ems
+  - You can also use ~@font-face~ to install a font on the computer of the person browsing your website but again this can slow down your computer
+  - There are many properties for text appearance such as ~font-weight~, ~font-style~, ~text-transform~, ~text-decoration~, ~line-height~, ~letter-spacing~, ~vertical-align~ and so much more
+  - You can also use pseudo elements and pseudo classes to control the appareance of text by specifying a specific part of a text or when the text is in a specific state
+  - There are many selectors that attributes can be used to specify a selector such as specifying the selector has a class, a class value pair, etc.  
