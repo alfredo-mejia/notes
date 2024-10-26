@@ -1,7 +1,7 @@
 #+title: Notes
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="./scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="./resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Welcome
 Welcome to my repository called notes. This repo will have notes about anything I wish to take notes on. This can be a YouTube video, a course, a book, a process, like how to wash a car properly, research papers, articles, technologies, etc. Many of the times, when I take down notes on whatever it may be, I either delete the files, throw out the paper, or simply take down bad notes.
@@ -23,8 +23,10 @@ Please feel free to enter any folder, explore my projects and use my notes. Most
 Depending on how you are navigating my notes (html, org, or Github) you can click on the internal links below to explore my notes.
 
 * Folders
-- HTML & CSS - Design and Build Websites by Jon Duckett [[[file:HTML & CSS - Design and Build Websites/000.Home.html][html]]] [[[file:HTML & CSS - Design and Build Websites/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
-- Introduction to Oracle Cloud Essentials [[[file:./Introduction to Oracle Cloud Essentials/000.Home.html][html]]] [[[file:./Introduction to Oracle Cloud Essentials/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials][github]]]
-- The Complete 2024 Web Development Bootcamp by Dr. Angela Yu [[[file:The Complete 2024 Web Development Bootcamp/000.Home.html][html]]] [[[file:./The Complete 2024 Web Development Bootcamp/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Complete%202024%20Web%20Development%20Bootcamp][github]]]
-- The Web Developer Bootcamp 2024 by Colt Steele [[[file:./The Web Developer Bootcamp 2024/000.Home.html][html]]] [[[file:./The Web Developer Bootcamp 2024/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The%20Web%20Developer%20Bootcamp%202024][github]]]
-- User's Guide for Oracle Business Intelligence Enterprise Edition by [[https://docs.oracle.com/][Oracle Docs]] [[[file:./User's Guide for Oracle Business Intelligence Enterprise Edition/000.Home.html][html]]] [[[file:./User's Guide for Oracle Business Intelligence Enterprise Edition/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition][github]]]
+| Title                                                            | Author            | Links                 |
+|------------------------------------------------------------------+-------------------+-----------------------|
+| HTML & CSS - Design and Build Websites                           | Jon Duckett       | [[[file:./HTML_and_CSS_Design_and_Build_Websites/000.Home.html][html]]] [[[file:./HTML_and_CSS_Design_and_Build_Websites/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]]] |
+| Introduction to Oracle Cloud Essentials                          | [[https://mylearn.oracle.com/ou/home][Oracle University]] | [[[file:./Introduction_to_Oracle_Cloud_Essentials/000.Home.html][html]]] [[[file:./Introduction_to_Oracle_Cloud_Essentials/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction_to_Oracle_Cloud_Essentials][github]]] |
+| The Complete 2024 Web Development Bootcamp                       | Dr. Angela Yu     | [[[file:./The_Complete_2024_Web_Development_Bootcamp/000.Home.html][html]]] [[[file:./The_Complete_2024_Web_Development_Bootcamp/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The_Complete_2024_Web_Development_Bootcamp][github]]] |
+| The Web Developer Bootcamp 2024                                  | Colt Steele       | [[[file:./The_Web_Developer_Bootcamp_2024/000.Home.html][html]]] [[[file:./The_Web_Developer_Bootcamp_2024/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/The_Web_Developer_Bootcamp_2024][github]]] |
+| User's Guide for Oracle Business Intelligence Enterprise Edition | [[https://docs.oracle.com/][Oracle Docs]]       | [[[file:./Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Home.html][html]]] [[[file:./Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition][github]]] |
