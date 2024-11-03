@@ -1,12 +1,15 @@
 #+title: HTML & CSS - Design and Build Websites
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-*Prev*: Main Index [[[file:../index.html][html]]] [[[file:../index.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main][github]]]
-
-*Next*: Ch.1 Structure [[[file:001.Structure/001.000.Notes.html][html]]] [[[file:001.Structure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure][github]]]
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../index.html][html]] \vert [[file:../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:./000.Home.html][html]] \vert [[file:./000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  |                                        |                                         |
+| Next  | Chapter 1: Structure                   | \vert [[file:./001.Structure/001.000.Notes.html][html]] \vert [[file:./001.Structure/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/001.Structure][github]] \vert |
 
 * Book Details
 | Title     | HTML & CSS - Design and Build Websites |
@@ -16,10 +19,30 @@
 | Year      | 2011                                   |
 | ISBN      | 978-1-118-00818-8                      |
 
-* Resources
-[[https://wtf.tw/ref/duckett.pdf][Online PDF Book Link]]
-
 * Contents
+| Chapter | Title                 | Links                                   |
+|---------+-----------------------+-----------------------------------------|
+|       1 | Structure             | \vert [[file:./001.Structure/001.000.Notes.html][html]] \vert [[file:./001.Structure/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/001.Structure][github]] \vert |
+|       2 | Text                  | \vert [[file:./002.Text/002.000.Notes.html][html]] \vert [[file:./002.Text/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/002.Text][github]] \vert |
+|       3 | Lists                 | \vert [[file:./003.Lists/003.000.Notes.html][html]] \vert [[file:./003.Lists/003.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/003.Lists][github]] \vert |
+|       4 | Links                 | \vert [[file:./004.Links/004.000.Notes.html][html]] \vert [[file:./004.Links/004.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/004.Links][github]] \vert |
+|       5 | Images                | \vert [[file:./005.Images/005.000.Notes.html][html]] \vert [[file:./005.Images/005.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/005.Images][github]] \vert |
+|       6 | Tables                | \vert [[file:./006.Tables/006.000.Notes.html][html]] \vert [[file:./006.Tables/006.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/006.Tables][github]] \vert |
+|       7 | Forms                 | \vert [[file:./007.Forms/007.000.Notes.html][html]] \vert [[file:./007.Forms/007.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/007.Forms][github]] \vert |
+|       8 | Extra Markup          | \vert [[file:./008.Extra_Markup/008.000.Notes.html][html]] \vert [[file:./008.Extra_Markup/008.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/008.Extra_Markup][github]] \vert |
+|       9 | Flash, Video, & Audio | \vert [[file:./009.Flash_Video_and_Audio/009.000.Notes.html][html]] \vert [[file:./009.Flash_Video_and_Audio/009.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/009.Flash_Video_and_Audio][github]] \vert |
+|      10 | Introducing CSS       | \vert [[file:./010.Introducing_CSS/010.000.Notes.html][html]] \vert [[file:./010.Introducing_CSS/010.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/010.Introducing_CSS][github]] \vert |
+|      11 | Color                 | \vert [[file:./011.Color/011.000.Notes.html][html]] \vert [[file:./011.Color/011.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/011.Color][github]] \vert |
+|      12 | Text                  | \vert [[file:./012.Text/012.000.Notes.html][html]] \vert [[file:./012.Text/012.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/012.Text][github]] \vert |
+|      13 | Boxes                 | \vert [[file:./013.Boxes/013.000.Notes.html][html]] \vert [[file:./013.Boxes/013.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/013.Boxes][github]] \vert |
+|      14 | Lists, Tables & Forms | \vert [[file:./014.Lists_Tables_and_Forms/014.000.Notes.html][html]] \vert [[file:./014.Lists_Tables_and_Forms/014.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/014.Lists_Tables_and_Forms][github]] \vert |
+|      15 | Layout                | \vert [[file:./015.Layout/015.000.Notes.html][html]] \vert [[file:./015.Layout/015.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/015.Layout][github]] \vert |
+|      16 | Images                | \vert [[file:./016.Images/016.000.Notes.html][html]] \vert [[file:./016.Images/016.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/016.Images][github]] \vert |
+|      17 | HTML5 Layout          | \vert [[file:./017.HTML5_Layout/017.000.Notes.html][html]] \vert [[file:./017.HTML5_Layout/017.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/017.HTML5_Layout][github]] \vert |
+|      18 | Process & Design      | \vert [[file:./018.Process_and_Design/018.000.Notes.html][html]] \vert [[file:./018.Process_and_Design/018.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/018.Process_and_Design][github]] \vert |
+|      19 | Practical Information | \vert [[file:./019.Practical_Information/019.000.Notes.html][html]] \vert [[file:./019.Practical_Information/019.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/019.Practical_Information][github]] \vert |
+
+
 1. Structure [[[file:001.Structure/001.000.Notes.html][html]]] [[[file:001.Structure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure][github]]]
 2. Text [[[file:002.Text/002.000.Notes.html][html]]] [[[file:./002.Text/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/002.Text][github]]]
 3. Lists [[[file:003.Lists/003.000.Notes.html][html]]] [[[file:003.Lists/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/003.Lists][github]]]
@@ -39,10 +62,16 @@
 17. HTML5 Layout
 18. Process & Design
 19. Practical Information
+
+* Resources
+[[https://wtf.tw/ref/duckett.pdf][Online PDF Book Link]]
    
+
 * My Thoughts
 ** HTML Section
-I have completed the HTML section of the book. This includes Chapter 1 all the way to Chapter 9. The first question that I should ask myself, did I learn anything? The answer is ehh. Almost all of the chapters follow a similar pattern: introduce a HTML element, show an example, and go over the HTML element behavior and attributes. This is very similar to Mozilla web docs except that the web docs are up-to-date while this book, in the 2020s, is outdated. The book was not as engaging as I would have liked. There were no exercises or projects to test our understanding, and as someone who knew a little bit of HTML before reading the book, it was hard to finish. Although the book is outdated I did enjoy reading about old technologies such as Adobe Flash and XHTML 1.0. I enjoy learning about computing history and this book helped me get exposed to the answers of why we needed new technologies, why Adobe Flash got discountined, why XHTML 1.0. didn't work, why we needed HTML5, why we needed JSON, and more. This information is more for my curiousity than my actual benefit. Nevertheless, I am going to continue with book and finish the CSS section. I know a little bit less of CSS than HTML so I hope this next section is a bit more beneficial for me.
+I have completed the HTML section of the book. This includes Chapter 1 all the way to Chapter 9. The first question that I should ask myself, did I learn anything? The answer is ehh. Almost all of the chapters follow a similar pattern: introduce a HTML element, show an example, and go over the HTML element behavior and attributes. This is very similar to Mozilla web docs except that the web docs are up-to-date while this book, in the 2020s, is outdated. The book was not as engaging as I would have liked. There were no exercises or projects to test our understanding, and as someone who knew a little bit of HTML before reading the book, the book it was hard to finish.
+
+Although the book is outdated I did enjoy reading about old technologies such as Adobe Flash and XHTML 1.0. I enjoy learning about computing history and this book helped me get exposed to the answers of why we needed new technologies, why Adobe Flash got discountined, why XHTML 1.0. didn't work, why we needed HTML5, why we needed JSON, and more. This information is more for my curiousity than my actual benefit. Nevertheless, I am going to continue with book and finish the CSS section. I know a little bit less of CSS than HTML so I hope this next section is a bit more beneficial for me.
 
 ** CSS Section
 
