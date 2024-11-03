@@ -42,31 +42,9 @@
 |      18 | Process & Design      | \vert [[file:./018.Process_and_Design/018.000.Notes.html][html]] \vert [[file:./018.Process_and_Design/018.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/018.Process_and_Design][github]] \vert |
 |      19 | Practical Information | \vert [[file:./019.Practical_Information/019.000.Notes.html][html]] \vert [[file:./019.Practical_Information/019.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/019.Practical_Information][github]] \vert |
 
-
-1. Structure [[[file:001.Structure/001.000.Notes.html][html]]] [[[file:001.Structure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure][github]]]
-2. Text [[[file:002.Text/002.000.Notes.html][html]]] [[[file:./002.Text/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/002.Text][github]]]
-3. Lists [[[file:003.Lists/003.000.Notes.html][html]]] [[[file:003.Lists/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/003.Lists][github]]]
-4. Links [[[file:004.Links/004.000.Notes.html][html]]] [[[file:004.Links/004.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/004.Links][github]]]
-5. Images [[[file:./005.Images/005.000.Notes.html][html]]] [[[file:./005.Images/005.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/005.Images][github]]]
-6. Tables [[[file:./006.Tables/006.000.Notes.html][html]]] [[[file:./006.Tables/006.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/006.Tables][github]]]
-7. Forms [[[file:./007.Forms/007.000.Notes.html][html]]] [[[file:./007.Forms/007.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/007.Forms][github]]]
-8. Extra Markup [[[file:./008.Extra Markup/008.000.Notes.html][html]]] [[[file:./008.Extra Markup/008.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/008.Extra%20Markup][github]]]
-9. Flash, Video & Audio [[[file:./009.Flash, Video & Audio/009.000.Notes.html][html]]] [[[file:./009.Flash, Video & Audio/009.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/009.Flash%2C%20Video%20%26%20Audio][github]]]
-10. Introducing CSS [[[file:./010.Introducing CSS/010.000.Notes.html][html]]] [[[file:./010.Introducing CSS/010.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/010.Introducing%20CSS][github]]]
-11. Color [[[file:./011.Color/011.000.Notes.html][html]]] [[[file:./011.Color/011.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/011.Color][github]]]
-12. Text [[[file:./012.Text/012.000.Notes.html][html]]] [[[file:./012.Text/012.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/012.Text][github]]]
-13. Boxes
-14. Lists, Tables & Forms
-15. Layout
-16. Images
-17. HTML5 Layout
-18. Process & Design
-19. Practical Information
-
 * Resources
 [[https://wtf.tw/ref/duckett.pdf][Online PDF Book Link]]
    
-
 * My Thoughts
 ** HTML Section
 I have completed the HTML section of the book. This includes Chapter 1 all the way to Chapter 9. The first question that I should ask myself, did I learn anything? The answer is ehh. Almost all of the chapters follow a similar pattern: introduce a HTML element, show an example, and go over the HTML element behavior and attributes. This is very similar to Mozilla web docs except that the web docs are up-to-date while this book, in the 2020s, is outdated. The book was not as engaging as I would have liked. There were no exercises or projects to test our understanding, and as someone who knew a little bit of HTML before reading the book, the book it was hard to finish.
