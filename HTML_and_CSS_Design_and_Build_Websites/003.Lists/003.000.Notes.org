@@ -1,14 +1,15 @@
-#+title: Ch.3 Lists
+#+title: Chapter 3: Lists
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
-* Navigation
-*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
-
-*Prev*: Ch.2 Text [[[file:../002.Text/002.000.Notes.html][html]]] [[[file:../002.Text/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/002.Text][github]]]
-
-*Next*: Ch.4 Links [[[file:../004.Links/004.000.Notes.html][html]]] [[[file:../004.Links/004.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/004.Links][github]]]
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |                                                                                                                          
+|-------+----------------------------------------+-----------------------------------------|                                                                                                                          
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |               
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 2: Text                        | \vert [[file:../002.Text/002.000.Notes.html][html]] \vert [[file:../002.Text/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/002.Text][github]] \vert |
+| Next  | Chapter 4: Links                       | \vert [[file:../004.Links/004.000.Notes.html][html]] \vert [[file:../004.Links/004.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/004.Links][github]] \vert |
 
 * Notes
 
@@ -40,7 +41,7 @@
 ** Section 3.5: Creating A HTML Page With Lists
    - We'll create a web page with a main heading followed by an introductory paragraph
    - It will have an unordered list (to outline ingredients) and an ordered list to describe the steps
-   - [[file:./003.005.Creating A HTML Page With Lists/index.html][Here is the finished web page]]
+   - [[file:./003.005.Creating_A_HTML_Page_With_Lists/index.html][Here is the finished web page]]
      
 * Keywords
 | Term              | Definition                                                                          |

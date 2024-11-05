@@ -1,14 +1,15 @@
-#+title: Ch.2 Text
+#+title: Chapter 2: Text
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
-
-*Prev*: Ch.1 Text [[[file:../001.Structure/001.000.Notes.html][html]]] [[[file:../001.Structure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/001.Structure][github]]]
-
-*Next*: Ch.3 Lists [[[file:../003.Lists/003.000.Notes.html][html]]] [[[file:../003.Lists/003.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/003.Lists][github]]]
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 1: Structure                   | \vert [[file:../001.Structure/001.000.Notes.html][html]] \vert [[file:../001.Structure/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/001.Structure][github]] \vert |
+| Next  | Chapter 3: Lists                       | \vert [[file:../003.Lists/003.000.Notes.html][html]] \vert [[file:../003.Lists/003.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/003.Lists][github]] \vert |
 
 * Notes
 
@@ -80,7 +81,7 @@
 
 ** Section 2.13: Creating A Simple HTML Page
    - We are going to create a HTML page that demonstrates text markup which includes ~<h1>~, ~<h2>~, ~<p>~, ~<cite>~, ~<em>~, and more
-   - [[file:./002.013.Creating A Simple HTML Page/index.html][Here is the finished web page]]
+   - [[file:./002.013.Creating_A_Simple_HTML_Page/index.html][Here is the finished web page]]
      
 * Keywords
 | Term                              | Definition                                                                                                             |

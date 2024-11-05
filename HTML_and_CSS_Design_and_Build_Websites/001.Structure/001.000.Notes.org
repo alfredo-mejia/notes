@@ -1,12 +1,15 @@
-#+title: Ch.1 Structure
+#+title: Chapter 1: Structure
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
-
-*Next*: Ch.2 Text [[[file:../002.Text/002.000.Notes.html][html]]] [[[file:../002.Text/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/002.Text][github]]]
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  |                                        |                                         |
+| Next  | Chapter 2: Text                        | \vert [[file:../002.Text/002.000.Notes.html][html]] \vert [[file:../002.Text/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/002.Text][github]] \vert |
 
 * Notes
 
@@ -75,7 +78,7 @@
 ** Section 1.6: Creating A Webpage
    - Let's create a webpage with a simple head and body
    - In the head it will have a title and in the body it will have a header and a paragraph
-   - [[file:001.006.Creating A Webpage/index.html][Here is the finished web page]]
+   - [[file:./001.006.Creating_A_Webpage/index.html][Here is the finished web page]]
 
 * Keywords
 | Term                               | Definition                                                                                                                                                         |

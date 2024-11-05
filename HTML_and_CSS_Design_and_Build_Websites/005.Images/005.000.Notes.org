@@ -1,14 +1,15 @@
-#+title: Ch.5 Images
+#+title: Chapter 5: Images
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
-* Navigation
-*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
-
-*Prev*: Ch.4 Links [[[file:../004.Links/004.000.Notes.html][html]]] [[[file:../004.Links/004.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/004.Links][github]]]
-
-*Next*: Ch.6 Tables [[[file:../006.Tables/006.000.Notes.html][html]]] [[[file:../006.Tables/006.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/006.Tables][github]]]
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 4: Links                       | \vert [[file:../004.Links/004.000.Notes.html][html]] \vert [[file:../004.Links/004.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/004.Links][github]] \vert |
+| Next  | Chapter 6: Tables                      | \vert [[file:../006.Tables/006.000.Notes.html][html]] \vert [[file:../006.Tables/006.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/006.Tables][github]] \vert |
 
 * Notes
 
@@ -106,7 +107,7 @@
    - Before there was no way to associate an ~<img>~ element with its caption
 
 ** Section 5.10: Creating a Simple Web Page with Images
-   - [[file:005.010.Creating a Simple Web Page with Images/index.html][Creating a Simple Web Page with Images]]
+   - [[file:./005.010.Creating_A_Simple_Web_Page_with_Images/index.html][Creating a Simple Web Page with Images]]
      
 * Keywords
 | Term                   | Definition                                                                                                                                                            |
