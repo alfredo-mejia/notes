@@ -1,14 +1,15 @@
-#+title: Ch.8 Extra Markup
+#+title: Chapter 8: Extra Markup
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
-* Navigation
-*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
-
-*Prev*: Ch.7 Forms [[[file:../007.Forms/007.000.Notes.html][html]]] [[[file:../007.Forms/007.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/007.Forms][github]]]
-
-*Next*: Ch.9 Flash, Video & Audio [[[file:../009.Flash, Video & Audio/009.000.Notes.html][html]]] [[[file:../009.Flash, Video & Audio/009.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/009.Flash%2C%20Video%20%26%20Audio][github]]]
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 7: Forms                       | \vert [[file:../007.Forms/007.000.Notes.html][html]] \vert [[file:../007.Forms/007.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/007.Forms][github]] \vert |
+| Next  | Chapter 9: Flash, Video and Audio      | \vert [[file:../009.Flash_Video_and_Audio/009.000.Notes.html][html]] \vert [[file:../009.Flash_Video_and_Audio/009.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/009.Flash_Video_and_Audio][github]] \vert |
 
 * Notes
 
@@ -87,7 +88,7 @@
    - ~scrolling~ attribute will not be supported in HTML5 but in HTML4 and XHTML it is supported and indicates whether the iframe should have scrollbars or not
    - The ~scrolling~ attribute can be one of the three values: yes (show scrollbar), no (hide scrollbar), and auto (show only if needed)
    - ~frameborder~ will not be supported in HTML5 but in HTML4 and XHTML it indicates whether the frame should have a border or not (value of 0 indicates no border and value of 1 indicates a border)
-   - ~seamless~ is an attribute introduced in HTML5 and removes the scrollbars but since then the ~seamless~ attribute has been removed and no longer exists ([[https://stackoverflow.com/questions/4804604/html5-iframe-seamless-attribute][more information in a Reddit post]])
+   - ~seamless~ is an attribute introduced in HTML5 and removes the scrollbars but since then the ~seamless~ attribute has been removed and no longer exists ([[https://stackoverflow.com/questions/4804604/html5-iframe-seamless-attribute][more information in a Stackoverflow post]])
 
 ** Section 8.7: Metadata Info About Web Pages
    - The ~<meta>~ elements lives inside the ~<head>~ element and contains information about that specific web page
@@ -117,7 +118,7 @@
    - When using escape characters make sure it is appearing correcting in your page because not all fonts support all of the characters so you might need to specify a different font for these characters (a font that actually supports these characters) in your CSS code
 
 ** Section 8.9: Simple Web Page with Extra Markup
-   - [[file:./008.009.Simple Web Page with Extra Markup/index.html][Simple Web Page with Extra Markup]]
+   - [[file:./008.009.Simple_Web_Page_with_Extra_Markup/index.html][Simple Web Page with Extra Markup]]
 
 * Keywords
 | Term              | Definition                                                                                                                                                                                                                                                 |

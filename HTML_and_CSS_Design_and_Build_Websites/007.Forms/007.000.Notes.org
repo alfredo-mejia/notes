@@ -9,7 +9,7 @@
 | Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
 | Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
 | Prev  | Chapter 6: Tables                      | \vert [[file:../006.Tables/006.000.Notes.html][html]] \vert [[file:../006.Tables/006.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/006.Tables][github]] \vert |
-| Next  | Chapter 8: Forms                       | \vert [[file:../008.Extra_Markup/008.000.Notes.html][html]] \vert [[file:../008.Extra_Markup/008.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/008.Extra_Markup][github]] \vert |
+| Next  | Chapter 8: Extra Markup                | \vert [[file:../008.Extra_Markup/008.000.Notes.html][html]] \vert [[file:../008.Extra_Markup/008.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/008.Extra_Markup][github]] \vert |
 
 * Notes
 

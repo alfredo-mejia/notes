@@ -1,14 +1,15 @@
-#+title: Ch.11 Color
+#+title: Chapter 11: Color
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
-* Navigation
-*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
-
-*Prev*: Ch.10 Introducing CSS [[[file:../010.Introducing CSS/010.000.Notes.html][html]]] [[[file:../010.Introducing CSS/010.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/010.Introducing%20CSS][github]]]
-
-*Next*: Ch.12 Text [[[file:../012.Text/012.000.Notes.html][html]]] [[[file:../012.Text/012.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/012.Text][github]]]
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 10: Introducing CSS            | \vert [[file:../010.Introducing_CSS/010.000.Notes.html][html]] \vert [[file:../010.Introducing_CSS/010.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/010.Introducing_CSS][github]] \vert |
+| Next  | Chapter 12: Text                       | \vert [[file:../012.Text/012.000.Notes.html][html]] \vert [[file:../012.Text/012.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/012.Text][github]] \vert |
 
 * Notes
 
@@ -61,7 +62,7 @@
    - *Note*: ~hsla~ is legacy code and now you just use ~hsl~ and you use special syntax to specify the alpha (transparent) value
 
 ** Section 11.5: Creating a Web Page with CSS Colors
-   - [[file:./011.005.Creating a Web Page with CSS Colors/index.html][Example of a web page using CSS colors]]
+   - [[file:./011.005.Creating_A_Web_Page_with_CSS_Colors/index.html][Example of a web page using CSS colors]]
    
      
 * Keywords

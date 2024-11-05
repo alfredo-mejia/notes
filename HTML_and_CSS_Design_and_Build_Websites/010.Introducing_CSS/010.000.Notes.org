@@ -1,14 +1,15 @@
-#+title: Ch.10 Introducing CSS
+#+title: Chapter 10: Introducing CSS
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
-* Navigation
-*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
-
-*Prev*: Ch.9 Flash, Video & Audio [[[file:../009.Flash, Video & Audio/009.000.Notes.html][html]]] [[[file:../009.Flash, Video & Audio/009.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/009.Flash%2C%20Video%20%26%20Audio][github]]]
-
-*Next*: Ch.11 Color [[[file:../011.Color/011.000.Notes.html][html]]] [[[file:../011.Color/011.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/011.Color][github]]]
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 9: Flash, Video and Audio      | \vert [[file:../009.Flash_Video_and_Audio/009.000.Notes.html][html]] \vert [[file:../009.Flash_Video_and_Audio/009.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/009.Flash_Video_and_Audio][github]] \vert |
+| Next  | Chapter 11: Color                      | \vert [[file:../011.Color/011.000.Notes.html][html]] \vert [[file:../011.Color/011.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/011.Color][github]] \vert |
 
 * Notes
 
@@ -54,7 +55,7 @@
     #+END_SRC
 
     - The example above says for h1, h2, and h3 elements I want the typeface to be Arial and the text color to be yellow
-    - Let's do an [[file:./010.001.First CSS Example/index.html][exmaple with HTML and CSS]]
+    - Let's do an [[file:./010.001.First_CSS_Example/index.html][exmaple with HTML and CSS]]
 
 ** Section 10.2: Using CSS
 

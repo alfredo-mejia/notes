@@ -1,14 +1,15 @@
-#+title: Ch.9 Flash, Video & Audio
+#+title: Chapter 9: Flash, Video & Audio
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
-* Navigation
-*Home*: HTML & CSS - Design and Build Websites [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites][github]]]
-
-*Prev*: Ch.8 Extra Markup [[[file:../008.Extra Markup/008.000.Notes.html][html]]] [[[file:../008.Extra Markup/008.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/007.Forms][github]]]
-
-*Next*: Ch.10 Introducing CSS [[[file:../010.Introducing CSS/010.000.Notes.html][html]]] [[[file:../010.Introducing CSS/010.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/HTML%20%26%20CSS%20-%20Design%20and%20Build%20Websites/010.Introducing%20CSS][github]]]
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 8: Extra Markup                | \vert [[file:../008.Extra_Markup/008.000.Notes.html][html]] \vert [[file:../008.Extra_Markup/008.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/008.Extra_Markup][github]] \vert |
+| Next  | Chapter 10: Introducing CSS            | \vert [[file:../010.Introducing_CSS/010.000.Notes.html][html]] \vert [[file:../010.Introducing_CSS/010.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/010.Introducing_CSS][github]] \vert |
 
 * Notes
 
@@ -106,7 +107,7 @@
    - The ~<source>~ element has the ~src~ and ~type~ attributes to indicate where the audio file is located and the type of audio
 
 ** Section 9.7: Creating a Web Page with Video & Audio
-   - [[file:./009.007.Creating a Web Page with Video & Audio/index.html][Example of Creating a Web Page with Video & Audio]]
+   - [[file:./009.007.Creating_A_Web_Page_with_Video_and_Audio/index.html][Example of Creating a Web Page with Video & Audio]]
      
 * Keywords
 | Term        | Definition                                                                                                                                  |
