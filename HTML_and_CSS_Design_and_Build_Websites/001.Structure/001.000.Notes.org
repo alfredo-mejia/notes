@@ -91,7 +91,7 @@
 | *HTML Tags*                        | A set of characters indicating the start or end of a HTML element                                                                                                  |
 | *Attribute*                        | Attributes are specified in the starting tag of a HTML element and it provides additional information about the contents of an element                             |
 | *HTML Body Element*                | Element that everything inside the element is shown inside the main browser                                                                                        |
-| *HTML Head Element*                | Element that contains information about the page (rather than information that is shwon within the main part of the browser)                                       |
+| *HTML Head Element*                | Element that contains information about the page (rather than information that is shown within the main part of the browser)                                       |
 | *HTML Title Element*               | Element that contains the title of the web page and displays it in the browser's title bar or on the tab of the page                                               |
 | *HyperText Markup Language (HTML)* | A markup language that allows you to syntatically annotate text and these annotations provide additional meaning to the contents of a document (e.g. create links) |
 
