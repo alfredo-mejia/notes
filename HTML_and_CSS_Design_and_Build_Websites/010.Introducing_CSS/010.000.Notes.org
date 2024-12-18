@@ -14,9 +14,9 @@
 * Notes
 
 ** Section 10.1: Introduction to CSS
-   - THe key to understanding how CSS works is to imagine that there is an invisible box around every HTML element
+   - The key to understanding how CSS works is to imagine that there is an invisible box around every HTML element
    - Recall what are block level elements and inline level elements: block level elements start on a new line while inline elements flow within the text and do not start on a new line
-   - CSS allows you to create rules that control the way that each individual box and the contets of that box is presented
+   - CSS allows you to create rules that control the way that each individual box and the contents of that box is presented
    - For example, for elements or "boxes" you can add a border around any of the boxes and specify the width, height, color, style, background color, and more
    - For text inside a box you can control the typeface (e.g. font which is a specific style of the typeface like Roboto which is the typeface and the font is Roboto Regular or Roboto Thin), size, color, italics, bold, uppercase, lowercase, and more
    - However there are specific rules in CSS to specifically specify the ways you want to style certain elements
@@ -208,7 +208,7 @@
 | CSS Declaration Value    | Values specify the settings you want to use for the chosen properties (e.g. green for color, Roboto for typeface, etc.)                                                                                                           |
 | ~<link>~ Element         | The link element specifies relationships between the current document and an external resource (in our case the CSS stylesheets)                                                                                                  |
 | ~<style>~ Element        | It is a HTML element that contains CSS (style information) for the document or part of the document                                                                                                                               |
-| ~!important~             | This can be used at the end of a CSS value to indicate that the CSS property is more important than any other rule that is applies to the same element thus overriding any other rule applies to the element including inline CSS |
+| ~!important~             | This can be used at the end of a CSS value to indicate that the CSS property is more important than any other rule that it applies to the same element thus overriding any other rule that applies to the element including inline CSS |
 | ~inherit~                | This is used as a value to a CSS property and it inherits the values for that property from their parent                                                                                                                          |
 
 * Questions
@@ -234,7 +234,7 @@
   - In order to understand how to use CSS we must remember the difference between block-level and inline elements
   - You can do a lot of customization with CSS such as font, color, borders, etc. but to do so you need to specify rules in CSS to apply the style changes to certain elements
   - These are called CSS rules and the CSS rules have two parts to them: the selector and the declaration
-  - The selector specifies which element this rule will be applied to, the selector can be specific like one element or it can be more general and be applied to many elements, or a mixutre but point is the selector chooses the element to apply the rule
+  - The selector specifies which element this rule will be applied to, the selector can be specific like one element or it can be more general and be applied to many elements, or a mixture but point is the selector chooses the element to apply the rule
   - The declaration are the properties that will be applied to the elements declared in the selector so it basically indicates how the elements selected should be styled and these can be zero to many elements
   - The declaration can be split into two parts: a property and a value
   - Each property and value are separated by a colon and it ends with a semi-colon; a declaration may have multiple properties (property/value pair) it is not limited to just one but it can be many

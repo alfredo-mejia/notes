@@ -20,7 +20,7 @@
 ** Section 12.2: Typeface Terminology
    - Serif fonts have extra details on the end of the main strokes of the letters; these details are known as serifs
    - In print, serif fonts were traditionally used for long passages of text because they were considered easier to read
-   - Sans-Serif fonts have straight ends to letters, and therefore have a much cleaner designer
+   - Sans-Serif fonts have straight ends to letters, and therefore have a much cleaner design
    - Screens have a lower resolution than print so if the text is small, sans-serif fonts can be clearer to read
    - Every letter in a monospace (or fixed-width) font is the same width (non-monospace fonts have different widths)
    - Monospace fonts are commonly used for code because they algin nicely, making the text easier to follow
@@ -82,7 +82,7 @@
    - To understand ~line-height~ we must understand what is a descender and an ascender
    - Descender is the part of a letter that drops beneath the baseline while the highest point of a letter is  called the ascender
    - Leading is a term used for the vertical space between lines of text and it is measured from the bottom of the descender on one line to the top of the ascender on the next
-   - ~line-height~ property sets the height of an entire line of text, so the different between the font-size and the line-height is equivalent to the leading (thus increasing ~line-height~ makes the vertical gap between the lines of text larger) 
+   - ~line-height~ property sets the height of an entire line of text, so the difference between the font-size and the line-height is equivalent to the leading (thus increasing ~line-height~ makes the vertical gap between the lines of text larger) 
    - Increasing the default amount of leading can make text easier to read
    - The verical space between lines should be larger than the space between each word as this helps the eve move along the line instead of down them
    - A good starter for ~line-height~ is around 1.4 to 1.5em
@@ -140,7 +140,7 @@
 | Term                           | Definition                                                                                                                                                                                                                                                       |
 |--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Serif                          | Serif fonts have extra details on the end of the main strokes of the letters; these details are known as serifs                                                                                                                                                  |
-| Sans-Serif                     | Sans-Serif fonts have straight ends to letters, and therefore have a much cleaner designer                                                                                                                                                                       |
+| Sans-Serif                     | Sans-Serif fonts have straight ends to letters, and therefore have a much cleaner design                                                                                                                                                                         |
 | Monospace                      | Every letter in a monospace (or fixed-width) font is the same width (non-monospace fonts have different widths)                                                                                                                                                  |
 | ~font-family~ Property         | The ~font-family~ property allows you to specify the typeface that should be used for any text inside the element(s) to which a CSS rule applies                                                                                                                 |
 | ~font-size~ Property           | The ~font-size~ property enables you to specify a size for the font                                                                                                                                                                                              |
@@ -179,7 +179,7 @@
 	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/:link][Mozilla Docs Link]]
 	 - The pseudo-class applies only to ~<a>~ and ~<area>~ elements that have an ~href~ attribute
 	 - The ~<area>~ element ([[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area][Mozilla Docs Area]]) defines an area inside an image map that has predefined clickable areas
-	 - So only those two can be visited and link be used in and only if they have the ~href~ attribute
+	 - So only those two can be visited and link be used if and only if they have the ~href~ attribute
     
 * Summary
   - Formating of text can have a significant effect on how readable your website is
