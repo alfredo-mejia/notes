@@ -97,15 +97,34 @@
 
 *Note*: I won't be adding properties unless important or common to the keywords because those are easily forgettable and searchable and there are simply just too many of them which will dilute the significance of the keywords section
 
-| Term    | Definition                                                                                                                                                                                                                                                            |
-|---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Border  | Every box has a border (even if it is not visible or is specified to be 0 pixels wide). The border separates the edge of one box from another. The border can signify the border of a web element, outside the border is not part of a page element and inside it is. |
-| Margin  | Margin sits outside the edge of the border. You can set the width of a margin to create a gap between the borders of two adjacent boxes. In other words margin is the space outisde of a page element (outside the border).                                           |
-| Padding | Padding is the space between the border of a box and any content contained within it. Padding defines the space surrounding the content within a web element (within the borders).                                                                                    |
-| Width   | The width of element but it DOES NOT include the margin, border, and padding                                                                                                                                                                                          |
+| Term    | Definition                                                                                                                                                                                                                                                                                                             |
+|---------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Border  | Every box has a border (even if it is not visible or is specified to be 0 pixels wide). The border separates the edge of one box from another. The border can signify the border of a web element, outside the border is not part of a page element and inside it is.                                                  |
+| Margin  | Margin sits outside the edge of the border. You can set the width of a margin to create a gap between the borders of two adjacent boxes. In other words margin is the space outisde of a page element (outside the border).                                                                                            |
+| Padding | Padding is the space between the border of a box and any content contained within it. Padding defines the space surrounding the content within a web element (within the borders).                                                                                                                                     |
+| Width   | The width of element but it DOES NOT include the margin, border, and padding ([[https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing][Mozilla Box Sizing Docs]] states "The width and height properties include the content, but does not include the padding, border, or margin. For example, .box {width: 350px; border: 10px solid black;} renders a box that is 370px wide.") |
+
 
 * Questions
   - *Q*: Is it true that if the bottom margin of any box touches the top margin of another then it will only show the large of the two margins? (If it is the same then it will only show one)
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing][Mozilla Mastering Margin Collapsing Docs]]
+	 - The top and bottom margins are sometimes collapsed into a single margin whose size is the largest margin of the two and if they are equal then it is the size of just one of the margins
+	 - This is known as margin collapsing
+	 - However margin collapsing does not occur of floating and absolute positioned elements
     
-
 * Summary
+  - By default the box is sized just big enough to hold its content
+  - The box can be changed by using ~height~ or ~width~ properties and specify ~min-width~, ~max-width~, ~min-height~, and ~max-height~ if needed
+  - If the box is too small then the contents will overflow and lay on top of the next elements but this can be controlled with the ~overflow~ property
+  - Boxes can be modified in appearance with ~border-width~, ~border-style~, ~border-color~, and more
+  - Boxes have border, margin, and padding
+  - Margins sits outisde the edge of the border (even if the border is not visible) and the margin can be increased to create a gap between the borders of two adjacent boxes
+  - Padding is the space between the border of a box (even if the border is not visible because it is there) and any content contained within it; adding padding can increase the readability of its contents
+  - Margin: controls gap between boxes (space between border to the next border)
+  - Padding: controls gap between content and border
+  - Margins collapses with each other which means the larger of the two adjacent boxes will be used and the smaller will be disregarded
+  - You can center a box on the page by setting ~left-margin~ and ~right-margin~ to ~auto~
+  - You can hide elements and convert elements from block to inline using ~display~ property
+  - You can change visibility of boxes using the ~visibility~ property
+  - Other properties include ~border-image~ which applies an image to the border of any box and ~box-shadow~ which adds a drop shadow around a box
+  - ~border-radius~ can be used to create rounded corners on any box
