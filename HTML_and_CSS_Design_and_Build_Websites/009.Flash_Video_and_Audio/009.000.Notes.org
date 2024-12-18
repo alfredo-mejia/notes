@@ -83,13 +83,13 @@
      - ~src~: specifies the path to the video
      - ~type~: specifies what format the video is in
        - Inside the ~type~ attribute you can include a ~codecs~ parameters which allows you to more precisely describe the format of the data within them
-   - You can many things with video such as create your own controls, provide different resolution videos for different sized screens, and tell different parts of a page to change when the video reaches a certain point
+   - You can do many things with video such as create your own controls, provide different resolution videos for different sized screens, and tell different parts of a page to change when the video reaches a certain point
 
 ** Section 9.6: Adding Audio Sources
    - The most popular format for putting audio on web pages is MP3
    - There are 3 ways to add audio to your web page:
      1. Use a hosted service such as sound cloud where you upload your audio and the hosted service provides you with a player to embed into your page
-     2. Use flash as there are several flash movies that allow you to play MP3 files from one trakc to complex players that allow you to create playlists and juke boxes
+     2. Use flash as there are several flash movies that allow you to play MP3 files from one track to complex players that allow you to create playlists and juke boxes
      3. Use HTML5 new ~<audio>~ element which browsers provide their own controls similar to the ~<video>~ element
    - *Note* I am not sure of the status now but before, playing music while the user moves from one page to another was difficult to do so what developers would do would be to offer audio players in new windows so that listeners are not interrupted when they move between pages
    - There are many MP3 players that have already been written in Flash and each player has different functionality

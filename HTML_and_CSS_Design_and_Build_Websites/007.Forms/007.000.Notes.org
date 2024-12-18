@@ -183,8 +183,8 @@
 	 #+END_SRC
       2. The second way is to keep the label and the form control separate and *not* embedded; So how do you associate (connect) them together? You use the ~for~ attribute on the label and give it the value of the id of the form control
 	 - For example, let's say we want the first name of the user so we create a label and inside the label we add the text description
-	 - After closing the label element we can then add the form control and give the form control an id called "fc_firstname"
-	 - You associate them by adding the ~for~ attribute to the ~<label>~ element and giving it the value of the id of the form control, in this case, "fc_firstname" as shown below
+	 - After closing the label element we can then add the form control and give the form control an id called ~fc_firstname~
+	 - You associate them by adding the ~for~ attribute to the ~<label>~ element and giving it the value of the id of the form control, in this case, ~fc_firstname~ as shown below
 	   #+BEGIN_SRC html
 	     <label for="fc_firstname">First Name: </label>
 	     <input id="fc_firstname" type="text" name="firstname" />
@@ -206,7 +206,7 @@
 *** Section 7.7.2: Grouping Form Elements
     - You can group related form controls together inside the ~<fieldset>~ element (helpful for longer forms)
     - Most browsers will show the ~fieldset~ element with a line around the edge to show how they are related but the appearance can be changed or adjusted using CSS
-    - The ~<legened>~ element can come directly after the opening ~<fieldset>~ tag and contains a caption which identify the purpose of that group of form controls
+    - The ~<legend>~ element can come directly after the opening ~<fieldset>~ tag and contains a caption which identify the purpose of that group of form controls
     - For example,
       #+BEGIN_SRC html
       <fieldset>
@@ -261,7 +261,7 @@
 | Option Elment     | HTML element used to define an item contains in a ~select~, an ~optgroup~, or a ~datalist~ element; in our case we are concerned in the select element and shows an option to a list of options (a menu)                                                                                                                     |
 | Button Element    | An interactive HTML element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology and can be used in forms as submit buttons                                                                                                                                                      |
 | Label Element     | A HTML element used to represent a caption for an item in a user interface (in our case we can add a description to a form control to let the user know what we are asking and what they need to do)                                                                                                                         |
-| Fieldset Element  | A fieldset element is used to group several form controsl as well as labels within a web form (e.g. we have a long form divided into two parts personal info and hobbies, that means we can divide the form into two distict parts by grouping the form controls using fieldset; one for personal info the other for hobbies |
+| Fieldset Element  | A fieldset element is used to group several form controls as well as labels within a web form (e.g. we have a long form divided into two parts personal info and hobbies, that means we can divide the form into two distict parts by grouping the form controls using fieldset; one for personal info the other for hobbies |
 | Legend Element    | A HTML element that represents a caption for the content of its parent ~fieldset~ (basically it adds a description for the fieldset element)                                                                                                                                                                                 |
 | Form Validation   | Form validation is ensuring the data inputted by the user is correct and in a format that is expected for the server to gracefully accept or reject                                                                                                                                                                          |
 
@@ -280,18 +280,18 @@
 	 - Finally, to follow standards HTML5 spec suggests to use button instead of input
 	   
   - *Q*: How do forms and field sets elements work together?
-         - According to the [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form][docs]] for the form element, the form element represetns a document section containing interactive controls for submitting information
+         - According to the [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form][docs]] for the form element, the form element represents a document section containing interactive controls for submitting information
 	 - What does this mean? This means somewhere in the web page there is a section that will contain interactive controls in some way thus form element is used to describe that section
 	 - According to the [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset][docs]] for the fieldset element, the fieldset element is used to group several controls as well as labels *within* a web form
 	 - Thus form element is used to describe a section with form controls and fielset element is used to group form controls within a form
-	 - So how are connected? Well you create a form and /within/ that form you may want to divide the form into different sections or just group certain form controls together
+	 - So how are they connected? Well you create a form and /within/ that form you may want to divide the form into different sections or just group certain form controls together
 	 - That is when you use fieldset element to group form controls and distinguish them differently from other grouped or non-grouped form controls
 	 - You can make it different by changing the styling, adding a legend element, or some other way
 	   
 * Summary
-  - HTML can create a form using different form elements to alow the user to enter information and the website stores this information and uses it in some way
+  - HTML can create a form using different form elements to allow the user to enter information and the website stores this information and uses it in some way
   - Some examples of HTML form elements include text input, password input, text area, radio buttons, checkboxes, drop down boxes, submit boxes, image buttons, file uploads, etc.
-  - This information is then sent to the backends server as name-value pairs; in other words each form control as a name to distinguish it from other form controls and a value to understand what info is the form control holding
+  - This information is then sent to the backends server as name-value pairs; in other words each form control has a name to distinguish it from other form controls and a value to understand what info is the form control holding
   - How do we specify a name? We use the ~name~ attribute in the form control
   - How do we specify a value? Depending on the form control, we either use the ~value~ attribute or we get it from the user
   - The form element is used to represent a form and you use the ~action~ attribute to include the URL that will process the form submission data
@@ -302,7 +302,7 @@
   - The input element is used to create several different form controls depending on the value of the ~type~ attribute
   - For example, you can use ~type~ to equal ~text~ or ~password~ which are single line text areas except for password the browsers hides or masks the characters typed
   - Another element is the text area element which represents a multi-line plain text editing controls used when you need the user to type long amounts of data
-  - Other types of input are checkboxes and radio buttons, what is the difference? Well checkboxes can be deselected and you can select multiple checkboxes while radiobuttons cannot be deselect unless another option is selected meaning you can only have one option
+  - Other types of input are checkboxes and radio buttons, what is the difference? Well checkboxes can be deselected and you can select multiple checkboxes while radio buttons cannot be deselect unless another option is selected meaning you can only have one option
   - How do you group checkboxes or radio buttons? You provide the ~name~ attribute for all checkboxes / radio buttons and give it the same value thus each should have the same name attribute
   - Another form control is the select element which provide a dropdown menu
   - To add options to the dropdown you add the ~option~ element inside the ~select~ element

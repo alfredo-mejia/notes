@@ -123,7 +123,7 @@
 | Resolution             | There are image resolution, image dimension and screen resolution; screen resolution expresses how many pixels are present in the entire screen                       |
 | Pixels Per Inch        | Refers to the number of pixels contained within each inch of a digital device                                                                                         |
 | Dots Per Inch          | Refers to the number of printed dots contained within each inch of an image printed by a printer                                                                      |
-| ~<Figure>~ Element     | HTML element represents a self-contained figure (content) potentially with an optional caption (the figure, the caption, and the content are refered as a single unit |
+| ~<figure>~ Element     | HTML element represents a self-contained figure (content) potentially with an optional caption (the figure, the caption, and the content are refered as a single unit |
 | ~<figcaption>~ Element | HTML element that represents a caption or legend describing the rest of the contents of its parent ~<figure>~ element                                                 |
 
 * Questions

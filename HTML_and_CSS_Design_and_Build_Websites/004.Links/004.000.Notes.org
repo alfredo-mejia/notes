@@ -57,7 +57,7 @@
    #+END_SRC
 
 ** Section 4.6: Creating a Simple Web Page With Links
-   - [[file:./004.006.Creating a Simple Web Page With Links/index.html][Completed creating a simple web page with links exercise]]
+   - [[file:./004.006.Creating_A_Simple_Web_Page_With_Links/index.html][Completed creating a simple web page with links exercise]]
      
 * Keywords
 | Term                  | Definition                                                                                                        |
