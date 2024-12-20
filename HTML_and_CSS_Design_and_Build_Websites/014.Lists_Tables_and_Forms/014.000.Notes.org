@@ -1,0 +1,130 @@
+#+title: Chapter 14: Lists, Tables & Forms
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 13: Boxes                      | \vert [[file:../013.Boxes/013.000.Notes.html][html]] \vert [[file:../013.Boxes/013.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/013.Boxes][github]] \vert |
+| Next  | Chapter 15: Layout                     | \vert [[file:../015.Layout/015.000.Notes.html][html]] \vert [[file:../015.Layout/015.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/015.Layout][github]] \vert |
+
+* Notes
+
+** Section 14.1: Bullet Point Styles
+   - The ~list-style-type~ property allows you to control the shape or style of a bullet point (also known as a marker)
+   - It can be used on rules that apply to the ~<ol>~, ~<ul>~, and ~<li>~ elements
+   - For an unordered list you can use the following values: ~none~, ~disc~, ~circle~, and ~square~
+   - For an ordered (numbered) list you can use the following values: ~decimal~, ~decimal-leading-zero~, ~lower-alpha~, ~upper-alpha~, ~lower-roman~, and ~upper-roman~
+   - You can specify an image to act as a bullet point using the ~list-style-image~ property
+   - The value of the property starts with the letters ~url()~ and inside the parentheses is the path to the image in double quotes
+   - This property can be aplied to the ~<ul>~ and ~<li>~ elements
+
+** Section 14.2: Positioning the Bullet Point
+   - Lists are indented into the page by default and ~list-style-position~ property indicates whether the marker should appear on the inside or outside of the box containing the main points
+   - This property can take one of two values: ~outside~ or ~inside~
+   - Outside sits to the left of the block of text (this is the default behavior)
+   - Inside sits inside the box of text which is indented
+   - There is a short-hand version property called ~list-style~ which allows you to express the markers' style, image, and position properties in any order
+
+** Section 14.3: Table Properties
+   - ~width~: set the width of the table
+   - ~padding~: set the space between the border of each table cell and its content
+   - ~text-transform~: convert the content of the table headers to uppercase
+   - ~letter-spacing~: set the space between letters
+   - ~font-size~: sets the font size
+   - ~border-top~ & ~border-bottom~: set borders above and below the table headers
+   - ~text-align~: align the writing to the left of some table cells and to the right of the others
+   - ~background-color~: change the background color of the alternating table rows
+   - ~:hover~: highlight a table row when a user's mouse goes over it
+
+** Section 14.4: Tips to Styling Tables
+   - (1). Give cells padding to improve readability
+   - (2). Distinguish headings to make them easier to read
+   - (3). Shade alternate rows to help users follow along the lines
+   - (4). Align numerals to easily distinguish between large and small numbers
+   - (5). If you have empty cells in your table then use the ~empty-cells~ property to specify whether or not their borders should be shown (values are ~show~ which shows the border, ~hide~ which hides the border, and ~inherit~ which inherits only if the table is nested within another table)
+   - (6). Allocated enough gap space between cells using ~border-spacing~ which allows you to control the distance between adjacent cells (it has a default value and is specified in pixels and you can specify two values one for horizontal and one for vertical) and, sometimes when two cells meet and have a border, the width of the lines would be twice that of the outside edges but it is possible to collapse adjacent borders by using the ~border-collapse~ property and the values can be ~collapse~ (borders are collapsed into a single border where possible; ~border-spacing~ and ~empty-cells~ will be ignored) and ~separate~ (borders are detached from each; ~border-spacing~ and ~empty-cells~ will be obeyed)
+
+** Section 14.5: Styling Forms
+
+*** Section 14.5.1: Styling Inputs
+    - ~font-size~: sets the size of the text entered by the user
+    - ~color~: sets the the text color
+    - ~background-color~: sets the background color of the input
+    - ~border~: adds a border around the edge of the input box
+    - ~border-radius~: used to create rounded corners
+    - ~:focus~: pseudo-class is used to change the background color of the text input when it is being used
+    - ~:hover~: psuedo-class applies the same styles when the user hovers over them
+    - ~background-image~: adds a background image to the box
+
+*** Section 14.5.2: Styling Submit Buttons
+    - Submit button inherits the styles set for the ~<input>~ element talked about in the previous section
+    - ~color~: used to change the color of the text on the button
+    - ~text-shadow~: can give a 3D look to the text
+    - ~border-bottom~: used to make the bottom border of the button slightly thicker which gives it a more 3D feel
+    - ~background-color~: can make the submit button stand out from other items around it and creating a consistent style for all buttons help users understand how they should interact with the site
+    - ~:hover~: psuedo-class has been used to change the appearance of the button when the user hovers over it
+
+*** Section 14.5.3: Styling Fieldsets & Legends
+    - Fieldsets are particularly helpful in determining the edges of a form
+    - In a long form they can help group together related information within it
+    - The legend is used to indicate what information is required in the fieldset
+    - Properties commonly used with these two elements include:
+    - ~width~: used to control the width of the fieldset (the width of the fieldset forces the form elements to wrap onto a new line in the correct place because if it was too wide the items might sit on one line)
+    - ~color~: used to control the color of text
+    - ~background-color~: change the color behind these items
+    - ~border~: used to control the appearance of the border around the fieldset and/or legend
+    - ~border-radius~: is used to soften the edges of these elements in browsers that support this property
+    - ~padding~: used to add space inside these elements
+
+*** Section 14.5.4: Aligning Forms Controls
+    - Labels for form elements are often different lengths, which means that the form controls will not appear in a straight line
+    - It is easier for users to fill in a form if the form controls are aligned in a straight vertical line
+    - When the form only contains text inputs, by setting all of the text inputs to be the same width, as well as aligning all of the form content to the right, the fields line up and the labels are in a consistent place
+    - A property called ~float~ can help with alignment, you can move the labels to the left of the page
+    - You can also use the ~width~ property for the labels so that each label takes up the same amount of width, therefore the form controls next to them will line up
+    - ~text-align~ property can be used to align the title to the right within the box and ~padding~ is used to make sure there is a gap between the text in the title boxes and the form controls
+    - The div or container containing the form control can also be styled with the ~width~ property and add margins or paddings to create space vertically between each row
+
+** Section 14.6: Cursor Styles & Web Developer Toolbar
+   - The ~cursor~ property allows you to control the type of mouse cursor that should be displayed to users
+   - Commonly used values for the ~cursor~ property: ~auto~, ~crosshair~, ~default~, ~pointer~, ~move~, ~text~, ~wait~, ~help~, ~url("cursor.gif")~
+   - You should only use these values to add helpful information for users in places they would expect to see that cursor
+   - You can use the web developer tools in browsers to see the structure of the HTML and CSS code, each element can be highlighted and see the code
+
+** Section 14.7: Lists, Tables, and Forms Example
+   - [[file:./014.007.Lists_Tables_and_Forms_Example/index.html][Lists, Tables, and Forms Example]]
+
+* Keywords
+*Note*: Many CSS properties will not be written as keywords because they are so many and easily forgettable and searchable
+
+| Term                | Definition |
+|---------------------+------------|
+| Web Developer Tools | A browser tool that allows you to view the source code (the HTML and CSS code) of the website |
+
+* Questions
+  - *Q*: What is the best way to align form controls?
+         - [[https://stackoverflow.com/questions/4309950/how-to-align-input-forms-in-html][Stackoverflow Answer]]
+	 - According to the answer in stackoverflow, we can set the width but this can lead to other problems
+	 - Instead we use "CSS tables" which is basically they use the property ~display~
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/display][Mozilla CSS Display Property Docs]]
+	 - The ~display~ property sets whether an element is treated as a block or inline box
+	 - The stackoverflow answer uses the ~display~ and as the value uses ~table~, ~table-row~, and ~table-cell~
+	 - According to the docs, the elements will behave like a table element (~<table>~), like a table row (~<tr>~), and like a table cell (~<td>~)
+	 - Because they make the elements behave like a table it will be aligned perfectly like a table and thus this is a good way to align form controls
+
+* Summary  
+  - Bullet points style can be changed by using the ~list-style-type~ for both unordered lists and ordered lists
+  - You can even set an image or icon using ~list-style-image~ for unordered lists
+  - Bullet points can also be indented or not using ~list-style-position~
+  - There are various table properties to style the table such as ~width~, ~padding~, ~text-transform~, ~letter-spacing~, ~font-size~, ~border-top~, ~border-bottom~, ~text-align~, ~background-color~, ~:hover~, etc.
+  - Some tips to styling tables are: give cells padding to improve readability, distinguish headings to make them easier to read, shade alternate rows to help users follow along the lines, use ~empty-cells~ property when having empty cells and allocate enough gap space between cells using ~border-spacing~
+  - You can style inputs with various properties like ~font-size~, ~color~, ~background-color~, ~border~, ~border-radius~, ~:focus~, ~:hover~, and ~background-image~
+  - You can also style submit buttons using ~color~, ~text-shadow~, ~border-bottom~, ~background-color~, ~:hover~, and more
+  - Fieldsets can also be styled using ~width~, ~color~, ~background-color~, ~border~, ~border-radius~, ~padding~, and more
+  - To align forms you make sure each title and form element have the same ~width~, you add ~padding~ to improve readability, you use ~float~ to move the element, and you use ~text-align~ to align the text
+  - You can change the cursor type with the ~cursor~ property
+  - You can also view each website's HTML and CSS code using the web developer tools

@@ -1,0 +1,24 @@
+#+title: Chapter 15: Layout
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 14: Lists, Tables & Forms      | \vert [[file:../014.Lists_Tables_and_forms/014.000.Notes.html][html]] \vert [[file:../014.Lists_Tables_and_Forms/014.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/014.Lists_Tables_and_Forms][github]] \vert |
+| Next  | Chapter 16: Images                     | \vert [[file:../016.Images/016.000.Notes.html][html]] \vert [[file:../016.Images/016.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/016.Images][github]] \vert |
+
+* Notes
+
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*:
+    
+* Summary
