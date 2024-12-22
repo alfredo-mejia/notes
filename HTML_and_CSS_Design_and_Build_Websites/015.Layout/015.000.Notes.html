@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-12-20 Fri 13:27 -->
+<!-- 2024-12-20 Fri 15:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 15: Layout</title>
@@ -202,18 +202,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgcedf6d7">Navigation</a></li>
-<li><a href="#org33e2095">Notes</a></li>
-<li><a href="#org8cf66da">Keywords</a></li>
-<li><a href="#orgc2f3edf">Questions</a></li>
-<li><a href="#org6e87139">Summary</a></li>
+<li><a href="#orgb3b51de">Navigation</a></li>
+<li><a href="#orgc7dc27d">Notes</a>
+<ul>
+<li><a href="#org3cc30b2">Section 15.1: Key Concepts in Positioning Elements</a></li>
+<li><a href="#org0103373">Section 15.2: Controlling the Position of Elements</a></li>
+</ul>
+</li>
+<li><a href="#org8af1354">Keywords</a></li>
+<li><a href="#org87e8dae">Questions</a></li>
+<li><a href="#orgf664b19">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcedf6d7" class="outline-2">
-<h2 id="orgcedf6d7">Navigation</h2>
-<div class="outline-text-2" id="text-orgcedf6d7">
+<div id="outline-container-orgb3b51de" class="outline-2">
+<h2 id="orgb3b51de">Navigation</h2>
+<div class="outline-text-2" id="text-orgb3b51de">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -260,13 +265,41 @@
 </div>
 </div>
 
-<div id="outline-container-org33e2095" class="outline-2">
-<h2 id="org33e2095">Notes</h2>
+<div id="outline-container-orgc7dc27d" class="outline-2">
+<h2 id="orgc7dc27d">Notes</h2>
+<div class="outline-text-2" id="text-orgc7dc27d">
+</div>
+<div id="outline-container-org3cc30b2" class="outline-3">
+<h3 id="org3cc30b2">Section 15.1: Key Concepts in Positioning Elements</h3>
+<div class="outline-text-3" id="text-org3cc30b2">
+<ul class="org-ul">
+<li>CSS treats each HTML element as if it is in its own box; this box will either be a block-level box or an inline box</li>
+<li>Block level boxes start on a new line and act as the main building blocks of any layout</li>
+<li>Inline level boxes flow between surrounding text</li>
+<li>You can control how much space each box takes up by setting the width of the boxes (and sometimes the height too)</li>
+<li>To separate boxes, you can use borders, margins, padding, and background colors</li>
+<li>If one block-level element sits inside another block-level element then the outer box is known as the containing or parent element</li>
+<li>It is common to group a number of elements inside a <code>&lt;div&gt;</code> (or other block-level) element (e.g. you might group together all of the elements that form the header of a site such as the logo and the main navigation)</li>
+<li>The block element (e.g. <code>&lt;nav&gt;</code>) contining a group of elements is then referred to as the containing element</li>
+<li>A box may be nested inside several other block-level elements (the containing element is always the direct parent of that element)</li>
+</ul>
+</div>
 </div>
 
-<div id="outline-container-org8cf66da" class="outline-2">
-<h2 id="org8cf66da">Keywords</h2>
-<div class="outline-text-2" id="text-org8cf66da">
+<div id="outline-container-org0103373" class="outline-3">
+<h3 id="org0103373">Section 15.2: Controlling the Position of Elements</h3>
+<div class="outline-text-3" id="text-org0103373">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org8af1354" class="outline-2">
+<h2 id="org8af1354">Keywords</h2>
+<div class="outline-text-2" id="text-org8af1354">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -283,6 +316,16 @@
 </thead>
 <tbody>
 <tr>
+<td class="org-left">Block-level box</td>
+<td class="org-left">Boxes that start on a new line and act as the main building blocks of any layout</td>
+</tr>
+
+<tr>
+<td class="org-left">Inline-level box</td>
+<td class="org-left">Boxes that flow between surrounding text</td>
+</tr>
+
+<tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -291,17 +334,24 @@
 </div>
 </div>
 
-<div id="outline-container-orgc2f3edf" class="outline-2">
-<h2 id="orgc2f3edf">Questions</h2>
-<div class="outline-text-2" id="text-orgc2f3edf">
+<div id="outline-container-org87e8dae" class="outline-2">
+<h2 id="org87e8dae">Questions</h2>
+<div class="outline-text-2" id="text-org87e8dae">
 <ul class="org-ul">
 <li><b>Q</b>:</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6e87139" class="outline-2">
-<h2 id="org6e87139">Summary</h2>
+<div id="outline-container-orgf664b19" class="outline-2">
+<h2 id="orgf664b19">Summary</h2>
+<div class="outline-text-2" id="text-orgf664b19">
+<ul class="org-ul">
+<li>CSS treats each HTML element as if it is in its own box</li>
+<li>The box is either block-level box (which start on a new line and act as the main building blocks of any layout) or inline-level box (which flow between surrounding text)</li>
+<li>There may be nested block-level elements and the block-level element that contains the nested block-level elements are referred to as the containing element or direct parent of the nested block elements</li>
+</ul>
+</div>
 </div>
 </div>
 </body>

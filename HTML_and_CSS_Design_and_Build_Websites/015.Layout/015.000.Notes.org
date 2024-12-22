@@ -13,12 +13,36 @@
 
 * Notes
 
+** Section 15.1: Key Concepts in Positioning Elements
+   - CSS treats each HTML element as if it is in its own box; this box will either be a block-level box or an inline box
+   - Block level boxes start on a new line and act as the main building blocks of any layout
+   - Inline level boxes flow between surrounding text
+   - You can control how much space each box takes up by setting the width of the boxes (and sometimes the height too)
+   - To separate boxes, you can use borders, margins, padding, and background colors
+   - If one block-level element sits inside another block-level element then the outer box is known as the containing or parent element
+   - It is common to group a number of elements inside a ~<div>~ (or other block-level) element (e.g. you might group together all of the elements that form the header of a site such as the logo and the main navigation)
+   - The block element (e.g. ~<nav>~) contining a group of elements is then referred to as the containing element
+   - A box may be nested inside several other block-level elements (the containing element is always the direct parent of that element)
+
+** Section 15.2: Controlling the Position of Elements
+   - CSS has the following *positioning schemes* that allow you to control the layout of a page: normal flow, relative positioning, and absolute positioning
+   - You can specify the positioning scheme using the ~position~ property in CSS and you can float elements using the ~float~ property
+   - Normal Flow: 
+   
+
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term                 | Definition                                                                       |
+|----------------------+----------------------------------------------------------------------------------|
+| Block-level box      | Boxes that start on a new line and act as the main building blocks of any layout |
+| Inline-level box     | Boxes that flow between surrounding text                                         |
+| Normal Flow Position |                                                                                  |
+| Rleative Positioning |                                                                                  |
+| Absolute Positioning |                                                                                  |
 
 * Questions
   - *Q*:
     
 * Summary
+  - CSS treats each HTML element as if it is in its own box
+  - The box is either block-level box (which start on a new line and act as the main building blocks of any layout) or inline-level box (which flow between surrounding text)
+  - There may be nested block-level elements and the block-level element that contains the nested block-level elements are referred to as the containing element or direct parent of the nested block elements
