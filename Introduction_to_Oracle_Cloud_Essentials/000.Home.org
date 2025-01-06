@@ -1,22 +1,32 @@
 #+title: Introduction to Oracle Cloud Essentials
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-*Prev*: Main Index [[[file:../index.html][html]]] [[[file:../index.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main][github]]]
-
-*Next*: Sec.1 Getting Started with Oracle Cloud Infrastructure [[[file:./001.Getting Started with Oracle Cloud Infrastructure/001.000.Notes.html][html]]] [[[file:./001.Getting Started with Oracle Cloud Infrastructure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials/001.Getting%20Started%20with%20Oracle%20Cloud%20Infrastructure][github]]]
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../index.html][html]] \vert [[file:../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | Introduction to Oracle Cloud Essentials                     | \vert [[file:./000.Home.html][html]] \vert [[file:./000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Introduction_to_Oracle_Cloud_Essentials][github]] \vert |
+| Prev  |                                                             |                                         |
+| Next  | Section 1: Getting Started with Oracle Cloud Infrastructure | \vert [[file:./001.Getting_Started_with_Oracle_Cloud_Infrastructure/001.000.Notes.html][html]] \vert [[file:./001.Getting_Started_with_Oracle_Cloud_Infrastructure/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Introduction_to_Oracle_Cloud_Essentials/001.Getting_Started_with_Oracle_Cloud_Infrastructure][github]] \vert |
 
 * Course Details
 | Title    | Introduction to Oracle Cloud Essentials                                                    |
+| Edition  |                                                                                            |
 | Author   | Oracle                                                                                     |
 | Platform | Oracle University                                                                          |
+| Year     |                                                                                            |
 | URL      | https://mylearn.oracle.com/ou/learning-path/introduction-to-oracle-cloud-essentials/115954 |
 
 * Contents
-1. Getting Started with Oracle Cloud Infrastructure [[[file:./001.Getting Started with Oracle Cloud Infrastructure/001.000.Notes.html][html]]] [[[file:./001.Getting Started with Oracle Cloud Infrastructure/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials/001.Getting%20Started%20with%20Oracle%20Cloud%20Infrastructure][github]]]
-2. Getting Started with Oracle Cloud Applications [[[file:./002.Getting Started with Oracle Cloud Applications/002.000.Notes.html][html]]] [[[file:./002.Getting Started with Oracle Cloud Applications/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials/002.Getting%20Started%20with%20Oracle%20Cloud%20Applications][github]]]
+| Section | Title                                            | Links                                   |
+|---------+--------------------------------------------------+-----------------------------------------|
+|       1 | Getting Started with Oracle Cloud Infrastructure | \vert [[file:./001.Getting_Started_with_Oracle_Cloud_Infrastructure/001.000.Notes.html][html]] \vert [[file:./001.Getting_Started_with_Oracle_Cloud_Infrastructure/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Introduction_to_Oracle_Cloud_Essentials/001.Getting_Started_with_Oracle_Cloud_Infrastructure][github]] \vert |
+|       2 | Getting Started with Oracle Cloud Applications   | \vert [[file:./002.Getting_Started_with_Oracle_Cloud_Applications/002.000.Notes.html][html]] \vert [[file:./002.Getting_Started_with_Oracle_Cloud_Applications/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Introduction_to_Oracle_Cloud_Essentials/002.Getting_Started_with_Oracle_Cloud_Applications][github]] \vert |
+|         |                                                  |                                         |
+
+* Resources
 
 * My Thoughts
 /Not Yet Finished/

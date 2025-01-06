@@ -1,14 +1,18 @@
-#+title: Sec.1 Getting Started with Oracle Cloud Infrastructure
+#+title: Section 1: Getting Started with Oracle Cloud Infrastructure
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-*Home*: Introduction to Oracle Cloud Essentials [[[file:../000.Home.html][html]]] [[[file:../000.Home.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials][github]]]
-
-*Next*: Sec.2 Getting Started with Oracle Cloud Applications [[[file:../002.Getting Started with Oracle Cloud Applications/002.000.Notes.html][html]]] [[[file:../002.Getting Started with Oracle Cloud Applications/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/Introduction%20to%20Oracle%20Cloud%20Essentials/002.Getting%20Started%20with%20Oracle%20Cloud%20Applications][github]]]
+| Nav   | Title                                                     | Links                                   |
+|-------+-----------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | Introduction to Oracle Cloud Essentials                   | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Introduction_to_Oracle_Cloud_Essentials][github]] \vert |
+| Prev  |                                                           |                                         |
+| Next  | Section 2: Getting Started with Oracle Cloud Applications | \vert [[file:../002.Getting_Started_with_Oracle_Cloud_Applications/002.Notes.html][html]] \vert [[file:../002.Getting_Started_with_Oracle_Cloud_Applications/002.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Introduction_to_Oracle_Cloud_Essentials/002.Getting_Started_with_Oracle_Cloud_Applications][github]] \vert |
 
 * Notes
+
 ** Section 1.1: Why Oracle Cloud?
    - Oracle Cloud is unique because it can offer cloud infrastructure such as storage, compute, networking, etc. and cloud applications such as finanical apps, healthcare apps, retail apps, human captial management app, etc. all in one cloud
    - They can also bring 3rd party apps
