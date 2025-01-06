@@ -1,22 +1,33 @@
 #+title: User's Guide for Oracle Business Intelligence Enterprise Edition
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../scratch/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-*Prev*: Main Index [[[file:../index.html][html]]] [[[file:../index.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main][github]]]
-
-*Next*: Ch.1 Preface, New Features & Intro to OBIEE [[[file:./001.Preface, New Features & Intro to OBIEE/001.000.Notes.html][html]]] [[[file:./001.Preface, New Features & Intro to OBIEE/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.Preface%2C%20New%20Features%20%26%20Intro%20to%20OBIEE][github]]]
+| Nav   | Title                                                            | Links                                   |
+|-------+------------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                       | \vert [[file:../index.html][html]] \vert [[file:../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | User's Guide for Oracle Business Intelligence Enterprise Edition | \vert [[file:./000.Home.html][html]] \vert [[file:./000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition][github]] \vert |
+| Prev  |                                                                  |                                         |
+| Next  | Chapter 0: Preface & New Features                                | \vert [[file:./000.Preface_and_New_Features/000.000.Notes.html][html]] \vert [[file:./000.Preface_and_New_Features/000.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Preface_and_New_Features][github]] \vert |
 
 * Book Details
 | Title     | User's Guide for Oracle Business Intelligence Enterprise Edition |
 | Edtition  |                                                                  |
 | Author    | [[https://docs.oracle.com/en/][Oracle Docs]]                                                      |
 | Publisher | Oracle                                                           |
+| Year      |                                                                  |
 | ISBN      |                                                                  |
-| URL       | https://docs.oracle.com/middleware/bi12214/biee/BIEUG/toc.htm    |
+
+* Contents
+| Chapter | Title                                    | Links                                   |
+|---------+------------------------------------------+-----------------------------------------|
+|       0 | Preface & New Features                   | \vert [[file:./000.Preface_and_New_Features/000.000.Notes.html][html]] \vert [[file:./000.Preface_and_New_Features/000.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Preface_and_New_Features][github]] \vert |
+|       1 | Introducing Oracle Business Intelligence | \vert [[file:./001.Introducing_Oracle_Business_Intelligence_Enterprise_Edition/001.000.Notes.html][html]] \vert [[file:./001.Introducing_Oracle_Business_Intelligence_Enterprise_Edition/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/001.Introducing_Oracle_Business_Intelligence_Enterprise_Edition][github]] \vert |
 
 * Resources
+[[https://docs.oracle.com/middleware/bi12214/biee/BIEUG/BIEUG.pdf][PDF Book - User's Guide for Oracle Business Intelligence Enterprise Edition]]
+
 [[https://docs.oracle.com/en/][Oracle Documentation Home Page]]
 
 [[https://docs.oracle.com/en/middleware/bi/index.html][Oracle Business Intelligence Middleware Index Page]]
@@ -27,6 +38,5 @@
 
 [[https://docs.oracle.com/middleware/bi12214/bisuite/index.html][Oracle Docs Home for Oracle Business Intelligence Suite 12.2.1.4.0]]
 
-* Content
-1. Preface, New Features & Intro to OBIEE [[[file:./001.Preface, New Features & Intro to OBIEE/001.000.Notes.html][html]]] [[[file:./001.Preface, New Features & Intro to OBIEE/001.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition/001.Preface%2C%20New%20Features%20%26%20Intro%20to%20OBIEE][github]]]
-2. Creating Analyses [[[file:./002.Creating Analyses/002.000.Notes.html][html]]] [[[file:./002.Creating Analyses/002.000.Notes.org][org]]] [[[https://github.com/alfredo-mejia/notes/tree/main/User's%20Guide%20for%20Oracle%20Business%20Intelligence%20Enterprise%20Edition/002.Creating%20Analyses][github]]]
+* My Thoughts
+/Not Yet Finished/
