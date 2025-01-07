@@ -24,3 +24,9 @@
 * Summary
 
 * Exercises
+
+* Chapter Test
+
+* Proofs
+
+* Problem Solving Exercises
