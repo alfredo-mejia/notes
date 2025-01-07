@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-12-20 Fri 15:44 -->
+<!-- 2025-01-07 Tue 00:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 15: Layout</title>
@@ -202,23 +202,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb3b51de">Navigation</a></li>
-<li><a href="#orgc7dc27d">Notes</a>
+<li><a href="#org333cd52">Navigation</a></li>
+<li><a href="#orgda71b56">Notes</a>
 <ul>
-<li><a href="#org3cc30b2">Section 15.1: Key Concepts in Positioning Elements</a></li>
-<li><a href="#org0103373">Section 15.2: Controlling the Position of Elements</a></li>
+<li><a href="#org1b6a2d1">Section 15.1: Key Concepts in Positioning Elements</a></li>
+<li><a href="#orga7f234f">Section 15.2: Controlling the Position of Elements</a></li>
+<li><a href="#orgda6c148">Section 15.3: Normal Flow</a></li>
 </ul>
 </li>
-<li><a href="#org8af1354">Keywords</a></li>
-<li><a href="#org87e8dae">Questions</a></li>
-<li><a href="#orgf664b19">Summary</a></li>
+<li><a href="#org914922f">Keywords</a></li>
+<li><a href="#orgf242195">Questions</a></li>
+<li><a href="#org746b586">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb3b51de" class="outline-2">
-<h2 id="orgb3b51de">Navigation</h2>
-<div class="outline-text-2" id="text-orgb3b51de">
+<div id="outline-container-org333cd52" class="outline-2">
+<h2 id="org333cd52">Navigation</h2>
+<div class="outline-text-2" id="text-org333cd52">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -265,13 +266,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgc7dc27d" class="outline-2">
-<h2 id="orgc7dc27d">Notes</h2>
-<div class="outline-text-2" id="text-orgc7dc27d">
+<div id="outline-container-orgda71b56" class="outline-2">
+<h2 id="orgda71b56">Notes</h2>
+<div class="outline-text-2" id="text-orgda71b56">
 </div>
-<div id="outline-container-org3cc30b2" class="outline-3">
-<h3 id="org3cc30b2">Section 15.1: Key Concepts in Positioning Elements</h3>
-<div class="outline-text-3" id="text-org3cc30b2">
+<div id="outline-container-org1b6a2d1" class="outline-3">
+<h3 id="org1b6a2d1">Section 15.1: Key Concepts in Positioning Elements</h3>
+<div class="outline-text-3" id="text-org1b6a2d1">
 <ul class="org-ul">
 <li>CSS treats each HTML element as if it is in its own box; this box will either be a block-level box or an inline box</li>
 <li>Block level boxes start on a new line and act as the main building blocks of any layout</li>
@@ -286,20 +287,42 @@
 </div>
 </div>
 
-<div id="outline-container-org0103373" class="outline-3">
-<h3 id="org0103373">Section 15.2: Controlling the Position of Elements</h3>
-<div class="outline-text-3" id="text-org0103373">
+<div id="outline-container-orga7f234f" class="outline-3">
+<h3 id="orga7f234f">Section 15.2: Controlling the Position of Elements</h3>
+<div class="outline-text-3" id="text-orga7f234f">
 <ul class="org-ul">
-<li></li>
+<li>CSS has the following <b>positioning schemes</b> that allow you to control the layout of a page: normal flow, relative positioning, and absolute positioning</li>
+<li>You can specify the positioning scheme using the <code>position</code> property in CSS and you can float elements using the <code>float</code> property</li>
+<li><b>Normal Flow</b>: Every block-level element appears on a new line, causing each item to appear lower down the page than the previous one</li>
+<li>Even if you change the width of the boxes so they can fit in a single line they will <b>not</b> appear next to each other unless you tell the browser to do something different</li>
+<li><b>Relative Positioning</b>: This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow)</li>
+<li><b>Absolute Positioning</b>: This positions the element in relation to its containing element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up</li>
+<li>Absolutely positioned elements move as users scroll up and down the page</li>
+<li><b>Fixed Positioning</b>: This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element</li>
+<li>Fixed positioned elements do not affect the position of surrounding elements and they do not move when the user scrolls up or down the page</li>
+<li><b>Floating Elements</b>: Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box</li>
+<li>The floating element becomes a block-level element around which other content can flow</li>
+<li>To indicate where a box should be positioned, you may also need to use box offset properties to tell the browser how far from the top or bottom and left or right it should be placed</li>
+<li>When you move any element from normal flow, boxes can overlap and thus the <code>z-index</code> property allows you to control which box appears on top</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgda6c148" class="outline-3">
+<h3 id="orgda6c148">Section 15.3: Normal Flow</h3>
+<div class="outline-text-3" id="text-orgda6c148">
+<ul class="org-ul">
+<li>In normal flow, each block-level element sits on top of the next one (this is the default behavior of HTML)</li>
+<li>You don't need a CSS property to indicate that the elements should appear in normal flow but the syntax would be <code>position: static</code></li>
+<li>Here's an <a href="./015.003.Normal_Flow_Example/index.html">example</a></li>
 </ul>
 </div>
 </div>
 </div>
 
-
-<div id="outline-container-org8af1354" class="outline-2">
-<h2 id="org8af1354">Keywords</h2>
-<div class="outline-text-2" id="text-org8af1354">
+<div id="outline-container-org914922f" class="outline-2">
+<h2 id="org914922f">Keywords</h2>
+<div class="outline-text-2" id="text-org914922f">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -326,26 +349,47 @@
 </tr>
 
 <tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Normal Flow Position</td>
+<td class="org-left">Every block-level element appears on a new line even if there is space in the current line thus causing each item to appear lower down the page than the previous one</td>
+</tr>
+
+<tr>
+<td class="org-left">Rleative Positioning</td>
+<td class="org-left">This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow)</td>
+</tr>
+
+<tr>
+<td class="org-left">Absolute Positioning</td>
+<td class="org-left">This positions the element in relation to its containing element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up</td>
+</tr>
+
+<tr>
+<td class="org-left">Fixed Positioning</td>
+<td class="org-left">This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element</td>
+</tr>
+
+<tr>
+<td class="org-left">Floating Elements</td>
+<td class="org-left">Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org87e8dae" class="outline-2">
-<h2 id="org87e8dae">Questions</h2>
-<div class="outline-text-2" id="text-org87e8dae">
+
+<div id="outline-container-orgf242195" class="outline-2">
+<h2 id="orgf242195">Questions</h2>
+<div class="outline-text-2" id="text-orgf242195">
 <ul class="org-ul">
 <li><b>Q</b>:</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf664b19" class="outline-2">
-<h2 id="orgf664b19">Summary</h2>
-<div class="outline-text-2" id="text-orgf664b19">
+<div id="outline-container-org746b586" class="outline-2">
+<h2 id="org746b586">Summary</h2>
+<div class="outline-text-2" id="text-org746b586">
 <ul class="org-ul">
 <li>CSS treats each HTML element as if it is in its own box</li>
 <li>The box is either block-level box (which start on a new line and act as the main building blocks of any layout) or inline-level box (which flow between surrounding text)</li>
