@@ -26,16 +26,25 @@
    - Enhacement to scorecards
    - Enhacement to dashboards
    - New home page
-
-** Section 1.3: Introducing Oracle Business Intelligence Enterprise Edition
-   
    
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term           | Definition                                                                                                                                 |
+|----------------+--------------------------------------------------------------------------------------------------------------------------------------------|
+| OBIEE          | Oracle Business Intelligence Enterprise Edition (a complete, open, and integrated solution for all enterprise business intelligence needs) |
+| Ad-hoc Queries |                                                                                                                                            |
+| OLAP           |                                                                                                                                            |
 
 * Questions
-  - *Q*:
+  - *Q*: What are ad hoc queries?
+         - [[https://www.thoughtspot.com/data-trends/analytics/ad-hoc-analysis-and-reporting/what-is-an-ad-hoc-query][StackOverFlow Answer]]
+	 - [[https://www.thoughtspot.com/data-trends/analytics/ad-hoc-analysis-and-reporting/what-is-an-ad-hoc-query][ThoughtSpot Ad-hoc Article]]
+	 - Ad-hoc queries are queries that are created for specific purposes to gather information that is needed right now thus the query is loosely created or created on the fly because we need some information right now from the data
+	 - How is this important for OBIEE? Well if a Oracle customer has a bunch of data, let's say data about their customers, then they can create ad-hoc queries to find out: what is the common age group? where do they live? what do they buy?
+	 - Questions can be quickly answered from the data, basically filtering and answering questions by these ad-hoc queries
+	 - Plus these ad-hoc queries are questions that need to be answered now thus these queries might not be run again later or may change in the answer if it is run later
+	 - These seems like regular queries to me, so why the name? The difference is ad-hoc queries are used "on the fly" by data analysts that are exploring answers and researching and filtering the data. These queries tend to be short and quickly created. Compare this to stored procedures, these queries are typically longer and follow some chronological order but this is because we are not trying to answer a new question now but rather see if the answer of a previous question has changed
+	 - Thus stored procedures are different than ad-hoc queries because stored procedures are running the same query throughout different times
+	   
+  - *Q*: What is OLAP (Online Analytical Processing)?
 
 * Summary

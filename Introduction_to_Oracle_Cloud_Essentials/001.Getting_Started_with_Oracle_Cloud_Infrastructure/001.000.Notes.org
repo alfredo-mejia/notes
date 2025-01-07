@@ -49,7 +49,7 @@
 
 *** Section 1.3.1: Choosing A Region
     1. You'd like a region closest to your users for lowest latency and highest performance
-    2. Data residency and compliance for storing enterprise data meaning many countries have strict data residency requirements (thus any factor to take into account; the laws and rules of storing data in that country / region)
+    2. Data residency and compliance for storing enterprise data meaning many countries have strict data residency requirements (thus another factor to take into account; the laws and rules of storing data in that country / region)
     3. Another factor to keep in mind are OCI service availability as some services are not offered everywhere and new cloud services can be made available based on regional demand, regulatory compliance, resource availability, and other factors
 
 *** Section 1.3.2: Availability Domains
@@ -67,14 +67,24 @@
     - In summary, OCI architecture is organized into geographic regions and each region contains one or more data centers (availability domains) and each data center is subdivided further into 3 fault domains, and these fault domains can be thought as logical data centers placing resources in them
 
 ** Section 1.4: OCI Console Walkthrough Demo
-
-
+   - When logging into the OCI console on the top banner towards the right you will see the regions you are subscribed to 
+   - The hamburger on the left allow you to navigate OCI services such as compute, storage, networking, etc.
+   - *Note*: In the demo, I noticed each OCI service there are specific "sub-services" and got me curious to what those mean (see questions 1-4)
+   - In addition to the navigation hamburger, you have a search bar to search for resources, services, documentation, etc. (see question 5)
+   - You can also interact with OCI resources programmatically using Cloud Shell (a development tool that allows you to use the terminal to interact with OCI resources)
+   - Whenever you click on a OCI service you are brought to a page with various options but all these services (or resources?) will belong to a compartment
+   - What is a compartment? Think of it like a logical collection of related resources, so whenever you want to a create a resource (service?) make sure the right compartment is collected
+     
 * Keywords
 | Term | Definition |
 |------+------------|
 |      |            |
 
 * Questions
-  - *Q*:
+  - *Q*: What are Virtual Cloud Networks?
+  - *Q*: What is Web Application Acceleration?
+  - *Q*: What are Load Balancers in Networks?
+  - *Q*: What is DNS?
+  - *Q*: What are resources in OCI and what are services in OCI?
 
 * Summary
