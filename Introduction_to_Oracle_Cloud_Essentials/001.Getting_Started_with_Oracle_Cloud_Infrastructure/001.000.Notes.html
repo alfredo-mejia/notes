@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-06 Mon 19:46 -->
+<!-- 2025-01-07 Tue 10:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Section 1: Getting Started with Oracle Cloud Infrastructure</title>
@@ -202,36 +202,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2fdce2d">Navigation</a></li>
-<li><a href="#orgae79037">Notes</a>
+<li><a href="#org4121761">Navigation</a></li>
+<li><a href="#orgb3f663f">Notes</a>
 <ul>
-<li><a href="#orgf2dbd74">Section 1.1: Why Oracle Cloud?</a></li>
-<li><a href="#orgb8f9a75">Section 1.2: Oracle Cloud Introduction</a>
+<li><a href="#org12f9986">Section 1.1: Why Oracle Cloud?</a></li>
+<li><a href="#orgfa43f7c">Section 1.2: Oracle Cloud Introduction</a>
 <ul>
-<li><a href="#orge3aeca5">Section 1.2.1: Oracle Cloud Infrastructure (OCI)</a></li>
-<li><a href="#org81d47e3">Section 1.2.2: Oracle Cloud Applications</a></li>
+<li><a href="#org8b17b64">Section 1.2.1: Oracle Cloud Infrastructure (OCI)</a></li>
+<li><a href="#org54a10bd">Section 1.2.2: Oracle Cloud Applications</a></li>
 </ul>
 </li>
-<li><a href="#org2271b72">Section 1.3: Oracle Cloud Infrastructure (OCI) Architecture</a>
+<li><a href="#org9a10cc7">Section 1.3: Oracle Cloud Infrastructure (OCI) Architecture</a>
 <ul>
-<li><a href="#org72250fe">Section 1.3.1: Choosing A Region</a></li>
-<li><a href="#org9cdb06b">Section 1.3.2: Availability Domains</a></li>
-<li><a href="#orgc0dcc7a">Section 1.3.3: Fault Domains</a></li>
+<li><a href="#orgacf6dfe">Section 1.3.1: Choosing A Region</a></li>
+<li><a href="#org11fcbb0">Section 1.3.2: Availability Domains</a></li>
+<li><a href="#org6744f5e">Section 1.3.3: Fault Domains</a></li>
 </ul>
 </li>
-<li><a href="#org2aa57e1">Section 1.4: OCI Console Walkthrough Demo</a></li>
+<li><a href="#orgea29059">Section 1.4: OCI Console Walkthrough Demo</a></li>
+<li><a href="#org1a9a461">Section 1.5: Compute Services</a></li>
+<li><a href="#orgd459937">Section 1.6: Demo - Compute</a></li>
 </ul>
 </li>
-<li><a href="#org79d2932">Keywords</a></li>
-<li><a href="#org66f8322">Questions</a></li>
-<li><a href="#org04ff51f">Summary</a></li>
+<li><a href="#orgea668cd">Keywords</a></li>
+<li><a href="#org9e228bc">Questions</a></li>
+<li><a href="#org24f12e6">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2fdce2d" class="outline-2">
-<h2 id="org2fdce2d">Navigation</h2>
-<div class="outline-text-2" id="text-org2fdce2d">
+<div id="outline-container-org4121761" class="outline-2">
+<h2 id="org4121761">Navigation</h2>
+<div class="outline-text-2" id="text-org4121761">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -278,13 +280,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgae79037" class="outline-2">
-<h2 id="orgae79037">Notes</h2>
-<div class="outline-text-2" id="text-orgae79037">
+<div id="outline-container-orgb3f663f" class="outline-2">
+<h2 id="orgb3f663f">Notes</h2>
+<div class="outline-text-2" id="text-orgb3f663f">
 </div>
-<div id="outline-container-orgf2dbd74" class="outline-3">
-<h3 id="orgf2dbd74">Section 1.1: Why Oracle Cloud?</h3>
-<div class="outline-text-3" id="text-orgf2dbd74">
+<div id="outline-container-org12f9986" class="outline-3">
+<h3 id="org12f9986">Section 1.1: Why Oracle Cloud?</h3>
+<div class="outline-text-3" id="text-org12f9986">
 <ul class="org-ul">
 <li>Oracle Cloud is unique because it can offer cloud infrastructure such as storage, compute, networking, etc. and cloud applications such as finanical apps, healthcare apps, retail apps, human captial management app, etc. all in one cloud</li>
 <li>They can also bring 3rd party apps</li>
@@ -295,9 +297,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgb8f9a75" class="outline-3">
-<h3 id="orgb8f9a75">Section 1.2: Oracle Cloud Introduction</h3>
-<div class="outline-text-3" id="text-orgb8f9a75">
+<div id="outline-container-orgfa43f7c" class="outline-3">
+<h3 id="orgfa43f7c">Section 1.2: Oracle Cloud Introduction</h3>
+<div class="outline-text-3" id="text-orgfa43f7c">
 <ul class="org-ul">
 <li>Oracle Cloud may have over 100 services, at a high-level, it can be classified into two categories: Oracle Cloud Infrastructure and Oracle Cloud Applications</li>
 <li>Oracle Cloud Infrastructure (OCI) are the infrstructure services that are designed to run any type of application (e.g. modern cloud-native application or any other mission critical workload)</li>
@@ -305,9 +307,9 @@
 </ul>
 </div>
 
-<div id="outline-container-orge3aeca5" class="outline-4">
-<h4 id="orge3aeca5">Section 1.2.1: Oracle Cloud Infrastructure (OCI)</h4>
-<div class="outline-text-4" id="text-orge3aeca5">
+<div id="outline-container-org8b17b64" class="outline-4">
+<h4 id="org8b17b64">Section 1.2.1: Oracle Cloud Infrastructure (OCI)</h4>
+<div class="outline-text-4" id="text-org8b17b64">
 <ul class="org-ul">
 <li>The core services of OCI are: compute, storage, and networking</li>
 <li>Compute service provides compute capacity with CPUs and memory (RAM &amp; persistent compute storage) often provisioned as virtual machines</li>
@@ -320,9 +322,9 @@
 </div>
 </div>
 
-<div id="outline-container-org81d47e3" class="outline-4">
-<h4 id="org81d47e3">Section 1.2.2: Oracle Cloud Applications</h4>
-<div class="outline-text-4" id="text-org81d47e3">
+<div id="outline-container-org54a10bd" class="outline-4">
+<h4 id="org54a10bd">Section 1.2.2: Oracle Cloud Applications</h4>
+<div class="outline-text-4" id="text-org54a10bd">
 <ul class="org-ul">
 <li>There are also applications (by Oracle in the cloud) that customers may be able to use and these software are referred to as Software as a Service or SaaS</li>
 <li>Some examples include Oracle Fusion Cloud Enterprise Resource Planning (ERP) which is a complete modern enterprise resource-planning suite that provides financials, general ledger, accounts payable and receivables, and more</li>
@@ -332,9 +334,9 @@
 </div>
 </div>
 
-<div id="outline-container-org2271b72" class="outline-3">
-<h3 id="org2271b72">Section 1.3: Oracle Cloud Infrastructure (OCI) Architecture</h3>
-<div class="outline-text-3" id="text-org2271b72">
+<div id="outline-container-org9a10cc7" class="outline-3">
+<h3 id="org9a10cc7">Section 1.3: Oracle Cloud Infrastructure (OCI) Architecture</h3>
+<div class="outline-text-3" id="text-org9a10cc7">
 <ul class="org-ul">
 <li>There are 3 main constructs of the physical architecture of OCI: regions, availability domains, fault domains</li>
 <li>A <b>region</b> represents a localized geographic area that is comprised of one or more <b>availability domains</b> (ADs) which are essentially physical data centers located within that region</li>
@@ -345,9 +347,9 @@
 </ul>
 </div>
 
-<div id="outline-container-org72250fe" class="outline-4">
-<h4 id="org72250fe">Section 1.3.1: Choosing A Region</h4>
-<div class="outline-text-4" id="text-org72250fe">
+<div id="outline-container-orgacf6dfe" class="outline-4">
+<h4 id="orgacf6dfe">Section 1.3.1: Choosing A Region</h4>
+<div class="outline-text-4" id="text-orgacf6dfe">
 <ol class="org-ol">
 <li>You'd like a region closest to your users for lowest latency and highest performance</li>
 <li>Data residency and compliance for storing enterprise data meaning many countries have strict data residency requirements (thus another factor to take into account; the laws and rules of storing data in that country / region)</li>
@@ -356,9 +358,9 @@
 </div>
 </div>
 
-<div id="outline-container-org9cdb06b" class="outline-4">
-<h4 id="org9cdb06b">Section 1.3.2: Availability Domains</h4>
-<div class="outline-text-4" id="text-org9cdb06b">
+<div id="outline-container-org11fcbb0" class="outline-4">
+<h4 id="org11fcbb0">Section 1.3.2: Availability Domains</h4>
+<div class="outline-text-4" id="text-org11fcbb0">
 <ul class="org-ul">
 <li>Although there may be multiple availability domains within a region, each availability domain are still isolated from each other</li>
 <li>This provides fault tolerance and becomes very unlikely for more than one availability domain to fail at the same time because the physical infrastructure are not shared between availability domains</li>
@@ -367,9 +369,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgc0dcc7a" class="outline-4">
-<h4 id="orgc0dcc7a">Section 1.3.3: Fault Domains</h4>
-<div class="outline-text-4" id="text-orgc0dcc7a">
+<div id="outline-container-org6744f5e" class="outline-4">
+<h4 id="org6744f5e">Section 1.3.3: Fault Domains</h4>
+<div class="outline-text-4" id="text-org6744f5e">
 <ul class="org-ul">
 <li>Fault domains are a grouping of hardware and insfrastructure within an availability domain</li>
 <li>You control the placement of your infrastructure resources such as VMs or cloud storage to specific fault domains as you're configuring the provisioning of those resources</li>
@@ -383,9 +385,9 @@
 </div>
 </div>
 
-<div id="outline-container-org2aa57e1" class="outline-3">
-<h3 id="org2aa57e1">Section 1.4: OCI Console Walkthrough Demo</h3>
-<div class="outline-text-3" id="text-org2aa57e1">
+<div id="outline-container-orgea29059" class="outline-3">
+<h3 id="orgea29059">Section 1.4: OCI Console Walkthrough Demo</h3>
+<div class="outline-text-3" id="text-orgea29059">
 <ul class="org-ul">
 <li>When logging into the OCI console on the top banner towards the right you will see the regions you are subscribed to</li>
 <li>The hamburger on the left allow you to navigate OCI services such as compute, storage, networking, etc.</li>
@@ -397,11 +399,48 @@
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org1a9a461" class="outline-3">
+<h3 id="org1a9a461">Section 1.5: Compute Services</h3>
+<div class="outline-text-3" id="text-org1a9a461">
+<ul class="org-ul">
+<li>OCI Compute Services allow you to create and manage compute resources which are also known as compute instances</li>
+<li>What are compute instances? They are simply <b>servers</b></li>
+<li>These servers can be used to deploy your applications and workload on these servers</li>
+<li>The servers are the foundation for many other OCI services as you simply create an instance, access the instance, and use it (e.g. install apps in the server)</li>
+<li>Computer instances are based on shapes which determine the type of CPU, how much RAM (memory), and persistent storage</li>
+<li>There are three types of compute instances:
+<ol class="org-ol">
+<li>Virtual Machine: A logical server that runs on top of a bare metal server (usually the bare metal server may have other VMs with other Oracle customers)</li>
+<li>Bare Metal: Dedicated physical server (usually used when workloads are performance-intensive, can't run in VM, or some other requirement)</li>
+<li>Dedicated VM Host: Runs Virtual Machines on <b>dedicated</b> servers (unlike using VMs where it can run on bare metal servers that may be shared by others) thus you get a bare metal server but it is used to create VMs instead</li>
+</ol></li>
+<li>Shapes: A template that determines the resources allocated to an instance (CPU &amp; RAM)</li>
+<li>Fixed shapes: A number of CPUs and RAM and cannot be customized, applies to bare metal machines and some VMs</li>
+<li>Flexible Shapes: The number of CPUs and RAM can be customized and changed but only applies to VMs</li>
+<li>Some VMs allow for vertical scaling where you can change the shape to scale up or down (increase or decrease the number of cpu and ram)</li>
+<li>You can also horizontal scaling or "autoscaling" where you can create more or less VM instances</li>
+<li>This can be done automatically based on some metric criteria causing an autoscaling event to be triggered and thus increasing or decreasing the number of VMs</li>
+<li>Another way to automatically do "autoscaling" is by scheduling, you can schedule an autoscaling event to be triggered at a certain time in the day, in the week, month, etc. and thus increasing or decreasing the number of VMs</li>
+</ul>
+</div>
 </div>
 
-<div id="outline-container-org79d2932" class="outline-2">
-<h2 id="org79d2932">Keywords</h2>
-<div class="outline-text-2" id="text-org79d2932">
+<div id="outline-container-orgd459937" class="outline-3">
+<h3 id="orgd459937">Section 1.6: Demo - Compute</h3>
+<div class="outline-text-3" id="text-orgd459937">
+<ul class="org-ul">
+<li>You can create compute instances and configure them to the shape (cpu and ram) that you need as Oracle have "flex" shapes</li>
+<li>You can also create compute instances with a public IP address or without one (thus it uses private IP addresses)</li>
+<li>You can also create compute instances with a SSH key or not so that users will need the key to be able to access the VM instance</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgea668cd" class="outline-2">
+<h2 id="orgea668cd">Keywords</h2>
+<div class="outline-text-2" id="text-orgea668cd">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -418,7 +457,82 @@
 </thead>
 <tbody>
 <tr>
+<td class="org-left">Public Cloud</td>
+<td class="org-left">A public cloud is a computing environment that provides services and resources (in Oracle's case applications too) over the internet from a company (Oracle)</td>
+</tr>
+
+<tr>
+<td class="org-left">Hybrid Cloud</td>
+<td class="org-left">A hybrid cloud is a computing environemnt that combines computing, storage, services etc. from a company's on-premises infrastructure with a public cloud thus creating a more versatile infrastructure (the services &amp; resources from the on-prem infrastructure can interact with the public cloud)</td>
+</tr>
+
+<tr>
+<td class="org-left">Dedicated Cloud</td>
+<td class="org-left">A dedicated cloud is a computing environment that are exlusively allocated to a company thus the resources &amp; services are isolated from everyone else, the company has full control over the cloud even if it is still managed by the cloud provider, thus the company has more security and more flexibility to scale up or down as they are managing the cloud and are constrained to the physcical hardware that they choose</td>
+</tr>
+
+<tr>
+<td class="org-left">MultiCloud</td>
+<td class="org-left">Multicloud is a computing strategy where a customer may use services and resouces from multiple cloud providers using the service or resource that they need from that cloud provider and using other services and resources from other cloud providers (these services and resouces may interact with each other and more cloud providers are providing ways to easily integrate other cloud providers into their infrastructure)</td>
+</tr>
+
+<tr>
+<td class="org-left">Oracle Cloud Infrastructure (OCI)</td>
+<td class="org-left">Oracle Cloud Infrastructure (OCI) are the infrstructure services that are designed to run any type of application (e.g. modern cloud-native application or any other mission critical workload), not only run but build, test, deploy, and manage</td>
+</tr>
+
+<tr>
+<td class="org-left">Oracle Cloud Applications</td>
+<td class="org-left">Oracle Cloud Applications are applications as a cloud service to help businesses meet their needs (these applications try to be various solutions for businesses and often integrates well with other Oracle applications and services)</td>
+</tr>
+
+<tr>
+<td class="org-left">Region</td>
+<td class="org-left">A region is geographic area where a cloud provider has data centers and infrastructure of cloud services (each Oracle region has one or more availability domains)</td>
+</tr>
+
+<tr>
+<td class="org-left">Availability Domains</td>
+<td class="org-left">Think of availability domains as the actual data centers, the region is simply a geographical area but ADs are the data centers and usually each region has multiple availability domains. These availability domains are the data centers within that region and these availability domains are isolated from each other but connect to each other by a low latency high bandwidth network (the infrastructure are not connected to each other providing fault tolerance)</td>
+</tr>
+
+<tr>
+<td class="org-left">Fault Domains</td>
+<td class="org-left">The fault domain is a grouping of hardware and infrastructure within each availability domain (this allows to distribute resources and not have a single point of failure). You can think of fault domains as logical data centers, each AD has 3 fault domains providing fault tolerance</td>
+</tr>
+
+<tr>
+<td class="org-left">Compartment</td>
 <td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Virtual Machine</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Bare Metal Machine</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Dedicated VM Host</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Shapes</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Vertical Scaling</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Horizontal Scaling ("Autoscaling")</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
@@ -426,21 +540,23 @@
 </div>
 </div>
 
-<div id="outline-container-org66f8322" class="outline-2">
-<h2 id="org66f8322">Questions</h2>
-<div class="outline-text-2" id="text-org66f8322">
+<div id="outline-container-org9e228bc" class="outline-2">
+<h2 id="org9e228bc">Questions</h2>
+<div class="outline-text-2" id="text-org9e228bc">
 <ul class="org-ul">
 <li><b>Q</b>: What are Virtual Cloud Networks?</li>
 <li><b>Q</b>: What is Web Application Acceleration?</li>
 <li><b>Q</b>: What are Load Balancers in Networks?</li>
 <li><b>Q</b>: What is DNS?</li>
 <li><b>Q</b>: What are resources in OCI and what are services in OCI?</li>
+<li><b>Q</b>: What is a public subnet?</li>
+<li><b>Q</b>: What is an internet gateway?</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org04ff51f" class="outline-2">
-<h2 id="org04ff51f">Summary</h2>
+<div id="outline-container-org24f12e6" class="outline-2">
+<h2 id="org24f12e6">Summary</h2>
 </div>
 </div>
 </body>
