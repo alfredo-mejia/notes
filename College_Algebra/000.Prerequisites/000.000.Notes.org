@@ -13,10 +13,18 @@
 
 * Notes
 
+** Section 0.1: Review of Real Numbers and Their Properties
+   - *Real Numbers* are all possible numbers that represent quantities in the physical world
+   - This includes *natural numbers* such as 1, 2, 3, 4, etc. (notice that 0 is *not* included)
+   - *Whole numbers* such as 0, 1, 2, 3, 4, etc. (this is similar to natural numbers except that 0 is included)
+   - *Integers* such as -2, -3, -4, 1, 2, 0, etc. (basically any whole number even if it is negative including 0)
+   - *Rational numbers* which are numbers that can be expressed as fractions ~a/b~ where a and b are integers and ~b != 0~ (this includes 1/3, 1/8, etc. )
+   - *Irrational numbers* which are numbers that cannot be expressed as the ratio of two integers such as \pi 
+     
 * Keywords
-| Term | Defin |
-|------+-------|
-|      |       |
+| Term | Definition |
+|------+------------|
+|      |            |
 
 * Questions
   - *Q*:
