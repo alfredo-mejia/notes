@@ -43,7 +43,28 @@
    - In normal flow, each block-level element sits on top of the next one (this is the default behavior of HTML)
    - You don't need a CSS property to indicate that the elements should appear in normal flow but the syntax would be ~position: static~
    - Here's an [[file:./015.003.Normal_Flow_Example/index.html][example]]
+   - As you can see in the example, the paragraph blocks take up 50% and 25% respectively but they do not sit side by side instead they go onto the next line despite there being space
+   - I also wanted to test the ~position: static~ attribute so I created two divs, the top one is without a ~position~ attribute and the bottom one is with the ~position~ attribute and as expected the default behavior is the same as ~position: static~
 
+** Section 15.4: Relative Positioning
+   - Relative positioning moves an element in relation to where it would have been in normal flow
+   - For example, you can move it 10 pixels lower than it would have been in normal flow or 20% to the right
+   - You can indicate that an element should be relatively positioned using the ~position: relative~ property
+   - You can then use the offset properties, ~top~, ~bottom~, ~left~, and ~right~ to indicate how far to move the element from where it would have been in normal flow
+   - The values of the box offset properties are usually given in pixels, percentages, or ems
+   - Here's an [[file:./015.004.Relative_Positioning_Example/index.html][example]]
+   - The example shows that relative positioning is all relative to the position of the element when it is in normal flow
+   - Thus if you offset the element from its normal flow position and it stays within bounds meaning it looks like it belongs or it doesn't overlap with other elements then great
+   - But what if we offset too much, what happens?
+   - In the example, I offset two elements relative to their normal flow position
+   - The first element I put it to the right and down but I did it so much so that it overlap with other elements
+   - This overlapping stays overlapped and does not affect the position of the affected elements
+   - The last element I pushed to the right but since there are no elements there it seems like it belongs there but if there were elements there it would also overlap
+   - Thus relative positioning moves elements relative to their normal flow position to any place in the web page, it doesn't matter if it is super far, in another div, or there are elements there, the element will move based on its original position and offset
+   - Relative positioning may overlap with other elements and stay in that position but will not affect the position of other elements (besides taking space in its original normal flow position)
+
+** Section 15.5: Overlapping Elements
+     
 * Keywords
 | Term                 | Definition                                                                                                                                                                                                                                                                |
 |----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-07 Tue 00:06 -->
+<!-- 2025-01-07 Tue 21:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 15: Layout</title>
@@ -202,24 +202,26 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org333cd52">Navigation</a></li>
-<li><a href="#orgda71b56">Notes</a>
+<li><a href="#org4338ec5">Navigation</a></li>
+<li><a href="#org14cb2d3">Notes</a>
 <ul>
-<li><a href="#org1b6a2d1">Section 15.1: Key Concepts in Positioning Elements</a></li>
-<li><a href="#orga7f234f">Section 15.2: Controlling the Position of Elements</a></li>
-<li><a href="#orgda6c148">Section 15.3: Normal Flow</a></li>
+<li><a href="#org6555101">Section 15.1: Key Concepts in Positioning Elements</a></li>
+<li><a href="#org3adc866">Section 15.2: Controlling the Position of Elements</a></li>
+<li><a href="#org530a4f9">Section 15.3: Normal Flow</a></li>
+<li><a href="#org97552d2">Section 15.4: Relative Positioning</a></li>
+<li><a href="#org073b469">Section 15.5: Overlapping Elements</a></li>
 </ul>
 </li>
-<li><a href="#org914922f">Keywords</a></li>
-<li><a href="#orgf242195">Questions</a></li>
-<li><a href="#org746b586">Summary</a></li>
+<li><a href="#org374e508">Keywords</a></li>
+<li><a href="#org3110a9a">Questions</a></li>
+<li><a href="#org6db1f2c">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org333cd52" class="outline-2">
-<h2 id="org333cd52">Navigation</h2>
-<div class="outline-text-2" id="text-org333cd52">
+<div id="outline-container-org4338ec5" class="outline-2">
+<h2 id="org4338ec5">Navigation</h2>
+<div class="outline-text-2" id="text-org4338ec5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -266,13 +268,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgda71b56" class="outline-2">
-<h2 id="orgda71b56">Notes</h2>
-<div class="outline-text-2" id="text-orgda71b56">
+<div id="outline-container-org14cb2d3" class="outline-2">
+<h2 id="org14cb2d3">Notes</h2>
+<div class="outline-text-2" id="text-org14cb2d3">
 </div>
-<div id="outline-container-org1b6a2d1" class="outline-3">
-<h3 id="org1b6a2d1">Section 15.1: Key Concepts in Positioning Elements</h3>
-<div class="outline-text-3" id="text-org1b6a2d1">
+<div id="outline-container-org6555101" class="outline-3">
+<h3 id="org6555101">Section 15.1: Key Concepts in Positioning Elements</h3>
+<div class="outline-text-3" id="text-org6555101">
 <ul class="org-ul">
 <li>CSS treats each HTML element as if it is in its own box; this box will either be a block-level box or an inline box</li>
 <li>Block level boxes start on a new line and act as the main building blocks of any layout</li>
@@ -287,9 +289,9 @@
 </div>
 </div>
 
-<div id="outline-container-orga7f234f" class="outline-3">
-<h3 id="orga7f234f">Section 15.2: Controlling the Position of Elements</h3>
-<div class="outline-text-3" id="text-orga7f234f">
+<div id="outline-container-org3adc866" class="outline-3">
+<h3 id="org3adc866">Section 15.2: Controlling the Position of Elements</h3>
+<div class="outline-text-3" id="text-org3adc866">
 <ul class="org-ul">
 <li>CSS has the following <b>positioning schemes</b> that allow you to control the layout of a page: normal flow, relative positioning, and absolute positioning</li>
 <li>You can specify the positioning scheme using the <code>position</code> property in CSS and you can float elements using the <code>float</code> property</li>
@@ -308,21 +310,50 @@
 </div>
 </div>
 
-<div id="outline-container-orgda6c148" class="outline-3">
-<h3 id="orgda6c148">Section 15.3: Normal Flow</h3>
-<div class="outline-text-3" id="text-orgda6c148">
+<div id="outline-container-org530a4f9" class="outline-3">
+<h3 id="org530a4f9">Section 15.3: Normal Flow</h3>
+<div class="outline-text-3" id="text-org530a4f9">
 <ul class="org-ul">
 <li>In normal flow, each block-level element sits on top of the next one (this is the default behavior of HTML)</li>
 <li>You don't need a CSS property to indicate that the elements should appear in normal flow but the syntax would be <code>position: static</code></li>
 <li>Here's an <a href="./015.003.Normal_Flow_Example/index.html">example</a></li>
+<li>As you can see in the example, the paragraph blocks take up 50% and 25% respectively but they do not sit side by side instead they go onto the next line despite there being space</li>
+<li>I also wanted to test the <code>position: static</code> attribute so I created two divs, the top one is without a <code>position</code> attribute and the bottom one is with the <code>position</code> attribute and as expected the default behavior is the same as <code>position: static</code></li>
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org97552d2" class="outline-3">
+<h3 id="org97552d2">Section 15.4: Relative Positioning</h3>
+<div class="outline-text-3" id="text-org97552d2">
+<ul class="org-ul">
+<li>Relative positioning moves an element in relation to where it would have been in normal flow</li>
+<li>For example, you can move it 10 pixels lower than it would have been in normal flow or 20% to the right</li>
+<li>You can indicate that an element should be relatively positioned using the <code>position: relative</code> property</li>
+<li>You can then use the offset properties, <code>top</code>, <code>bottom</code>, <code>left</code>, and <code>right</code> to indicate how far to move the element from where it would have been in normal flow</li>
+<li>The values of the box offset properties are usually given in pixels, percentages, or ems</li>
+<li>Here's an <a href="./015.004.Relative_Positioning_Example/index.html">example</a></li>
+<li>The example shows that relative positioning is all relative to the position of the element when it is in normal flow</li>
+<li>Thus if you offset the element from its normal flow position and it stays within bounds meaning it looks like it belongs or it doesn't overlap with other elements then great</li>
+<li>But what if we offset too much, what happens?</li>
+<li>In the example, I offset two elements relative to their normal flow position</li>
+<li>The first element I put it to the right and down but I did it so much so that it overlap with other elements</li>
+<li>This overlapping stays overlapped and does not affect the position of the affected elements</li>
+<li>The last element I pushed to the right but since there are no elements there it seems like it belongs there but if there were elements there it would also overlap</li>
+<li>Thus relative positioning moves elements relative to their normal flow position to any place in the web page, it doesn't matter if it is super far, in another div, or there are elements there, the element will move based on its original position and offset</li>
+<li>Relative positioning may overlap with other elements and stay in that position but will not affect the position of other elements (besides taking space in its original normal flow position)</li>
+</ul>
+</div>
 </div>
 
-<div id="outline-container-org914922f" class="outline-2">
-<h2 id="org914922f">Keywords</h2>
-<div class="outline-text-2" id="text-org914922f">
+<div id="outline-container-org073b469" class="outline-3">
+<h3 id="org073b469">Section 15.5: Overlapping Elements</h3>
+</div>
+</div>
+
+<div id="outline-container-org374e508" class="outline-2">
+<h2 id="org374e508">Keywords</h2>
+<div class="outline-text-2" id="text-org374e508">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -378,18 +409,18 @@
 </div>
 
 
-<div id="outline-container-orgf242195" class="outline-2">
-<h2 id="orgf242195">Questions</h2>
-<div class="outline-text-2" id="text-orgf242195">
+<div id="outline-container-org3110a9a" class="outline-2">
+<h2 id="org3110a9a">Questions</h2>
+<div class="outline-text-2" id="text-org3110a9a">
 <ul class="org-ul">
 <li><b>Q</b>:</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org746b586" class="outline-2">
-<h2 id="org746b586">Summary</h2>
-<div class="outline-text-2" id="text-org746b586">
+<div id="outline-container-org6db1f2c" class="outline-2">
+<h2 id="org6db1f2c">Summary</h2>
+<div class="outline-text-2" id="text-org6db1f2c">
 <ul class="org-ul">
 <li>CSS treats each HTML element as if it is in its own box</li>
 <li>The box is either block-level box (which start on a new line and act as the main building blocks of any layout) or inline-level box (which flow between surrounding text)</li>
