@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-07 Tue 21:14 -->
+<!-- 2025-01-13 Mon 19:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 15: Layout</title>
@@ -202,26 +202,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4338ec5">Navigation</a></li>
-<li><a href="#org14cb2d3">Notes</a>
+<li><a href="#org665a962">Navigation</a></li>
+<li><a href="#org9929b81">Notes</a>
 <ul>
-<li><a href="#org6555101">Section 15.1: Key Concepts in Positioning Elements</a></li>
-<li><a href="#org3adc866">Section 15.2: Controlling the Position of Elements</a></li>
-<li><a href="#org530a4f9">Section 15.3: Normal Flow</a></li>
-<li><a href="#org97552d2">Section 15.4: Relative Positioning</a></li>
-<li><a href="#org073b469">Section 15.5: Overlapping Elements</a></li>
+<li><a href="#orgdffc528">Section 15.1: Key Concepts in Positioning Elements</a></li>
+<li><a href="#orge407610">Section 15.2: Controlling the Position of Elements</a></li>
+<li><a href="#orgc9b80d1">Section 15.3: Normal Flow</a></li>
+<li><a href="#orgf663d41">Section 15.4: Relative Positioning</a></li>
+<li><a href="#orgf427341">Section 15.5: Absolute Positioning</a></li>
+<li><a href="#org29f27f5">Section 15.6: Fixed Positioning</a></li>
+<li><a href="#orge6380b3">Section 15.7: Overlapping Elements</a></li>
 </ul>
 </li>
-<li><a href="#org374e508">Keywords</a></li>
-<li><a href="#org3110a9a">Questions</a></li>
-<li><a href="#org6db1f2c">Summary</a></li>
+<li><a href="#org2fb110c">Keywords</a></li>
+<li><a href="#org8bc306f">Questions</a></li>
+<li><a href="#orgaaba195">Summary</a></li>
+<li><a href="#org947aadf">Resource</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4338ec5" class="outline-2">
-<h2 id="org4338ec5">Navigation</h2>
-<div class="outline-text-2" id="text-org4338ec5">
+<div id="outline-container-org665a962" class="outline-2">
+<h2 id="org665a962">Navigation</h2>
+<div class="outline-text-2" id="text-org665a962">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -268,13 +271,13 @@
 </div>
 </div>
 
-<div id="outline-container-org14cb2d3" class="outline-2">
-<h2 id="org14cb2d3">Notes</h2>
-<div class="outline-text-2" id="text-org14cb2d3">
+<div id="outline-container-org9929b81" class="outline-2">
+<h2 id="org9929b81">Notes</h2>
+<div class="outline-text-2" id="text-org9929b81">
 </div>
-<div id="outline-container-org6555101" class="outline-3">
-<h3 id="org6555101">Section 15.1: Key Concepts in Positioning Elements</h3>
-<div class="outline-text-3" id="text-org6555101">
+<div id="outline-container-orgdffc528" class="outline-3">
+<h3 id="orgdffc528">Section 15.1: Key Concepts in Positioning Elements</h3>
+<div class="outline-text-3" id="text-orgdffc528">
 <ul class="org-ul">
 <li>CSS treats each HTML element as if it is in its own box; this box will either be a block-level box or an inline box</li>
 <li>Block level boxes start on a new line and act as the main building blocks of any layout</li>
@@ -289,9 +292,9 @@
 </div>
 </div>
 
-<div id="outline-container-org3adc866" class="outline-3">
-<h3 id="org3adc866">Section 15.2: Controlling the Position of Elements</h3>
-<div class="outline-text-3" id="text-org3adc866">
+<div id="outline-container-orge407610" class="outline-3">
+<h3 id="orge407610">Section 15.2: Controlling the Position of Elements</h3>
+<div class="outline-text-3" id="text-orge407610">
 <ul class="org-ul">
 <li>CSS has the following <b>positioning schemes</b> that allow you to control the layout of a page: normal flow, relative positioning, and absolute positioning</li>
 <li>You can specify the positioning scheme using the <code>position</code> property in CSS and you can float elements using the <code>float</code> property</li>
@@ -299,9 +302,9 @@
 <li>Even if you change the width of the boxes so they can fit in a single line they will <b>not</b> appear next to each other unless you tell the browser to do something different</li>
 <li><b>Relative Positioning</b>: This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow)</li>
 <li><b>Absolute Positioning</b>: This positions the element in relation to its containing element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up</li>
-<li>Absolutely positioned elements move as users scroll up and down the page</li>
+<li>Absolutely positioned elements move as users scroll up and down the page (that means when you scroll the elements rise up or rise down, the elements will move out of the screen if you scroll too far up or down)</li>
 <li><b>Fixed Positioning</b>: This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element</li>
-<li>Fixed positioned elements do not affect the position of surrounding elements and they do not move when the user scrolls up or down the page</li>
+<li>Fixed positioned elements do not affect the position of surrounding elements and they do not move when the user scrolls up or down the page (meaning if you scroll up or down the elements will stay where they are always in site of the browser window)</li>
 <li><b>Floating Elements</b>: Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box</li>
 <li>The floating element becomes a block-level element around which other content can flow</li>
 <li>To indicate where a box should be positioned, you may also need to use box offset properties to tell the browser how far from the top or bottom and left or right it should be placed</li>
@@ -310,9 +313,9 @@
 </div>
 </div>
 
-<div id="outline-container-org530a4f9" class="outline-3">
-<h3 id="org530a4f9">Section 15.3: Normal Flow</h3>
-<div class="outline-text-3" id="text-org530a4f9">
+<div id="outline-container-orgc9b80d1" class="outline-3">
+<h3 id="orgc9b80d1">Section 15.3: Normal Flow</h3>
+<div class="outline-text-3" id="text-orgc9b80d1">
 <ul class="org-ul">
 <li>In normal flow, each block-level element sits on top of the next one (this is the default behavior of HTML)</li>
 <li>You don't need a CSS property to indicate that the elements should appear in normal flow but the syntax would be <code>position: static</code></li>
@@ -323,9 +326,9 @@
 </div>
 </div>
 
-<div id="outline-container-org97552d2" class="outline-3">
-<h3 id="org97552d2">Section 15.4: Relative Positioning</h3>
-<div class="outline-text-3" id="text-org97552d2">
+<div id="outline-container-orgf663d41" class="outline-3">
+<h3 id="orgf663d41">Section 15.4: Relative Positioning</h3>
+<div class="outline-text-3" id="text-orgf663d41">
 <ul class="org-ul">
 <li>Relative positioning moves an element in relation to where it would have been in normal flow</li>
 <li>For example, you can move it 10 pixels lower than it would have been in normal flow or 20% to the right</li>
@@ -346,14 +349,68 @@
 </div>
 </div>
 
-<div id="outline-container-org073b469" class="outline-3">
-<h3 id="org073b469">Section 15.5: Overlapping Elements</h3>
+<div id="outline-container-orgf427341" class="outline-3">
+<h3 id="orgf427341">Section 15.5: Absolute Positioning</h3>
+<div class="outline-text-3" id="text-orgf427341">
+<ul class="org-ul">
+<li>In order to understand more about <code>position</code> and <code>absolute</code> positioning, I visited these 3 websites:
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Mozilla Docs - CSS Position</a></li>
+<li><a href="https://stackoverflow.com/questions/45784777/what-is-a-positioned-ancestor#:~:text=When%20referring%20to%20positioned%20ancestor,ancestors%20we%20mean%20the%20closest.">Stackoverflow - What is a Positioned Ancestor</a></li>
+<li><a href="https://css-irl.info/finding-an-elements-nearest-relative-positioned-ancestor/">Finding an Element's Nearest Relative Positioned Ancestor</a></li>
+</ul></li>
+
+<li>When the <code>position</code> property is given a value of <code>absolute</code> the box is taken out of normal flow and no longer affects the position of other elements on the page (they act like it is not there)</li>
+<li>What do you mean they act like it is not there? According to Mozilla the element is removed from the normal document flow, and no space is created for the element in the page layout</li>
+<li>So no space is created for them, let's show an example, <a href="./015.005.Absolute_Positioning_Example/index.html">here </a>is the example</li>
+<li>We have 3 boxes that use <code>position: absolute</code></li>
+<li>When we offset the element, what is it offset from? Would it be from where its original normal flow position would be?</li>
+<li>No it would not be from where its original normal flow position would be because no space was created for that element so its "normal flow position" is actually already occupied by some other element because nothing was there previously</li>
+<li>We see that in the example, the blue <code>p</code> box that is to the right belongs after the last blue <code>p</code> box inside the red <code>div</code> box but the red border ends after the last blue <code>p</code> box and doesn't create extra space like in the relative positioning and that is because there is no space dedicated for that element</li>
+<li>So again, what is it offset from? The offset is from the closest descendant element that does not have the default <code>position</code> or <code>position: static</code>, it can be anything else but the default position</li>
+<li>If no descendant exists with some other <code>position</code> then it offsets from the <code>body</code> element</li>
+<li>Thus the element will just be placed to whereever you tell it go even if there's elements there or it is outside the body or browser window</li>
+<li>To the browser that element does not even exists in terms of space because it takes no space</li>
+<li>Thus if offset it or not, the browser will place the next element to where it should go despite there being an <code>absolute</code> positioned element because it "doesn't see" it</li>
+<li>That's why in the example, the last blue <code>p</code> box is outside the window because I didn't offset it but also to the browser the last box was the previous one (inside the red box) because the space doesn't exists for the one that is outside the body</li>
+<li>Again, the browser will place elements where they go ignoring <code>absolute</code> positioned elements because they do not have space dedicated and thus can lead to overlapping elements</li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-org374e508" class="outline-2">
-<h2 id="org374e508">Keywords</h2>
-<div class="outline-text-2" id="text-org374e508">
+<div id="outline-container-org29f27f5" class="outline-3">
+<h3 id="org29f27f5">Section 15.6: Fixed Positioning</h3>
+<div class="outline-text-3" id="text-org29f27f5">
+<ul class="org-ul">
+<li><code>fixed</code> positioning is very similiar to <code>absolute</code> positioning; the only difference what the elements are offsetting from</li>
+<li>In <code>absolute</code> positioning the elements are offsetting from the closest positioned (element that has <code>position</code> to be anything besides <code>static</code> - default) ancestor</li>
+<li>In <code>fixed</code> positioning the elements are offsetting from the browser window (the window screen that you are viewing, the viewport, the browser window that allows you to see so if maximize or minimize the browser thus the browser window changes because the browser window is basically the tab in the browser, this is not related to any elements, this is related to the browser and what you are able to see in the browser)</li>
+<li>It positions the element in relation to the browser window</li>
+<li>Therefore, when a user scrolls down the page, it stays in the exact same place (the elements do not move)</li>
+<li>This can cause elements to overlap because as you scroll down or up the elements stay in the exact same place even though new elements appear</li>
+<li>Recall, <code>fixed</code> positioning is a type of absolute positioning thus it does not take up space (just like <code>absolute</code> positioning)</li>
+<li><a href="./015.006/Fixed_Positioning_Example/index.html">Here</a> is an example</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge6380b3" class="outline-3">
+<h3 id="orge6380b3">Section 15.7: Overlapping Elements</h3>
+<div class="outline-text-3" id="text-orge6380b3">
+<ul class="org-ul">
+<li>When you use relative, fixed, or absolute positioning, boxes can overlap as shown in the previous example in 15.4</li>
+<li>If boxes do overlap, the elements that appear <i>later</i> in the HTML doc (HTML code) will sit on the top between overlapping elements</li>
+<li>If you want to control which element sits on top, you can use the <code>z-index</code> property</li>
+<li>Its value is a number, and the higher the number the closer that element is to the front (e.g. an element with a <code>z-index</code> of 10 will appear over the top of one with a <code>z-index</code> of 5</li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2fb110c" class="outline-2">
+<h2 id="org2fb110c">Keywords</h2>
+<div class="outline-text-2" id="text-org2fb110c">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -386,7 +443,7 @@
 
 <tr>
 <td class="org-left">Rleative Positioning</td>
-<td class="org-left">This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow)</td>
+<td class="org-left">This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow). Also the element will only take up space of where its original position in normal flow would be</td>
 </tr>
 
 <tr>
@@ -401,7 +458,7 @@
 
 <tr>
 <td class="org-left">Floating Elements</td>
-<td class="org-left">Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box</td>
+<td class="org-left">Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it</td>
 </tr>
 </tbody>
 </table>
@@ -409,22 +466,33 @@
 </div>
 
 
-<div id="outline-container-org3110a9a" class="outline-2">
-<h2 id="org3110a9a">Questions</h2>
-<div class="outline-text-2" id="text-org3110a9a">
+<div id="outline-container-org8bc306f" class="outline-2">
+<h2 id="org8bc306f">Questions</h2>
+<div class="outline-text-2" id="text-org8bc306f">
 <ul class="org-ul">
 <li><b>Q</b>:</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6db1f2c" class="outline-2">
-<h2 id="org6db1f2c">Summary</h2>
-<div class="outline-text-2" id="text-org6db1f2c">
+<div id="outline-container-orgaaba195" class="outline-2">
+<h2 id="orgaaba195">Summary</h2>
+<div class="outline-text-2" id="text-orgaaba195">
 <ul class="org-ul">
 <li>CSS treats each HTML element as if it is in its own box</li>
 <li>The box is either block-level box (which start on a new line and act as the main building blocks of any layout) or inline-level box (which flow between surrounding text)</li>
 <li>There may be nested block-level elements and the block-level element that contains the nested block-level elements are referred to as the containing element or direct parent of the nested block elements</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org947aadf" class="outline-2">
+<h2 id="org947aadf">Resource</h2>
+<div class="outline-text-2" id="text-org947aadf">
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Mozilla Docs - CSS Position</a></li>
+<li><a href="https://stackoverflow.com/questions/45784777/what-is-a-positioned-ancestor#:~:text=When%20referring%20to%20positioned%20ancestor,ancestors%20we%20mean%20the%20closest.">Stackoverflow - What is a Positioned Ancestor</a></li>
+<li><a href="https://css-irl.info/finding-an-elements-nearest-relative-positioned-ancestor/">Finding an Element's Nearest Relative Positioned Ancestor</a></li>
 </ul>
 </div>
 </div>

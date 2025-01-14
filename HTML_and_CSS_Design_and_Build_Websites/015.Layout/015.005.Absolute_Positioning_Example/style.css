@@ -1,0 +1,45 @@
+body {
+    border: 5px solid #000;
+    padding: 10px;
+}
+
+h1 {
+    border: 5px solid #e32;
+    width: 25%;
+}
+
+#default {
+    border: 5px solid #fae;
+    margin-bottom: 5px;
+}
+
+#property {
+    border: 5px solid #bf2124;
+}
+
+#default > p {
+    border: 5px solid #bc4;
+    width: 50%;
+}
+
+#property > p {
+    border: 5px solid #ade;
+    width: 25%;
+    position: static;
+}
+
+#offset1 {
+    position: absolute !important;
+    top: 100px;
+    left: 25%;
+}
+
+#offset2 {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+}
+
+#offset3 {
+    position: absolute !important;
+}

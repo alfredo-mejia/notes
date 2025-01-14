@@ -1,0 +1,57 @@
+body {
+    border: 5px solid black;
+    padding: 5px;
+}
+
+h1 {
+    border: 5px solid pink;
+    margin: 5px;
+    padding: 5px;
+    width: 50%;
+}
+
+div {
+    margin: 5px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#default {
+    border: 5px solid blue;
+}
+
+#property {
+    border: 5px solid red;
+}
+
+#default > p {
+    background: green;
+}
+
+#property > p {
+    background: aqua;
+}
+
+p {
+    border: 5px solid purple;
+    margin: 5px;
+    margin-top: 10px;
+    padding: 5px;
+    width: 25%;
+}
+
+#offset1 {
+    position: fixed;
+    right: 50%;
+    top: 25%;
+    z-index: 2;
+    background: orange !important;
+}
+
+#offset2 {
+    position: fixed;
+    right: 50%;
+    top: 80%;
+    z-index: -1;
+    background: brown !important;
+}
