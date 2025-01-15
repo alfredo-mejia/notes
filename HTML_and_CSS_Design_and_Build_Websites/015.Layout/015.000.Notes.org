@@ -105,7 +105,26 @@
    - But in the example it shows when an element is brought to the front and when an element is sent to the back
 
 ** Section 15.8: Floating Elements
+   - The ~float~ property allows you to take an element in *normal flow* and place it as far to the left or right of the *containing* element as possible
+   - Anything else that sits inside the containing element will flow around the element that is floated
+   - [[file:./015.007.Floating_Elements_Example/index.html][Here]] is an example
+   - When you use the ~float~ property, you should also use the ~width~ property to indicate how wide the floated should be, if you do not, results can be inconsistent but the box is likely to take up the full width of the containing element (just like it would in normal flow)
+   - Thus if you use ~width~ with the floated element and it is less than 100% (full width of the containing element) then the next element will start in that same line with the little width that is left over
+   - As you can see in the example, the first paragraph is given a width of 90% and floated to the left so the next element starts on the right of the element in 10% of space that is left and once it passes the height of the floating element it continues to take up the designated width
+   - One thing to note in the example is the first floated element and its next sibling. It looks like its sibling does flow around the floated element but the actual element acts like if its not there, what do you mean by that? Well we see the sentences take up the rest 10% of width but the element takes up the entire width, not just the 10%, despite there being a floated element, well that is because it acts like the floated element is not there
+   - How can that be? Well according to [[https://developer.mozilla.org/en-US/docs/Web/CSS/float][Mozilla docs]] and [[https://stackoverflow.com/questions/2062258/floating-elements-within-a-div-floats-outside-of-div-why][Stackoverflow]], "float elements are removed from the normal flow of the page though still remaining a part of the flow"
+   - That means it is no longer in normal flow and thus why other elements take up the space but it is still in flow which is why the content of the elements wrap around the floating elements (it is a bit tricky and more research is needed to understand it)
+
+** Section 15.9: Using Float to Place Elements Side-By-Side
+   - A lot of layouts place boxes next to each other and the ~float~ property is commonly used to achieve this
+   - When elements are floated, the height of the boxes can affect where the following elements sit
+   - What do you mean by this? Well if one the elements height is large and others are small then in the same "line" (e.g. to the right of the tall element) it may be able to fit two small elements or at least start to the second element
+   - The second element could potentially could be taller (in addition to the element on top of it) than the taller element
+   - Thus when new elements are introduced where they start could be all over the place because each element has a different height
+   - For example, I did created a webpage [[file:./015.009.Float_Side_by_Side_Example/index.html][here]]
+   - The  
      
+
 * Keywords
 | Term                 | Definition                                                                                                                                                                                                                                                                                                                                                                 |
 |----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -115,12 +134,13 @@
 | Relative Positioning | This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow). Also the element will only take up space of where its original position in normal flow would be |
 | Absolute Positioning | This positions the element in relation to its containing (closest positioned ancestor) element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up (basically moves the element to the offset designation and the element does not take up space like relative positioning)    |
 | Fixed Positioning    | This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element (unlike absolute positioning when you scroll the elements move out of the window view, fixed positioning makes the elements stay in place and thus it is always inside the browser window)                                       |
-| Floating Elements    | Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it                                                                                                                                                                                            |
+| Floating Elements    | Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it of the space it has left if the width is less than 100% basically if there is space from the width of the containing element then the next element will start and be placed there          |
 
 
 * Questions
   - *Q*: How does the offset properties (~top~, ~bottom~, ~left~, and ~right~) and the ~z-index~ work?
   - *Q*: What is sticky positioning?
+  - *Q*: What does it mean "float elements are removed from the normal flow of the page though still remaining a part of the flow"?
     
 * Summary
   - CSS treats each HTML element as if it is in its own box
@@ -131,3 +151,5 @@
   - [[https://developer.mozilla.org/en-US/docs/Web/CSS/position][Mozilla Docs - CSS Position]]
   - [[https://stackoverflow.com/questions/45784777/what-is-a-positioned-ancestor#:~:text=When%20referring%20to%20positioned%20ancestor,ancestors%20we%20mean%20the%20closest.][Stackoverflow - What is a Positioned Ancestor]]
   - [[https://css-irl.info/finding-an-elements-nearest-relative-positioned-ancestor/][Finding an Element's Nearest Relative Positioned Ancestor]]
+  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/float][Mozilla Docs - Float]]
+  - [[https://stackoverflow.com/questions/2062258/floating-elements-within-a-div-floats-outside-of-div-why][Stackoverflow - Floating Elements within a Div, Floats Outside of Div. Why?]]

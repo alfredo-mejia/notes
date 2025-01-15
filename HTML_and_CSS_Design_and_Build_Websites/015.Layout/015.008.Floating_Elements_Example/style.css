@@ -1,0 +1,52 @@
+body {
+    border: 5px solid black;
+    padding: 5px;
+}
+
+h1 {
+    border: 5px solid pink;
+    margin: 5px;
+    padding: 5px;
+    width: 50%;
+}
+
+div {
+    margin: 5px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#default {
+    border: 5px solid blue;
+}
+
+#property {
+    border: 5px solid red;
+}
+
+#default > p {
+    background-color: green;
+}
+
+#property > p {
+    background: aqua;
+}
+
+p {
+    border: 5px solid purple;
+    margin: 5px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#offset1 {
+    width: 90%;
+    float: left;
+    margin: 20px;
+    background-color: orange !important;
+}
+
+#offset2 {
+    width: 25%;
+    float: right; 
+}

@@ -1,0 +1,59 @@
+body {
+    border: 5px solid black;
+    padding: 5px;
+}
+
+h1 {
+    border: 5px solid pink;
+    margin: 5px;
+    padding: 5px;
+    width: 50%;
+}
+
+div {
+    margin: 5px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#div1 {
+    border: 5px solid blue;
+    display: flow-root;
+}
+
+#div2 {
+    border: 5px solid red;
+    display: flow-root;
+}
+
+#div3 {
+    border: 5px solid orange;
+    display: flow-root;
+}
+
+#div1 > p {
+    background-color: green;
+    width: 30%;
+    float: left;
+}
+
+#div2 > p {
+    background: aqua;
+    width: 20%;
+    float: left;
+}
+
+#div3 > p {
+    background: brown;
+    width: 20%;
+    float: left;
+    height: 300px;
+}
+
+p {
+    border: 5px solid purple;
+    margin: 5px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
