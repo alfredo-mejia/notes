@@ -122,7 +122,14 @@
    - The second element could potentially could be taller (in addition to the element on top of it) than the taller element
    - Thus when new elements are introduced where they start could be all over the place because each element has a different height
    - For example, I did created a webpage [[file:./015.009.Float_Side_by_Side_Example/index.html][here]]
-   - The  
+   - The the second div you can see that the paragraph elements are not perfectly aligned and that is because the boxes have different heights
+   - The third div are the same boxes but now they are aligned because each box has the same height
+   - Since the paragraph boxes are floating elements that means they are out of normal flow so the technically the div doesn't see anything and has a zero height but we can fix that by introducing ~display: flow-root~ to the div to make it have height of the tallest paragraph box
+   - However, how can you set the height of a box if the content may change like when adjut the window or if you do not know ahead of time what the content will be
+   - Instead the better approach would be to use the ~clear~ property
+
+** Section 15.10: Clearing Floats
+   - 
      
 
 * Keywords
@@ -141,6 +148,7 @@
   - *Q*: How does the offset properties (~top~, ~bottom~, ~left~, and ~right~) and the ~z-index~ work?
   - *Q*: What is sticky positioning?
   - *Q*: What does it mean "float elements are removed from the normal flow of the page though still remaining a part of the flow"?
+  - *Q*: What is ~display: flow-root~?
     
 * Summary
   - CSS treats each HTML element as if it is in its own box
