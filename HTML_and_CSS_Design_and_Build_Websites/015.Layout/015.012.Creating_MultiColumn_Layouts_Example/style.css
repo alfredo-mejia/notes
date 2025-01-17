@@ -1,0 +1,13 @@
+#col1 {
+    width: 70%;
+    margin: 1%;
+    float: left;
+}
+
+#col2 {
+    width: 20%;
+    margin: 1%;
+    float: right;
+    border-left: 3px solid black;
+    padding-left: 1%
+}

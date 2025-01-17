@@ -1,0 +1,49 @@
+body {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+}
+
+#amazon-logo {
+    height: 35px;
+    width: 35px;
+    vertical-align: middle;
+    float: left;
+    margin-right: 30px;
+}
+
+form {
+    width: 800px;
+    float: left;
+}
+
+select {
+    width: 50px;
+    height: 35px;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+#inputSearch {
+    width: 700px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+button {
+    margin-left: 30px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: aqua;
+}
+
+#glass {
+    height: 35px;
+    width: 35px;
+    vertical-align: middle;
+    background-color: orange;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 0px;
+}
