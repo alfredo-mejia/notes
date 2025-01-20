@@ -31,7 +31,7 @@ select {
     border-radius: 5px;
 }
 
-button {
+#signin {
     margin-left: 30px;
     height: 35px;
     border-radius: 5px;
@@ -47,3 +47,42 @@ button {
     border: 1px solid black;
     padding: 0px;
 }
+
+nav {
+    margin: 10px;
+    justify-content: space-between;
+    display: flex;
+    background-color: rgba(211,211,211, 0.2);
+    border-radius: 5px;
+}
+
+a {
+    text-align: center;
+    margin: 5px;
+    width: 200px;
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+figure {
+    width: 200px;
+    display: inline-block;
+}
+
+.product {
+    width: 250px;
+}
+
+figcaption {
+    width: 250px;
+    text-align: center;
+}
+
+section {
+    text-align: center;
+}
+
