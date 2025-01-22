@@ -246,8 +246,28 @@
      - Save time from avoiding to write repeative code for the same tasks
      - Code has been tested across different browsers
    - Disadvantages:
-     - Require you to use their class names in your HTML code and these names tend to 
+     - Require you to use their class names in your HTML code and these names tend to only describe how it is going to look rather than describe its content
+     - Often have more code than you need for your particular web page thus it has bloat code
+   - One of the most popular uses of CSS frameworks is in creating grids to layout pages
+   - There are several grid frameworks out there and one of them is called 960 Grid System
+   - 960.gs provides a style sheet that you can include in your HTML pages and once your page links to this style sheet, you can provide the appropriate classes to your HTML code and it will create multiple column layouts for you
+   - The 960.gs have templates you can download to help design your pages using a 12 column grid or a 16 column grid
+   - To create a 12 column grid, an element that contains the entire page is given a ~class~ attribute whose value is ~container_12~ which sets the content of the page to be 960 pixels wide and indicates that we are using a 12 column grid
+   - There are different classes for blocks that take up 1, 2, 3, 4, and up to 12 columns of the grid, each block uses class names such as ~grid_3~ (for a block that stretches over 3 columns), ~grid_4~ (for a block that stretches over 4 columns) and so forth all the way to ~grid_12~ (full-width of the page)
+   - These columns all float to the left and there is a 10 pixel margin to the left and right of each one
+   - There are several other grid-based CSS frameworks available online as well
+     
+   - *Note*: That the 960.gs is outdated has it focuses on a fixed width of 960 pixels, nowadays websites want to be designed as responsive adjusting to the user's screen regardless of size
+   - *Note*: Because of the changes in web design, the successor to 960.gs is actually called unsemantic from the same inventor; unsemantic is the successor to the 960 Grid System and works  in a similar way but instead of being a set number of columns, it's entirely based on percentages
 
+   - Let's do two examples: one with 960.gs and another with unsemantic
+   - [[file:./015.017.CSS_Framework_Grid_Examples/960/index.html][Here]] is using the 960.gs it was much easier to create a layout using the CSS framework
+   - [[file:./015.017.CSS_Framework_Grid_Examples/unsemantic/index.html][Here]] is using the unsemantic framework, however, I struggled with putting margins between the columns because it would increase the width of the column and thus push it to the next line so I didn't add a margin and left it how it is
+   - It was easier using 960.gs framework because it actually adds margins between grid columns but for the unsemantic framework it uses percentages which fills in that percentage and I filled in the entire width (3 columns thus 33.33%) so if I were to add margins it will overflow because that includes margins, padding, border, etc. and thus create a new line
+   - Using CSS frameworks for layout was so much easier and will definitely use in the future
+
+** Section 15.18: Multiple Style Sheets
+     
    
 * Keywords
 | Term                 | Definition                                                                                                                                                                                                                                                                                                                                                                 |
