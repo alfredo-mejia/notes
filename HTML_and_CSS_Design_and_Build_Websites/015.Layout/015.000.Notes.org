@@ -203,7 +203,50 @@
      - The page will often take up more vertical space than a liquid layout with the same content
    - To create a fixed width layout, the width of the main boxes on a page will usually be specified in pixels (and sometimes their height too)
    - Let's do an example, let's create a shopping site with a simple search at the top and some items
+   - [[file:./015.014.Fixed_Width_Layouts_Examples/1/index.html][Here]] is the example, I tried to do everything in px so whenever you adjust the window the elements stay the same size
+   - [[file:./015.014.Fixed_Width_Layouts_Examples/2/index.html][Here]] is the book example, I tried to do on my own and it is slightly different than the example in the book
+   - Both show a fixed width layout, no matter what the size the browser window is, the layout will have the same width
+   - The body for the book exaple has a width of 960 pixels and it is centered by setting the left and right margins to ~auto~
+   - In the book example, we add margins, use float to create columns, and other techniques we have learned
 
+** Section 15.15: Liquid Layouts
+   - Liquid layout designs stretch and contract as the user increases or decreases the size of their browser window (measurements tend to be given in percentages instead of pixels)
+   - Advantages:
+     - Pages expand to fill the entire browser window so there are no spaces around the page on a large screen
+     - If the user has a small window, the page can contract to fit it without the user having to scroll to the /side/
+     - The design is tolerant of users setting font sizes larger than the designer intended (because the page can stretch)
+   - Disadvantages:
+     - If you do not control the width of sections of the page then the design can look very different than you intended, with unexpected gaps around certain elements or items squashed together
+     - If the user has a wide window, lines of text can become very long, which makes them harder to read (this is where you use ~max-width~)
+     - if the user has a very narrow window, words may be squashed and you can end up with few words on each line (this is where you use ~min-width~)
+     - If a fixed width item (such as an image) is in a box that is too small to hold it (because the user has made the window smaller) the image can overflow over the text
+   - Because liquid layouts can stretch the entire width of the browser, resulting in long lines of text that are hard to read, some liquid layouts only let part of the page expand and contract, and other parts of the page have minimum and maximum widths
+   - [[file:./015.015.Liquid_Layouts_Examples/1/index.html][Here]] is the first example now using liquid layout
+   - [[file:./015.015.Liquid_Layouts_Examples/2/index.html][Here]] is the second example using liquid layout
+   - I felt it much harder to do it in liquid layout but now our websites can resize to the browser's window as the user increases or decreases its window screen
+   - I didn't follow the code in the book as I wanted to try it for myself, I got close enough but the book's code is much cleaner but it is a learning process
+   - Although I didn't use it, the properties ~min-width~ and ~max-width~ help create boundaries within which the layout can stretch to prevent from making the window too wide and having the text lines being too long or having the window too narrow and having the text lines too short
+     
+** Section 15.16: Layout Grids
+   - Composition in any visual art (e.g. design, painting or photography) is the placement or arrangement of visual elements and how they are organized on a page
+   - Many deigners use a grid structure to help them position items on a page and the same is true for web designers
+   - A grid called 960 pixel grid is widely used by web designers (how true is that now?)
+   - Grids set consistent proportions and spaces between items which helps to create a professional looking design
+   - Some benefits of using a grid:
+     - Creates a continuity between different pages which may use different designs
+     - Helps users predict where to find information on various pages
+     - Makes it easier to add new content to the site in a consistent way
+     - Helps people collaborate on the design of a site in a consistent way
+   - The 960 pixels grid is 960 pixels wide and there are 12 equal sized columns which are 60 pixels wide and has a margin set to 10 pixels which creates a gap of 20 pixels between each column and 10 pixels to the left and right hand sides of the page
+
+** Section 15.17: 960.GS Grid (CSS Framework)
+   - CSS frameworks aim to make your life easier by providing the code for common tasks such as creating layout grids, styling forms, creating printer-friendly versions of pages and so on
+   - Thus you can include the CSS framework code in your projects rather than writing the CSS from scratch
+   - Advantages:
+     - Save time from avoiding to write repeative code for the same tasks
+     - Code has been tested across different browsers
+   - Disadvantages:
+     - Require you to use their class names in your HTML code and these names tend to 
 
    
 * Keywords
