@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-13 Mon 19:23 -->
+<!-- 2025-01-23 Thu 12:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 15: Layout</title>
@@ -202,29 +202,40 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org665a962">Navigation</a></li>
-<li><a href="#org9929b81">Notes</a>
+<li><a href="#org743dc95">Navigation</a></li>
+<li><a href="#orgbfc49ac">Notes</a>
 <ul>
-<li><a href="#orgdffc528">Section 15.1: Key Concepts in Positioning Elements</a></li>
-<li><a href="#orge407610">Section 15.2: Controlling the Position of Elements</a></li>
-<li><a href="#orgc9b80d1">Section 15.3: Normal Flow</a></li>
-<li><a href="#orgf663d41">Section 15.4: Relative Positioning</a></li>
-<li><a href="#orgf427341">Section 15.5: Absolute Positioning</a></li>
-<li><a href="#org29f27f5">Section 15.6: Fixed Positioning</a></li>
-<li><a href="#orge6380b3">Section 15.7: Overlapping Elements</a></li>
+<li><a href="#org1f84bb0">Section 15.1: Key Concepts in Positioning Elements</a></li>
+<li><a href="#org83f98fd">Section 15.2: Controlling the Position of Elements</a></li>
+<li><a href="#org66a4ad8">Section 15.3: Normal Flow</a></li>
+<li><a href="#org1f32f0d">Section 15.4: Relative Positioning</a></li>
+<li><a href="#orga5cf807">Section 15.5: Absolute Positioning</a></li>
+<li><a href="#orgd59acf2">Section 15.6: Fixed Positioning</a></li>
+<li><a href="#org408398e">Section 15.7: Overlapping Elements</a></li>
+<li><a href="#org6801cf1">Section 15.8: Floating Elements</a></li>
+<li><a href="#orgdc91684">Section 15.9: Using Float to Place Elements Side-By-Side</a></li>
+<li><a href="#org83660c6">Section 15.10: Clearing Floats</a></li>
+<li><a href="#orga429178">Section 15.11: Parents of Floated Elements</a></li>
+<li><a href="#org842cb3c">Section 15.12: Creating MultiColumn Layouts with Floats</a></li>
+<li><a href="#org09b112a">Section 15.13: Screen Sizes, Screen Resolution, and Page Sizes</a></li>
+<li><a href="#orge85797d">Section 15.14: Fixed Width Layouts</a></li>
+<li><a href="#orgd08314a">Section 15.15: Liquid Layouts</a></li>
+<li><a href="#orgb94e33c">Section 15.16: Layout Grids</a></li>
+<li><a href="#orgc9fcd30">Section 15.17: 960.GS Grid (CSS Framework)</a></li>
+<li><a href="#orgf870cc1">Section 15.18: Multiple Style Sheets</a></li>
 </ul>
 </li>
-<li><a href="#org2fb110c">Keywords</a></li>
-<li><a href="#org8bc306f">Questions</a></li>
-<li><a href="#orgaaba195">Summary</a></li>
-<li><a href="#org947aadf">Resource</a></li>
+<li><a href="#orgc6d29cc">Keywords</a></li>
+<li><a href="#orga4708e9">Questions</a></li>
+<li><a href="#orge86919c">Summary</a></li>
+<li><a href="#org1757550">Resource</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org665a962" class="outline-2">
-<h2 id="org665a962">Navigation</h2>
-<div class="outline-text-2" id="text-org665a962">
+<div id="outline-container-org743dc95" class="outline-2">
+<h2 id="org743dc95">Navigation</h2>
+<div class="outline-text-2" id="text-org743dc95">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -271,13 +282,13 @@
 </div>
 </div>
 
-<div id="outline-container-org9929b81" class="outline-2">
-<h2 id="org9929b81">Notes</h2>
-<div class="outline-text-2" id="text-org9929b81">
+<div id="outline-container-orgbfc49ac" class="outline-2">
+<h2 id="orgbfc49ac">Notes</h2>
+<div class="outline-text-2" id="text-orgbfc49ac">
 </div>
-<div id="outline-container-orgdffc528" class="outline-3">
-<h3 id="orgdffc528">Section 15.1: Key Concepts in Positioning Elements</h3>
-<div class="outline-text-3" id="text-orgdffc528">
+<div id="outline-container-org1f84bb0" class="outline-3">
+<h3 id="org1f84bb0">Section 15.1: Key Concepts in Positioning Elements</h3>
+<div class="outline-text-3" id="text-org1f84bb0">
 <ul class="org-ul">
 <li>CSS treats each HTML element as if it is in its own box; this box will either be a block-level box or an inline box</li>
 <li>Block level boxes start on a new line and act as the main building blocks of any layout</li>
@@ -292,9 +303,9 @@
 </div>
 </div>
 
-<div id="outline-container-orge407610" class="outline-3">
-<h3 id="orge407610">Section 15.2: Controlling the Position of Elements</h3>
-<div class="outline-text-3" id="text-orge407610">
+<div id="outline-container-org83f98fd" class="outline-3">
+<h3 id="org83f98fd">Section 15.2: Controlling the Position of Elements</h3>
+<div class="outline-text-3" id="text-org83f98fd">
 <ul class="org-ul">
 <li>CSS has the following <b>positioning schemes</b> that allow you to control the layout of a page: normal flow, relative positioning, and absolute positioning</li>
 <li>You can specify the positioning scheme using the <code>position</code> property in CSS and you can float elements using the <code>float</code> property</li>
@@ -313,9 +324,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgc9b80d1" class="outline-3">
-<h3 id="orgc9b80d1">Section 15.3: Normal Flow</h3>
-<div class="outline-text-3" id="text-orgc9b80d1">
+<div id="outline-container-org66a4ad8" class="outline-3">
+<h3 id="org66a4ad8">Section 15.3: Normal Flow</h3>
+<div class="outline-text-3" id="text-org66a4ad8">
 <ul class="org-ul">
 <li>In normal flow, each block-level element sits on top of the next one (this is the default behavior of HTML)</li>
 <li>You don't need a CSS property to indicate that the elements should appear in normal flow but the syntax would be <code>position: static</code></li>
@@ -326,9 +337,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgf663d41" class="outline-3">
-<h3 id="orgf663d41">Section 15.4: Relative Positioning</h3>
-<div class="outline-text-3" id="text-orgf663d41">
+<div id="outline-container-org1f32f0d" class="outline-3">
+<h3 id="org1f32f0d">Section 15.4: Relative Positioning</h3>
+<div class="outline-text-3" id="text-org1f32f0d">
 <ul class="org-ul">
 <li>Relative positioning moves an element in relation to where it would have been in normal flow</li>
 <li>For example, you can move it 10 pixels lower than it would have been in normal flow or 20% to the right</li>
@@ -349,9 +360,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgf427341" class="outline-3">
-<h3 id="orgf427341">Section 15.5: Absolute Positioning</h3>
-<div class="outline-text-3" id="text-orgf427341">
+<div id="outline-container-orga5cf807" class="outline-3">
+<h3 id="orga5cf807">Section 15.5: Absolute Positioning</h3>
+<div class="outline-text-3" id="text-orga5cf807">
 <ul class="org-ul">
 <li>In order to understand more about <code>position</code> and <code>absolute</code> positioning, I visited these 3 websites:
 <ul class="org-ul">
@@ -378,9 +389,9 @@
 </div>
 </div>
 
-<div id="outline-container-org29f27f5" class="outline-3">
-<h3 id="org29f27f5">Section 15.6: Fixed Positioning</h3>
-<div class="outline-text-3" id="text-org29f27f5">
+<div id="outline-container-orgd59acf2" class="outline-3">
+<h3 id="orgd59acf2">Section 15.6: Fixed Positioning</h3>
+<div class="outline-text-3" id="text-orgd59acf2">
 <ul class="org-ul">
 <li><code>fixed</code> positioning is very similiar to <code>absolute</code> positioning; the only difference what the elements are offsetting from</li>
 <li>In <code>absolute</code> positioning the elements are offsetting from the closest positioned (element that has <code>position</code> to be anything besides <code>static</code> - default) ancestor</li>
@@ -389,28 +400,293 @@
 <li>Therefore, when a user scrolls down the page, it stays in the exact same place (the elements do not move)</li>
 <li>This can cause elements to overlap because as you scroll down or up the elements stay in the exact same place even though new elements appear</li>
 <li>Recall, <code>fixed</code> positioning is a type of absolute positioning thus it does not take up space (just like <code>absolute</code> positioning)</li>
-<li><a href="./015.006/Fixed_Positioning_Example/index.html">Here</a> is an example</li>
+<li><a href="./015.006.Fixed_Positioning_Example/index.html">Here</a> is an example</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge6380b3" class="outline-3">
-<h3 id="orge6380b3">Section 15.7: Overlapping Elements</h3>
-<div class="outline-text-3" id="text-orge6380b3">
+<div id="outline-container-org408398e" class="outline-3">
+<h3 id="org408398e">Section 15.7: Overlapping Elements</h3>
+<div class="outline-text-3" id="text-org408398e">
 <ul class="org-ul">
 <li>When you use relative, fixed, or absolute positioning, boxes can overlap as shown in the previous example in 15.4</li>
 <li>If boxes do overlap, the elements that appear <i>later</i> in the HTML doc (HTML code) will sit on the top between overlapping elements</li>
 <li>If you want to control which element sits on top, you can use the <code>z-index</code> property</li>
 <li>Its value is a number, and the higher the number the closer that element is to the front (e.g. an element with a <code>z-index</code> of 10 will appear over the top of one with a <code>z-index</code> of 5</li>
+<li><code>z-index</code> is sometimes referred to as the stacking context (as if the blocks have been stacked on top of each other on a z-axis)</li>
+<li>Let' try it, <a href="./015.007.Overlapping_Elements_Example/index.html">here</a> is the example</li>
+<li>The offset properites (<code>top</code>, <code>bottom</code>, <code>left</code>, and <code>right</code>) and the <code>z-index</code> are tricky subjects</li>
+<li>But in the example it shows when an element is brought to the front and when an element is sent to the back</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6801cf1" class="outline-3">
+<h3 id="org6801cf1">Section 15.8: Floating Elements</h3>
+<div class="outline-text-3" id="text-org6801cf1">
+<ul class="org-ul">
+<li>The <code>float</code> property allows you to take an element in <b>normal flow</b> and place it as far to the left or right of the <b>containing</b> element as possible</li>
+<li>Anything else that sits inside the containing element will flow around the element that is floated</li>
+<li><a href="./015.007.Floating_Elements_Example/index.html">Here</a> is an example</li>
+<li>When you use the <code>float</code> property, you should also use the <code>width</code> property to indicate how wide the floated should be, if you do not, results can be inconsistent but the box is likely to take up the full width of the containing element (just like it would in normal flow)</li>
+<li>Thus if you use <code>width</code> with the floated element and it is less than 100% (full width of the containing element) then the next element will start in that same line with the little width that is left over</li>
+<li>As you can see in the example, the first paragraph is given a width of 90% and floated to the left so the next element starts on the right of the element in 10% of space that is left and once it passes the height of the floating element it continues to take up the designated width</li>
+<li>One thing to note in the example is the first floated element and its next sibling. It looks like its sibling does flow around the floated element but the actual element acts like if its not there, what do you mean by that? Well we see the sentences take up the rest 10% of width but the element takes up the entire width, not just the 10%, despite there being a floated element, well that is because it acts like the floated element is not there</li>
+<li>How can that be? Well according to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float">Mozilla docs</a> and <a href="https://stackoverflow.com/questions/2062258/floating-elements-within-a-div-floats-outside-of-div-why">Stackoverflow</a>, "float elements are removed from the normal flow of the page though still remaining a part of the flow"</li>
+<li>That means it is no longer in normal flow and thus why other elements take up the space but it is still in flow which is why the content of the elements wrap around the floating elements (it is a bit tricky and more research is needed to understand it)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdc91684" class="outline-3">
+<h3 id="orgdc91684">Section 15.9: Using Float to Place Elements Side-By-Side</h3>
+<div class="outline-text-3" id="text-orgdc91684">
+<ul class="org-ul">
+<li>A lot of layouts place boxes next to each other and the <code>float</code> property is commonly used to achieve this</li>
+<li>When elements are floated, the height of the boxes can affect where the following elements sit</li>
+<li>What do you mean by this? Well if one the elements height is large and others are small then in the same "line" (e.g. to the right of the tall element) it may be able to fit two small elements or at least start to the second element</li>
+<li>The second element could potentially could be taller (in addition to the element on top of it) than the taller element</li>
+<li>Thus when new elements are introduced where they start could be all over the place because each element has a different height</li>
+<li>For example, I did created a webpage <a href="./015.009.Float_Side_by_Side_Example/index.html">here</a></li>
+<li>The the second <code>div</code> you can see that the paragraph elements are not perfectly aligned and that is because the boxes have different heights</li>
+<li>The third <code>div</code> are the same boxes but now they are aligned because each box has the same height</li>
+<li>Since the paragraph boxes are floating elements that means they are out of normal flow so the technically the <code>div</code> doesn't see anything and has a zero height but we can fix that by introducing <code>display: flow-root</code> to the div to make it have height of the tallest paragraph box</li>
+<li>However, how can you set the height of a box if the content may change like when adjut the window or if you do not know ahead of time what the content will be</li>
+<li>Instead the better approach would be to use the <code>clear</code> property</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org83660c6" class="outline-3">
+<h3 id="org83660c6">Section 15.10: Clearing Floats</h3>
+<div class="outline-text-3" id="text-org83660c6">
+<ul class="org-ul">
+<li>The <code>clear</code> property allows you to say that no element (within the same containing element) should touch the left or right-hand sides of a box</li>
+<li>According to the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clear">Mozilla Docs</a> the <code>clear</code> property sets whether an element must be moved below (cleared) floating elements that precede it and this applies to floating and non-floating elements</li>
+<li>It can take the following values:
+<ul class="org-ul">
+<li><code>none</code></li>
+<li><code>left</code></li>
+<li><code>right</code></li>
+<li><code>both</code></li>
+<li><code>inline-start</code></li>
+<li><code>inline-end</code></li>
+</ul></li>
+<li><code>left</code> states that the element is moved down to clear past left floats (cannot touch left hand side floats)</li>
+<li><code>right</code> states that the lement is moved down to clear past right floats (cannot touch right hand side floats)</li>
+<li><code>both</code> is moved down to clear past both left and right floats</li>
+<li><code>none</code> states that the element is not moved down to clear past floating elements (it can touch either left or right side floats)</li>
+<li>Let's take the previous example and try to make the second <code>div</code> use clear</li>
+<li><a href="./015.010.Clearing_Floats_Example/index.html">Here</a> is the new example as you can see I fixed the second <code>div</code> by not changing the heights but by using <code>clear</code></li>
+<li>What exactly is <code>clear</code> in my own words? Well <code>clear</code> is a property than can be applied to floating and non-floating elements but the point is it will "clear" floating elements</li>
+<li>In other words, the element that the <code>clear</code> property is being applied to will not have "floating" elements to whatever value you set <code>clear</code>, it wont have floating elements to the left, right, both, etc.</li>
+<li>It does this by moving the <code>clear</code> applied element</li>
+<li>In example, the 5th paragraph was starting in an unaligned height because it had space to be there but if we noticed from the previous example to the left of it, it had a floating element</li>
+<li>So we applied the <code>clear</code> property to that element and assign the value <code>left</code> and it seems to work without needing to set the height</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga429178" class="outline-3">
+<h3 id="orga429178">Section 15.11: Parents of Floated Elements</h3>
+<div class="outline-text-3" id="text-orga429178">
+<ul class="org-ul">
+<li>Recall, that we used <code>display: flow-root</code> in the <code>div</code> because we only had floated elements which caused the div to be basically empty and causing the next <code>div</code> to be placed right after even though we had floated elements it didn't matter and the floated elements will overlap with the next <code>div</code></li>
+<li>The book talks about it: if a containing element only contains floated elements, some browsers will treat it as if it is zero pixels tall</li>
+<li>Before developers will solve this issue by adding an extra element after the last floated box and then setting that element with the <code>clear: both</code></li>
+<li>More recently, developers have opted for a purely CSS-based solutions by adding two rules to the containing element:
+<ol class="org-ol">
+<li><code>overflow: auto</code></li>
+<li><code>width: 100%</code></li>
+</ol></li>
+<li>According to the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow">Mozilla Docs</a> <code>overflow</code> sets the desired behavior when the content does not fit in the element's padding box (overflows) in the horizontal and/or vertical direction</li>
+<li><a href="./015.011.Parents_of_Floated_Elements_Example/index.html">Here</a> is the example</li>
+<li>As you can see the first containing element only has floated elements and thus will treat the container as if there was nothing there and the floated elements will overflow outside the container because normally floated elements are bigger than empty <code>div</code></li>
+<li>The next <code>div</code> shows how to apply the solution using <code>overflow</code> and <code>width</code></li>
+<li>Using <code>width</code> it set the container to use the full width that is avaiable to it (as it normally would by default) and then use <code>overflow: auto</code> which will take care of the elements going over the container because remember floating elements are out of normal flow but still remain part of the flow so it knows the elements are there but just not in normal flow</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org842cb3c" class="outline-3">
+<h3 id="org842cb3c">Section 15.12: Creating MultiColumn Layouts with Floats</h3>
+<div class="outline-text-3" id="text-org842cb3c">
+<ul class="org-ul">
+<li>Many web pages use multiple column in their design</li>
+<li>This is achieved by using a <code>&lt;div&gt;</code> element to represent each column</li>
+<li>The following 3 CSS properties are used to position the columns next to each other:
+<ol class="org-ol">
+<li><code>width</code>: sets the width of the columns</li>
+<li><code>float</code>: positions the columns next to each other</li>
+<li><code>margin</code>: creates a gap between columns</li>
+</ol></li>
+
+<li>An example is a 2 column layout possibly one for the main content and the other for the sidebar, and inside each <code>div</code> element there can be headings, paragraph, images, and even other <code>div</code> elements</li>
+<li><a href="./015.012.Creating_MultiColumn_Layouts_Example/index.html">Here</a> is an example that I did using the 3 CSS properties</li>
+<li>I also used <code>border-left</code> and <code>padding-left</code> to add a visible divider between columns</li>
+<li>Similarly a 3 column layout could be created by floating 3 <code>div</code> elements next to each other but just make sure there is enough space in the containing container for all 3 widths (if not reduce the widths of the <code>div</code>)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org09b112a" class="outline-3">
+<h3 id="org09b112a">Section 15.13: Screen Sizes, Screen Resolution, and Page Sizes</h3>
+<div class="outline-text-3" id="text-org09b112a">
+<ul class="org-ul">
+<li>Different visitors to your site will have different sized screens that show different amounts of information, so your design needs to be able to work on a range of different sized screens</li>
+<li>The size of a user's screen affects how big they can open their windows and how much of the page they will size, plus nowadays people surf the web in handheld devices (phones and tablets) that have smaller screens than computers &amp; monitors</li>
+<li>Resolution refers to the number of dots a screen shows per inch (some deivces have higher resolution than other computers and most operating systems allow users to adjust the resolution of their screens)</li>
+<li><b>Note</b>: The higher the resolution, the smaller the text appears and mobile devices tend to have higher resolution than desktops (but this has gap closed over time)</li>
+<li>Because screen sizes and display resolutions vary so much, web designers often try to create pages of around 960 - 1000 pixels wide (since most users will be able to see designs this wide on their screens)</li>
+<li>The height of a screen without scrolling is harder to judge and for years designers assumed the height of 570 - 600 pixels</li>
+<li>The area of the page that users would see without scrolling was often referred as being "above the fold"</li>
+<li>This area is so important because users will judge a page under a second and decide if they'll scroll down or not so this area must be relevant to the user</li>
+<li>As a result, many designs still try to let the user know what the site is about within the top 570 - 600 pixels, as well as hint at more content below this point (I wonder how true this is now many years later)</li>
+<li>However, we should not try to cram too much into the top area</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge85797d" class="outline-3">
+<h3 id="orge85797d">Section 15.14: Fixed Width Layouts</h3>
+<div class="outline-text-3" id="text-orge85797d">
+<ul class="org-ul">
+<li>Fixed width layout designs do not chnge size as the user increases or decreases the size of their browser window (measurements tend to be given in pixels)</li>
+<li>Advantages:
+<ul class="org-ul">
+<li>Pixel values are accurate at controlling size and positioning of elements</li>
+<li>The designer has far greater control over the appearace and position of items on the page than liquid layouts</li>
+<li>You can control the lengths of lines of text regardless of size of the user's window</li>
+<li>The size of an image will always remain the same relative to the rest of the page</li>
+</ul></li>
+<li>Disadvantages:
+<ul class="org-ul">
+<li>You can end with big gaps around the edge of a page (if the window is larger than your fixed web page)</li>
+<li>If the user's screen is a much higher resolution than the designer's screen, the page can look smaller and text can be harder to read</li>
+<li>If a user increases font sizes, text might not fit into the allotted spaces</li>
+<li>The design works best on devices that have a site or resolution similar to that of desktop or laptop computers</li>
+<li>The page will often take up more vertical space than a liquid layout with the same content</li>
+</ul></li>
+<li>To create a fixed width layout, the width of the main boxes on a page will usually be specified in pixels (and sometimes their height too)</li>
+<li>Let's do an example, let's create a shopping site with a simple search at the top and some items</li>
+<li><a href="./015.014.Fixed_Width_Layouts_Examples/1/index.html">Here</a> is the example, I tried to do everything in px so whenever you adjust the window the elements stay the same size</li>
+<li><a href="./015.014.Fixed_Width_Layouts_Examples/2/index.html">Here</a> is the book example, I tried to do on my own and it is slightly different than the example in the book</li>
+<li>Both show a fixed width layout, no matter what the size the browser window is, the layout will have the same width</li>
+<li>The body for the book exaple has a width of 960 pixels and it is centered by setting the left and right margins to <code>auto</code></li>
+<li>In the book example, we add margins, use float to create columns, and other techniques we have learned</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd08314a" class="outline-3">
+<h3 id="orgd08314a">Section 15.15: Liquid Layouts</h3>
+<div class="outline-text-3" id="text-orgd08314a">
+<ul class="org-ul">
+<li>Liquid layout designs stretch and contract as the user increases or decreases the size of their browser window (measurements tend to be given in percentages instead of pixels)</li>
+<li>Advantages:
+<ul class="org-ul">
+<li>Pages expand to fill the entire browser window so there are no spaces around the page on a large screen</li>
+<li>If the user has a small window, the page can contract to fit it without the user having to scroll to the <i>side</i></li>
+<li>The design is tolerant of users setting font sizes larger than the designer intended (because the page can stretch)</li>
+</ul></li>
+<li>Disadvantages:
+<ul class="org-ul">
+<li>If you do not control the width of sections of the page then the design can look very different than you intended, with unexpected gaps around certain elements or items squashed together</li>
+<li>If the user has a wide window, lines of text can become very long, which makes them harder to read (this is where you use <code>max-width</code>)</li>
+<li>if the user has a very narrow window, words may be squashed and you can end up with few words on each line (this is where you use <code>min-width</code>)</li>
+<li>If a fixed width item (such as an image) is in a box that is too small to hold it (because the user has made the window smaller) the image can overflow over the text</li>
+</ul></li>
+<li>Because liquid layouts can stretch the entire width of the browser, resulting in long lines of text that are hard to read, some liquid layouts only let part of the page expand and contract, and other parts of the page have minimum and maximum widths</li>
+<li><a href="./015.015.Liquid_Layouts_Examples/1/index.html">Here</a> is the first example now using liquid layout</li>
+<li><a href="./015.015.Liquid_Layouts_Examples/2/index.html">Here</a> is the second example using liquid layout</li>
+<li>I felt it much harder to do it in liquid layout but now our websites can resize to the browser's window as the user increases or decreases its window screen</li>
+<li>I didn't follow the code in the book as I wanted to try it for myself, I got close enough but the book's code is much cleaner but it is a learning process</li>
+<li>Although I didn't use it, the properties <code>min-width</code> and <code>max-width</code> help create boundaries within which the layout can stretch to prevent from making the window too wide and having the text lines being too long or having the window too narrow and having the text lines too short</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb94e33c" class="outline-3">
+<h3 id="orgb94e33c">Section 15.16: Layout Grids</h3>
+<div class="outline-text-3" id="text-orgb94e33c">
+<ul class="org-ul">
+<li>Composition in any visual art (e.g. design, painting or photography) is the placement or arrangement of visual elements and how they are organized on a page</li>
+<li>Many deigners use a grid structure to help them position items on a page and the same is true for web designers</li>
+<li>A grid called 960 pixel grid is widely used by web designers (how true is that now?)</li>
+<li>Grids set consistent proportions and spaces between items which helps to create a professional looking design</li>
+<li>Some benefits of using a grid:
+<ul class="org-ul">
+<li>Creates a continuity between different pages which may use different designs</li>
+<li>Helps users predict where to find information on various pages</li>
+<li>Makes it easier to add new content to the site in a consistent way</li>
+<li>Helps people collaborate on the design of a site in a consistent way</li>
+</ul></li>
+<li>The 960 pixels grid is 960 pixels wide and there are 12 equal sized columns which are 60 pixels wide and has a margin set to 10 pixels which creates a gap of 20 pixels between each column and 10 pixels to the left and right hand sides of the page</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc9fcd30" class="outline-3">
+<h3 id="orgc9fcd30">Section 15.17: 960.GS Grid (CSS Framework)</h3>
+<div class="outline-text-3" id="text-orgc9fcd30">
+<ul class="org-ul">
+<li>CSS frameworks aim to make your life easier by providing the code for common tasks such as creating layout grids, styling forms, creating printer-friendly versions of pages and so on</li>
+<li>Thus you can include the CSS framework code in your projects rather than writing the CSS from scratch</li>
+<li>Advantages:
+<ul class="org-ul">
+<li>Save time from avoiding to write repeative code for the same tasks</li>
+<li>Code has been tested across different browsers</li>
+</ul></li>
+<li>Disadvantages:
+<ul class="org-ul">
+<li>Require you to use their class names in your HTML code and these names tend to only describe how it is going to look rather than describe its content</li>
+<li>Often have more code than you need for your particular web page thus it has bloat code</li>
+</ul></li>
+<li>One of the most popular uses of CSS frameworks is in creating grids to layout pages</li>
+<li>There are several grid frameworks out there and one of them is called 960 Grid System</li>
+<li>960.gs provides a style sheet that you can include in your HTML pages and once your page links to this style sheet, you can provide the appropriate classes to your HTML code and it will create multiple column layouts for you</li>
+<li>The 960.gs have templates you can download to help design your pages using a 12 column grid or a 16 column grid</li>
+<li>To create a 12 column grid, an element that contains the entire page is given a <code>class</code> attribute whose value is <code>container_12</code> which sets the content of the page to be 960 pixels wide and indicates that we are using a 12 column grid</li>
+<li>There are different classes for blocks that take up 1, 2, 3, 4, and up to 12 columns of the grid, each block uses class names such as <code>grid_3</code> (for a block that stretches over 3 columns), <code>grid_4</code> (for a block that stretches over 4 columns) and so forth all the way to <code>grid_12</code> (full-width of the page)</li>
+<li>These columns all float to the left and there is a 10 pixel margin to the left and right of each one</li>
+<li>There are several other grid-based CSS frameworks available online as well</li>
+
+<li><b>Note</b>: That the 960.gs is outdated has it focuses on a fixed width of 960 pixels, nowadays websites want to be designed as responsive adjusting to the user's screen regardless of size</li>
+<li><b>Note</b>: Because of the changes in web design, the successor to 960.gs is actually called unsemantic from the same inventor; unsemantic is the successor to the 960 Grid System and works  in a similar way but instead of being a set number of columns, it's entirely based on percentages</li>
+
+<li>Let's do two examples: one with 960.gs and another with unsemantic</li>
+<li><a href="./015.017.CSS_Framework_Grid_Examples/960/index.html">Here</a> is using the 960.gs it was much easier to create a layout using the CSS framework</li>
+<li><a href="./015.017.CSS_Framework_Grid_Examples/unsemantic/index.html">Here</a> is using the unsemantic framework, however, I struggled with putting margins between the columns because it would increase the width of the column and thus push it to the next line so I didn't add a margin and left it how it is</li>
+<li>It was easier using 960.gs framework because it actually adds margins between grid columns but for the unsemantic framework it uses percentages which fills in that percentage and I filled in the entire width (3 columns thus 33.33%) so if I were to add margins it will overflow because that includes margins, padding, border, etc. and thus create a new line</li>
+<li>Using CSS frameworks for layout was so much easier and will definitely use in the future</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf870cc1" class="outline-3">
+<h3 id="orgf870cc1">Section 15.18: Multiple Style Sheets</h3>
+<div class="outline-text-3" id="text-orgf870cc1">
+<ul class="org-ul">
+<li>Some web page authors split up their CSS style rules into separate style sheets (e.g. one css style sheet to control the layout, another for fonts, another for colors, and so on)</li>
+<li>Some authors take an even more modular apporach to stylesheets, creating separate stylesheets to control typography, layout, forms, tables, even different styles for each sub-section of a site</li>
+<li>There are two ways to add multiple style sheets to a page</li>
+<li>Using <code>@import</code>
+<ul class="org-ul">
+<li>Your HTML page can link to <b>one</b> style sheet</li>
+<li>So how are you going to add multiple style sheets?</li>
+<li>Well that <i>one</i> stylesheet you added to your HTML page will use the <code>@import</code> rule to import the other style sheets</li>
+<li>Thus your HTML page will use one stylesheet but that <i>one</i> stylesheet will import other style sheets</li>
+</ul></li>
 <li></li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2fb110c" class="outline-2">
-<h2 id="org2fb110c">Keywords</h2>
-<div class="outline-text-2" id="text-org2fb110c">
+
+<div id="outline-container-orgc6d29cc" class="outline-2">
+<h2 id="orgc6d29cc">Keywords</h2>
+<div class="outline-text-2" id="text-orgc6d29cc">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -442,23 +718,23 @@
 </tr>
 
 <tr>
-<td class="org-left">Rleative Positioning</td>
+<td class="org-left">Relative Positioning</td>
 <td class="org-left">This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow). Also the element will only take up space of where its original position in normal flow would be</td>
 </tr>
 
 <tr>
 <td class="org-left">Absolute Positioning</td>
-<td class="org-left">This positions the element in relation to its containing element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up</td>
+<td class="org-left">This positions the element in relation to its containing (closest positioned ancestor) element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up (basically moves the element to the offset designation and the element does not take up space like relative positioning)</td>
 </tr>
 
 <tr>
 <td class="org-left">Fixed Positioning</td>
-<td class="org-left">This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element</td>
+<td class="org-left">This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element (unlike absolute positioning when you scroll the elements move out of the window view, fixed positioning makes the elements stay in place and thus it is always inside the browser window)</td>
 </tr>
 
 <tr>
 <td class="org-left">Floating Elements</td>
-<td class="org-left">Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it</td>
+<td class="org-left">Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it of the space it has left if the width is less than 100% basically if there is space from the width of the containing element then the next element will start and be placed there</td>
 </tr>
 </tbody>
 </table>
@@ -466,18 +742,22 @@
 </div>
 
 
-<div id="outline-container-org8bc306f" class="outline-2">
-<h2 id="org8bc306f">Questions</h2>
-<div class="outline-text-2" id="text-org8bc306f">
+<div id="outline-container-orga4708e9" class="outline-2">
+<h2 id="orga4708e9">Questions</h2>
+<div class="outline-text-2" id="text-orga4708e9">
 <ul class="org-ul">
-<li><b>Q</b>:</li>
+<li><b>Q</b>: How does the offset properties (<code>top</code>, <code>bottom</code>, <code>left</code>, and <code>right</code>) and the <code>z-index</code> work?</li>
+<li><b>Q</b>: What is sticky positioning?</li>
+<li><b>Q</b>: What does it mean "float elements are removed from the normal flow of the page though still remaining a part of the flow"?</li>
+<li><b>Q</b>: What is <code>display: flow-root</code>?</li>
+<li><b>Q</b>: Why does the text appear smaller in a screen with higher resolution?</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgaaba195" class="outline-2">
-<h2 id="orgaaba195">Summary</h2>
-<div class="outline-text-2" id="text-orgaaba195">
+<div id="outline-container-orge86919c" class="outline-2">
+<h2 id="orge86919c">Summary</h2>
+<div class="outline-text-2" id="text-orge86919c">
 <ul class="org-ul">
 <li>CSS treats each HTML element as if it is in its own box</li>
 <li>The box is either block-level box (which start on a new line and act as the main building blocks of any layout) or inline-level box (which flow between surrounding text)</li>
@@ -486,13 +766,15 @@
 </div>
 </div>
 
-<div id="outline-container-org947aadf" class="outline-2">
-<h2 id="org947aadf">Resource</h2>
-<div class="outline-text-2" id="text-org947aadf">
+<div id="outline-container-org1757550" class="outline-2">
+<h2 id="org1757550">Resource</h2>
+<div class="outline-text-2" id="text-org1757550">
 <ul class="org-ul">
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Mozilla Docs - CSS Position</a></li>
 <li><a href="https://stackoverflow.com/questions/45784777/what-is-a-positioned-ancestor#:~:text=When%20referring%20to%20positioned%20ancestor,ancestors%20we%20mean%20the%20closest.">Stackoverflow - What is a Positioned Ancestor</a></li>
 <li><a href="https://css-irl.info/finding-an-elements-nearest-relative-positioned-ancestor/">Finding an Element's Nearest Relative Positioned Ancestor</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float">Mozilla Docs - Float</a></li>
+<li><a href="https://stackoverflow.com/questions/2062258/floating-elements-within-a-div-floats-outside-of-div-why">Stackoverflow - Floating Elements within a Div, Floats Outside of Div. Why?</a></li>
 </ul>
 </div>
 </div>

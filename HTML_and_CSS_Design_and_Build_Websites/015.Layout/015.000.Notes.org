@@ -267,8 +267,24 @@
    - Using CSS frameworks for layout was so much easier and will definitely use in the future
 
 ** Section 15.18: Multiple Style Sheets
+   - Some web page authors split up their CSS style rules into separate style sheets (e.g. one css style sheet to control the layout, another for fonts, another for colors, and so on)
+   - Some authors take an even more modular apporach to stylesheets, creating separate stylesheets to control typography, layout, forms, tables, even different styles for each sub-section of a site
+   - There are two ways to add multiple style sheets to a page
+   - Using ~@import~
+     - Your HTML page can link to *one* style sheet
+     - So how are you going to add multiple style sheets?
+     - Well that /one/ stylesheet you added to your HTML page will use the ~@import~ rule to import the other style sheets
+     - Thus your HTML page will use one stylesheet but that /one/ stylesheet will import other style sheets
+     - Note if you use the ~@import~ rule then it must appear before the other rules in the CSS file
+   - Using ~link~
+     - You can use separate ~<link>~ elements for each style sheet inside your HTML header
+   - Remember the rules of property precedence which by default the rule that appears later will take precedence over previous rules
+   - Thus the CSS style sheet that is last will have more precedence than the first inputted CSS style sheets when using ~link~
+   - When using ~@import~ the one CSS stylesheet will take precedence because its ~@import~ need to appear before the other rules in the CSS file thus making the CSS rules in the file the last rules applied    
+
+** Section 15.19: Chapter Example
+   - 
      
-   
 * Keywords
 | Term                 | Definition                                                                                                                                                                                                                                                                                                                                                                 |
 |----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
