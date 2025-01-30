@@ -33,7 +33,7 @@
    - *Absolute Positioning*: This positions the element in relation to its containing element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up
    - Absolutely positioned elements move as users scroll up and down the page (that means when you scroll the elements rise up or rise down, the elements will move out of the screen if you scroll too far up or down)
    - *Fixed Positioning*: This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element
-   - Fixed positioned elements do not affect the position of surrounding elements and they do not move when the user scrolls up or down the page (meaning if you scroll up or down the elements will stay where they are always in site of the browser window)
+   - Fixed positioned elements do not affect the position of surrounding elements and they do not move when the user scrolls up or down the page (meaning if you scroll up or down the elements will stay where they are always in sight of the browser window)
    - *Floating Elements*: Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box
    - The floating element becomes a block-level element around which other content can flow
    - To indicate where a box should be positioned, you may also need to use box offset properties to tell the browser how far from the top or bottom and left or right it should be placed
@@ -76,18 +76,18 @@
    - When we offset the element, what is it offset from? Would it be from where its original normal flow position would be?
    - No it would not be from where its original normal flow position would be because no space was created for that element so its "normal flow position" is actually already occupied by some other element because nothing was there previously
    - We see that in the example, the blue ~p~ box that is to the right belongs after the last blue ~p~ box inside the red ~div~ box but the red border ends after the last blue ~p~ box and doesn't create extra space like in the relative positioning and that is because there is no space dedicated for that element
-   - So again, what is it offset from? The offset is from the closest descendant element that does not have the default ~position~ or ~position: static~, it can be anything else but the default position
-   - If no descendant exists with some other ~position~ then it offsets from the ~body~ element
+   - So again, what is it offset from? The offset is from the closest ancestor element that does not have the default ~position~ or ~position: static~, it can be anything else but the default position
+   - If no ancestor exists with some other ~position~ then it offsets from the ~body~ element
    - Thus the element will just be placed to whereever you tell it go even if there's elements there or it is outside the body or browser window
    - To the browser that element does not even exists in terms of space because it takes no space
    - Thus if offset it or not, the browser will place the next element to where it should go despite there being an ~absolute~ positioned element because it "doesn't see" it
    - That's why in the example, the last blue ~p~ box is outside the window because I didn't offset it but also to the browser the last box was the previous one (inside the red box) because the space doesn't exists for the one that is outside the body
-   - Again, the browser will place elements where they go ignoring ~absolute~ positioned elements because they do not have space dedicated and thus can lead to overlapping elements
+   - Again, the browser will place elements where they go, ignoring ~absolute~ positioned elements because they do not have space dedicated and thus can lead to overlapping elements
    
 ** Section 15.6: Fixed Positioning
    - ~fixed~ positioning is very similiar to ~absolute~ positioning; the only difference what the elements are offsetting from
-   - In ~absolute~ positioning the elements are offsetting from the closest positioned (element that has ~position~ to be anything besides ~static~ - default) ancestor
-   - In ~fixed~ positioning the elements are offsetting from the browser window (the window screen that you are viewing, the viewport, the browser window that allows you to see so if maximize or minimize the browser thus the browser window changes because the browser window is basically the tab in the browser, this is not related to any elements, this is related to the browser and what you are able to see in the browser)
+   - In ~absolute~ positioning the elements are offsetting from the closest positioned ancestor (element that has ~position~ to be anything besides ~static~ - default) ancestor
+   - In ~fixed~ positioning the elements are offsetting from the browser window (the window screen that you are viewing, the viewport, the browser window that allows you to see even if maximize or minimize the browser, the browser window changes, this is not related to any elements, this is related to the browser window and what you are able to see in the browser)
    - It positions the element in relation to the browser window
    - Therefore, when a user scrolls down the page, it stays in the exact same place (the elements do not move)
    - This can cause elements to overlap because as you scroll down or up the elements stay in the exact same place even though new elements appear
@@ -107,7 +107,7 @@
 ** Section 15.8: Floating Elements
    - The ~float~ property allows you to take an element in *normal flow* and place it as far to the left or right of the *containing* element as possible
    - Anything else that sits inside the containing element will flow around the element that is floated
-   - [[file:./015.007.Floating_Elements_Example/index.html][Here]] is an example
+   - [[file:./015.008.Floating_Elements_Example/index.html][Here]] is an example
    - When you use the ~float~ property, you should also use the ~width~ property to indicate how wide the floated should be, if you do not, results can be inconsistent but the box is likely to take up the full width of the containing element (just like it would in normal flow)
    - Thus if you use ~width~ with the floated element and it is less than 100% (full width of the containing element) then the next element will start in that same line with the little width that is left over
    - As you can see in the example, the first paragraph is given a width of 90% and floated to the left so the next element starts on the right of the element in 10% of space that is left and once it passes the height of the floating element it continues to take up the designated width
@@ -125,7 +125,7 @@
    - The the second ~div~ you can see that the paragraph elements are not perfectly aligned and that is because the boxes have different heights
    - The third ~div~ are the same boxes but now they are aligned because each box has the same height
    - Since the paragraph boxes are floating elements that means they are out of normal flow so the technically the ~div~ doesn't see anything and has a zero height but we can fix that by introducing ~display: flow-root~ to the div to make it have height of the tallest paragraph box
-   - However, how can you set the height of a box if the content may change like when adjut the window or if you do not know ahead of time what the content will be
+   - However, how can you set the height of a box if the content may change like when you adjust the window or if you do not know ahead of time what the content will be
    - Instead the better approach would be to use the ~clear~ property
 
 ** Section 15.10: Clearing Floats
@@ -147,6 +147,7 @@
    - What exactly is ~clear~ in my own words? Well ~clear~ is a property than can be applied to floating and non-floating elements but the point is it will "clear" floating elements
    - In other words, the element that the ~clear~ property is being applied to will not have "floating" elements to whatever value you set ~clear~, it wont have floating elements to the left, right, both, etc.
    - It does this by moving the ~clear~ applied element
+
    - In example, the 5th paragraph was starting in an unaligned height because it had space to be there but if we noticed from the previous example to the left of it, it had a floating element
    - So we applied the ~clear~ property to that element and assign the value ~left~ and it seems to work without needing to set the height
 
@@ -297,18 +298,20 @@
    - *Note*: The width size now is outdated and now we use responsive designs
    - Grids help create professional and flexible designs and CSS frameworks provide rules for common tasks
    - Finally, you can have multiple CSS files in one HTML page
-     
+          
      
 * Keywords
-| Term                 | Definition                                                                                                                                                                                                                                                                                                                                                                 |
-|----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Block-level box      | Boxes that start on a new line and act as the main building blocks of any layout                                                                                                                                                                                                                                                                                           |
-| Inline-level box     | Boxes that flow between surrounding text                                                                                                                                                                                                                                                                                                                                   |
-| Normal Flow Position | Every block-level element appears on a new line even if there is space in the current line thus causing each item to appear lower down the page than the previous one                                                                                                                                                                                                      |
-| Relative Positioning | This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow). Also the element will only take up space of where its original position in normal flow would be |
-| Absolute Positioning | This positions the element in relation to its containing (closest positioned ancestor) element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up (basically moves the element to the offset designation and the element does not take up space like relative positioning)    |
-| Fixed Positioning    | This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element (unlike absolute positioning when you scroll the elements move out of the window view, fixed positioning makes the elements stay in place and thus it is always inside the browser window)                                       |
-| Floating Elements    | Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it of the space it has left if the width is less than 100% basically if there is space from the width of the containing element then the next element will start and be placed there          |
+| Term                 | Definition                                                                                                                                                                                                                                                                                                                                                                                |
+|----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Block-level box      | Boxes that start on a new line and act as the main building blocks of any layout                                                                                                                                                                                                                                                                                                          |
+| Inline-level box     | Boxes that flow between surrounding text                                                                                                                                                                                                                                                                                                                                                  |
+| Normal Flow Position | Every block-level element appears on a new line even if there is space in the current line thus causing each item to appear lower down the page than the previous one                                                                                                                                                                                                                     |
+| Relative Positioning | This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow). Also the element will only take up space of where its original position in normal flow would be                |
+| Absolute Positioning | This positions the element in relation to its containing (closest positioned ancestor) element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up (basically moves the element to the offset designation and the element does not take up space like relative positioning) |
+| Fixed Positioning    | This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element (unlike absolute positioning when you scroll the elements move out of the window view, fixed positioning makes the elements stay in place and thus it is always inside the browser window)                                                      |
+| Floating Elements    | Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it of the space it has left if the width is less than 100% basically if there is space from the width of the containing element then the next element will start and be placed there                         |
+| ~z-indez~ Property   | CSS property that controls the overlapping of elements, overlapping elements with a larger z-index cover those with a smaller one                                                                                                                                                                                                                                                         |
+| ~clear~              |                                                                                                                                                                                                                                                                                                                                                                                           |
 
 
 * Questions
@@ -322,6 +325,27 @@
   - CSS treats each HTML element as if it is in its own box
   - The box is either block-level box (which start on a new line and act as the main building blocks of any layout) or inline-level box (which flow between surrounding text)
   - There may be nested block-level elements and the block-level element that contains the nested block-level elements are referred to as the containing element or direct parent of the nested block elements
+  - CSS has the following *positioning schemes* that allow you to control the layout of a page: normal flow, relative positioning, and absolute positioning
+  - Normal flow is the default behavior (~position: static~) and thus doesn't require a ~position~ property but can be added if needed, in this scheme each block-level element sits on top of the next one
+  - Relative positioning (~position: relative~) is a scheme where it moves an element in relative to where it would have been in normal flow
+  - You offset the element from where it would have been in normal flow by using ~top~, ~bottom~, ~left~, and ~right~ (e.g. 10 pixels lower than it would have been in normal flow), this can cause elements to overlap because the other elements only know the space in normal flow not the offset position
+  - Absolute position (~position: absolute~) scheme takes elements out of normal flow (thus it no longer takes space, the space it would have used in normal flow is ignored by all other elements because no space is created fr the element in the page layout) and offsetted by the offset properties
+  - The absolute positioned elements are offsetted from the closest ancestor that does not have the default position (~position: static~), if there is no ancestor that applies then it offsets from the ~body~ element
+  - Similar to relative positioning, absolute positioning can overlap with other elements
+  - Fixed position (~position: fixed~) scheme is similar to absolute position but instead of being offsetted by the closest positioned ancestor it is instead offsetted by the browser's window (viewport)
+  - Thus, fixed position elements are always in screen even when the user scrolls up or down, the elements stay in the same place even when new elements appear because it is offsetted by the browser window
+  - Fixed positioning is a type of absolute positioning and does not take up space and can overlap with other elements
+  - To control how elements sit on top of other elements you use the ~z-index~ property and give it a value, the higher numbered elements will overlap other elements with a smaller ~z-index~ value
+  - The ~float~ property allows you to take an element in *normal flow* and place it as far to the left or right of the *containing* element as possible
+  - Other content inside the containing element will flow around the element that is floated
+  - This can only be applied to normal flow elements because ~float~ will take elements out of the normal flow of the page and how can it do that to absolute positioning and fixed positioning when those elements are already out of the normal flow of the page
+  - ~float~ can also not be applied to ~relative~, despite the element *still* being in normal flow, the position is determined by the offset so the ~float~ property will have no affect
+  - ~float~ takes out elements from normal flow of the page but still keeps them part of the flow
+  - ~float~ is often used to put elements side-by-side (you push floated elements left or right making columns) but ~float~ requires the ~width~ property because then it won't know how much space to take (e.g. in normal flow it knows by default it is the full window width) and if it is not specified, results can be inconsistent but the box is likely to take up the full width of the containing element (just like in normal flow)
+  - When dealing with only ~float~ elements the container element may not see the space of the floated elements because it is taken out of normal flow but this can be fixed by applying ~display: flow-root~ to the container
+  - How can we ensure the start of floated elements are aligned vertically? You use the ~clear~ property
+  - ~clear~ property sets whether an element must be moved below (cleared) from floating elements that precede it by the value given (e.g. you have a paragraph surrounded by two floating elements, one left and one right, then you if you specify ~clear: left~ it will move the paragraph below to *not* have any floated elements to the left of the paragraph and this can be applied to floated elements as well)
+  - So ~clear~ ensures the element that has the ~clear~ applied will not be touching a floated element on its left side, right side, both, none, etc. 
 
 * Resource
   - [[https://developer.mozilla.org/en-US/docs/Web/CSS/position][Mozilla Docs - CSS Position]]
