@@ -312,7 +312,9 @@
 | Floating Elements    | Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it of the space it has left if the width is less than 100% basically if there is space from the width of the containing element then the next element will start and be placed there                         |
 | ~z-indez~ Property   | CSS property that controls the overlapping of elements, overlapping elements with a larger z-index cover those with a smaller one                                                                                                                                                                                                                                                         |
 | ~clear~ Property     | According to Mozilla [[https://developer.mozilla.org/en-US/docs/Web/CSS/clear][docs]], ~clear~ property sets whether an element must be moved below (cleared) from floating elements that precede it from its value (e.g. ~clear: left~, the element will be cleared from the left side and no floating elements will be next to the element's left side)                                                                                             |
+| Resolution           |                                                                                                                                                                                                                                                                                                                                                                                           |
 
+15.13
 
 * Questions
   - *Q*: How does the offset properties (~top~, ~bottom~, ~left~, and ~right~) and the ~z-index~ work?
@@ -347,7 +349,9 @@
   - ~clear~ property sets whether an element must be moved below (cleared) from floating elements that precede it by the value given (e.g. you have a paragraph surrounded by two floating elements, one left and one right, then you if you specify ~clear: left~ it will move the paragraph below to *not* have any floated elements to the left of the paragraph and this can be applied to floated elements as well)
   - So ~clear~ ensures the element that has the ~clear~ applied will not be touching a floated element on its left side, right side, both, none, etc.
   - Another way of dealing with containers with only floated elements are the properties: ~overflow~ and ~width~
-  - ~overflow~ sets the desired behavior when the content does not fit in the element's padding box (thus overflowing) in the horizontal and/or vertical direction
+  - ~overflow~ sets the desired behavior when the content does not fit in the element's padding box (thus overflowing) in the horizontal and/or vertical direction so to fix the issue of containers with only floating elements we use ~overflow: auto~ and ~width: 100%~, this should cause the div to take up the space enough for the floated elements
+  - To create columns in HTML and CSS, you use ~width~ (sets the width of the columns), ~float~ (positions the columns next to each other), and ~margin~ (creates a gap between columns), you apply these to some containers representing the columns and now inside the containers you can have headers, paragraphs, images, etc.
+  -  
 
 * Resource
   - [[https://developer.mozilla.org/en-US/docs/Web/CSS/position][Mozilla Docs - CSS Position]]
