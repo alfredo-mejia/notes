@@ -311,7 +311,7 @@
 | Fixed Positioning    | This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element (unlike absolute positioning when you scroll the elements move out of the window view, fixed positioning makes the elements stay in place and thus it is always inside the browser window)                                                      |
 | Floating Elements    | Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it of the space it has left if the width is less than 100% basically if there is space from the width of the containing element then the next element will start and be placed there                         |
 | ~z-indez~ Property   | CSS property that controls the overlapping of elements, overlapping elements with a larger z-index cover those with a smaller one                                                                                                                                                                                                                                                         |
-| ~clear~              |                                                                                                                                                                                                                                                                                                                                                                                           |
+| ~clear~ Property     | According to Mozilla [[https://developer.mozilla.org/en-US/docs/Web/CSS/clear][docs]], ~clear~ property sets whether an element must be moved below (cleared) from floating elements that precede it from its value (e.g. ~clear: left~, the element will be cleared from the left side and no floating elements will be next to the element's left side)                                                                                             |
 
 
 * Questions
@@ -345,7 +345,9 @@
   - When dealing with only ~float~ elements the container element may not see the space of the floated elements because it is taken out of normal flow but this can be fixed by applying ~display: flow-root~ to the container
   - How can we ensure the start of floated elements are aligned vertically? You use the ~clear~ property
   - ~clear~ property sets whether an element must be moved below (cleared) from floating elements that precede it by the value given (e.g. you have a paragraph surrounded by two floating elements, one left and one right, then you if you specify ~clear: left~ it will move the paragraph below to *not* have any floated elements to the left of the paragraph and this can be applied to floated elements as well)
-  - So ~clear~ ensures the element that has the ~clear~ applied will not be touching a floated element on its left side, right side, both, none, etc. 
+  - So ~clear~ ensures the element that has the ~clear~ applied will not be touching a floated element on its left side, right side, both, none, etc.
+  - Another way of dealing with containers with only floated elements are the properties: ~overflow~ and ~width~
+  - ~overflow~ sets the desired behavior when the content does not fit in the element's padding box (thus overflowing) in the horizontal and/or vertical direction
 
 * Resource
   - [[https://developer.mozilla.org/en-US/docs/Web/CSS/position][Mozilla Docs - CSS Position]]
