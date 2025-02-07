@@ -179,7 +179,7 @@
 
 ** Section 15.13: Screen Sizes, Screen Resolution, and Page Sizes
    - Different visitors to your site will have different sized screens that show different amounts of information, so your design needs to be able to work on a range of different sized screens
-   - The size of a user's screen affects how big they can open their windows and how much of the page they will size, plus nowadays people surf the web in handheld devices (phones and tablets) that have smaller screens than computers & monitors
+   - The size of a user's screen affects how big they can open their windows and how much of the page they will see, plus nowadays people surf the web in handheld devices (phones and tablets) that have smaller screens than computers & monitors
    - Resolution refers to the number of dots a screen shows per inch (some deivces have higher resolution than other computers and most operating systems allow users to adjust the resolution of their screens)
    - *Note*: The higher the resolution, the smaller the text appears and mobile devices tend to have higher resolution than desktops (but this has gap closed over time)
    - Because screen sizes and display resolutions vary so much, web designers often try to create pages of around 960 - 1000 pixels wide (since most users will be able to see designs this wide on their screens)
@@ -190,7 +190,7 @@
    - However, we should not try to cram too much into the top area
 
 ** Section 15.14: Fixed Width Layouts
-   - Fixed width layout designs do not chnge size as the user increases or decreases the size of their browser window (measurements tend to be given in pixels)
+   - Fixed width layout designs do not change size as the user increases or decreases the size of their browser window (measurements tend to be given in pixels)
    - Advantages:
      - Pixel values are accurate at controlling size and positioning of elements
      - The designer has far greater control over the appearace and position of items on the page than liquid layouts
@@ -219,7 +219,7 @@
    - Disadvantages:
      - If you do not control the width of sections of the page then the design can look very different than you intended, with unexpected gaps around certain elements or items squashed together
      - If the user has a wide window, lines of text can become very long, which makes them harder to read (this is where you use ~max-width~)
-     - if the user has a very narrow window, words may be squashed and you can end up with few words on each line (this is where you use ~min-width~)
+     - If the user has a very narrow window, words may be squashed and you can end up with few words on each line (this is where you use ~min-width~)
      - If a fixed width item (such as an image) is in a box that is too small to hold it (because the user has made the window smaller) the image can overflow over the text
    - Because liquid layouts can stretch the entire width of the browser, resulting in long lines of text that are hard to read, some liquid layouts only let part of the page expand and contract, and other parts of the page have minimum and maximum widths
    - [[file:./015.015.Liquid_Layouts_Examples/1/index.html][Here]] is the first example now using liquid layout
@@ -276,7 +276,7 @@
      - So how are you going to add multiple style sheets?
      - Well that /one/ stylesheet you added to your HTML page will use the ~@import~ rule to import the other style sheets
      - Thus your HTML page will use one stylesheet but that /one/ stylesheet will import other style sheets
-     - Note if you use the ~@import~ rule then it must appear before the other rules in the CSS file
+     - *Note*: If you use the ~@import~ rule then it must appear before the other rules in the CSS file
    - Using ~link~
      - You can use separate ~<link>~ elements for each style sheet inside your HTML header
    - Remember the rules of property precedence which by default the rule that appears later will take precedence over previous rules
@@ -298,7 +298,7 @@
    - *Note*: The width size now is outdated and now we use responsive designs
    - Grids help create professional and flexible designs and CSS frameworks provide rules for common tasks
    - Finally, you can have multiple CSS files in one HTML page
-          
+
      
 * Keywords
 | Term                 | Definition                                                                                                                                                                                                                                                                                                                                                                                |
@@ -312,16 +312,61 @@
 | Floating Elements    | Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it of the space it has left if the width is less than 100% basically if there is space from the width of the containing element then the next element will start and be placed there                         |
 | ~z-indez~ Property   | CSS property that controls the overlapping of elements, overlapping elements with a larger z-index cover those with a smaller one                                                                                                                                                                                                                                                         |
 | ~clear~ Property     | According to Mozilla [[https://developer.mozilla.org/en-US/docs/Web/CSS/clear][docs]], ~clear~ property sets whether an element must be moved below (cleared) from floating elements that precede it from its value (e.g. ~clear: left~, the element will be cleared from the left side and no floating elements will be next to the element's left side)                                                                                             |
-| Resolution           |                                                                                                                                                                                                                                                                                                                                                                                           |
+| Resolution           | According to Google Gemini, screen resolution refers to the number of pixels a screen can display, essentially measuring how many tiny dots make up the image on your screen, with a higher pixel count resulting in a sharper and clearer picture                                                                                                                                        |
+| Fixed Width Layout   | A website layout that is fixed meaning the entire website maintains a set width regardless of the user's screen device                                                                                                                                                                                                                                                                    |
+| Liquid Layout        | A website layout that stretches and contracts as the user increases or decreases the size of their browser window thus the size of the website responds to the user's screen device                                                                                                                                                                                                       |
+| 960 Pixels Grid      | A 960 pixels website grid that allows designers to positions items on a page, there are 12 equal sized columns which are 60 pixels wide and has a margin set to 10 pixels which creates a gap of 20 pixels between each column and 10 pixels to the left and right hand sides of the page                                                                                                 |
+| CSS Framework        | A CSS Framework is a library that allows you to use ready to use CSS components in your website                                                                                                                                                                                                                                                                                           |
 
-15.13
 
 * Questions
   - *Q*: How does the offset properties (~top~, ~bottom~, ~left~, and ~right~) and the ~z-index~ work?
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/top][Mozilla Docs - Top]]
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/bottom][Mozilla Docs - Bottom]]
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/left][Mozilla Docs - Left]]
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/right][Mozilla Docs - Right]]
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/z-index][Mozilla Docs - Z-index]]
+         - These properties affected positioned elements that are: ~relative~, ~absolute~, ~fixed~, and ~sticky~ (these properties do not affect elements positioned as static)
+	 - ~top~ property sets the vertical position of a positioned element
+	 - For example, when the ~position~ is set to ~absolute~ or ~fixed~, the ~top~ property sets the top edge of an element to a unit above / below the top of edge of its nearest positioned ancestor
+	 - When ~position~ is set to ~relative~, the ~top~ property specifies the distance the element's top edge is moved below its normal position
+	 - ~bottom~ also participates in setting the vertical position of a positioned element
+	 - For example, when the ~position~ is set to ~relative~, the ~bottom~ property specifies the distance the elemet's bottom edge is moved above its normal position
+	 - ~left~ and ~right~ participates in specifying the horizontal position of a positioned element
+	 - For these properties when the ~position~ is set to ~absolute~ and ~fixed~ the property sets the left edge of an element to a unit to the left of the left edge of its nearest positioned ancestor (this is for ~left~ but the same is applied for ~right~ but for the right edge and right side)
+	 - The ~z-index~ sets the z-order of a positioned element and its descendants or flex and grid items; overlapping elements with a larger z-index cover or are in front of those with a smaller one
+	 - Recall the ~z-index~ is part of the [[https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context][stacking context (Mozilla Docs)]] which is a three-dimensional conceptualization of HTML elements along an imaginary z-axis relative to the user, who is assumed to be facing the viewport or the webpage, thus the property ~z-index~ controls elements on the z-axis, which elements with a higher ~z-index~ will be closer to the user (on top of other elements) than elements with a smaller value 
+	     
   - *Q*: What is sticky positioning?
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/position][Mozilla Docs - Position]]
+	 - [[https://www.w3schools.com/css/css_positioning.asp][W3 Schools - CSS Positioning]]
+	 - The ~sticky~ position is based on the user's scroll position, the element toggles between ~relative~ and ~fixed~ depending on the scroll position
+	 - The element is positioned relative until a given offset position (~top~, ~bottom~, etc.) is met in the viewport then it "sticks" in place (like ~position:fixed~)
+	 - For example, if you specify the ~sticky~ position and provide ~top: 0~ then when the element will be in its unchanged relative position and when you reach its scroll position it will stick to the top of the page
+	   
   - *Q*: What does it mean "float elements are removed from the normal flow of the page though still remaining a part of the flow"?
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/float][Mozilla Docs - Float]]
+	 - This means that the float element is positioned outisde the typical linear layout of the webpage but it still affects the positioning of other elements around it
+	 - Unlike being taken "out of flow" like in absolute positioning (where "out of flow" elements do not affect the positioning of other elements), elements that encounter floated elements will wrap around or adjust their position to accommodate its presence on the page
+	   
   - *Q*: What is ~display: flow-root~?
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/display][Mozilla Docs - Display]]
+	 - The property ~display~ sets whether an element is treated as a block or inline box and the layout used for its children such as flow layout (by default), grid (divides a page into major regions), or flex (dynamic resizing and positioning of items based on available space)
+	 - The value ~flow-root~ generates a block box that establishes a new block formatting context
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context][Block formatting context (Mozilla Docs)]] is a region in which the layout of block boxes occurs and in which floats interact with other elements
+	 - BFC is a concept that helps control the layout and positioning of elements on a web page and it islates its internal contents from external elements, therby preventing certain types of layout issues (e.g. margins between elements inside the BFC do not collapse with margins outside the BFC)
+	 - Thus ~flow-root~ creates a new BFC and it behaves as a block-level container while also containing its floated children, preventing them from escaping the element, essentially wrapping the content in a logical block enforcing a new layout context
+	   
   - *Q*: Why does the text appear smaller in a screen with higher resolution?
+         - This is because a higher resolution will have more pixels and thus the PPI will increase
+	 - Thus the pixels will actually get smaller in a higher resolution than a lower resolution
+	 - For example, let's say we have two same sized monitors, one is 1920 rows of pixels and 1080 columns of pixels (1920 x 1080) and another one that is 3840 rows of pixels and 2160 columns pixels (3840 x 2160)
+	 - If both are the same size then how can one have more pixels? The only answer is that the pixels are smaller and closer to each other than the lower resolution device
+	 - So if we take a region in the screen, the higher resolution will have more pixels in that area than the lower resolution because the pixels are smaller
+	 - Thus if a region is 25 pixels by 25 pixels in the lower resolution then in the higher resolution it will fit more pixels in there for the same physical device screen
+	 - So now let's say we have an image or menu that takes up 540 pixels wide that is approximately half the screen for 1080p
+	 - But for the higher resolution it is only 14% of the width of the 4k device
+	 - Again, this is because the pixels are smaller thus to cover a X amount of pixels, the higher resolution needs less physical screen than the lower resolution because the pixels are smaller and more densely compacted thus making things appear smaller because it is taking less screen space (because pixels are smaller) even though it has the same amount of pixels
     
 * Summary
   - CSS treats each HTML element as if it is in its own box
@@ -351,8 +396,23 @@
   - Another way of dealing with containers with only floated elements are the properties: ~overflow~ and ~width~
   - ~overflow~ sets the desired behavior when the content does not fit in the element's padding box (thus overflowing) in the horizontal and/or vertical direction so to fix the issue of containers with only floating elements we use ~overflow: auto~ and ~width: 100%~, this should cause the div to take up the space enough for the floated elements
   - To create columns in HTML and CSS, you use ~width~ (sets the width of the columns), ~float~ (positions the columns next to each other), and ~margin~ (creates a gap between columns), you apply these to some containers representing the columns and now inside the containers you can have headers, paragraphs, images, etc.
-  -  
-
+  -  Different visitors to your site will have different sized screens that show different amounts of information, so your design needs to be able to work on a range of different sized screens
+  - Resolution refers to the number of pixels on a screen and pixel per inch (ppi) are the number of pixels in a given area, so for example, a monitor and phone might have the same resolution (1920 rows of pixels x 1080 columns of pixels) but their size are different because the monitor is larger and thus is having larger pixels, so the PPI is less for the monitor compared to the phone, the pixels are smaller (compacted) in a phone and provides a "clearer" picture however it is more like perceived clarity / sharpness, since the phone has more compacted pixels it is harder to see the pixels and makes the image appears smooth and sharp but in reality it is the same number of pixels only the density of pixels is different and is easier to notice on larger screens compared to smaller screen with the same resolution
+  - The higher the resolution the smaller the text appears
+  - The top spot or the "above the fold" is important because users tend to judge a page under a second and decide if they want to continue by the first thing they see in the website so the first thing (the top spot) must be revelant for the users
+  - There are two types of layout, fixed width layouts and liquid layouts
+  - Fixed width layouts do not change size as the user increases or decreases the size of their browser window and measurements tend to be given in pixels, thus all the sizes are fixed
+  - Liquid layout designs stretch and contract as the user increases or decreases the size of their browser window and these measurements tend to be given in percentages instead of pixels
+  - Composition in any visual art is the placement or arrangement of visual elements and how they are organized on a page, thus many designers use a grid structure to help them position items on a page
+  - CSS Frameworks are libraries that have ready to use CSS components, one example is 960.GS which allows you to easily layout your website using a fixed width layout but this is outdated
+  - Another example, from the same inventor as 960.GS is unsemantic which allows you to create a liquid layout or a responsive website
+  - You can also add multiple style sheets into your website, there are two methods
+  - The first method is using ~@import~, this ~@import~ is added inside a CSS file
+  - This basically imports other CSS files into the CSS file that called import
+  - So now using HTML you only need to include this CSS file because this CSS file imports other CSS files
+  - Note that if you use ~@import~ it must appear before the other rules in the actual CSS file and also remember the rules of precedence which by default the rule that appears later will take precedence over previous rules thus the file calling ~@import~ will have a higher precedence than the imported CSS files
+  - The second method is using ~link~ in the HTML header element, basically each stylesheet is added by one ~link~ element and the last ~link~ added will have the highest precedence because the last one always have the highest precedence
+    
 * Resource
   - [[https://developer.mozilla.org/en-US/docs/Web/CSS/position][Mozilla Docs - CSS Position]]
   - [[https://stackoverflow.com/questions/45784777/what-is-a-positioned-ancestor#:~:text=When%20referring%20to%20positioned%20ancestor,ancestors%20we%20mean%20the%20closest.][Stackoverflow - What is a Positioned Ancestor]]
