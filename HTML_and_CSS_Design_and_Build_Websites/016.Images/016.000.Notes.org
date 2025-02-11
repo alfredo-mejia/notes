@@ -13,13 +13,92 @@
 
 * Notes
 
+** Section 16.1: Controlling Sizes of Images in CSS
+   - You can control the size of an image using the ~width~ and ~height~ properties in CSS (just like you can for any other box)
+   - Specifying the size of the image can help the website leave space for the image while it loads to the website
+   - Typically a website tends to use the same size of image (e.g. an e-commerce website will have a size to show products)
+   - So now you can use CSS classes like "small-img", "medium-img", "large-img" and using CSS you specify the ~width~ and ~height~ for each class
+
+** Section 16.2: Aligning Images Using CSS
+   - Rather than using the ~<img>~ element's ~align~ attribute, web page authors are incrasingly using the ~float~ property to align images
+   - You can add the ~float~ property inside the CSS classes used to set the size of the image (e.g. like in "small-img" or "medium-img")
+   - Or you create new CSS classes such as "align-left" or "align-right" and using CSS you specify ~float~ and its value to align the images left or right of the page
+   - It is common to add margin to the image when aligning to ensure text does not touch the images' edges
+   - You then can use the CSS classes to specify size and alignment
+
+** Section 16.3: Centering Images Using CSS
+   - By default, images are inline elements and thus the images flow within the surrounding text
+   - To center an image it should be turned into a block-level element using ~display: block~
+   - Once it has been made to a block-level then there are two ways to horizontally center an image
+   - First you can use the ~text-align: center~ on the containing element of the image
+   - Or second on the image itself, you can set the left margin and right margin to ~auto~
+   - You can create CSS classes to create any image to a block-level element and center it horizontally using the techniques discussed
+
+** Section 16.4: Background Images
+   - The ~background-image~ property allows you to place an image behind any HTML element (this could be the entire page or just part of the page)
+   - By default a background image will repeat to fill the entire box
+   - The path to the image follows the letters ~url~ and it is put inside parentheses and quotes
+   - Background images often are the last thing on the page to load which may make a website seem slow to load especially if the file is large
+   - The ~background-repeat~ property can have four values:
+     - ~repeat~: background image is repeated both horizontally and vertically, this is the default way it is shown if the ~background-repeat~ property is not used
+     - ~repeat-x~: image is repeated horizontally only
+     - ~repeat-y~: image is repeated vertically only
+     - ~no-repeat~: image is only shown once and ~background-attachment~ property specifies whether a background image should stay in one position or move as the user scrolls up and down the page
+       - ~background-attachment~ has two values: ~fixed~ (image stays in the same position on the page) and ~scroll~ (background image moves up and down as the user scrolls up and down the page)
+   - When an image is not being repeated, you can use the ~background-position~ property to specify where in the browser window the background image should be placed
+   - ~background-position~ usually has a pair of values, the first represents the horizontal position and the second represents the vertical (e.g. ~left top~, ~left center~, ~left bottom~, ~center top~, ~right top~, etc.)
+   - If you only specify one value, the second value will default to ~center~
+   - You can also use a pair of pixels or percentages, these represent the distance from the top left corner of the browser window or containing box (e.g.the top left corner is equal to ~0% 0%~)
+   - The ~background~ property acts like a shorthand for all of the other background properties including ~background-color~ property
+   - Properties must be specified in the following order, but you can miss any value if you do not want to specify it
+     1. ~background-color~
+     2. ~background-image~
+     3. ~background-repeat~
+     4. ~background-attachment~
+     5. ~background-position~
+   - CSS3 also support the use of multiple background images by repeating the ~background~ shorthand
+
+** Section 16.5: Images Rollovers & Sprites
+   - Using CSS, it is possible to create a link or button that changes to a second styple when a user moves their mouse over it (known as a *rollover*) and a third style when they click on it
+   - This is achieved by setting a background image for the link or button that has 3 different styles of the same button (but only allows enough space to show one of them at a time)
+   - When the user moves their mouse over the element or clicks on it, the position of the background image is moved to show the relevant image
+   - When a single image is used for several different parts of an interface, it is known as a *sprite*
+   - You can add the logo and other interface elements, as well as buttons to the image
+   - The advantage of using sprites is that the web browser only needs to request one image rather than many images, which can make the web page load faster
+   - What does this mean? Basically it is saying to have one image with different styles (e.g. one image contains 3 different button styles) then as you change change state like click or hover, you move your background to showcase only one style or the other but at the end it is one image that has 3 styles and you are moving to showcase only one style
+   - How useful is this now? I'm not sure but it seems like there are better ways now
+   - You can use the ~background-position~ property to move the image to show the button in the correct state
+   - E.g. when the user hovers then in CSS there is a rule for ~:hover~ that moves the image and shows a different button style and same goes for ~:active~ (when the user clicks on the link or button)
+
+** Section 16.6: Contrast of Background Images
+   - If you want to overlay text on a background image, the image must be low contrast in order for the text to be legible
+   - Majority of photographs have high contrast and are not ideal for background images
+   - Image editing applications have tools that allow you to manually adjust your images to have lower contrast
+   - To overlay text on an image with high contrast, you can place a semi-transparent background color (or "screen") behind the text to improve legibility
+
+** Section 16.7: CSS3 Gradients
+   - A gradient can be added for the background of a box using the ~background-image~ property
+   - The textbook doesn't really show us the syntax of what is used now because it is an older book
+   - However, to use a gradient in CSS you need to specify two colors to show the gradient that is in between both colors
+   - You can even specify the angle of the gradient or even different types of gradients (such as radial gradients)
+
+** Section 16.8: Summary
+   - You can sspecify the dimensions of images using CSS which is helpful when you use the same sized images on several pages of your site
+   - Images can be aligned both horizontally and vertically using CSS
+   - You can use a background image behind the box created by any element on a page
+   - Background images can appear just once or be repeated across the background of the box
+   - You can create image rollover effects by moving the background position of an image
+   - To reduce the number of images your browswer has to load, you can create image sprites
+     
 * Keywords
 | Term | Definition |
 |------+------------|
 |      |            |
 
 * Questions
-  - *Q*:
+  - *Q*: Does ~background-attachment~ only apply to when ~background-image: no-repeat~?
+  - *Q*: Can you really have multiple background images?
+  - *Q*: How can you add gradients in CSS?
 
 * Summary
 

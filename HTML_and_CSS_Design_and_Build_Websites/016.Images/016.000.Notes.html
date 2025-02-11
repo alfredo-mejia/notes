@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-11 Tue 12:02 -->
+<!-- 2025-02-11 Tue 14:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 16: Images</title>
@@ -202,19 +202,30 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfd67a53">Navigation</a></li>
-<li><a href="#orgf83efed">Notes</a></li>
-<li><a href="#org1342d66">Keywords</a></li>
-<li><a href="#orgcd54948">Questions</a></li>
-<li><a href="#orgedcf190">Summary</a></li>
-<li><a href="#org3884fcf">Resources</a></li>
+<li><a href="#orgce65ad6">Navigation</a></li>
+<li><a href="#orgb52e413">Notes</a>
+<ul>
+<li><a href="#org1c0b01c">Section 16.1: Controlling Sizes of Images in CSS</a></li>
+<li><a href="#org5e77f43">Section 16.2: Aligning Images Using CSS</a></li>
+<li><a href="#orgb858b35">Section 16.3: Centering Images Using CSS</a></li>
+<li><a href="#org415e3a7">Section 16.4: Background Images</a></li>
+<li><a href="#orgaabff16">Section 16.5: Images Rollovers &amp; Sprites</a></li>
+<li><a href="#org9379aae">Section 16.6: Contrast of Background Images</a></li>
+<li><a href="#orga4e64a3">Section 16.7: CSS3 Gradients</a></li>
+<li><a href="#orgff3bfc0">Section 16.8: Summary</a></li>
+</ul>
+</li>
+<li><a href="#org74175c2">Keywords</a></li>
+<li><a href="#orge9596dd">Questions</a></li>
+<li><a href="#orgb20379f">Summary</a></li>
+<li><a href="#org3b1f282">Resources</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgfd67a53" class="outline-2">
-<h2 id="orgfd67a53">Navigation</h2>
-<div class="outline-text-2" id="text-orgfd67a53">
+<div id="outline-container-orgce65ad6" class="outline-2">
+<h2 id="orgce65ad6">Navigation</h2>
+<div class="outline-text-2" id="text-orgce65ad6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -261,13 +272,145 @@
 </div>
 </div>
 
-<div id="outline-container-orgf83efed" class="outline-2">
-<h2 id="orgf83efed">Notes</h2>
+<div id="outline-container-orgb52e413" class="outline-2">
+<h2 id="orgb52e413">Notes</h2>
+<div class="outline-text-2" id="text-orgb52e413">
+</div>
+<div id="outline-container-org1c0b01c" class="outline-3">
+<h3 id="org1c0b01c">Section 16.1: Controlling Sizes of Images in CSS</h3>
+<div class="outline-text-3" id="text-org1c0b01c">
+<ul class="org-ul">
+<li>You can control the size of an image using the <code>width</code> and <code>height</code> properties in CSS (just like you can for any other box)</li>
+<li>Specifying the size of the image can help the website leave space for the image while it loads to the website</li>
+<li>Typically a website tends to use the same size of image (e.g. an e-commerce website will have a size to show products)</li>
+<li>So now you can use CSS classes like "small-img", "medium-img", "large-img" and using CSS you specify the <code>width</code> and <code>height</code> for each class</li>
+</ul>
+</div>
 </div>
 
-<div id="outline-container-org1342d66" class="outline-2">
-<h2 id="org1342d66">Keywords</h2>
-<div class="outline-text-2" id="text-org1342d66">
+<div id="outline-container-org5e77f43" class="outline-3">
+<h3 id="org5e77f43">Section 16.2: Aligning Images Using CSS</h3>
+<div class="outline-text-3" id="text-org5e77f43">
+<ul class="org-ul">
+<li>Rather than using the <code>&lt;img&gt;</code> element's <code>align</code> attribute, web page authors are incrasingly using the <code>float</code> property to align images</li>
+<li>You can add the <code>float</code> property inside the CSS classes used to set the size of the image (e.g. like in "small-img" or "medium-img")</li>
+<li>Or you create new CSS classes such as "align-left" or "align-right" and using CSS you specify <code>float</code> and its value to align the images left or right of the page</li>
+<li>It is common to add margin to the image when aligning to ensure text does not touch the images' edges</li>
+<li>You then can use the CSS classes to specify size and alignment</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb858b35" class="outline-3">
+<h3 id="orgb858b35">Section 16.3: Centering Images Using CSS</h3>
+<div class="outline-text-3" id="text-orgb858b35">
+<ul class="org-ul">
+<li>By default, images are inline elements and thus the images flow within the surrounding text</li>
+<li>To center an image it should be turned into a block-level element using <code>display: block</code></li>
+<li>Once it has been made to a block-level then there are two ways to horizontally center an image</li>
+<li>First you can use the <code>text-align: center</code> on the containing element of the image</li>
+<li>Or second on the image itself, you can set the left margin and right margin to <code>auto</code></li>
+<li>You can create CSS classes to create any image to a block-level element and center it horizontally using the techniques discussed</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org415e3a7" class="outline-3">
+<h3 id="org415e3a7">Section 16.4: Background Images</h3>
+<div class="outline-text-3" id="text-org415e3a7">
+<ul class="org-ul">
+<li>The <code>background-image</code> property allows you to place an image behind any HTML element (this could be the entire page or just part of the page)</li>
+<li>By default a background image will repeat to fill the entire box</li>
+<li>The path to the image follows the letters <code>url</code> and it is put inside parentheses and quotes</li>
+<li>Background images often are the last thing on the page to load which may make a website seem slow to load especially if the file is large</li>
+<li>The <code>background-repeat</code> property can have four values:
+<ul class="org-ul">
+<li><code>repeat</code>: background image is repeated both horizontally and vertically, this is the default way it is shown if the <code>background-repeat</code> property is not used</li>
+<li><code>repeat-x</code>: image is repeated horizontally only</li>
+<li><code>repeat-y</code>: image is repeated vertically only</li>
+<li><code>no-repeat</code>: image is only shown once and <code>background-attachment</code> property specifies whether a background image should stay in one position or move as the user scrolls up and down the page
+<ul class="org-ul">
+<li><code>background-attachment</code> has two values: <code>fixed</code> (image stays in the same position on the page) and <code>scroll</code> (background image moves up and down as the user scrolls up and down the page)</li>
+</ul></li>
+</ul></li>
+<li>When an image is not being repeated, you can use the <code>background-position</code> property to specify where in the browser window the background image should be placed</li>
+<li><code>background-position</code> usually has a pair of values, the first represents the horizontal position and the second represents the vertical (e.g. <code>left top</code>, <code>left center</code>, <code>left bottom</code>, <code>center top</code>, <code>right top</code>, etc.)</li>
+<li>If you only specify one value, the second value will default to <code>center</code></li>
+<li>You can also use a pair of pixels or percentages, these represent the distance from the top left corner of the browser window or containing box (e.g.the top left corner is equal to <code>0% 0%</code>)</li>
+<li>The <code>background</code> property acts like a shorthand for all of the other background properties including <code>background-color</code> property</li>
+<li>Properties must be specified in the following order, but you can miss any value if you do not want to specify it
+<ol class="org-ol">
+<li><code>background-color</code></li>
+<li><code>background-image</code></li>
+<li><code>background-repeat</code></li>
+<li><code>background-attachment</code></li>
+<li><code>background-position</code></li>
+</ol></li>
+<li>CSS3 also support the use of multiple background images by repeating the <code>background</code> shorthand</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaabff16" class="outline-3">
+<h3 id="orgaabff16">Section 16.5: Images Rollovers &amp; Sprites</h3>
+<div class="outline-text-3" id="text-orgaabff16">
+<ul class="org-ul">
+<li>Using CSS, it is possible to create a link or button that changes to a second styple when a user moves their mouse over it (known as a <b>rollover</b>) and a third style when they click on it</li>
+<li>This is achieved by setting a background image for the link or button that has 3 different styles of the same button (but only allows enough space to show one of them at a time)</li>
+<li>When the user moves their mouse over the element or clicks on it, the position of the background image is moved to show the relevant image</li>
+<li>When a single image is used for several different parts of an interface, it is known as a <b>sprite</b></li>
+<li>You can add the logo and other interface elements, as well as buttons to the image</li>
+<li>The advantage of using sprites is that the web browser only needs to request one image rather than many images, which can make the web page load faster</li>
+<li>What does this mean? Basically it is saying to have one image with different styles (e.g. one image contains 3 different button styles) then as you change change state like click or hover, you move your background to showcase only one style or the other but at the end it is one image that has 3 styles and you are moving to showcase only one style</li>
+<li>How useful is this now? I'm not sure but it seems like there are better ways now</li>
+<li>You can use the <code>background-position</code> property to move the image to show the button in the correct state</li>
+<li>E.g. when the user hovers then in CSS there is a rule for <code>:hover</code> that moves the image and shows a different button style and same goes for <code>:active</code> (when the user clicks on the link or button)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9379aae" class="outline-3">
+<h3 id="org9379aae">Section 16.6: Contrast of Background Images</h3>
+<div class="outline-text-3" id="text-org9379aae">
+<ul class="org-ul">
+<li>If you want to overlay text on a background image, the image must be low contrast in order for the text to be legible</li>
+<li>Majority of photographs have high contrast and are not ideal for background images</li>
+<li>Image editing applications have tools that allow you to manually adjust your images to have lower contrast</li>
+<li>To overlay text on an image with high contrast, you can place a semi-transparent background color (or "screen") behind the text to improve legibility</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga4e64a3" class="outline-3">
+<h3 id="orga4e64a3">Section 16.7: CSS3 Gradients</h3>
+<div class="outline-text-3" id="text-orga4e64a3">
+<ul class="org-ul">
+<li>A gradient can be added for the background of a box using the <code>background-image</code> property</li>
+<li>The textbook doesn't really show us the syntax of what is used now because it is an older book</li>
+<li>However, to use a gradient in CSS you need to specify two colors to show the gradient that is in between both colors</li>
+<li>You can even specify the angle of the gradient or even different types of gradients (such as radial gradients)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgff3bfc0" class="outline-3">
+<h3 id="orgff3bfc0">Section 16.8: Summary</h3>
+<div class="outline-text-3" id="text-orgff3bfc0">
+<ul class="org-ul">
+<li>You can sspecify the dimensions of images using CSS which is helpful when you use the same sized images on several pages of your site</li>
+<li>Images can be aligned both horizontally and vertically using CSS</li>
+<li>You can use a background image behind the box created by any element on a page</li>
+<li>Background images can appear just once or be repeated across the background of the box</li>
+<li>You can create image rollover effects by moving the background position of an image</li>
+<li>To reduce the number of images your browswer has to load, you can create image sprites</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org74175c2" class="outline-2">
+<h2 id="org74175c2">Keywords</h2>
+<div class="outline-text-2" id="text-org74175c2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -292,21 +435,23 @@
 </div>
 </div>
 
-<div id="outline-container-orgcd54948" class="outline-2">
-<h2 id="orgcd54948">Questions</h2>
-<div class="outline-text-2" id="text-orgcd54948">
+<div id="outline-container-orge9596dd" class="outline-2">
+<h2 id="orge9596dd">Questions</h2>
+<div class="outline-text-2" id="text-orge9596dd">
 <ul class="org-ul">
-<li><b>Q</b>:</li>
+<li><b>Q</b>: Does <code>background-attachment</code> only apply to when <code>background-image: no-repeat</code>?</li>
+<li><b>Q</b>: Can you really have multiple background images?</li>
+<li><b>Q</b>: How can you add gradients in CSS?</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgedcf190" class="outline-2">
-<h2 id="orgedcf190">Summary</h2>
+<div id="outline-container-orgb20379f" class="outline-2">
+<h2 id="orgb20379f">Summary</h2>
 </div>
 
-<div id="outline-container-org3884fcf" class="outline-2">
-<h2 id="org3884fcf">Resources</h2>
+<div id="outline-container-org3b1f282" class="outline-2">
+<h2 id="org3b1f282">Resources</h2>
 </div>
 </div>
 </body>
