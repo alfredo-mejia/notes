@@ -89,7 +89,10 @@
    - Background images can appear just once or be repeated across the background of the box
    - You can create image rollover effects by moving the background position of an image
    - To reduce the number of images your browswer has to load, you can create image sprites
-     
+
+** Section 16.9: Chapter Exercise Example
+   - [[file:./016.009.Chapter_Exercise_Example/index.html][Here]] is the chapter exercise example
+   
 * Keywords
 | Term | Definition |
 |------+------------|
