@@ -413,7 +413,7 @@
   - Note that if you use ~@import~ it must appear before the other rules in the actual CSS file and also remember the rules of precedence which by default the rule that appears later will take precedence over previous rules thus the file calling ~@import~ will have a higher precedence than the imported CSS files
   - The second method is using ~link~ in the HTML header element, basically each stylesheet is added by one ~link~ element and the last ~link~ added will have the highest precedence because the last one always have the highest precedence
     
-* Resource
+* Resources
   - [[https://developer.mozilla.org/en-US/docs/Web/CSS/position][Mozilla Docs - CSS Position]]
   - [[https://stackoverflow.com/questions/45784777/what-is-a-positioned-ancestor#:~:text=When%20referring%20to%20positioned%20ancestor,ancestors%20we%20mean%20the%20closest.][Stackoverflow - What is a Positioned Ancestor]]
   - [[https://css-irl.info/finding-an-elements-nearest-relative-positioned-ancestor/][Finding an Element's Nearest Relative Positioned Ancestor]]
