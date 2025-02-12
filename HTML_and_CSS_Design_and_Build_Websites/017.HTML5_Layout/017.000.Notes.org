@@ -1,0 +1,66 @@
+#+title: Chapter 17: HTML5 Layout
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 16: Images                     | \vert [[file:../016.Images/016.000.Notes.html][html]] \vert [[file:../016.Images/016.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/016.Images][github]] \vert |
+| Next  | Chapter 18: Process & Design           | \vert [[file:../018.Process_and_Design/018.000.Notes.html][html]] \vert [[file:../018.Process_and_Design/018.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/018.Process_and_Design][github]] \vert |
+
+* Notes
+
+** Section 17.1: New HTML5 Layout Elements
+   - Before HTML5, web page authors used ~<div>~ elements to group together related elements on the page (such as the elements that form a header, an artcle, footer or sidebar)
+   - Authors used ~class~ or ~id~ attributes to indicate the role of the ~<div>~ element in the structure of the page
+   - HTML5 introduces a new set of elements that allow you to divide up the parts of the page
+   - The names of these elements indicate the kind of content you will find in them (e.g. ~<header>~, ~<nav>~, etc.)
+   - The point of creating these new elements is so that web page authors can use them to help describe the structure of the page
+   - For example, screen reader software might allow users to ignore headers and footers and get straight to the content
+   - Plus it also makes the code easier to follow
+
+** Section 17.2: Headers & Footers
+   - The ~<header>~ and ~<footer>~ eleemnts can be used for:
+     - The main header or footer that appears at the top or bottom of every page on the site
+     - Or a header or footer can be used for an individual ~<article>~ or ~<section>~ within the page
+   - The ~<header>~ can contain the name and logo of the website and the navigation links
+   - The ~<footer>~ can contain copyright information, privacy policy, and terms and conditions
+   - Inside an ~<article>~ or ~<section>~ the header and footer can hold information for that article or section as well (e.g. the title of the section in the header and in the footer it can be share buttons for that section)
+
+** Section 17.3: Navigation & Articles
+   - ~<nav>~ element is used to contain the major navigational blocks on the site such as the primary site navigation
+   - This is only for major navigational blocks not just for any type of links
+   - ~<article>~ elements acts as a container for any section of a page that could stand alone and potentially be syndicated
+   - This could be an individual article or blog entry, a comment or forum post, or any other independent piece of content
+   - If a page contains several articles (or even summaries of several articles), then each individual article would live inside its own ~<article>~ element
+   - The ~<article>~ elements can even be nested inside each other (e.g. a blog post is inside ~<article>~ and each comment on the article could live inside its own child ~<article>~ element)
+
+** Section 17.4: Asides & Sections
+   - The ~<aside>~ element has two purposes depending on whether it is inside an ~<article>~ element or not
+   - When the ~<aside>~ element is used inside an ~<article>~ element, it should contain information that is related to the article but not essential to its overall meaning (like a glossary or a pull-quote, basically a attention-catching quote from the article)
+   - When the ~<aside>~ element is used outside of an ~<article>~ element, it acts as acontainer for content that is related to the entire page but not essential to the overall meaning (e.g. links to other sections, list of recent posts, a search box, recent social media posts, etc.)
+   - The ~<section>~ element groups related content together, and typically each section would have its own heading
+   - For example, on a homepage there may be several ~<section>~ elements to contain different sections of the page, such as latest news, top products, and newsletter signup
+   - Because the ~<section>~ element groups related items together it may contain several distinct ~<article>~ elements that have a common theme or purpose
+   - Alternatively, if you have a page with a long article, the ~<section>~ element can be used to split the article up into separate sections
+   - The ~<section>~ element should not be used as a wrapper for the entire page (unles the page only contains one distinct piece of content)
+   - If you want a containing element for the entire page, that job is still bet left to the ~<div>~ element
+     
+** Section 17.5: Heading Groups & Figures
+   - The purpose of the ~<hgroup>~ element is to group together a set of one or more ~<h1>~ through ~<h6>~ elements so that they are treated as one single heading
+   - For example, the ~<hgroup>~ element could be used to contain both a title inside an ~<h2>~ element and a subtitle within an ~<h3>~ element
+     
+
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*: What are some examples for ~<article>~ and ~<section>~?
+  - *Q*: What is the purpose of ~<hgroup>~? Is it used for the overall site's heading or any type of headings?
+    
+* Summary
