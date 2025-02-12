@@ -52,8 +52,26 @@
 ** Section 17.5: Heading Groups & Figures
    - The purpose of the ~<hgroup>~ element is to group together a set of one or more ~<h1>~ through ~<h6>~ elements so that they are treated as one single heading
    - For example, the ~<hgroup>~ element could be used to contain both a title inside an ~<h2>~ element and a subtitle within an ~<h3>~ element
-     
+   - ~<figure>~ can be used to contain any content that is referenced from the main flow of an article (not just images)
+   - It is important to note that the article should still make sense if the content of the ~<figure>~ element were moved to another part of the page or even to a different page altogether
+   - For this reason, it should only be used when the content simply references the element (and not for something that is absolutely integral to the flow of a page)
+   - Examples include: images, videos, graphs, diagrams, code samples, text that supports the main body of an article
+   - ~<figure>~ should also contain a ~<figcaption>~ element which provides a text description for the content of the ~<figure>~ element
 
+** Section 17.6: Sectioning Elements and Linking Around Block-Level Elements
+   - Although we have new elements, the ~<div>~ element will remain an important way to group together related elements because you should not be using these new elements that you have just met for purposes other than those explicitly stated
+   - When there is no suitable element to group a set of elements, the ~<div>~ element will still be used
+   - Why is there no ~<content>~ element for the main content? Well you can consider anything outside ~<header>~, ~<footer>~, or ~<aside>~ as the main content
+   - Also with HTML5, you can place an ~<a>~ element around a block level element that contains child elements thus turning an entire block into a link (in previous HTML versions this was considered incorrect usage)
+
+** Section 17.7: Summary
+   - The new HTML5 elements indicate the purpose of different parts of a web page and help to describe its structure
+   - The new elements provide clearer code compared with only using ~<div>~ elements
+
+** Section 17.8: Chapter Exercise Example
+   - [[file:./017.008.Chapter_Exercise_Example/index.html][Here]] is the chapter's exercise example
+   
+     
 * Keywords
 | Term | Definition |
 |------+------------|
