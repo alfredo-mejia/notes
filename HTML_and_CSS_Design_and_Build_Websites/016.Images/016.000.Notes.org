@@ -30,7 +30,7 @@
    - By default, images are inline elements and thus the images flow within the surrounding text
    - To center an image it should be turned into a block-level element using ~display: block~
    - Once it has been made to a block-level then there are two ways to horizontally center an image
-   - First you can use the ~text-align: center~ on the containing element of the image
+   - One you can use the ~text-align: center~ on the containing element of the image
    - Or second on the image itself, you can set the left margin and right margin to ~auto~
    - You can create CSS classes to create any image to a block-level element and center it horizontally using the techniques discussed
 
@@ -94,15 +94,31 @@
    - [[file:./016.009.Chapter_Exercise_Example/index.html][Here]] is the chapter exercise example
    
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term                    | Definition |
+|-------------------------+------------|
+| ~background-image~      |            |
+| ~background-position~   |            |
+| ~background-repeat~     |            |
+| ~background-attachment~ |            |
+| Rollover                |            |
+| Sprite                  |            |
 
 * Questions
   - *Q*: Does ~background-attachment~ only apply to when ~background-image: no-repeat~?
   - *Q*: Can you really have multiple background images?
   - *Q*: How can you add gradients in CSS?
+  - *Q*: How can you size images dynamically?
 
 * Summary
-
-* Resources
+  - You can control the size of images using the ~width~ and ~height~ properties
+  - Having classes for images  with a set ~width~ and ~height~ can add image consistency throughout your website
+  - Also having classes to align images to the left or right using ~float~ can help the developer easily align images by adding the class
+  - To center an image you add ~display: block~ and add the left and right margin to ~auto~ and this can be added to a class
+  - ~background-image~ property allows you to place an image behind any HTML element
+  - The background image repeats to fill in the entire box or you can use the ~background-repeat~ property to control the repitition of the background image
+  - ~background-position~ can be used to specify where in the browswer window the background image should be placed when the image is not being repeated
+  - You can use the ~background~ property as a shortcut to set various properties such as: ~background-color~, ~background-image~, ~background-repeat~, ~background-attachment~, and ~background-position~
+  - You can also use a rollover which is when you change the style of a link or button based on some state so you have different styles for different states / actions
+  - A sprite is when you use /one/ image that contains all the styles for several different parts of an interface (e.g. button), how? Well you can use the ~background-image~ and move the image (with ~background-position~) to only show the style of interest and move it whenever the state changes to show another style
+  - To overly text on a background image, the image must be a low constrast image in order for the text to be legible, otherwise you'll need to add a semi-transparent background color (or "screen") behind the text to imporve legibility
+  - You can also add gradients using CSS, there are different types of gradients and you can have the gradient at an angle, vertically, or horizontally
