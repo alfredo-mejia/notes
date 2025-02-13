@@ -73,12 +73,51 @@
    
      
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term           | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ~<header>~     | According to Mozilla, this element represents introductory content, typically a group of introductory or navigational aids such as logo, search form, author name, and other elements, and the header can be used for a sectioning element not just the entire webpage ([[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header][Mozilla Docs]])                                                                                                                                                                                 |
+| ~<footer>~     | According to Mozilla, this element represents a footer for its nearest ancestor sectioning content or sectioning root element containing information such as author of the section, copyright data or links to related documents ([[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer][Mozilla Docs]])                                                                                                                                                                                                                       |
+| ~<nav>~        | According to Mozilla, this element represents a section of a page whose purpose is to provide navigation links either within the current document or to other documents, examples include menus, table of contents, and indexes ([[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav][Mozilla Docs]])                                                                                                                                                                                                                        |
+| ~<article>~    | According to Mozilla, this element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or resuable (e.g. in syndication), examples include a form post, a magazine or newspaper article, a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content ([[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article][Mozilla Docs]])                                          |
+| ~<aside>~      | According to Mozilla, this element represents a portion of a document whose content is only indirectly related to the document's main content but not essential to the main content such as pull-quotes and often presented as sidebars or call-out boxes ([[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside][Mozilla Docs]])                                                                                                                                                                                              |
+| ~<section>~    | According to Mozilla, this element represents a generic standalone section of a document which doesn't have a more specific semantic element to represent it and sections should always have a heading with very few exceptions ([[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section][Mozilla Docs]])                                                                                                                                                                                                                        |
+| ~<hgroup>~     | According to Mozilla, this element represents a heading which groups a single ~<h1>~ to ~<h6>~ element with one o more ~<p>~, according to the docs, the permitted content is zero or more ~<p>~ followed by one ~<h1>~ to ~<h6>~ followed by zero or more ~<p>~ but in the book and online it states ~<hgroup>~ can be used to group two or more ~<h1>~ to ~<h6>~ but I'll stick to the [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup][Mozilla Docs]] because I think the ~<hgroup>~ definition has changed over time |
+| ~<figure>~     | According to Mozilla, this element represetns self-contained content scuh as an image, illustration, diagram, code snippet, etc. that is referenced in the main flow of a document but can be moved to another part of the document or toan appendix without affecting the main flow, an optional caption can be specified using ~<figcaption>~ and the whole figure with its caption is referenced as a single unit ([[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure][Mozilla Docs]])                                   |
+| ~<figcaption>~ | According to Mozilla, this element represents a caption or legend describing the rest of the contents of its parent ~<figure>~ element providing the ~<figure>~ an accessible description ([[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption][Mozilla Docs]])                                                                                                                                                                                                                                                              |
 
 * Questions
   - *Q*: What are some examples for ~<article>~ and ~<section>~?
+         - For example, ~<article>~ can be used for single comments in a blog post, why? Because each comment is a self-contained composition which can be independently distributable (e.g. show in an ad, highlighted comment / review, etc.) and each comment does not reference each other
+	 - Another example could be reviews, each review can be placed inside an ~<article>~ because it is a independent self-contained composition in relation to its parent (e.g. a section in the page for reviews)
+	 - An example for ~<section>~ could be you are writing about a topic and you divide a topic into sub-topics and each sub-topic can be its own ~<section>~
+	 - Another example could be let's say you have an e-commerce and you have top picks, newly added products, and for-you products, then each section of the page can be inside ~<section>~
+	   
   - *Q*: What is the purpose of ~<hgroup>~? Is it used for the overall site's heading or any type of headings?
+         - I found this [[https://forum.freecodecamp.org/t/real-life-use-of-hgroup/603858/2][forum]] inside freecodecamp.org which discusses about ~<hrgroup>~
+	 - Apparently before you could have added multiple headings inside ~<hgroup>~ but the definition has changed to only allow one heading and one or more paragraph element
+	 - The purpose of ~<hgroup>~ is to add a subtitle or a little title description
+	 - For example, let's say you want to talk about ACM you could do something like:
+	   #+BEGIN_SRC html
+	     <hgroup>
+	       <h1>ACM</h1>
+	       <p>Advancing Computing as a Science & Profession</p>
+	     </hgroup>
+	   #+END_SRC
+	 - The ~<hgroup>~ can be used for the whole page, for the heading of a section, or anywhere where you could use a heading along with a subtitle
+	 - It is not restricted to just the whole page, it can go anywhere where a regular heading would be used
     
 * Summary
+  - Before HTML5 developers would use ~<div>~ element to group together related elements on a page (e.g. nav, headers, footers, etc.) using ~class~ or ~id~
+  - HTML5 introduces new semantic elements that serve like ~<div>~ but for specific purposes, it allows you to divide up parts of the page and the name of these elements indicate the kind of content you will find in them
+  - These new elements allow screen readers understand better the content on a page and allows the code to be easier to follow
+  - ~<header>~ can be used for the header of the page, an individual ~<article>~ or an individual ~<section>~ and this element can contain the name and logo of the website and the navigation links
+  - ~<footer>~ can also be used for the web page, an individual ~<article>~ or an individual ~<section>~ and this element can hold information such as copyright, privacy policy, terms and conditions, etc.
+  - ~<nav>~ is used to contain the *major* navigational blocks on the site such as the primary site navigation
+  - ~<article>~ acts as a container for any section of a page that could stand alone (e.g. an individual blog entry) and ~<article>~ elements can even be nested inside each other (e.g. inside a block entry, an ~<article>~ element is used for individual comments)
+  - ~<aside>~ is a container for any section related to its parent (e.g. an ~<article>~ or the entire page) but not essential to the overall meaning (e.g. glossary, pull-quote, or some other thing)
+  - ~<section>~ groups related content together (e.g. in a page there may be several ~<section>~ to contain different sections of the page, such as latest news, top products, etc.) and typically each section would have its own heading
+  - ~<section>~ may contain several distinct ~<article>~ elements that have a common theme or purpose
+  - ~<hgroup>~ element is to group together a set of one or more ~<h1>~ through ~<h6>~ elements so that they can be treated as a single heading
+  - ~<figure>~ is used to contain content that is referenced from the main flow of an article such as images, videos, graphs, diagrams, code samples, text that supports the main body of an article etc.
+  - ~<figure>~ should also contain a ~<figcaption>~ element which provides a text description for the content of the ~<figure>~ element
+  - These new elements do not get rid of ~<div>~, these elements should only be used for what they have been intended for and when no suitable HTML5 semantic element applies then you should still be using ~<div>~  

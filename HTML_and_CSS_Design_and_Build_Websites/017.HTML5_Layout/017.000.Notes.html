@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-02-13 Thu 11:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 17: HTML5 Layout</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Chapter 17: HTML5 Layout</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org8eb6df5">Navigation</a></li>
+<li><a href="#orgbe9b700">Notes</a>
+<ul>
+<li><a href="#org4191a4c">Section 17.1: New HTML5 Layout Elements</a></li>
+<li><a href="#org2dccd7a">Section 17.2: Headers &amp; Footers</a></li>
+<li><a href="#org0f5e524">Section 17.3: Navigation &amp; Articles</a></li>
+<li><a href="#org68ca9b5">Section 17.4: Asides &amp; Sections</a></li>
+<li><a href="#orgcc2ca31">Section 17.5: Heading Groups &amp; Figures</a></li>
+<li><a href="#org0318653">Section 17.6: Sectioning Elements and Linking Around Block-Level Elements</a></li>
+<li><a href="#orgd164d20">Section 17.7: Summary</a></li>
+<li><a href="#org7df90ea">Section 17.8: Chapter Exercise Example</a></li>
+</ul>
+</li>
+<li><a href="#orgfca513f">Keywords</a></li>
+<li><a href="#org91fc012">Questions</a></li>
+<li><a href="#org04c17f3">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8eb6df5" class="outline-2">
+<h2 id="org8eb6df5">Navigation</h2>
+<div class="outline-text-2" id="text-org8eb6df5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../index.html">html</a> &vert; <a href="../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">HTML &amp; CSS - Design and Build Websites</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 16: Images</td>
+<td class="org-left">&vert; <a href="../016.Images/016.000.Notes.html">html</a> &vert; <a href="../016.Images/016.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/016.Images">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 18: Process &amp; Design</td>
+<td class="org-left">&vert; <a href="../018.Process_and_Design/018.000.Notes.html">html</a> &vert; <a href="../018.Process_and_Design/018.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/018.Process_and_Design">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgbe9b700" class="outline-2">
+<h2 id="orgbe9b700">Notes</h2>
+<div class="outline-text-2" id="text-orgbe9b700">
+</div>
+<div id="outline-container-org4191a4c" class="outline-3">
+<h3 id="org4191a4c">Section 17.1: New HTML5 Layout Elements</h3>
+<div class="outline-text-3" id="text-org4191a4c">
+<ul class="org-ul">
+<li>Before HTML5, web page authors used <code>&lt;div&gt;</code> elements to group together related elements on the page (such as the elements that form a header, an artcle, footer or sidebar)</li>
+<li>Authors used <code>class</code> or <code>id</code> attributes to indicate the role of the <code>&lt;div&gt;</code> element in the structure of the page</li>
+<li>HTML5 introduces a new set of elements that allow you to divide up the parts of the page</li>
+<li>The names of these elements indicate the kind of content you will find in them (e.g. <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, etc.)</li>
+<li>The point of creating these new elements is so that web page authors can use them to help describe the structure of the page</li>
+<li>For example, screen reader software might allow users to ignore headers and footers and get straight to the content</li>
+<li>Plus it also makes the code easier to follow</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2dccd7a" class="outline-3">
+<h3 id="org2dccd7a">Section 17.2: Headers &amp; Footers</h3>
+<div class="outline-text-3" id="text-org2dccd7a">
+<ul class="org-ul">
+<li>The <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code> eleemnts can be used for:
+<ul class="org-ul">
+<li>The main header or footer that appears at the top or bottom of every page on the site</li>
+<li>Or a header or footer can be used for an individual <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code> within the page</li>
+</ul></li>
+<li>The <code>&lt;header&gt;</code> can contain the name and logo of the website and the navigation links</li>
+<li>The <code>&lt;footer&gt;</code> can contain copyright information, privacy policy, and terms and conditions</li>
+<li>Inside an <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code> the header and footer can hold information for that article or section as well (e.g. the title of the section in the header and in the footer it can be share buttons for that section)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0f5e524" class="outline-3">
+<h3 id="org0f5e524">Section 17.3: Navigation &amp; Articles</h3>
+<div class="outline-text-3" id="text-org0f5e524">
+<ul class="org-ul">
+<li><code>&lt;nav&gt;</code> element is used to contain the major navigational blocks on the site such as the primary site navigation</li>
+<li>This is only for major navigational blocks not just for any type of links</li>
+<li><code>&lt;article&gt;</code> elements acts as a container for any section of a page that could stand alone and potentially be syndicated</li>
+<li>This could be an individual article or blog entry, a comment or forum post, or any other independent piece of content</li>
+<li>If a page contains several articles (or even summaries of several articles), then each individual article would live inside its own <code>&lt;article&gt;</code> element</li>
+<li>The <code>&lt;article&gt;</code> elements can even be nested inside each other (e.g. a blog post is inside <code>&lt;article&gt;</code> and each comment on the article could live inside its own child <code>&lt;article&gt;</code> element)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org68ca9b5" class="outline-3">
+<h3 id="org68ca9b5">Section 17.4: Asides &amp; Sections</h3>
+<div class="outline-text-3" id="text-org68ca9b5">
+<ul class="org-ul">
+<li>The <code>&lt;aside&gt;</code> element has two purposes depending on whether it is inside an <code>&lt;article&gt;</code> element or not</li>
+<li>When the <code>&lt;aside&gt;</code> element is used inside an <code>&lt;article&gt;</code> element, it should contain information that is related to the article but not essential to its overall meaning (like a glossary or a pull-quote, basically a attention-catching quote from the article)</li>
+<li>When the <code>&lt;aside&gt;</code> element is used outside of an <code>&lt;article&gt;</code> element, it acts as acontainer for content that is related to the entire page but not essential to the overall meaning (e.g. links to other sections, list of recent posts, a search box, recent social media posts, etc.)</li>
+<li>The <code>&lt;section&gt;</code> element groups related content together, and typically each section would have its own heading</li>
+<li>For example, on a homepage there may be several <code>&lt;section&gt;</code> elements to contain different sections of the page, such as latest news, top products, and newsletter signup</li>
+<li>Because the <code>&lt;section&gt;</code> element groups related items together it may contain several distinct <code>&lt;article&gt;</code> elements that have a common theme or purpose</li>
+<li>Alternatively, if you have a page with a long article, the <code>&lt;section&gt;</code> element can be used to split the article up into separate sections</li>
+<li>The <code>&lt;section&gt;</code> element should not be used as a wrapper for the entire page (unles the page only contains one distinct piece of content)</li>
+<li>If you want a containing element for the entire page, that job is still bet left to the <code>&lt;div&gt;</code> element</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcc2ca31" class="outline-3">
+<h3 id="orgcc2ca31">Section 17.5: Heading Groups &amp; Figures</h3>
+<div class="outline-text-3" id="text-orgcc2ca31">
+<ul class="org-ul">
+<li>The purpose of the <code>&lt;hgroup&gt;</code> element is to group together a set of one or more <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> elements so that they are treated as one single heading</li>
+<li>For example, the <code>&lt;hgroup&gt;</code> element could be used to contain both a title inside an <code>&lt;h2&gt;</code> element and a subtitle within an <code>&lt;h3&gt;</code> element</li>
+<li><code>&lt;figure&gt;</code> can be used to contain any content that is referenced from the main flow of an article (not just images)</li>
+<li>It is important to note that the article should still make sense if the content of the <code>&lt;figure&gt;</code> element were moved to another part of the page or even to a different page altogether</li>
+<li>For this reason, it should only be used when the content simply references the element (and not for something that is absolutely integral to the flow of a page)</li>
+<li>Examples include: images, videos, graphs, diagrams, code samples, text that supports the main body of an article</li>
+<li><code>&lt;figure&gt;</code> should also contain a <code>&lt;figcaption&gt;</code> element which provides a text description for the content of the <code>&lt;figure&gt;</code> element</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0318653" class="outline-3">
+<h3 id="org0318653">Section 17.6: Sectioning Elements and Linking Around Block-Level Elements</h3>
+<div class="outline-text-3" id="text-org0318653">
+<ul class="org-ul">
+<li>Although we have new elements, the <code>&lt;div&gt;</code> element will remain an important way to group together related elements because you should not be using these new elements that you have just met for purposes other than those explicitly stated</li>
+<li>When there is no suitable element to group a set of elements, the <code>&lt;div&gt;</code> element will still be used</li>
+<li>Why is there no <code>&lt;content&gt;</code> element for the main content? Well you can consider anything outside <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, or <code>&lt;aside&gt;</code> as the main content</li>
+<li>Also with HTML5, you can place an <code>&lt;a&gt;</code> element around a block level element that contains child elements thus turning an entire block into a link (in previous HTML versions this was considered incorrect usage)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd164d20" class="outline-3">
+<h3 id="orgd164d20">Section 17.7: Summary</h3>
+<div class="outline-text-3" id="text-orgd164d20">
+<ul class="org-ul">
+<li>The new HTML5 elements indicate the purpose of different parts of a web page and help to describe its structure</li>
+<li>The new elements provide clearer code compared with only using <code>&lt;div&gt;</code> elements</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7df90ea" class="outline-3">
+<h3 id="org7df90ea">Section 17.8: Chapter Exercise Example</h3>
+<div class="outline-text-3" id="text-org7df90ea">
+<ul class="org-ul">
+<li><a href="./017.008.Chapter_Exercise_Example/index.html">Here</a> is the chapter's exercise example</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgfca513f" class="outline-2">
+<h2 id="orgfca513f">Keywords</h2>
+<div class="outline-text-2" id="text-orgfca513f">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>&lt;header&gt;</code></td>
+<td class="org-left">According to Mozilla, this element represents introductory content, typically a group of introductory or navigational aids such as logo, search form, author name, and other elements, and the header can be used for a sectioning element not just the entire webpage (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header">Mozilla Docs</a>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;footer&gt;</code></td>
+<td class="org-left">According to Mozilla, this element represents a footer for its nearest ancestor sectioning content or sectioning root element containing information such as author of the section, copyright data or links to related documents (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer">Mozilla Docs</a>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;nav&gt;</code></td>
+<td class="org-left">According to Mozilla, this element represents a section of a page whose purpose is to provide navigation links either within the current document or to other documents, examples include menus, table of contents, and indexes (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav">Mozilla Docs</a>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;article&gt;</code></td>
+<td class="org-left">According to Mozilla, this element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or resuable (e.g. in syndication), examples include a form post, a magazine or newspaper article, a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article">Mozilla Docs</a>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;aside&gt;</code></td>
+<td class="org-left">According to Mozilla, this element represents a portion of a document whose content is only indirectly related to the document's main content but not essential to the main content such as pull-quotes and often presented as sidebars or call-out boxes (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside">Mozilla Docs</a>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;section&gt;</code></td>
+<td class="org-left">According to Mozilla, this element represents a generic standalone section of a document which doesn't have a more specific semantic element to represent it and sections should always have a heading with very few exceptions (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section">Mozilla Docs</a>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;hgroup&gt;</code></td>
+<td class="org-left">According to Mozilla, this element represents a heading which groups a single <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> element with one o more <code>&lt;p&gt;</code>, according to the docs, the permitted content is zero or more <code>&lt;p&gt;</code> followed by one <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> followed by zero or more <code>&lt;p&gt;</code> but in the book and online it states <code>&lt;hgroup&gt;</code> can be used to group two or more <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> but I'll stick to the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup">Mozilla Docs</a> because I think the <code>&lt;hgroup&gt;</code> definition has changed over time</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;figure&gt;</code></td>
+<td class="org-left">According to Mozilla, this element represetns self-contained content scuh as an image, illustration, diagram, code snippet, etc. that is referenced in the main flow of a document but can be moved to another part of the document or toan appendix without affecting the main flow, an optional caption can be specified using <code>&lt;figcaption&gt;</code> and the whole figure with its caption is referenced as a single unit (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure">Mozilla Docs</a>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;figcaption&gt;</code></td>
+<td class="org-left">According to Mozilla, this element represents a caption or legend describing the rest of the contents of its parent <code>&lt;figure&gt;</code> element providing the <code>&lt;figure&gt;</code> an accessible description (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption">Mozilla Docs</a>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org91fc012" class="outline-2">
+<h2 id="org91fc012">Questions</h2>
+<div class="outline-text-2" id="text-org91fc012">
+<ul class="org-ul">
+<li><b>Q</b>: What are some examples for <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code>?
+<ul class="org-ul">
+<li>For example, <code>&lt;article&gt;</code> can be used for single comments in a blog post, why? Because each comment is a self-contained composition which can be independently distributable (e.g. show in an ad, highlighted comment / review, etc.) and each comment does not reference each other</li>
+<li>Another example could be reviews, each review can be placed inside an <code>&lt;article&gt;</code> because it is a independent self-contained composition in relation to its parent (e.g. a section in the page for reviews)</li>
+<li>An example for <code>&lt;section&gt;</code> could be you are writing about a topic and you divide a topic into sub-topics and each sub-topic can be its own <code>&lt;section&gt;</code></li>
+<li>Another example could be let's say you have an e-commerce and you have top picks, newly added products, and for-you products, then each section of the page can be inside <code>&lt;section&gt;</code></li>
+</ul></li>
+
+<li><b>Q</b>: What is the purpose of <code>&lt;hgroup&gt;</code>? Is it used for the overall site's heading or any type of headings?
+<ul class="org-ul">
+<li>I found this <a href="https://forum.freecodecamp.org/t/real-life-use-of-hgroup/603858/2">forum</a> inside freecodecamp.org which discusses about <code>&lt;hrgroup&gt;</code></li>
+<li>Apparently before you could have added multiple headings inside <code>&lt;hgroup&gt;</code> but the definition has changed to only allow one heading and one or more paragraph element</li>
+<li>The purpose of <code>&lt;hgroup&gt;</code> is to add a subtitle or a little title description</li>
+<li><p>
+For example, let's say you want to talk about ACM you could do something like:
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;hgroup&gt;
+  &lt;h1&gt;ACM&lt;/h1&gt;
+  &lt;p&gt;Advancing Computing as a Science &amp; Profession&lt;/p&gt;
+&lt;/hgroup&gt;
+</pre>
+</div></li>
+<li>The <code>&lt;hgroup&gt;</code> can be used for the whole page, for the heading of a section, or anywhere where you could use a heading along with a subtitle</li>
+<li>It is not restricted to just the whole page, it can go anywhere where a regular heading would be used</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org04c17f3" class="outline-2">
+<h2 id="org04c17f3">Summary</h2>
+<div class="outline-text-2" id="text-org04c17f3">
+<ul class="org-ul">
+<li>Before HTML5 developers would use <code>&lt;div&gt;</code> element to group together related elements on a page (e.g. nav, headers, footers, etc.) using <code>class</code> or <code>id</code></li>
+<li>HTML5 introduces new semantic elements that serve like <code>&lt;div&gt;</code> but for specific purposes, it allows you to divide up parts of the page and the name of these elements indicate the kind of content you will find in them</li>
+<li>These new elements allow screen readers understand better the content on a page and allows the code to be easier to follow</li>
+<li><code>&lt;header&gt;</code> can be used for the header of the page, an individual <code>&lt;article&gt;</code> or an individual <code>&lt;section&gt;</code> and this element can contain the name and logo of the website and the navigation links</li>
+<li><code>&lt;footer&gt;</code> can also be used for the web page, an individual <code>&lt;article&gt;</code> or an individual <code>&lt;section&gt;</code> and this element can hold information such as copyright, privacy policy, terms and conditions, etc.</li>
+<li><code>&lt;nav&gt;</code> is used to contain the <b>major</b> navigational blocks on the site such as the primary site navigation</li>
+<li><code>&lt;article&gt;</code> acts as a container for any section of a page that could stand alone (e.g. an individual blog entry) and <code>&lt;article&gt;</code> elements can even be nested inside each other (e.g. inside a block entry, an <code>&lt;article&gt;</code> element is used for individual comments)</li>
+<li><code>&lt;aside&gt;</code> is a container for any section related to its parent (e.g. an <code>&lt;article&gt;</code> or the entire page) but not essential to the overall meaning (e.g. glossary, pull-quote, or some other thing)</li>
+<li><code>&lt;section&gt;</code> groups related content together (e.g. in a page there may be several <code>&lt;section&gt;</code> to contain different sections of the page, such as latest news, top products, etc.) and typically each section would have its own heading</li>
+<li><code>&lt;section&gt;</code> may contain several distinct <code>&lt;article&gt;</code> elements that have a common theme or purpose</li>
+<li><code>&lt;hgroup&gt;</code> element is to group together a set of one or more <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> elements so that they can be treated as a single heading</li>
+<li><code>&lt;figure&gt;</code> is used to contain content that is referenced from the main flow of an article such as images, videos, graphs, diagrams, code samples, text that supports the main body of an article etc.</li>
+<li><code>&lt;figure&gt;</code> should also contain a <code>&lt;figcaption&gt;</code> element which provides a text description for the content of the <code>&lt;figure&gt;</code> element</li>
+<li>These new elements do not get rid of <code>&lt;div&gt;</code>, these elements should only be used for what they have been intended for and when no suitable HTML5 semantic element applies then you should still be using <code>&lt;div&gt;</code></li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
