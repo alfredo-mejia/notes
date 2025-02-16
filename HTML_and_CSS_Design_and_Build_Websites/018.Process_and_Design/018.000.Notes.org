@@ -155,12 +155,12 @@
    - You can use grouping and similarity to help simplify the information you present
    
 * Keywords
-| Term             | Definition |
-|------------------+------------|
-| Site Map         |            |
-| Card Sorting     |            |
-| Wireframe        |            |
-| Visual Hierarchy |            |
+| Term             | Definition                                                                                                                                                                                                                                                                                                                                                                               |
+|------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Visual Site Map  | A site map and a visual site map are slightly two different things. A site map is a file while a visual site map is a diagram tat shows  how a webites pages are structured and connected being able to plot out your website's architecture and relationships allows you to analyze the current state of your website and plans for future needs (according to a [[https://www.lucidchart.com/blog/7-unexpected-ways-to-use-sitemaps#:~:text=A%20visual%20sitemap%20represents%20the,and%20plan%20for%20future%20needs.][Lucid Chart blog post]]) |
+| Card Sorting     |                                                                                                                                                                                                                                                                                                                                                                                          |
+| Wireframe        |                                                                                                                                                                                                                                                                                                                                                                                          |
+| Visual Hierarchy |                                                                                                                                                                                                                                                                                                                                                                                          |
 
 * Questions
   - *Q*:
