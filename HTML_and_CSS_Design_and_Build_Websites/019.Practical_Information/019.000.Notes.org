@@ -1,0 +1,50 @@
+#+title: Chapter 19: Practical Information
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 18: Process & Design           | \vert [[file:../018.Process_and_Design/018.000.Notes.html][html]] \vert [[file:../018.Process_and_Design/018.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites/018.Process_and_Design][github]] \vert |
+| Next  |                                        |                                         |
+
+* Notes
+
+** Section 19.1: Search Engine Optimization (SEO)
+   - Search engine optimization (or SEO) is the practice of trying to help your site appear nearer the top of search engine results when people look for the topics that your website covers
+   - At the heart of SEO is the idea of working out which terms people are likely to enter into a search engine to find your site and then using these terms in the right places on your site to increase the chances that search engines will show a link to your site in their results (now SEO is much more than that)
+   - Search engines also consider how many sites link to your and how relevant those links are
+   - Thus SEO is split into two areas: on-page techniques and off-page techniques
+   - On-page techniques are the methods you can use on your web pages to improve their rating in search engines such as looking at keywords that people are likely to enter into a search engine if they wanted to find your site and then including these in the text in HTML code for your site in order to help search engines know that your site covers these topics
+   - Search engines rely on text in your pages so it is important that the terms people are going to search for are actually in your page text
+   - If you have any images then always including the ~alt~ attribute helps search engines understand the content of images
+   - Off-page techniques deal with other sites having links to your web page which helps search engines determine how to rank your site
+   - Search engines are interested in sites whose content is related to yours and it looks for the words used to describe the link (e.g. "click here" is not relevant but "Geroge Washington (Wikipedia)" may be more relevant if you want to learn about George Washington), the link contains keywords it may be considered more relevant
+   - The words that appear in links to your site should also appear in the text of the page that the site links to, all of these helps the site rank higher than others if it has links from other web pages that are similar and use keywords for the links that are already present in the original site
+     
+*** Section 19.1.1: On-Page SEO
+    - In your page of your website there are seven key places where keywords (the words people might search on to find your site) can appear in order to improve its findability:
+      1. Page Title: Specified in the ~<title>~ element which lives inside the ~<head>~ element
+      2. URL: The name of the file is part of the URL, where possible use the keywords in the file name
+      3. Headings: If keywords are in a heading element then a search engine will know that this page is all about the subject and give it greater weight than other text
+      4. Text: Where possible, it helps to repeat the keywords in the main body of the text at least 2-3 times but do not over-use these terms because the text must be easy for a human to read
+      5. Link Text: Use keywords in the text that create links between pages, don't use generic words such as "click here"
+      6. Image Alt Text: Search engines rely on you providing accurate descriptions on images in the alt text and this will also show up in the results of image-based searches
+      7. Page Descriptions: The description lives inside the ~<head>~ element and is specified using a ~<meta>~ tag, the description should be a sentence that describes the content of the page, these descriptions may not be shown in the browser window but they may be displayed in the results of search engines
+    - Never try to fool search engines because they will penalize you for it (e.g. add a bunch of keywords repeatedly but use the same color as the background or make it transparent because search engines will know)
+
+*** Section 19.1.2: How to Identify Keywords & Phrases
+
+
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*: Has SEO changed over time? How does SEO work now? And how can I optimize SEO for my website?
+    
+* Summary
