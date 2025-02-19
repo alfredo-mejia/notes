@@ -45,7 +45,7 @@
     5. Refine: Now you need to pick which keywords you will focus on, these should always be the ones that are most relevant to each section of your site even if there is a lot of competition for that term (try to add more / different terms to stand out like location and such to help people find you)
     6. Map: Now that you have a refined list of keywords, you know which have the most competition and which are the most relevant then it is time to start picking which keywords you will use for each page (pick 3-5 keywords or phrases that map to each page of your website and use these as the keywords for each page and do not repeat the same keywords on all of the pages and it is ok if the terms get specific as you move onto pages in the site)
 
-** Section 19.2: Analtyics: Learning About Your Visitors
+** Section 19.2: Analytics: Learning About Your Visitors
    - You can use Google Analytics to see how people found you, what were they looking at and at what point did they leave (this can happen as soon as your website goes live)
    - Google Analytics gives you a piece of code to place into every page of your site and that code sends data to the Google servers which then shows you the results in a web interface to consume the information (e.g how many visitors are using your site)
    - Google Analytics tells you:
@@ -122,4 +122,16 @@
 * Summary
   - Search engine optimization (or SEO) is the practice of trying to help your site appear nearer the top of search engine results when people look for the topics that your website covers
   - SEO optimization involves a lot of factors including key terms and phrases, descriptive URLs, useful content, and more
-  - 
+  - SEO optimization can be split into two areas: on-page techniques (techniques used on your web pages) and off-page techniques (other sites having links that are descriptive that point to your website)
+  - Also, it is always good to include the ~alt~ tag in images and provide a clear description of the image
+  - Always have descriptive links as well
+  - Some places to include the keyterms are in the page title, website URL, headings, text, link text, image alt text, and the page description
+  - To come up with keywords and phrases you brainstorm words and phrases, then you organize these words / phrases into groups, then you research similar words that users would use, then you compare with the competition and their keywords used, then you refine you basically filter out which ones you won't use and which ones you will use, and then you map these keywords into your website (e.g. where do they belong, which page, etc.)
+  - Never try to fool the search engine because search engines notice that and penalize you for that
+  - You can use an analytic tool to gain insights on your website like Google Analytics
+  - Google analytics is a free tool that you include in your website and it sends data back to the Google servers and then you have a web interface to show you the info gathered
+  - Google analytics can sshow you the number of people coming to your site, unique visits, avrage time on site per visit, which pages are visited the most, number of people who left on the same page that they arrived on, which page did the users arrive on, and much more
+  - To place your site on the web you will need a domain name (web address) and web hosting (place your files in a web server for others to access it over the internet)
+  - Things to consider when selecting a web hosting company: disk space, bandwidth, backups, and supportive technologies
+  - Last thing to note is that FTP (File Transfer Protocol) is used to transfer files between your own machine / computer and the web server
+  - FTP allows you to place your website files into the web server so it can start hosting it
