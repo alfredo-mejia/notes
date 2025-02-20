@@ -35,3 +35,11 @@
 |      11 | Content_Panels                 | \vert [[file:./011.Content_Panels/011.000.Notes.html][html]] \vert [[file:./011.Content_Panels/011.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/011.Content_Panels][github]] \vert |
 |      12 | Filtering, Searching & Sorting | \vert [[file:./012.Filtering_Searching_and_Sorting/012.000.Notes.html][html]] \vert [[file:./012.Filtering_Searching_and_Sorting/012.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/012.Filtering_Searching_and_Sorting][github]] \vert |
 |      13 | Form Enhancement & Validation  | \vert [[file:./013.Form_Enhancement_and_Validation/013.000.Notes.html][html]] \vert [[file:./013.Form_Enhancement_and_Validation/013.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/013.Form_Enhancement_and_Validation][github]] \vert |
+
+* Resources
+[[https://archive.org/details/toaz.info-javascript-jquery-jon-duckett-pr_4c70e305b4d600415912c0b714295db1][Online PDF Book Link]]
+
+[[https://javascriptbook.com/][JavaScript & JQuery Official Website]]
+
+* My Thoughts
+/Not Finished Yet/
