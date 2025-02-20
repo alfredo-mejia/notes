@@ -44,7 +44,9 @@
 
 * Resources
 [[https://wtf.tw/ref/duckett.pdf][Online PDF Book Link]]
-   
+
+[[https://htmlandcssbook.com/][HTML & CSS Official Website]]
+
 * My Thoughts
 ** HTML Section
 I have completed the HTML section of the book. This includes Chapter 1 all the way to Chapter 9. The first question that I should ask myself, did I learn anything? The answer is ehh. Almost all of the chapters follow a similar pattern: introduce a HTML element, show an example, and go over the HTML element behavior and attributes. This is very similar to Mozilla web docs except that the web docs are up-to-date while this book, in the 2020s, is outdated. The book was not as engaging as I would have liked. There were no exercises or projects to test our understanding. Plus as someone who knew a little bit of HTML before reading the book it was hard to finish. 
