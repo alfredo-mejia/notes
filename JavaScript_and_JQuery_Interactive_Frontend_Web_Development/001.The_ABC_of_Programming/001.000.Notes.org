@@ -1,0 +1,173 @@
+#+title: Chapter 1: The ABC of Programming
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
+| Prev  |                                                             |                                         |
+| Next  | Chapter 2: Basic JavaScript Instructions                    | \vert [[file:../002.Basic_JavaScript_Instructions/002.000.Notes.html][html]] \vert [[file:../002.Basic_JavaScript_Instructions/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/002.Basic_JavaScript_Instructions][github]] \vert |
+
+* Notes
+
+** Section 1.1: A - What is a Script and How Do I Create One?
+   - A script is a series of instructions that a computer can follow to achieve a goal, you can think of a script like a recipe, handbook, or manual
+   - A script can be simple and only deal with one scenario or it can be a complicated script performing many tasks
+   - A script may be large but depending on the scenario or event the browser may only execute a part of the script
+   - Scripts are made up of instructions a computer can follow step-by-step and a browser may use different parts of the script depending on how user interacts with the web page and scripts can run different sections of the code in response to the situation around them
+     
+*** Section 1.1.1: Writing A Script
+    - To write a script you need to first state your goal and then list the tasks that need to be completed in order to achieve it
+    - Start with the big picture of what youu want to achieve and break that down into smaller steps
+    1. Define the goal
+    2. Design the script (split the goal out into a series of tasks and from these tasks you can create individual steps that the computer needs to perform to complete each individual task)
+    3. Code each step
+
+*** Section 1.1.2: Designing a Script
+    - Once you know the goal of your script, you can work on the individual tasks needed to complete the goal
+    - You can create a flowchart to represent a high-level view of the tasks
+    - Each individual task may be broken down into a sequence of steps
+    - When you are ready, these steps can then be translated into individual lines of code
+    - Often scripts will need to perform different tasks in different situations so flowcharts are used to work out how the tasks fit together and the paths between each step
+
+*** Section 1.1.3: From Steps to Code
+    - Every step for every task shown in a flowchart needs to be written in a language the computer can understand and follow
+    - Each programming language has a vocabulary (words the computers understand) and syntax (how to put those words together to create sentences hence instructions for computer)
+    - Computers solve problems programmatically; they follow a series of instructions, one after another
+
+*** Section 1.1.4: Summary
+    - A script is a series of intructions that the computer can follow in order to achieve a goal
+    - Each time the script runs, it might only use a subset of all instructions
+    - Computers approach tasks in a different way than humans, so your instructions must let the computer solve the task programmatically
+    - To approach writing a script, break down your goal into a series of tasks and then work out each step needed to complete the task (a flowchar may help)
+
+*** Section 1.1.5: My Exercise
+    - In this chapter I noticed the author went over an example that we will do in Chapter 2
+    - However, I want to do it now because I want to do learn on my own
+    - This exercise is simple
+      1. Have a textbox for a user to enter a name
+      2. As user types the name, the price show for the plaque shows on the bottom
+      3. If the name is empty show zero dollars
+      4. If it is not empty then show the price based on the calculation: $5 x # of characters
+      5. Have a button to finalize the plaque and show the textbox convert into a plaque style textbox
+    - I wasn't able to do exactly like in the book but I was able to do something along the lines of getting the length of the textbox show the price and when the button is clicked so the finished product
+    - [[file:./001.001.005.First_Exercise_Create_Plaque/index.html][Here is my first exercise]]
+
+*** Section 1.1.6: Resources
+    - [[https://www.joshwcomeau.com/css/center-a-div/][How To Center a Div by Josh W Comeau]]
+
+** Section 1.2: B - How do Computers Fit In With The World Around Them?
+   - Computers create models of the world using data (technically programmers program the computers to create these models)
+   - In computer programming, each physical thing in the world can be represented as an object
+   - An instance is an actual implementation of an object (e.g. an object can be a car but you can have two instances of the car)
+   - Each object can have its own properties, events, and methods and together they create a working model of that object
+
+*** Section 1.2.1: Properties
+    - Characteristics of an object are called properties (e.g. color of car, make of car, etc.)
+    - Each property has a name and a value and each of these name / value pairs tells you something about each idividual instance of the object (e.g. object is hotel, property name is hotel_name, and value is Hotel1)
+
+*** Section 1.2.2: Events
+    - An event is the computer's way to notice a change in some state / property of the object instance
+    - Programmers choose which events they respond to
+    - When a specific event happens, that event can be used to trigger a specific section of the code
+    - Scripts often use different events to trigger different types of functionality
+    - So a script will state which events the programmer wants to respond to and what part of the script should be run when each of those events occur
+
+*** Section 1.2.3: Methods
+    - Methods represent things people need to do with objects (e.g. retireve or update the values of an object's properties)
+    - Methods typically represent how people (or other things) interfact with an object in the real world
+    - Methods tell you something about the object using info stored in its properties and change the value of one or more of the object's properties
+    - The code for a method can contain lots of instructions that together represent one task
+    - When you use a method like from a library, you do not always need to know how it achieves the task but what task does it achieve, what is the input, and what is the expected output
+
+*** Section 1.2.4: Putting It All Together
+    - Computers use data to create models of things in the real world
+    - Events, methods, and properties of an object all relate to each other
+    - Events can trigger methods and methods can retrieve or update an object's properties
+
+*** Section 1.2.5: Web Browsers Are Programs Built Using Objects (The Document Object)
+    - Web browsers create similar models of the web page they are showing and of the browser window that the page is being shown in
+    - Window object: The browser represents each window or tab using a window object
+    - Document object: The current web page loaded into each window is modelled using a ~document~ object
+    - Using the ~document~ object you can access and change what content users see on the page and respond to how they interact with it
+    - The ~document~ object has properties (characteristics of the current web page), methods, and events
+    - All major web browsers implement the ~document~ object in the same way thus browsers have ways to access properties of the page and use the methods to achieve some task
+    - The ~document~ object is just one of a set of objects that all major browsers support
+    - When the browser creates a model of a web page, it not only creates a ~document~ object but it also creates a new object for each element on the page
+    - Together these objects are described as the Document Object Model
+
+*** Section 1.2.6: How a Browser Sees a Web Page
+    1. Receive a page as HTML code
+       - Each page on a website can be seen as a separate document
+       - So a website consists of one or more documents
+    2. Create a model of the page and store it in memory
+       - Each page gets broken down in a family-tree structure
+       - At the top of the tree we have a ~document~ object
+       - Beneath the ~document~ object each box is called a node
+       - Each of thee nodes is another object
+    3. Use a rendering engine to show the page on screen
+       - When there is no CSS then the rendering engine will apply the default styles to the HTML elements
+       - When there is a CSS file linked to the HTML html then the browser receives the CSS rules and then the rendering engine processes them and applies each rule to its corresponding elements
+    - All major browsers use a JavaScript interpreter / script engine to translate your instructions in JS into instructions the computer can follow
+    - In an interpreted programming language, like JavaScript, each line of code is translated one-by-one as the script is run
+
+*** Section 1.2.7: Summary
+    - Computers create models of the world using data
+    - The models use objects to represent physical things
+    - Objects can have properties that tell us about the object, it can have methods that perform tasks using the properties of that object, and it can have events which are triggered when a user interacts with the computer
+    - Using events, you can write a script that reacts to an event and runs some specific code
+    - Web browsers use HTML markup to create a model of the web page and each element create its own node (which is a type of object)
+    - To make web pages interactive, you write code that uses the browser's model of the web page
+
+** Section 1.3: C - How do I write a Script for a Web Page?
+   - Content Layer: HTML files are used to show the content and where the content of the page lives, HTML gives the page structue and adds semantics
+   - Presentation Layer: CSS file enhances the HTML pages with rules that state how the HTML content is presented (backgrounds, borders, box, dimensions, colors, fonts, etc.)
+   - Behavior Layer: JavaScript files can change how the page behaves thus adding interactivity
+
+*** Section 1.3.1: Progressive Enhancement
+    - Starting with the HTML layer it allows you to focus on the most important thing about your site: its content
+    - Then you add CSS rules in a separate file keep the presentation layer separate from the content layer
+    - Then you add the JavaScript layer enhancing the usability and experience of the page by interacting with the site
+    - Keeping them in separate files allows the site to work despite some error in JS or CSS
+
+*** Section 1.3.2: Creating a Basic JavaScript
+    - JavaScript is written in plain text, just like HTML and CSS
+    - Here are the steps to create a JS script and add it to the HTML file:
+      1. Create HTML file
+      2. Create CSS file
+      3. Create JS file (similar to html and css but instead it has a .js extension)
+      4. Add the JS file to the HTML file by using the ~<script>~ element
+	 - The ~<script>~ element is used to load the JS file into the page
+	 - It has an attribute called ~src~ whose value is the path to the script you created (basically finds and loads the JS file)
+	 - Suprisingly the ~<script>~ can be added anywhere in the HTML document
+      5. In the JS file add a new HTML element
+      6. View the source code in the browser and notice the source of the web page does not actually show the new element that has been added by JS
+    - Note you can add JavaScript code inside the ~<script>~ element but it is not recommended
+    - ~document.write()~ writes content into the document (the web page), it is an easy way to add content to a page but not always the best
+
+*** Section 1.3.3: My Exercise Creating a Clock
+    - I'm going to follow a similar approach above
+    - I'm going to show a running clock in pacific time, mountain time, central time, and eastern time
+    - Depending on the time it will show "Good Morning", "Good Afternoon", or "Good Evening"
+    - Then there will be a text box to enter your own arbitary time to showcase the message
+    - 
+
+* Keywords
+| Term                  | Definition |
+|-----------------------+------------|
+| Script                |            |
+| FlowChart             |            |
+| Object                |            |
+| Instance              |            |
+| Properties            |            |
+| Events                |            |
+| Methods               |            |
+| Document Object Model |            |
+
+* Questions
+  - *Q*:
+
+* Summary
