@@ -9,6 +9,7 @@
   </head>
   <body class="center">
     <h1>Multiple Clocks</h1>
+    <hr />
     <h2>Pacific Time</h2>
     <p id="pst">
       <span id="pst-hour">00</span>
@@ -19,6 +20,8 @@
       PST
     </p>
 
+    <h3 hidden id="pst-greet">Greetings!</h3>
+    <hr />
     <h2>Mountain Time</h2>
     <p id="mst">
       <span id="mst-hour">00</span>
@@ -29,6 +32,8 @@
       PST
     </p>
 
+    <h3 hidden id="mst-greet">Greetings!</h3>
+    <hr />
     <h2>Central Time</h2>
     <p id="cst">
       <span id="cst-hour">00</span>
@@ -39,6 +44,8 @@
       PST
     </p>
 
+    <h3 hidden id="cst-greet">Greetings!</h3>
+    <hr />
     <h2>Eastern Time</h2>
     <p id="est">
       <span id="est-hour">00</span>
@@ -49,7 +56,14 @@
       PST
     </p>
 
-    <form action="" method="">
+    <h3 hidden id="est-greet">Greetings!</h3>
+    <hr />
+    <form id="form" action="" method="">
+      <label for="time-picker">Pick a time <br /></label>
+      <input required type="time" name="time" id="time-picker" />
+      <button id="submitBttn" type="submit">Submit</button>
+
+      <h3 hidden id="personal-greet">Greetings!</h3>
     </form>
   </body>
 </html>
