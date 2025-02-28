@@ -153,21 +153,94 @@
     - I'm going to show a running clock in pacific time, mountain time, central time, and eastern time
     - Depending on the time it will show "Good Morning", "Good Afternoon", or "Good Evening"
     - Then there will be a text box to enter your own arbitary time to showcase the message
-    - 
+    - [[file:./001.003.003.Creating_A_Clock/index.html][Here is my exercise of creating a clock]]
+
+*** Section 1.3.4: How to Use Objects & Methods
+    - For example ~document.write('Good Afternoon')~ is an example of calling a method of an object
+    - The ~document~ object represents the entire web page and all web browsers implement this object and you can use it by giving its name
+    - The ~.~ is the member operator as the object ~document~ has various members (methods and properties) and the ~.~ allows you access them
+    - The ~write()~ is the method of the ~document~ object and ~'Good Afternoon'~ is the parameter which is information needed for the method
+    - Finally when the browser comes across a ~<script>~ element, it stops to load the script and then checks to see if it needs to do anything
+
+*** Section 1.3.5: Summary
+    - It is best to keep JavaScript code in its own JavaScript file
+    - JavaScript files are text filesbut they have the .js extension
+    - The HTML ~<script>~ element is used in HTML pages to tell the browser to load the JS file (unlike the ~<link>~ element for CSS files)
+    - If the JS file modifies the HTML then you will not see the HTML changes in the source code because the script works with the model of the web page that the browser has created
 
 * Keywords
-| Term                  | Definition |
-|-----------------------+------------|
-| Script                |            |
-| FlowChart             |            |
-| Object                |            |
-| Instance              |            |
-| Properties            |            |
-| Events                |            |
-| Methods               |            |
-| Document Object Model |            |
+| Term                   | Definition                                                                                                                                                                                                                                                                                                              |
+|------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Script                 | A sequence of instructions written in a scripting language that is executed by an interpreter without needing to be compiled beforehand                                                                                                                                                                                 |
+| FlowChart              | A visualization tool programmers use when creating new applications to understand a process, workflow, or algorithm                                                                                                                                                                                                     |
+| Object                 | In JS objects are containers for properties and methods, it allows you to store collections of data (properties & methods) in the form of key-value pairs                                                                                                                                                               |
+| Instance               | In JS an instance refers to a specific object created from a class or constructor function, when you create an object from a class or a constructor that object is called an instance of that class                                                                                                                     |
+| Properties             | Properties are values associated with an object that are identified by a key; properties define the characteristics of an object and can hold different types of data                                                                                                                                                   |
+| Events                 | Events are actions or occurances that happen in the browser, which can be triggered by the user or the system; events are essential for building interactive web pages as they allow you to respond to user actions and more                                                                                            |
+| Methods                | A method in JS is a property of an object that holds a function as its value; methods define behaviors the object can perform                                                                                                                                                                                           |
+| Document Object Model  | Accoding to [[https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction][Mozilla Docs]] the Document Object model is a programming interface for web documents as it represents the page so that programs can change the document structure, style, and content; DOM represents the structure of the web page as a tree of objects where each object corresponds to a part of the page |
+| Member Access Operator | Member access operators are used to access the properties or methods of an object and there are two types of member access operators: Dot Notation and Bracket Notation often used when property names are dynamic or contain special characters                                                                        |
+| Parameters             | Parameters are variables used in the function definitions to receive values from the arguments used in the function call                                                                                                                                                                                                |
 
 * Questions
-  - *Q*:
+  - *Q*: What is the difference between a programming language and a scripting language?
+         - A programming language is a broad term that includes any language used to write software programs this can include compiled and interpreted languages
+	 - A scripting language is a type of programming language that is typically used to write scripts (small programs) that automate tasks, control other programs, or manipulate data within existing systems
+	 - Scripts written in scripting languages are typically interpreted at runtime so it is executed line-by-line by an interpreter and the interpreter reads the source code and executes it directly
+	 - Scripting languages do not produce standalone executable files (though some can be compiled into bytecode for performance improvements)
+	 - This is not the same as compiled languages such as Java and C++ where a compiler translates code into machine code, thus the compiled code (machine code) can then run without the original source code or an interpreter
+	   
+  - *Q*: Is JavaScript a scripting language? What is its interpreter and does it need to be compiled beforehand?
+         - JavaScript is a scripting language
+	 - The interpreter that it uses are included in the browsers called the JavaScript engine
+	 - Google, Node.js, and the new Edge use V8 (the JavaScript engine), Firefox uses SpiderMonkey, and Safari uses JavaScriptCore
+	 - Before JavaScript was purely an interpreted language but with modern engines like V8, these engines now take a hybrid approach known as Just-In-Time (JIT) compilation
+	 - JIT compilation is used to improve performance
+	 - The engine compiles JS code into machine code at runtime while the program is running rather than ahead of time like in traditional compiled languages
+	 - How does it work?
+	 - Well first, JS code is first executed by the interpreter line by line converting it to an intermediate representation
+	 - As the code continues to run, the engine identifies "hot" (frequently executed) areas of code and compiles those parts into machine code for faster execution
+	 - The compiled code is then resued improving performance over time because now the interpreter does not need to interpret that section of code
+	   
+  - *Q*: Are classes and objects the same in JS? And do both classes and objects use key-value pairs?
+         - No they are not the same
+	 - Objects are standalone entities in JavaScript that holds a collection of data and functionalities called properties and methods
+	 - Objects can be instances of classes or objects can be created directly using object literals
+
+	 #+BEGIN_SRC JavaScript
+	   // Object literal
+           const person = {
+             name: "Alice",
+             age: 30,
+             greet() {
+               console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+             }
+           };
+
+           person.greet();  // Output: Hello, my name is Alice and I am 30 years old.
+
+	 #+END_SRC
+
+	 - As you can the object literal is ready to use and the object uses a key-value pair
+	 - Classes are a blueprint for creating objects, think of a class as a template while an object is a specific instance of that template
+	 - Classes are a relatively new thing in JS, introduced in 2015, before that only objects were used and constructor functions were used to create objects 
+	 - Instances typically refer to objects that were created from a class or constructor function and not just any object like a object literal
+
+	 - Key-value pairs are used in objects and in a sense in classes too
+	 - The key-value pairs in objects remind of JSON while in classes the properties are more like variables and functions
+	 - So objects are pure key-value pairs (properties and methods) while classes have variables and functions
+	   
+  - *Q*: Can we access all properties using the bracket member access operator?
+         - Bracket notation can be used for various occassions but it is best to only be used when needed
+	 - Instead use the dot member access operator as it much cleaner and more conventional
+	   
+  - *Q*: Are methods just properties in JS?
+         - Yeah basically, before classes every object just had properties which could have contained some data or a function
+	 - Classes were introduced later and functions / methods can be thought as properties of a class but it is slightly different than the properties in objects
+	   
+  - *Q*: Does JS have datatypes and can we declare them explicitly?
+         - JS variables do not have data types
+	 - JS values do have data types such as strings, number, boolean, etc but you cannot give a type to variable
+	 - So no you cannot declare them explicitly
 
 * Summary
