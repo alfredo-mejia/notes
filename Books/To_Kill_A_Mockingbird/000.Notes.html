@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-03-05 Wed 12:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>To Kill A Mockingbird</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">To Kill A Mockingbird</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org88bbf69">Navigation</a></li>
+<li><a href="#org13c2424">Notes &amp; Thoughts</a>
+<ul>
+<li><a href="#org091b312">Before Starting The Book</a></li>
+<li><a href="#orgc5a27bb">Chapter 1 - 5 Thoughts</a></li>
+<li><a href="#org54fa554">Chpater 6 - 10 Thoughts</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org88bbf69" class="outline-2">
+<h2 id="org88bbf69">Navigation</h2>
+<div class="outline-text-2" id="text-org88bbf69">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../index.html">html</a> &vert; <a href="../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">Books</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Books">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org13c2424" class="outline-2">
+<h2 id="org13c2424">Notes &amp; Thoughts</h2>
+<div class="outline-text-2" id="text-org13c2424">
+</div>
+<div id="outline-container-org091b312" class="outline-3">
+<h3 id="org091b312">Before Starting The Book</h3>
+<div class="outline-text-3" id="text-org091b312">
+<p>
+I often go to half-price books to get textbooks about math, coding, or anything that I would like to learn.
+I often feel over-excited when walking out of the store because I tell myself I'm going to become a super-genius after reading all these textbooks.
+However, I get ahead of myself because back home I have multiple textbooks I have yet to finish.
+</p>
+
+<p>
+This time I went to half-price books not to get any textbook but a novel.
+I wanted to start reading books right before going to sleep and I have always wanted to read the books that my English class would assign us in high-school but was too-lazy to read.
+So I go into the store looking for the book: Fahrenheit 451.
+Fahrenheit 451 is a classic book for all high-school students and that was the book I wanted to start reading.
+To my disappointment, the store did not have that book and being the impatient person that I am, I did not want to order the book online and wait for it.
+I figured there has to be a book other than Fahrenheit 451 that may interest me.
+I walked the novel section and noticed a large section dedicated to copies of To Kill A Mockingbird.
+I take a glace and recognize this book from my old English class but placed the book back in its place.
+I circle the novel section 4-5 times telling myself I don't find anything interesting.
+However, I have this bad habit of walking into a book store and always coming out with a book even if I'm not too convinced on the book itself, I just had to come out with a book.
+So I go back and find To Kill A Mockingbird.
+There are many copies of the book, some in good condition, some in bad condition, some for $5, some for $2.
+I find the best condition $2 book there is and I take it home.
+</p>
+
+<p>
+The book was laying on my nightstand for about a month without ever picking it up.
+Until one night I told myself let's start the book.
+I started to read a couple of pages but then stopped.
+Another month past by without picking up the book again.
+Finally, I decided if I don't try to consistently read then I'm never going to finish the book and my two bucks will go to waste.
+So I told myself each night before going to bed try to read one chapter.
+Since the day I told myself to read one chapter a night, I haven't missed since.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc5a27bb" class="outline-3">
+<h3 id="orgc5a27bb">Chapter 1 - 5 Thoughts</h3>
+<div class="outline-text-3" id="text-orgc5a27bb">
+<p>
+The first 5 chapters introduces us to our characters, the main character Jean (Scout), Jeremy (Jem), Atticus (father of Scout and Jem and a lawyer), Jack (brother of Atticus and a doctor), Dill (nephew of Miss Rachel), Rachel (neighboor to the Finch family), Calpurnia (cook and caretaker of the Finch residence), the Radley family (a mysterious family), Boo Radley (Arthur Radley), Miss Maudie (a widow living in the neighboorhood), Miss Stephanie Crawford (a gossiper in the neighboorhood), the Cunningham family (a poor family who lives off the land), Ewell family (a trouble maker family), and more.
+It starts us off with Jean and Jem meeting Dill. Dill only visits his aunt in the summer and begin fascinating over the Radley family.
+The Radley family is a mysterious family who are not often seen but much talked about.
+Gossip spreads about the Radley family from Miss Stephanie Crawford to the children that live in MayComb County.
+It is said the Boo or Arthur Radley had stabbed his father in the leg and has gotten into trouble when he was younger.
+These rumors led to the kids, Jean, Jem, and Dill to be afraid of the Radley residence.
+</p>
+
+<p>
+As time went on we see Jean get ready to go to her first year of school.
+Jean notices Calpurnia behave differently from a very strict caretaker who always seems to pick on her to a nicer caretaker.
+This is what I love about this book is that the perspective is from a child.
+Jean makes it seems like Calpurnia is strict with her and not her brother for whatever reason.
+Jean thinks is unjunst and not fair. However, we later realize that Calpurnia really cares about Jean especially because she is younger than Jem and a girl.
+Calpurnia wants to take care of Jean and when Jean goes off to school, Calpurnia misses her and behaves differently because Jean is no longer within calling distance.
+As an adult reading this you first agree with the main character. Why is Calpurnia harder on Jean?
+Well that is because Calpurnia is trying to take care of Jean.
+We have all experienced this. When we are kids and the people looking out for us always seem to be "mean" to us by not letting us do whatever we want.
+However, they are simply trying to take care of us because they love us.
+Sometimes, we don't think about it because we are grown now, but reading the book made me look back at my childhood and relate to Jean.
+</p>
+
+<p>
+As Jean gets ready to go to school, Jean is ahead of her peers.
+Jean already knows how to read because of father and was taught how to write by Calpurnia.
+However, when she demonstrates these skills in school her teacher gets mad at her.
+She returns home upset at Calpurnia for teaching her to write and is upset at her father because he is rejecting her plea to let her not go to school anymore.
+Eventually her father tells Jean they will continue to read despite what her teacher told her and she will continue to go to school.
+As a reader I was upset that Jean was getting in trouble for knowing how to read or write.
+The author does a great job for the reader to like the main character and root for her.
+I was hoping for the main character to get the last laugh between her and her teacher but soon enough school was over and it was summer time.
+</p>
+
+<p>
+Summer time arrived and it was time for Dill to come stay with his aunt.
+Dill was the type of kid to often say lies and Jean soon realized he lied often.
+Nevertheless, as the summer went over the kids, Jean, Jem, and Dill begin to play a game where they would try to reenact the life of the Radley family.
+Jean didn't like the idea because she was afraid of the Radley family and thought if they spoke about them especially Boo, they would know.
+Eventually Jean becomes excluded from playing with Dill and Jem and finds herself talking to Miss Maudie.
+Up to this point what we know from Boo Radley comes from the perspective of the kids, he likes to eat cats, likes to spy on people in the night (according to Miss Stephanie Crawford) and may be dead and his body may be hidden in the chimney.
+As Miss Maudie and Jean talk about Boo, we now begin to get the perspective of an adult.
+Miss Maudie says the Radley father are strict Baptists that often think any type of "pleasure" is a sin and that the family prefer to stay inside.
+Miss Maudie states to her and Jean what they find weird may be normal to the Radleys and what the Radleys might find weird may be normal to them.
+And this is why I'm starting to enjoy the book so much. I sometimes forget that we are reading through the perspective of a child.
+I was also convinced that the Radley place was this evil or dark pressence but Miss Maudie shed some light and indicated they might not be so evil afterall they might just live a different lifestyle.
+It makes me remember of my childhood. How easy rumors and a child's imagination would wonder.
+How a child's innonence and lack of knowledge can lead to a vast imagination.
+It makes me happy to be able, in a way, go back and be a child again, lack the knowledge (e.g. not know who are the Radleys), and let our imagination (with the main character) run wild.
+Being an adult is sometimes stressful with the world events, work, and every other thing, that reading this book takes me back into thinking like a child where you let your imagination free and worried about the silliest things. 
+</p>
+
+<p>
+Chapter 5 ends with Dill, Jem, and Jean trying to take out Boo out of his home and join them. However, they were soon caught by Atticus and told to stop.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org54fa554" class="outline-3">
+<h3 id="org54fa554">Chpater 6 - 10 Thoughts</h3>
+</div>
+</div>
+</div>
+</body>
+</html>
