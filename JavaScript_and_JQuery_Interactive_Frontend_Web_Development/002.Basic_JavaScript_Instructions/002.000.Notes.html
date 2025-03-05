@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-19 Wed 14:20 -->
+<!-- 2025-03-04 Tue 20:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Chapter 2: Basic JavaScript Instructions</title>
+<meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -192,13 +193,162 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 </head>
 <body>
 <div id="content" class="content">
+<h1 class="title">Chapter 2: Basic JavaScript Instructions</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2ec13fc">Navigation</a></li>
+<li><a href="#orga789d56">Notes</a>
+<ul>
+<li><a href="#orgc988882">Section 2.1: Statements &amp; Comments</a></li>
+<li><a href="#org4166ffb">Section 2.2: Variables</a></li>
+<li><a href="#orgc05c563">Section 2.3: Data Types</a></li>
+</ul>
+</li>
+<li><a href="#org88100f7">Keywords</a></li>
+<li><a href="#org6225b69">Questions</a></li>
+<li><a href="#org10cba29">Summary</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="date">Created: 2025-02-19 Wed 14:20</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+<div id="outline-container-org2ec13fc" class="outline-2">
+<h2 id="org2ec13fc">Navigation</h2>
+<div class="outline-text-2" id="text-org2ec13fc">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../index.html">html</a> &vert; <a href="../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 1: The ABC of Programming</td>
+<td class="org-left">&vert; <a href="../001.The_ABC_of_Programming/001.000.Notes.html">html</a> &vert; <a href="../001.The_ABC_of_Programming/001.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/001.The_ABC_of_Programming">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 3: Functions, Methods &amp; Objects</td>
+<td class="org-left">&vert; <a href="../003.Functions_Methods_and_Objects/003.000.Notes.html">html</a> &vert; <a href="../003.Functions_Methods_and_Objects/003.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/003.Functions_Methods_and_Objects">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga789d56" class="outline-2">
+<h2 id="orga789d56">Notes</h2>
+<div class="outline-text-2" id="text-orga789d56">
+</div>
+<div id="outline-container-orgc988882" class="outline-3">
+<h3 id="orgc988882">Section 2.1: Statements &amp; Comments</h3>
+<div class="outline-text-3" id="text-orgc988882">
+<ul class="org-ul">
+<li>A script is a series of instructions that a computer can follow one-by-one</li>
+<li>Each individual instruction or step is known as a statement</li>
+<li>Each statement ends with a semicolon</li>
+<li>A code block is a block of statements and it starts with a curly brace and ends with a curly brace</li>
+<li>JavaScript is case sensitive so variables with the same name but different casing will be treated differently</li>
+<li>Statements are instructions that the computer needs to follow and each start in a new line and end with a semicolon</li>
+<li>Comments can be added to JS code to explain what your code does</li>
+<li>Single line comments start with <code>//</code> and anything after those characters in the same line will not be processed by the JS interpreter</li>
+<li>Multiline comments start with <code>/*</code> and end with <code>*/</code>, these characters can be in different lines and anything in between is regarded as a comment and not processed by the JS interpreter</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4166ffb" class="outline-3">
+<h3 id="org4166ffb">Section 2.2: Variables</h3>
+<div class="outline-text-3" id="text-org4166ffb">
+<ul class="org-ul">
+<li>Scripts need to store information to do its job and this information is stored in variables</li>
+<li>Variables will be forgotten once the browser leaves the page</li>
+<li>The data inside the variable can change or vary each time a script runs</li>
+<li>The use of variables to represent numbers or other kinds of data is very similar to the algebra variables (e.g. x, y, z)</li>
+<li>Before you can use a variable, you need to declare the variable by creating the variable and giving it a name</li>
+<li><code>var</code> is the keyword to tell the interpreter that you want to create a variable next you will give the variable a name</li>
+<li>If the name is more than one word it is written in camelCase (first word is lowercase and next words have their first letter capitalized)</li>
+<li>So it would be something like this: <code>var width;</code></li>
+<li>The name should describe the kind of data the variable holds</li>
+<li>Next you assign a value to the variable (tell it what info to hold), for example <code>width = 5;</code></li>
+<li>Now you can use the variable by its name</li>
+<li>The <code>=</code> is an assignment operator which tells the interpreter you are going to assign a value to the variable or update the variable</li>
+<li>The variable is said to be undefined until a value has been assigned</li>
+<li>Where a variable is declared can have an effect upon whether the rest of the script can use it, this is called the scope of a variable</li>
+<li>Since the script is read from top to bottom, a variable declared can only be used after it is has been declared and cannot be used anytime before the declaration</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc05c563" class="outline-3">
+<h3 id="orgc05c563">Section 2.3: Data Types</h3>
+</div>
+</div>
+
+<div id="outline-container-org88100f7" class="outline-2">
+<h2 id="org88100f7">Keywords</h2>
+<div class="outline-text-2" id="text-org88100f7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org6225b69" class="outline-2">
+<h2 id="org6225b69">Questions</h2>
+</div>
+
+<div id="outline-container-org10cba29" class="outline-2">
+<h2 id="org10cba29">Summary</h2>
+</div>
 </div>
 </body>
 </html>

@@ -1,0 +1,53 @@
+#+title: Chapter 2: Basic JavaScript Instructions
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
+| Prev  | Chapter 1: The ABC of Programming                           | \vert [[file:../001.The_ABC_of_Programming/001.000.Notes.html][html]] \vert [[file:../001.The_ABC_of_Programming/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/001.The_ABC_of_Programming][github]] \vert |
+| Next  | Chapter 3: Functions, Methods & Objects                     | \vert [[file:../003.Functions_Methods_and_Objects/003.000.Notes.html][html]] \vert [[file:../003.Functions_Methods_and_Objects/003.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/003.Functions_Methods_and_Objects][github]] \vert |
+
+* Notes
+
+** Section 2.1: Statements & Comments
+   - A script is a series of instructions that a computer can follow one-by-one
+   - Each individual instruction or step is known as a statement
+   - Each statement ends with a semicolon
+   - A code block is a block of statements and it starts with a curly brace and ends with a curly brace
+   - JavaScript is case sensitive so variables with the same name but different casing will be treated differently
+   - Statements are instructions that the computer needs to follow and each start in a new line and end with a semicolon
+   - Comments can be added to JS code to explain what your code does
+   - Single line comments start with ~//~ and anything after those characters in the same line will not be processed by the JS interpreter
+   - Multiline comments start with ~/*~ and end with ~*/~, these characters can be in different lines and anything in between is regarded as a comment and not processed by the JS interpreter
+
+** Section 2.2: Variables
+   - Scripts need to store information to do its job and this information is stored in variables
+   - Variables will be forgotten once the browser leaves the page
+   - The data inside the variable can change or vary each time a script runs
+   - The use of variables to represent numbers or other kinds of data is very similar to the algebra variables (e.g. x, y, z)
+   - Before you can use a variable, you need to declare the variable by creating the variable and giving it a name
+   - ~var~ is the keyword to tell the interpreter that you want to create a variable next you will give the variable a name
+   - If the name is more than one word it is written in camelCase (first word is lowercase and next words have their first letter capitalized)
+   - So it would be something like this: ~var width;~
+   - The name should describe the kind of data the variable holds
+   - Next you assign a value to the variable (tell it what info to hold), for example ~width = 5;~
+   - Now you can use the variable by its name
+   - The ~=~ is an assignment operator which tells the interpreter you are going to assign a value to the variable or update the variable
+   - The variable is said to be undefined until a value has been assigned
+   - Where a variable is declared can have an effect upon whether the rest of the script can use it, this is called the scope of a variable
+   - Since the script is read from top to bottom, a variable declared can only be used after it is has been declared and cannot be used anytime before the declaration
+
+** Section 2.3: Data Types
+     
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+
+* Summary
