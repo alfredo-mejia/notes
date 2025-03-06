@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-04 Tue 20:20 -->
+<!-- 2025-03-05 Wed 19:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 2: Basic JavaScript Instructions</title>
@@ -202,24 +202,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2ec13fc">Navigation</a></li>
-<li><a href="#orga789d56">Notes</a>
+<li><a href="#orgd15160e">Navigation</a></li>
+<li><a href="#orgfe68e29">Notes</a>
 <ul>
-<li><a href="#orgc988882">Section 2.1: Statements &amp; Comments</a></li>
-<li><a href="#org4166ffb">Section 2.2: Variables</a></li>
-<li><a href="#orgc05c563">Section 2.3: Data Types</a></li>
+<li><a href="#org8e03e44">Section 2.1: Statements &amp; Comments</a></li>
+<li><a href="#org2c74360">Section 2.2: Variables</a></li>
+<li><a href="#org05d22a3">Section 2.3: Data Types</a></li>
+<li><a href="#orgde57919">Section 2.4: Naming Variables and Using Variables</a></li>
 </ul>
 </li>
-<li><a href="#org88100f7">Keywords</a></li>
-<li><a href="#org6225b69">Questions</a></li>
-<li><a href="#org10cba29">Summary</a></li>
+<li><a href="#orgab5fae8">Keywords</a></li>
+<li><a href="#org69c0b6c">Questions</a></li>
+<li><a href="#org323e2a0">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2ec13fc" class="outline-2">
-<h2 id="org2ec13fc">Navigation</h2>
-<div class="outline-text-2" id="text-org2ec13fc">
+<div id="outline-container-orgd15160e" class="outline-2">
+<h2 id="orgd15160e">Navigation</h2>
+<div class="outline-text-2" id="text-orgd15160e">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -266,13 +267,13 @@
 </div>
 </div>
 
-<div id="outline-container-orga789d56" class="outline-2">
-<h2 id="orga789d56">Notes</h2>
-<div class="outline-text-2" id="text-orga789d56">
+<div id="outline-container-orgfe68e29" class="outline-2">
+<h2 id="orgfe68e29">Notes</h2>
+<div class="outline-text-2" id="text-orgfe68e29">
 </div>
-<div id="outline-container-orgc988882" class="outline-3">
-<h3 id="orgc988882">Section 2.1: Statements &amp; Comments</h3>
-<div class="outline-text-3" id="text-orgc988882">
+<div id="outline-container-org8e03e44" class="outline-3">
+<h3 id="org8e03e44">Section 2.1: Statements &amp; Comments</h3>
+<div class="outline-text-3" id="text-org8e03e44">
 <ul class="org-ul">
 <li>A script is a series of instructions that a computer can follow one-by-one</li>
 <li>Each individual instruction or step is known as a statement</li>
@@ -287,9 +288,9 @@
 </div>
 </div>
 
-<div id="outline-container-org4166ffb" class="outline-3">
-<h3 id="org4166ffb">Section 2.2: Variables</h3>
-<div class="outline-text-3" id="text-org4166ffb">
+<div id="outline-container-org2c74360" class="outline-3">
+<h3 id="org2c74360">Section 2.2: Variables</h3>
+<div class="outline-text-3" id="text-org2c74360">
 <ul class="org-ul">
 <li>Scripts need to store information to do its job and this information is stored in variables</li>
 <li>Variables will be forgotten once the browser leaves the page</li>
@@ -310,14 +311,45 @@
 </div>
 </div>
 
-<div id="outline-container-orgc05c563" class="outline-3">
-<h3 id="orgc05c563">Section 2.3: Data Types</h3>
+<div id="outline-container-org05d22a3" class="outline-3">
+<h3 id="org05d22a3">Section 2.3: Data Types</h3>
+<div class="outline-text-3" id="text-org05d22a3">
+<ul class="org-ul">
+<li>JavaScript distinguishes between numbers, strings, and booleans (true or false)</li>
+<li>The numeric data type handles numbers (positive, negative, and decimals</li>
+<li>Numeric data can represent numbers to add, size of objects like screens, positioning and much more</li>
+<li>String data type consists of letters and other characters</li>
+<li>String data type is enclosed with a pair of single quotes or double quotes but the opening quote must match the closing quote</li>
+<li>Strings are used when working with any kind of text</li>
+<li>Boolean data types can only have true or false</li>
+<li>Booleans are useful to make decisions and changing which code in the script should run</li>
+<li>There are other data types as well such as objects, <code>undefined</code>, and <code>null</code></li>
+<li>Unlike other programming languages in JS you do not need to specify what type of data it will hold</li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-org88100f7" class="outline-2">
-<h2 id="org88100f7">Keywords</h2>
-<div class="outline-text-2" id="text-org88100f7">
+<div id="outline-container-orgde57919" class="outline-3">
+<h3 id="orgde57919">Section 2.4: Naming Variables and Using Variables</h3>
+<div class="outline-text-3" id="text-orgde57919">
+<ul class="org-ul">
+<li>There are six rules to follow when giving a variable a name:
+<ol class="org-ol">
+<li>The name must begin with a letter, dollar sign ($), or an underscore (_), it cannot start with a number</li>
+<li>The name can only contain letters, numbers, dollar sign ($), or an underscore (_), it cannot contain dash (-) or a period (.)</li>
+<li>You cannot use keywords or reserved words (keywords are special words that tell the interpreter to do something and reserved words are words that may be used by JS in the future), note JS is case sensitive so if a reserved word is <code>enum</code> then technically you can use <code>Enum</code> but it is a very bad idea to do something like that</li>
+<li>All variables are case sensitive so <code>score</code> and <code>Score</code> are different variable names but it would be a very bad idea to create two variables with the same name but different casing</li>
+<li>Use a name that describes the kind of information that the variables store</li>
+<li>If your variable name is made up of more than one word, use a capital letter for the first letter of every word after the first word which is called camelCase, for example <code>firstName</code> notice how "name" is captialized and not "first"</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgab5fae8" class="outline-2">
+<h2 id="orgab5fae8">Keywords</h2>
+<div class="outline-text-2" id="text-orgab5fae8">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -342,12 +374,12 @@
 </div>
 </div>
 
-<div id="outline-container-org6225b69" class="outline-2">
-<h2 id="org6225b69">Questions</h2>
+<div id="outline-container-org69c0b6c" class="outline-2">
+<h2 id="org69c0b6c">Questions</h2>
 </div>
 
-<div id="outline-container-org10cba29" class="outline-2">
-<h2 id="org10cba29">Summary</h2>
+<div id="outline-container-org323e2a0" class="outline-2">
+<h2 id="org323e2a0">Summary</h2>
 </div>
 </div>
 </body>

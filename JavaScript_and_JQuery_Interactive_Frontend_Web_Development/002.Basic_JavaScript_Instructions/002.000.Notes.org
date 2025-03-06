@@ -42,7 +42,26 @@
    - Since the script is read from top to bottom, a variable declared can only be used after it is has been declared and cannot be used anytime before the declaration
 
 ** Section 2.3: Data Types
-     
+   - JavaScript distinguishes between numbers, strings, and booleans (true or false)
+   - The numeric data type handles numbers (positive, negative, and decimals
+   - Numeric data can represent numbers to add, size of objects like screens, positioning and much more
+   - String data type consists of letters and other characters
+   - String data type is enclosed with a pair of single quotes or double quotes but the opening quote must match the closing quote
+   - Strings are used when working with any kind of text
+   - Boolean data types can only have true or false
+   - Booleans are useful to make decisions and changing which code in the script should run
+   - There are other data types as well such as objects, ~undefined~, and ~null~
+   - Unlike other programming languages in JS you do not need to specify what type of data it will hold
+
+** Section 2.4: Naming Variables and Using Variables
+   - There are six rules to follow when giving a variable a name:
+     1. The name must begin with a letter, dollar sign ($), or an underscore (_), it cannot start with a number
+     2. The name can only contain letters, numbers, dollar sign ($), or an underscore (_), it cannot contain dash (-) or a period (.)
+     3. You cannot use keywords or reserved words (keywords are special words that tell the interpreter to do something and reserved words are words that may be used by JS in the future), note JS is case sensitive so if a reserved word is ~enum~ then technically you can use ~Enum~ but it is a very bad idea to do something like that
+     4. All variables are case sensitive so ~score~ and ~Score~ are different variable names but it would be a very bad idea to create two variables with the same name but different casing
+     5. Use a name that describes the kind of information that the variables store
+     6. If your variable name is made up of more than one word, use a capital letter for the first letter of every word after the first word which is called camelCase, for example ~firstName~ notice how "name" is captialized and not "first"
+
 * Keywords
 | Term | Definition |
 |------+------------|
