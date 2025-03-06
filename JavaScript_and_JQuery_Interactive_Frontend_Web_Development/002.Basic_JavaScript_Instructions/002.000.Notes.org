@@ -69,8 +69,40 @@
    - Different ways to declare variables:
 
      #+BEGIN_SRC JavaScript
-       
+       // 1
+       var cost = 5;
+       var quantity = 5;
+
+       // 2
+       var cost;
+       var quantity;
+       cost = 5;
+       quantity = 5;
+
+       // 3
+       var cost, quantity;
+       cost = 5;
+       quantity = 5;
+
+       // 4
+       var cost = 5, quantity = 5, isInStock = false;
      #+END_SRC
+     
+   - It is best to make your code legible so declaring different variables on separate lines is better because it makes your code easier to read
+   - You can assign a new value to the variable even after it has been initialized basically changing what is stored in the variable later
+   - You use the assignment operator (~=~) to assign new values to the variables
+   - For example:
+
+     #+BEGIN_SRC JavaScript
+       var cost = 5;
+
+       // Some code
+
+       cost = 1;
+     #+END_SRC
+
+** Section 2.5: Arrays
+
      
 * Keywords
 | Term | Definition |

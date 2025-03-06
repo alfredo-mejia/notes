@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-05 Wed 19:23 -->
+<!-- 2025-03-06 Thu 12:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 2: Basic JavaScript Instructions</title>
@@ -202,25 +202,26 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd15160e">Navigation</a></li>
-<li><a href="#orgfe68e29">Notes</a>
+<li><a href="#org0dac221">Navigation</a></li>
+<li><a href="#orge3df11f">Notes</a>
 <ul>
-<li><a href="#org8e03e44">Section 2.1: Statements &amp; Comments</a></li>
-<li><a href="#org2c74360">Section 2.2: Variables</a></li>
-<li><a href="#org05d22a3">Section 2.3: Data Types</a></li>
-<li><a href="#orgde57919">Section 2.4: Naming Variables and Using Variables</a></li>
+<li><a href="#org5587fb5">Section 2.1: Statements &amp; Comments</a></li>
+<li><a href="#org8697b1d">Section 2.2: Variables</a></li>
+<li><a href="#orgddc5043">Section 2.3: Data Types</a></li>
+<li><a href="#org77a7b92">Section 2.4: Naming Variables and Using Variables</a></li>
+<li><a href="#orgf86dea0">Section 2.5: Arrays</a></li>
 </ul>
 </li>
-<li><a href="#orgab5fae8">Keywords</a></li>
-<li><a href="#org69c0b6c">Questions</a></li>
-<li><a href="#org323e2a0">Summary</a></li>
+<li><a href="#org79564dc">Keywords</a></li>
+<li><a href="#orgacfba66">Questions</a></li>
+<li><a href="#orgb8fda47">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd15160e" class="outline-2">
-<h2 id="orgd15160e">Navigation</h2>
-<div class="outline-text-2" id="text-orgd15160e">
+<div id="outline-container-org0dac221" class="outline-2">
+<h2 id="org0dac221">Navigation</h2>
+<div class="outline-text-2" id="text-org0dac221">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -267,13 +268,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgfe68e29" class="outline-2">
-<h2 id="orgfe68e29">Notes</h2>
-<div class="outline-text-2" id="text-orgfe68e29">
+<div id="outline-container-orge3df11f" class="outline-2">
+<h2 id="orge3df11f">Notes</h2>
+<div class="outline-text-2" id="text-orge3df11f">
 </div>
-<div id="outline-container-org8e03e44" class="outline-3">
-<h3 id="org8e03e44">Section 2.1: Statements &amp; Comments</h3>
-<div class="outline-text-3" id="text-org8e03e44">
+<div id="outline-container-org5587fb5" class="outline-3">
+<h3 id="org5587fb5">Section 2.1: Statements &amp; Comments</h3>
+<div class="outline-text-3" id="text-org5587fb5">
 <ul class="org-ul">
 <li>A script is a series of instructions that a computer can follow one-by-one</li>
 <li>Each individual instruction or step is known as a statement</li>
@@ -288,9 +289,9 @@
 </div>
 </div>
 
-<div id="outline-container-org2c74360" class="outline-3">
-<h3 id="org2c74360">Section 2.2: Variables</h3>
-<div class="outline-text-3" id="text-org2c74360">
+<div id="outline-container-org8697b1d" class="outline-3">
+<h3 id="org8697b1d">Section 2.2: Variables</h3>
+<div class="outline-text-3" id="text-org8697b1d">
 <ul class="org-ul">
 <li>Scripts need to store information to do its job and this information is stored in variables</li>
 <li>Variables will be forgotten once the browser leaves the page</li>
@@ -311,9 +312,9 @@
 </div>
 </div>
 
-<div id="outline-container-org05d22a3" class="outline-3">
-<h3 id="org05d22a3">Section 2.3: Data Types</h3>
-<div class="outline-text-3" id="text-org05d22a3">
+<div id="outline-container-orgddc5043" class="outline-3">
+<h3 id="orgddc5043">Section 2.3: Data Types</h3>
+<div class="outline-text-3" id="text-orgddc5043">
 <ul class="org-ul">
 <li>JavaScript distinguishes between numbers, strings, and booleans (true or false)</li>
 <li>The numeric data type handles numbers (positive, negative, and decimals</li>
@@ -329,9 +330,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgde57919" class="outline-3">
-<h3 id="orgde57919">Section 2.4: Naming Variables and Using Variables</h3>
-<div class="outline-text-3" id="text-orgde57919">
+<div id="outline-container-org77a7b92" class="outline-3">
+<h3 id="org77a7b92">Section 2.4: Naming Variables and Using Variables</h3>
+<div class="outline-text-3" id="text-org77a7b92">
 <ul class="org-ul">
 <li>There are six rules to follow when giving a variable a name:
 <ol class="org-ol">
@@ -342,14 +343,64 @@
 <li>Use a name that describes the kind of information that the variables store</li>
 <li>If your variable name is made up of more than one word, use a capital letter for the first letter of every word after the first word which is called camelCase, for example <code>firstName</code> notice how "name" is captialized and not "first"</li>
 </ol></li>
+<li>Using number variables: <code>var cost = 5;</code></li>
+<li>Using string variables: <code>var name = "John"</code></li>
+<li>Using quotes in string variables: <code>var name = "John \"Doe\""</code></li>
+<li>You use backwards slash (<code>\</code>) or backslash before any type of quote mark that appears within a string, the backslash tells the interpreter that the following character is part of the string</li>
+<li>Using boolean variables: <code>var isInStock = false;</code>, useful to take different code paths in the script</li>
+<li><p>
+Different ways to declare variables:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">// 1
+var cost = 5;
+var quantity = 5;
+
+// 2
+var cost;
+var quantity;
+cost = 5;
+quantity = 5;
+
+// 3
+var cost, quantity;
+cost = 5;
+quantity = 5;
+
+// 4
+var cost = 5, quantity = 5, isInStock = false;
+</pre>
+</div></li>
+
+<li>It is best to make your code legible so declaring different variables on separate lines is better because it makes your code easier to read</li>
+<li>You can assign a new value to the variable even after it has been initialized basically changing what is stored in the variable later</li>
+<li>You use the assignment operator (<code>=</code>) to assign new values to the variables</li>
+<li><p>
+For example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">var cost = 5;
+
+// Some code
+
+cost = 1;
+</pre>
+</div></li>
 </ul>
 </div>
 </div>
+
+<div id="outline-container-orgf86dea0" class="outline-3">
+<h3 id="orgf86dea0">Section 2.5: Arrays</h3>
+</div>
 </div>
 
-<div id="outline-container-orgab5fae8" class="outline-2">
-<h2 id="orgab5fae8">Keywords</h2>
-<div class="outline-text-2" id="text-orgab5fae8">
+
+<div id="outline-container-org79564dc" class="outline-2">
+<h2 id="org79564dc">Keywords</h2>
+<div class="outline-text-2" id="text-org79564dc">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -374,12 +425,12 @@
 </div>
 </div>
 
-<div id="outline-container-org69c0b6c" class="outline-2">
-<h2 id="org69c0b6c">Questions</h2>
+<div id="outline-container-orgacfba66" class="outline-2">
+<h2 id="orgacfba66">Questions</h2>
 </div>
 
-<div id="outline-container-org323e2a0" class="outline-2">
-<h2 id="org323e2a0">Summary</h2>
+<div id="outline-container-orgb8fda47" class="outline-2">
+<h2 id="orgb8fda47">Summary</h2>
 </div>
 </div>
 </body>
