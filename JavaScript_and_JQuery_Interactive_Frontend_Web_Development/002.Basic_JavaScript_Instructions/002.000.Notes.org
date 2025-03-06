@@ -61,7 +61,17 @@
      4. All variables are case sensitive so ~score~ and ~Score~ are different variable names but it would be a very bad idea to create two variables with the same name but different casing
      5. Use a name that describes the kind of information that the variables store
      6. If your variable name is made up of more than one word, use a capital letter for the first letter of every word after the first word which is called camelCase, for example ~firstName~ notice how "name" is captialized and not "first"
+   - Using number variables: ~var cost = 5;~
+   - Using string variables: ~var name = "John"~
+   - Using quotes in string variables: ~var name = "John \"Doe\""~
+   - You use backwards slash (~\~) or backslash before any type of quote mark that appears within a string, the backslash tells the interpreter that the following character is part of the string
+   - Using boolean variables: ~var isInStock = false;~, useful to take different code paths in the script
+   - Different ways to declare variables:
 
+     #+BEGIN_SRC JavaScript
+       
+     #+END_SRC
+     
 * Keywords
 | Term | Definition |
 |------+------------|
