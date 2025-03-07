@@ -23,4 +23,14 @@ public class ServerApplication {
         System.out.println("Received name: " + name);
         return "Received name: " + name;
     }
+
+    @GetMapping("/ch1/2")
+    public String ch1_2(@RequestParam(value = "time", defaultValue = "") String time) {
+        if (time.isEmpty()) {
+            return "Server cannot process empty time";
+        }
+
+        System.out.println("Received time: " + time);
+        return "Received name: " + time;
+    }
 }
