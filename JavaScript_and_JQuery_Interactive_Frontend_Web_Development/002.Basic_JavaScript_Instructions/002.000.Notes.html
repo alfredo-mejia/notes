@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-06 Thu 12:44 -->
+<!-- 2025-03-17 Mon 17:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 2: Basic JavaScript Instructions</title>
@@ -202,26 +202,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0dac221">Navigation</a></li>
-<li><a href="#orge3df11f">Notes</a>
+<li><a href="#orgfe5af74">Navigation</a></li>
+<li><a href="#org35d3305">Notes</a>
 <ul>
-<li><a href="#org5587fb5">Section 2.1: Statements &amp; Comments</a></li>
-<li><a href="#org8697b1d">Section 2.2: Variables</a></li>
-<li><a href="#orgddc5043">Section 2.3: Data Types</a></li>
-<li><a href="#org77a7b92">Section 2.4: Naming Variables and Using Variables</a></li>
-<li><a href="#orgf86dea0">Section 2.5: Arrays</a></li>
+<li><a href="#orgf0894f6">Section 2.1: Statements &amp; Comments</a></li>
+<li><a href="#org2caa4b4">Section 2.2: Variables</a></li>
+<li><a href="#org7ac86d3">Section 2.3: Data Types</a></li>
+<li><a href="#org0ae5696">Section 2.4: Naming Variables and Using Variables</a></li>
+<li><a href="#org19e598a">Section 2.5: Arrays</a></li>
+<li><a href="#org859b0ad">Section 2.6: Expressions &amp; Operators</a></li>
 </ul>
 </li>
-<li><a href="#org79564dc">Keywords</a></li>
-<li><a href="#orgacfba66">Questions</a></li>
-<li><a href="#orgb8fda47">Summary</a></li>
+<li><a href="#orgcb16fbc">Keywords</a></li>
+<li><a href="#org9532e70">Questions</a></li>
+<li><a href="#org7ce48ab">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0dac221" class="outline-2">
-<h2 id="org0dac221">Navigation</h2>
-<div class="outline-text-2" id="text-org0dac221">
+<div id="outline-container-orgfe5af74" class="outline-2">
+<h2 id="orgfe5af74">Navigation</h2>
+<div class="outline-text-2" id="text-orgfe5af74">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -268,13 +269,13 @@
 </div>
 </div>
 
-<div id="outline-container-orge3df11f" class="outline-2">
-<h2 id="orge3df11f">Notes</h2>
-<div class="outline-text-2" id="text-orge3df11f">
+<div id="outline-container-org35d3305" class="outline-2">
+<h2 id="org35d3305">Notes</h2>
+<div class="outline-text-2" id="text-org35d3305">
 </div>
-<div id="outline-container-org5587fb5" class="outline-3">
-<h3 id="org5587fb5">Section 2.1: Statements &amp; Comments</h3>
-<div class="outline-text-3" id="text-org5587fb5">
+<div id="outline-container-orgf0894f6" class="outline-3">
+<h3 id="orgf0894f6">Section 2.1: Statements &amp; Comments</h3>
+<div class="outline-text-3" id="text-orgf0894f6">
 <ul class="org-ul">
 <li>A script is a series of instructions that a computer can follow one-by-one</li>
 <li>Each individual instruction or step is known as a statement</li>
@@ -289,9 +290,9 @@
 </div>
 </div>
 
-<div id="outline-container-org8697b1d" class="outline-3">
-<h3 id="org8697b1d">Section 2.2: Variables</h3>
-<div class="outline-text-3" id="text-org8697b1d">
+<div id="outline-container-org2caa4b4" class="outline-3">
+<h3 id="org2caa4b4">Section 2.2: Variables</h3>
+<div class="outline-text-3" id="text-org2caa4b4">
 <ul class="org-ul">
 <li>Scripts need to store information to do its job and this information is stored in variables</li>
 <li>Variables will be forgotten once the browser leaves the page</li>
@@ -312,9 +313,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgddc5043" class="outline-3">
-<h3 id="orgddc5043">Section 2.3: Data Types</h3>
-<div class="outline-text-3" id="text-orgddc5043">
+<div id="outline-container-org7ac86d3" class="outline-3">
+<h3 id="org7ac86d3">Section 2.3: Data Types</h3>
+<div class="outline-text-3" id="text-org7ac86d3">
 <ul class="org-ul">
 <li>JavaScript distinguishes between numbers, strings, and booleans (true or false)</li>
 <li>The numeric data type handles numbers (positive, negative, and decimals</li>
@@ -330,9 +331,9 @@
 </div>
 </div>
 
-<div id="outline-container-org77a7b92" class="outline-3">
-<h3 id="org77a7b92">Section 2.4: Naming Variables and Using Variables</h3>
-<div class="outline-text-3" id="text-org77a7b92">
+<div id="outline-container-org0ae5696" class="outline-3">
+<h3 id="org0ae5696">Section 2.4: Naming Variables and Using Variables</h3>
+<div class="outline-text-3" id="text-org0ae5696">
 <ul class="org-ul">
 <li>There are six rules to follow when giving a variable a name:
 <ol class="org-ol">
@@ -392,15 +393,113 @@ cost = 1;
 </div>
 </div>
 
-<div id="outline-container-orgf86dea0" class="outline-3">
-<h3 id="orgf86dea0">Section 2.5: Arrays</h3>
+<div id="outline-container-org19e598a" class="outline-3">
+<h3 id="org19e598a">Section 2.5: Arrays</h3>
+<div class="outline-text-3" id="text-org19e598a">
+<ul class="org-ul">
+<li>An array is a special type of variable, it doesn't just store onve value but stores a list of values</li>
+<li>Arrays are good when working with a list or a set of values that are related to each other</li>
+<li>Arrays are helpful when you do not know how many items a list will contain because when you create the array you do not need to specify how many values it will hold</li>
+<li>Arrays make more sense than creating multiple single variables which you might create more or less than you actually need</li>
+<li><p>
+To create an array you use the <code>var</code> keyword and give it a name and the values are assigned to the array inside a pair of square brackets separated by a comma like the following:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">var colors;
+colors = ["white", "black", "brown"];
+
+var arry = [10, "hello", false];
+
+var fruits = new Array("apple", "banana", "mango");
+</pre>
+</div></li>
+
+<li>The arrays do not need to hold values of the same data type, it can be strings, numbers, booleans, etc.</li>
+<li>Using the square brackets is an array literal or you can create an array object using the <code>new</code> keyword</li>
+<li>According to the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new">Mozilla Web Docs</a> the <code>new</code> operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function</li>
+<li>To access the values of the array, think of it as a numbered list, where the first value is at position 0, each value has a number called an index (it starts at 0)</li>
+<li>To access a value in the array it would be something like: <code>var firstFruit = fruits[0];</code></li>
+<li>Each array has a property called length which holds the number of items in the array and it can be accessed like the following: <code>var numFruits = fruits.length;</code></li>
+<li><code>length</code> is a property of array and the <code>.</code> is a member access operator which can access properties of the object, we discussed this topic in the previous chapter</li>
+<li>You can change array values by selecting the value and assigning it a new value just as you would any other variable like so: <code>fruits[0] = "orange";</code></li>
+<li>After changing it, "apple" no longer exists and if you access <code>fruits[0]</code> you will get "orange"</li>
+</ul>
 </div>
 </div>
 
+<div id="outline-container-org859b0ad" class="outline-3">
+<h3 id="org859b0ad">Section 2.6: Expressions &amp; Operators</h3>
+<div class="outline-text-3" id="text-org859b0ad">
+<ul class="org-ul">
+<li>An expression evaluates into or results in a single value, broadly speaking there are two types of expressions
+<ol class="org-ol">
+<li>Expressions that just assign a value to a variable ( <code>var fruit = "mango"</code> ) before you assign a value to the variable (but it is already created) it has a value of <code>undefined</code> (<code>undefined</code> is a data type)</li>
+<li>Expressions that use two or more values to return a single value, basically you can perform operations on any number or individual values to determine a single value ( <code>var area = 3 * 2;</code> or <code>var name = "John" + "Doe"</code> )</li>
+</ol></li>
+<li>Expressions rely on things called operators; they allow programmers to create a single value from one or more values (these are only a certain type of operators, there are other operators for different purposes like the member access operator which doesn't create a single value from one or more values)</li>
+<li>The operators that create a value from one or more values are only the assignment operator, arithmetic operator, string operators, comparison operators, and logical operators</li>
+</ul>
 
-<div id="outline-container-org79564dc" class="outline-2">
-<h2 id="org79564dc">Keywords</h2>
-<div class="outline-text-2" id="text-org79564dc">
+<div class="org-src-container">
+<pre class="src src-JavaScript">// Assignment Operator
+var fruit = "mango";
+
+// Arithmetic Operators
+var add = 1 + 2;
+var sub = 1 - 2;
+var mul = 1 * 2;
+var div = 1 / 2;
+var mod = 1 % 2;
+var exp = 1 ** 2;
+var one = 1;
+
+// inc
+one++;
+
+// dec
+dec--;
+
+// String Operators
+var name = "John" + " " + "Doe";
+
+// Comparison Operator
+var isGreater = 3 &gt; 5;
+
+// Logical Operator
+var isTrue = (5 &gt; 3) &amp;&amp; (2 &lt; 4)
+
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Remember arithmetic precedence in math class, the same applies here, multiplication and division are applied first and then addition and substraction</li>
+<li>You can use parentheses to change order of which operation performs first</li>
+<li>For strings, there is only one string operator <code>+</code></li>
+<li>The <code>+</code> operator is used to join strings on either side of it</li>
+<li>Joining together two or more strings to create one new string is called concatenation</li>
+<li>You can add numbers to strings but the result will be a string and the number will become part of the string</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">var streetNum = 123;
+var streetName = "1st";
+var address = streetNum + " " + streetName; // 123 1st
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>If you try to use any of the other arithmetic operators on a string then the value that results is usually a value called NaN (not a number)</li>
+<li>NaN also results in indetermine mathematical operation such as dividing by zero</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcb16fbc" class="outline-2">
+<h2 id="orgcb16fbc">Keywords</h2>
+<div class="outline-text-2" id="text-orgcb16fbc">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -425,12 +524,12 @@ cost = 1;
 </div>
 </div>
 
-<div id="outline-container-orgacfba66" class="outline-2">
-<h2 id="orgacfba66">Questions</h2>
+<div id="outline-container-org9532e70" class="outline-2">
+<h2 id="org9532e70">Questions</h2>
 </div>
 
-<div id="outline-container-orgb8fda47" class="outline-2">
-<h2 id="orgb8fda47">Summary</h2>
+<div id="outline-container-org7ce48ab" class="outline-2">
+<h2 id="org7ce48ab">Summary</h2>
 </div>
 </div>
 </body>

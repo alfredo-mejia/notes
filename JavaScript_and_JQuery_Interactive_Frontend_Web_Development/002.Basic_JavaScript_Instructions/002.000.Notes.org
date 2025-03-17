@@ -164,7 +164,33 @@
      
    #+END_SRC
 
-  -- 
+   - Remember arithmetic precedence in math class, the same applies here, multiplication and division are applied first and then addition and substraction
+   - You can use parentheses to change order of which operation performs first
+   - For strings, there is only one string operator ~+~
+   - The ~+~ operator is used to join strings on either side of it
+   - Joining together two or more strings to create one new string is called concatenation
+   - You can add numbers to strings but the result will be a string and the number will become part of the string
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     var streetNum = 123;
+     var streetName = "1st";
+     var address = streetNum + " " + streetName; // 123 1st
+   #+END_SRC
+
+   - If you try to use any of the other arithmetic operators on a string then the value that results is usually a value called NaN (not a number)
+   - NaN also results in indetermine mathematical operation such as dividing by zero
+
+** Section 2.7: Chapter Exercise
+   - In this book I am going to try and do something different
+   - Instead of trying to mimic or copy what the author has done, I am going to understand what the author is doing and then do my own version
+   - I feel like this is a better approach to learning than simply mimicing the author
+   - So this project has the following requirements:
+     1. Get user's name
+     2. Get custom sign the user wants to do
+     3. User finished
+     4. Display custom message with user's name
+     5. Show breakdown, the sign, how many tiles, subtotal, shipping, and grand total
      
 * Keywords
 | Term | Definition |
