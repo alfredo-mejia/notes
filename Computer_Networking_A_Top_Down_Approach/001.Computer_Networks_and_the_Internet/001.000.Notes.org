@@ -1,0 +1,26 @@
+#+title: Chapter 1: Computer Networks & the Internet
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+| Nav   | Title                                    | Links                                   |
+|-------+------------------------------------------+-----------------------------------------|
+| Index | Notes Home                               | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | Computer Networking: A Top Down Approach | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Computer_Networking_A_Top_Down_Approach][github]] \vert |
+| Prev  |                                          |                                         |
+| Next  | Chapter 2: Application_Layer             | \vert [[file:../002.Application_Layer/002.000.Notes.html][html]] \vert [[file:../002.Application_Layer/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Computer_Networking_A_Top_Down_Approach/002.Application_Layer][github]] \vert |
+
+* Notes
+
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*:
+
+* Summary
+
+* Resources
