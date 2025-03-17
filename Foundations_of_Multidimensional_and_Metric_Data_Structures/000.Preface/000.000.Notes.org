@@ -1,0 +1,26 @@
+#+title: Chapter 0: Preface
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+| Nav   | Title                                                      | Links                                   |
+|-------+------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                 | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | Foundations of Multidimensional and Metric Data Structures | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Foundations_of_Multidimensional_and_Metric_Data_Structures][github]] \vert |
+| Prev  |                                                            |                                         |
+| Next  | Chapter 1: Multidimensional Point Data                     | \vert [[file:../001.Multidimensional_Point_Data/001.000.Notes.html][html]] \vert [[file:../001.Multidimensional_Point_Data/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Foundations_of_Multidimensional_and_Metric_Data_Structures/001.Multidimensional_Point_Data][github]] \vert |
+
+* Notes
+
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*:
+
+* Summary
+
+* Resources
