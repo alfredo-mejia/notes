@@ -126,5 +126,6 @@
   - *Q*: What are resources in OCI and what are services in OCI?
   - *Q*: What is a public subnet?
   - *Q*: What is an internet gateway?
+  - *Q*: What is an compartment in OCI?
 
 * Summary
