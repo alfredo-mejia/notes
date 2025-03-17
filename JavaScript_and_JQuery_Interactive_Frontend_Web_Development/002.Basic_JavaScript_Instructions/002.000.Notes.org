@@ -61,7 +61,111 @@
      4. All variables are case sensitive so ~score~ and ~Score~ are different variable names but it would be a very bad idea to create two variables with the same name but different casing
      5. Use a name that describes the kind of information that the variables store
      6. If your variable name is made up of more than one word, use a capital letter for the first letter of every word after the first word which is called camelCase, for example ~firstName~ notice how "name" is captialized and not "first"
+   - Using number variables: ~var cost = 5;~
+   - Using string variables: ~var name = "John"~
+   - Using quotes in string variables: ~var name = "John \"Doe\""~
+   - You use backwards slash (~\~) or backslash before any type of quote mark that appears within a string, the backslash tells the interpreter that the following character is part of the string
+   - Using boolean variables: ~var isInStock = false;~, useful to take different code paths in the script
+   - Different ways to declare variables:
 
+     #+BEGIN_SRC JavaScript
+       // 1
+       var cost = 5;
+       var quantity = 5;
+
+       // 2
+       var cost;
+       var quantity;
+       cost = 5;
+       quantity = 5;
+
+       // 3
+       var cost, quantity;
+       cost = 5;
+       quantity = 5;
+
+       // 4
+       var cost = 5, quantity = 5, isInStock = false;
+     #+END_SRC
+     
+   - It is best to make your code legible so declaring different variables on separate lines is better because it makes your code easier to read
+   - You can assign a new value to the variable even after it has been initialized basically changing what is stored in the variable later
+   - You use the assignment operator (~=~) to assign new values to the variables
+   - For example:
+
+     #+BEGIN_SRC JavaScript
+       var cost = 5;
+
+       // Some code
+
+       cost = 1;
+     #+END_SRC
+
+** Section 2.5: Arrays
+   - An array is a special type of variable, it doesn't just store onve value but stores a list of values
+   - Arrays are good when working with a list or a set of values that are related to each other
+   - Arrays are helpful when you do not know how many items a list will contain because when you create the array you do not need to specify how many values it will hold
+   - Arrays make more sense than creating multiple single variables which you might create more or less than you actually need
+   - To create an array you use the ~var~ keyword and give it a name and the values are assigned to the array inside a pair of square brackets separated by a comma like the following:
+
+     #+BEGIN_SRC JavaScript
+       var colors;
+       colors = ["white", "black", "brown"];
+
+       var arry = [10, "hello", false];
+
+       var fruits = new Array("apple", "banana", "mango");
+     #+END_SRC
+
+   - The arrays do not need to hold values of the same data type, it can be strings, numbers, booleans, etc.
+   - Using the square brackets is an array literal or you can create an array object using the ~new~ keyword
+   - According to the [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new][Mozilla Web Docs]] the ~new~ operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function
+   - To access the values of the array, think of it as a numbered list, where the first value is at position 0, each value has a number called an index (it starts at 0)
+   - To access a value in the array it would be something like: ~var firstFruit = fruits[0];~
+   - Each array has a property called length which holds the number of items in the array and it can be accessed like the following: ~var numFruits = fruits.length;~
+   - ~length~ is a property of array and the ~.~ is a member access operator which can access properties of the object, we discussed this topic in the previous chapter
+   - You can change array values by selecting the value and assigning it a new value just as you would any other variable like so: ~fruits[0] = "orange";~
+   - After changing it, "apple" no longer exists and if you access ~fruits[0]~ you will get "orange"
+
+** Section 2.6: Expressions & Operators
+   - An expression evaluates into or results in a single value, broadly speaking there are two types of expressions
+     1. Expressions that just assign a value to a variable ( ~var fruit = "mango"~ ) before you assign a value to the variable (but it is already created) it has a value of ~undefined~ (~undefined~ is a data type)
+     2. Expressions that use two or more values to return a single value, basically you can perform operations on any number or individual values to determine a single value ( ~var area = 3 * 2;~ or ~var name = "John" + "Doe"~ )
+   - Expressions rely on things called operators; they allow programmers to create a single value from one or more values (these are only a certain type of operators, there are other operators for different purposes like the member access operator which doesn't create a single value from one or more values)
+   - The operators that create a value from one or more values are only the assignment operator, arithmetic operator, string operators, comparison operators, and logical operators
+
+   #+BEGIN_SRC JavaScript
+     // Assignment Operator
+     var fruit = "mango";
+
+     // Arithmetic Operators
+     var add = 1 + 2;
+     var sub = 1 - 2;
+     var mul = 1 * 2;
+     var div = 1 / 2;
+     var mod = 1 % 2;
+     var exp = 1 ** 2;
+     var one = 1;
+
+     // inc
+     one++;
+
+     // dec
+     dec--;
+
+     // String Operators
+     var name = "John" + " " + "Doe";
+
+     // Comparison Operator
+     var isGreater = 3 > 5;
+
+     // Logical Operator
+     var isTrue = (5 > 3) && (2 < 4)
+     
+   #+END_SRC
+
+  -- 
+     
 * Keywords
 | Term | Definition |
 |------+------------|

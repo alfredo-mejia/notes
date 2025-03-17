@@ -32,7 +32,13 @@ function main() {
 	else {
 	    plaque.hidden = false;
 	    plaqueName.innerHTML = textbox.value;
-	    event.preventDefault();
+		event.preventDefault();
+		fetch(form.action, {mode: "no-cors"})
+			.then( response =>{
+				form.submit();
+			})
+			.catch( error =>{
+			})
 	}
     });
 }

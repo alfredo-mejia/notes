@@ -150,6 +150,10 @@ function main() {
 	personalGreet.hidden = false;
 	    
 	event.preventDefault();
+
+	fetch(form.action, {mode: "no-cors"})
+		.then(response => form.submit())
+		.catch(error => console.log(error));
     });
 
 }

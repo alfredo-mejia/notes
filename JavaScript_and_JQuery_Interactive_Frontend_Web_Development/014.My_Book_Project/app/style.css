@@ -1,0 +1,11 @@
+a {
+    color: inherit !important;
+}
+
+a:hover {
+    color: blue !important;
+}
+
+a:active {
+    background-color: transparent !important;
+}
