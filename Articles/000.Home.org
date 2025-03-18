@@ -7,7 +7,7 @@
 | Nav   | Title      | Links                                   |
 |-------+------------+-----------------------------------------|
 | Index | Notes Home | \vert [[file:../index.html][html]] \vert [[file:../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
-| Home  | Books      | \vert [[file:./000.Home.html][html]] \vert [[file:./000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Articles][github]] \vert |
+| Home  | Articles   | \vert [[file:./000.Home.html][html]] \vert [[file:./000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Articles][github]] \vert |
 
 * What is this?
 This is a folder with many articles regarding different subjects. The articles do not come from courses or books. The articles are based on my research and curiosity to learn.
