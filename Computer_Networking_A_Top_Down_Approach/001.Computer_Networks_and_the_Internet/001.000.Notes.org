@@ -13,6 +13,19 @@
 
 * Notes
 
+** Section 1.0: Introduction
+   - The internet largest network engineered by mankind
+   - The internet is a network of networks
+   - Is possible to understand such complexity? YES! It is possible
+
+** Section 1.1: What is the Internet?
+   - When talking about the internet, we refer to the public interent
+   - The internet can be described as the basic hardware and software components (the nuts & bolts of the internet)
+   - You can also describe the internet in terms of a networking infrastructure that provides services to distributed applications
+
+*** Section 1.1.1: A Nuts and Bolts Description
+    - 
+     
 * Keywords
 | Term | Definition |
 |------+------------|
