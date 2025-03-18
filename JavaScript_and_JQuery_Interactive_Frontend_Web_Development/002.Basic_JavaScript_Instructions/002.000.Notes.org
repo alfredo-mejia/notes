@@ -102,7 +102,7 @@
      #+END_SRC
 
 ** Section 2.5: Arrays
-   - An array is a special type of variable, it doesn't just store onve value but stores a list of values
+   - An array is a special type of variable, it doesn't just store one value but stores a list of values
    - Arrays are good when working with a list or a set of values that are related to each other
    - Arrays are helpful when you do not know how many items a list will contain because when you create the array you do not need to specify how many values it will hold
    - Arrays make more sense than creating multiple single variables which you might create more or less than you actually need
@@ -192,12 +192,47 @@
      4. Display custom message with user's name
      5. Show breakdown, the sign, how many tiles, subtotal, shipping, and grand total
    - [[file:./002.007.Chapter_Exercise/index.html][Here is my Ch.2 Exercise]]
-       
+
+** Section 2.8: Summary
+   - A script is made up of a series of statements and each statement is like a step in a recipe
+   - Scripts contain very precise instructions (e.g. store variables and perform calculations)
+   - Variables are used to temporarily store pieces of infomration used in the script
+   - Arrays are special types of variables that store more than one piece of related information
+   - JavaScript distinguishes between numbers (0-9), strings (text), and Boolean values (true or false)
+   - Expressions evaluate into a single value
+   - Expressions rely on operators to calculate a value
+     
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term           | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Variable Scope | Variable scope depends on what you use ~var~, ~const~, or ~let~. ~var~ has function scope thus any variables declared anywhere in the function can be used anywhere else (given that it is after it is declared), for example in a loop you might create a variable with ~var~ and could use it outside the loop. ~const~ and ~let~ have block scope thus any variables declared in the block only are accessible within that block and not outside the block. ~const~ you cannot reassign and ~let~ behaves similar to other programming languages such as not being able to reference it before it is declared, you cannot redeclare it, and there are other differences with ~var~ |
+| ~new~ Operator | ~new~ operator is used to create new instances of objects and invoke constructor functions or classes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Expression     | Unit of code that be evaluated or "compute" into a single value (e.g. "Hello", 5 + 5, etc.)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 * Questions
+  - Does the ~new~ operator function the same way as the ~new~ operator in C++?
+    - Both create new objects in the heap
+    - However two notable differences is that in JS you have garbage collection and when objects are no longer referenced then the JS engine will automically clean up memory
+    - In C++, you have to do this manually and use the ~delete~ operator
+    - Another thing is that JS will return the actual object after using the ~new~ operator thus you can easily access the object's members without needing to deference it because it returned the actual object instead of the pointer
+    - In C++, it will return a pointer and you will need to deference to use the pointer
 
 * Summary
+  - A script is a series of instructions that a computer can follow one-by-one
+  - Each instruction or step is known as a statement
+  - Comments are added with ~//~ or a multiline comment starts with ~/*~ and ends with ~*/~
+  - You declare variables using ~var~, ~let~, and ~const~ and use an assignment operator to assign a value to the variable
+  - You do not need to specify the data type to the variable
+  - The scope of variables depends on how it was created, ~var~ has function scope, and ~let~ and ~const~ have block scope
+  - Although you don't need to explicitly state the data types when creating variables, JS does have data types such as numeric data, strings, boolean, undefined, and null
+  - To name a variable it must begin with a letter, dollar sign, or an underscore, can only include letters, numbers, dollar sign, and underscore, it cannot contain dash or period, the name cannot be a reserved word or keyword, and try to use the convention of camelCase
+  - To special characters you can always escape the character using a backslash to tell the interpreter the following is part of the string and not something else
+  - An array is a special type of variable that can store a list of values
+  - To create an array it is very similar creating variables but in the assignment you use square brackets and insert the list of values separated by commas
+  - You can also use the ~new~ operator and the ~Array~ object to create arrays
+  - You can always add or remove elements to the array later
+  - An expression evluates into or results in a single value
+  - There are many things that are considered expressions such as string literals, boolean literals, and numeric literals
+  - But also there are operators that are expressions as well such as the assignment operator, arithmetic operators, string operators, comparison operators, and logical operators (all of these result in one value)
+  - Each operator has certain rules such as you cannot be multiply a string and a number
+  
