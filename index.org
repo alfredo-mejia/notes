@@ -25,6 +25,7 @@ Depending on how you are navigating my notes (html, org, or Github) you can clic
 * Folders
 | Title                                                            | Author                          | HTML | ORG | GitHub | Status      |
 |------------------------------------------------------------------+---------------------------------+------+-----+--------+-------------|
+| Articles                                                         |                                 | [[file:./Articles/000.Home.html][html]] | [[file:./Articles/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Articles][github]] | N/A         |
 | Books                                                            |                                 | [[file:./Books/000.Home.html][html]] | [[file:./Books/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Books][github]] | N/A         |
 | College Algebra                                                  | Ron Larson & Robert Hostetler   | [[file:./College_Algebra/000.Home.html][html]] | [[file:./College_Algebra/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/College_Algebra][github]] | Archived    |
 | Computer Networking: A Top-Down Approach                         | James F. Kurose & Keith W. Ross | [[file:./Computer_Networking_A_Top_Down_Approach/000.Home.html][html]] | [[file:./Computer_Networking_A_Top_Down_Approach/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Computer_Networking_A_Top_Down_Approach][github]] | In-Progress |
