@@ -191,7 +191,8 @@
      3. User finished
      4. Display custom message with user's name
      5. Show breakdown, the sign, how many tiles, subtotal, shipping, and grand total
-     
+   - [[file:./002.007.Chapter_Exercise/index.html][Here is my Ch.2 Exercise]]
+       
 * Keywords
 | Term | Definition |
 |------+------------|

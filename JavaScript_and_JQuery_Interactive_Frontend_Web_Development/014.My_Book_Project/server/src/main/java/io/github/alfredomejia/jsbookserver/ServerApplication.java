@@ -33,4 +33,18 @@ public class ServerApplication {
         System.out.println("Received time: " + time);
         return "Received name: " + time;
     }
+
+    @GetMapping("/ch2/1")
+    public String ch2_1(@RequestParam(value = "name", defaultValue = "") String name,
+                        @RequestParam(value = "sign", defaultValue="") String sign) {
+
+        if (name.isEmpty() || sign.isEmpty()) {
+            return "Server cannot process empty name/sign";
+        }
+
+        System.out.println("Received name: " + name);
+        System.out.println("Received sign: " + sign);
+
+        return "Received name: " + name + "\nReceived Sign: " + sign;
+    }
 }
