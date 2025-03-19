@@ -11,7 +11,76 @@
 
 * What is Docker?
 
-** Overview
+** History: Before VMs & Containers
+One might ask the question, how did people deploy applications before VMs and containers? Before, people and companies would deploy their applications on a bare server.
+This means companies would first have to order the server (hardware), then install an OS in the server, install any dependencies it needs, compile the source code of the application on the server, and run the application on the server.
+These servers would be inside an on-premise data center.
+Typically, only one application would run on one server. As operating systems advanced, companies would start to run multiple applications on one server relying heavily on the OS resource management, multi-tasking, and process isolation capabilities.
+However, there are drawbacks to running multiple applications on one server and it was often done with specific configurations and considerations.
+This is why it was more common to have one server dedicated to run that one application. For example, one server would be for web hosting, another server for the database, and another server for the email service.
+Let's talk about the challenges of running an application on a bare server and why running multiple applications on one server would be considered a bad idea.
+
+*** One Server One Application
+One server would be dedicated to running one application.
+That sounds reasonable but what are the drawbacks? The first major drawback is that it is time-consuming.
+For example, let's say you develop another application, this means you would have to order a server, buy a license for an OS, install any dependencies, compiling the source code, and finally running the source code. This takes time but new technologies emerged to easily setup and configure bare servers but this still was not enough.
+
+The second major drawback was money.
+A single application would not be able to fully use all of the server's resources so some resources will be left unused resulting in inefficiency and a waste of money.
+Then scaling would be costly for single application running on a bare server.
+Let's say you want to scale your application, you can upgrade the server's hardware but that will only take you so far with the performance and cost.
+Another solution would be adding servers.
+So then you would have order a new batch of servers, configure them, compile and run. This would cost a lot of money, and in addition, each application would be underutilizing the server's resources leading to a loss of money. 
+You would also have to order servers for your development team to have a testing environment with the same dependencies and configurations as the prod environment.
+Then if you were to upgrade your application, you would have to ensure it works on the prod environment and the configurations are consist throughout your servers.
+This seems like a lot of work for something that is inefficient and costly.
+
+*** One Server Multiple Applications
+One might assume it would just be smarter to run multiple applications on one server.
+Although the idea would be the precursor to VMs and containers, there are many drawbacks to this idea as well.
+One of the drawbacks is that most applications running in the same bare server relied on the OS resource management capabilites.
+Up to this point, there were no way to allocate resources for each application and no resource isolation.
+This means one application may consume all the resources while leaving the other application locked for contention causing the application to be slow or even crash.
+In addition, without resource isolation each application could compete for resources but most importantly it was a security risk.
+An application may be able to interfere with the other application's resources.
+
+Another issue with running multiple applications in the same server are dependency conflicts.
+One application may require a library with the newest version and the other application may require the same library with the older version.
+These can lead to dependencies conflicts and errors.
+
+As previously mentioned this could also pose a security risk. Since there is no resource isolation one application can maliciously affect all applications running.
+It was harder to maintain and upgrade because let's say we want to upgrade application A with a new version of libraries but application B uses the old version of libraries.
+This could lead to dependency conflicts as previously discussed.
+
+Scalability becomes harder as well.
+Scalability of a single application on a bare server is hard in itself due to the configurations but now imagine two applications with their configurations and own dependencies.
+
+Finally, the last issue is fault tolerance.
+If an application crashes and dies since there is no isolation between applications it could potentially affect the other applications running on the bare server.
+Or if the actual hardware were to fail then all applications would come down.
+So we need to scale horizontally to introduce fault tolerance and redundancy but with this setup it is difficult to do so.
+This is where virtual machines (VMs) are introduced.
+
+** Virtual Machines
+According to [[https://www.redhat.com/en/topics/virtualization/what-is-a-virtual-machine][Red Hat]] a VM "is a computing environment that functions as an isolated system with its own CPU, memory, network interface, and storage, created from a pool of hardware resources".
+What does that mean? It means that a VM simulates a working operating system on top of some virtual hardware.
+This means a VM has an OS working with a virtual CPU, virtual memory, virtual storage.
+The virtual hardware shares physical hardware with other VMs.
+The great thing about this is that as far as the OS and all applications running on the VM are concerned, they are utilizing physical hardware resources.
+In addition, one server can hold multiple VMs and each VM is isolated and could be running a completely different OS than the other VMs.
+
+What's the benefit of this?
+
+
+
 
 * Resources
+https://medium.com/@suryasaravanan2002/history-of-how-deployment-used-to-work-how-containerization-revolutionized-it-da785f4573ca#:~:text=In%20the%20early%20days%20of,of%20deployment%20that%20was%20used
 
+https://www.vmware.com/topics/virtual-machine
+
+https://www.redhat.com/en/topics/virtualization/what-is-a-virtual-machine
+
+https://www.youtube.com/watch?v=eyNBf1sqdBQ
+
+https://www.youtube.com/watch?v=0qotVMX-J5s
