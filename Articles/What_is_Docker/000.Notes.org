@@ -69,10 +69,151 @@ The virtual hardware shares physical hardware with other VMs.
 The great thing about this is that as far as the OS and all applications running on the VM are concerned, they are utilizing physical hardware resources.
 In addition, one server can hold multiple VMs and each VM is isolated and could be running a completely different OS than the other VMs.
 
-What's the benefit of this?
+*** How does VMs work?
+VMs run a OS through a simulation of hardware. This is taken care of by the hypervisor.
+The hypervisor acts as the middle man between the VMs and the actual hardware.
+The hypervisor is in charge whenever a VM is using some virtual resource it needs to allocate that resource to some actual physical resource.
+There are two types of hypervisors: type 1 and type 2. Type 1 hypervisor runs on the bare server meaning it runs on the host's physical hardware. Type 1 hypervisor does not need an OS to run and can access the hardware directly. Type 2 hypervisor runs on top of an OS. It uses the OS access to the hardware to virtualize VMs. 
+Type 1 is considered more secure and more efficient than type 2, but type 1 is harder to install and manage.
+Each type of hypervisor has its pros and cons.
 
+*** What's the benefit of VMs
+There are many benefits to using VMs. One of them is resource allocation and isolation.
+Let's say you have 3 VMs in one server. Then you can allocate each VM a third of the physical hardware.
+As far as the VMs are concerned, they can use 100% of the resource allocated to them without seizing resources of over VMs.
+This is beneficial because before one application might need a lot of resources but this won't affect the other VMs to fight for contention because all resources have been allocated.
+Another benefit is resource isolation. If a VM has been compromised or crashes, only the resources allocated to that VM will be affected.
+The VMs will not be affected because each of their resources are isolated from one and another.
+With resource allocation and resource isolation it provides efficiency use of the server because now all the servers resources are being used, each VM and their application it runs are secure, and thus you can run multiple applications in a single server efficiently and securely saving lots of money.
 
+VMs are less time-consuming as well. With VMs, you can clone, snapshot, or make VM image to be able to quickly replicate the VM configurations. This is a time-saver because whenever you need to create another VM for application you can simply take your initial VM image and create a VM in the same server, in a different server, or in a developer's workstation.
+The VM image will ensure it has the same configurations as your production environment.
+Thus you can ensure there are less bugs, less dependencies conflicts, and ensure your developers are developing and testing in the same configured environment as the prod environment.
+Plus VMs are easy to take snapshots and revert back to old versions.
+So let's say we are going to update an application. We take a snapshot of the current VM's state.
+Then we develop on our developer environment which should have the same configurations as the prod environment.
+We develop a new VM image. This VM image can then be used on prod environments to ensure consistency throughout the developer environment all the way to the prod environment.
+Now let's say something is wrong with the prod environment then with your VM snapshot you can revert back to the snapshot.
+VMs save money and time compared to running an application on a bare server.
 
+*** Drawbacks of VMs
+The biggest drawbacks of VMs are the heavy-load of resources.
+Companies always wants more efficiency. VMs are great for resource allocation and resource isolation but is it the most efficient way to achieve that?
+The answer is no.
+
+Each VM needs an OS that means if you have 5 VMs running on a server then you will need 5 OSes installed on the computer even if your application running on the VM are lightweight.
+That means your server will require lots of resources for those 5 VMs to run.
+OSes are always heavy and bloated so having multiple running in the same server requires an extensive use of hardware resources.
+This means if you wanted to add more VMs to your server you wouldn't be able to because VMs are heavy require a lot of CPU and a lot of disk space.
+So you have to allocate a fair amount of resources for each VM so that each VM can run smoothly otherwise the VM will be slow or even crash.
+Thus, if a company wants to put as much VMs into a single server then that company won't get too far because of how heavy each VM is.
+
+Another issue with VMs is that they do not share unused resources. For example, let's say I have 3 VMs. Those 3 VMs have their allocated resources. Two of the VMs are basically idle and their resources are left unused.
+The third VM is using 100% of its resources. Ideally it would be great if the 3rd VM used the unused resources of VMs 1 and 2. Then whenever VM 1 and VM 2 need their resources they pull it back from VM 3 and continue with their resource limit and isolation. Or what if we have resources that were not allocated to any VM. It would be great for all the VMs to use the resources as a on-need basis.
+Thus VMs do not utilize resources as efficiently as it can be. If one VM is not using the their resources and another VM is then you are left with some resources being left unused. Because of that a company might need another server due reduce workload when if resources were utilized efficiently that would not need to be required. People and companies do not want that. They want to be the most efficient. They want to get most bang for their buck. So they want their computer and server to utilize all their resources efficiently. Although VMs allow for resource allocation and resource isolation, it is not the most efficient when deploying applications.
+
+In the end, VMs have their pros and cons. VMs are great solutions in certain situations but for applications containers are often used when deploying applications.
+
+** Containerization
+According to [[https://www.ibm.com/think/topics/containerization][IBM]] "containzeration is the packaging of software code with just the operating system libraries and dependencies required to run the code to create a single lightweight executable called a container that runs consistently on any infrastructure".
+This means a container is all the files, libraries, and executables for the application to run, without the OS.
+It packages all the libaries and dependencies of the OS without the actual OS. This makes containers much more lightweight than VMs.
+
+*** How do containers work?
+So containers are isolated environments. Containers package all you need to run such as the application code, dependencies, OS libraries, configurations files, and anything else into something called a container image.
+The container image has all the information needed to create your application.
+The container image knows your application code, all the configurations, libraries it uses, and dependencies it needs.
+
+Each container only has what it needs but it does not have an operating system. It could contain the libraries of an OS like Ubuntu libraries but the actual OS is not present in a container making containers very lightweight.
+
+So how does it run the application? It uses the host system's kernel. There may be multiple containers running on the same host thus all containers will share the system's kernel. This means we only have one operating system in our host system on which all containers run. Recall that the kernel is the core part of the OS that manages all the system resources. All Linux distros use the same "Linux" kernel with slight variations but many are the same. Containerization only uses the Linux kernel because the Linux kernel offers features like cgroups and namespaces to isolate groups of processes. 
+
+What if we use an Ubuntu library in our container and the host system is Arch?
+Well since our container is isolated from the host and other containers there will be no dependency conflicts.
+In addition, the container will contain the Ubuntu library and any dependencies it has.
+Thus, this library will then make systems calls using the Arch's kernel.
+Since Ubuntu and Arch use the same Linux kernel the system calls made by Ubuntu's libraries should be able to use the host's kernel and thus be able to run and execute their code.
+
+This is why containerzation tools like Docker does not work natively on Mac or Windows.
+This is because containerzation was built on Linux kernel features. So if you have an Ubuntu image and you want to run it on Docker on a Windows or Mac computer you will not be able to without a VM because Mac and Windows do not use the Linux kernel.
+So the system calls made by the Ubuntu libraries will be useless because Mac and Windows kernel will not understand it.
+That is why when running Docker on Mac or Windows, it first creates a Linux VM on which the containers are run. 
+
+Another important aspect of containrization tools are the runtime engines.
+The runtime engines are responsible for lifecycle of containers such as starting, running, pausing, and killing containers.
+The runtime engines are also responsible for managing the containers resources.
+The runtime engine uses namespaces to isolate processes thus making each container run in its own environment and cgroups which allocate and limit resouces for each container.
+The runtime container has other jobs as well such as managing a container network which allows containers to communicate with each other and the host system.
+
+*** Advantages of Containerization
+There are many advantages to containerization.
+The first major benefit is that they are lightweight.
+Unlike the VMs where you need each VM to have an OS to run one application.
+Containers can all share the same Linux kernel, thus each container only needs the libraries, dependencies, configurations, and application code to run the application making them lightweight and efficient.
+
+Containers also have similar benefits to VMs. Each container are isolated from the host and other containers adding security. You can run different base images on different containers within the same host, containers are portable so all the configurations, libraries, and dependencies can be run in a different host making them easy to develop, test, and deploy. With containers you can also support versioning such as reverting back to a version.
+
+However, what makes containers so much better to VMs are their scalability.
+Since containers are lightweight and efficient you can start many more containers in the same server than VMs in a different same-spec server.
+This means you can scale at a better rate for the same cost.
+Another benefit is that with dockers you can be very modular.
+For example, let's say we only have one server with 3 VMs that run the same application.
+We want to make our applications interact with another new application.
+But since VMs are heavy we cannot start a new VM because all of our resources have been taken.
+So what do we do?
+We can make a VM have both applications but we already read the risks of that and that does not allow for great scalability in the future because it is not modular.
+The last option would be to replace one VM for the new application but this will increase the workload on the other 2 VMs.
+With containers we do not have this issue.
+Since containers are lighter we can become modular and create a new container for the new application without having to stop another container running.
+Plus, if we ever need to scale the new application we simply start another container with the new application.
+Thus we can scale our older or newer applications without compromising already running containers.
+
+Finally, the last major benefit is dynamic resource allocation. While many VMs have static resource allocation, for example, VM1 will receive 30% of the resources and that is fixed. It does not matter if VM1 will use all of the resources or none of them, 30% of resources will be allocated to VM1, nothing more nothing less.
+In containerization you can allocate resources to a container but also specify the maximum limit of resources it can use if available.
+This a great way to dynamically allocate resources.
+For example, let's say we have 3 containers and 2 of the containers are idle while the 3rd is using all the resources it has been allocated.
+However, its maximum or limit is higher.
+Then the container will use resources that are not being used from the other two containers.
+In addition, all containers will be able to use resources that is not being used from the host.
+So containers are efficient when it comes to resource allocation because dynamically they can share resources between containers and the host.
+
+*** Disadvantages of Containers
+Containers have a couple cons as well. One of the cons of containers is that they all share the same host kernel which can lead to security issues.
+If the host kernel has some security vulnerability then all containers are exposed to such vulnerability.
+Another issue is the complexity of setting up, scaling, and managing large scale environments with numerous amounts of dockers.
+Containers are stateless and each time they run it behaves like if it were to be run for the first time, this is good in some scenarios, but again it can add complexity when trying to create persistent data.
+
+** Docker
+According to [[https://aws.amazon.com/docker/][Amazon]], Docker is a software platform that allows you to build, test, and deploy applications quickly by packaging software into standardized units called containers that have everything the software needs to run including libraries system tools, code, and runtime.
+
+Docker itself has a lot of tools and uses. One of the tools is containerization so Docker is one of the containerization technologies on the market. There are other containzerization tools in the market like Cloud Foundry but all containerization tools follow a similar process.
+
+First, you create a docker file or a manifest. This docker file describes the steps to build the docker image or container image.
+The docker file will describe all the dependencies, libraries, code, variables, and configurations.
+The whole purpose of the docker file is to describe how to create a docker image.
+So from a docker file you create a docker image. Think of the docker image as a read-only snapshot of a container.
+The image now actually includes the application code, libraries, environment variables, and any other dependency.
+Images are immutable once built.
+If you need to introduce some other library or other code you will need to describe it in the docker file and build the image again.
+From the docker image you can now create as many containers as you would like.
+The containers are actual running instances of the docker image.
+
+So in summary, Docker has many tools to test, build, and deploy applications.
+Docker is a containerization technology that creates and builds containers.
+To create a container in docker it is a 3 step process.
+You first create a docker file.
+A docker file is a build script that has instructions in how to create a docker image.
+The docker file describes all the libraries, variables, and code
+Using the docker file you build the docker image.
+The docker image has the libraries, code, variables, configurations, etc. and docker images are immutable.
+If you need to make changes to the docker image you will need to modify the docker file and build again.
+Using the docker image you can create as many containers as you would like.
+Containers are the actual running instance of the docker image.
+
+Docker has played a huge role on how we deploy applications.
+Now it is time to try out docker for ourselves.
+
+* Using Docker
 
 * Resources
 https://medium.com/@suryasaravanan2002/history-of-how-deployment-used-to-work-how-containerization-revolutionized-it-da785f4573ca#:~:text=In%20the%20early%20days%20of,of%20deployment%20that%20was%20used
@@ -81,6 +222,14 @@ https://www.vmware.com/topics/virtual-machine
 
 https://www.redhat.com/en/topics/virtualization/what-is-a-virtual-machine
 
-https://www.youtube.com/watch?v=eyNBf1sqdBQ
+https://www.techtarget.com/searchitoperations/tip/Whats-the-difference-between-Type-1-vs-Type-2-hypervisor
 
-https://www.youtube.com/watch?v=0qotVMX-J5s
+https://aws.amazon.com/what-is/containerization/
+
+https://www.ibm.com/think/topics/containerization
+
+https://www.youtube.com/watch?v=eyNBf1sqdBQ (Virtual Machines vs Containers by PowerCert Animated Videos)
+
+https://www.youtube.com/watch?v=0qotVMX-J5s (Containerization Explained by IBM Technology)
+
+https://aws.amazon.com/docker/
