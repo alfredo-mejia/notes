@@ -12,6 +12,10 @@
 | Next  | Chapter 1: Multidimensional Point Data                     | \vert [[file:../001.Multidimensional_Point_Data/001.000.Notes.html][html]] \vert [[file:../001.Multidimensional_Point_Data/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Foundations_of_Multidimensional_and_Metric_Data_Structures/001.Multidimensional_Point_Data][github]] \vert |
 
 * Notes
+  - Most common of definition of "multidimensional data" is a collection of points in a higher dimensional space (greater than 1)
+  - These points can represent locations and objects in space as well as more general records where each attribute (field) corresponds to a dimension and only some, or even none, of the attributes are locational
+  - Spatial multidimensional data is generally of relatively low dimension, however there are many application domains where the data is of considerably higher dimensionality and is not necessarily spatial
+  - 
 
 * Keywords
 | Term | Definition |
@@ -19,7 +23,7 @@
 |      |            |
 
 * Questions
-  - *Q*:
+  - *Q*: What is locational data?
 
 * Summary
 
