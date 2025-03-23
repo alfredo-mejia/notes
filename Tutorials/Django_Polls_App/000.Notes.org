@@ -7,6 +7,29 @@
 | Nav   | Title      | Links                                   |
 |-------+------------+-----------------------------------------|
 | Index | Notes Home | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
-| Home  | Tutorials   | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Tutorials][github]] \vert |
+| Home  | Tutorials  | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Tutorials][github]] \vert |
 
 * Django Polls App
+I'm going to be following the [[https://docs.djangoproject.com/en/5.1/intro/tutorial01/][documentation tutorial]].
+I'm not going to write everything down.
+I am only going to write topics that will help me understand or topics that I think it is important.
+
+** Create the Project
+   - Download python
+   - Download Django
+   - Start a Django project using ~django-admin~
+   - ~manage.py~: let's you interact with the Django project
+   - ~<name_of_proj_dir>~: directory of actual project
+   - ~settings.py~: settings & configurations for the Django project
+   - ~urls.py~: URL declarations for the Django project
+   - ~asgi.py~: entry point for ASGI-compatible web servers to serve your project
+   - ~wsgi.py~: entry point for WSGI-compatible web servers to serve your project
+   - Start the development server
+   - The server automatically reloads Python code for each code change
+
+** Create the Polls App
+   - Each application you write in Django consists of a Python package that follows a certain convention
+   - Django comes with a utility that automatically generates the basic directory structure of an app
+   - An app is a web application that does something while a project is a collection of configuration and apps for a particular website
+   - A project can have multiple apps and an app can be in multiple projects
+   - Use ~manage.py~ to create an app

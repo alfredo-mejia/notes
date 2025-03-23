@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-23 Sun 00:12 -->
+<!-- 2025-03-23 Sun 00:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Django Polls App</title>
@@ -202,15 +202,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org449b8ee">Navigation</a></li>
-<li><a href="#orgffe2559">Django Polls App</a></li>
+<li><a href="#orgdccbb8a">Navigation</a></li>
+<li><a href="#orgd6782eb">Django Polls App</a>
+<ul>
+<li><a href="#orgf607433">Create the Project</a></li>
+<li><a href="#orga4ee7f0">Create the Polls App</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org449b8ee" class="outline-2">
-<h2 id="org449b8ee">Navigation</h2>
-<div class="outline-text-2" id="text-org449b8ee">
+<div id="outline-container-orgdccbb8a" class="outline-2">
+<h2 id="orgdccbb8a">Navigation</h2>
+<div class="outline-text-2" id="text-orgdccbb8a">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -245,8 +250,47 @@
 </div>
 </div>
 
-<div id="outline-container-orgffe2559" class="outline-2">
-<h2 id="orgffe2559">Django Polls App</h2>
+<div id="outline-container-orgd6782eb" class="outline-2">
+<h2 id="orgd6782eb">Django Polls App</h2>
+<div class="outline-text-2" id="text-orgd6782eb">
+<p>
+I'm going to be following the <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial01/">documentation tutorial</a>.
+I'm not going to write everything down.
+I am only going to write topics that will help me understand or topics that I think it is important.
+</p>
+</div>
+
+<div id="outline-container-orgf607433" class="outline-3">
+<h3 id="orgf607433">Create the Project</h3>
+<div class="outline-text-3" id="text-orgf607433">
+<ul class="org-ul">
+<li>Download python</li>
+<li>Download Django</li>
+<li>Start a Django project using <code>django-admin</code></li>
+<li><code>manage.py</code>: let's you interact with the Django project</li>
+<li><code>&lt;name_of_proj_dir&gt;</code>: directory of actual project</li>
+<li><code>settings.py</code>: settings &amp; configurations for the Django project</li>
+<li><code>urls.py</code>: URL declarations for the Django project</li>
+<li><code>asgi.py</code>: entry point for ASGI-compatible web servers to serve your project</li>
+<li><code>wsgi.py</code>: entry point for WSGI-compatible web servers to serve your project</li>
+<li>Start the development server</li>
+<li>The server automatically reloads Python code for each code change</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga4ee7f0" class="outline-3">
+<h3 id="orga4ee7f0">Create the Polls App</h3>
+<div class="outline-text-3" id="text-orga4ee7f0">
+<ul class="org-ul">
+<li>Each application you write in Django consists of a Python package that follows a certain convention</li>
+<li>Django comes with a utility that automatically generates the basic directory structure of an app</li>
+<li>An app is a web application that does something while a project is a collection of configuration and apps for a particular website</li>
+<li>A project can have multiple apps and an app can be in multiple projects</li>
+<li>Use <code>manage.py</code> to create an app</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </body>
