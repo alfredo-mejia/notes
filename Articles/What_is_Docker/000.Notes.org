@@ -214,7 +214,193 @@ Docker has played a huge role on how we deploy applications.
 Now it is time to try out docker for ourselves.
 
 * Using Docker
+In order to use Docker we need to create an application.
+I'm going to create a simple web application.
+This web application will have a form to enter a name and age.
+Once the form is submitted the name and age will appear below the form.
+If there are already names and ages from previous submissions then it will also appear below the form.
+The results will be shown in a table like structure and results will be shown from previous submissions, if any, as soon as the page is loaded.
+The results table will have an id, timestamp, name, age, and it will have two buttons.
+One button will edit the name and age.
+The other button will delete the submission.
 
+We will divide this project into 3 parts.
+The first part is the web server and we will be using [[https://httpd.apache.org/][Apache HTTP Server]]. 
+The second part is the application (backend) server which we will be using [[https://www.djangoproject.com/][Django]].
+The final part will be the database. We will use [[https://www.mysql.com/][MySQL]] as our database.
+
+Finally, each part of the project will be placed inside a docker container and ran.
+We will not create multiple running containers of the same docker image because this is suppose to be a small project and load balancing is another project within itself.
+
+Let's get started.
+
+** Apache HTTP Server
+I'm not too familiar with Apache HTTP Server so let's start in the [[https://httpd.apache.org/docs/2.4/getting-started.html][documentation]] and take notes.
+All of the information below is taken from the documentation.
+I will be using WSL 2 on Windows 11.
+
+*** Clients, Servers, & URLs
+    - Addresses on the web are expresed with URLs
+    - They have a protocol (e.g. ~http~), a servername (e.g. ~www.apache.org~), a URL-path (~e.g. /docs/current/getting-started.html~), and possibly a query string (e.g. ~?arg=value~) used to pass additional arguments to the server
+    - A client (e.g. web browswer) connects to a server (e.g. my Apache HTTP Server running)
+    - The client specifies the protocol and makes a request for a resource using the URL-path
+    - The resource may be a file (e.g. ~index.html~), a handler like a server-status, or some kind of program file (e.g. ~index.php~)
+    - The server will send a response consisting of a status code, and optionally, a response body
+
+*** Hostnames & DNS
+    - The client has to resolve the servername to an IP address
+    - Thus for the web server to be reachable it is necessary that the servername be in the DNS (domain name system) so clients can map the servername into IP addresses
+    - More than one IP address can be attached to the same physical server using virtual hosts
+    - Thus when you type in a domain name it will find the IP address that pertains to that domain name and with the IP address the client will know which machine to send the request to
+    - For example, if you wanted to you could use the IP address when entering server names in the browser instead of the domain name, this will skip the process of having to find the IP address of the domain name
+    - Within the machine / server, it will use the endpoint (URL-path) to find, within its own machine, the resource the client is looking for
+    - If your server is not internet-accessible, for example, for whatever reason your web server is not in the DNS and your client cannot resolve a server name (e.g. ~www.example.com~) then you can make your client resolve the server name locally instead of using the DNS
+    - You do this by modifying your machine's hosts file
+    - This file has the IP address of any server names the user has added manually
+    - So you can add ~127.0.0.1 www.example.com~ this will map the server name to the localhost
+    - In Windows it is in ~C:\Windows\system32\drivers\etc\hosts~ and in Linux it is in ~/etc/hosts~
+    - Another option is to simply use the IP address instead of a server name
+    - When you are using the IP address it doesn't need the DNS or the hosts file because it knows which machine to request the resource from either from the local machine or some remote machine.
+
+*** Configuration Files & Directives
+    - Apache HTTP Server is configured via simple text files
+    - These files may be located on a variety of places depending on how the server was installed
+    - For example, the default location of configuration files is ~/usr/local/apache2/conf~ and the default configuration file is called ~httpd.conf~ but this too can vary
+    - The configuration is then broken into multiple smaller files for ease of management and these files are loaded via the ~Include~ directive
+    - The files can be rearrange to whatever makes sense for you
+    - The server is configured by placing configuration directives in these configuration files and a directive is a keyword followed by one or more arguments that set its value
+    - Depending on where you want the directive to be effective is the file you place the directive, for example, if you want it as a global setting it should appear in the configuration file outside of any directory, location, virtual host, or other section
+    - If you need to apply it to a particualar directory you then place it inside a directory section referring to that directory and so on
+    - Certain directives may go in the ~.htaccess~ files located in the content directories, ~.htaccess~ files are primarily for people who do not have access to the main server configuration files
+
+*** Web Site Content
+    - Web site content can take many forms but can be broadly divided into static or dynamic content
+    - Static conent are files that reside in the filesystem (html, css, js, etc.) and the ~DocumentRoot~ directive specifies where in your filesystem you should place these files
+    - The directive is set globally or per virtual host but you have to take a look at your server to determine how this is set up in you
+    - Typically a document called ~index.html~ will be served when a directory is requested without a file name being specifie, for example, if ~DocumentRoot~ is set to ~/var/www/html~ and the request is made for ~http://www.example.com/work/~ then the file ~/var/www/html/work/index.html~ will be served to the client
+    - Dynamic content is anything that is generated at request time and there are numerous ways to generate dynamic content
+    - Various handlers can generate content
+
+*** Log Files & Troubleshooting
+    - There are a couple of log files that may help you in time of troubleshooting
+    - One of them is the error log which is defined by the ~ErrorLog~ which may be set globally or per virtua host
+
+*** Installing
+
+#+BEGIN_SRC bash
+  sudo apt install apache2
+
+  # Apache automatically starts to run after installing
+  # Check status
+  sudo systemctl status apache2
+
+  # To stop Apache
+  sudo systemctl stop apache2
+
+  # To start Apache
+  sudo systemctl start apache2
+#+END_SRC
+
+    - The main configuration file: ~/etc/apache2/apache2.conf~
+    - Listening ports config file: ~/etc/apache2/ports.conf~
+    - More config files inside ~/etc/apache2/mods-enabled/~, ~/etc/apache2/conf-enabled~, and ~/etc/apache2/sites-enabled/~
+    - According to the main config file the directories above have configuration snippets which manage modules, global configuration fragments, or virtual host configurations
+    - How do you activate these configurations after some change?
+    - They are activated by creating symlinks from the configuration in ~*-available~ to their ~*-enabled~ counterparts
+    - This means to add some configuration change to Apache, you first do the change in ~*-avaiable~
+    - Then Apache has command tools to enable or disable the configuration by running ~a2enmod/a2dismod~, ~a2ensite/a2dissite~, and ~a2enconf/a2disconf~
+    - Each command tool enables or disables the new configurations for ~mods-*~, ~conf-*~, and ~sites-*~ directories
+
+*** Configuring Apache
+    - If we take a look at the enabled sites config ~/etc/apache2/sites-enabled/000-default.conf~ we see that the ~DocumentRoot~ is specified as ~/var/www/html~
+    - We can change the value in ~/etc/apache2/sites-available/000-default.conf~, if we'd like but we'll leave it how it is
+    - Now let's take a look at the port and default file
+    - By default if we have Apache running and go to ~http://localhost/index.html~ it should return with the file ~index.html~
+    - The default port specified in ~ports.conf~ says 80 but we can change this as well, port 80 does not need to be specified in the URL because the browser uses port 80 for http
+    - If we type ~http://localhost/~ the ~index.html~ file does not appear because we have to specify the ~DirectoryIndex~ directive to specify which file it should serve when a directory is accessed
+    - So we are going to change the port number and add a ~DirectoryIndex~
+
+      #+BEGIN_SRC bash
+	# Replace default port
+	sudo sed -i '0,/Listen 80/s/Listen 80/Listen 8080/' /etc/apache2/ports.conf
+
+	# Restart Apache
+	sudo systemctl restart apache2
+
+	# Check status of Apache
+	sudo systemctl status apache2
+
+	# Update the Virtual Host Port
+	sudo sed -i '0,/<VirtualHost \*:80>/s/<VirtualHost \*:80>/<VirtualHost \*:8080>/' /etc/apache2/sites-available/000-default.conf
+
+	# Add default directory index so index.html will be requested by default w/o specifying it in the url
+	sudo sed -i '/DocumentRoot \/var\/www\/html/a\\tDirectoryIndex index.html' /etc/apache2/sites-available/000-default.conf
+
+	# Check config syntax
+	sudo apache2ctl configtest
+
+	# Enable site
+	# This is not needed because 000-default.conf is already enabled
+	# Thus if you make changes to a config file in the available folder that is already enabled (shown in the sites-enabled folder)
+	# Then all you need is to restart or reload apache to get the new changes
+	# Only do this if you create or change a config file that is not enabled (not present in sites-enabled)
+	sudo a2ensite 000-default.conf
+
+	# Should we reload or restart apache?
+	# Reload will realod the configuration files without fully stopping Apache and disrupt existing connections
+	# Restart stops and starts Apache again and will terminate all current connections
+	# Let's reload the configurations we did
+	sudo sytemctl reload apache2
+
+	# So now if you go to http://localhost:8080 then it will automatically pull index.html
+      #+END_SRC
+
+    - So now we have successfully setup Apache, changed the port and added a directive to automatically pull index.html
+    - Now it is time to create our front-end of the application
+    - We will create a new directory in called ~What_is_Docker~ thus its path will be ~/var/www/html/What_is_Docker/~ and inside it will have the file ~index.html~
+    - So now if we go to http://localhost:8080/What_is_Docker the index file inside ~What_is_Docker~ directory should appear
+    - [[file:./App/Frontend/index.html][Here]] is the index file
+
+*** Creating A Docker File & Docker Image
+
+** Django
+We will be following the [[https://docs.djangoproject.com/en/5.1/][Django docs]] to create our backend server.
+
+*** Creating Django Project
+
+#+BEGIN_SRC bash
+  # Download python
+  sudo apt install python3
+
+  # Create venv
+  python3 -m venv myvenv
+
+  # Activate venv
+  source myvenv/bin/activate
+
+  # Download Django
+  pip install Django
+
+  # Bootstrap new project
+  django-admin startproject <project-name>
+
+  # Move directory
+  cd <project-name>
+
+  # Start server
+  python manage.py runserver
+
+#+END_SRC
+
+   - Django will create a ~manage.py~ which allows you interact with this Django project in various ways
+   - ~settings.py~ are the settings and configurations of the Django project
+   - ~urls.py~ is the URLs declarations for the Django project
+   
+
+     
+      
+      
+      
 * Resources
 https://medium.com/@suryasaravanan2002/history-of-how-deployment-used-to-work-how-containerization-revolutionized-it-da785f4573ca#:~:text=In%20the%20early%20days%20of,of%20deployment%20that%20was%20used
 
