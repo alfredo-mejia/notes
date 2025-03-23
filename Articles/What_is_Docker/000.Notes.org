@@ -313,7 +313,7 @@ I will be using WSL 2 on Windows 11.
 
 *** Configuring Apache
     - If we take a look at the enabled sites config ~/etc/apache2/sites-enabled/000-default.conf~ we see that the ~DocumentRoot~ is specified as ~/var/www/html~
-    - We can change the value in ~/etc/apache2/sites-available/000-default.conf~, if we'd like but we'll leave it how it is
+    - We can change the value in ~/etc/apache2/sites-available/000-default.conf~ if we'd like, but we'll leave it how it is
     - Now let's take a look at the port and default file
     - By default if we have Apache running and go to ~http://localhost/index.html~ it should return with the file ~index.html~
     - The default port specified in ~ports.conf~ says 80 but we can change this as well, port 80 does not need to be specified in the URL because the browser uses port 80 for http
@@ -357,7 +357,7 @@ I will be using WSL 2 on Windows 11.
 
     - So now we have successfully setup Apache, changed the port and added a directive to automatically pull index.html
     - Now it is time to create our front-end of the application
-    - We will create a new directory in called ~What_is_Docker~ thus its path will be ~/var/www/html/What_is_Docker/~ and inside it will have the file ~index.html~
+    - We will create a new directory called ~What_is_Docker~ thus its path will be ~/var/www/html/What_is_Docker/~ and inside of it will have the file ~index.html~
     - So now if we go to http://localhost:8080/What_is_Docker the index file inside ~What_is_Docker~ directory should appear
     - [[file:./App/Frontend/index.html][Here]] is the index file
 

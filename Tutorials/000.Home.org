@@ -1,0 +1,20 @@
+#+title: Tutorials
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+| Nav   | Title      | Links                                   |
+|-------+------------+-----------------------------------------|
+| Index | Notes Home | \vert [[file:../index.html][html]] \vert [[file:../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | Tutorials  | \vert [[file:./000.Home.html][html]] \vert [[file:./000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Tutorials][github]] \vert |
+
+* What is this?
+This is the place to do the tutorials I see online.
+These tutorials can be from YouTube videos, documentation, or any place that I find.
+
+* Tutorials
+| Tutorial  | Source      | Author | Links                                   | Status      |
+|-----------+-------------+--------+-----------------------------------------+-------------|
+| Django Polls App | [[https://docs.djangoproject.com/en/5.1/][Django Docs]] | Django | \vert [[file:./Django_Polls_App/000.Notes.html][html]] \vert [[file:./Django_Polls_App/000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Tutorials/Django_Polls_App][github]] \vert | In-Progress |
+
