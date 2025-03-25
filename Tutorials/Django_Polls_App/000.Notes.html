@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-23 Sun 00:35 -->
+<!-- 2025-03-24 Mon 20:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Django Polls App</title>
@@ -202,20 +202,39 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgdccbb8a">Navigation</a></li>
-<li><a href="#orgd6782eb">Django Polls App</a>
+<li><a href="#org09844f6">Navigation</a></li>
+<li><a href="#org793c54a">Django Polls App</a>
 <ul>
-<li><a href="#orgf607433">Create the Project</a></li>
-<li><a href="#orga4ee7f0">Create the Polls App</a></li>
+<li><a href="#orge37f6a1">Create the Project Docs</a></li>
+<li><a href="#orgc1daab4">Create the Polls App</a></li>
+<li><a href="#orgc1edd40">Writing My First View</a></li>
+<li><a href="#org0db8b8c">Database Setup Docs</a></li>
+<li><a href="#orga399355">Creating Models</a></li>
+<li><a href="#org08ef4f7">Activating Models</a></li>
+<li><a href="#orgc0d6c31">Playing with the API</a></li>
+</ul>
+</li>
+<li><a href="#orgb95af67">Documentation</a>
+<ul>
+<li><a href="#orgdfa2524">Views</a>
+<ul>
+<li><a href="#orgc009260">How Django Process a Request</a></li>
+</ul>
+</li>
+<li><a href="#org2c24ed2">Models Docs</a>
+<ul>
+<li><a href="#orgdd3ed96">Migrations Docs</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgdccbb8a" class="outline-2">
-<h2 id="orgdccbb8a">Navigation</h2>
-<div class="outline-text-2" id="text-orgdccbb8a">
+<div id="outline-container-org09844f6" class="outline-2">
+<h2 id="org09844f6">Navigation</h2>
+<div class="outline-text-2" id="text-org09844f6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -250,19 +269,18 @@
 </div>
 </div>
 
-<div id="outline-container-orgd6782eb" class="outline-2">
-<h2 id="orgd6782eb">Django Polls App</h2>
-<div class="outline-text-2" id="text-orgd6782eb">
+<div id="outline-container-org793c54a" class="outline-2">
+<h2 id="org793c54a">Django Polls App</h2>
+<div class="outline-text-2" id="text-org793c54a">
 <p>
 I'm going to be following the <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial01/">documentation tutorial</a>.
-I'm not going to write everything down.
-I am only going to write topics that will help me understand or topics that I think it is important.
+I'm not going to write everything down but I am only going to write topics that will help me understand Django or topics that I think are important.
 </p>
 </div>
 
-<div id="outline-container-orgf607433" class="outline-3">
-<h3 id="orgf607433">Create the Project</h3>
-<div class="outline-text-3" id="text-orgf607433">
+<div id="outline-container-orge37f6a1" class="outline-3">
+<h3 id="orge37f6a1">Create the Project <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial01/">Docs</a></h3>
+<div class="outline-text-3" id="text-orge37f6a1">
 <ul class="org-ul">
 <li>Download python</li>
 <li>Download Django</li>
@@ -279,16 +297,181 @@ I am only going to write topics that will help me understand or topics that I th
 </div>
 </div>
 
-<div id="outline-container-orga4ee7f0" class="outline-3">
-<h3 id="orga4ee7f0">Create the Polls App</h3>
-<div class="outline-text-3" id="text-orga4ee7f0">
+<div id="outline-container-orgc1daab4" class="outline-3">
+<h3 id="orgc1daab4">Create the Polls App</h3>
+<div class="outline-text-3" id="text-orgc1daab4">
 <ul class="org-ul">
 <li>Each application you write in Django consists of a Python package that follows a certain convention</li>
 <li>Django comes with a utility that automatically generates the basic directory structure of an app</li>
 <li>An app is a web application that does something while a project is a collection of configuration and apps for a particular website</li>
 <li>A project can have multiple apps and an app can be in multiple projects</li>
-<li>Use <code>manage.py</code> to create an app</li>
+<li>Use <code>manage.py</code> to create an app so to create an app you do <code>python manage.py startapp polls</code></li>
 </ul>
+</div>
+</div>
+
+<div id="outline-container-orgc1edd40" class="outline-3">
+<h3 id="orgc1edd40">Writing My First View</h3>
+<div class="outline-text-3" id="text-orgc1edd40">
+<ul class="org-ul">
+<li>Once we have created an app we will create a "view"</li>
+<li>Create a <code>URLconf</code> named <code>urls.py</code></li>
+<li>This is the app's <code>URLconf</code></li>
+<li>So now we have configure the project's (global) <code>URLconf</code> in the outer most <code>urls.py</code></li>
+<li>Create an entry and use <code>include()</code> in the <code>urlpatterns</code> list which allows you to reference other <code>URLconfs</code> in this case the poll <code>URLconf</code></li>
+<li>Whenever Django encounters <code>include()</code> it chops off whatever part of the URL matched up to that point and sends the remaining string to the inluded <code>URLconf</code> for further processing</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0db8b8c" class="outline-3">
+<h3 id="org0db8b8c">Database Setup <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial02/">Docs</a></h3>
+<div class="outline-text-3" id="text-org0db8b8c">
+<ul class="org-ul">
+<li>We need to create a database table so we are going to run <code>python manage.py migrate</code></li>
+<li>The migrate command looks at the <code>INSTALLED_APPS</code> setting and creates any necessary database tables according to the database setting in your <code>app/settings.py</code> file and the database migrations shipped with the app</li>
+<li>The <code>migrate</code> command will only run migrations for apps in <code>INSTALLED_APPS</code> (we have some default apps already thus the default apps have a couple migrations to apply)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga399355" class="outline-3">
+<h3 id="orga399355">Creating Models</h3>
+<div class="outline-text-3" id="text-orga399355">
+<ul class="org-ul">
+<li>Models are essentially your database layout with additional metadata</li>
+<li>A model is the single definitive source of information about your data</li>
+<li>The model contains the essential fields and behaviors of the data you're storing</li>
+<li>The goal is to define your data model in one place and automatically derive things from it (including migrations)</li>
+<li>Let's create two models: "Question" and "Choice"</li>
+<li>Let's edit the <code>models.py</code> file inside the app and add the models</li>
+<li>Each model is represented by a class that subclasses <code>django.db.models.Model</code></li>
+<li>Each model is a table and the class variables are the database fields represented by a <code>Field</code> class (e.g. <code>CharField</code>, <code>DateTimeField</code>, etc.)</li>
+<li>You can even specify relationships using <code>ForeignKey</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org08ef4f7" class="outline-3">
+<h3 id="org08ef4f7">Activating Models</h3>
+<div class="outline-text-3" id="text-org08ef4f7">
+<ul class="org-ul">
+<li>Let's add our app to the <code>INSTALLED_APPS</code> in the setting file by adding the app's configuration class</li>
+<li>The configuration class of the app is inside the directory of the app inside the <code>apps.py</code></li>
+<li>Then we run <code>python manage.py makemigrations polls</code></li>
+<li><code>makemigrations</code> tells Django that some changes were made to the models (or new ones added) and that we would like the changes to be stored as a migration</li>
+<li>Migrations are how Django stores changes to your models (and thus your database schema)</li>
+<li>Let's see the SQL commands this migration file will do by running <code>python manage.py sqlmigrate polls 0001</code></li>
+<li><code>sqlmigrate</code> take migration names and returns their SQL</li>
+<li><code>sqlmigrate</code> prints only the SQL commands, it does not run them, and each SQL command is database-specific depending on which database you are using</li>
+<li><code>python manage.py check</code> check for any problems in your project without making migrations or touching the database</li>
+<li>To run the migrations we use the command <code>migrate</code> and run something like the following: <code>python manage.py migrate</code></li>
+<li><code>migrate</code> command takes all the migrations that haven't been applied and runs them against your database synchronizing the changes you made to your models with the schema in the database</li>
+<li>Thus 3-step process to making model changes:
+<ol class="org-ol">
+<li>Make model changes in <code>models.py</code></li>
+<li>Run <code>python manage.py makemigrations &lt;optional_app_name&gt;</code></li>
+<li>Run <code>python manage.py migrate &lt;optional_app_name&gt;</code></li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc0d6c31" class="outline-3">
+<h3 id="orgc0d6c31">Playing with the API</h3>
+<div class="outline-text-3" id="text-orgc0d6c31">
+<ul class="org-ul">
+<li>Let's type <code>python manage.py shell</code> to open the python shell</li>
+<li>Why not just type <code>python</code>? Well because <code>manage.py</code> sets the <code>DJANGO_SETTINGS_MODULE</code> environment variable which gives Django the Python import path to your project's <code>settings.py</code> file</li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb95af67" class="outline-2">
+<h2 id="orgb95af67">Documentation</h2>
+<div class="outline-text-2" id="text-orgb95af67">
+<p>
+This section are for notes that were not included in the tutorial but found in <a href="https://docs.djangoproject.com/en/5.1/">Django docs</a>.
+</p>
+</div>
+
+<div id="outline-container-orgdfa2524" class="outline-3">
+<h3 id="orgdfa2524">Views</h3>
+<div class="outline-text-3" id="text-orgdfa2524">
+<ul class="org-ul">
+<li>According to the <a href="https://docs.djangoproject.com/en/5.1/topics/http/urls/">Django Docs</a>, "views" are used to encapsulate the logic responsible for processing a user's request and for returning the response</li>
+<li>To design URLs for an app, you create a Python module informally called a <code>URLconf</code> (URL configuration)</li>
+<li>This odule is pure Python code and is a mapping between URL path expressions to Python functions (your views)</li>
+<li>The mapping can be short, long, reference other mappings, and be constructed dynamically</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc009260" class="outline-4">
+<h4 id="orgc009260">How Django Process a Request</h4>
+<div class="outline-text-4" id="text-orgc009260">
+<ul class="org-ul">
+<li>When a user requests a page from your Django-powered site, this algorithm is followed:</li>
+<li>Django determines the root <code>URLconf</code> module (since <code>URLconf</code> modules can be created in a hierarchical structure) to use (the setting <code>ROOT_URLCONF</code> has value that specifies the root <code>URLconf</code> module but if the incoming <code>HttpRequest</code> object has a <code>urlconf</code> attribute which was set by middleware then that will be used instead of <code>ROOT_URLCONF</code>)</li>
+<li>Django loads the Python module and looks for the variable <code>urlpatterns</code>; the variable <code>urlpatterns</code> should be a sequence of <code>django.urls.path()</code> and/or <code>django.urls.re_path()</code> instances
+<ul class="org-ul">
+<li><a href="https://docs.djangoproject.com/en/5.1/ref/urls/#django.urls.path"><code>django.urls.path()</code></a> returns an element for inclusion in <code>urlpattern</code> and it accepts 4 arguments: route, view, kwargs, and name</li>
+<li>The route is a string that contains a URL pattern</li>
+<li>The view argument is a view function or the result <code>as_view()</code> for class-based views</li>
+<li>The kwargs argument allows you to pass additional arguments to the view function or method</li>
+<li>The name argument lets you refer to your URL in a unambiguously from elesewhere in Django especially from within templates</li>
+<li><a href="https://docs.djangoproject.com/en/5.1/ref/urls/#django.urls.re_path"><code>django.urls.re_path()</code></a> is the same as <code>path()</code> but now the route argument can contain a regular expression compatible with Python's <code>re</code> module</li>
+<li><b>NOTE</b>: <a href="https://docs.djangoproject.com/en/5.1/ref/urls/#django.urls.include"><code>django.urls.include</code></a> is a function that takes a full Python import path to another <code>URLconf</code> module that should be "included" in this place</li>
+</ul></li>
+<li>Django runs through each URL pttern, in order, and stops at the first one that matches the requested URL, matching against <code>path_info</code></li>
+<li>Once one of the URL patterns matches, Django imports and calls the given view, which is a Python function or a class-based view, the view gets passed the following arguments:
+<ul class="org-ul">
+<li>An instance of <code>HttpRequest</code></li>
+<li>If the matched URL pattern contained no named groups, then the matches from the regular expression are provided as positional arguments</li>
+<li>The keyword arguments are made up of any named parts matched by the path expression that are provided, overriden by any arguments specified in the optional <code>kwargs</code> argument to <code>path()</code> or <code>re_path()</code></li>
+</ul></li>
+<li>If no URL pattern matches or if an exception is raised during any point in this process, Django invokes an appropriate error-handling view</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2c24ed2" class="outline-3">
+<h3 id="org2c24ed2">Models <a href="https://docs.djangoproject.com/en/5.1/topics/db/models/">Docs</a></h3>
+<div class="outline-text-3" id="text-org2c24ed2">
+<ul class="org-ul">
+<li>A model is the single, definitive source of information about your data containing the essential fields and behaviors of the data you're storing</li>
+<li>Generally each model maps to a single database table</li>
+<li>The basics are:
+<ul class="org-ul">
+<li>Each model is a Python class that subclasses <code>django.db.models.Model</code></li>
+<li>Each attribute of the model represents a database field</li>
+<li>With all of this, Django gives you an automatically-generated database-access API</li>
+</ul></li>
+<li>Once you have defined your models, you need to tell Django you are going to use those models by editing the settings file and changing the <code>INSTALLED_APPS</code> setting and addings the name of the module that contains your <code>models.py</code></li>
+<li>Then you run <code>python manage.py migrate</code></li>
+<li>Fields are the only thing required in a model and it defines the database fields specified by class attributes</li>
+</ul>
+</div>
+
+<div id="outline-container-orgdd3ed96" class="outline-4">
+<h4 id="orgdd3ed96">Migrations <a href="https://docs.djangoproject.com/en/5.1/topics/migrations/">Docs</a></h4>
+<div class="outline-text-4" id="text-orgdd3ed96">
+<ul class="org-ul">
+<li>Migrations are Django's way of propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema</li>
+<li>They're designed to be mostly automatically but we need to know when to make migrations, when to run them, and common problems with migrations</li>
+<li><code>migrate</code>: responsible for applying and unapplying migrations</li>
+<li><code>makemigrations</code>: responsible for creating new migrations based on the changes you have made to your models</li>
+<li><code>sqlmigrate</code>: displays the SQL statements for a migration</li>
+<li><code>showmigrations</code>: lists a project's migrations and their status</li>
+<li>Think of <code>makemigrations</code> as responsible for packaging up your model changes into migration files (think of them like commits)</li>
+<li><code>migrations</code> is responsible for applying those to your database</li>
+<li>Migration files for each app live in a "migrations" directory inside of that app, and are designed to be committed to, and distributed as part, its codebase</li>
+<li>For example, you run them once in your development machine and then you run the same migrations on your colleagues' machines, your staging machines, and eventually your production machines</li>
+<li>Django will make migrations for any change to your models or fields even if the options do not affect the database as this is the only way to reconstruct a field correctly by having all the changes in the history</li>
+</ul>
+</div>
 </div>
 </div>
 </div>

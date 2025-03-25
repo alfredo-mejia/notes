@@ -11,10 +11,9 @@
 
 * Django Polls App
 I'm going to be following the [[https://docs.djangoproject.com/en/5.1/intro/tutorial01/][documentation tutorial]].
-I'm not going to write everything down.
-I am only going to write topics that will help me understand or topics that I think it is important.
+I'm not going to write everything down but I am only going to write topics that will help me understand Django or topics that I think are important.
 
-** Create the Project
+** Create the Project [[https://docs.djangoproject.com/en/5.1/intro/tutorial01/][Docs]]
    - Download python
    - Download Django
    - Start a Django project using ~django-admin~
@@ -32,4 +31,102 @@ I am only going to write topics that will help me understand or topics that I th
    - Django comes with a utility that automatically generates the basic directory structure of an app
    - An app is a web application that does something while a project is a collection of configuration and apps for a particular website
    - A project can have multiple apps and an app can be in multiple projects
-   - Use ~manage.py~ to create an app
+   - Use ~manage.py~ to create an app so to create an app you do ~python manage.py startapp polls~
+
+** Writing My First View
+   - Once we have created an app we will create a "view"
+   - Create a ~URLconf~ named ~urls.py~
+   - This is the app's ~URLconf~
+   - So now we have configure the project's (global) ~URLconf~ in the outer most ~urls.py~
+   - Create an entry and use ~include()~ in the ~urlpatterns~ list which allows you to reference other ~URLconfs~ in this case the poll ~URLconf~
+   - Whenever Django encounters ~include()~ it chops off whatever part of the URL matched up to that point and sends the remaining string to the inluded ~URLconf~ for further processing
+
+** Database Setup [[https://docs.djangoproject.com/en/5.1/intro/tutorial02/][Docs]]
+   - We need to create a database table so we are going to run ~python manage.py migrate~
+   - The migrate command looks at the ~INSTALLED_APPS~ setting and creates any necessary database tables according to the database setting in your ~app/settings.py~ file and the database migrations shipped with the app
+   - The ~migrate~ command will only run migrations for apps in ~INSTALLED_APPS~ (we have some default apps already thus the default apps have a couple migrations to apply)
+
+** Creating Models
+   - Models are essentially your database layout with additional metadata
+   - A model is the single definitive source of information about your data
+   - The model contains the essential fields and behaviors of the data you're storing
+   - The goal is to define your data model in one place and automatically derive things from it (including migrations)
+   - Let's create two models: "Question" and "Choice"
+   - Let's edit the ~models.py~ file inside the app and add the models
+   - Each model is represented by a class that subclasses ~django.db.models.Model~
+   - Each model is a table and the class variables are the database fields represented by a ~Field~ class (e.g. ~CharField~, ~DateTimeField~, etc.)
+   - You can even specify relationships using ~ForeignKey~
+
+** Activating Models
+   - Let's add our app to the ~INSTALLED_APPS~ in the setting file by adding the app's configuration class
+   - The configuration class of the app is inside the directory of the app inside the ~apps.py~
+   - Then we run ~python manage.py makemigrations polls~
+   - ~makemigrations~ tells Django that some changes were made to the models (or new ones added) and that we would like the changes to be stored as a migration
+   - Migrations are how Django stores changes to your models (and thus your database schema)
+   - Let's see the SQL commands this migration file will do by running ~python manage.py sqlmigrate polls 0001~
+   - ~sqlmigrate~ take migration names and returns their SQL
+   - ~sqlmigrate~ prints only the SQL commands, it does not run them, and each SQL command is database-specific depending on which database you are using
+   - ~python manage.py check~ check for any problems in your project without making migrations or touching the database
+   - To run the migrations we use the command ~migrate~ and run something like the following: ~python manage.py migrate~
+   - ~migrate~ command takes all the migrations that haven't been applied and runs them against your database synchronizing the changes you made to your models with the schema in the database
+   - Thus 3-step process to making model changes:
+     1. Make model changes in ~models.py~
+     2. Run ~python manage.py makemigrations <optional_app_name>~
+     3. Run ~python manage.py migrate <optional_app_name>~
+
+** Playing with the API
+   - Let's type ~python manage.py shell~ to open the python shell
+   - Why not just type ~python~? Well because ~manage.py~ sets the ~DJANGO_SETTINGS_MODULE~ environment variable which gives Django the Python import path to your project's ~settings.py~ file
+   - 
+
+* Documentation
+This section are for notes that were not included in the tutorial but found in [[https://docs.djangoproject.com/en/5.1/][Django docs]].
+
+** Views
+   - According to the [[https://docs.djangoproject.com/en/5.1/topics/http/urls/][Django Docs]], "views" are used to encapsulate the logic responsible for processing a user's request and for returning the response
+   - To design URLs for an app, you create a Python module informally called a ~URLconf~ (URL configuration)
+   - This odule is pure Python code and is a mapping between URL path expressions to Python functions (your views)
+   - The mapping can be short, long, reference other mappings, and be constructed dynamically
+
+*** How Django Process a Request
+    - When a user requests a page from your Django-powered site, this algorithm is followed:
+    1. Django determines the root ~URLconf~ module (since ~URLconf~ modules can be created in a hierarchical structure) to use (the setting ~ROOT_URLCONF~ has value that specifies the root ~URLconf~ module but if the incoming ~HttpRequest~ object has a ~urlconf~ attribute which was set by middleware then that will be used instead of ~ROOT_URLCONF~)
+    2. Django loads the Python module and looks for the variable ~urlpatterns~; the variable ~urlpatterns~ should be a sequence of ~django.urls.path()~ and/or ~django.urls.re_path()~ instances
+       - [[https://docs.djangoproject.com/en/5.1/ref/urls/#django.urls.path][~django.urls.path()~]] returns an element for inclusion in ~urlpattern~ and it accepts 4 arguments: route, view, kwargs, and name
+       - The route is a string that contains a URL pattern
+       - The view argument is a view function or the result ~as_view()~ for class-based views
+       - The kwargs argument allows you to pass additional arguments to the view function or method
+       - The name argument lets you refer to your URL in a unambiguously from elesewhere in Django especially from within templates
+       - [[https://docs.djangoproject.com/en/5.1/ref/urls/#django.urls.re_path][~django.urls.re_path()~]] is the same as ~path()~ but now the route argument can contain a regular expression compatible with Python's ~re~ module
+       - *NOTE*: [[https://docs.djangoproject.com/en/5.1/ref/urls/#django.urls.include][~django.urls.include~]] is a function that takes a full Python import path to another ~URLconf~ module that should be "included" in this place
+    3. Django runs through each URL pttern, in order, and stops at the first one that matches the requested URL, matching against ~path_info~
+    4. Once one of the URL patterns matches, Django imports and calls the given view, which is a Python function or a class-based view, the view gets passed the following arguments:
+       - An instance of ~HttpRequest~
+       - If the matched URL pattern contained no named groups, then the matches from the regular expression are provided as positional arguments
+       - The keyword arguments are made up of any named parts matched by the path expression that are provided, overriden by any arguments specified in the optional ~kwargs~ argument to ~path()~ or ~re_path()~
+    5. If no URL pattern matches or if an exception is raised during any point in this process, Django invokes an appropriate error-handling view
+
+** Models [[https://docs.djangoproject.com/en/5.1/topics/db/models/][Docs]]
+   - A model is the single, definitive source of information about your data containing the essential fields and behaviors of the data you're storing
+   - Generally each model maps to a single database table
+   - The basics are:
+     - Each model is a Python class that subclasses ~django.db.models.Model~
+     - Each attribute of the model represents a database field
+     - With all of this, Django gives you an automatically-generated database-access API
+   - Once you have defined your models, you need to tell Django you are going to use those models by editing the settings file and changing the ~INSTALLED_APPS~ setting and addings the name of the module that contains your ~models.py~
+   - Then you run ~python manage.py migrate~
+   - Fields are the only thing required in a model and it defines the database fields specified by class attributes
+
+*** Migrations [[https://docs.djangoproject.com/en/5.1/topics/migrations/][Docs]]
+    - Migrations are Django's way of propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema
+    - They're designed to be mostly automatically but we need to know when to make migrations, when to run them, and common problems with migrations
+    - ~migrate~: responsible for applying and unapplying migrations
+    - ~makemigrations~: responsible for creating new migrations based on the changes you have made to your models
+    - ~sqlmigrate~: displays the SQL statements for a migration
+    - ~showmigrations~: lists a project's migrations and their status
+    - Think of ~makemigrations~ as responsible for packaging up your model changes into migration files (think of them like commits)
+    - ~migrations~ is responsible for applying those to your database
+    - Migration files for each app live in a "migrations" directory inside of that app, and are designed to be committed to, and distributed as part, its codebase
+    - For example, you run them once in your development machine and then you run the same migrations on your colleagues' machines, your staging machines, and eventually your production machines
+    - Django will make migrations for any change to your models or fields even if the options do not affect the database as this is the only way to reconstruct a field correctly by having all the changes in the history
+  
