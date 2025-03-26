@@ -13,7 +13,7 @@
 I'm going to be following the [[https://docs.djangoproject.com/en/5.1/intro/tutorial01/][documentation tutorial]].
 I'm not going to write everything down but I am only going to write topics that will help me understand Django or topics that I think are important.
 
-** Create the Project [[https://docs.djangoproject.com/en/5.1/intro/tutorial01/][Docs]]
+** Create the Project [[https://docs.djangoproject.com/en/5.1/intro/tutorial01/][Tutorial Part 1 Docs]]
    - Download python
    - Download Django
    - Start a Django project using ~django-admin~
@@ -41,7 +41,7 @@ I'm not going to write everything down but I am only going to write topics that 
    - Create an entry and use ~include()~ in the ~urlpatterns~ list which allows you to reference other ~URLconfs~ in this case the poll ~URLconf~
    - Whenever Django encounters ~include()~ it chops off whatever part of the URL matched up to that point and sends the remaining string to the inluded ~URLconf~ for further processing
 
-** Database Setup [[https://docs.djangoproject.com/en/5.1/intro/tutorial02/][Docs]]
+** Database Setup [[https://docs.djangoproject.com/en/5.1/intro/tutorial02/][Tutorial Part 2 Docs]]
    - We need to create a database table so we are going to run ~python manage.py migrate~
    - The migrate command looks at the ~INSTALLED_APPS~ setting and creates any necessary database tables according to the database setting in your ~app/settings.py~ file and the database migrations shipped with the app
    - The ~migrate~ command will only run migrations for apps in ~INSTALLED_APPS~ (we have some default apps already thus the default apps have a couple migrations to apply)
@@ -77,7 +77,105 @@ I'm not going to write everything down but I am only going to write topics that 
 ** Playing with the API
    - Let's type ~python manage.py shell~ to open the python shell
    - Why not just type ~python~? Well because ~manage.py~ sets the ~DJANGO_SETTINGS_MODULE~ environment variable which gives Django the Python import path to your project's ~settings.py~ file
-   - 
+   - Using the shell we can import the models from our apps, see all the objects ~Question.objects.all()~, create an entry by calling the constructor and in our case ~Question(question_text="" pub_date=timezone.now())~
+   - Each object has an id member field and it can be saved onto the database calling the function ~save()~ (e.g. ~p.save()~)
+   - The ~save()~ function will write to your database and that entry will be stored as row in the DB
+   - You can modify the model's field values by simply using the assignment operator and then saving after (e.g. ~q.question_text = "New"~)
+   - You can change what is displayed for the model when calling ~Question.objects.all()~ simply override the function ~__str__()~ in your model class
+   - It is important to add ~__str__()~ because object's representations are used throughout Django's automatically-generated admin
+   - The API can also filter by id, member fields, or even "field lookups" like filter by this member field that starts with this, filter by this member field that is a timestamp extract the year and filter it that matches this year, etc.
+   - The API can not only filter but retrieve individual instances (row)
+   - You can also establish relationships, for example, we have choice which has a foreign key to question, so using a question instance we are able to use the ~objectName_set.create()~ to create choices that have their foreign key as the question that made them
+   - In addition, you can filter objects by their foreign key instance object's member fields, so for example, we can filter the choice based on question's member fields
+   - The API has many different field lookups and member fields to access related objects
+
+** Creating an Admin User
+   - Run ~python manage.py createsuperuser~ and enter the credentials
+   - Start server & go to: ~http://127.0.0.1:8000/admin~
+   - Log in and you can use the groups, users, and apps
+   - But you have to specify the app to show up in the admin page
+   - You do this by going to ~app/admin.py~ and adding the model to the admin site by ~admin.site.register(<Model_Module>)~
+
+** Overview of Our App [[https://docs.djangoproject.com/en/5.1/intro/tutorial03/][Tutorital Part 3 Docs]]
+   - Our poll application will have 4 views: question "index" page, question "detail" page, question "results" page, and vote action
+   - A view is a "type" of web page in your Django application that generally serves a specific function and has a specific template
+   - Each view is represented by a Python function (or method, in the case of class-based views)
+   - Django will choose a view by examining the URL that's requested
+   - To go from a URL to a view, Django uses what are known as ~URLconfs~ (~URLconf~ maps URL patterns to views)
+
+** Writing More Views
+   - We have the index, so now let's create for the detail, results, and vote page by adding them to ~polls/views.py~
+   - After adding the views, we now need a URL path to each view so we modify ~polls/urls.py~
+   - We added where you can type in the url ~localhost:8000/polls/<int>~
+   - The integer will represent the id of the question and you can specify ~polls/34~ or whatever
+   - We also added other URLs like ~polls/<int>/results~ to view the results for that question
+   - This was done for the detail (not url after the int), results, and vote
+   - Using the ~path()~ function each URL will be mapped to a view and the view will be called whenever it goes to the URL
+
+** Write Views That Actually Do Something
+   - Each view is responsible for doing one of two things: returning an ~HttpResponse~ object containing the content for the requested page or raising an exception such as ~Http404~
+   - The rest is up to you, it can read records from the DB or not, it can use a template or not, generate PDF file, output XML, create a ZIP file, anything you would like
+   - We are going to use Django's DB API to display the lastest 5 poll questions in system for the index view
+   - After create a directory called "templates", as Django will look for templates there
+   - Django looks for templates subdirectory in each of the installed apps (this can be modified)
+   - Then inside templates create a subdirectory called "polls" and then create a file in the "polls" directory called "index.html"
+   - Templates are used to create HTML dynamically
+   - Add the template code inside "index.html"
+   - Update ~polls/views.py~ to use the template by calling ~template.render(context, request)~
+   - The ~template~ is a variable you created by loading the template you want to use "polls/index.html" and the ~context~ is a dictionary mapping template variable names to python objects
+   - This can be shorten by using ~django.shortcuts.render~ and return that ~render()~ function instead of the ~HttpRequest~ for example ~return render(request, "polls/index.html", context)~ this will return a ~HttpRequest~ without you specifying it
+
+** Raising 404 Error
+   - To raise a 404 error you use raise ~django.http.Http404~ and a message, for example, ~raise Http404("Question does not exist")~
+   - Another shortcut would be to use ~get_object_or_404()~ which can either get you an object or raise a 404 error
+
+** Removing Hardcoded URLs in Templates
+   - Instead of using something like ~href="/polls/{{question.id}}/"~ we can instead use ~href="{% url 'detail' question.id %}"~
+   - What does this do?
+   - This will look at the URL in the ~polls/url.py~ called 'detail'
+   - Thus it will then use that URL with the argument ~question.id~
+   - So now if you change the URL in ~url.py~ then that is the only place you need to change it because all of the other URLs will use the new update
+
+** Namespacing URL Names
+   - To not confuse Django between multiple URLs each ~urls.py~ can have a namespace by adding ~app_name="<app_name>"~ to the file before ~urlpatterns~
+   - So now in the template instead of using ~detail~ we will use ~polls::detail~
+
+** Write A Minimal Form [[https://docs.djangoproject.com/en/5.1/intro/tutorial04/][Tutorial Part 4 Docs]]
+   - Modify the ~detail.html~ file to create a form
+   - The form will be submitted using POST and all POST forms that are targeted at internal URLs should use the ~{% csrf_token %}~ template tag
+   - Now let's modify the view that maps to the URL "vote" which is where the form will be submitted
+   - ~request.POST~ is a dictionary-like object that lets you access submitted data by key name
+   - ~request.POST~ always return strings and if you try to access a data name that wasn't specified in the POST request then it will raise a ~KeyError~
+   - We also use a function called ~F()~ which instructs the database to increase the vote by 1
+   - The view then returns an ~HttpResponseRedirect~ (takes a ignle argument the URL to redirect the user to) rather than a normal ~HttpResponse~ (this is just best practices when dealing with a POST request)
+   - The ~reverse()~ function is used to avoid having to hardcode a URL
+   - After voting, it redirects to the results page, so let's write that view and the template for it
+
+** Use Generic Views
+   - Generic views abstract common patterns to the point where you don't even need to write Python code to write an app (e.g. ~ListView~ and ~DetailView~ generic views abstract the concepts of "display list of objects" and "display detail page for a particular type of object"
+   - So let's convert our poll app to use the generic views system
+   - So we take 3 steps: (1) Convert the ~URLConf~, (2) delete the old unneeded views, and (3) introduce new view baed on Django's generic views
+   - So we change the ~polls/url.py~ and we know use ~<pk>~ instead of ~<question_id>~ because this is necessary for the generic views as it expects the primary key to be called "pk"
+   - We then modify the ~views.py~, we create a class that that derives from ~generic.DetailView~ and ~generic.ListView~
+   - Each generic view needs to know what model it will be acting upon, this provided using either the ~model~ attribute or by defining the ~get_queryset()~ method
+   - The ~template_name~ attribute is used to tell Django to use a specific template name instead of the autogenerated default template name
+   - For ~DetailView~ the ~question~ variable is provided automatically, however, for ~ListView~ the automatically generated context variable is ~question_list~ but to override this we provide the ~context_object_name~ specifying the name that you'd like to use instead
+
+** Writing Our First Test [[https://docs.djangoproject.com/en/5.1/intro/tutorial05/][Tutorial Part 5 Docs]]
+   - A common place for an application's tests is the appliccation's ~test.py~
+   - For example, in our current code we show the 5 most recent question but this includes future questions so that is a bug and let's create a test for it in the ~test.py~ file
+   - You run the test with the command ~python manage.py test <optional_app_name>~
+   - Fix the bug
+   - Run the test again
+
+** Test A View
+   - One of the rules should be by setting a ~pub_date~ in the future means that the question is published at that moment but invisible until then
+   - Fix the view
+   - Test the view
+
+** Finished
+   - Here is where I stopped the tutorial because the rest of the tutorial are optional material
+   - I feel like have a basic understanding of how to use Django
 
 * Documentation
 This section are for notes that were not included in the tutorial but found in [[https://docs.djangoproject.com/en/5.1/][Django docs]].
@@ -130,3 +228,7 @@ This section are for notes that were not included in the tutorial but found in [
     - For example, you run them once in your development machine and then you run the same migrations on your colleagues' machines, your staging machines, and eventually your production machines
     - Django will make migrations for any change to your models or fields even if the options do not affect the database as this is the only way to reconstruct a field correctly by having all the changes in the history
   
+** Templates [[https://docs.djangoproject.com/en/5.1/topics/templates/][Docs]]
+   - Templates allow you to build HTML dynamically
+   - A template contains the static parts of the desired HTML output as well as some special syntax describing how dynamic content will be inserted
+   - Django project can be configured with one or several template engines and Django already ships buil-in backends for its own template system called the Django Template Language (DTL) but you can use other engines such as Jinja2 or something else

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-24 Mon 20:47 -->
+<!-- 2025-03-26 Wed 16:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Django Polls App</title>
@@ -202,39 +202,52 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org09844f6">Navigation</a></li>
-<li><a href="#org793c54a">Django Polls App</a>
+<li><a href="#orgc2a1966">Navigation</a></li>
+<li><a href="#org139b988">Django Polls App</a>
 <ul>
-<li><a href="#orge37f6a1">Create the Project Docs</a></li>
-<li><a href="#orgc1daab4">Create the Polls App</a></li>
-<li><a href="#orgc1edd40">Writing My First View</a></li>
-<li><a href="#org0db8b8c">Database Setup Docs</a></li>
-<li><a href="#orga399355">Creating Models</a></li>
-<li><a href="#org08ef4f7">Activating Models</a></li>
-<li><a href="#orgc0d6c31">Playing with the API</a></li>
+<li><a href="#org0077342">Create the Project Tutorial Part 1 Docs</a></li>
+<li><a href="#org789bbd8">Create the Polls App</a></li>
+<li><a href="#org86989b2">Writing My First View</a></li>
+<li><a href="#org4f178b9">Database Setup Tutorial Part 2 Docs</a></li>
+<li><a href="#org3e739a1">Creating Models</a></li>
+<li><a href="#org47bbe2d">Activating Models</a></li>
+<li><a href="#orgedc25ca">Playing with the API</a></li>
+<li><a href="#org8457696">Creating an Admin User</a></li>
+<li><a href="#org96eecba">Overview of Our App Tutorital Part 3 Docs</a></li>
+<li><a href="#orgfc3e5d9">Writing More Views</a></li>
+<li><a href="#orgf368b99">Write Views That Actually Do Something</a></li>
+<li><a href="#org0f814c9">Raising 404 Error</a></li>
+<li><a href="#orgee5f0c3">Removing Hardcoded URLs in Templates</a></li>
+<li><a href="#org8c38204">Namespacing URL Names</a></li>
+<li><a href="#orgc531a5c">Write A Minimal Form Tutorial Part 4 Docs</a></li>
+<li><a href="#org9b79a32">Use Generic Views</a></li>
+<li><a href="#org2427d4e">Writing Our First Test Tutorial Part 5 Docs</a></li>
+<li><a href="#org970d079">Test A View</a></li>
+<li><a href="#org3f20e83">Finished</a></li>
 </ul>
 </li>
-<li><a href="#orgb95af67">Documentation</a>
+<li><a href="#org6483822">Documentation</a>
 <ul>
-<li><a href="#orgdfa2524">Views</a>
+<li><a href="#org8b7ed32">Views</a>
 <ul>
-<li><a href="#orgc009260">How Django Process a Request</a></li>
+<li><a href="#org65ba1da">How Django Process a Request</a></li>
 </ul>
 </li>
-<li><a href="#org2c24ed2">Models Docs</a>
+<li><a href="#orgc2ce29a">Models Docs</a>
 <ul>
-<li><a href="#orgdd3ed96">Migrations Docs</a></li>
+<li><a href="#orgc4d2e89">Migrations Docs</a></li>
 </ul>
 </li>
+<li><a href="#org09c0da2">Templates Docs</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org09844f6" class="outline-2">
-<h2 id="org09844f6">Navigation</h2>
-<div class="outline-text-2" id="text-org09844f6">
+<div id="outline-container-orgc2a1966" class="outline-2">
+<h2 id="orgc2a1966">Navigation</h2>
+<div class="outline-text-2" id="text-orgc2a1966">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -269,18 +282,18 @@
 </div>
 </div>
 
-<div id="outline-container-org793c54a" class="outline-2">
-<h2 id="org793c54a">Django Polls App</h2>
-<div class="outline-text-2" id="text-org793c54a">
+<div id="outline-container-org139b988" class="outline-2">
+<h2 id="org139b988">Django Polls App</h2>
+<div class="outline-text-2" id="text-org139b988">
 <p>
 I'm going to be following the <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial01/">documentation tutorial</a>.
 I'm not going to write everything down but I am only going to write topics that will help me understand Django or topics that I think are important.
 </p>
 </div>
 
-<div id="outline-container-orge37f6a1" class="outline-3">
-<h3 id="orge37f6a1">Create the Project <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial01/">Docs</a></h3>
-<div class="outline-text-3" id="text-orge37f6a1">
+<div id="outline-container-org0077342" class="outline-3">
+<h3 id="org0077342">Create the Project <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial01/">Tutorial Part 1 Docs</a></h3>
+<div class="outline-text-3" id="text-org0077342">
 <ul class="org-ul">
 <li>Download python</li>
 <li>Download Django</li>
@@ -297,9 +310,9 @@ I'm not going to write everything down but I am only going to write topics that 
 </div>
 </div>
 
-<div id="outline-container-orgc1daab4" class="outline-3">
-<h3 id="orgc1daab4">Create the Polls App</h3>
-<div class="outline-text-3" id="text-orgc1daab4">
+<div id="outline-container-org789bbd8" class="outline-3">
+<h3 id="org789bbd8">Create the Polls App</h3>
+<div class="outline-text-3" id="text-org789bbd8">
 <ul class="org-ul">
 <li>Each application you write in Django consists of a Python package that follows a certain convention</li>
 <li>Django comes with a utility that automatically generates the basic directory structure of an app</li>
@@ -310,9 +323,9 @@ I'm not going to write everything down but I am only going to write topics that 
 </div>
 </div>
 
-<div id="outline-container-orgc1edd40" class="outline-3">
-<h3 id="orgc1edd40">Writing My First View</h3>
-<div class="outline-text-3" id="text-orgc1edd40">
+<div id="outline-container-org86989b2" class="outline-3">
+<h3 id="org86989b2">Writing My First View</h3>
+<div class="outline-text-3" id="text-org86989b2">
 <ul class="org-ul">
 <li>Once we have created an app we will create a "view"</li>
 <li>Create a <code>URLconf</code> named <code>urls.py</code></li>
@@ -324,9 +337,9 @@ I'm not going to write everything down but I am only going to write topics that 
 </div>
 </div>
 
-<div id="outline-container-org0db8b8c" class="outline-3">
-<h3 id="org0db8b8c">Database Setup <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial02/">Docs</a></h3>
-<div class="outline-text-3" id="text-org0db8b8c">
+<div id="outline-container-org4f178b9" class="outline-3">
+<h3 id="org4f178b9">Database Setup <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial02/">Tutorial Part 2 Docs</a></h3>
+<div class="outline-text-3" id="text-org4f178b9">
 <ul class="org-ul">
 <li>We need to create a database table so we are going to run <code>python manage.py migrate</code></li>
 <li>The migrate command looks at the <code>INSTALLED_APPS</code> setting and creates any necessary database tables according to the database setting in your <code>app/settings.py</code> file and the database migrations shipped with the app</li>
@@ -335,9 +348,9 @@ I'm not going to write everything down but I am only going to write topics that 
 </div>
 </div>
 
-<div id="outline-container-orga399355" class="outline-3">
-<h3 id="orga399355">Creating Models</h3>
-<div class="outline-text-3" id="text-orga399355">
+<div id="outline-container-org3e739a1" class="outline-3">
+<h3 id="org3e739a1">Creating Models</h3>
+<div class="outline-text-3" id="text-org3e739a1">
 <ul class="org-ul">
 <li>Models are essentially your database layout with additional metadata</li>
 <li>A model is the single definitive source of information about your data</li>
@@ -352,9 +365,9 @@ I'm not going to write everything down but I am only going to write topics that 
 </div>
 </div>
 
-<div id="outline-container-org08ef4f7" class="outline-3">
-<h3 id="org08ef4f7">Activating Models</h3>
-<div class="outline-text-3" id="text-org08ef4f7">
+<div id="outline-container-org47bbe2d" class="outline-3">
+<h3 id="org47bbe2d">Activating Models</h3>
+<div class="outline-text-3" id="text-org47bbe2d">
 <ul class="org-ul">
 <li>Let's add our app to the <code>INSTALLED_APPS</code> in the setting file by adding the app's configuration class</li>
 <li>The configuration class of the app is inside the directory of the app inside the <code>apps.py</code></li>
@@ -377,29 +390,199 @@ I'm not going to write everything down but I am only going to write topics that 
 </div>
 </div>
 
-<div id="outline-container-orgc0d6c31" class="outline-3">
-<h3 id="orgc0d6c31">Playing with the API</h3>
-<div class="outline-text-3" id="text-orgc0d6c31">
+<div id="outline-container-orgedc25ca" class="outline-3">
+<h3 id="orgedc25ca">Playing with the API</h3>
+<div class="outline-text-3" id="text-orgedc25ca">
 <ul class="org-ul">
 <li>Let's type <code>python manage.py shell</code> to open the python shell</li>
 <li>Why not just type <code>python</code>? Well because <code>manage.py</code> sets the <code>DJANGO_SETTINGS_MODULE</code> environment variable which gives Django the Python import path to your project's <code>settings.py</code> file</li>
-<li></li>
+<li>Using the shell we can import the models from our apps, see all the objects <code>Question.objects.all()</code>, create an entry by calling the constructor and in our case <code>Question(question_text="" pub_date=timezone.now())</code></li>
+<li>Each object has an id member field and it can be saved onto the database calling the function <code>save()</code> (e.g. <code>p.save()</code>)</li>
+<li>The <code>save()</code> function will write to your database and that entry will be stored as row in the DB</li>
+<li>You can modify the model's field values by simply using the assignment operator and then saving after (e.g. <code>q.question_text = "New"</code>)</li>
+<li>You can change what is displayed for the model when calling <code>Question.objects.all()</code> simply override the function <code>__str__()</code> in your model class</li>
+<li>It is important to add <code>__str__()</code> because object's representations are used throughout Django's automatically-generated admin</li>
+<li>The API can also filter by id, member fields, or even "field lookups" like filter by this member field that starts with this, filter by this member field that is a timestamp extract the year and filter it that matches this year, etc.</li>
+<li>The API can not only filter but retrieve individual instances (row)</li>
+<li>You can also establish relationships, for example, we have choice which has a foreign key to question, so using a question instance we are able to use the <code>objectName_set.create()</code> to create choices that have their foreign key as the question that made them</li>
+<li>In addition, you can filter objects by their foreign key instance object's member fields, so for example, we can filter the choice based on question's member fields</li>
+<li>The API has many different field lookups and member fields to access related objects</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8457696" class="outline-3">
+<h3 id="org8457696">Creating an Admin User</h3>
+<div class="outline-text-3" id="text-org8457696">
+<ul class="org-ul">
+<li>Run <code>python manage.py createsuperuser</code> and enter the credentials</li>
+<li>Start server &amp; go to: <code>http://127.0.0.1:8000/admin</code></li>
+<li>Log in and you can use the groups, users, and apps</li>
+<li>But you have to specify the app to show up in the admin page</li>
+<li>You do this by going to <code>app/admin.py</code> and adding the model to the admin site by <code>admin.site.register(&lt;Model_Module&gt;)</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org96eecba" class="outline-3">
+<h3 id="org96eecba">Overview of Our App <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial03/">Tutorital Part 3 Docs</a></h3>
+<div class="outline-text-3" id="text-org96eecba">
+<ul class="org-ul">
+<li>Our poll application will have 4 views: question "index" page, question "detail" page, question "results" page, and vote action</li>
+<li>A view is a "type" of web page in your Django application that generally serves a specific function and has a specific template</li>
+<li>Each view is represented by a Python function (or method, in the case of class-based views)</li>
+<li>Django will choose a view by examining the URL that's requested</li>
+<li>To go from a URL to a view, Django uses what are known as <code>URLconfs</code> (<code>URLconf</code> maps URL patterns to views)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfc3e5d9" class="outline-3">
+<h3 id="orgfc3e5d9">Writing More Views</h3>
+<div class="outline-text-3" id="text-orgfc3e5d9">
+<ul class="org-ul">
+<li>We have the index, so now let's create for the detail, results, and vote page by adding them to <code>polls/views.py</code></li>
+<li>After adding the views, we now need a URL path to each view so we modify <code>polls/urls.py</code></li>
+<li>We added where you can type in the url <code>localhost:8000/polls/&lt;int&gt;</code></li>
+<li>The integer will represent the id of the question and you can specify <code>polls/34</code> or whatever</li>
+<li>We also added other URLs like <code>polls/&lt;int&gt;/results</code> to view the results for that question</li>
+<li>This was done for the detail (not url after the int), results, and vote</li>
+<li>Using the <code>path()</code> function each URL will be mapped to a view and the view will be called whenever it goes to the URL</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf368b99" class="outline-3">
+<h3 id="orgf368b99">Write Views That Actually Do Something</h3>
+<div class="outline-text-3" id="text-orgf368b99">
+<ul class="org-ul">
+<li>Each view is responsible for doing one of two things: returning an <code>HttpResponse</code> object containing the content for the requested page or raising an exception such as <code>Http404</code></li>
+<li>The rest is up to you, it can read records from the DB or not, it can use a template or not, generate PDF file, output XML, create a ZIP file, anything you would like</li>
+<li>We are going to use Django's DB API to display the lastest 5 poll questions in system for the index view</li>
+<li>After create a directory called "templates", as Django will look for templates there</li>
+<li>Django looks for templates subdirectory in each of the installed apps (this can be modified)</li>
+<li>Then inside templates create a subdirectory called "polls" and then create a file in the "polls" directory called "index.html"</li>
+<li>Templates are used to create HTML dynamically</li>
+<li>Add the template code inside "index.html"</li>
+<li>Update <code>polls/views.py</code> to use the template by calling <code>template.render(context, request)</code></li>
+<li>The <code>template</code> is a variable you created by loading the template you want to use "polls/index.html" and the <code>context</code> is a dictionary mapping template variable names to python objects</li>
+<li>This can be shorten by using <code>django.shortcuts.render</code> and return that <code>render()</code> function instead of the <code>HttpRequest</code> for example <code>return render(request, "polls/index.html", context)</code> this will return a <code>HttpRequest</code> without you specifying it</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0f814c9" class="outline-3">
+<h3 id="org0f814c9">Raising 404 Error</h3>
+<div class="outline-text-3" id="text-org0f814c9">
+<ul class="org-ul">
+<li>To raise a 404 error you use raise <code>django.http.Http404</code> and a message, for example, <code>raise Http404("Question does not exist")</code></li>
+<li>Another shortcut would be to use <code>get_object_or_404()</code> which can either get you an object or raise a 404 error</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgee5f0c3" class="outline-3">
+<h3 id="orgee5f0c3">Removing Hardcoded URLs in Templates</h3>
+<div class="outline-text-3" id="text-orgee5f0c3">
+<ul class="org-ul">
+<li>Instead of using something like <code>href="/polls/{{question.id}}/"</code> we can instead use <code>href="{% url 'detail' question.id %}"</code></li>
+<li>What does this do?</li>
+<li>This will look at the URL in the <code>polls/url.py</code> called 'detail'</li>
+<li>Thus it will then use that URL with the argument <code>question.id</code></li>
+<li>So now if you change the URL in <code>url.py</code> then that is the only place you need to change it because all of the other URLs will use the new update</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8c38204" class="outline-3">
+<h3 id="org8c38204">Namespacing URL Names</h3>
+<div class="outline-text-3" id="text-org8c38204">
+<ul class="org-ul">
+<li>To not confuse Django between multiple URLs each <code>urls.py</code> can have a namespace by adding <code>app_name="&lt;app_name&gt;"</code> to the file before <code>urlpatterns</code></li>
+<li>So now in the template instead of using <code>detail</code> we will use <code>polls::detail</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc531a5c" class="outline-3">
+<h3 id="orgc531a5c">Write A Minimal Form <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial04/">Tutorial Part 4 Docs</a></h3>
+<div class="outline-text-3" id="text-orgc531a5c">
+<ul class="org-ul">
+<li>Modify the <code>detail.html</code> file to create a form</li>
+<li>The form will be submitted using POST and all POST forms that are targeted at internal URLs should use the <code>{% csrf_token %}</code> template tag</li>
+<li>Now let's modify the view that maps to the URL "vote" which is where the form will be submitted</li>
+<li><code>request.POST</code> is a dictionary-like object that lets you access submitted data by key name</li>
+<li><code>request.POST</code> always return strings and if you try to access a data name that wasn't specified in the POST request then it will raise a <code>KeyError</code></li>
+<li>We also use a function called <code>F()</code> which instructs the database to increase the vote by 1</li>
+<li>The view then returns an <code>HttpResponseRedirect</code> (takes a ignle argument the URL to redirect the user to) rather than a normal <code>HttpResponse</code> (this is just best practices when dealing with a POST request)</li>
+<li>The <code>reverse()</code> function is used to avoid having to hardcode a URL</li>
+<li>After voting, it redirects to the results page, so let's write that view and the template for it</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9b79a32" class="outline-3">
+<h3 id="org9b79a32">Use Generic Views</h3>
+<div class="outline-text-3" id="text-org9b79a32">
+<ul class="org-ul">
+<li>Generic views abstract common patterns to the point where you don't even need to write Python code to write an app (e.g. <code>ListView</code> and <code>DetailView</code> generic views abstract the concepts of "display list of objects" and "display detail page for a particular type of object"</li>
+<li>So let's convert our poll app to use the generic views system</li>
+<li>So we take 3 steps: (1) Convert the <code>URLConf</code>, (2) delete the old unneeded views, and (3) introduce new view baed on Django's generic views</li>
+<li>So we change the <code>polls/url.py</code> and we know use <code>&lt;pk&gt;</code> instead of <code>&lt;question_id&gt;</code> because this is necessary for the generic views as it expects the primary key to be called "pk"</li>
+<li>We then modify the <code>views.py</code>, we create a class that that derives from <code>generic.DetailView</code> and <code>generic.ListView</code></li>
+<li>Each generic view needs to know what model it will be acting upon, this provided using either the <code>model</code> attribute or by defining the <code>get_queryset()</code> method</li>
+<li>The <code>template_name</code> attribute is used to tell Django to use a specific template name instead of the autogenerated default template name</li>
+<li>For <code>DetailView</code> the <code>question</code> variable is provided automatically, however, for <code>ListView</code> the automatically generated context variable is <code>question_list</code> but to override this we provide the <code>context_object_name</code> specifying the name that you'd like to use instead</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2427d4e" class="outline-3">
+<h3 id="org2427d4e">Writing Our First Test <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial05/">Tutorial Part 5 Docs</a></h3>
+<div class="outline-text-3" id="text-org2427d4e">
+<ul class="org-ul">
+<li>A common place for an application's tests is the appliccation's <code>test.py</code></li>
+<li>For example, in our current code we show the 5 most recent question but this includes future questions so that is a bug and let's create a test for it in the <code>test.py</code> file</li>
+<li>You run the test with the command <code>python manage.py test &lt;optional_app_name&gt;</code></li>
+<li>Fix the bug</li>
+<li>Run the test again</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org970d079" class="outline-3">
+<h3 id="org970d079">Test A View</h3>
+<div class="outline-text-3" id="text-org970d079">
+<ul class="org-ul">
+<li>One of the rules should be by setting a <code>pub_date</code> in the future means that the question is published at that moment but invisible until then</li>
+<li>Fix the view</li>
+<li>Test the view</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3f20e83" class="outline-3">
+<h3 id="org3f20e83">Finished</h3>
+<div class="outline-text-3" id="text-org3f20e83">
+<ul class="org-ul">
+<li>Here is where I stopped the tutorial because the rest of the tutorial are optional material</li>
+<li>I feel like have a basic understanding of how to use Django</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb95af67" class="outline-2">
-<h2 id="orgb95af67">Documentation</h2>
-<div class="outline-text-2" id="text-orgb95af67">
+<div id="outline-container-org6483822" class="outline-2">
+<h2 id="org6483822">Documentation</h2>
+<div class="outline-text-2" id="text-org6483822">
 <p>
 This section are for notes that were not included in the tutorial but found in <a href="https://docs.djangoproject.com/en/5.1/">Django docs</a>.
 </p>
 </div>
 
-<div id="outline-container-orgdfa2524" class="outline-3">
-<h3 id="orgdfa2524">Views</h3>
-<div class="outline-text-3" id="text-orgdfa2524">
+<div id="outline-container-org8b7ed32" class="outline-3">
+<h3 id="org8b7ed32">Views</h3>
+<div class="outline-text-3" id="text-org8b7ed32">
 <ul class="org-ul">
 <li>According to the <a href="https://docs.djangoproject.com/en/5.1/topics/http/urls/">Django Docs</a>, "views" are used to encapsulate the logic responsible for processing a user's request and for returning the response</li>
 <li>To design URLs for an app, you create a Python module informally called a <code>URLconf</code> (URL configuration)</li>
@@ -408,9 +591,9 @@ This section are for notes that were not included in the tutorial but found in <
 </ul>
 </div>
 
-<div id="outline-container-orgc009260" class="outline-4">
-<h4 id="orgc009260">How Django Process a Request</h4>
-<div class="outline-text-4" id="text-orgc009260">
+<div id="outline-container-org65ba1da" class="outline-4">
+<h4 id="org65ba1da">How Django Process a Request</h4>
+<div class="outline-text-4" id="text-org65ba1da">
 <ul class="org-ul">
 <li>When a user requests a page from your Django-powered site, this algorithm is followed:</li>
 <li>Django determines the root <code>URLconf</code> module (since <code>URLconf</code> modules can be created in a hierarchical structure) to use (the setting <code>ROOT_URLCONF</code> has value that specifies the root <code>URLconf</code> module but if the incoming <code>HttpRequest</code> object has a <code>urlconf</code> attribute which was set by middleware then that will be used instead of <code>ROOT_URLCONF</code>)</li>
@@ -437,9 +620,9 @@ This section are for notes that were not included in the tutorial but found in <
 </div>
 </div>
 
-<div id="outline-container-org2c24ed2" class="outline-3">
-<h3 id="org2c24ed2">Models <a href="https://docs.djangoproject.com/en/5.1/topics/db/models/">Docs</a></h3>
-<div class="outline-text-3" id="text-org2c24ed2">
+<div id="outline-container-orgc2ce29a" class="outline-3">
+<h3 id="orgc2ce29a">Models <a href="https://docs.djangoproject.com/en/5.1/topics/db/models/">Docs</a></h3>
+<div class="outline-text-3" id="text-orgc2ce29a">
 <ul class="org-ul">
 <li>A model is the single, definitive source of information about your data containing the essential fields and behaviors of the data you're storing</li>
 <li>Generally each model maps to a single database table</li>
@@ -455,9 +638,9 @@ This section are for notes that were not included in the tutorial but found in <
 </ul>
 </div>
 
-<div id="outline-container-orgdd3ed96" class="outline-4">
-<h4 id="orgdd3ed96">Migrations <a href="https://docs.djangoproject.com/en/5.1/topics/migrations/">Docs</a></h4>
-<div class="outline-text-4" id="text-orgdd3ed96">
+<div id="outline-container-orgc4d2e89" class="outline-4">
+<h4 id="orgc4d2e89">Migrations <a href="https://docs.djangoproject.com/en/5.1/topics/migrations/">Docs</a></h4>
+<div class="outline-text-4" id="text-orgc4d2e89">
 <ul class="org-ul">
 <li>Migrations are Django's way of propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema</li>
 <li>They're designed to be mostly automatically but we need to know when to make migrations, when to run them, and common problems with migrations</li>
@@ -472,6 +655,17 @@ This section are for notes that were not included in the tutorial but found in <
 <li>Django will make migrations for any change to your models or fields even if the options do not affect the database as this is the only way to reconstruct a field correctly by having all the changes in the history</li>
 </ul>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org09c0da2" class="outline-3">
+<h3 id="org09c0da2">Templates <a href="https://docs.djangoproject.com/en/5.1/topics/templates/">Docs</a></h3>
+<div class="outline-text-3" id="text-org09c0da2">
+<ul class="org-ul">
+<li>Templates allow you to build HTML dynamically</li>
+<li>A template contains the static parts of the desired HTML output as well as some special syntax describing how dynamic content will be inserted</li>
+<li>Django project can be configured with one or several template engines and Django already ships buil-in backends for its own template system called the Django Template Language (DTL) but you can use other engines such as Jinja2 or something else</li>
+</ul>
 </div>
 </div>
 </div>
