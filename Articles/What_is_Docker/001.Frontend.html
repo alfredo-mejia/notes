@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-03-27 Thu 00:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Creating the Frontend</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Creating the Frontend</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb17e4ef">Apache HTTP Server</a>
+<ul>
+<li><a href="#org9d86976">Clients, Servers, &amp; URLs</a></li>
+<li><a href="#org739cd67">Hostnames &amp; DNS</a></li>
+<li><a href="#orgd689cac">Configuration Files &amp; Directives</a></li>
+<li><a href="#org0ae5dff">Web Site Content</a></li>
+<li><a href="#org0e46452">Log Files &amp; Troubleshooting</a></li>
+<li><a href="#org2c96e2d">Installing</a></li>
+<li><a href="#org14a28f4">Configuring Apache</a></li>
+<li><a href="#orgb5727e8">Building the Frontend</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb17e4ef" class="outline-2">
+<h2 id="orgb17e4ef">Apache HTTP Server</h2>
+<div class="outline-text-2" id="text-orgb17e4ef">
+<p>
+I'm not too familiar with Apache HTTP Server so let's start in the <a href="https://httpd.apache.org/docs/2.4/getting-started.html">documentation</a> and take notes.
+All of the information below is taken from the documentation.
+I will be using WSL 2 on Windows 11.
+</p>
+</div>
+
+<div id="outline-container-org9d86976" class="outline-3">
+<h3 id="org9d86976">Clients, Servers, &amp; URLs</h3>
+<div class="outline-text-3" id="text-org9d86976">
+<ul class="org-ul">
+<li>Addresses on the web are expresed with URLs</li>
+<li>They have a protocol (e.g. <code>http</code>), a servername (e.g. <code>www.apache.org</code>), a URL-path (<code>e.g. /docs/current/getting-started.html</code>), and possibly a query string (e.g. <code>?arg=value</code>) used to pass additional arguments to the server</li>
+<li>A client (e.g. web browswer) connects to a server (e.g. my Apache HTTP Server running)</li>
+<li>The client specifies the protocol and makes a request for a resource using the URL-path</li>
+<li>The resource may be a file (e.g. <code>index.html</code>), a handler like a server-status, or some kind of program file (e.g. <code>index.php</code>)</li>
+<li>The server will send a response consisting of a status code, and optionally, a response body</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org739cd67" class="outline-3">
+<h3 id="org739cd67">Hostnames &amp; DNS</h3>
+<div class="outline-text-3" id="text-org739cd67">
+<ul class="org-ul">
+<li>The client has to resolve the servername to an IP address</li>
+<li>Thus for the web server to be reachable it is necessary that the servername be in the DNS (domain name system) so clients can map the servername into IP addresses</li>
+<li>More than one IP address can be attached to the same physical server using virtual hosts</li>
+<li>Thus when you type in a domain name it will find the IP address that pertains to that domain name and with the IP address the client will know which machine to send the request to</li>
+<li>For example, if you wanted to you could use the IP address when entering server names in the browser instead of the domain name, this will skip the process of having to find the IP address of the domain name</li>
+<li>Within the machine / server, it will use the endpoint (URL-path) to find, within its own machine, the resource the client is looking for</li>
+<li>If your server is not internet-accessible, for example, for whatever reason your web server is not in the DNS and your client cannot resolve a server name (e.g. <code>www.example.com</code>) then you can make your client resolve the server name locally instead of using the DNS</li>
+<li>You do this by modifying your machine's hosts file</li>
+<li>This file has the IP address of any server names the user has added manually</li>
+<li>So you can add <code>127.0.0.1 www.example.com</code> this will map the server name to the localhost</li>
+<li>In Windows it is in <code>C:\Windows\system32\drivers\etc\hosts</code> and in Linux it is in <code>/etc/hosts</code></li>
+<li>Another option is to simply use the IP address instead of a server name</li>
+<li>When you are using the IP address it doesn't need the DNS or the hosts file because it knows which machine to request the resource from either from the local machine or some remote machine.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd689cac" class="outline-3">
+<h3 id="orgd689cac">Configuration Files &amp; Directives</h3>
+<div class="outline-text-3" id="text-orgd689cac">
+<ul class="org-ul">
+<li>Apache HTTP Server is configured via simple text files</li>
+<li>These files may be located on a variety of places depending on how the server was installed</li>
+<li>For example, the default location of configuration files is <code>/usr/local/apache2/conf</code> and the default configuration file is called <code>httpd.conf</code> but this too can vary</li>
+<li>The configuration is then broken into multiple smaller files for ease of management and these files are loaded via the <code>Include</code> directive</li>
+<li>The files can be rearrange to whatever makes sense for you</li>
+<li>The server is configured by placing configuration directives in these configuration files and a directive is a keyword followed by one or more arguments that set its value</li>
+<li>Depending on where you want the directive to be effective is the file you place the directive, for example, if you want it as a global setting it should appear in the configuration file outside of any directory, location, virtual host, or other section</li>
+<li>If you need to apply it to a particualar directory you then place it inside a directory section referring to that directory and so on</li>
+<li>Certain directives may go in the <code>.htaccess</code> files located in the content directories, <code>.htaccess</code> files are primarily for people who do not have access to the main server configuration files</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0ae5dff" class="outline-3">
+<h3 id="org0ae5dff">Web Site Content</h3>
+<div class="outline-text-3" id="text-org0ae5dff">
+<ul class="org-ul">
+<li>Web site content can take many forms but can be broadly divided into static or dynamic content</li>
+<li>Static conent are files that reside in the filesystem (html, css, js, etc.) and the <code>DocumentRoot</code> directive specifies where in your filesystem you should place these files</li>
+<li>The directive is set globally or per virtual host but you have to take a look at your server to determine how this is set up in you</li>
+<li>Typically a document called <code>index.html</code> will be served when a directory is requested without a file name being specifie, for example, if <code>DocumentRoot</code> is set to <code>/var/www/html</code> and the request is made for <code>http://www.example.com/work/</code> then the file <code>/var/www/html/work/index.html</code> will be served to the client</li>
+<li>Dynamic content is anything that is generated at request time and there are numerous ways to generate dynamic content</li>
+<li>Various handlers can generate content</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0e46452" class="outline-3">
+<h3 id="org0e46452">Log Files &amp; Troubleshooting</h3>
+<div class="outline-text-3" id="text-org0e46452">
+<ul class="org-ul">
+<li>There are a couple of log files that may help you in time of troubleshooting</li>
+<li>One of them is the error log which is defined by the <code>ErrorLog</code> which may be set globally or per virtua host</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2c96e2d" class="outline-3">
+<h3 id="org2c96e2d">Installing</h3>
+<div class="outline-text-3" id="text-org2c96e2d">
+<div class="org-src-container">
+<pre class="src src-bash">sudo apt install apache2
+
+# Apache automatically starts to run after installing
+# Check status
+sudo systemctl status apache2
+
+# To stop Apache
+sudo systemctl stop apache2
+
+# To start Apache
+sudo systemctl start apache2
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The main configuration file: <code>/etc/apache2/apache2.conf</code></li>
+<li>Listening ports config file: <code>/etc/apache2/ports.conf</code></li>
+<li>More config files inside <code>/etc/apache2/mods-enabled/</code>, <code>/etc/apache2/conf-enabled</code>, and <code>/etc/apache2/sites-enabled/</code></li>
+<li>According to the main config file the directories above have configuration snippets which manage modules, global configuration fragments, or virtual host configurations</li>
+<li>How do you activate these configurations after some change?</li>
+<li>They are activated by creating symlinks from the configuration in <code>*-available</code> to their <code>*-enabled</code> counterparts</li>
+<li>This means to add some configuration change to Apache, you first do the change in <code>*-avaiable</code></li>
+<li>Then Apache has command tools to enable or disable the configuration by running <code>a2enmod/a2dismod</code>, <code>a2ensite/a2dissite</code>, and <code>a2enconf/a2disconf</code></li>
+<li>Each command tool enables or disables the new configurations for <code>mods-*</code>, <code>conf-*</code>, and <code>sites-*</code> directories</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org14a28f4" class="outline-3">
+<h3 id="org14a28f4">Configuring Apache</h3>
+<div class="outline-text-3" id="text-org14a28f4">
+<ul class="org-ul">
+<li>If we take a look at the enabled sites config <code>/etc/apache2/sites-enabled/000-default.conf</code> we see that the <code>DocumentRoot</code> is specified as <code>/var/www/html</code></li>
+<li>We can change the value in <code>/etc/apache2/sites-available/000-default.conf</code> if we'd like, but we'll leave it how it is</li>
+<li>Now let's take a look at the port and default file</li>
+<li>By default if we have Apache running and go to <code>http://localhost/index.html</code> it should return with the file <code>index.html</code></li>
+<li>The default port specified in <code>ports.conf</code> says 80 but we can change this as well, port 80 does not need to be specified in the URL because the browser uses port 80 for http</li>
+<li>If we type <code>http://localhost/</code> the <code>index.html</code> file does not appear because we have to specify the <code>DirectoryIndex</code> directive to specify which file it should serve when a directory is accessed</li>
+<li><p>
+So we are going to change the port number and add a <code>DirectoryIndex</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"># Replace default port
+sudo sed -i '0,/Listen 80/s/Listen 80/Listen 8080/' /etc/apache2/ports.conf
+
+# Restart Apache
+sudo systemctl restart apache2
+
+# Check status of Apache
+sudo systemctl status apache2
+
+# Update the Virtual Host Port
+sudo sed -i '0,/&lt;VirtualHost \*:80&gt;/s/&lt;VirtualHost \*:80&gt;/&lt;VirtualHost \*:8080&gt;/' /etc/apache2/sites-available/000-default.conf
+
+# Add default directory index so index.html will be requested by default w/o specifying it in the url
+sudo sed -i '/DocumentRoot \/var\/www\/html/a\\tDirectoryIndex index.html' /etc/apache2/sites-available/000-default.conf
+
+# Check config syntax
+sudo apache2ctl configtest
+
+# Enable site
+# This is not needed because 000-default.conf is already enabled
+# Thus if you make changes to a config file in the available folder that is already enabled (shown in the sites-enabled folder)
+# Then all you need is to restart or reload apache to get the new changes
+# Only do this if you create or change a config file that is not enabled (not present in sites-enabled)
+sudo a2ensite 000-default.conf
+
+# Should we reload or restart apache?
+# Reload will realod the configuration files without fully stopping Apache and disrupt existing connections
+# Restart stops and starts Apache again and will terminate all current connections
+# Let's reload the configurations we did
+sudo sytemctl reload apache2
+
+# So now if you go to http://localhost:8080 then it will automatically pull index.html
+</pre>
+</div></li>
+
+<li>So now we have successfully setup Apache, changed the port and added a directive to automatically pull index.html</li>
+<li>Now it is time to create our front-end of the application</li>
+<li>We will create a new directory called <code>What_is_Docker</code> thus its path will be <code>/var/www/html/What_is_Docker/</code> and inside of it will have the file <code>index.html</code></li>
+<li>So now if we go to <a href="http://localhost:8080/What_is_Docker">http://localhost:8080/What_is_Docker</a> the index file inside <code>What_is_Docker</code> directory should appear</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb5727e8" class="outline-3">
+<h3 id="orgb5727e8">Building the Frontend</h3>
+<div class="outline-text-3" id="text-orgb5727e8">
+<ul class="org-ul">
+<li><a href="./App/Frontend/What_is_Docker/index.html">Here</a> is the index file</li>
+<li>With the index file you can enter a name and DOB and if successful it will register with the DB and display the results</li>
+<li>You can edit the name or even delete the row</li>
+<li>Most of the magic happens in JS and the backend</li>
+<li><a href="./App/Fronted/What_is_Docker/main.js">Here</a> is the JS file</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

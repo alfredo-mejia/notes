@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-22 Sat 23:56 -->
+<!-- 2025-03-27 Thu 00:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>What is Docker?</title>
@@ -202,61 +202,48 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org22aa27e">Navigation</a></li>
-<li><a href="#org291b325">What is Docker?</a>
+<li><a href="#org7dcfce2">Navigation</a></li>
+<li><a href="#org0230ede">What is Docker?</a>
 <ul>
-<li><a href="#org4834e71">History: Before VMs &amp; Containers</a>
+<li><a href="#orgc40da99">History: Before VMs &amp; Containers</a>
 <ul>
-<li><a href="#orgfd1da4b">One Server One Application</a></li>
-<li><a href="#org8d9a988">One Server Multiple Applications</a></li>
+<li><a href="#org97b0406">One Server One Application</a></li>
+<li><a href="#orgb267888">One Server Multiple Applications</a></li>
 </ul>
 </li>
-<li><a href="#org1f2ad7d">Virtual Machines</a>
+<li><a href="#orge6e6c95">Virtual Machines</a>
 <ul>
-<li><a href="#orgc0cceb8">How does VMs work?</a></li>
-<li><a href="#org5ed59f5">What's the benefit of VMs</a></li>
-<li><a href="#org4e1366a">Drawbacks of VMs</a></li>
+<li><a href="#org29ba83a">How does VMs work?</a></li>
+<li><a href="#org62c3a32">What's the benefit of VMs</a></li>
+<li><a href="#org3e3f6eb">Drawbacks of VMs</a></li>
 </ul>
 </li>
-<li><a href="#org700c063">Containerization</a>
+<li><a href="#orga204617">Containerization</a>
 <ul>
-<li><a href="#orgb58583e">How do containers work?</a></li>
-<li><a href="#orgfcc2f31">Advantages of Containerization</a></li>
-<li><a href="#orgdf3bd55">Disadvantages of Containers</a></li>
+<li><a href="#org364357d">How do containers work?</a></li>
+<li><a href="#org4dc70bf">Advantages of Containerization</a></li>
+<li><a href="#orga096f8e">Disadvantages of Containers</a></li>
 </ul>
 </li>
-<li><a href="#orge7b7ac0">Docker</a></li>
+<li><a href="#orgd4ce897">Docker</a></li>
 </ul>
 </li>
-<li><a href="#org69ff2ed">Using Docker</a>
+<li><a href="#org3310a46">Using Docker</a>
 <ul>
-<li><a href="#orgf7750c5">Apache HTTP Server</a>
-<ul>
-<li><a href="#orgd247d8d">Clients, Servers, &amp; URLs</a></li>
-<li><a href="#orgff81c9b">Hostnames &amp; DNS</a></li>
-<li><a href="#org910f0cc">Configuration Files &amp; Directives</a></li>
-<li><a href="#org04f9f7a">Web Site Content</a></li>
-<li><a href="#orga0a8096">Log Files &amp; Troubleshooting</a></li>
-<li><a href="#org5d253d2">Installing</a></li>
-<li><a href="#org6147c86">Configuring Apache</a></li>
-<li><a href="#org3ae941f">Creating A Docker File &amp; Docker Image</a></li>
+<li><a href="#org7a2bc72">Creating A Docker File &amp; Docker Image For Frontend</a></li>
+<li><a href="#org2b1caae">Creating A Docker File &amp; Docker Image For Backend</a></li>
+<li><a href="#org82977bf">Creating A Docker File &amp; Docker Image For DB</a></li>
+<li><a href="#org4f40821">How do all docker containers work together?</a></li>
 </ul>
 </li>
-<li><a href="#orge3e76de">Django</a>
-<ul>
-<li><a href="#orgc8c1e5e">Creating Django Project</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orga663ba4">Resources</a></li>
+<li><a href="#org2f961c5">Resources</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org22aa27e" class="outline-2">
-<h2 id="org22aa27e">Navigation</h2>
-<div class="outline-text-2" id="text-org22aa27e">
+<div id="outline-container-org7dcfce2" class="outline-2">
+<h2 id="org7dcfce2">Navigation</h2>
+<div class="outline-text-2" id="text-org7dcfce2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -291,13 +278,13 @@
 </div>
 </div>
 
-<div id="outline-container-org291b325" class="outline-2">
-<h2 id="org291b325">What is Docker?</h2>
-<div class="outline-text-2" id="text-org291b325">
+<div id="outline-container-org0230ede" class="outline-2">
+<h2 id="org0230ede">What is Docker?</h2>
+<div class="outline-text-2" id="text-org0230ede">
 </div>
-<div id="outline-container-org4834e71" class="outline-3">
-<h3 id="org4834e71">History: Before VMs &amp; Containers</h3>
-<div class="outline-text-3" id="text-org4834e71">
+<div id="outline-container-orgc40da99" class="outline-3">
+<h3 id="orgc40da99">History: Before VMs &amp; Containers</h3>
+<div class="outline-text-3" id="text-orgc40da99">
 <p>
 One might ask the question, how did people deploy applications before VMs and containers? Before, people and companies would deploy their applications on a bare server.
 This means companies would first have to order the server (hardware), then install an OS in the server, install any dependencies it needs, compile the source code of the application on the server, and run the application on the server.
@@ -309,9 +296,9 @@ Let's talk about the challenges of running an application on a bare server and w
 </p>
 </div>
 
-<div id="outline-container-orgfd1da4b" class="outline-4">
-<h4 id="orgfd1da4b">One Server One Application</h4>
-<div class="outline-text-4" id="text-orgfd1da4b">
+<div id="outline-container-org97b0406" class="outline-4">
+<h4 id="org97b0406">One Server One Application</h4>
+<div class="outline-text-4" id="text-org97b0406">
 <p>
 One server would be dedicated to running one application.
 That sounds reasonable but what are the drawbacks? The first major drawback is that it is time-consuming.
@@ -332,9 +319,9 @@ This seems like a lot of work for something that is inefficient and costly.
 </div>
 </div>
 
-<div id="outline-container-org8d9a988" class="outline-4">
-<h4 id="org8d9a988">One Server Multiple Applications</h4>
-<div class="outline-text-4" id="text-org8d9a988">
+<div id="outline-container-orgb267888" class="outline-4">
+<h4 id="orgb267888">One Server Multiple Applications</h4>
+<div class="outline-text-4" id="text-orgb267888">
 <p>
 One might assume it would just be smarter to run multiple applications on one server.
 Although the idea would be the precursor to VMs and containers, there are many drawbacks to this idea as well.
@@ -373,9 +360,9 @@ This is where virtual machines (VMs) are introduced.
 </div>
 </div>
 
-<div id="outline-container-org1f2ad7d" class="outline-3">
-<h3 id="org1f2ad7d">Virtual Machines</h3>
-<div class="outline-text-3" id="text-org1f2ad7d">
+<div id="outline-container-orge6e6c95" class="outline-3">
+<h3 id="orge6e6c95">Virtual Machines</h3>
+<div class="outline-text-3" id="text-orge6e6c95">
 <p>
 According to <a href="https://www.redhat.com/en/topics/virtualization/what-is-a-virtual-machine">Red Hat</a> a VM "is a computing environment that functions as an isolated system with its own CPU, memory, network interface, and storage, created from a pool of hardware resources".
 What does that mean? It means that a VM simulates a working operating system on top of some virtual hardware.
@@ -386,9 +373,9 @@ In addition, one server can hold multiple VMs and each VM is isolated and could 
 </p>
 </div>
 
-<div id="outline-container-orgc0cceb8" class="outline-4">
-<h4 id="orgc0cceb8">How does VMs work?</h4>
-<div class="outline-text-4" id="text-orgc0cceb8">
+<div id="outline-container-org29ba83a" class="outline-4">
+<h4 id="org29ba83a">How does VMs work?</h4>
+<div class="outline-text-4" id="text-org29ba83a">
 <p>
 VMs run a OS through a simulation of hardware. This is taken care of by the hypervisor.
 The hypervisor acts as the middle man between the VMs and the actual hardware.
@@ -400,9 +387,9 @@ Each type of hypervisor has its pros and cons.
 </div>
 </div>
 
-<div id="outline-container-org5ed59f5" class="outline-4">
-<h4 id="org5ed59f5">What's the benefit of VMs</h4>
-<div class="outline-text-4" id="text-org5ed59f5">
+<div id="outline-container-org62c3a32" class="outline-4">
+<h4 id="org62c3a32">What's the benefit of VMs</h4>
+<div class="outline-text-4" id="text-org62c3a32">
 <p>
 There are many benefits to using VMs. One of them is resource allocation and isolation.
 Let's say you have 3 VMs in one server. Then you can allocate each VM a third of the physical hardware.
@@ -427,9 +414,9 @@ VMs save money and time compared to running an application on a bare server.
 </div>
 </div>
 
-<div id="outline-container-org4e1366a" class="outline-4">
-<h4 id="org4e1366a">Drawbacks of VMs</h4>
-<div class="outline-text-4" id="text-org4e1366a">
+<div id="outline-container-org3e3f6eb" class="outline-4">
+<h4 id="org3e3f6eb">Drawbacks of VMs</h4>
+<div class="outline-text-4" id="text-org3e3f6eb">
 <p>
 The biggest drawbacks of VMs are the heavy-load of resources.
 Companies always wants more efficiency. VMs are great for resource allocation and resource isolation but is it the most efficient way to achieve that?
@@ -458,9 +445,9 @@ In the end, VMs have their pros and cons. VMs are great solutions in certain sit
 </div>
 </div>
 
-<div id="outline-container-org700c063" class="outline-3">
-<h3 id="org700c063">Containerization</h3>
-<div class="outline-text-3" id="text-org700c063">
+<div id="outline-container-orga204617" class="outline-3">
+<h3 id="orga204617">Containerization</h3>
+<div class="outline-text-3" id="text-orga204617">
 <p>
 According to <a href="https://www.ibm.com/think/topics/containerization">IBM</a> "containzeration is the packaging of software code with just the operating system libraries and dependencies required to run the code to create a single lightweight executable called a container that runs consistently on any infrastructure".
 This means a container is all the files, libraries, and executables for the application to run, without the OS.
@@ -468,9 +455,9 @@ It packages all the libaries and dependencies of the OS without the actual OS. T
 </p>
 </div>
 
-<div id="outline-container-orgb58583e" class="outline-4">
-<h4 id="orgb58583e">How do containers work?</h4>
-<div class="outline-text-4" id="text-orgb58583e">
+<div id="outline-container-org364357d" class="outline-4">
+<h4 id="org364357d">How do containers work?</h4>
+<div class="outline-text-4" id="text-org364357d">
 <p>
 So containers are isolated environments. Containers package all you need to run such as the application code, dependencies, OS libraries, configurations files, and anything else into something called a container image.
 The container image has all the information needed to create your application.
@@ -510,9 +497,9 @@ The runtime container has other jobs as well such as managing a container networ
 </div>
 </div>
 
-<div id="outline-container-orgfcc2f31" class="outline-4">
-<h4 id="orgfcc2f31">Advantages of Containerization</h4>
-<div class="outline-text-4" id="text-orgfcc2f31">
+<div id="outline-container-org4dc70bf" class="outline-4">
+<h4 id="org4dc70bf">Advantages of Containerization</h4>
+<div class="outline-text-4" id="text-org4dc70bf">
 <p>
 There are many advantages to containerization.
 The first major benefit is that they are lightweight.
@@ -554,9 +541,9 @@ So containers are efficient when it comes to resource allocation because dynamic
 </div>
 </div>
 
-<div id="outline-container-orgdf3bd55" class="outline-4">
-<h4 id="orgdf3bd55">Disadvantages of Containers</h4>
-<div class="outline-text-4" id="text-orgdf3bd55">
+<div id="outline-container-orga096f8e" class="outline-4">
+<h4 id="orga096f8e">Disadvantages of Containers</h4>
+<div class="outline-text-4" id="text-orga096f8e">
 <p>
 Containers have a couple cons as well. One of the cons of containers is that they all share the same host kernel which can lead to security issues.
 If the host kernel has some security vulnerability then all containers are exposed to such vulnerability.
@@ -567,9 +554,9 @@ Containers are stateless and each time they run it behaves like if it were to be
 </div>
 </div>
 
-<div id="outline-container-orge7b7ac0" class="outline-3">
-<h3 id="orge7b7ac0">Docker</h3>
-<div class="outline-text-3" id="text-orge7b7ac0">
+<div id="outline-container-orgd4ce897" class="outline-3">
+<h3 id="orgd4ce897">Docker</h3>
+<div class="outline-text-3" id="text-orgd4ce897">
 <p>
 According to <a href="https://aws.amazon.com/docker/">Amazon</a>, Docker is a software platform that allows you to build, test, and deploy applications quickly by packaging software into standardized units called containers that have everything the software needs to run including libraries system tools, code, and runtime.
 </p>
@@ -612,25 +599,25 @@ Now it is time to try out docker for ourselves.
 </div>
 </div>
 
-<div id="outline-container-org69ff2ed" class="outline-2">
-<h2 id="org69ff2ed">Using Docker</h2>
-<div class="outline-text-2" id="text-org69ff2ed">
+<div id="outline-container-org3310a46" class="outline-2">
+<h2 id="org3310a46">Using Docker</h2>
+<div class="outline-text-2" id="text-org3310a46">
 <p>
 In order to use Docker we need to create an application.
 I'm going to create a simple web application.
-This web application will have a form to enter a name and age.
-Once the form is submitted the name and age will appear below the form.
+This web application will have a form to enter a name and dob.
+Once the form is submitted the name and dob will appear below the form.
 If there are already names and ages from previous submissions then it will also appear below the form.
 The results will be shown in a table like structure and results will be shown from previous submissions, if any, as soon as the page is loaded.
-The results table will have an id, timestamp, name, age, and it will have two buttons.
-One button will edit the name and age.
+The results table will have an id, timestamp, name, age, and dob, in addition, it will have two buttons.
+One button will edit the name and dob.
 The other button will delete the submission.
 </p>
 
 <p>
 We will divide this project into 3 parts.
 The first part is the web server and we will be using <a href="https://httpd.apache.org/">Apache HTTP Server</a>. 
-The second part is the application (backend) server which we will be using <a href="https://www.djangoproject.com/">Django</a>.
+The second part is the application (backend) server which we will be using <a href="https://www.djangoproject.com/">Django</a> and Apache.
 The final part will be the database. We will use <a href="https://www.mysql.com/">MySQL</a> as our database.
 </p>
 
@@ -644,242 +631,37 @@ Let's get started.
 </p>
 </div>
 
-<div id="outline-container-orgf7750c5" class="outline-3">
-<h3 id="orgf7750c5">Apache HTTP Server</h3>
-<div class="outline-text-3" id="text-orgf7750c5">
-<p>
-I'm not too familiar with Apache HTTP Server so let's start in the <a href="https://httpd.apache.org/docs/2.4/getting-started.html">documentation</a> and take notes.
-All of the information below is taken from the documentation.
-I will be using WSL 2 on Windows 11.
-</p>
-</div>
-
-<div id="outline-container-orgd247d8d" class="outline-4">
-<h4 id="orgd247d8d">Clients, Servers, &amp; URLs</h4>
-<div class="outline-text-4" id="text-orgd247d8d">
+<div id="outline-container-org7a2bc72" class="outline-3">
+<h3 id="org7a2bc72">Creating A Docker File &amp; Docker Image For Frontend</h3>
+<div class="outline-text-3" id="text-org7a2bc72">
 <ul class="org-ul">
-<li>Addresses on the web are expresed with URLs</li>
-<li>They have a protocol (e.g. <code>http</code>), a servername (e.g. <code>www.apache.org</code>), a URL-path (<code>e.g. /docs/current/getting-started.html</code>), and possibly a query string (e.g. <code>?arg=value</code>) used to pass additional arguments to the server</li>
-<li>A client (e.g. web browswer) connects to a server (e.g. my Apache HTTP Server running)</li>
-<li>The client specifies the protocol and makes a request for a resource using the URL-path</li>
-<li>The resource may be a file (e.g. <code>index.html</code>), a handler like a server-status, or some kind of program file (e.g. <code>index.php</code>)</li>
-<li>The server will send a response consisting of a status code, and optionally, a response body</li>
+<li>To learn more about how I created the frontend check out my <a href="./001.Frontend.html">notes here</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgff81c9b" class="outline-4">
-<h4 id="orgff81c9b">Hostnames &amp; DNS</h4>
-<div class="outline-text-4" id="text-orgff81c9b">
+<div id="outline-container-org2b1caae" class="outline-3">
+<h3 id="org2b1caae">Creating A Docker File &amp; Docker Image For Backend</h3>
+<div class="outline-text-3" id="text-org2b1caae">
 <ul class="org-ul">
-<li>The client has to resolve the servername to an IP address</li>
-<li>Thus for the web server to be reachable it is necessary that the servername be in the DNS (domain name system) so clients can map the servername into IP addresses</li>
-<li>More than one IP address can be attached to the same physical server using virtual hosts</li>
-<li>Thus when you type in a domain name it will find the IP address that pertains to that domain name and with the IP address the client will know which machine to send the request to</li>
-<li>For example, if you wanted to you could use the IP address when entering server names in the browser instead of the domain name, this will skip the process of having to find the IP address of the domain name</li>
-<li>Within the machine / server, it will use the endpoint (URL-path) to find, within its own machine, the resource the client is looking for</li>
-<li>If your server is not internet-accessible, for example, for whatever reason your web server is not in the DNS and your client cannot resolve a server name (e.g. <code>www.example.com</code>) then you can make your client resolve the server name locally instead of using the DNS</li>
-<li>You do this by modifying your machine's hosts file</li>
-<li>This file has the IP address of any server names the user has added manually</li>
-<li>So you can add <code>127.0.0.1 www.example.com</code> this will map the server name to the localhost</li>
-<li>In Windows it is in <code>C:\Windows\system32\drivers\etc\hosts</code> and in Linux it is in <code>/etc/hosts</code></li>
-<li>Another option is to simply use the IP address instead of a server name</li>
-<li>When you are using the IP address it doesn't need the DNS or the hosts file because it knows which machine to request the resource from either from the local machine or some remote machine.</li>
+<li>To learn more about how I created the backend checkout my <a href="./002.Backend.html">notes here</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org910f0cc" class="outline-4">
-<h4 id="org910f0cc">Configuration Files &amp; Directives</h4>
-<div class="outline-text-4" id="text-org910f0cc">
-<ul class="org-ul">
-<li>Apache HTTP Server is configured via simple text files</li>
-<li>These files may be located on a variety of places depending on how the server was installed</li>
-<li>For example, the default location of configuration files is <code>/usr/local/apache2/conf</code> and the default configuration file is called <code>httpd.conf</code> but this too can vary</li>
-<li>The configuration is then broken into multiple smaller files for ease of management and these files are loaded via the <code>Include</code> directive</li>
-<li>The files can be rearrange to whatever makes sense for you</li>
-<li>The server is configured by placing configuration directives in these configuration files and a directive is a keyword followed by one or more arguments that set its value</li>
-<li>Depending on where you want the directive to be effective is the file you place the directive, for example, if you want it as a global setting it should appear in the configuration file outside of any directory, location, virtual host, or other section</li>
-<li>If you need to apply it to a particualar directory you then place it inside a directory section referring to that directory and so on</li>
-<li>Certain directives may go in the <code>.htaccess</code> files located in the content directories, <code>.htaccess</code> files are primarily for people who do not have access to the main server configuration files</li>
-</ul>
-</div>
+<div id="outline-container-org82977bf" class="outline-3">
+<h3 id="org82977bf">Creating A Docker File &amp; Docker Image For DB</h3>
 </div>
 
-<div id="outline-container-org04f9f7a" class="outline-4">
-<h4 id="org04f9f7a">Web Site Content</h4>
-<div class="outline-text-4" id="text-org04f9f7a">
-<ul class="org-ul">
-<li>Web site content can take many forms but can be broadly divided into static or dynamic content</li>
-<li>Static conent are files that reside in the filesystem (html, css, js, etc.) and the <code>DocumentRoot</code> directive specifies where in your filesystem you should place these files</li>
-<li>The directive is set globally or per virtual host but you have to take a look at your server to determine how this is set up in you</li>
-<li>Typically a document called <code>index.html</code> will be served when a directory is requested without a file name being specifie, for example, if <code>DocumentRoot</code> is set to <code>/var/www/html</code> and the request is made for <code>http://www.example.com/work/</code> then the file <code>/var/www/html/work/index.html</code> will be served to the client</li>
-<li>Dynamic content is anything that is generated at request time and there are numerous ways to generate dynamic content</li>
-<li>Various handlers can generate content</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orga0a8096" class="outline-4">
-<h4 id="orga0a8096">Log Files &amp; Troubleshooting</h4>
-<div class="outline-text-4" id="text-orga0a8096">
-<ul class="org-ul">
-<li>There are a couple of log files that may help you in time of troubleshooting</li>
-<li>One of them is the error log which is defined by the <code>ErrorLog</code> which may be set globally or per virtua host</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org5d253d2" class="outline-4">
-<h4 id="org5d253d2">Installing</h4>
-<div class="outline-text-4" id="text-org5d253d2">
-<div class="org-src-container">
-<pre class="src src-bash">sudo apt install apache2
-
-# Apache automatically starts to run after installing
-# Check status
-sudo systemctl status apache2
-
-# To stop Apache
-sudo systemctl stop apache2
-
-# To start Apache
-sudo systemctl start apache2
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>The main configuration file: <code>/etc/apache2/apache2.conf</code></li>
-<li>Listening ports config file: <code>/etc/apache2/ports.conf</code></li>
-<li>More config files inside <code>/etc/apache2/mods-enabled/</code>, <code>/etc/apache2/conf-enabled</code>, and <code>/etc/apache2/sites-enabled/</code></li>
-<li>According to the main config file the directories above have configuration snippets which manage modules, global configuration fragments, or virtual host configurations</li>
-<li>How do you activate these configurations after some change?</li>
-<li>They are activated by creating symlinks from the configuration in <code>*-available</code> to their <code>*-enabled</code> counterparts</li>
-<li>This means to add some configuration change to Apache, you first do the change in <code>*-avaiable</code></li>
-<li>Then Apache has command tools to enable or disable the configuration by running <code>a2enmod/a2dismod</code>, <code>a2ensite/a2dissite</code>, and <code>a2enconf/a2disconf</code></li>
-<li>Each command tool enables or disables the new configurations for <code>mods-*</code>, <code>conf-*</code>, and <code>sites-*</code> directories</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org6147c86" class="outline-4">
-<h4 id="org6147c86">Configuring Apache</h4>
-<div class="outline-text-4" id="text-org6147c86">
-<ul class="org-ul">
-<li>If we take a look at the enabled sites config <code>/etc/apache2/sites-enabled/000-default.conf</code> we see that the <code>DocumentRoot</code> is specified as <code>/var/www/html</code></li>
-<li>We can change the value in <code>/etc/apache2/sites-available/000-default.conf</code> if we'd like, but we'll leave it how it is</li>
-<li>Now let's take a look at the port and default file</li>
-<li>By default if we have Apache running and go to <code>http://localhost/index.html</code> it should return with the file <code>index.html</code></li>
-<li>The default port specified in <code>ports.conf</code> says 80 but we can change this as well, port 80 does not need to be specified in the URL because the browser uses port 80 for http</li>
-<li>If we type <code>http://localhost/</code> the <code>index.html</code> file does not appear because we have to specify the <code>DirectoryIndex</code> directive to specify which file it should serve when a directory is accessed</li>
-<li><p>
-So we are going to change the port number and add a <code>DirectoryIndex</code>
-</p>
-
-<div class="org-src-container">
-<pre class="src src-bash"># Replace default port
-sudo sed -i '0,/Listen 80/s/Listen 80/Listen 8080/' /etc/apache2/ports.conf
-
-# Restart Apache
-sudo systemctl restart apache2
-
-# Check status of Apache
-sudo systemctl status apache2
-
-# Update the Virtual Host Port
-sudo sed -i '0,/&lt;VirtualHost \*:80&gt;/s/&lt;VirtualHost \*:80&gt;/&lt;VirtualHost \*:8080&gt;/' /etc/apache2/sites-available/000-default.conf
-
-# Add default directory index so index.html will be requested by default w/o specifying it in the url
-sudo sed -i '/DocumentRoot \/var\/www\/html/a\\tDirectoryIndex index.html' /etc/apache2/sites-available/000-default.conf
-
-# Check config syntax
-sudo apache2ctl configtest
-
-# Enable site
-# This is not needed because 000-default.conf is already enabled
-# Thus if you make changes to a config file in the available folder that is already enabled (shown in the sites-enabled folder)
-# Then all you need is to restart or reload apache to get the new changes
-# Only do this if you create or change a config file that is not enabled (not present in sites-enabled)
-sudo a2ensite 000-default.conf
-
-# Should we reload or restart apache?
-# Reload will realod the configuration files without fully stopping Apache and disrupt existing connections
-# Restart stops and starts Apache again and will terminate all current connections
-# Let's reload the configurations we did
-sudo sytemctl reload apache2
-
-# So now if you go to http://localhost:8080 then it will automatically pull index.html
-</pre>
-</div></li>
-
-<li>So now we have successfully setup Apache, changed the port and added a directive to automatically pull index.html</li>
-<li>Now it is time to create our front-end of the application</li>
-<li>We will create a new directory called <code>What_is_Docker</code> thus its path will be <code>/var/www/html/What_is_Docker/</code> and inside of it will have the file <code>index.html</code></li>
-<li>So now if we go to <a href="http://localhost:8080/What_is_Docker">http://localhost:8080/What_is_Docker</a> the index file inside <code>What_is_Docker</code> directory should appear</li>
-<li><a href="./App/Frontend/index.html">Here</a> is the index file</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org3ae941f" class="outline-4">
-<h4 id="org3ae941f">Creating A Docker File &amp; Docker Image</h4>
-</div>
-</div>
-
-<div id="outline-container-orge3e76de" class="outline-3">
-<h3 id="orge3e76de">Django</h3>
-<div class="outline-text-3" id="text-orge3e76de">
-<p>
-We will be following the <a href="https://docs.djangoproject.com/en/5.1/">Django docs</a> to create our backend server.
-</p>
-</div>
-
-<div id="outline-container-orgc8c1e5e" class="outline-4">
-<h4 id="orgc8c1e5e">Creating Django Project</h4>
-<div class="outline-text-4" id="text-orgc8c1e5e">
-<div class="org-src-container">
-<pre class="src src-bash"># Download python
-sudo apt install python3
-
-# Create venv
-python3 -m venv myvenv
-
-# Activate venv
-source myvenv/bin/activate
-
-# Download Django
-pip install Django
-
-# Bootstrap new project
-django-admin startproject &lt;project-name&gt;
-
-# Move directory
-cd &lt;project-name&gt;
-
-# Start server
-python manage.py runserver
-
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>Django will create a <code>manage.py</code> which allows you interact with this Django project in various ways</li>
-<li><code>settings.py</code> are the settings and configurations of the Django project</li>
-<li><code>urls.py</code> is the URLs declarations for the Django project</li>
-</ul>
-</div>
-</div>
+<div id="outline-container-org4f40821" class="outline-3">
+<h3 id="org4f40821">How do all docker containers work together?</h3>
 </div>
 </div>
 
 
-
-
-
-
-<div id="outline-container-orga663ba4" class="outline-2">
-<h2 id="orga663ba4">Resources</h2>
-<div class="outline-text-2" id="text-orga663ba4">
+<div id="outline-container-org2f961c5" class="outline-2">
+<h2 id="org2f961c5">Resources</h2>
+<div class="outline-text-2" id="text-org2f961c5">
 <p>
 <a href="https://medium.com/@suryasaravanan2002/history-of-how-deployment-used-to-work-how-containerization-revolutionized-it-da785f4573ca#:~:text=In%20the%20early%20days%20of,of%20deployment%20that%20was%20used">https://medium.com/@suryasaravanan2002/history-of-how-deployment-used-to-work-how-containerization-revolutionized-it-da785f4573ca#:~:text=In%20the%20early%20days%20of,of%20deployment%20that%20was%20used</a>
 </p>

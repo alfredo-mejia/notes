@@ -1,4 +1,14 @@
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
+/*input[type="date"]::-webkit-calendar-picker-indicator {*/
+/*    display: none;*/
+/*    -webkit-appearance: none;*/
+/*}*/
+@import url("https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css");
+
+td > span.icon{
+    float: right;
+    margin-right: 1%;
+}
+
+td > span.icon:hover {
+    color: #00d1b2;
 }

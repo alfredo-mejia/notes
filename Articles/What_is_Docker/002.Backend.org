@@ -1,0 +1,81 @@
+#+title: Creating the Brontend
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Django
+We will be following the [[https://docs.djangoproject.com/en/5.1/][Django docs]] to create our backend server. In addition, we'll be referring my other notes and tutorial on Django called [[file:../../Tutorials/Django_Polls_App/000.Notes.org][Django Polls App]].
+
+** Creating Django Project
+
+#+BEGIN_SRC bash
+  # Download python
+  sudo apt install python3
+
+  # Create venv
+  python3 -m venv myvenv
+
+  # Activate venv
+  source myvenv/bin/activate
+
+  # Download Django
+  pip install Django
+
+  # Bootstrap new project
+  django-admin startproject <project-name>
+
+  # Move directory
+  cd <project-name>
+
+  # Start server
+  python manage.py runserver
+
+#+END_SRC
+
+    - Django will create a ~manage.py~ which allows you interact with this Django project in various ways
+    - ~settings.py~ are the settings and configurations of the Django project
+    - ~urls.py~ is the URLs declarations for the Django project
+** Creating Django App & Setting Up URLs
+    
+#+BEGIN_SRC bash
+  python manage.py startapp App
+#+END_SRC
+
+    - Let's add a view called "register" in the ~views.py~
+    - Then we are going to add a URL in the main ~URLconf~ as "What_is_Docker/"
+    - Then in the directory of "App" we will create a ~URLconf~ by first creating the file ~urls.py~
+    - Then adding 'register/' as the endpoint that will reach the view called "register" we did in ~views.py~
+    - So if we go to http://localhost:8000/What_is_Docker/register/ we should hit the view
+
+** Creating a Model
+    - To start we will be using SQLite but later we will use MySQL
+    - Modify the ~models.py~ and create the class with the appropriate member fields (age will be calculated at the front-end)
+    - We then add our app to the ~INSTALLED_APPS~ in the setting file
+    - Then we run ~python.py manage.py makemigrations App~
+    - Then ~python.py manage.py migrate App~
+
+** Create Another View That Returns All Rows From Table
+    - We go to ~views.py~ in the app and create a function view called ~get_all~
+    - Then we go to ~URLconf~ for app and create another URL called ~get_all/~
+    - Inside the ~get_all~ method we require the HTTP method to only be "GET" and we return the rows as a JSON data
+    - http://localhost:8000/What_is_Docker/get_all/
+
+** Continue Finishing Register View
+    - In the register view we will accept POST methods
+    - We will get the name and DOB from the post request and create a new person and add it to the table
+    - We will return a json response with "status" as "error" or "ok"
+
+** Creating Other Views
+    - Not only do we have ~get_all~ and ~register~ end points
+    - We are going to have ~delete/<id:person_id>/~ and ~modify/<id:person_id>/~
+    - The delete one will delete a person from the database
+    - The modify we only modify the name of the person
+
+** Comments to Making This Work
+   - I had to play around the Django's settings to make this work
+   - For example, I took off the middleware that was responsible for csrf tokens
+   - I added ~CORS_ORIGIN_ALLOW_ALL~ and ~CSRF_TRUSTED_ORIGINS~
+      
+** Running Django on Apache
+
+** Connecting to MySQL
