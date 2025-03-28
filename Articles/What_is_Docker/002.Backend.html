@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-28 Fri 14:41 -->
+<!-- 2025-03-28 Fri 15:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Creating the Frontend</title>
+<title>Creating the Backend</title>
 <meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -197,39 +197,90 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Creating the Frontend</h1>
+<h1 class="title">Creating the Backend</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1a2ae01">Django</a>
+<li><a href="#org9432ee4">Navigation</a></li>
+<li><a href="#org5d52043">Django</a>
 <ul>
-<li><a href="#orgdd6aabe">Creating Django Project</a></li>
-<li><a href="#org18382d0">Creating Django App &amp; Setting Up URLs</a></li>
-<li><a href="#orgcbf5cbc">Creating a Model</a></li>
-<li><a href="#org03dcec8">Create Another View That Returns All Rows From Table</a></li>
-<li><a href="#org8fb231f">Continue Finishing Register View</a></li>
-<li><a href="#org3712d50">Creating Other Views</a></li>
-<li><a href="#org9e56c09">Comments to Making This Work</a></li>
-<li><a href="#orge81d1fc">Connecting to MySQL</a></li>
-<li><a href="#orgddf5d70">Notes</a></li>
+<li><a href="#org3b95187">Creating Django Project</a></li>
+<li><a href="#org4faac9c">Creating Django App &amp; Setting Up URLs</a></li>
+<li><a href="#orgac3d7a5">Creating a Model</a></li>
+<li><a href="#org215ea6d">Create Another View That Returns All Rows From Table</a></li>
+<li><a href="#org3ea76f3">Continue Finishing Register View</a></li>
+<li><a href="#org5a8a45d">Creating Other Views</a></li>
+<li><a href="#org5cbdc3f">Comments to Making This Work</a></li>
+<li><a href="#org199bf38">Connecting to MySQL</a></li>
+<li><a href="#org6f4cc62">Notes</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1a2ae01" class="outline-2">
-<h2 id="org1a2ae01">Django</h2>
-<div class="outline-text-2" id="text-org1a2ae01">
+<div id="outline-container-org9432ee4" class="outline-2">
+<h2 id="org9432ee4">Navigation</h2>
+<div class="outline-text-2" id="text-org9432ee4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../index.html">html</a> &vert; <a href="../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">Articles</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Creating the Frontend</td>
+<td class="org-left">&vert; <a href="./001.Frontend.html">html</a> &vert; <a href="./001.Frontend.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Creating the Database</td>
+<td class="org-left">&vert; <a href="./003.Database.html">html</a> &vert; <a href="./003.Database.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org5d52043" class="outline-2">
+<h2 id="org5d52043">Django</h2>
+<div class="outline-text-2" id="text-org5d52043">
 <p>
 We will be following the <a href="https://docs.djangoproject.com/en/5.1/">Django docs</a> to create our backend server. In addition, we'll be referring my other notes and tutorial on Django called <a href="../../Tutorials/Django_Polls_App/000.Notes.html">Django Polls App</a>.
 </p>
 </div>
 
-<div id="outline-container-orgdd6aabe" class="outline-3">
-<h3 id="orgdd6aabe">Creating Django Project</h3>
-<div class="outline-text-3" id="text-orgdd6aabe">
+<div id="outline-container-org3b95187" class="outline-3">
+<h3 id="org3b95187">Creating Django Project</h3>
+<div class="outline-text-3" id="text-org3b95187">
 <div class="org-src-container">
 <pre class="src src-bash"># Download python
 sudo apt install python3
@@ -262,9 +313,9 @@ python manage.py runserver
 </ul>
 </div>
 </div>
-<div id="outline-container-org18382d0" class="outline-3">
-<h3 id="org18382d0">Creating Django App &amp; Setting Up URLs</h3>
-<div class="outline-text-3" id="text-org18382d0">
+<div id="outline-container-org4faac9c" class="outline-3">
+<h3 id="org4faac9c">Creating Django App &amp; Setting Up URLs</h3>
+<div class="outline-text-3" id="text-org4faac9c">
 <div class="org-src-container">
 <pre class="src src-bash">python manage.py startapp App
 </pre>
@@ -280,9 +331,9 @@ python manage.py runserver
 </div>
 </div>
 
-<div id="outline-container-orgcbf5cbc" class="outline-3">
-<h3 id="orgcbf5cbc">Creating a Model</h3>
-<div class="outline-text-3" id="text-orgcbf5cbc">
+<div id="outline-container-orgac3d7a5" class="outline-3">
+<h3 id="orgac3d7a5">Creating a Model</h3>
+<div class="outline-text-3" id="text-orgac3d7a5">
 <ul class="org-ul">
 <li>To start we will be using SQLite but later we will use MySQL</li>
 <li>Modify the <code>models.py</code> and create the class with the appropriate member fields (age will be calculated at the front-end)</li>
@@ -293,9 +344,9 @@ python manage.py runserver
 </div>
 </div>
 
-<div id="outline-container-org03dcec8" class="outline-3">
-<h3 id="org03dcec8">Create Another View That Returns All Rows From Table</h3>
-<div class="outline-text-3" id="text-org03dcec8">
+<div id="outline-container-org215ea6d" class="outline-3">
+<h3 id="org215ea6d">Create Another View That Returns All Rows From Table</h3>
+<div class="outline-text-3" id="text-org215ea6d">
 <ul class="org-ul">
 <li>We go to <code>views.py</code> in the app and create a function view called <code>get_all</code></li>
 <li>Then we go to <code>URLconf</code> for app and create another URL called <code>get_all/</code></li>
@@ -305,9 +356,9 @@ python manage.py runserver
 </div>
 </div>
 
-<div id="outline-container-org8fb231f" class="outline-3">
-<h3 id="org8fb231f">Continue Finishing Register View</h3>
-<div class="outline-text-3" id="text-org8fb231f">
+<div id="outline-container-org3ea76f3" class="outline-3">
+<h3 id="org3ea76f3">Continue Finishing Register View</h3>
+<div class="outline-text-3" id="text-org3ea76f3">
 <ul class="org-ul">
 <li>In the register view we will accept POST methods</li>
 <li>We will get the name and DOB from the post request and create a new person and add it to the table</li>
@@ -316,9 +367,9 @@ python manage.py runserver
 </div>
 </div>
 
-<div id="outline-container-org3712d50" class="outline-3">
-<h3 id="org3712d50">Creating Other Views</h3>
-<div class="outline-text-3" id="text-org3712d50">
+<div id="outline-container-org5a8a45d" class="outline-3">
+<h3 id="org5a8a45d">Creating Other Views</h3>
+<div class="outline-text-3" id="text-org5a8a45d">
 <ul class="org-ul">
 <li>Not only do we have <code>get_all</code> and <code>register</code> end points</li>
 <li>We are going to have <code>delete/&lt;id:person_id&gt;/</code> and <code>modify/&lt;id:person_id&gt;/</code></li>
@@ -328,9 +379,9 @@ python manage.py runserver
 </div>
 </div>
 
-<div id="outline-container-org9e56c09" class="outline-3">
-<h3 id="org9e56c09">Comments to Making This Work</h3>
-<div class="outline-text-3" id="text-org9e56c09">
+<div id="outline-container-org5cbdc3f" class="outline-3">
+<h3 id="org5cbdc3f">Comments to Making This Work</h3>
+<div class="outline-text-3" id="text-org5cbdc3f">
 <ul class="org-ul">
 <li>I had to play around the Django's settings to make this work</li>
 <li>For example, I took off the middleware that was responsible for csrf tokens</li>
@@ -339,9 +390,9 @@ python manage.py runserver
 </div>
 </div>
 
-<div id="outline-container-orge81d1fc" class="outline-3">
-<h3 id="orge81d1fc">Connecting to MySQL</h3>
-<div class="outline-text-3" id="text-orge81d1fc">
+<div id="outline-container-org199bf38" class="outline-3">
+<h3 id="org199bf38">Connecting to MySQL</h3>
+<div class="outline-text-3" id="text-org199bf38">
 <ul class="org-ul">
 <li>Let's follow <a href="https://docs.djangoproject.com/en/5.1/ref/databases/">Django documentation</a> to adding databases</li>
 <li>Step 1: Download mysqlclient <code>pip install mysqlclient</code></li>
@@ -354,9 +405,9 @@ python manage.py runserver
 </div>
 </div>
 
-<div id="outline-container-orgddf5d70" class="outline-3">
-<h3 id="orgddf5d70">Notes</h3>
-<div class="outline-text-3" id="text-orgddf5d70">
+<div id="outline-container-org6f4cc62" class="outline-3">
+<h3 id="org6f4cc62">Notes</h3>
+<div class="outline-text-3" id="text-org6f4cc62">
 <ul class="org-ul">
 <li>Although not ideal we are going to use Django's own server</li>
 <li>I know in the docs it says not to use Django's own server for prod environments but luckily this won't be a prod env, this is just for fun</li>

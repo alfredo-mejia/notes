@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-28 Fri 14:46 -->
+<!-- 2025-03-28 Fri 15:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>What is Docker?</title>
@@ -202,57 +202,57 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc673593">Navigation</a></li>
-<li><a href="#org71ba09e">What is Docker?</a>
+<li><a href="#orge436ccf">Navigation</a></li>
+<li><a href="#orga6d7599">What is Docker?</a>
 <ul>
-<li><a href="#org00fc7e4">History: Before VMs &amp; Containers</a>
+<li><a href="#org76dad92">History: Before VMs &amp; Containers</a>
 <ul>
-<li><a href="#org2847463">One Server One Application</a></li>
-<li><a href="#orgafe138b">One Server Multiple Applications</a></li>
+<li><a href="#org41d21d1">One Server One Application</a></li>
+<li><a href="#org1c098ac">One Server Multiple Applications</a></li>
 </ul>
 </li>
-<li><a href="#org8a588f9">Virtual Machines</a>
+<li><a href="#org2b04355">Virtual Machines</a>
 <ul>
-<li><a href="#org01a3191">How does VMs work?</a></li>
-<li><a href="#orgd2562ea">What's the benefit of VMs</a></li>
-<li><a href="#org005c337">Drawbacks of VMs</a></li>
+<li><a href="#orgd43bb09">How does VMs work?</a></li>
+<li><a href="#org084632c">What's the benefit of VMs</a></li>
+<li><a href="#orgae0830e">Drawbacks of VMs</a></li>
 </ul>
 </li>
-<li><a href="#orgeb63c96">Containerization</a>
+<li><a href="#orga27cf43">Containerization</a>
 <ul>
-<li><a href="#org7ff4d55">How do containers work?</a></li>
-<li><a href="#org1fc52a0">Advantages of Containerization</a></li>
-<li><a href="#org89a1bf2">Disadvantages of Containers</a></li>
+<li><a href="#org77d6b4f">How do containers work?</a></li>
+<li><a href="#org3385979">Advantages of Containerization</a></li>
+<li><a href="#orgaee6fc9">Disadvantages of Containers</a></li>
 </ul>
 </li>
-<li><a href="#org4959666">Docker</a></li>
+<li><a href="#org089dab6">Docker</a></li>
 </ul>
 </li>
-<li><a href="#orge8c3c37">Using Docker</a>
+<li><a href="#orgb80cfbc">Using Docker</a>
 <ul>
-<li><a href="#org1aaa779">Creating A Docker File &amp; Docker Image For Frontend</a>
+<li><a href="#org2c30bec">Creating A Docker File &amp; Docker Image For Frontend</a>
 <ul>
-<li><a href="#org9458d9c">Connecting to the Backend</a></li>
+<li><a href="#org9a02e3f">Connecting to the Backend</a></li>
 </ul>
 </li>
-<li><a href="#org887da72">Creating A Docker File &amp; Docker Image For Backend</a>
+<li><a href="#orgf773237">Creating A Docker File &amp; Docker Image For Backend</a>
 <ul>
-<li><a href="#org5b416c9">Connecting to DB</a></li>
+<li><a href="#orgf0fef2e">Connecting to DB</a></li>
 </ul>
 </li>
-<li><a href="#org71c0ad0">Creating A Docker File &amp; Docker Image For DB</a></li>
-<li><a href="#org0ccccbc">How do all docker containers work together?</a></li>
+<li><a href="#org7db823f">Creating A Docker File &amp; Docker Image For DB</a></li>
+<li><a href="#orgacc938e">How do all docker containers work together?</a></li>
 </ul>
 </li>
-<li><a href="#orge75e4f2">Final Thoughts</a></li>
-<li><a href="#org2981a53">Resources</a></li>
+<li><a href="#org2a8b1a9">Final Thoughts</a></li>
+<li><a href="#org4530765">Resources</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc673593" class="outline-2">
-<h2 id="orgc673593">Navigation</h2>
-<div class="outline-text-2" id="text-orgc673593">
+<div id="outline-container-orge436ccf" class="outline-2">
+<h2 id="orge436ccf">Navigation</h2>
+<div class="outline-text-2" id="text-orge436ccf">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -282,18 +282,36 @@
 <td class="org-left">Articles</td>
 <td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles">github</a> &vert;</td>
 </tr>
+
+<tr>
+<td class="org-left">Project PT1</td>
+<td class="org-left">Creating the Frontend</td>
+<td class="org-left">&vert; <a href="./001.Frontend.html">html</a> &vert; <a href="./001.Frontend.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Project PT2</td>
+<td class="org-left">Creating the Backend</td>
+<td class="org-left">&vert; <a href="./002.Backend.html">html</a> &vert; <a href="./002.Backend.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Project PT3</td>
+<td class="org-left">Creating the Database</td>
+<td class="org-left">&vert; <a href="./003.Database.html">html</a> &vert; <a href="./003.Database.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker">github</a> &vert;</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org71ba09e" class="outline-2">
-<h2 id="org71ba09e">What is Docker?</h2>
-<div class="outline-text-2" id="text-org71ba09e">
+<div id="outline-container-orga6d7599" class="outline-2">
+<h2 id="orga6d7599">What is Docker?</h2>
+<div class="outline-text-2" id="text-orga6d7599">
 </div>
-<div id="outline-container-org00fc7e4" class="outline-3">
-<h3 id="org00fc7e4">History: Before VMs &amp; Containers</h3>
-<div class="outline-text-3" id="text-org00fc7e4">
+<div id="outline-container-org76dad92" class="outline-3">
+<h3 id="org76dad92">History: Before VMs &amp; Containers</h3>
+<div class="outline-text-3" id="text-org76dad92">
 <p>
 One might ask the question, how did people deploy applications before VMs and containers? Before, people and companies would deploy their applications on a bare server.
 This means companies would first have to order the server (hardware), then install an OS in the server, install any dependencies it needs, compile the source code of the application on the server, and run the application on the server.
@@ -305,9 +323,9 @@ Let's talk about the challenges of running an application on a bare server and w
 </p>
 </div>
 
-<div id="outline-container-org2847463" class="outline-4">
-<h4 id="org2847463">One Server One Application</h4>
-<div class="outline-text-4" id="text-org2847463">
+<div id="outline-container-org41d21d1" class="outline-4">
+<h4 id="org41d21d1">One Server One Application</h4>
+<div class="outline-text-4" id="text-org41d21d1">
 <p>
 One server would be dedicated to running one application.
 That sounds reasonable but what are the drawbacks? The first major drawback is that it is time-consuming.
@@ -328,9 +346,9 @@ This seems like a lot of work for something that is inefficient and costly.
 </div>
 </div>
 
-<div id="outline-container-orgafe138b" class="outline-4">
-<h4 id="orgafe138b">One Server Multiple Applications</h4>
-<div class="outline-text-4" id="text-orgafe138b">
+<div id="outline-container-org1c098ac" class="outline-4">
+<h4 id="org1c098ac">One Server Multiple Applications</h4>
+<div class="outline-text-4" id="text-org1c098ac">
 <p>
 One might assume it would just be smarter to run multiple applications on one server.
 Although the idea would be the precursor to VMs and containers, there are many drawbacks to this idea as well.
@@ -369,9 +387,9 @@ This is where virtual machines (VMs) are introduced.
 </div>
 </div>
 
-<div id="outline-container-org8a588f9" class="outline-3">
-<h3 id="org8a588f9">Virtual Machines</h3>
-<div class="outline-text-3" id="text-org8a588f9">
+<div id="outline-container-org2b04355" class="outline-3">
+<h3 id="org2b04355">Virtual Machines</h3>
+<div class="outline-text-3" id="text-org2b04355">
 <p>
 According to <a href="https://www.redhat.com/en/topics/virtualization/what-is-a-virtual-machine">Red Hat</a> a VM "is a computing environment that functions as an isolated system with its own CPU, memory, network interface, and storage, created from a pool of hardware resources".
 What does that mean? It means that a VM simulates a working operating system on top of some virtual hardware.
@@ -382,9 +400,9 @@ In addition, one server can hold multiple VMs and each VM is isolated and could 
 </p>
 </div>
 
-<div id="outline-container-org01a3191" class="outline-4">
-<h4 id="org01a3191">How does VMs work?</h4>
-<div class="outline-text-4" id="text-org01a3191">
+<div id="outline-container-orgd43bb09" class="outline-4">
+<h4 id="orgd43bb09">How does VMs work?</h4>
+<div class="outline-text-4" id="text-orgd43bb09">
 <p>
 VMs run a OS through a simulation of hardware. This is taken care of by the hypervisor.
 The hypervisor acts as the middle man between the VMs and the actual hardware.
@@ -396,9 +414,9 @@ Each type of hypervisor has its pros and cons.
 </div>
 </div>
 
-<div id="outline-container-orgd2562ea" class="outline-4">
-<h4 id="orgd2562ea">What's the benefit of VMs</h4>
-<div class="outline-text-4" id="text-orgd2562ea">
+<div id="outline-container-org084632c" class="outline-4">
+<h4 id="org084632c">What's the benefit of VMs</h4>
+<div class="outline-text-4" id="text-org084632c">
 <p>
 There are many benefits to using VMs. One of them is resource allocation and isolation.
 Let's say you have 3 VMs in one server. Then you can allocate each VM a third of the physical hardware.
@@ -423,9 +441,9 @@ VMs save money and time compared to running an application on a bare server.
 </div>
 </div>
 
-<div id="outline-container-org005c337" class="outline-4">
-<h4 id="org005c337">Drawbacks of VMs</h4>
-<div class="outline-text-4" id="text-org005c337">
+<div id="outline-container-orgae0830e" class="outline-4">
+<h4 id="orgae0830e">Drawbacks of VMs</h4>
+<div class="outline-text-4" id="text-orgae0830e">
 <p>
 The biggest drawbacks of VMs are the heavy-load of resources.
 Companies always wants more efficiency. VMs are great for resource allocation and resource isolation but is it the most efficient way to achieve that?
@@ -454,9 +472,9 @@ In the end, VMs have their pros and cons. VMs are great solutions in certain sit
 </div>
 </div>
 
-<div id="outline-container-orgeb63c96" class="outline-3">
-<h3 id="orgeb63c96">Containerization</h3>
-<div class="outline-text-3" id="text-orgeb63c96">
+<div id="outline-container-orga27cf43" class="outline-3">
+<h3 id="orga27cf43">Containerization</h3>
+<div class="outline-text-3" id="text-orga27cf43">
 <p>
 According to <a href="https://www.ibm.com/think/topics/containerization">IBM</a> "containzeration is the packaging of software code with just the operating system libraries and dependencies required to run the code to create a single lightweight executable called a container that runs consistently on any infrastructure".
 This means a container is all the files, libraries, and executables for the application to run, without the OS.
@@ -464,9 +482,9 @@ It packages all the libaries and dependencies of the OS without the actual OS. T
 </p>
 </div>
 
-<div id="outline-container-org7ff4d55" class="outline-4">
-<h4 id="org7ff4d55">How do containers work?</h4>
-<div class="outline-text-4" id="text-org7ff4d55">
+<div id="outline-container-org77d6b4f" class="outline-4">
+<h4 id="org77d6b4f">How do containers work?</h4>
+<div class="outline-text-4" id="text-org77d6b4f">
 <p>
 So containers are isolated environments. Containers package all you need to run such as the application code, dependencies, OS libraries, configurations files, and anything else into something called a container image.
 The container image has all the information needed to create your application.
@@ -506,9 +524,9 @@ The runtime container has other jobs as well such as managing a container networ
 </div>
 </div>
 
-<div id="outline-container-org1fc52a0" class="outline-4">
-<h4 id="org1fc52a0">Advantages of Containerization</h4>
-<div class="outline-text-4" id="text-org1fc52a0">
+<div id="outline-container-org3385979" class="outline-4">
+<h4 id="org3385979">Advantages of Containerization</h4>
+<div class="outline-text-4" id="text-org3385979">
 <p>
 There are many advantages to containerization.
 The first major benefit is that they are lightweight.
@@ -550,9 +568,9 @@ So containers are efficient when it comes to resource allocation because dynamic
 </div>
 </div>
 
-<div id="outline-container-org89a1bf2" class="outline-4">
-<h4 id="org89a1bf2">Disadvantages of Containers</h4>
-<div class="outline-text-4" id="text-org89a1bf2">
+<div id="outline-container-orgaee6fc9" class="outline-4">
+<h4 id="orgaee6fc9">Disadvantages of Containers</h4>
+<div class="outline-text-4" id="text-orgaee6fc9">
 <p>
 Containers have a couple cons as well. One of the cons of containers is that they all share the same host kernel which can lead to security issues.
 If the host kernel has some security vulnerability then all containers are exposed to such vulnerability.
@@ -563,9 +581,9 @@ Containers are stateless and each time they run it behaves like if it were to be
 </div>
 </div>
 
-<div id="outline-container-org4959666" class="outline-3">
-<h3 id="org4959666">Docker</h3>
-<div class="outline-text-3" id="text-org4959666">
+<div id="outline-container-org089dab6" class="outline-3">
+<h3 id="org089dab6">Docker</h3>
+<div class="outline-text-3" id="text-org089dab6">
 <p>
 According to <a href="https://aws.amazon.com/docker/">Amazon</a>, Docker is a software platform that allows you to build, test, and deploy applications quickly by packaging software into standardized units called containers that have everything the software needs to run including libraries system tools, code, and runtime.
 </p>
@@ -608,9 +626,9 @@ Now it is time to try out docker for ourselves.
 </div>
 </div>
 
-<div id="outline-container-orge8c3c37" class="outline-2">
-<h2 id="orge8c3c37">Using Docker</h2>
-<div class="outline-text-2" id="text-orge8c3c37">
+<div id="outline-container-orgb80cfbc" class="outline-2">
+<h2 id="orgb80cfbc">Using Docker</h2>
+<div class="outline-text-2" id="text-orgb80cfbc">
 <p>
 In order to use Docker we need to create an application.
 I'm going to create a simple web application.
@@ -640,9 +658,9 @@ Let's get started.
 </p>
 </div>
 
-<div id="outline-container-org1aaa779" class="outline-3">
-<h3 id="org1aaa779">Creating A Docker File &amp; Docker Image For Frontend</h3>
-<div class="outline-text-3" id="text-org1aaa779">
+<div id="outline-container-org2c30bec" class="outline-3">
+<h3 id="org2c30bec">Creating A Docker File &amp; Docker Image For Frontend</h3>
+<div class="outline-text-3" id="text-org2c30bec">
 <ul class="org-ul">
 <li>To learn more about how I created the frontend check out my <a href="./001.Frontend.html">notes here</a></li>
 <li>First let's install Docker in WSL following the <a href="https://docs.docker.com/engine/install/ubuntu/">documentation</a></li>
@@ -684,9 +702,9 @@ sudo apt-get update
 </ul>
 </div>
 
-<div id="outline-container-org9458d9c" class="outline-4">
-<h4 id="org9458d9c">Connecting to the Backend</h4>
-<div class="outline-text-4" id="text-org9458d9c">
+<div id="outline-container-org9a02e3f" class="outline-4">
+<h4 id="org9a02e3f">Connecting to the Backend</h4>
+<div class="outline-text-4" id="text-org9a02e3f">
 <ul class="org-ul">
 <li>We do not need to specify the container the backend server is running</li>
 <li>Why? Because the browser in our host's machine pulls the files and the requests to the db are happening in our host machine so it will be using localhost and the port the backend is mapped to</li>
@@ -695,9 +713,9 @@ sudo apt-get update
 </div>
 </div>
 
-<div id="outline-container-org887da72" class="outline-3">
-<h3 id="org887da72">Creating A Docker File &amp; Docker Image For Backend</h3>
-<div class="outline-text-3" id="text-org887da72">
+<div id="outline-container-orgf773237" class="outline-3">
+<h3 id="orgf773237">Creating A Docker File &amp; Docker Image For Backend</h3>
+<div class="outline-text-3" id="text-orgf773237">
 <ul class="org-ul">
 <li>To learn more about how I created the backend checkout my <a href="./002.Backend.html">notes here</a></li>
 <li>Download the <a href="https://hub.docker.com/_/python">Python base image</a></li>
@@ -711,9 +729,9 @@ sudo apt-get update
 </ul>
 </div>
 
-<div id="outline-container-org5b416c9" class="outline-4">
-<h4 id="org5b416c9">Connecting to DB</h4>
-<div class="outline-text-4" id="text-org5b416c9">
+<div id="outline-container-orgf0fef2e" class="outline-4">
+<h4 id="orgf0fef2e">Connecting to DB</h4>
+<div class="outline-text-4" id="text-orgf0fef2e">
 <ul class="org-ul">
 <li>To connect to the DB you have 2 ways to do this</li>
 <li>Recall, if you put localhost as the host for the DB then it will search within the docker container for the DB which it will not find it</li>
@@ -733,9 +751,9 @@ docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}
 </div>
 </div>
 
-<div id="outline-container-org71c0ad0" class="outline-3">
-<h3 id="org71c0ad0">Creating A Docker File &amp; Docker Image For DB</h3>
-<div class="outline-text-3" id="text-org71c0ad0">
+<div id="outline-container-org7db823f" class="outline-3">
+<h3 id="org7db823f">Creating A Docker File &amp; Docker Image For DB</h3>
+<div class="outline-text-3" id="text-org7db823f">
 <ul class="org-ul">
 <li>To learn more about how I created the MySQL Server checkout <a href="./003.Database.html">notes here</a></li>
 <li>Now we need to create a docker file for the DB, so we are going to refer to the documentation on the <a href="https://hub.docker.com/_/mysql">docker hub</a></li>
@@ -746,9 +764,9 @@ docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}
 </div>
 </div>
 
-<div id="outline-container-org0ccccbc" class="outline-3">
-<h3 id="org0ccccbc">How do all docker containers work together?</h3>
-<div class="outline-text-3" id="text-org0ccccbc">
+<div id="outline-container-orgacc938e" class="outline-3">
+<h3 id="orgacc938e">How do all docker containers work together?</h3>
+<div class="outline-text-3" id="text-orgacc938e">
 <ul class="org-ul">
 <li>The host machine browser requests the localhost:80 which maps to the docker container running apache port 8080</li>
 <li>Apache then returns the files</li>
@@ -761,9 +779,9 @@ docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}
 </div>
 </div>
 
-<div id="outline-container-orge75e4f2" class="outline-2">
-<h2 id="orge75e4f2">Final Thoughts</h2>
-<div class="outline-text-2" id="text-orge75e4f2">
+<div id="outline-container-org2a8b1a9" class="outline-2">
+<h2 id="org2a8b1a9">Final Thoughts</h2>
+<div class="outline-text-2" id="text-org2a8b1a9">
 <p>
 Docker has definitely changed in how applications are deployed and there is still so much to learn.
 However, in doing the research and small application, I have learned a lot but I know there is still much to learn.
@@ -771,9 +789,9 @@ However, in doing the research and small application, I have learned a lot but I
 </div>
 </div>
 
-<div id="outline-container-org2981a53" class="outline-2">
-<h2 id="org2981a53">Resources</h2>
-<div class="outline-text-2" id="text-org2981a53">
+<div id="outline-container-org4530765" class="outline-2">
+<h2 id="org4530765">Resources</h2>
+<div class="outline-text-2" id="text-org4530765">
 <p>
 <a href="https://medium.com/@suryasaravanan2002/history-of-how-deployment-used-to-work-how-containerization-revolutionized-it-da785f4573ca#:~:text=In%20the%20early%20days%20of,of%20deployment%20that%20was%20used">https://medium.com/@suryasaravanan2002/history-of-how-deployment-used-to-work-how-containerization-revolutionized-it-da785f4573ca#:~:text=In%20the%20early%20days%20of,of%20deployment%20that%20was%20used</a>
 </p>

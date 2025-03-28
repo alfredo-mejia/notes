@@ -3,6 +3,14 @@
 #+options: num:nil html-postamble:nil
 #+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
+* Navigation
+| Nav   | Title                | Links                                   |
+|-------+----------------------+-----------------------------------------|
+| Index | Notes Home           | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | Articles             | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Articles][github]] \vert |
+| Prev  | What is Docker?      | \vert [[file:./000.Notes.html][html]] \vert [[file:./000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker][github]] \vert |
+| Next  | Creating the Backend | \vert [[file:./002.Backend.html][html]] \vert [[file:./002.Backend.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker][github]] \vert |
+
 * Apache HTTP Server
 I'm not too familiar with Apache HTTP Server so let's start in the [[https://httpd.apache.org/docs/2.4/getting-started.html][documentation]] and take notes.
 All of the information below is taken from the documentation.

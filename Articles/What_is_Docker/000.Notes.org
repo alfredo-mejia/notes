@@ -4,10 +4,13 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 
 * Navigation
-| Nav   | Title      | Links                                   |
-|-------+------------+-----------------------------------------|
-| Index | Notes Home | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
-| Home  | Articles   | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Articles][github]] \vert |
+| Nav         | Title                 | Links                                   |
+|-------------+-----------------------+-----------------------------------------|
+| Index       | Notes Home            | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home        | Articles              | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Articles][github]] \vert |
+| Project PT1 | Creating the Frontend | \vert [[file:./001.Frontend.html][html]] \vert [[file:./001.Frontend.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker][github]] \vert |
+| Project PT2 | Creating the Backend  | \vert [[file:./002.Backend.html][html]] \vert [[file:./002.Backend.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker][github]] \vert |
+| Project PT3 | Creating the Database | \vert [[file:./003.Database.html][html]] \vert [[file:./003.Database.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker][github]] \vert |
 
 * What is Docker?
 

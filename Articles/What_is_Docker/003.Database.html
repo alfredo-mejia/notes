@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-28 Fri 14:41 -->
+<!-- 2025-03-28 Fri 15:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Database</title>
+<title>Creating the Database</title>
 <meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -197,27 +197,71 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Database</h1>
+<h1 class="title">Creating the Database</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org9ba824e">MySQL Database</a>
+<li><a href="#org832c72e">Navigation</a></li>
+<li><a href="#orgd0690ce">MySQL Database</a>
 <ul>
-<li><a href="#org4d2ec23">Installing</a></li>
-<li><a href="#orge91772f">Verifying &amp; Setting Up</a></li>
-<li><a href="#orga947e52">Creating Database, Table, &amp; Rows</a></li>
-<li><a href="#org4b58daf">Configure MySQL Server</a></li>
-<li><a href="#org9826b18">Setting MySQL For Our App</a></li>
+<li><a href="#org9ef61be">Installing</a></li>
+<li><a href="#orgbd8b3de">Verifying &amp; Setting Up</a></li>
+<li><a href="#orgbc1de36">Creating Database, Table, &amp; Rows</a></li>
+<li><a href="#orgc905539">Configure MySQL Server</a></li>
+<li><a href="#org18b7eca">Setting MySQL For Our App</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9ba824e" class="outline-2">
-<h2 id="org9ba824e">MySQL Database</h2>
-<div class="outline-text-2" id="text-org9ba824e">
+<div id="outline-container-org832c72e" class="outline-2">
+<h2 id="org832c72e">Navigation</h2>
+<div class="outline-text-2" id="text-org832c72e">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../index.html">html</a> &vert; <a href="../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">Articles</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Creating the Backend</td>
+<td class="org-left">&vert; <a href="./002.Backend.html">html</a> &vert; <a href="./002.Backend.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgd0690ce" class="outline-2">
+<h2 id="orgd0690ce">MySQL Database</h2>
+<div class="outline-text-2" id="text-orgd0690ce">
 <p>
 We now need a database to store our users of our application. We are going to use MySQL database.
 We are going to be following the <a href="https://dev.mysql.com/doc/">documentation</a> to install and setup.
@@ -225,9 +269,9 @@ We will also use Ubuntu's documentation on <a href="https://documentation.ubuntu
 </p>
 </div>
 
-<div id="outline-container-org4d2ec23" class="outline-3">
-<h3 id="org4d2ec23">Installing</h3>
-<div class="outline-text-3" id="text-org4d2ec23">
+<div id="outline-container-org9ef61be" class="outline-3">
+<h3 id="org9ef61be">Installing</h3>
+<div class="outline-text-3" id="text-org9ef61be">
 <div class="org-src-container">
 <pre class="src src-bash">sudo apt install mysql-server
 </pre>
@@ -235,9 +279,9 @@ We will also use Ubuntu's documentation on <a href="https://documentation.ubuntu
 </div>
 </div>
 
-<div id="outline-container-orge91772f" class="outline-3">
-<h3 id="orge91772f">Verifying &amp; Setting Up</h3>
-<div class="outline-text-3" id="text-orge91772f">
+<div id="outline-container-orgbd8b3de" class="outline-3">
+<h3 id="orgbd8b3de">Verifying &amp; Setting Up</h3>
+<div class="outline-text-3" id="text-orgbd8b3de">
 <div class="org-src-container">
 <pre class="src src-bash"># check /var/log/mysql/error.log if a password was created for root or empty password
 
@@ -297,9 +341,9 @@ sudo service mysql restart
 </div>
 </div>
 
-<div id="outline-container-orga947e52" class="outline-3">
-<h3 id="orga947e52">Creating Database, Table, &amp; Rows</h3>
-<div class="outline-text-3" id="text-orga947e52">
+<div id="outline-container-orgbc1de36" class="outline-3">
+<h3 id="orgbc1de36">Creating Database, Table, &amp; Rows</h3>
+<div class="outline-text-3" id="text-orgbc1de36">
 <ul class="org-ul">
 <li>To run sql commands, make sure you are under the mysql shell by running mysql</li>
 </ul>
@@ -324,9 +368,9 @@ sudo service mysql restart
 </div>
 </div>
 
-<div id="outline-container-org4b58daf" class="outline-3">
-<h3 id="org4b58daf">Configure MySQL Server</h3>
-<div class="outline-text-3" id="text-org4b58daf">
+<div id="outline-container-orgc905539" class="outline-3">
+<h3 id="orgc905539">Configure MySQL Server</h3>
+<div class="outline-text-3" id="text-orgc905539">
 <ul class="org-ul">
 <li>Although it is always best to use the default ports, for the sake of learning let's change it</li>
 <li>Let's go the config file <code>/etc/mysql/my.cnf</code> and add the following</li>
@@ -344,9 +388,9 @@ port=3307
 </div>
 </div>
 
-<div id="outline-container-org9826b18" class="outline-3">
-<h3 id="org9826b18">Setting MySQL For Our App</h3>
-<div class="outline-text-3" id="text-org9826b18">
+<div id="outline-container-org18b7eca" class="outline-3">
+<h3 id="org18b7eca">Setting MySQL For Our App</h3>
+<div class="outline-text-3" id="text-org18b7eca">
 <ul class="org-ul">
 <li>Create a database with character set UTF8MB4 called "What<sub>is</sub><sub>Docker</sub>"</li>
 <li>Write client info in <code>/etc/mysql/my.cnf</code>, for example,</li>
