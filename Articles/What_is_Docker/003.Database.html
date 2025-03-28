@@ -6,7 +6,7 @@
 <!-- 2025-03-28 Fri 14:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Creating the Frontend</title>
+<title>Database</title>
 <meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -197,171 +197,168 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Creating the Frontend</h1>
+<h1 class="title">Database</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1a2ae01">Django</a>
+<li><a href="#org9ba824e">MySQL Database</a>
 <ul>
-<li><a href="#orgdd6aabe">Creating Django Project</a></li>
-<li><a href="#org18382d0">Creating Django App &amp; Setting Up URLs</a></li>
-<li><a href="#orgcbf5cbc">Creating a Model</a></li>
-<li><a href="#org03dcec8">Create Another View That Returns All Rows From Table</a></li>
-<li><a href="#org8fb231f">Continue Finishing Register View</a></li>
-<li><a href="#org3712d50">Creating Other Views</a></li>
-<li><a href="#org9e56c09">Comments to Making This Work</a></li>
-<li><a href="#orge81d1fc">Connecting to MySQL</a></li>
-<li><a href="#orgddf5d70">Notes</a></li>
+<li><a href="#org4d2ec23">Installing</a></li>
+<li><a href="#orge91772f">Verifying &amp; Setting Up</a></li>
+<li><a href="#orga947e52">Creating Database, Table, &amp; Rows</a></li>
+<li><a href="#org4b58daf">Configure MySQL Server</a></li>
+<li><a href="#org9826b18">Setting MySQL For Our App</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1a2ae01" class="outline-2">
-<h2 id="org1a2ae01">Django</h2>
-<div class="outline-text-2" id="text-org1a2ae01">
+<div id="outline-container-org9ba824e" class="outline-2">
+<h2 id="org9ba824e">MySQL Database</h2>
+<div class="outline-text-2" id="text-org9ba824e">
 <p>
-We will be following the <a href="https://docs.djangoproject.com/en/5.1/">Django docs</a> to create our backend server. In addition, we'll be referring my other notes and tutorial on Django called <a href="../../Tutorials/Django_Polls_App/000.Notes.html">Django Polls App</a>.
+We now need a database to store our users of our application. We are going to use MySQL database.
+We are going to be following the <a href="https://dev.mysql.com/doc/">documentation</a> to install and setup.
+We will also use Ubuntu's documentation on <a href="https://documentation.ubuntu.com/server/how-to/databases/install-mysql/index.html">Installing &amp; Configuring a MySQL Server</a>
 </p>
 </div>
 
-<div id="outline-container-orgdd6aabe" class="outline-3">
-<h3 id="orgdd6aabe">Creating Django Project</h3>
-<div class="outline-text-3" id="text-orgdd6aabe">
+<div id="outline-container-org4d2ec23" class="outline-3">
+<h3 id="org4d2ec23">Installing</h3>
+<div class="outline-text-3" id="text-org4d2ec23">
 <div class="org-src-container">
-<pre class="src src-bash"># Download python
-sudo apt install python3
+<pre class="src src-bash">sudo apt install mysql-server
+</pre>
+</div>
+</div>
+</div>
 
-# Create venv
-python3 -m venv myvenv
+<div id="outline-container-orge91772f" class="outline-3">
+<h3 id="orge91772f">Verifying &amp; Setting Up</h3>
+<div class="outline-text-3" id="text-orge91772f">
+<div class="org-src-container">
+<pre class="src src-bash"># check /var/log/mysql/error.log if a password was created for root or empty password
 
-# Activate venv
-source myvenv/bin/activate
+# checks version
+/bin/mysqladmin -u root version
 
-# Download Django
-pip install Django
+# assign password
+mysql -u root --skip-password
 
-# Bootstrap new project
-django-admin startproject &lt;project-name&gt;
-
-# Move directory
-cd &lt;project-name&gt;
-
-# Start server
-python manage.py runserver
-
+mysql&gt; ALTER USER 'root'@'localhost' IDENTIFIED BY 'root-password';
 </pre>
 </div>
 
 <ul class="org-ul">
-<li>Django will create a <code>manage.py</code> which allows you interact with this Django project in various ways</li>
-<li><code>settings.py</code> are the settings and configurations of the Django project</li>
-<li><code>urls.py</code> is the URLs declarations for the Django project</li>
+<li>You may need to use <code>sudo</code> in the commands above</li>
+<li>The issue is that MySQL on Ubuntu is using unix auth socket plugin by default</li>
+<li>This is why you need to use <code>sudo</code>, this <a href="https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost">stackoverflow post</a> talks about it and what we need to do</li>
+<li>In order to use the "mysql<sub>native</sub><sub>password</sub>" then we do the following:</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org18382d0" class="outline-3">
-<h3 id="org18382d0">Creating Django App &amp; Setting Up URLs</h3>
-<div class="outline-text-3" id="text-org18382d0">
+
 <div class="org-src-container">
-<pre class="src src-bash">python manage.py startapp App
+<pre class="src src-bash">sudo mysql -u root
+
+mysql&gt; USE mysql;
+mysql&gt; UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+mysql&gt; FLUSH PRIVILEGES;
+mysql&gt; exit;
+
+sudo systemctl restart mysql
 </pre>
 </div>
 
 <ul class="org-ul">
-<li>Let's add a view called "register" in the <code>views.py</code></li>
-<li>Then we are going to add a URL in the main <code>URLconf</code> as "What<sub>is</sub><sub>Docker</sub>/"</li>
-<li>Then in the directory of "App" we will create a <code>URLconf</code> by first creating the file <code>urls.py</code></li>
-<li>Then adding 'register/' as the endpoint that will reach the view called "register" we did in <code>views.py</code></li>
-<li>So if we go to <a href="http://localhost:8000/What_is_Docker/register/">http://localhost:8000/What_is_Docker/register/</a> we should hit the view</li>
+<li>The other way and recommended way is to create a new <code>db_user</code> with your own <code>system_user</code></li>
+<li>We do the following:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-bash">sudo mysql -u root
+
+mysql&gt; USE mysql;
+mysql&gt; CREATE USER 'YOUR_SYSTEM_USER'@'localhost' IDENTIFIED BY 'YOUR_PASSWD';
+mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'YOUR_SYSTEM_USER'@'localhost';
+mysql&gt; UPDATE user SET plugin='auth_socket' WHERE User='YOUR_SYSTEM_USER';
+mysql&gt; FLUSH PRIVILEGES;
+mysql&gt; exit;
+
+sudo service mysql restart
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>We replace YOUR<sub>SYSTEM</sub><sub>USER</sub> with our username like <code>alfredo</code> for me in my WSL</li>
+<li>Let's try the first option</li>
+<li>Then you are going to have to set the password again as shown above using <code>ALTER USER</code></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcbf5cbc" class="outline-3">
-<h3 id="orgcbf5cbc">Creating a Model</h3>
-<div class="outline-text-3" id="text-orgcbf5cbc">
+<div id="outline-container-orga947e52" class="outline-3">
+<h3 id="orga947e52">Creating Database, Table, &amp; Rows</h3>
+<div class="outline-text-3" id="text-orga947e52">
 <ul class="org-ul">
-<li>To start we will be using SQLite but later we will use MySQL</li>
-<li>Modify the <code>models.py</code> and create the class with the appropriate member fields (age will be calculated at the front-end)</li>
-<li>We then add our app to the <code>INSTALLED_APPS</code> in the setting file</li>
-<li>Then we run <code>python.py manage.py makemigrations App</code></li>
-<li>Then <code>python.py manage.py migrate App</code></li>
+<li>To run sql commands, make sure you are under the mysql shell by running mysql</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sql">-- Create database
+   SHOW DATABASES;
+   CREATE DATABASE Dummy;
+   USE Dummy;
+   SELECT DATABASE() FROM DUAL;
+
+-- Create table
+   SHOW TABLES;
+   CREATE TABLE TB1 (field1 INTEGER, field2 VARCHAR(20), field3 CHAR(1), field4 DATE);
+   SHOW TABLES;
+   DESCRIBE TB1;
+
+-- Insert row
+   INSERT INTO TB1 VALUES (1, 'abc', 'a', '1990-01-01');
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4b58daf" class="outline-3">
+<h3 id="org4b58daf">Configure MySQL Server</h3>
+<div class="outline-text-3" id="text-org4b58daf">
+<ul class="org-ul">
+<li>Although it is always best to use the default ports, for the sake of learning let's change it</li>
+<li>Let's go the config file <code>/etc/mysql/my.cnf</code> and add the following</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-text">[mysqld]
+port=3307	
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>So now mysql server is running on localhost:3307</li>
+<li>That's pretty much it now you can connect to it, add databases, tables, rows, and any sql operation</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org03dcec8" class="outline-3">
-<h3 id="org03dcec8">Create Another View That Returns All Rows From Table</h3>
-<div class="outline-text-3" id="text-org03dcec8">
+<div id="outline-container-org9826b18" class="outline-3">
+<h3 id="org9826b18">Setting MySQL For Our App</h3>
+<div class="outline-text-3" id="text-org9826b18">
 <ul class="org-ul">
-<li>We go to <code>views.py</code> in the app and create a function view called <code>get_all</code></li>
-<li>Then we go to <code>URLconf</code> for app and create another URL called <code>get_all/</code></li>
-<li>Inside the <code>get_all</code> method we require the HTTP method to only be "GET" and we return the rows as a JSON data</li>
-<li><a href="http://localhost:8000/What_is_Docker/get_all/">http://localhost:8000/What_is_Docker/get_all/</a></li>
+<li>Create a database with character set UTF8MB4 called "What<sub>is</sub><sub>Docker</sub>"</li>
+<li>Write client info in <code>/etc/mysql/my.cnf</code>, for example,</li>
 </ul>
-</div>
-</div>
 
-<div id="outline-container-org8fb231f" class="outline-3">
-<h3 id="org8fb231f">Continue Finishing Register View</h3>
-<div class="outline-text-3" id="text-org8fb231f">
-<ul class="org-ul">
-<li>In the register view we will accept POST methods</li>
-<li>We will get the name and DOB from the post request and create a new person and add it to the table</li>
-<li>We will return a json response with "status" as "error" or "ok"</li>
-</ul>
+<div class="org-src-container">
+<pre class="src src-text">[client]
+database = NAME	
+user= USER
+password = PASSWORD
+</pre>
 </div>
-</div>
-
-<div id="outline-container-org3712d50" class="outline-3">
-<h3 id="org3712d50">Creating Other Views</h3>
-<div class="outline-text-3" id="text-org3712d50">
-<ul class="org-ul">
-<li>Not only do we have <code>get_all</code> and <code>register</code> end points</li>
-<li>We are going to have <code>delete/&lt;id:person_id&gt;/</code> and <code>modify/&lt;id:person_id&gt;/</code></li>
-<li>The delete one will delete a person from the database</li>
-<li>The modify we only modify the name of the person</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org9e56c09" class="outline-3">
-<h3 id="org9e56c09">Comments to Making This Work</h3>
-<div class="outline-text-3" id="text-org9e56c09">
-<ul class="org-ul">
-<li>I had to play around the Django's settings to make this work</li>
-<li>For example, I took off the middleware that was responsible for csrf tokens</li>
-<li>I added <code>CORS_ORIGIN_ALLOW_ALL</code> and <code>CSRF_TRUSTED_ORIGINS</code></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orge81d1fc" class="outline-3">
-<h3 id="orge81d1fc">Connecting to MySQL</h3>
-<div class="outline-text-3" id="text-orge81d1fc">
-<ul class="org-ul">
-<li>Let's follow <a href="https://docs.djangoproject.com/en/5.1/ref/databases/">Django documentation</a> to adding databases</li>
-<li>Step 1: Download mysqlclient <code>pip install mysqlclient</code></li>
-<li>Step 2: Create database in MySQL <code>CREATE DATABASE &lt;dbname&gt; CHARACTER SET utf8;</code></li>
-<li>Step 3: Go to <code>settings.py</code></li>
-<li>Step 4: Change the default db to mysql</li>
-<li>Step 5: Write info (connection settings) in this order: options, name, user, password, host, port, and then MySQL option files (e.g. <code>'HOST': 'localhost'</code>)</li>
-<li>Step 6: Write client info in the <code>my.cnf</code> file in mysql server</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgddf5d70" class="outline-3">
-<h3 id="orgddf5d70">Notes</h3>
-<div class="outline-text-3" id="text-orgddf5d70">
-<ul class="org-ul">
-<li>Although not ideal we are going to use Django's own server</li>
-<li>I know in the docs it says not to use Django's own server for prod environments but luckily this won't be a prod env, this is just for fun</li>
-<li>Maybe later I'll come back and deploy Django on an Apache server</li>
-</ul>
 </div>
 </div>
 </div>

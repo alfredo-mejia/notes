@@ -236,14 +236,87 @@ Let's get started.
 
 ** Creating A Docker File & Docker Image For Frontend
    - To learn more about how I created the frontend check out my [[file:./001.Frontend.org][notes here]]
+   - First let's install Docker in WSL following the [[https://docs.docker.com/engine/install/ubuntu/][documentation]]
 
+#+BEGIN_SRC bash
+  # Add Docker's official GPG key:
+  sudo apt-get update
+  sudo apt-get install ca-certificates curl
+  sudo install -m 0755 -d /etc/apt/keyrings
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+  # Add the repository to Apt sources:
+  echo \
+	"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+	  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+	sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt-get update
+
+  # Install
+   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+#+END_SRC
+
+   - Create docker file following a [[https://www.docker.com/blog/how-to-use-the-apache-httpd-docker-official-image/][blog post]]
+   - First use Apache HTTP Server as the base image
+   - We will pull the base imag called ~httpd~ which is Apache HTTP Server from the [[https://hub.docker.com/_/httpd][docker hub]]
+   - We'll write ~FROM httpd:latest~
+   - We will copy our local files to the docker location
+   - We will then configure the docker apache to expose port 8081 and add a ~DirectoryIndex~
+   - We will expose port 8081 and run ~CMD [httpd-foreground]~
+   - Note the conf file is in a different location in the Docker compared to Ubuntu
+   - We then use the docker image to build a docker image using ~docker build -t <name> .~ or if you want to give your docker a tag you will run ~docker build -t <nme:tag> .~
+   - Then you run the docker image using ~docker run -d -p 80:8081 --name <container_name> <image_name>~
+   - ~-d~ specifies it want it to run the background (detached node) and ~-p~ says you want port 8081 inside the container to map to 80 outside
+   - Now just go to ~http://localhost/~ and you will shown the frontend, note that 80 is the default port and thus you don't need to specify in the URL
+
+*** Connecting to the Backend
+    - We do not need to specify the container the backend server is running
+    - Why? Because the browser in our host's machine pulls the files and the requests to the db are happening in our host machine so it will be using localhost and the port the backend is mapped to
+   
 ** Creating A Docker File & Docker Image For Backend
    - To learn more about how I created the backend checkout my [[file:./002.Backend.org][notes here]]
-     
+   - Download the [[https://hub.docker.com/_/python][Python base image]]
+   - Set the work directory ~WORKDIR /app~ for inside the container
+   - Copy the requirements.txt to the working directory inside the container
+   - Then run ~pip~ to install dependencies
+   - Then you copy the source to the working directory
+   - Note if you download the repo from github and try to run the docker image it will not work because ".env" is missing
+   - You will need to create a file in the docker file with the secret_key, db_name, db_user, db_password, db_host, and db_port
+   - Then you expose the port and run the server using ~CMD~
+
+*** Connecting to DB
+    - To connect to the DB you have 2 ways to do this
+    - Recall, if you put localhost as the host for the DB then it will search within the docker container for the DB which it will not find it
+    - So the first way is to get the IP address of the docker container of the DB
+    - If we use the IP address of the docker container of the DB then we use the port that the DB is running INSIDE the container
+    - The second way is to use the localhost of the host machine by using ~host.docker.internal~ in Mac and Windows and in Linux use ~172.17.0.1~ which represents the localhost of the host
+    - If we use that then we use what we mapped the port of the DB container to the host's machine which, for me, is 3307 (we do not use the port the DB is running INSIDE the container)
+    - We can get the ip address of a container by running:
+
+#+BEGIN_SRC bash
+  # Note that each start the container 
+  docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mysql-container
+#+END_SRC
+
 ** Creating A Docker File & Docker Image For DB
-
+   - To learn more about how I created the MySQL Server checkout [[file:./003.Database.org][notes here]]
+   - Now we need to create a docker file for the DB, so we are going to refer to the documentation on the [[https://hub.docker.com/_/mysql][docker hub]]
+   - We are going to be latest mysql
+   - We are going to specify the root password, database name to create, new user, and password for the user
+   - Then we build and run and that should start mysql
+     
 ** How do all docker containers work together?
+   - The host machine browser requests the localhost:80 which maps to the docker container running apache port 8080
+   - Apache then returns the files
+   - The machine browser renders the files and sends request to the docker container running the backend at 8000
+   - This port is mapped to the docker's port 8000
+   - The backend then uses the dockeker DB container's IP address and internal port to connect and run queries
+   - The db receives the request and runs the queries
 
+* Final Thoughts
+Docker has definitely changed in how applications are deployed and there is still so much to learn.
+However, in doing the research and small application, I have learned a lot but I know there is still much to learn.
       
 * Resources
 https://medium.com/@suryasaravanan2002/history-of-how-deployment-used-to-work-how-containerization-revolutionized-it-da785f4573ca#:~:text=In%20the%20early%20days%20of,of%20deployment%20that%20was%20used

@@ -1,4 +1,4 @@
-#+title: Creating the Brontend
+#+title: Creating the Frontend
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
 #+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
@@ -75,7 +75,18 @@ We will be following the [[https://docs.djangoproject.com/en/5.1/][Django docs]]
    - I had to play around the Django's settings to make this work
    - For example, I took off the middleware that was responsible for csrf tokens
    - I added ~CORS_ORIGIN_ALLOW_ALL~ and ~CSRF_TRUSTED_ORIGINS~
-      
-** Running Django on Apache
 
 ** Connecting to MySQL
+   - Let's follow [[https://docs.djangoproject.com/en/5.1/ref/databases/][Django documentation]] to adding databases
+   - Step 1: Download mysqlclient ~pip install mysqlclient~
+   - Step 2: Create database in MySQL ~CREATE DATABASE <dbname> CHARACTER SET utf8;~
+   - Step 3: Go to ~settings.py~
+   - Step 4: Change the default db to mysql
+   - Step 5: Write info (connection settings) in this order: options, name, user, password, host, port, and then MySQL option files (e.g. ~'HOST': 'localhost'~)
+   - Step 6: Write client info in the ~my.cnf~ file in mysql server
+     
+** Notes
+   - Although not ideal we are going to use Django's own server
+   - I know in the docs it says not to use Django's own server for prod environments but luckily this won't be a prod env, this is just for fun
+   - Maybe later I'll come back and deploy Django on an Apache server
+

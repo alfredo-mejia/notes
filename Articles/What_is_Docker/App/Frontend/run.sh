@@ -1,0 +1,1 @@
+docker run -d -p 80:8081 --name frontend-container frontend:latest

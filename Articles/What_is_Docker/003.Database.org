@@ -1,0 +1,106 @@
+#+title: Database
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* MySQL Database
+We now need a database to store our users of our application. We are going to use MySQL database.
+We are going to be following the [[https://dev.mysql.com/doc/][documentation]] to install and setup.
+We will also use Ubuntu's documentation on [[https://documentation.ubuntu.com/server/how-to/databases/install-mysql/index.html][Installing & Configuring a MySQL Server]]
+
+** Installing
+
+#+BEGIN_SRC bash
+  sudo apt install mysql-server
+#+END_SRC
+
+** Verifying & Setting Up
+#+BEGIN_SRC bash
+  # check /var/log/mysql/error.log if a password was created for root or empty password
+
+  # checks version
+  /bin/mysqladmin -u root version
+
+  # assign password
+  mysql -u root --skip-password
+
+  mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'root-password';
+#+END_SRC
+
+   - You may need to use ~sudo~ in the commands above
+   - The issue is that MySQL on Ubuntu is using unix auth socket plugin by default
+   - This is why you need to use ~sudo~, this [[https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost][stackoverflow post]] talks about it and what we need to do
+   - In order to use the "mysql_native_password" then we do the following:
+
+#+BEGIN_SRC bash
+  sudo mysql -u root
+  
+  mysql> USE mysql;
+  mysql> UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+  mysql> FLUSH PRIVILEGES;
+  mysql> exit;
+
+  sudo systemctl restart mysql
+#+END_SRC
+
+   - The other way and recommended way is to create a new ~db_user~ with your own ~system_user~
+   - We do the following:
+
+#+BEGIN_SRC bash
+  sudo mysql -u root
+
+  mysql> USE mysql;
+  mysql> CREATE USER 'YOUR_SYSTEM_USER'@'localhost' IDENTIFIED BY 'YOUR_PASSWD';
+  mysql> GRANT ALL PRIVILEGES ON *.* TO 'YOUR_SYSTEM_USER'@'localhost';
+  mysql> UPDATE user SET plugin='auth_socket' WHERE User='YOUR_SYSTEM_USER';
+  mysql> FLUSH PRIVILEGES;
+  mysql> exit;
+
+  sudo service mysql restart
+#+END_SRC
+
+    - We replace YOUR_SYSTEM_USER with our username like ~alfredo~ for me in my WSL
+    - Let's try the first option
+    - Then you are going to have to set the password again as shown above using ~ALTER USER~
+
+** Creating Database, Table, & Rows
+   - To run sql commands, make sure you are under the mysql shell by running mysql
+
+#+BEGIN_SRC sql
+  -- Create database
+     SHOW DATABASES;
+     CREATE DATABASE Dummy;
+     USE Dummy;
+     SELECT DATABASE() FROM DUAL;
+
+  -- Create table
+     SHOW TABLES;
+     CREATE TABLE TB1 (field1 INTEGER, field2 VARCHAR(20), field3 CHAR(1), field4 DATE);
+     SHOW TABLES;
+     DESCRIBE TB1;
+
+  -- Insert row
+     INSERT INTO TB1 VALUES (1, 'abc', 'a', '1990-01-01');
+#+END_SRC
+
+** Configure MySQL Server
+   - Although it is always best to use the default ports, for the sake of learning let's change it
+   - Let's go the config file ~/etc/mysql/my.cnf~ and add the following
+#+BEGIN_SRC text
+    [mysqld]
+    port=3307	
+#+END_SRC
+
+   - So now mysql server is running on localhost:3307
+   - That's pretty much it now you can connect to it, add databases, tables, rows, and any sql operation
+
+** Setting MySQL For Our App
+   - Create a database with character set UTF8MB4 called "What_is_Docker"
+   - Write client info in ~/etc/mysql/my.cnf~, for example,
+
+#+BEGIN_SRC text
+  [client]
+  database = NAME	
+  user= USER
+  password = PASSWORD
+#+END_SRC
