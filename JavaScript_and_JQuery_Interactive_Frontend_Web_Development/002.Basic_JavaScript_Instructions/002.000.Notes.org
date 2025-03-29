@@ -210,12 +210,12 @@
 | Expression     | Unit of code that be evaluated or "compute" into a single value (e.g. "Hello", 5 + 5, etc.)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 * Questions
-  - Does the ~new~ operator function the same way as the ~new~ operator in C++?
-    - Both create new objects in the heap
-    - However two notable differences is that in JS you have garbage collection and when objects are no longer referenced then the JS engine will automically clean up memory
-    - In C++, you have to do this manually and use the ~delete~ operator
-    - Another thing is that JS will return the actual object after using the ~new~ operator thus you can easily access the object's members without needing to deference it because it returned the actual object instead of the pointer
-    - In C++, it will return a pointer and you will need to deference to use the pointer
+  - *Q*: Does the ~new~ operator function the same way as the ~new~ operator in C++?
+         - Both create new objects in the heap
+         - However two notable differences is that in JS you have garbage collection and when objects are no longer referenced then the JS engine will automically clean up memory
+         - In C++, you have to do this manually and use the ~delete~ operator
+         - Another thing is that JS will return the actual object after using the ~new~ operator thus you can easily access the object's members without needing to deference it because it returned the actual object instead of the pointer
+         - In C++, it will return a pointer and you will need to deference to use the pointer
 
 * Summary
   - A script is a series of instructions that a computer can follow one-by-one
