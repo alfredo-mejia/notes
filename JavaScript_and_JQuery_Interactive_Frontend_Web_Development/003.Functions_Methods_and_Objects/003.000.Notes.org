@@ -1,0 +1,27 @@
+#+title: Chapter 3: Functions, Methods & Objects
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+
+* Navigation
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
+| Prev  | Chapter 2: Basic JavaScript Instructions                    | \vert [[file:../002.Basic_JavaScript_Instructions/002.000.Notes.html][html]] \vert [[file:../002.Basic_JavaScript_Instructions/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/002.Basic_JavaScript_Instructions][github]] \vert |
+| Next  | Chapter 4: Decisions & Loops                                | \vert [[file:../004.Decisions_and_Loops/004.000.Notes.html][html]] \vert [[file:../004.Decisions_and_Loops/004.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/004.Decisions_and_Loops][github]] \vert |
+
+* Notes
+
+** Section 3.1: What is a Funtion?
+
+* Keywords
+
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*:
+
+* Summary
