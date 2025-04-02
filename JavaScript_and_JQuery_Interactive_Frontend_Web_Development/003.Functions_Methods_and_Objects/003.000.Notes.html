@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-19 Wed 14:30 -->
+<!-- 2025-04-02 Wed 11:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Chapter 3: Functions, Methods &amp; Objects</title>
+<meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -192,13 +193,219 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
 </head>
 <body>
 <div id="content" class="content">
+<h1 class="title">Chapter 3: Functions, Methods &amp; Objects</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org531fb42">Navigation</a></li>
+<li><a href="#org93e6ab7">Notes</a>
+<ul>
+<li><a href="#org221fac3">Section 3.1: What is a Funtion?</a>
+<ul>
+<li><a href="#org5aa2137">Section 3.1.1: Declaraing a Function</a></li>
+<li><a href="#orgc2d068e">Section 3.1.2: Calling a Function</a></li>
+<li><a href="#org014633c">Section 3.1.X Functions vs Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf222307">Keywords</a></li>
+<li><a href="#org9c33619">Questions</a></li>
+<li><a href="#orgffa4a36">Summary</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="date">Created: 2025-02-19 Wed 14:30</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+<div id="outline-container-org531fb42" class="outline-2">
+<h2 id="org531fb42">Navigation</h2>
+<div class="outline-text-2" id="text-org531fb42">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../index.html">html</a> &vert; <a href="../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 2: Basic JavaScript Instructions</td>
+<td class="org-left">&vert; <a href="../002.Basic_JavaScript_Instructions/002.000.Notes.html">html</a> &vert; <a href="../002.Basic_JavaScript_Instructions/002.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/002.Basic_JavaScript_Instructions">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 4: Decisions &amp; Loops</td>
+<td class="org-left">&vert; <a href="../004.Decisions_and_Loops/004.000.Notes.html">html</a> &vert; <a href="../004.Decisions_and_Loops/004.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/004.Decisions_and_Loops">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org93e6ab7" class="outline-2">
+<h2 id="org93e6ab7">Notes</h2>
+<div class="outline-text-2" id="text-org93e6ab7">
+</div>
+<div id="outline-container-org221fac3" class="outline-3">
+<h3 id="org221fac3">Section 3.1: What is a Funtion?</h3>
+<div class="outline-text-3" id="text-org221fac3">
+<ul class="org-ul">
+<li>A function is a reusable group of series of statements that perform a specific task</li>
+<li>Grouping together statements required to perform a task helps organize code</li>
+<li>Functions are not automatically performed, a function must be "called" or "invoked" to perform the steps inside the function thus functions are only performed when needed</li>
+<li>The function must be given a name to invoke it later, this is known as "calling" the function</li>
+<li>A function is created in a code block and some functions need info to be passed along to the function, these are called parameters</li>
+<li>For example, if you a function that calculates area then you need the height and width as input the function so height and width will be the parameters</li>
+<li>Some functions might return a response too and this is called a return value</li>
+<li>For example, the function that calculates area might want to return the value to whoever called it so the return value will be the area calculated from the parameters</li>
+<li>There are other functions called anonymous functions which do not have a name so they cannot be called but instead are executed as soon as the interpreter comes across them</li>
+</ul>
+</div>
+<div id="outline-container-org5aa2137" class="outline-4">
+<h4 id="org5aa2137">Section 3.1.1: Declaraing a Function</h4>
+<div class="outline-text-4" id="text-org5aa2137">
+<ul class="org-ul">
+<li>In JS, a function declaration is a function with a name with a code block and inside the code blockwe have statements that achieves a task</li>
+<li>You declare a functionusing the <code>function</code> keyword</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">function sayHello(){
+  document.write('Hello!');
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Some functions will need information from the caller</li>
+<li>The functions that need information will have to be declared with parameters</li>
+<li>Once the parameters are declared for the function inside the function the parameters will act like regular variables</li>
+<li>The parameters are delcared inside the parentheses after the function name and each name given acts like a variable name inside the function</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">function getArea(width, height) {
+  return width* height;
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><code>width</code> and <code>height</code> are the parameters to function <code>getArea()</code></li>
+<li>The function will return the value of the calculation to the caller</li>
+<li>In addition, each time this function is called then the caller will need to specify a width and a height</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc2d068e" class="outline-4">
+<h4 id="orgc2d068e">Section 3.1.2: Calling a Function</h4>
+<div class="outline-text-4" id="text-orgc2d068e">
+<ul class="org-ul">
+<li>Once the function has been declared you can then execute the statements inside the function by calling the function</li>
+<li>You can call the same function as many times as you want</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">sayHello();	
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>In JS, you can call a function before it has been declared because the interpreter runs through the script before executing each statement so it will know what function is being referred</li>
+<li>However it is good practice to declare them before using them because many other languages require for functions to be declared before using so it would be a good habit to develop</li>
+<li>Some functions may require arguments</li>
+<li>When you call a function that has parameters you specify the values it should use in the parentheses that follow its name</li>
+<li>The values given by the caller are called arguments and these arguments may be variables or literal values</li>
+<li>Each time you invoke the function it can be different variables and literals, it does not need to be the same values</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">getArea(3,5);
+
+let width = 3;
+let height =5;
+
+getArea(width, height);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><b>Arguments vs. Parameters</b>: Arguments are the values passed by the caller and parameters are the variables used by the callee</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org014633c" class="outline-4">
+<h4 id="org014633c">Section 3.1.X Functions vs Methods</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf222307" class="outline-2">
+<h2 id="orgf222307">Keywords</h2>
+<div class="outline-text-2" id="text-orgf222307">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org9c33619" class="outline-2">
+<h2 id="org9c33619">Questions</h2>
+<div class="outline-text-2" id="text-org9c33619">
+<ul class="org-ul">
+<li><b>Q</b>:</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgffa4a36" class="outline-2">
+<h2 id="orgffa4a36">Summary</h2>
+</div>
 </div>
 </body>
 </html>
