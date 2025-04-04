@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-02 Wed 11:17 -->
+<!-- 2025-04-03 Thu 18:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 3: Functions, Methods &amp; Objects</title>
@@ -202,27 +202,37 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org531fb42">Navigation</a></li>
-<li><a href="#org93e6ab7">Notes</a>
+<li><a href="#org1bce07e">Navigation</a></li>
+<li><a href="#org9d5f246">Notes</a>
 <ul>
-<li><a href="#org221fac3">Section 3.1: What is a Funtion?</a>
+<li><a href="#org0fe2d0d">Section 3.1: What is a Funtion?</a></li>
+<li><a href="#org4b502f2">Section 3.2: Declaraing a Function</a></li>
+<li><a href="#orgefb348f">Section 3.3: Calling a Function</a></li>
+<li><a href="#orgee72925">Section 3.4: Returning a Single Value</a></li>
+<li><a href="#orgab06df6">Section 3.5: Returning Multiple Values</a></li>
+<li><a href="#org53f5c96">Section 3.6: Anonymous Functions &amp; Function Expressions</a></li>
+<li><a href="#org474b36a">Section 3.7: Immediately Invoked Function Expressions</a></li>
+<li><a href="#org6b5bcbf">Section 3.8: Variable Scope</a></li>
+<li><a href="#org7b9452b">Section 3.9: How Memory &amp; Variables Work</a></li>
+<li><a href="#org8e6dc50">Section 3.10: Objects</a></li>
+<li><a href="#org186e316">Section 3.11: Creating an Object</a></li>
+<li><a href="#org57d166a">Section 3.12: Updating an Object</a></li>
+<li><a href="#orgff591aa">Section 3.13: Constructor Notation</a>
 <ul>
-<li><a href="#org5aa2137">Section 3.1.1: Declaraing a Function</a></li>
-<li><a href="#orgc2d068e">Section 3.1.2: Calling a Function</a></li>
-<li><a href="#org014633c">Section 3.1.X Functions vs Methods</a></li>
+<li><a href="#org07f89ee">Section 3.13.1: Classes</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf222307">Keywords</a></li>
-<li><a href="#org9c33619">Questions</a></li>
-<li><a href="#orgffa4a36">Summary</a></li>
+<li><a href="#org59c3db5">Keywords</a></li>
+<li><a href="#org0eef066">Questions</a></li>
+<li><a href="#orgd4f3513">Summary</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org531fb42" class="outline-2">
-<h2 id="org531fb42">Navigation</h2>
-<div class="outline-text-2" id="text-org531fb42">
+<div id="outline-container-org1bce07e" class="outline-2">
+<h2 id="org1bce07e">Navigation</h2>
+<div class="outline-text-2" id="text-org1bce07e">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -268,13 +278,13 @@
 </table>
 </div>
 </div>
-<div id="outline-container-org93e6ab7" class="outline-2">
-<h2 id="org93e6ab7">Notes</h2>
-<div class="outline-text-2" id="text-org93e6ab7">
+<div id="outline-container-org9d5f246" class="outline-2">
+<h2 id="org9d5f246">Notes</h2>
+<div class="outline-text-2" id="text-org9d5f246">
 </div>
-<div id="outline-container-org221fac3" class="outline-3">
-<h3 id="org221fac3">Section 3.1: What is a Funtion?</h3>
-<div class="outline-text-3" id="text-org221fac3">
+<div id="outline-container-org0fe2d0d" class="outline-3">
+<h3 id="org0fe2d0d">Section 3.1: What is a Funtion?</h3>
+<div class="outline-text-3" id="text-org0fe2d0d">
 <ul class="org-ul">
 <li>A function is a reusable group of series of statements that perform a specific task</li>
 <li>Grouping together statements required to perform a task helps organize code</li>
@@ -287,9 +297,10 @@
 <li>There are other functions called anonymous functions which do not have a name so they cannot be called but instead are executed as soon as the interpreter comes across them</li>
 </ul>
 </div>
-<div id="outline-container-org5aa2137" class="outline-4">
-<h4 id="org5aa2137">Section 3.1.1: Declaraing a Function</h4>
-<div class="outline-text-4" id="text-org5aa2137">
+</div>
+<div id="outline-container-org4b502f2" class="outline-3">
+<h3 id="org4b502f2">Section 3.2: Declaraing a Function</h3>
+<div class="outline-text-3" id="text-org4b502f2">
 <ul class="org-ul">
 <li>In JS, a function declaration is a function with a name with a code block and inside the code blockwe have statements that achieves a task</li>
 <li>You declare a functionusing the <code>function</code> keyword</li>
@@ -325,9 +336,9 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc2d068e" class="outline-4">
-<h4 id="orgc2d068e">Section 3.1.2: Calling a Function</h4>
-<div class="outline-text-4" id="text-orgc2d068e">
+<div id="outline-container-orgefb348f" class="outline-3">
+<h3 id="orgefb348f">Section 3.3: Calling a Function</h3>
+<div class="outline-text-3" id="text-orgefb348f">
 <ul class="org-ul">
 <li>Once the function has been declared you can then execute the statements inside the function by calling the function</li>
 <li>You can call the same function as many times as you want</li>
@@ -364,14 +375,282 @@ getArea(width, height);
 </ul>
 </div>
 </div>
-<div id="outline-container-org014633c" class="outline-4">
-<h4 id="org014633c">Section 3.1.X Functions vs Methods</h4>
+<div id="outline-container-orgee72925" class="outline-3">
+<h3 id="orgee72925">Section 3.4: Returning a Single Value</h3>
+<div class="outline-text-3" id="text-orgee72925">
+<ul class="org-ul">
+<li>Some functions return data back to the caller</li>
+<li>For example, if the caller invokes <code>getArea</code> then it expects the area to be returned so it can use it in some way</li>
+<li>The <code>return</code> keyword is used to return a value to the caller</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">function calculateArea(width,height) {
+  return width * area;
+}
+
+let area1 = calculateArea(3,5);
+console.log("Area: ", area1);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Note that the <code>return</code> keyword returns the callee to the caller and no subsequent statements would be processed in the function after the <code>return</code> statement</li>
+<li>It will return to the point where the caller invoked the function and after the function has returned it will continue execution as normal</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgab06df6" class="outline-3">
+<h3 id="orgab06df6">Section 3.5: Returning Multiple Values</h3>
+<div class="outline-text-3" id="text-orgab06df6">
+<ul class="org-ul">
+<li>Recall that arrays in JS can be of multiple data types they do not have to be of the same data type</li>
+<li>Thus you can use an array to return a single array holding multiple values</li>
+<li>Although it technically returns "one" value, it can think of it as returning multiple values because the array can store multiple values</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">function getSize(width, height, depth) {
+  let area = width * height;
+  let volume = width * height * depth;
+  let sizes [area, volume];
+  return sizes;
+}
+
+let vals = getSize(3, 5, 7);
+let area = vals[0];
+let volume = vals[1]
+</pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf222307" class="outline-2">
-<h2 id="orgf222307">Keywords</h2>
-<div class="outline-text-2" id="text-orgf222307">
+<div id="outline-container-org53f5c96" class="outline-3">
+<h3 id="org53f5c96">Section 3.6: Anonymous Functions &amp; Function Expressions</h3>
+<div class="outline-text-3" id="text-org53f5c96">
+<ul class="org-ul">
+<li>Expressions produce a value</li>
+<li>If a function is placed where a browser expects to see an expression (e.g., as an argument to a function) then it gets treated as an expression</li>
+<li>So far we have seen <i>named functions</i> which you give a name to the function which can then be called using its name</li>
+<li>Since the interpreter always goes through the script before executing, you can call a function before it is declared</li>
+<li>If you put a function where the interpreter would expect to see an expression then it is treated as an expression known as a function expression</li>
+<li>In function expressions, the name is usually omitted but function expressions can also have names</li>
+<li>A function with no name is called an anonymous function</li>
+<li>So every anonymous function is a function expression but <b>not</b> all function expressions are anonymous functions because function expressions can have names</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">// Function expression with name
+let val = function area(width, height){
+  return width * height;
+}
+
+// Function expression with no name
+let val2 = function(width, height) {
+  return width * height;
+}
+
+console.log(val(3,2));
+console.log(val2(5,5));
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>What can you do with function expressions that have names?</li>
+<li>Anonymous functions and named function expressions behave the same</li>
+<li>With named function expressions you <b>cannot</b> access or call the function by name outside of the function itself</li>
+<li>So what is the point of named function expressions?</li>
+<li>Named function expressions allow for better debugging because the function's name appear in stack traces and error messages</li>
+<li>Named function expressions also allow for it to be called within the function so if the function is recursive then you will need a named function expression</li>
+<li>Plus named function expressions allow for better readability because you can describe the function's task with the name</li>
+<li>Another thing to note is that although you can call named functions before it is declared for function expressions you cannot do so</li>
+<li>The function is not processed until the interpreter gets to that statement and then you can only use the function expression after</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org474b36a" class="outline-3">
+<h3 id="org474b36a">Section 3.7: Immediately Invoked Function Expressions</h3>
+<div class="outline-text-3" id="text-org474b36a">
+<ul class="org-ul">
+<li>Immediately invoked function expressions (IIFE), "iffy", are functions that are not given a name but instead are executed once the interpreter comes across them</li>
+<li>So instead of storing the function itself so it can be called later, the IIFE will immediately invoke the function and return a value</li>
+<li>So how do you have function expressions to be invoked immediately?</li>
+<li>Simple, after the curly braces of the function expression you place the parentheses like a function call and add any arguments to the function because you are basically invoking the function</li>
+<li>By placing the parentheses and the arguments after the function you are telling the interpreter to call or invoke the function immediately</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">let area = function getArea(width, height){
+  return width * height;
+} (3, 5);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Some developers like to add parentheses around the whole function in order to group the function and ensure the interpreter treats the function as an expression</li>
+<li>Although the parentheses are not required it can add readability to your code</li>
+<li>IIFEs are good when you need a task to be run once rather than repeatedly being called</li>
+<li>IIFEs are also good as arguments to other functions because the argument may be some calculation for example if you have a volume function then you can possibly pass a IIFE that calculates the area first</li>
+<li>IIFEs are also good to assign values of properties to an object, they are good in event handlers and listeners to perform a task when an event occurs, and it can help prevent conflicts between multiple scripts (if in use) that might use the same variable names</li>
+<li>Variables declared inside the anonymous functions are effectively protected from variables in other scripts that might have the same name because of scoping (or in this case variables in the function scope)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6b5bcbf" class="outline-3">
+<h3 id="org6b5bcbf">Section 3.8: Variable Scope</h3>
+<div class="outline-text-3" id="text-org6b5bcbf">
+<ul class="org-ul">
+<li>The location where you declare a variable will affect where it can be used within your code</li>
+<li>If you declare it within a function then it can only be used within that function, this is known as the variable's scope</li>
+<li>When a variable is created inside a functionusing the <code>var</code> keyword then it can only be used in that function thus it is called a local variable or function-level variable so it has a local scope or function-level scope</li>
+<li>When the variable is a local variable it cannot be accessed outside of the function in which it was declared in</li>
+<li>The interpreter creates local variables when the function is run and removes them as soon as the function has finished its task</li>
+<li>If you create a variable outside of a function then it can be used anywhere within the script</li>
+<li>It is called a global variable and it has global scope</li>
+<li>Global variables are stored in memory for as long as the web page is loaded nto the web browser which means more memory consumed and possible naming conflicts thus local variables are always preferred</li>
+<li>If you do not use <code>var</code> then the variable will be treated as a global variable which is considered bad practice</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7b9452b" class="outline-3">
+<h3 id="org7b9452b">Section 3.9: How Memory &amp; Variables Work</h3>
+<div class="outline-text-3" id="text-org7b9452b">
+<ul class="org-ul">
+<li>Global variables use more memory because the browser has to remember them for as long as the web page using them is loaded</li>
+<li>Local variables are only remembered during the period of time that a function is being executed</li>
+<li>Each variable declared takes up memory and the more variables a browser has to remember the more memory your script requires to run and scripts that require a lot of memory can perform slower which in turn makes your web page take longer to respond</li>
+<li>A variable actually references a value that is stored in memory and the same value can be used with more than one variable (e.g. val1 and val2 might both "hold" 10 but in reality it references the same value 10)</li>
+<li>Many web pages use multiple JavaScript files written by multiple people so there could be potential naming collisions causing errors for global variables but if the same named variables have a function scope then there should be no conflict which is why using global variables can lead to naming conflicts</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8e6dc50" class="outline-3">
+<h3 id="org8e6dc50">Section 3.10: Objects</h3>
+<div class="outline-text-3" id="text-org8e6dc50">
+<ul class="org-ul">
+<li>Objects group together a set of variables and functions to create a model of something you would recongize from the real world (in a object variables and functions take on new names)</li>
+<li>If a variable is part of an object then it is called a property and if a function is part of an object then it is called a method</li>
+<li>Methods represent tasks that are associated with the object</li>
+<li>Object literals are the easiest ways to create objects (there are several ways to create objects)</li>
+<li>To create an object literal you use curly braces and you create key/value pairs similar to JSON</li>
+<li>To separate each key from its value you use a colon and to separate each property and method then you use a comma except for the last value</li>
+<li>You then assign this object literal to a variable and now you can reference this object literal by using the variable</li>
+<li>The object cannot have two keys with the same name because keys are used to access their corresponding values and the value can be any data type even another object</li>
+<li>The value of a method is always a function</li>
+<li>In order for functions to reference properties in the same object you will have to use <code>this</code> keyword with the dot operator and the name of the property</li>
+<li>The <code>this</code> keyword indicates you want to reference the current object and its properties / methods</li>
+<li>The dot notation can be used with the <code>this</code> keyword or with the name of the object literal</li>
+<li>The dot notation allows you to access the properties or methods of an object or you can also access the object's properties using square brackets</li>
+<li>For example, you use the name of the object, followed by a period, then the name of the property or method for the dot notation such as: <code>objectName.val1</code> or <code>objectName.func()</code></li>
+<li>The dot operator is also known as the member operator and the property or method on the right belongs to the object on the left</li>
+<li>You can use square brackets to access the properties of an object but not its methods (object name is followed by square brackets and the property name in quotes or variable string inside of the square brackets)</li>
+<li>Example of an object literal:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">let hotel = {
+  name: 'Park'
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org186e316" class="outline-3">
+<h3 id="org186e316">Section 3.11: Creating an Object</h3>
+<div class="outline-text-3" id="text-org186e316">
+<ul class="org-ul">
+<li>The <code>new</code> keyword and the "object" constructor creates a blank object which you can then add properties and methods to the object</li>
+<li>First you create a new object using a combination of the <code>new</code> keyword and the <code>Object()</code> constructor function, for example: <code>let hotel = new Object()</code></li>
+<li>Then you can add properties and methods to the blank object using dot notation, for example: <code>hotel.name = 'Quay';</code></li>
+<li>You can use this syntax to add properties and methods to any object you have created no matter which notation you used to create it</li>
+<li>To create an empty object using literal notation you can do: <code>var hotel = {}</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org57d166a" class="outline-3">
+<h3 id="org57d166a">Section 3.12: Updating an Object</h3>
+<div class="outline-text-3" id="text-org57d166a">
+<ul class="org-ul">
+<li>To update the value of properties, use dot notation or square brackets, they work on objects created using literal or constructor notation</li>
+<li>To delete a property use the <code>delete</code> keyword</li>
+<li>Example of updating an object: <code>hotel.name = 'New Name';</code> or <code>hotel['name'] = 'New Name'</code> (this only works for properties not functions)</li>
+<li>If the property you are trying to update it does not exist in the object then it will be added to the object</li>
+<li>Example of deleting a property: <code>delete hotel.name</code></li>
+<li>Example of clearing a property: <code>delete hotel.name = ''</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgff591aa" class="outline-3">
+<h3 id="orgff591aa">Section 3.13: Constructor Notation</h3>
+<div class="outline-text-3" id="text-orgff591aa">
+<ul class="org-ul">
+<li>Object constructors can use a function as a template for creating objects</li>
+<li>You create the template with the object's properties and methods</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">function Hotel(name, rooms, booked) {
+  this.name = name;
+  this.rooms = rooms;
+  this.booked = booked;
+
+  this.checkAvailability = function () {
+    return this.rooms - this.booked;
+  };
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Then to create an object using the function you run:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">let parkHotel = new Hotel('Park', 120, 77);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Two things to notice when creating a function constructor: <code>this</code> and <code>new</code></li>
+<li><code>this</code> is used inside the function to refer the object being created</li>
+<li><code>new</code> is used to tell the interpreter you want an object to be created</li>
+<li>Here is how it works:
+<ul class="org-ul">
+<li>When you use the <code>new</code> operator, the interpreter creates a new empty object and sets <code>this</code> inside the function to refer the newly created object</li>
+<li>So once it enters the function, <code>this</code> is referring to the newly created object and now you set the properties and methods</li>
+</ul></li>
+<li>What if you don't use <code>new</code>?</li>
+<li>If you do not use <code>new</code> then a new object will NOT be created and <code>this</code> could be referring to the global object (<code>window</code> in browswers) or it could lead to an "undefined" error, this depends which mode are you in non-strict or strict mode</li>
+<li>If you are in non-strict mode and <code>this</code> refers to the global object then you may unintentionally create global variables</li>
+<li>Thus, you always use <code>new</code> to create a new object</li>
+<li><code>new</code> creates and returns the object for you and the function simply initializes the object for you which automatically is referred to by <code>this</code> if the <code>new</code> keyword is used</li>
+<li>Thus you can invoke the constructor function with the <code>new</code> keyword as much as you would like creating multiple different objects with the same properties (possibly different values) and methods</li>
+<li>Each variable / object's name need to be different because then you get naming conflicts</li>
+</ul>
+</div>
+<div id="outline-container-org07f89ee" class="outline-4">
+<h4 id="org07f89ee">Section 3.13.1: Classes</h4>
+<div class="outline-text-4" id="text-org07f89ee">
+<ul class="org-ul">
+<li>This book does not go over classes because classes came out after the book in ES6</li>
+<li>Classes are another way to create templates for objects</li>
+<li>When creating a class you must also use the <code>new</code> keyword like the following: <code>let obj1 = new ClassName()</code></li>
+<li>Classes are very similar to constructor functions but syntactically it must be invoked with the <code>new</code> keyword</li>
+<li>Classes are designed to be invoked only with the <code>new</code> keyword and without the keyword an error will be thrown</li>
+<li>To declare properties are very similar to constructor functions but methods are created slightly different</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">More about classes by Mozilla Docs</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org59c3db5" class="outline-2">
+<h2 id="org59c3db5">Keywords</h2>
+<div class="outline-text-2" id="text-org59c3db5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -395,16 +674,16 @@ getArea(width, height);
 </table>
 </div>
 </div>
-<div id="outline-container-org9c33619" class="outline-2">
-<h2 id="org9c33619">Questions</h2>
-<div class="outline-text-2" id="text-org9c33619">
+<div id="outline-container-org0eef066" class="outline-2">
+<h2 id="org0eef066">Questions</h2>
+<div class="outline-text-2" id="text-org0eef066">
 <ul class="org-ul">
 <li><b>Q</b>:</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgffa4a36" class="outline-2">
-<h2 id="orgffa4a36">Summary</h2>
+<div id="outline-container-orgd4f3513" class="outline-2">
+<h2 id="orgd4f3513">Summary</h2>
 </div>
 </div>
 </body>

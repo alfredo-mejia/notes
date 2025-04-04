@@ -24,62 +24,258 @@
    - For example, the function that calculates area might want to return the value to whoever called it so the return value will be the area calculated from the parameters
    - There are other functions called anonymous functions which do not have a name so they cannot be called but instead are executed as soon as the interpreter comes across them
 
-*** Section 3.1.1: Declaraing a Function
-    - In JS, a function declaration is a function with a name with a code block and inside the code blockwe have statements that achieves a task
-    - You declare a functionusing the ~function~ keyword
-    - For example:
+** Section 3.2: Declaraing a Function
+   - In JS, a function declaration is a function with a name with a code block and inside the code blockwe have statements that achieves a task
+   - You declare a functionusing the ~function~ keyword
+   - For example:
 
-    #+BEGIN_SRC JavaScript
-      function sayHello(){
-        document.write('Hello!');
-      }
-    #+END_SRC
+   #+BEGIN_SRC JavaScript
+     function sayHello(){
+       document.write('Hello!');
+     }
+   #+END_SRC
 
-    - Some functions will need information from the caller
-    - The functions that need information will have to be declared with parameters
-    - Once the parameters are declared for the function inside the function the parameters will act like regular variables
-    - The parameters are delcared inside the parentheses after the function name and each name given acts like a variable name inside the function
-    - For example:
+   - Some functions will need information from the caller
+   - The functions that need information will have to be declared with parameters
+   - Once the parameters are declared for the function inside the function the parameters will act like regular variables
+   - The parameters are delcared inside the parentheses after the function name and each name given acts like a variable name inside the function
+   - For example:
 
-    #+BEGIN_SRC JavaScript
-      function getArea(width, height) {
-        return width* height;
-      }
-    #+END_SRC
+   #+BEGIN_SRC JavaScript
+     function getArea(width, height) {
+       return width* height;
+     }
+   #+END_SRC
 
-    - ~width~ and ~height~ are the parameters to function ~getArea()~
-    - The function will return the value of the calculation to the caller
-    - In addition, each time this function is called then the caller will need to specify a width and a height
+   - ~width~ and ~height~ are the parameters to function ~getArea()~
+   - The function will return the value of the calculation to the caller
+   - In addition, each time this function is called then the caller will need to specify a width and a height
 
-*** Section 3.1.2: Calling a Function
-    - Once the function has been declared you can then execute the statements inside the function by calling the function
-    - You can call the same function as many times as you want
-    - For example:
+** Section 3.3: Calling a Function
+   - Once the function has been declared you can then execute the statements inside the function by calling the function
+   - You can call the same function as many times as you want
+   - For example:
 
-    #+BEGIN_SRC JavaScript
+   #+BEGIN_SRC JavaScript
      sayHello();	
-    #+END_SRC
+   #+END_SRC
 
-    - In JS, you can call a function before it has been declared because the interpreter runs through the script before executing each statement so it will know what function is being referred
-    - However it is good practice to declare them before using them because many other languages require for functions to be declared before using so it would be a good habit to develop
-    - Some functions may require arguments
-    - When you call a function that has parameters you specify the values it should use in the parentheses that follow its name
-    - The values given by the caller are called arguments and these arguments may be variables or literal values
-    - Each time you invoke the function it can be different variables and literals, it does not need to be the same values
-    - For example:
+   - In JS, you can call a function before it has been declared because the interpreter runs through the script before executing each statement so it will know what function is being referred
+   - However it is good practice to declare them before using them because many other languages require for functions to be declared before using so it would be a good habit to develop
+   - Some functions may require arguments
+   - When you call a function that has parameters you specify the values it should use in the parentheses that follow its name
+   - The values given by the caller are called arguments and these arguments may be variables or literal values
+   - Each time you invoke the function it can be different variables and literals, it does not need to be the same values
+   - For example:
 
-    #+BEGIN_SRC JavaScript
-      getArea(3,5);
+   #+BEGIN_SRC JavaScript
+     getArea(3,5);
 
-      let width = 3;
-      let height =5;
+     let width = 3;
+     let height =5;
 
-      getArea(width, height);
-    #+END_SRC
+     getArea(width, height);
+   #+END_SRC
 
-    - *Arguments vs. Parameters*: Arguments are the values passed by the caller and parameters are the variables used by the callee
+   - *Arguments vs. Parameters*: Arguments are the values passed by the caller and parameters are the variables used by the callee
 
-*** Section 3.1.X Functions vs Methods
+** Section 3.4: Returning a Single Value
+   - Some functions return data back to the caller
+   - For example, if the caller invokes ~getArea~ then it expects the area to be returned so it can use it in some way
+   - The ~return~ keyword is used to return a value to the caller
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     function calculateArea(width,height) {
+       return width * area;
+     }
+
+     let area1 = calculateArea(3,5);
+     console.log("Area: ", area1);
+   #+END_SRC
+
+   - Note that the ~return~ keyword returns the callee to the caller and no subsequent statements would be processed in the function after the ~return~ statement
+   - It will return to the point where the caller invoked the function and after the function has returned it will continue execution as normal
+
+** Section 3.5: Returning Multiple Values
+   - Recall that arrays in JS can be of multiple data types they do not have to be of the same data type
+   - Thus you can use an array to return a single array holding multiple values
+   - Although it technically returns "one" value, it can think of it as returning multiple values because the array can store multiple values
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     function getSize(width, height, depth) {
+       let area = width * height;
+       let volume = width * height * depth;
+       let sizes [area, volume];
+       return sizes;
+     }
+
+     let vals = getSize(3, 5, 7);
+     let area = vals[0];
+     let volume = vals[1]
+   #+END_SRC
+
+** Section 3.6: Anonymous Functions & Function Expressions
+   - Expressions produce a value
+   - If a function is placed where a browser expects to see an expression (e.g., as an argument to a function) then it gets treated as an expression
+   - So far we have seen /named functions/ which you give a name to the function which can then be called using its name
+   - Since the interpreter always goes through the script before executing, you can call a function before it is declared
+   - If you put a function where the interpreter would expect to see an expression then it is treated as an expression known as a function expression
+   - In function expressions, the name is usually omitted but function expressions can also have names
+   - A function with no name is called an anonymous function
+   - So every anonymous function is a function expression but *not* all function expressions are anonymous functions because function expressions can have names
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     // Function expression with name
+     let val = function area(width, height){
+       return width * height;
+     }
+
+     // Function expression with no name
+     let val2 = function(width, height) {
+       return width * height;
+     }
+
+     console.log(val(3,2));
+     console.log(val2(5,5));
+   #+END_SRC
+
+   - What can you do with function expressions that have names?
+   - Anonymous functions and named function expressions behave the same
+   - With named function expressions you *cannot* access or call the function by name outside of the function itself
+   - So what is the point of named function expressions?
+   - Named function expressions allow for better debugging because the function's name appear in stack traces and error messages
+   - Named function expressions also allow for it to be called within the function so if the function is recursive then you will need a named function expression
+   - Plus named function expressions allow for better readability because you can describe the function's task with the name
+   - Another thing to note is that although you can call named functions before it is declared for function expressions you cannot do so
+   - The function is not processed until the interpreter gets to that statement and then you can only use the function expression after
+
+** Section 3.7: Immediately Invoked Function Expressions
+   - Immediately invoked function expressions (IIFE), "iffy", are functions that are not given a name but instead are executed once the interpreter comes across them
+   - So instead of storing the function itself so it can be called later, the IIFE will immediately invoke the function and return a value
+   - So how do you have function expressions to be invoked immediately?
+   - Simple, after the curly braces of the function expression you place the parentheses like a function call and add any arguments to the function because you are basically invoking the function
+   - By placing the parentheses and the arguments after the function you are telling the interpreter to call or invoke the function immediately
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     let area = function getArea(width, height){
+       return width * height;
+     } (3, 5);
+   #+END_SRC
+
+   - Some developers like to add parentheses around the whole function in order to group the function and ensure the interpreter treats the function as an expression
+   - Although the parentheses are not required it can add readability to your code
+   - IIFEs are good when you need a task to be run once rather than repeatedly being called
+   - IIFEs are also good as arguments to other functions because the argument may be some calculation for example if you have a volume function then you can possibly pass a IIFE that calculates the area first
+   - IIFEs are also good to assign values of properties to an object, they are good in event handlers and listeners to perform a task when an event occurs, and it can help prevent conflicts between multiple scripts (if in use) that might use the same variable names
+   - Variables declared inside the anonymous functions are effectively protected from variables in other scripts that might have the same name because of scoping (or in this case variables in the function scope)
+
+** Section 3.8: Variable Scope
+   - The location where you declare a variable will affect where it can be used within your code
+   - If you declare it within a function then it can only be used within that function, this is known as the variable's scope
+   - When a variable is created inside a functionusing the ~var~ keyword then it can only be used in that function thus it is called a local variable or function-level variable so it has a local scope or function-level scope
+   - When the variable is a local variable it cannot be accessed outside of the function in which it was declared in
+   - The interpreter creates local variables when the function is run and removes them as soon as the function has finished its task
+   - If you create a variable outside of a function then it can be used anywhere within the script
+   - It is called a global variable and it has global scope
+   - Global variables are stored in memory for as long as the web page is loaded nto the web browser which means more memory consumed and possible naming conflicts thus local variables are always preferred
+   - If you do not use ~var~ then the variable will be treated as a global variable which is considered bad practice
+
+** Section 3.9: How Memory & Variables Work
+   - Global variables use more memory because the browser has to remember them for as long as the web page using them is loaded
+   - Local variables are only remembered during the period of time that a function is being executed
+   - Each variable declared takes up memory and the more variables a browser has to remember the more memory your script requires to run and scripts that require a lot of memory can perform slower which in turn makes your web page take longer to respond
+   - A variable actually references a value that is stored in memory and the same value can be used with more than one variable (e.g. val1 and val2 might both "hold" 10 but in reality it references the same value 10)
+   - Many web pages use multiple JavaScript files written by multiple people so there could be potential naming collisions causing errors for global variables but if the same named variables have a function scope then there should be no conflict which is why using global variables can lead to naming conflicts
+
+** Section 3.10: Objects
+   - Objects group together a set of variables and functions to create a model of something you would recongize from the real world (in a object variables and functions take on new names)
+   - If a variable is part of an object then it is called a property and if a function is part of an object then it is called a method
+   - Methods represent tasks that are associated with the object
+   - Object literals are the easiest ways to create objects (there are several ways to create objects)
+   - To create an object literal you use curly braces and you create key/value pairs similar to JSON
+   - To separate each key from its value you use a colon and to separate each property and method then you use a comma except for the last value
+   - You then assign this object literal to a variable and now you can reference this object literal by using the variable
+   - The object cannot have two keys with the same name because keys are used to access their corresponding values and the value can be any data type even another object
+   - The value of a method is always a function
+   - In order for functions to reference properties in the same object you will have to use ~this~ keyword with the dot operator and the name of the property
+   - The ~this~ keyword indicates you want to reference the current object and its properties / methods
+   - The dot notation can be used with the ~this~ keyword or with the name of the object literal
+   - The dot notation allows you to access the properties or methods of an object or you can also access the object's properties using square brackets
+   - For example, you use the name of the object, followed by a period, then the name of the property or method for the dot notation such as: ~objectName.val1~ or ~objectName.func()~
+   - The dot operator is also known as the member operator and the property or method on the right belongs to the object on the left
+   - You can use square brackets to access the properties of an object but not its methods (object name is followed by square brackets and the property name in quotes or variable string inside of the square brackets)
+   - Example of an object literal:
+
+   #+BEGIN_SRC JavaScript
+     let hotel = {
+       name: 'Park'
+     }
+   #+END_SRC
+
+** Section 3.11: Creating an Object
+   - The ~new~ keyword and the "object" constructor creates a blank object which you can then add properties and methods to the object
+   - First you create a new object using a combination of the ~new~ keyword and the ~Object()~ constructor function, for example: ~let hotel = new Object()~
+   - Then you can add properties and methods to the blank object using dot notation, for example: ~hotel.name = 'Quay';~
+   - You can use this syntax to add properties and methods to any object you have created no matter which notation you used to create it
+   - To create an empty object using literal notation you can do: ~var hotel = {}~
+
+** Section 3.12: Updating an Object
+   - To update the value of properties, use dot notation or square brackets, they work on objects created using literal or constructor notation
+   - To delete a property use the ~delete~ keyword
+   - Example of updating an object: ~hotel.name = 'New Name';~ or ~hotel['name'] = 'New Name'~ (this only works for properties not functions)
+   - If the property you are trying to update it does not exist in the object then it will be added to the object
+   - Example of deleting a property: ~delete hotel.name~
+   - Example of clearing a property: ~delete hotel.name = ''~
+
+** Section 3.13: Constructor Notation
+   - Object constructors can use a function as a template for creating objects
+   - You create the template with the object's properties and methods
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     function Hotel(name, rooms, booked) {
+       this.name = name;
+       this.rooms = rooms;
+       this.booked = booked;
+
+       this.checkAvailability = function () {
+         return this.rooms - this.booked;
+       };
+     }
+   #+END_SRC
+
+   - Then to create an object using the function you run:
+
+   #+BEGIN_SRC JavaScript
+     let parkHotel = new Hotel('Park', 120, 77);
+   #+END_SRC
+
+   - Two things to notice when creating a function constructor: ~this~ and ~new~
+   - ~this~ is used inside the function to refer the object being created
+   - ~new~ is used to tell the interpreter you want an object to be created
+   - Here is how it works:
+     - When you use the ~new~ operator, the interpreter creates a new empty object and sets ~this~ inside the function to refer the newly created object
+     - So once it enters the function, ~this~ is referring to the newly created object and now you set the properties and methods
+   - What if you don't use ~new~?
+   - If you do not use ~new~ then a new object will NOT be created and ~this~ could be referring to the global object (~window~ in browswers) or it could lead to an "undefined" error, this depends which mode are you in non-strict or strict mode
+   - If you are in non-strict mode and ~this~ refers to the global object then you may unintentionally create global variables
+   - Thus, you always use ~new~ to create a new object
+   - ~new~ creates and returns the object for you and the function simply initializes the object for you which automatically is referred to by ~this~ if the ~new~ keyword is used
+   - Thus you can invoke the constructor function with the ~new~ keyword as much as you would like creating multiple different objects with the same properties (possibly different values) and methods
+   - Each variable / object's name need to be different because then you get naming conflicts
+
+*** Section 3.13.1: Classes
+    - This book does not go over classes because classes came out after the book in ES6
+    - Classes are another way to create templates for objects
+    - When creating a class you must also use the ~new~ keyword like the following: ~let obj1 = new ClassName()~
+    - Classes are very similar to constructor functions but syntactically it must be invoked with the ~new~ keyword
+    - Classes are designed to be invoked only with the ~new~ keyword and without the keyword an error will be thrown
+    - To declare properties are very similar to constructor functions but methods are created slightly different
+    - [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes][More about classes by Mozilla Docs]]
 
 * Keywords
 
