@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-03 Thu 18:48 -->
+<!-- 2025-04-06 Sun 15:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 3: Functions, Methods &amp; Objects</title>
@@ -202,37 +202,45 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1bce07e">Navigation</a></li>
-<li><a href="#org9d5f246">Notes</a>
+<li><a href="#orgc6158d3">Navigation</a></li>
+<li><a href="#org0cb9d98">Notes</a>
 <ul>
-<li><a href="#org0fe2d0d">Section 3.1: What is a Funtion?</a></li>
-<li><a href="#org4b502f2">Section 3.2: Declaraing a Function</a></li>
-<li><a href="#orgefb348f">Section 3.3: Calling a Function</a></li>
-<li><a href="#orgee72925">Section 3.4: Returning a Single Value</a></li>
-<li><a href="#orgab06df6">Section 3.5: Returning Multiple Values</a></li>
-<li><a href="#org53f5c96">Section 3.6: Anonymous Functions &amp; Function Expressions</a></li>
-<li><a href="#org474b36a">Section 3.7: Immediately Invoked Function Expressions</a></li>
-<li><a href="#org6b5bcbf">Section 3.8: Variable Scope</a></li>
-<li><a href="#org7b9452b">Section 3.9: How Memory &amp; Variables Work</a></li>
-<li><a href="#org8e6dc50">Section 3.10: Objects</a></li>
-<li><a href="#org186e316">Section 3.11: Creating an Object</a></li>
-<li><a href="#org57d166a">Section 3.12: Updating an Object</a></li>
-<li><a href="#orgff591aa">Section 3.13: Constructor Notation</a>
+<li><a href="#org15b5131">Section 3.1: What is a Funtion?</a></li>
+<li><a href="#org2c02cd2">Section 3.2: Declaraing a Function</a></li>
+<li><a href="#org47069b6">Section 3.3: Calling a Function</a></li>
+<li><a href="#org881e56d">Section 3.4: Returning a Single Value</a></li>
+<li><a href="#org119acaf">Section 3.5: Returning Multiple Values</a></li>
+<li><a href="#org4051876">Section 3.6: Anonymous Functions &amp; Function Expressions</a></li>
+<li><a href="#org810764b">Section 3.7: Immediately Invoked Function Expressions</a></li>
+<li><a href="#orgd75e960">Section 3.8: Variable Scope</a></li>
+<li><a href="#org71dbd94">Section 3.9: How Memory &amp; Variables Work</a></li>
+<li><a href="#org09a2a5a">Section 3.10: Objects</a></li>
+<li><a href="#org8ad0aac">Section 3.11: Creating an Object</a></li>
+<li><a href="#orga389149">Section 3.12: Updating an Object</a></li>
+<li><a href="#org3995fe7">Section 3.13: Constructor Notation</a>
 <ul>
-<li><a href="#org07f89ee">Section 3.13.1: Classes</a></li>
+<li><a href="#org02152c2">Section 3.13.1: Classes</a></li>
 </ul>
 </li>
+<li><a href="#org5b34269">Section 3.14: Adding and Removing Properties</a></li>
+<li><a href="#org4186155">Section 3.15: This (it is a keyword)</a>
+<ul>
+<li><a href="#org18dfa41">Section 3.15.1: Keyword <code>this</code> in Other Situations</a></li>
 </ul>
 </li>
-<li><a href="#org59c3db5">Keywords</a></li>
-<li><a href="#org0eef066">Questions</a></li>
-<li><a href="#orgd4f3513">Summary</a></li>
+<li><a href="#orgb8b54d3">Section 3.16: Arrays Are Objects</a></li>
+<li><a href="#orgf5e2935">Section 3.17: What Are Built-In Objects?</a></li>
+</ul>
+</li>
+<li><a href="#org730cf5e">Keywords</a></li>
+<li><a href="#org76276f2">Questions</a></li>
+<li><a href="#org072dbce">Summary</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1bce07e" class="outline-2">
-<h2 id="org1bce07e">Navigation</h2>
-<div class="outline-text-2" id="text-org1bce07e">
+<div id="outline-container-orgc6158d3" class="outline-2">
+<h2 id="orgc6158d3">Navigation</h2>
+<div class="outline-text-2" id="text-orgc6158d3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -278,13 +286,13 @@
 </table>
 </div>
 </div>
-<div id="outline-container-org9d5f246" class="outline-2">
-<h2 id="org9d5f246">Notes</h2>
-<div class="outline-text-2" id="text-org9d5f246">
+<div id="outline-container-org0cb9d98" class="outline-2">
+<h2 id="org0cb9d98">Notes</h2>
+<div class="outline-text-2" id="text-org0cb9d98">
 </div>
-<div id="outline-container-org0fe2d0d" class="outline-3">
-<h3 id="org0fe2d0d">Section 3.1: What is a Funtion?</h3>
-<div class="outline-text-3" id="text-org0fe2d0d">
+<div id="outline-container-org15b5131" class="outline-3">
+<h3 id="org15b5131">Section 3.1: What is a Funtion?</h3>
+<div class="outline-text-3" id="text-org15b5131">
 <ul class="org-ul">
 <li>A function is a reusable group of series of statements that perform a specific task</li>
 <li>Grouping together statements required to perform a task helps organize code</li>
@@ -298,9 +306,9 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org4b502f2" class="outline-3">
-<h3 id="org4b502f2">Section 3.2: Declaraing a Function</h3>
-<div class="outline-text-3" id="text-org4b502f2">
+<div id="outline-container-org2c02cd2" class="outline-3">
+<h3 id="org2c02cd2">Section 3.2: Declaraing a Function</h3>
+<div class="outline-text-3" id="text-org2c02cd2">
 <ul class="org-ul">
 <li>In JS, a function declaration is a function with a name with a code block and inside the code blockwe have statements that achieves a task</li>
 <li>You declare a functionusing the <code>function</code> keyword</li>
@@ -336,9 +344,9 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgefb348f" class="outline-3">
-<h3 id="orgefb348f">Section 3.3: Calling a Function</h3>
-<div class="outline-text-3" id="text-orgefb348f">
+<div id="outline-container-org47069b6" class="outline-3">
+<h3 id="org47069b6">Section 3.3: Calling a Function</h3>
+<div class="outline-text-3" id="text-org47069b6">
 <ul class="org-ul">
 <li>Once the function has been declared you can then execute the statements inside the function by calling the function</li>
 <li>You can call the same function as many times as you want</li>
@@ -375,9 +383,9 @@ getArea(width, height);
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee72925" class="outline-3">
-<h3 id="orgee72925">Section 3.4: Returning a Single Value</h3>
-<div class="outline-text-3" id="text-orgee72925">
+<div id="outline-container-org881e56d" class="outline-3">
+<h3 id="org881e56d">Section 3.4: Returning a Single Value</h3>
+<div class="outline-text-3" id="text-org881e56d">
 <ul class="org-ul">
 <li>Some functions return data back to the caller</li>
 <li>For example, if the caller invokes <code>getArea</code> then it expects the area to be returned so it can use it in some way</li>
@@ -401,9 +409,9 @@ console.log("Area: ", area1);
 </ul>
 </div>
 </div>
-<div id="outline-container-orgab06df6" class="outline-3">
-<h3 id="orgab06df6">Section 3.5: Returning Multiple Values</h3>
-<div class="outline-text-3" id="text-orgab06df6">
+<div id="outline-container-org119acaf" class="outline-3">
+<h3 id="org119acaf">Section 3.5: Returning Multiple Values</h3>
+<div class="outline-text-3" id="text-org119acaf">
 <ul class="org-ul">
 <li>Recall that arrays in JS can be of multiple data types they do not have to be of the same data type</li>
 <li>Thus you can use an array to return a single array holding multiple values</li>
@@ -426,9 +434,9 @@ let volume = vals[1]
 </div>
 </div>
 </div>
-<div id="outline-container-org53f5c96" class="outline-3">
-<h3 id="org53f5c96">Section 3.6: Anonymous Functions &amp; Function Expressions</h3>
-<div class="outline-text-3" id="text-org53f5c96">
+<div id="outline-container-org4051876" class="outline-3">
+<h3 id="org4051876">Section 3.6: Anonymous Functions &amp; Function Expressions</h3>
+<div class="outline-text-3" id="text-org4051876">
 <ul class="org-ul">
 <li>Expressions produce a value</li>
 <li>If a function is placed where a browser expects to see an expression (e.g., as an argument to a function) then it gets treated as an expression</li>
@@ -470,9 +478,9 @@ console.log(val2(5,5));
 </ul>
 </div>
 </div>
-<div id="outline-container-org474b36a" class="outline-3">
-<h3 id="org474b36a">Section 3.7: Immediately Invoked Function Expressions</h3>
-<div class="outline-text-3" id="text-org474b36a">
+<div id="outline-container-org810764b" class="outline-3">
+<h3 id="org810764b">Section 3.7: Immediately Invoked Function Expressions</h3>
+<div class="outline-text-3" id="text-org810764b">
 <ul class="org-ul">
 <li>Immediately invoked function expressions (IIFE), "iffy", are functions that are not given a name but instead are executed once the interpreter comes across them</li>
 <li>So instead of storing the function itself so it can be called later, the IIFE will immediately invoke the function and return a value</li>
@@ -499,9 +507,9 @@ console.log(val2(5,5));
 </ul>
 </div>
 </div>
-<div id="outline-container-org6b5bcbf" class="outline-3">
-<h3 id="org6b5bcbf">Section 3.8: Variable Scope</h3>
-<div class="outline-text-3" id="text-org6b5bcbf">
+<div id="outline-container-orgd75e960" class="outline-3">
+<h3 id="orgd75e960">Section 3.8: Variable Scope</h3>
+<div class="outline-text-3" id="text-orgd75e960">
 <ul class="org-ul">
 <li>The location where you declare a variable will affect where it can be used within your code</li>
 <li>If you declare it within a function then it can only be used within that function, this is known as the variable's scope</li>
@@ -515,9 +523,9 @@ console.log(val2(5,5));
 </ul>
 </div>
 </div>
-<div id="outline-container-org7b9452b" class="outline-3">
-<h3 id="org7b9452b">Section 3.9: How Memory &amp; Variables Work</h3>
-<div class="outline-text-3" id="text-org7b9452b">
+<div id="outline-container-org71dbd94" class="outline-3">
+<h3 id="org71dbd94">Section 3.9: How Memory &amp; Variables Work</h3>
+<div class="outline-text-3" id="text-org71dbd94">
 <ul class="org-ul">
 <li>Global variables use more memory because the browser has to remember them for as long as the web page using them is loaded</li>
 <li>Local variables are only remembered during the period of time that a function is being executed</li>
@@ -527,9 +535,9 @@ console.log(val2(5,5));
 </ul>
 </div>
 </div>
-<div id="outline-container-org8e6dc50" class="outline-3">
-<h3 id="org8e6dc50">Section 3.10: Objects</h3>
-<div class="outline-text-3" id="text-org8e6dc50">
+<div id="outline-container-org09a2a5a" class="outline-3">
+<h3 id="org09a2a5a">Section 3.10: Objects</h3>
+<div class="outline-text-3" id="text-org09a2a5a">
 <ul class="org-ul">
 <li>Objects group together a set of variables and functions to create a model of something you would recongize from the real world (in a object variables and functions take on new names)</li>
 <li>If a variable is part of an object then it is called a property and if a function is part of an object then it is called a method</li>
@@ -558,9 +566,9 @@ console.log(val2(5,5));
 </div>
 </div>
 </div>
-<div id="outline-container-org186e316" class="outline-3">
-<h3 id="org186e316">Section 3.11: Creating an Object</h3>
-<div class="outline-text-3" id="text-org186e316">
+<div id="outline-container-org8ad0aac" class="outline-3">
+<h3 id="org8ad0aac">Section 3.11: Creating an Object</h3>
+<div class="outline-text-3" id="text-org8ad0aac">
 <ul class="org-ul">
 <li>The <code>new</code> keyword and the "object" constructor creates a blank object which you can then add properties and methods to the object</li>
 <li>First you create a new object using a combination of the <code>new</code> keyword and the <code>Object()</code> constructor function, for example: <code>let hotel = new Object()</code></li>
@@ -570,9 +578,9 @@ console.log(val2(5,5));
 </ul>
 </div>
 </div>
-<div id="outline-container-org57d166a" class="outline-3">
-<h3 id="org57d166a">Section 3.12: Updating an Object</h3>
-<div class="outline-text-3" id="text-org57d166a">
+<div id="outline-container-orga389149" class="outline-3">
+<h3 id="orga389149">Section 3.12: Updating an Object</h3>
+<div class="outline-text-3" id="text-orga389149">
 <ul class="org-ul">
 <li>To update the value of properties, use dot notation or square brackets, they work on objects created using literal or constructor notation</li>
 <li>To delete a property use the <code>delete</code> keyword</li>
@@ -583,9 +591,9 @@ console.log(val2(5,5));
 </ul>
 </div>
 </div>
-<div id="outline-container-orgff591aa" class="outline-3">
-<h3 id="orgff591aa">Section 3.13: Constructor Notation</h3>
-<div class="outline-text-3" id="text-orgff591aa">
+<div id="outline-container-org3995fe7" class="outline-3">
+<h3 id="org3995fe7">Section 3.13: Constructor Notation</h3>
+<div class="outline-text-3" id="text-org3995fe7">
 <ul class="org-ul">
 <li>Object constructors can use a function as a template for creating objects</li>
 <li>You create the template with the object's properties and methods</li>
@@ -632,9 +640,9 @@ console.log(val2(5,5));
 <li>Each variable / object's name need to be different because then you get naming conflicts</li>
 </ul>
 </div>
-<div id="outline-container-org07f89ee" class="outline-4">
-<h4 id="org07f89ee">Section 3.13.1: Classes</h4>
-<div class="outline-text-4" id="text-org07f89ee">
+<div id="outline-container-org02152c2" class="outline-4">
+<h4 id="org02152c2">Section 3.13.1: Classes</h4>
+<div class="outline-text-4" id="text-org02152c2">
 <ul class="org-ul">
 <li>This book does not go over classes because classes came out after the book in ES6</li>
 <li>Classes are another way to create templates for objects</li>
@@ -647,10 +655,109 @@ console.log(val2(5,5));
 </div>
 </div>
 </div>
+<div id="outline-container-org5b34269" class="outline-3">
+<h3 id="org5b34269">Section 3.14: Adding and Removing Properties</h3>
+<div class="outline-text-3" id="text-org5b34269">
+<ul class="org-ul">
+<li>Once you have created an object using literal or constructor notation then you can add new properties to it</li>
+<li>To add properties you simply using the dot notation to add or create a property and assign it a value, for example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">var hotel = {
+  name:'Park'
+};
+
+hotel.rooms = 10;
+console.log(hotel.rooms);
+</pre>
 </div>
-<div id="outline-container-org59c3db5" class="outline-2">
-<h2 id="org59c3db5">Keywords</h2>
-<div class="outline-text-2" id="text-org59c3db5">
+
+<ul class="org-ul">
+<li>To delete a propertyyou use the keyword <code>delete</code> followed by the method or property you want to remove from the object (e.g. <code>delete hotel.rooms;</code>)</li>
+<li>Note if you use a constructor function then you will only add and delete properties and methods from that single instance of the constructor function, if you have other instances (objects) then those will remain unaffected</li>
+<li>This includes for classes too</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4186155" class="outline-3">
+<h3 id="org4186155">Section 3.15: This (it is a keyword)</h3>
+<div class="outline-text-3" id="text-org4186155">
+<ul class="org-ul">
+<li>The keyword <code>this</code> is commonly used inside functions and objects</li>
+<li>Depending on the function and where the function is declared alters what <code>this</code> refers to</li>
+<li><code>this</code> always refers to one object and usually the object in which the function operates</li>
+<li>When a function is created at the top level of a script (that is, not inside anoher object or function), then it is in the global scope of global context thus the default object in this context (what <code>this</code> refers to) is the <code>window</code> object</li>
+<li>So when <code>this</code> is used inside a function in the global context then it refers to the <code>window</code> object</li>
+<li>For example, you can use the properties of the <code>window</code> object in the global context as follows: <code>this.innerWidth</code>, <code>this.innerHeight</code>, and more</li>
+<li>Under the hood, the <code>this</code> keyword is a reference to the object that the function is created inside</li>
+<li>All global variables also become properties of the <code>window</code> object so when a function is in the global context you can access global variables using the <code>window</code> object as well as its other properties</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">let width = 100;
+function showWidth() {
+  console.log(this.width);
+};
+
+showWidth();
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Notice how we created a global variable called <code>width</code> and we are able to access it using the <code>this</code> keyword because <code>this</code> refers to the <code>window</code> object (global object) and we created a variable in the global object</li>
+<li>Thus all global variables become properties of the <code>window</code> object</li>
+<li>Also we are able to refer to the global object because the function is also in the global context, if the function would be inside a class or another function then it could be referring to something else</li>
+<li><b>Note</b> that <code>this</code> only works for functions, objects, and classes</li>
+</ul>
+</div>
+<div id="outline-container-org18dfa41" class="outline-4">
+<h4 id="org18dfa41">Section 3.15.1: Keyword <code>this</code> in Other Situations</h4>
+<div class="outline-text-4" id="text-org18dfa41">
+<ul class="org-ul">
+<li>Whenever you create a function inside let's say an object literal then the function becomes a method and the keyword <code>this</code> now refers to the containing object</li>
+<li>If you are using a function constructor or a class then <code>this</code> will refer to the individual instance of the new object you are creating</li>
+<li><b>Note</b> that if a named function has been defined in global scope and then it is used as a method of an object (by adding the function to the object using the dot notation) then <code>this</code> refers to the object it is contained within (in this case it is the object)</li>
+<li>Also <b>note</b> that whenever a function is nested inside another function the value of <code>this</code> can vary depending on which browser you are using but the work around is storing the value of <code>this</code> in a variable in the first function and using the variable name in child functions instead of <code>this</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb8b54d3" class="outline-3">
+<h3 id="orgb8b54d3">Section 3.16: Arrays Are Objects</h3>
+<div class="outline-text-3" id="text-orgb8b54d3">
+<ul class="org-ul">
+<li>Arrays are a special type of object that can store multiple pieces of information</li>
+<li>Each value in an array is assigned a number called an index</li>
+<li>Arrays hold key/value pairs (like all objects) but the key is the index number and the values are shown in the comma-separated list</li>
+<li>To retrieve an item you use its index number as the key</li>
+<li>If the key is a number then you must place the number in square brackets (DO NOT USE the dot notation it will not work for arrays) and generally speaking arrays are the only times when the key would be a number</li>
+<li>arrays have a <code>length</code> property telling you how many items are in the array</li>
+<li>Arrays and other objects can be used together to create complex data structures so arrays can store a series of objects (and remember their order) and objects can also hold arrays (as values of their properties)</li>
+<li>In an object, the order in which the properties appear is not important but in an array the index numbers dictate the order of the properties</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf5e2935" class="outline-3">
+<h3 id="orgf5e2935">Section 3.17: What Are Built-In Objects?</h3>
+<div class="outline-text-3" id="text-orgf5e2935">
+<ul class="org-ul">
+<li>Browsers come with a set of built-in objects that represent things like the browser window and the current page shown in that window</li>
+<li>Thee build-in objects act like a toolkit for creating interactive web pages</li>
+<li>Built-in objects contain functionality commonly needed by many scripts</li>
+<li>As soon as a web page has loaded into the browser, these objects are available to use in your scripts</li>
+<li>These built-in objects help you get a wide range of info such as the width of the browser window, the content of the main heading in the page, or the length of text a user entered into a form field (all these properties are accessed using dot notation just like any other object)</li>
+<li>Think of the built-in objects having 3 different types of groups: global JavaScript objects(represents objects JS need such as dates, times, etc.), Browser Object Model (contains objects that repesent the current browser window or tab such as browser history and device screen), and Document Object Model(uses objects to create a representation of the current page creating a new object for each HTML element)</li>
+<li>An object model is a group of objects each of which represent related things from the real world and together they form a model of something larger</li>
+<li>Objects can be nested inside other objects as properties, the nested object is referred to as a child object and the outter object as the parent object</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org730cf5e" class="outline-2">
+<h2 id="org730cf5e">Keywords</h2>
+<div class="outline-text-2" id="text-org730cf5e">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -674,16 +781,16 @@ console.log(val2(5,5));
 </table>
 </div>
 </div>
-<div id="outline-container-org0eef066" class="outline-2">
-<h2 id="org0eef066">Questions</h2>
-<div class="outline-text-2" id="text-org0eef066">
+<div id="outline-container-org76276f2" class="outline-2">
+<h2 id="org76276f2">Questions</h2>
+<div class="outline-text-2" id="text-org76276f2">
 <ul class="org-ul">
 <li><b>Q</b>:</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd4f3513" class="outline-2">
-<h2 id="orgd4f3513">Summary</h2>
+<div id="outline-container-org072dbce" class="outline-2">
+<h2 id="org072dbce">Summary</h2>
 </div>
 </div>
 </body>

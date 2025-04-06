@@ -277,6 +277,74 @@
     - To declare properties are very similar to constructor functions but methods are created slightly different
     - [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes][More about classes by Mozilla Docs]]
 
+** Section 3.14: Adding and Removing Properties
+   - Once you have created an object using literal or constructor notation then you can add new properties to it
+   - To add properties you simply using the dot notation to add or create a property and assign it a value, for example:
+
+   #+BEGIN_SRC JavaScript
+     var hotel = {
+       name:'Park'
+     };
+
+     hotel.rooms = 10;
+     console.log(hotel.rooms);
+   #+END_SRC
+   
+   - To delete a propertyyou use the keyword ~delete~ followed by the method or property you want to remove from the object (e.g. ~delete hotel.rooms;~)
+   - Note if you use a constructor function then you will only add and delete properties and methods from that single instance of the constructor function, if you have other instances (objects) then those will remain unaffected
+   - This includes for classes too
+
+** Section 3.15: This (it is a keyword)
+   - The keyword ~this~ is commonly used inside functions and objects
+   - Depending on the function and where the function is declared alters what ~this~ refers to
+   - ~this~ always refers to one object and usually the object in which the function operates
+   - When a function is created at the top level of a script (that is, not inside anoher object or function), then it is in the global scope of global context thus the default object in this context (what ~this~ refers to) is the ~window~ object
+   - So when ~this~ is used inside a function in the global context then it refers to the ~window~ object
+   - For example, you can use the properties of the ~window~ object in the global context as follows: ~this.innerWidth~, ~this.innerHeight~, and more
+   - Under the hood, the ~this~ keyword is a reference to the object that the function is created inside
+   - All global variables also become properties of the ~window~ object so when a function is in the global context you can access global variables using the ~window~ object as well as its other properties
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     let width = 100;
+     function showWidth() {
+       console.log(this.width);
+     };
+
+     showWidth();
+   #+END_SRC
+
+   - Notice how we created a global variable called ~width~ and we are able to access it using the ~this~ keyword because ~this~ refers to the ~window~ object (global object) and we created a variable in the global object
+   - Thus all global variables become properties of the ~window~ object
+   - Also we are able to refer to the global object because the function is also in the global context, if the function would be inside a class or another function then it could be referring to something else
+   - *Note* that ~this~ only works for functions, objects, and classes
+
+*** Section 3.15.1: Keyword ~this~ in Other Situations
+    - Whenever you create a function inside let's say an object literal then the function becomes a method and the keyword ~this~ now refers to the containing object
+    - If you are using a function constructor or a class then ~this~ will refer to the individual instance of the new object you are creating
+    - *Note* that if a named function has been defined in global scope and then it is used as a method of an object (by adding the function to the object using the dot notation) then ~this~ refers to the object it is contained within (in this case it is the object)
+    - Also *note* that whenever a function is nested inside another function the value of ~this~ can vary depending on which browser you are using but the work around is storing the value of ~this~ in a variable in the first function and using the variable name in child functions instead of ~this~
+
+** Section 3.16: Arrays Are Objects
+   - Arrays are a special type of object that can store multiple pieces of information
+   - Each value in an array is assigned a number called an index
+   - Arrays hold key/value pairs (like all objects) but the key is the index number and the values are shown in the comma-separated list
+   - To retrieve an item you use its index number as the key
+   - If the key is a number then you must place the number in square brackets (DO NOT USE the dot notation it will not work for arrays) and generally speaking arrays are the only times when the key would be a number
+   - arrays have a ~length~ property telling you how many items are in the array
+   - Arrays and other objects can be used together to create complex data structures so arrays can store a series of objects (and remember their order) and objects can also hold arrays (as values of their properties)
+   - In an object, the order in which the properties appear is not important but in an array the index numbers dictate the order of the properties
+
+** Section 3.17: What Are Built-In Objects?
+   - Browsers come with a set of built-in objects that represent things like the browser window and the current page shown in that window
+   - Thee build-in objects act like a toolkit for creating interactive web pages
+   - Built-in objects contain functionality commonly needed by many scripts
+   - As soon as a web page has loaded into the browser, these objects are available to use in your scripts
+   - These built-in objects help you get a wide range of info such as the width of the browser window, the content of the main heading in the page, or the length of text a user entered into a form field (all these properties are accessed using dot notation just like any other object)
+   - Think of the built-in objects having 3 different types of groups: global JavaScript objects(represents objects JS need such as dates, times, etc.), Browser Object Model (contains objects that repesent the current browser window or tab such as browser history and device screen), and Document Object Model(uses objects to create a representation of the current page creating a new object for each HTML element)
+   - An object model is a group of objects each of which represent related things from the real world and together they form a model of something larger
+   - Objects can be nested inside other objects as properties, the nested object is referred to as a child object and the outter object as the parent object
+      
 * Keywords
 
 | Term | Definition |
