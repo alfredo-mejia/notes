@@ -428,6 +428,16 @@
     - Note that ~document~ is actually a child of ~window~, although ~document~ represents the structure of the page, you can access it using ~window~ but it is not needed if you are accessing ~document~ in the global context
 
 ** Section 3.18: Chapter Exercise
+   - For this exercise we are going to create 3 hotels
+   - The customer is going to be able to select the hotel and see details such as room rate, percentage discount being offered, and a method to calculate the offer price
+   - Here are the requirements:
+     - You need to use a ~hotel~ object / class with hotel name, room rate, and percentage discount being offered
+     - You show this info to the user whenever that hotel is selected
+     - Use the method ~.toFixed()~ on the ~Number~ object to show the discounted rate with two decimal places
+     - The ~hotel~ class / object will have a function called ~offerExpires()~ which calculates how much time is left using the user's clock
+     - Make sure to use the ~Date~ object inside the function ~offerExpires()~
+     - Use ~offerExpires()~ to show when it expires (month, day, year) and how much time is left
+     - Display that info in the HTML
       
 * Keywords
 
