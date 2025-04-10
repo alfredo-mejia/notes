@@ -438,7 +438,17 @@
      - Make sure to use the ~Date~ object inside the function ~offerExpires()~
      - Use ~offerExpires()~ to show when it expires (month, day, year) and how much time is left
      - Display that info in the HTML
-      
+   - [[file:./003.018.Chapter_Exercise/index.html][Here is my chapter 3 exercise]]
+
+** Section 3.19: Summary
+   - Functions allow you to group a set of related statements together that represent a single task
+   - Functions can take parameters (info required to do a task) and may return a value
+   - An object is a series of variables and functions that represent something from the world around you
+   - In an object, variables are properties and functions are methods
+   - Web browsers implement objects that represent both the browser window (BOM) and the document loaded (DOM) into the browser window
+   - JS has several built-in objects such as String, Number, Math, Date, and more and each object has properties and/or methods to help use the objects in the script
+   - Arays and objects can be used to create complex data sets such as arrays of objects, objects that have arrays, arrays that have nested arrays, objects that have nested objects, or any combination of what we just said
+     
 * Keywords
 
 | Term | Definition |

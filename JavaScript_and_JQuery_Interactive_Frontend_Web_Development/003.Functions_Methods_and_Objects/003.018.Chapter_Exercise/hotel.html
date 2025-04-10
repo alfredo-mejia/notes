@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 3 Exercise (Hotel Objects)</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous"/>
+    <script src="hotel.js"></script>
     <link href="style.css" rel="stylesheet" />
-    <script src="index.js"></script>
   </head>
   <body>
     <header>
-      <h1 id="title">Chapter 3 Exercise</h1>
+      <h1 id="title"></h1>
     </header>
-
-    <main>
-      <h2>Select A Hotel</h2>
-
-      <button class="card" id="bttn-blue-buffalo">Blue Buffalo Hotel</button>
-
-      <button class="card" id="bttn-green-gecko">Green Gecko Hotel</button>
-
-      <button class="card" id="bttn-silver-shark">Silver Shark Hotel</button>
-
-      <button class="card" id="bttn-turquoise-tiger">Turquoise Tiger</button>
+    <main class="mt-3">
+      <h2 id="message">Latest Hotel Offer</h2>
+      <p><s id="baseRate"></s></p>
+      <h3 id="discountRate"></h3>
+      <p>Room rate when you book 2 or more nights!</p>
+      <p>Rooms Available: <span id="roomsAvailable">00</span></p>
+      <p><b>Offer Expires:</b> <span id="expirationDate"></span></p>
+      <p><b>Days: <span id="days"></span> Hours: <span id="hours"></span> Minutes: <span id="minutes"></span> Seconds: <span id="seconds"></span></b></p>
+      <button id="bttn-bookNow" type="button" class="btn btn-primary">Book Now!</button>
     </main>
-    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
   </body>
