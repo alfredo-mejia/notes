@@ -176,7 +176,7 @@
 ** Section 3.8: Variable Scope
    - The location where you declare a variable will affect where it can be used within your code
    - If you declare it within a function then it can only be used within that function, this is known as the variable's scope
-   - When a variable is created inside a functionusing the ~var~ keyword then it can only be used in that function thus it is called a local variable or function-level variable so it has a local scope or function-level scope
+   - When a variable is created inside a function using the ~var~ keyword then it can only be used in that function thus it is called a local variable or function-level variable so it has a local scope or function-level scope
    - When the variable is a local variable it cannot be accessed outside of the function in which it was declared in
    - The interpreter creates local variables when the function is run and removes them as soon as the function has finished its task
    - If you create a variable outside of a function then it can be used anywhere within the script
@@ -451,11 +451,32 @@
      
 * Keywords
 
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term                                           | Definition                                                                                                                                                                                                                                                                                                                                                                                              |
+|------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Function                                       | Reusable group of series of statements that perform a specific task                                                                                                                                                                                                                                                                                                                                     |
+| Method                                         | A function inside an object                                                                                                                                                                                                                                                                                                                                                                             |
+| Anonymous Function                             | Anonymous functions are functions without a name and are used in callbacks (arguments to other functions as an function expression), immediately invoked function expressions (IIFEs), or as general function expressions; thus every anonymous function is a function expression but not every function expression is an anonymous function because some function expressions can have named functions |
+| Function Expression                            | A function expression is an expression defined as a function so instead of having an expression you can have a function; this means the function is created as a value that can be assigned to a variable or passed as an argument to another function; function expressions can have named functions or unnamed functions                                                                              |
+| Immediately Invoked Function Expression (IIFE) | IIFEs are self-executing anonymous functions in JS, they are defined and executed immediately after their creation                                                                                                                                                                                                                                                                                      |
+| ~new~ Keyword                                  | The ~new~ keyword is an operator used to create an instance of an object from a constructor function or class                                                                                                                                                                                                                                                                                           |
+| ~this~ Keyword                                 | The ~this~ keyword refers to the object that is currently executing the code and the value is determined by how the function or method is called; in the glboal context it refers to the ~window~ object                                                                                                                                                                                                |
+| Browser Object Model (BOM)                     | BOM in JS is an API that allows interaction with the browser environment; BOM provides access to browser-specific functionalities and controls                                                                                                                                                                                                                                                          |
+| Document Object Model (DOM)                    | DOM is an API for web documents that represent the page so the programs can change the document structure, style, and content                                                                                                                                                                                                                                                                           |
 
 * Questions
-  - *Q*:
+  - *Q*: What is the difference between functions and methods in JS?
+         - Functions are standalone blocks of reusable code that are defined at the top level of your script or within other functions
+	 - In functions ~this~ keyword will typically refer to the global object (~window~ in browsers and ~global~ in Node.js)
+	 - Methods are functions that are associated with an object and thus the methods are properties of an object whose value is a function
+	 - They are invoked using dot notation (unlike the function name) and ~this~ keyword inside a method refers to the object that the method is being called on
+	   
+  - *Q*: What is the difference between anonymous functions and function expressions?
+         - Anonymous functions are function expressions but without a name
+	 - Function expressions are expressions that evaulate to a function
+	 - All anonymous functions are function expressions but not all function expressions are anonymous because some may have names
+         - You cannot call named function expressions like normal functions so what is the point of giving the function expressions names?
+	 - The point is that by giving the function expression a name you allow for better debugging and you can call the named function expression but only inside the function so it is good for recursive function expressions
+	 - Plus adding a name to the function expression can add readability to your code
 
 * Summary
+  - 
