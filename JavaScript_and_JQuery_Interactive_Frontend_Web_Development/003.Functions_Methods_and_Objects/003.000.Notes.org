@@ -404,7 +404,7 @@
    
 *** Section 3.17.2: The Browser Object Model
     - The Browser Object Model creates a model of the browser tab or window
-    - The top most object is the ~window~ object which represetns the current browser window or tab and its child objects represent other browser features
+    - The top most object is the ~window~ object which represents the current browser window or tab and its child objects represent other browser features
     - For example, some child objects of the ~window~ object are: ~Document~ object (current web page), ~History~ object (pages in browser history), ~Location~ object (url of current page), ~Navigator~ object (information about browser), and ~Screen~ object (device display information)
     - You can access methods and properties of the ~window~ object (e.g. ~window.print()~ or ~window.screen.width~)
     - Other examples include ~window.innerHeight~, ~window.screenX~, ~window.document~ (references the ~document~ object), ~window.history.length~ and for methods there are ~window.alert()~, ~window.open()~, and more
@@ -479,4 +479,30 @@
 	 - Plus adding a name to the function expression can add readability to your code
 
 * Summary
-  - 
+  - A function is a reusable group of series of statements that performs a specific task
+  - A function may have parameters declared in the function's signature, they represent placeholders for the values that will be passed into the function when it is called
+  - Arguments are the actual values that are passed to a function when it is called / invoked
+  - Functions may return a single value or multiple values using an array
+  - Anonymous functions are function expressions without names and is used for callbacks (arguments to other functions), IIFE (immediately invoked function expression), or some other use of function expressions
+  - Function expressions are functions that take up the form of expressions so the function expression can be passed to a variable, as an argument, etc.
+  - Function expressions may be named or unnamed (anonymous), if it is named then it can be used as a recursive function (if needed), it adds readability to your code, and it helps with debugging as the name will be shown in the stack trace
+  - Each variable has some type of scope, if you use ~var~ then it has a function scope or global scope depending on how you use it
+  - If you use ~var~ within a function then it has a function scope and it is only accessible inside the function and any nested functions that may exist
+  - If you create a variable using ~var~ within a function and inside the function you create a block of code (e.g. if-statement, loop, etc.), you will still be able to use the variable outside the block scope because the scope is a function scope
+  - If you use ~var~ outside any function then it becomes a global variable and attaches to the ~window~ object in browsers (or the global object in other environments)
+  - ~let~ is a block scope so only accessbile in the block it is declared and you cannot redeclare ~let~ variables unlike ~var~ but you can reassign ~let~ variables
+  - ~const~ is also block scope but cannot be reassigned or redeclared unlike ~let~ and ~var~
+  - If you do not use any of the keywords then you will implicitly create a global variable which is bad practice, so always use a keyword
+  - In addition, JS variables actually references a value that is stored in memory, if it happens that two variables have the exact same value then there will only be one instance of that value and both variables will reference that one instance of the value
+  - Objects group together a set of variables and functions to create a model
+  - You can create object literals using curly braces, you can create an empty object using ~new~ and add properties to it later, you can use the function constructor which uses ~new~ when the function constructor is called and ~this~ once inside the function, or you can use classes which also use ~new~ to create a new object from that class
+  - You can always add properties (variables and methods) and delete (remove) properties
+  - ~this~ keyword refers to one object and usually the object in which the function operates
+  - By default the ~this~ refers to the ~window~ object but whenever you use ~new~ with a class or function constructor then ~this~ becomes the object you just created inside the class or function constructor
+  - JS has many built-in objects and this includes global objects, such as arrays, Math objects, and more, the browser object model, and the document object model
+  - The Browser Object Model (BOM) creates a model of the browser tab or window and the top most object is the ~window~ object which represents the current browser window or tab and its child objects represent other browser features
+  - The Document Object Model (DOM) creates a model of the current web page and represents the page as a whole
+  - For DOM, the top most object is ~document~ and the child objects represent other items on the page such as ~head~, ~body~, ~title~, etc.
+  - DOM forms a tree structure with the ~document~ object being the root and every element being a node in the tree
+  - Each node is an object and there can be nodes nested inside other nodes
+    
