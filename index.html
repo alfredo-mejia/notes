@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-23 Sun 00:09 -->
+<!-- 2025-04-29 Tue 12:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -193,7 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel="stylesheet" type="text/css" href="./resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -202,17 +202,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org18e87d8">Welcome</a></li>
-<li><a href="#orgd3d3c30">What will each folder have?</a></li>
-<li><a href="#org82e80d0">What Next</a></li>
-<li><a href="#org58b75ab">Folders</a></li>
+<li><a href="#orgedcb11f">Welcome</a></li>
+<li><a href="#orgea74751">What will each folder have?</a></li>
+<li><a href="#orgf3aff06">What Next</a>
+<ul>
+<li><a href="#orgff02989">Articles</a></li>
+<li><a href="#org010d605">Books</a></li>
+<li><a href="#org79489b4">Cloud</a></li>
+<li><a href="#orge849eff">Web</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org18e87d8" class="outline-2">
-<h2 id="org18e87d8">Welcome</h2>
-<div class="outline-text-2" id="text-org18e87d8">
+<div id="outline-container-orgedcb11f" class="outline-2">
+<h2 id="orgedcb11f">Welcome</h2>
+<div class="outline-text-2" id="text-orgedcb11f">
 <p>
 Welcome to my repository called notes. This repo will have notes about anything I wish to take notes on. This can be a YouTube video, a course, a book, a process, like how to wash a car properly, research papers, articles, technologies, etc. Many of the times, when I take down notes on whatever it may be, I either delete the files, throw out the paper, or simply take down bad notes.
 </p>
@@ -222,20 +228,20 @@ I want to start something different. I want to build my "second brain", my garde
 </p>
 
 <p>
-Now, I'm going to take a different approach. For one, each book, course, video, article, research paper, whatever it may be, will have its own folder in the root directory. This would avoid having so many nested folders to eventually get to the notes of interest. Second, I'm going to try and keep it simple. I will take down notes in plain text using Org-Mode in Emacs. Hopefully this new process works for me and hopefully I don't get stuck in this cycle where I am changing my process once more to take down notes.
+Now, I'm going to take a different approach. For one, each book, course, video, article, research paper, whatever it may be, will have its own folder. I am going to try and organize my notes but at the same time avoid having so many nested folders. Second, I'm going to try and keep it simple. I will take down notes in plain text using Org-Mode in Emacs. Hopefully this new process works for me and hopefully I don't get stuck in this cycle where I am changing my process once more to take down notes.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd3d3c30" class="outline-2">
-<h2 id="orgd3d3c30">What will each folder have?</h2>
-<div class="outline-text-2" id="text-orgd3d3c30">
+<div id="outline-container-orgea74751" class="outline-2">
+<h2 id="orgea74751">What will each folder have?</h2>
+<div class="outline-text-2" id="text-orgea74751">
 <p>
 The goal is for each folder to correspond to a course, book, research paper, article, video, etc. If the video / book is long there may be folders or multiple files to separate the topics / chapters. However, I am not just going to take down notes. Notes are great but you need to do more to fully understand the material. So, in addition to notes, I am going to try to create how-to-wikis, projects, answer textbook questions, and more. Each folder will be more than just notes.
 </p>
 
 <p>
-In addition, each folder will have an org-file and a HTML file. The org-file would be used to store the notes but the great thing about Org-Mode in Emacs is that you can create internal links and navigate between files. Emacs also have a great HTML export option which I will be using. Thus we will have two files per note: an org-file and a HTML file.
+In addition, each folder will have an org-file and a HTML file. The org-file would be used to store the notes but the great thing about Org-Mode in Emacs is that you can create internal links and navigate between files. Emacs also has a great HTML export option which I will be using. Thus we will have two files per note: an org-file and a HTML file.
 </p>
 
 <p>
@@ -244,9 +250,9 @@ The HTML file will use the default export options of Emacs but the only differen
 </div>
 </div>
 
-<div id="outline-container-org82e80d0" class="outline-2">
-<h2 id="org82e80d0">What Next</h2>
-<div class="outline-text-2" id="text-org82e80d0">
+<div id="outline-container-orgf3aff06" class="outline-2">
+<h2 id="orgf3aff06">What Next</h2>
+<div class="outline-text-2" id="text-orgf3aff06">
 <p>
 Please feel free to enter any folder, explore my projects and use my notes. Most projects will be small and thus will not have its own repo, but who knows, in the future a project may be expanded and have its own dedicated repo.
 </p>
@@ -254,12 +260,111 @@ Please feel free to enter any folder, explore my projects and use my notes. Most
 <p>
 Depending on how you are navigating my notes (html, org, or Github) you can click on the internal links below to explore my notes.
 </p>
+
+<hr />
+</div>
+
+<div id="outline-container-orgff02989" class="outline-3">
+<h3 id="orgff02989">Articles</h3>
+<div class="outline-text-3" id="text-orgff02989">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Author</th>
+<th scope="col" class="org-left">Subject</th>
+<th scope="col" class="org-left">Html</th>
+<th scope="col" class="org-left">Org</th>
+<th scope="col" class="org-left">GitHub</th>
+<th scope="col" class="org-left">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">What is Docker</td>
+<td class="org-left">Alfredo</td>
+<td class="org-left">Developer Technologies</td>
+<td class="org-left"><a href="./Articles/What_is_Docker/000.Notes.html">html</a></td>
+<td class="org-left"><a href="./Articles/What_is_Docker/000.Notes.html">org</a></td>
+<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker">github</a></td>
+<td class="org-left">Complete</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
 </div>
 </div>
 
-<div id="outline-container-org58b75ab" class="outline-2">
-<h2 id="org58b75ab">Folders</h2>
-<div class="outline-text-2" id="text-org58b75ab">
+<div id="outline-container-org010d605" class="outline-3">
+<h3 id="org010d605">Books</h3>
+<div class="outline-text-3" id="text-org010d605">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Author</th>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Html</th>
+<th scope="col" class="org-left">Org</th>
+<th scope="col" class="org-left">GitHub</th>
+<th scope="col" class="org-left">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">To Kill A Mockingbird</td>
+<td class="org-left">Harper Lee</td>
+<td class="org-left">Novel</td>
+<td class="org-left"><a href="./Books/To_Kill_A_Mockingbird/000.Notes.html">html</a></td>
+<td class="org-left"><a href="./Books/To_Kill_A_Mockingbird/000.Notes.html">org</a></td>
+<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Books/To_Kill_A_Mockingbird">github</a></td>
+<td class="org-left">In-Progress</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-org79489b4" class="outline-3">
+<h3 id="org79489b4">Cloud</h3>
+<div class="outline-text-3" id="text-org79489b4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -280,122 +385,124 @@ Depending on how you are navigating my notes (html, org, or Github) you can clic
 <tr>
 <th scope="col" class="org-left">Title</th>
 <th scope="col" class="org-left">Author</th>
-<th scope="col" class="org-left">HTML</th>
-<th scope="col" class="org-left">ORG</th>
+<th scope="col" class="org-left">Html</th>
+<th scope="col" class="org-left">Org</th>
 <th scope="col" class="org-left">GitHub</th>
 <th scope="col" class="org-left">Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">Articles</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><a href="./Articles/000.Home.html">html</a></td>
-<td class="org-left"><a href="./Articles/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Articles">github</a></td>
-<td class="org-left">N/A</td>
+<td class="org-left">Introduction to Oracle Cloud Essentials</td>
+<td class="org-left">Oracle University</td>
+<td class="org-left"><a href="./Cloud/Introduction_to_Oracle_Cloud_Essentials/000.Home.html">html</a></td>
+<td class="org-left"><a href="./Cloud/Introduction_to_Oracle_Cloud_Essentials/000.Home.html">org</a></td>
+<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Cloud/Introduction_to_Oracle_Cloud_Essentials">github</a></td>
+<td class="org-left">In-progress</td>
 </tr>
 
 <tr>
-<td class="org-left">Books</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><a href="./Books/000.Home.html">html</a></td>
-<td class="org-left"><a href="./Books/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Books">github</a></td>
-<td class="org-left">N/A</td>
+<td class="org-left">User's Guide for Oracle Business Intelligence Enterprise Edition</td>
+<td class="org-left">Oracle Docs</td>
+<td class="org-left"><a href="./Cloud/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Home.html">html</a></td>
+<td class="org-left"><a href="./Cloud/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Home.html">org</a></td>
+<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Cloud/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition">github</a></td>
+<td class="org-left">In-progress</td>
 </tr>
+</tbody>
+</table>
 
+<hr />
+</div>
+</div>
+
+<div id="outline-container-orge849eff" class="outline-3">
+<h3 id="orge849eff">Web</h3>
+<div class="outline-text-3" id="text-orge849eff">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
 <tr>
-<td class="org-left">College Algebra</td>
-<td class="org-left">Ron Larson &amp; Robert Hostetler</td>
-<td class="org-left"><a href="./College_Algebra/000.Home.html">html</a></td>
-<td class="org-left"><a href="./College_Algebra/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/College_Algebra">github</a></td>
-<td class="org-left">Archived</td>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Author</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Html</th>
+<th scope="col" class="org-left">Org</th>
+<th scope="col" class="org-left">GitHub</th>
+<th scope="col" class="org-left">Status</th>
 </tr>
-
+</thead>
+<tbody>
 <tr>
-<td class="org-left">Computer Networking: A Top-Down Approach</td>
-<td class="org-left">James F. Kurose &amp; Keith W. Ross</td>
-<td class="org-left"><a href="./Computer_Networking_A_Top_Down_Approach/000.Home.html">html</a></td>
-<td class="org-left"><a href="./Computer_Networking_A_Top_Down_Approach/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Computer_Networking_A_Top_Down_Approach">github</a></td>
-<td class="org-left">In-Progress</td>
-</tr>
-
-<tr>
-<td class="org-left">Foundations of Multidimensional and Metric Data Structures</td>
-<td class="org-left">Hanan Samet</td>
-<td class="org-left"><a href="./Foundations_of_Multidimensional_and_Metric_Data_Structures/000.Home.html">html</a></td>
-<td class="org-left"><a href="./Foundations_of_Multidimensional_and_Metric_Data_Structures/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Foundations_of_Multidimensional_and_Metric_Data_Structures">github</a></td>
-<td class="org-left">In-Progress</td>
+<td class="org-left">Django Polls App</td>
+<td class="org-left">Django Docs</td>
+<td class="org-left">Django Tutorial</td>
+<td class="org-left"><a href="./Web/Django_Polls_App/000.Notes.html">html</a></td>
+<td class="org-left"><a href="./Web/Django_Polls_App/000.Notes.html">org</a></td>
+<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Web/Django_Polls_App">github</a></td>
+<td class="org-left">Complete</td>
 </tr>
 
 <tr>
 <td class="org-left">HTML &amp; CSS - Design and Build Websites</td>
 <td class="org-left">Jon Duckett</td>
-<td class="org-left"><a href="./HTML_and_CSS_Design_and_Build_Websites/000.Home.html">html</a></td>
-<td class="org-left"><a href="./HTML_and_CSS_Design_and_Build_Websites/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites">github</a></td>
-<td class="org-left">Completed</td>
+<td class="org-left">Book</td>
+<td class="org-left"><a href="Web/HTML_and_CSS_Design_and_Build_Websites/000.Home.html">html</a></td>
+<td class="org-left"><a href="Web/HTML_and_CSS_Design_and_Build_Websites/000.Home.html">org</a></td>
+<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites">github</a></td>
+<td class="org-left">Complete</td>
 </tr>
 
 <tr>
-<td class="org-left">Introduction to Oracle Cloud Essentials</td>
-<td class="org-left"><a href="https://mylearn.oracle.com/ou/home">Oracle University</a></td>
-<td class="org-left"><a href="./Introduction_to_Oracle_Cloud_Essentials/000.Home.html">html</a></td>
-<td class="org-left"><a href="./Introduction_to_Oracle_Cloud_Essentials/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Introduction_to_Oracle_Cloud_Essentials">github</a></td>
-<td class="org-left">In-Progress</td>
-</tr>
-
-<tr>
-<td class="org-left">JavaScript &amp; JQuery - Interactive Front-End Web Development</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
 <td class="org-left">Jon Duckett</td>
-<td class="org-left"><a href="./JavaScript_and_JQuery_Interactive_Frontend_Web_Development/000.Home.html">html</a></td>
-<td class="org-left"><a href="./JavaScript_and_JQuery_Interactive_Frontend_Web_Development/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a></td>
+<td class="org-left">Book</td>
+<td class="org-left"><a href="Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/000.Home.html">html</a></td>
+<td class="org-left"><a href="Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/000.Home.html">org</a></td>
+<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a></td>
 <td class="org-left">In-Progress</td>
 </tr>
 
 <tr>
 <td class="org-left">The Complete 2024 Web Development Bootcamp</td>
 <td class="org-left">Dr. Angela Yu</td>
-<td class="org-left"><a href="./The_Complete_2024_Web_Development_Bootcamp/000.Home.html">html</a></td>
-<td class="org-left"><a href="./The_Complete_2024_Web_Development_Bootcamp/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/The_Complete_2024_Web_Development_Bootcamp">github</a></td>
-<td class="org-left">Archived</td>
+<td class="org-left">Udemy Course</td>
+<td class="org-left"><a href="Web/The_Complete_2024_Web_Development_Bootcamp/000.Home.html">html</a></td>
+<td class="org-left"><a href="Web/The_Complete_2024_Web_Development_Bootcamp/000.Home.html">org</a></td>
+<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp">github</a></td>
+<td class="org-left">In-progress</td>
 </tr>
 
 <tr>
 <td class="org-left">The Web Developer Bootcamp 2024</td>
 <td class="org-left">Colt Steele</td>
-<td class="org-left"><a href="./The_Web_Developer_Bootcamp_2024/000.Home.html">html</a></td>
-<td class="org-left"><a href="./The_Web_Developer_Bootcamp_2024/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/The_Web_Developer_Bootcamp_2024">github</a></td>
-<td class="org-left">Archived</td>
-</tr>
-
-<tr>
-<td class="org-left">Tutorials</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left"><a href="./Tutorials/000.Home.html">html</a></td>
-<td class="org-left"><a href="./Tutorials/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Tutorials">github</a></td>
-<td class="org-left">N/A</td>
-</tr>
-
-<tr>
-<td class="org-left">User's Guide for Oracle Business Intelligence Enterprise Edition</td>
-<td class="org-left"><a href="https://docs.oracle.com/">Oracle Docs</a></td>
-<td class="org-left"><a href="./Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Home.html">html</a></td>
-<td class="org-left"><a href="./Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Home.html">org</a></td>
-<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition">github</a></td>
-<td class="org-left">Archived</td>
+<td class="org-left">Udemy Course</td>
+<td class="org-left"><a href="Web/The_Web_Developer_Bootcamp_2024/000.Home.html">html</a></td>
+<td class="org-left"><a href="Web/The_Web_Developer_Bootcamp_2024/000.Home.html">org</a></td>
+<td class="org-left"><a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024">github</a></td>
+<td class="org-left">In-progress</td>
 </tr>
 </tbody>
 </table>
+
+<hr />
+</div>
 </div>
 </div>
 </div>

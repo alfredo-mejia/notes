@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 12:27 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 16: Images</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Chapter 16: Images</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1a69e1e">Navigation</a></li>
+<li><a href="#org0f37a9f">Notes</a>
+<ul>
+<li><a href="#org6dd0e76">Section 16.1: Controlling Sizes of Images in CSS</a></li>
+<li><a href="#org859685a">Section 16.2: Aligning Images Using CSS</a></li>
+<li><a href="#org9b62411">Section 16.3: Centering Images Using CSS</a></li>
+<li><a href="#org75dd80c">Section 16.4: Background Images</a></li>
+<li><a href="#orge581e55">Section 16.5: Images Rollovers &amp; Sprites</a></li>
+<li><a href="#org91f25d8">Section 16.6: Contrast of Background Images</a></li>
+<li><a href="#orgc6c93d7">Section 16.7: CSS3 Gradients</a></li>
+<li><a href="#org354ff04">Section 16.8: Summary</a></li>
+<li><a href="#org7df9f9a">Section 16.9: Chapter Exercise Example</a></li>
+</ul>
+</li>
+<li><a href="#org736bcde">Keywords</a></li>
+<li><a href="#org0e954b1">Questions</a></li>
+<li><a href="#orga3d619a">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1a69e1e" class="outline-2">
+<h2 id="org1a69e1e">Navigation</h2>
+<div class="outline-text-2" id="text-org1a69e1e">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">HTML &amp; CSS - Design and Build Websites</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 15: Layout</td>
+<td class="org-left">&vert; <a href="../015.Layout/015.000.Notes.html">html</a> &vert; <a href="../015.Layout/015.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/015.Layout">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 17: HTML5 Layout</td>
+<td class="org-left">&vert; <a href="../017.HTML5_Layout/017.000.Notes.html">html</a> &vert; <a href="../017.HTML5_Layout/017.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/017.HTML5_Layout">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org0f37a9f" class="outline-2">
+<h2 id="org0f37a9f">Notes</h2>
+<div class="outline-text-2" id="text-org0f37a9f">
+</div>
+<div id="outline-container-org6dd0e76" class="outline-3">
+<h3 id="org6dd0e76">Section 16.1: Controlling Sizes of Images in CSS</h3>
+<div class="outline-text-3" id="text-org6dd0e76">
+<ul class="org-ul">
+<li>You can control the size of an image using the <code>width</code> and <code>height</code> properties in CSS (just like you can for any other box)</li>
+<li>Specifying the size of the image can help the website leave space for the image while it loads to the website</li>
+<li>Typically a website tends to use the same size of image (e.g. an e-commerce website will have a size to show products)</li>
+<li>So now you can use CSS classes like "small-img", "medium-img", "large-img" and using CSS you specify the <code>width</code> and <code>height</code> for each class</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org859685a" class="outline-3">
+<h3 id="org859685a">Section 16.2: Aligning Images Using CSS</h3>
+<div class="outline-text-3" id="text-org859685a">
+<ul class="org-ul">
+<li>Rather than using the <code>&lt;img&gt;</code> element's <code>align</code> attribute, web page authors are incrasingly using the <code>float</code> property to align images</li>
+<li>You can add the <code>float</code> property inside the CSS classes used to set the size of the image (e.g. like in "small-img" or "medium-img")</li>
+<li>Or you create new CSS classes such as "align-left" or "align-right" and using CSS you specify <code>float</code> and its value to align the images left or right of the page</li>
+<li>It is common to add margin to the image when aligning to ensure text does not touch the images' edges</li>
+<li>You then can use the CSS classes to specify size and alignment</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9b62411" class="outline-3">
+<h3 id="org9b62411">Section 16.3: Centering Images Using CSS</h3>
+<div class="outline-text-3" id="text-org9b62411">
+<ul class="org-ul">
+<li>By default, images are inline elements and thus the images flow within the surrounding text</li>
+<li>To center an image it should be turned into a block-level element using <code>display: block</code></li>
+<li>Once it has been made to a block-level then there are two ways to horizontally center an image</li>
+<li>One you can use the <code>text-align: center</code> on the containing element of the image</li>
+<li>Or second on the image itself, you can set the left margin and right margin to <code>auto</code></li>
+<li>You can create CSS classes to create any image to a block-level element and center it horizontally using the techniques discussed</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org75dd80c" class="outline-3">
+<h3 id="org75dd80c">Section 16.4: Background Images</h3>
+<div class="outline-text-3" id="text-org75dd80c">
+<ul class="org-ul">
+<li>The <code>background-image</code> property allows you to place an image behind any HTML element (this could be the entire page or just part of the page)</li>
+<li>By default a background image will repeat to fill the entire box</li>
+<li>The path to the image follows the letters <code>url</code> and it is put inside parentheses and quotes</li>
+<li>Background images often are the last thing on the page to load which may make a website seem slow to load especially if the file is large</li>
+<li>The <code>background-repeat</code> property can have four values:
+<ul class="org-ul">
+<li><code>repeat</code>: background image is repeated both horizontally and vertically, this is the default way it is shown if the <code>background-repeat</code> property is not used</li>
+<li><code>repeat-x</code>: image is repeated horizontally only</li>
+<li><code>repeat-y</code>: image is repeated vertically only</li>
+<li><code>no-repeat</code>: image is only shown once and <code>background-attachment</code> property specifies whether a background image should stay in one position or move as the user scrolls up and down the page</li>
+</ul></li>
+<li><code>background-attachment</code> has two values: <code>fixed</code> (image stays in the same position on the page) and <code>scroll</code> (background image moves up and down as the user scrolls up and down the page)</li>
+<li>When an image is not being repeated, you can use the <code>background-position</code> property to specify where in the browser window the background image should be placed</li>
+<li><code>background-position</code> usually has a pair of values, the first represents the horizontal position and the second represents the vertical (e.g. <code>left top</code>, <code>left center</code>, <code>left bottom</code>, <code>center top</code>, <code>right top</code>, etc.)</li>
+<li>If you only specify one value, the second value will default to <code>center</code></li>
+<li>You can also use a pair of pixels or percentages, these represent the distance from the top left corner of the browser window or containing box (e.g.the top left corner is equal to <code>0% 0%</code>)</li>
+<li>The <code>background</code> property acts like a shorthand for all of the other background properties including <code>background-color</code> property</li>
+<li>Properties must be specified in the following order, but you can miss any value if you do not want to specify it
+<ol class="org-ol">
+<li><code>background-color</code></li>
+<li><code>background-image</code></li>
+<li><code>background-repeat</code></li>
+<li><code>background-attachment</code></li>
+<li><code>background-position</code></li>
+</ol></li>
+<li>CSS3 also support the use of multiple background images by repeating the <code>background</code> shorthand</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge581e55" class="outline-3">
+<h3 id="orge581e55">Section 16.5: Images Rollovers &amp; Sprites</h3>
+<div class="outline-text-3" id="text-orge581e55">
+<ul class="org-ul">
+<li>Using CSS, it is possible to create a link or button that changes to a second styple when a user moves their mouse over it (known as a <b>rollover</b>) and a third style when they click on it</li>
+<li>This is achieved by setting a background image for the link or button that has 3 different styles of the same button (but only allows enough space to show one of them at a time)</li>
+<li>When the user moves their mouse over the element or clicks on it, the position of the background image is moved to show the relevant image</li>
+<li>When a single image is used for several different parts of an interface, it is known as a <b>sprite</b></li>
+<li>You can add the logo and other interface elements, as well as buttons to the image</li>
+<li>The advantage of using sprites is that the web browser only needs to request one image rather than many images, which can make the web page load faster</li>
+<li>What does this mean? Basically it is saying to have one image with different styles (e.g. one image contains 3 different button styles) then as you change change state like click or hover, you move your background to showcase only one style or the other but at the end it is one image that has 3 styles and you are moving to showcase only one style</li>
+<li>How useful is this now? I'm not sure but it seems like there are better ways now</li>
+<li>You can use the <code>background-position</code> property to move the image to show the button in the correct state</li>
+<li>E.g. when the user hovers then in CSS there is a rule for <code>:hover</code> that moves the image and shows a different button style and same goes for <code>:active</code> (when the user clicks on the link or button)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org91f25d8" class="outline-3">
+<h3 id="org91f25d8">Section 16.6: Contrast of Background Images</h3>
+<div class="outline-text-3" id="text-org91f25d8">
+<ul class="org-ul">
+<li>If you want to overlay text on a background image, the image must be low contrast in order for the text to be legible</li>
+<li>Majority of photographs have high contrast and are not ideal for background images</li>
+<li>Image editing applications have tools that allow you to manually adjust your images to have lower contrast</li>
+<li>To overlay text on an image with high contrast, you can place a semi-transparent background color (or "screen") behind the text to improve legibility</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc6c93d7" class="outline-3">
+<h3 id="orgc6c93d7">Section 16.7: CSS3 Gradients</h3>
+<div class="outline-text-3" id="text-orgc6c93d7">
+<ul class="org-ul">
+<li>A gradient can be added for the background of a box using the <code>background-image</code> property</li>
+<li>The textbook doesn't really show us the syntax of what is used now because it is an older book</li>
+<li>However, to use a gradient in CSS you need to specify two colors to show the gradient that is in between both colors</li>
+<li>You can even specify the angle of the gradient or even different types of gradients (such as radial gradients)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org354ff04" class="outline-3">
+<h3 id="org354ff04">Section 16.8: Summary</h3>
+<div class="outline-text-3" id="text-org354ff04">
+<ul class="org-ul">
+<li>You can sspecify the dimensions of images using CSS which is helpful when you use the same sized images on several pages of your site</li>
+<li>Images can be aligned both horizontally and vertically using CSS</li>
+<li>You can use a background image behind the box created by any element on a page</li>
+<li>Background images can appear just once or be repeated across the background of the box</li>
+<li>You can create image rollover effects by moving the background position of an image</li>
+<li>To reduce the number of images your browswer has to load, you can create image sprites</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7df9f9a" class="outline-3">
+<h3 id="org7df9f9a">Section 16.9: Chapter Exercise Example</h3>
+<div class="outline-text-3" id="text-org7df9f9a">
+<ul class="org-ul">
+<li><a href="./016.009.Chapter_Exercise_Example/index.html">Here</a> is the chapter exercise example</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org736bcde" class="outline-2">
+<h2 id="org736bcde">Keywords</h2>
+<div class="outline-text-2" id="text-org736bcde">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>background-image</code></td>
+<td class="org-left"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image">(Mozilla Docs)</a> This porperty sets one or more background images on an element</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>background-position</code></td>
+<td class="org-left"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position">(Mozilla Docs)</a> This property sets the initial position for each background image, the position is relative to the position layer set by <code>background-origin</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>background-repeat</code></td>
+<td class="org-left"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat">(Mozilla Docs)</a> This property sets how background images are repeated, a background image can be repeated along the horizontal and vertical axes or not repeated all</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>background-attachment</code></td>
+<td class="org-left"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment">(Mozilla Docs)</a> This property sets whether a background image's position is fixed within the viewport or scrolls within its containing block</td>
+</tr>
+
+<tr>
+<td class="org-left">Rollover</td>
+<td class="org-left">A rollover is a visual effect / changed on an element on the page whenever the element's state changes or the user interacts with it</td>
+</tr>
+
+<tr>
+<td class="org-left">Sprite</td>
+<td class="org-left">A sprite or image sprite are collection of images that are combined into a single file that an HTML document can access and possily use only one image from the collection at a time</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org0e954b1" class="outline-2">
+<h2 id="org0e954b1">Questions</h2>
+<div class="outline-text-2" id="text-org0e954b1">
+<ul class="org-ul">
+<li><b>Q</b>: Does <code>background-attachment</code> only apply to when <code>background-image: no-repeat</code>?
+<ul class="org-ul">
+<li>No, <code>background-attachment</code> can apply to background images that are repeating</li>
+<li>For example, whenever the image is repeating and you use <code>background-attachment: fixed</code> then the image will be fixed relative to the viewport or you can use <code>scroll</code> as well</li>
+<li><code>background-attachment</code> is independent of the value of <code>background-image</code> so it can apply the property at any value of <code>background-image</code></li>
+</ul></li>
+
+<li><p>
+<b>Q</b>: Can you really have multiple background images?
+</p>
+<ul class="org-ul">
+<li>Yes you can have multiple images as the background image</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-CSS">background-image:
+   url("../../media/examples/star.png"),
+   url("../../media/examples/lizard.png");
+</pre>
+</div>
+<ul class="org-ul">
+<li>In the example above, which we got from Mozilla docs, you can see we added two images as the background image</li>
+<li>The background images are down on stacking context layers on top of each other</li>
+<li>The first layer specified is drawn as if it is closest to the user (on top of all other images)</li>
+</ul></li>
+
+<li><b>Q</b>: How can you add gradients in CSS?
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Mozilla Docs - Using CSS Gradients</a></li>
+<li>There are various types of gradients including:
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient">Linear Gradient (Mozilla Docs)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient">Radial Gradient (Mozilla Docs)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient">Conic Gradient (Mozilla Docs)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/repeating-linear-gradient">Repeating Linear Gradient (Mozilla Docs)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/repeating-radial-gradient">Repeating Radial Gradient (Mozilla Docs)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/repeating-conic-gradient">Repeating Conic Gradient (Mozilla Docs)</a></li>
+</ul></li>
+<li>You can do various things with these types of gradients such as having the gradient in a horizontal or vertical direction, at an angle, blend gradients and more</li>
+<li><p>
+Here are some examples that have linear gradient in the horizontal direction and diagonal direction
+</p>
+<div class="org-src-container">
+<pre class="src src-CSS">.horizontal-gradient {
+   background: linear-gradient(to right, blue, pink);
+}
+
+.diagonal-gradient {
+   background: linear-gradient(to bottom right, blue, pink);
+}
+</pre>
+</div></li>
+<li>The syntax for the gradient functions can vary the most basic one is simply <code>background: linear-gradient(color1, color2);</code> and this creates a gradient in the vertical direction but there other syntaxs that allows to add more options</li>
+</ul></li>
+
+<li><b>Q</b>: How can you size images dynamically?
+<ul class="org-ul">
+<li><a href="https://stackoverflow.com/questions/4684304/how-can-i-resize-an-image-dynamically-with-css-as-the-browser-width-height-chang">Stackoverflow - Image Resizing Dynamically</a></li>
+<li>From the answer in the Stackoverflow I think the best way is to create a container like a <code>div</code> or a <code>figure</code> and set it to some width like <code>50%</code> or some other value</li>
+<li>Then you set the image to be <code>width: 100%</code> and <code>height: auto</code> so now as the <code>figure</code> or <code>div</code> changes in size as the window resizes so will the image change in size dynamically</li>
+<li>Another way to dynamically resize an image is to keep the <code>figure</code> as normal (by default take <code>100%</code> width) and then set the width of the image to be <code>50%</code> or some other value and then you set the height to be <code>auto</code></li>
+<li><a href="./016.010.Questions/q4.html">Here</a> is an example I created to resize the image dynamically by changing the width of the image by using some percentage and then setting the height to be auto</li>
+<li>You can always add a min and max width for the image so it won't grow too large or too small</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga3d619a" class="outline-2">
+<h2 id="orga3d619a">Summary</h2>
+<div class="outline-text-2" id="text-orga3d619a">
+<ul class="org-ul">
+<li>You can control the size of images using the <code>width</code> and <code>height</code> properties</li>
+<li>Having classes for images  with a set <code>width</code> and <code>height</code> can add image consistency throughout your website</li>
+<li>Also having classes to align images to the left or right using <code>float</code> can help the developer easily align images by adding the class</li>
+<li>To center an image you add <code>display: block</code> and add the left and right margin to <code>auto</code> and this can be added to a class</li>
+<li><code>background-image</code> property allows you to place an image behind any HTML element</li>
+<li>The background image repeats to fill in the entire box or you can use the <code>background-repeat</code> property to control the repitition of the background image</li>
+<li><code>background-position</code> can be used to specify where in the browswer window the background image should be placed when the image is not being repeated</li>
+<li>You can use the <code>background</code> property as a shortcut to set various properties such as: <code>background-color</code>, <code>background-image</code>, <code>background-repeat</code>, <code>background-attachment</code>, and <code>background-position</code></li>
+<li>You can also use a rollover which is when you change the style of a link or button based on some state so you have different styles for different states / actions</li>
+<li>A sprite is when you use <i>one</i> image that contains all the styles for several different parts of an interface (e.g. button), how? Well you can use the <code>background-image</code> and move the image (with <code>background-position</code>) to only show the style of interest and move it whenever the state changes to show another style</li>
+<li>To overly text on a background image, the image must be a low constrast image in order for the text to be legible, otherwise you'll need to add a semi-transparent background color (or "screen") behind the text to imporve legibility</li>
+<li>You can also add gradients using CSS, there are different types of gradients and you can have the gradient at an angle, vertically, or horizontally</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

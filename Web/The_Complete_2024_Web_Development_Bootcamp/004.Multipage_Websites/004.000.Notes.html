@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 14:51 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Section 4: Multipage Websites</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Section 4: Multipage Websites</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org61d5410">Navigation</a></li>
+<li><a href="#orge6cf9dd">Notes</a>
+<ul>
+<li><a href="#orgb130f62">Section 4.1: Computer File Paths</a></li>
+<li><a href="#org58047ba">Section 4.2: What Are Webpages</a></li>
+<li><a href="#org18ee786">Section 4.3: The HTML Boilerplate</a></li>
+<li><a href="#org7e83a18">Section 4.4: Portfolio Website Project</a></li>
+<li><a href="#org3389d3a">Section 4.5: How to Host Your Website for Free with GitHub</a></li>
+<li><a href="#orge0890af">Section 4.6: Capstone Projects - Online Resume</a>
+<ul>
+<li><a href="#orgdcc7d61">Requirements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8587e6e">Keywords</a></li>
+<li><a href="#org0c13ad1">Questions</a></li>
+<li><a href="#orgb09a5d0">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org61d5410" class="outline-2">
+<h2 id="org61d5410">Navigation</h2>
+<div class="outline-text-2" id="text-org61d5410">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">The Complete 2024 Web Development Bootcamp</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Section 3: Intermediate HTML</td>
+<td class="org-left">&vert; <a href="../003.Intermediate_HTML/003.000.Notes.html">html</a> &vert; <a href="../003.Intermediate_HTML/003.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp/003.Intermediate_HTML">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Section 5: Introduction to CSS</td>
+<td class="org-left">&vert; <a href="../005.Introduction_to_CSS/005.000.Notes.html">html</a> &vert; <a href="../005.Introduction_to_CSS/005.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp/005.Introduction_to_CSS">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orge6cf9dd" class="outline-2">
+<h2 id="orge6cf9dd">Notes</h2>
+<div class="outline-text-2" id="text-orge6cf9dd">
+</div>
+<div id="outline-container-orgb130f62" class="outline-3">
+<h3 id="orgb130f62">Section 4.1: Computer File Paths</h3>
+<div class="outline-text-3" id="text-orgb130f62">
+<ul class="org-ul">
+<li>A file path is a unique location in your computer for a specific file or folder</li>
+<li>The file path will indicate the computer where to look for the file / folder in the hard drive</li>
+<li>There are two types of file paths: absolute and relative</li>
+<li>Absolute file path is a path that starts at the root of the filing system (normally the hard drive of the computer); this means the path will start with the root (e.g. / or C:) so basically the start is the root</li>
+<li>No matter where you are currently in the file system the absolute file path will tell the computer where to find the file / folder regardless of current position in the file system</li>
+<li>Relative file path is a path that starts at the current directory the user / program / file is currently in and from there (the starting point) the path will continue to the endpoint to indicate the computer, starting here, the location for the file / folder will be here</li>
+<li>Relative file path are shorter because you don't start at the root, another thing, parent and grandparent folders of the current directory will unaffect the path because the starting point is the current folder unlike an absolute path which takes into account the root, the parents, the current directory, and then subfolders to reach the file</li>
+<li>To create a relative file path, you can use two special characters <code>..</code> (double dot) means access the parent folder (go to parent folder) and <code>.</code> (single dot) means access the current directory</li>
+<li><a href="./004.001.Computer_File_Paths/Folder0/index.html">Completed Computer File Paths Exercise</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org58047ba" class="outline-3">
+<h3 id="org58047ba">Section 4.2: What Are Webpages</h3>
+<div class="outline-text-3" id="text-org58047ba">
+<ul class="org-ul">
+<li>A multi-page website is consisted of multiple HTML files in the same project folder</li>
+<li>How are these HTML files navigated to and from other HTML files? You use the anchor tags to link the URL to the HTML file</li>
+<li>Adding links to other HTML files will render that HTML file and thus you'll now have a multi-page website</li>
+<li><a href="./004.002.What_Are_Webpages/index.html">Completed What Are Webpages Exercise</a></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;a href="./about.html"&gt;About Page&lt;/a&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org18ee786" class="outline-3">
+<h3 id="org18ee786">Section 4.3: The HTML Boilerplate</h3>
+<div class="outline-text-3" id="text-org18ee786">
+<div class="org-src-container">
+<pre class="src src-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Website&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Every HTML file has a structure and its called a "boilerplate" and normally that is what you start off with when you create any new HTML file</li>
+<li>The doctype specifies which HTML version the file was written in; so <code>&lt;!DOCTYPE html&gt;</code> specifies the file was written in HTML 5</li>
+<li>Next is the <code>&lt;html&gt; &lt;/html&gt;</code> this is going to be root of the document indicating everything else will be in-between those tags and the attribute <code>lang</code> indicates the language of the text content in that element</li>
+<li>The lang attribute is important for assistance technology</li>
+<li>The <code>head</code> element is metadata that will not be displayed; it will help the browser render the website correctly such as a meta tag to set the encoding of the web page to ensure the characters you are using on your website gets displayed correctly</li>
+<li>Depending on the character sets some characters are missing or not allowed (like emojis, multiplication and division symbols, etc)</li>
+<li>UTF-8 is one of the most common encoding</li>
+<li>There are various meta tags such as telling the browser how to display your website when it first opens (e.g. use the full width of the device's screen, etc.)</li>
+<li>The <code>title</code> element is the name of the website and gets displayed on the tab of the website in the browser</li>
+<li>There are more information that can be inserted in your header element but for now we'll only use the meta for encoding and the title element</li>
+<li>The next element is the body element and inside the body element will be the content of the website; the body element is what gets displayed in the browser such as the text, the headers, images, links, and everything else</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7e83a18" class="outline-3">
+<h3 id="org7e83a18">Section 4.4: Portfolio Website Project</h3>
+<div class="outline-text-3" id="text-org7e83a18">
+<ul class="org-ul">
+<li>We are going to make a very simple portfolio website with just HTML</li>
+<li><a href="./004.004.Portfolio_Website_Project/index.html">Completed Portfolio Website Project</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3389d3a" class="outline-3">
+<h3 id="org3389d3a">Section 4.5: How to Host Your Website for Free with GitHub</h3>
+<div class="outline-text-3" id="text-org3389d3a">
+<ul class="org-ul">
+<li>What is web hosting? It is basically the processing making your website available anywhere on the internet</li>
+<li>How do we do that? We put all of our files into a web server; this web server will be on 24/7 and connected to the internet allowing anyone to access the files at anytime</li>
+<li>For now we access the files locally in our computer</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge0890af" class="outline-3">
+<h3 id="orge0890af">Section 4.6: Capstone Projects - Online Resume</h3>
+<div class="outline-text-3" id="text-orge0890af">
+<ul class="org-ul">
+<li>What is a capstone project? This is a project that is bigger than the exercises and "projects" done in class and this aims to demonstrate a student's mastery of a particular subject or topic</li>
+<li><a href="./004.006.Capstone_Project_Online_Resume_HTML_Only/index.html">Completed Capstone Project - Online Resume</a></li>
+</ul>
+</div>
+
+<div id="outline-container-orgdcc7d61" class="outline-4">
+<h4 id="orgdcc7d61">Requirements</h4>
+<div class="outline-text-4" id="text-orgdcc7d61">
+<ol class="org-ol">
+<li>Create an HTML file named <code>index.html</code></li>
+<li>Include a <code>DOCTYPE</code>, a header (title will be "My Resume"), and a body</li>
+<li>In the body, it will have a summary or objective statement, education (list degrees, schools, and dates), work experience (list job titles, employers, dates, and responsibilities), skills (list relevant skills or areas of expertise), and finally any awards, certifications, or achievements</li>
+<li>Use relevant anchor tags to create a multi-page website, listing other aspects of your resume such as Hobbies and Contact details</li>
+<li>Add a footer element with your name and any copyright information or other disclaimers</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8587e6e" class="outline-2">
+<h2 id="org8587e6e">Keywords</h2>
+<div class="outline-text-2" id="text-org8587e6e">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>File Path</b></td>
+<td class="org-left">Unique location in your computer for a specific file or folder</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Absolute Path</b></td>
+<td class="org-left">A file path that starts at your root of the computer's filing system</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Relative Path</b></td>
+<td class="org-left">A file path that starts at your current directory thus it is relative to your current working directory and you can use either <code>.</code> to indicate the current directory or <code>..</code> to indicate the parent directory</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Multi-page Website</b></td>
+<td class="org-left">A website containing multiple HTML files with links (anchor tags) to link and navigate between HTML files</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML BoilerPlate</b></td>
+<td class="org-left">Every HTML file has a structure and it is called a "boilerplate" which is essentially the structure of the HTML which is the same across HTML files</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Web Hosting</b></td>
+<td class="org-left">A web server holds your files and service any request 24/7 with your website</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org0c13ad1" class="outline-2">
+<h2 id="org0c13ad1">Questions</h2>
+<div class="outline-text-2" id="text-org0c13ad1">
+<ul class="org-ul">
+<li><b>Q</b>: What is the difference between src and href (can it be used in anchor elments)?
+<ul class="org-ul">
+<li><a href="https://www.quora.com/Whats-the-difference-between-HREF-and-SRC-in-HTML">Quora Answer</a></li>
+<li><a href="https://stackoverflow.com/questions/3395359/difference-between-src-and-href">Stackoverflow Answer</a></li>
+<li>In short, src is used to add some resource to the page while href establishes a relationship (or link) to another resource without actually adding it to the page itself</li>
+<li>This means that href specifies the location to some web resource using the anchor tag and establishes a relationship (link) with the resource without adding it to the current page but can be directed to the resource using the href and anchor tag (link)</li>
+<li>Src embeds the resource in the current document at the location of the element's definition (think of it as using the resource instead of providing a link to the resource and not using it like in href)</li>
+</ul></li>
+
+<li><b>Q</b>: What is the difference between anchor and href and link and href?
+<ul class="org-ul">
+<li><a href="https://www.geeksforgeeks.org/difference-between-link-and-anchor-tags/">GeeksForGeeks Answer</a></li>
+<li><a href="https://stackoverflow.com/questions/28650076/link-vs-a-when-to-use-one-over-the-other">Stackoverflow Answer</a></li>
+<li>The link tag is used to establish a connection / relationship between the current document and some external resource that is <b>associated</b> with the current webpage
+<ul class="org-ul">
+<li>This can be a CSS file, icon, maniest, etc</li>
+<li>The link tag goes inside the head element to establish the relationship between the current document and the external resource</li>
+</ul></li>
+<li>The anchor tag establishes a different type of relationship, a link, to some internal or external HTML document, adddress, URL, etc and is not associated with the current webpage
+<ul class="org-ul">
+<li>The relationship is only established to navigate from one resource (current document) to another resource without it being used in any way in the current document</li>
+<li>In link, the resource may be connected / integrated / associated to the current page but with the anchor tag is it simply used to direct you to the external / internal resource</li>
+</ul></li>
+</ul></li>
+
+<li><b>Q</b>: How do you resize an image?
+<ul class="org-ul">
+<li><a href="https://imagekit.io/blog/how-to-resize-image-in-html/">ImageKit.io Blog Answer</a></li>
+<li>Use the width and height attributes and specify how many pixels you want the image to be
+<ul class="org-ul">
+<li>The browser tries to keep the aspect ratio of the image</li>
+</ul></li>
+<li>Use CSS and specify both the width and height or only specify one dimension and specify auto for the second dimension
+<ul class="org-ul">
+<li>The auto feature for the second dimension with try to preserve the aspect ratio depending on the specified dimension</li>
+</ul></li>
+<li>Use CSS and percentages; the percentages will scale up depending on the percentage indicated but it is based on the parent element's dimension
+<ul class="org-ul">
+<li>For example, if you say <code>width: 100%</code> then it will take one hundred percent of the parent's width</li>
+</ul></li>
+<li>Use CSS and specify the max dimension so if the image is larger than wanted it will scale down but if it is smaller than the max then it will keep its original size</li>
+</ul></li>
+
+<li><b>Q</b>: Does it matter if the header element is inside the anchor or does the anchor need to be inside the header element?
+<ul class="org-ul">
+<li><a href="https://stackoverflow.com/questions/8174497/anchors-inside-headers-or-vice-versa-is-there-a-different-in-relation-to-seo">Stackoverflow Answer</a></li>
+<li>As of HTML5, it does not matter which order and we can try to use the order that makes the most <b>semantic</b> sense</li>
+<li>Before HTML5, the anchor <b>cannot</b> have a block-level element inside; thus, the anchor has to be inside the header</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb09a5d0" class="outline-2">
+<h2 id="orgb09a5d0">Summary</h2>
+<div class="outline-text-2" id="text-orgb09a5d0">
+<ul class="org-ul">
+<li>A file path is a unique location in your computer for a specific file or folder</li>
+<li>There are two types of file paths: relative path which starts the path at the current working directory and absolute path which starts the path at the root of the computer's filing system</li>
+<li>A multi-page website is consisted of multiple HTML files in the same project folder and are linked together by anchor tags with the relative path to the other HTML files</li>
+<li>Note that every HTML file has a structure with the version of HTML, the head, and the body; this is what we call HTML boilerplate</li>
+<li>Web hosting is the processing of putting your files into a web server so it can be accessed anywhere at any time (24/7) with a URL (it will be on the internet)</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 12:29 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 19: Practical Information</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Chapter 19: Practical Information</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org7342d8d">Navigation</a></li>
+<li><a href="#org14d0113">Notes</a>
+<ul>
+<li><a href="#org0f5df5a">Section 19.1: Search Engine Optimization (SEO)</a>
+<ul>
+<li><a href="#orgb414e88">Section 19.1.1: On-Page SEO</a></li>
+<li><a href="#org9a26941">Section 19.1.2: How to Identify Keywords &amp; Phrases</a></li>
+</ul>
+</li>
+<li><a href="#org8cbb4d3">Section 19.2: Analytics: Learning About Your Visitors</a></li>
+<li><a href="#org3545dc3">Section 19.3: Domain Names &amp; Hosting</a></li>
+<li><a href="#orga114b4b">Section 19.4: FTP &amp; Third Party Tools</a></li>
+<li><a href="#org01ab1f4">Section 19.5: Summary</a></li>
+</ul>
+</li>
+<li><a href="#orgcc9a885">Keywords</a></li>
+<li><a href="#org848fb15">Questions</a></li>
+<li><a href="#org2bda665">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7342d8d" class="outline-2">
+<h2 id="org7342d8d">Navigation</h2>
+<div class="outline-text-2" id="text-org7342d8d">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">HTML &amp; CSS - Design and Build Websites</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 18: Process &amp; Design</td>
+<td class="org-left">&vert; <a href="../018.Process_and_Design/018.000.Notes.html">html</a> &vert; <a href="../018.Process_and_Design/018.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/018.Process_and_Design">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org14d0113" class="outline-2">
+<h2 id="org14d0113">Notes</h2>
+<div class="outline-text-2" id="text-org14d0113">
+</div>
+<div id="outline-container-org0f5df5a" class="outline-3">
+<h3 id="org0f5df5a">Section 19.1: Search Engine Optimization (SEO)</h3>
+<div class="outline-text-3" id="text-org0f5df5a">
+<ul class="org-ul">
+<li>Search engine optimization (or SEO) is the practice of trying to help your site appear nearer the top of search engine results when people look for the topics that your website covers</li>
+<li>At the heart of SEO is the idea of working out which terms people are likely to enter into a search engine to find your site and then using these terms in the right places on your site to increase the chances that search engines will show a link to your site in their results (now SEO is much more than that)</li>
+<li>Search engines also consider how many sites link to your and how relevant those links are</li>
+<li>Thus SEO is split into two areas: on-page techniques and off-page techniques</li>
+<li>On-page techniques are the methods you can use on your web pages to improve their rating in search engines such as looking at keywords that people are likely to enter into a search engine if they wanted to find your site and then including these in the text in HTML code for your site in order to help search engines know that your site covers these topics</li>
+<li>Search engines rely on text in your pages so it is important that the terms people are going to search for are actually in your page text</li>
+<li>If you have any images then always including the <code>alt</code> attribute helps search engines understand the content of images</li>
+<li>Off-page techniques deal with other sites having links to your web page which helps search engines determine how to rank your site</li>
+<li>Search engines are interested in sites whose content is related to yours and it looks for the words used to describe the link (e.g. "click here" is not relevant but "Geroge Washington (Wikipedia)" may be more relevant if you want to learn about George Washington), the link contains keywords it may be considered more relevant</li>
+<li>The words that appear in links to your site should also appear in the text of the page that the site links to, all of these helps the site rank higher than others if it has links from other web pages that are similar and use keywords for the links that are already present in the original site</li>
+</ul>
+</div>
+
+<div id="outline-container-orgb414e88" class="outline-4">
+<h4 id="orgb414e88">Section 19.1.1: On-Page SEO</h4>
+<div class="outline-text-4" id="text-orgb414e88">
+<ul class="org-ul">
+<li>In your page of your website there are seven key places where keywords (the words people might search on to find your site) can appear in order to improve its findability:
+<ol class="org-ol">
+<li>Page Title: Specified in the <code>&lt;title&gt;</code> element which lives inside the <code>&lt;head&gt;</code> element</li>
+<li>URL: The name of the file is part of the URL, where possible use the keywords in the file name</li>
+<li>Headings: If keywords are in a heading element then a search engine will know that this page is all about the subject and give it greater weight than other text</li>
+<li>Text: Where possible, it helps to repeat the keywords in the main body of the text at least 2-3 times but do not over-use these terms because the text must be easy for a human to read</li>
+<li>Link Text: Use keywords in the text that create links between pages, don't use generic words such as "click here"</li>
+<li>Image Alt Text: Search engines rely on you providing accurate descriptions on images in the alt text and this will also show up in the results of image-based searches</li>
+<li>Page Descriptions: The description lives inside the <code>&lt;head&gt;</code> element and is specified using a <code>&lt;meta&gt;</code> tag, the description should be a sentence that describes the content of the page, these descriptions may not be shown in the browser window but they may be displayed in the results of search engines</li>
+</ol></li>
+<li>Never try to fool search engines because they will penalize you for it (e.g. add a bunch of keywords repeatedly but use the same color as the background or make it transparent because search engines will know)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9a26941" class="outline-4">
+<h4 id="org9a26941">Section 19.1.2: How to Identify Keywords &amp; Phrases</h4>
+<div class="outline-text-4" id="text-org9a26941">
+<ul class="org-ul">
+<li>Determining which keywords to use on your site can be one of the hardest tasks when you start to think about SEO</li>
+<li>Brainstorm: List down the words / phrases that someone might type into Google to find your site (be sure to include various topics, products or services your site is about and ask people what they would type to find your service / product)</li>
+<li>Organize: Group the keywords into separate lists for the different sections or categories of your website</li>
+<li>Research: There are several tools online that let you enter your keywords and then they will suggest additional keywords to consider and add relevant options to your lists</li>
+<li>Compare: It is very unlikely that your site will appear at the top of the search results for every keyword especially if there is already a site optimized for a given keyword thus compare what is the competition and what keywords are they using</li>
+<li>Refine: Now you need to pick which keywords you will focus on, these should always be the ones that are most relevant to each section of your site even if there is a lot of competition for that term (try to add more / different terms to stand out like location and such to help people find you)</li>
+<li>Map: Now that you have a refined list of keywords, you know which have the most competition and which are the most relevant then it is time to start picking which keywords you will use for each page (pick 3-5 keywords or phrases that map to each page of your website and use these as the keywords for each page and do not repeat the same keywords on all of the pages and it is ok if the terms get specific as you move onto pages in the site)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8cbb4d3" class="outline-3">
+<h3 id="org8cbb4d3">Section 19.2: Analytics: Learning About Your Visitors</h3>
+<div class="outline-text-3" id="text-org8cbb4d3">
+<ul class="org-ul">
+<li>You can use Google Analytics to see how people found you, what were they looking at and at what point did they leave (this can happen as soon as your website goes live)</li>
+<li>Google Analytics gives you a piece of code to place into every page of your site and that code sends data to the Google servers which then shows you the results in a web interface to consume the information (e.g how many visitors are using your site)</li>
+<li>Google Analytics tells you:
+<ul class="org-ul">
+<li>How many people are coming to your site</li>
+<li>Total number of unique visits over the specified period (e.g. a user comes back under a specified period then the visits will be more than the unique visits)</li>
+<li>Total number of pages all visitors have viewed on your site</li>
+<li>Average number of pages each visitor has looked at on your site per visit</li>
+<li>Average time on site per visit</li>
+<li>Which pages your visitors are looking at the most</li>
+<li>Which pages users spend the most time on</li>
+<li>Which page was the first site the user opened (e.g. the landing page or some other page)</li>
+<li>Which pages people most commonly leave from</li>
+<li>Number of people who left on the same page that they arrived on (bounce right and if we have a high bounce rate then the users were not happy for whatever reason with the site)</li>
+<li>Show where your users are coming from: another site to yours or via a direct link like a bookmark or typed the URL</li>
+<li>Google Analytics may even show the terms users entered into a search engine to find your site and this can help you fine tune your content and SEO keywords</li>
+<li>Google Analytics also have e-commerce features such as products sold, average basket size and more</li>
+</ul></li>
+<li>Google Analytics also allows you to change the dates for the data and export the data</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3545dc3" class="outline-3">
+<h3 id="org3545dc3">Section 19.3: Domain Names &amp; Hosting</h3>
+<div class="outline-text-3" id="text-org3545dc3">
+<ul class="org-ul">
+<li>To place your site on the web you will need a domain name and web hosting</li>
+<li>The domain name is your web address and you have to pay an annual fee for the domain name</li>
+<li>Then you'll need web hosting basically placing your site into a web server for others to be able to access it and see it</li>
+<li>It is better to host your websites with web hosting companies because it is cheaper and more reliable than trying to run your own web servers</li>
+<li>Things to consider when choosing web hosting companies:
+<ul class="org-ul">
+<li>Disk Space: How much space is your website going to take</li>
+<li>Bandwidth: The amount of data the hostingcompnay will send to your site's visitors (e.g. you have 10 visitors thus the server will send 10 x amount of disk space your site takes; thus more visitors more bandwidth is needed)</li>
+<li>Backups: What type of backups do they use? If the server crashes is your site backed up? What if you break it while updating it, does it have a backup?</li>
+</ul></li>
+<li>Many web hosting companies also provide email servers the price will depend on the size of the email and the number of emails</li>
+<li>If your site is using a server-side programming language and a database make sure the web hosting company supports the technologies your website needs to run</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga114b4b" class="outline-3">
+<h3 id="orga114b4b">Section 19.4: FTP &amp; Third Party Tools</h3>
+<div class="outline-text-3" id="text-orga114b4b">
+<ul class="org-ul">
+<li>To transfer your code and images from your computer to your hosting company, you use something known as File Transfer Protocol</li>
+<li>FTP allows you to transfer files across the Internet from your computer to the web server hosting your site</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org01ab1f4" class="outline-3">
+<h3 id="org01ab1f4">Section 19.5: Summary</h3>
+<div class="outline-text-3" id="text-org01ab1f4">
+<ul class="org-ul">
+<li>Search engine optimization helps visitors find your sites when using search engines</li>
+<li>Analytics tools such as Google Analytics allow you to see how many people visit your site, how they find it, and what they do when they get there</li>
+<li>To put your site on the web, you will need to obtain a domain name and web hosting</li>
+<li>FTP programs allow you to transfer files from your local computer to your web server</li>
+<li>Many companies provide platforms for blogging, email newsletters, e-commerce and other popular website tools (to save you writing them from scratch)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc9a885" class="outline-2">
+<h2 id="orgcc9a885">Keywords</h2>
+<div class="outline-text-2" id="text-orgcc9a885">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Search Engine Optimization (SEO)</td>
+<td class="org-left">SEO is the process of improving a website's visibility in search engine results to increae the amount of unpaid traffic from search engines to the website</td>
+</tr>
+
+<tr>
+<td class="org-left">Google Analytics</td>
+<td class="org-left">Google analytics is a free service that measures how users interact with websites, and apps, and analyzes online traffic</td>
+</tr>
+
+<tr>
+<td class="org-left">Domain Name</td>
+<td class="org-left">A domain name is a unique (typically a easy to remember address) that people type into a web browser to access a website</td>
+</tr>
+
+<tr>
+<td class="org-left">Web Hosting</td>
+<td class="org-left">Web hosting is a service that stores all the files that make up a website on a server allowing it to be accessed online through the internet</td>
+</tr>
+
+<tr>
+<td class="org-left">File Transfer Protocol (FTP)</td>
+<td class="org-left">According to <a href="https://www.fortinet.com/resources/cyberglossary/file-transfer-protocol-ftp-meaning#:~:text=FTP%20(File%20Transfer%20Protocol)%20is,to%20communicate%20with%20each%20other.">Fortinet</a>, FTP is a standard network protocol used for the transfer of files from one host to another over a TCP-based network such as the internet</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org848fb15" class="outline-2">
+<h2 id="org848fb15">Questions</h2>
+<div class="outline-text-2" id="text-org848fb15">
+<ul class="org-ul">
+<li><b>Q</b>: Has SEO changed over time? How does SEO work now? And how can I optimize SEO for my website?
+<ul class="org-ul">
+<li><a href="https://www.marketingaid.io/the-evolution-of-seo/#:~:text=Over%20the%20past%2025%2B%20years,intelligence%20that%20we%20see%20today.">Marketing Aid IO</a> states that SEO has changed from keywords to PageRank and now machine learning and AI</li>
+<li>Now SEO is more complex but it uses a lot of factors like descriptive URLs, good file structure, reduced duplicate content, search terms, link to relevant resources, images, content, links that point to your website, and much more</li>
+<li><a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide">Google Developer Docs</a> go over how SEO works and how it can be optimized</li>
+<li><a href="https://www.mtu.edu/umc/services/websites/seo/">Michigan Tech</a> also go over SEO optimization and this includes publishing relevant content, use keywords, update content regularly, and more</li>
+</ul></li>
+
+<li><b>Q</b>: What are alternatives to Google Analytics and why would you use an alternative?
+<ul class="org-ul">
+<li>Some alternatives are Heap, Matomo, Cloudflare's Web Analytics and more</li>
+<li>Some people would not like to use Google Analytics because Google Analytics store a lot of information from the user and is it not GDPR compliant</li>
+<li>GDPR compliance means following the General Data Protection Regulation (GDPR) to protect the personal data of European Union citizens</li>
+<li>Matomo is GDPR compliance</li>
+<li>Although Google Analytics may be the most advanced analytic tool it may not be the best for everyone</li>
+</ul></li>
+
+<li><b>Q</b>: What are some options for web hosting?
+<ul class="org-ul">
+<li>BlueHost (questionable)</li>
+<li>A2 Host</li>
+<li>Namecheap</li>
+<li>DigitalOcean</li>
+<li>Netlify</li>
+<li>Vercel</li>
+<li>There are many but I need to do more research and choose one that is best for me</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2bda665" class="outline-2">
+<h2 id="org2bda665">Summary</h2>
+<div class="outline-text-2" id="text-org2bda665">
+<ul class="org-ul">
+<li>Search engine optimization (or SEO) is the practice of trying to help your site appear nearer the top of search engine results when people look for the topics that your website covers</li>
+<li>SEO optimization involves a lot of factors including key terms and phrases, descriptive URLs, useful content, and more</li>
+<li>SEO optimization can be split into two areas: on-page techniques (techniques used on your web pages) and off-page techniques (other sites having links that are descriptive that point to your website)</li>
+<li>Also, it is always good to include the <code>alt</code> tag in images and provide a clear description of the image</li>
+<li>Always have descriptive links as well</li>
+<li>Some places to include the keyterms are in the page title, website URL, headings, text, link text, image alt text, and the page description</li>
+<li>To come up with keywords and phrases you brainstorm words and phrases, then you organize these words / phrases into groups, then you research similar words that users would use, then you compare with the competition and their keywords used, then you refine you basically filter out which ones you won't use and which ones you will use, and then you map these keywords into your website (e.g. where do they belong, which page, etc.)</li>
+<li>Never try to fool the search engine because search engines notice that and penalize you for that</li>
+<li>You can use an analytic tool to gain insights on your website like Google Analytics</li>
+<li>Google analytics is a free tool that you include in your website and it sends data back to the Google servers and then you have a web interface to show you the info gathered</li>
+<li>Google analytics can sshow you the number of people coming to your site, unique visits, avrage time on site per visit, which pages are visited the most, number of people who left on the same page that they arrived on, which page did the users arrive on, and much more</li>
+<li>To place your site on the web you will need a domain name (web address) and web hosting (place your files in a web server for others to access it over the internet)</li>
+<li>Things to consider when selecting a web hosting company: disk space, bandwidth, backups, and supportive technologies</li>
+<li>Last thing to note is that FTP (File Transfer Protocol) is used to transfer files between your own machine / computer and the web server</li>
+<li>FTP allows you to place your website files into the web server so it can start hosting it</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

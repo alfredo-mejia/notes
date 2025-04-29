@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 17:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Section 3: HTML - The Essentials</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Section 3: HTML - The Essentials</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org74c1d49">Navigation</a></li>
+<li><a href="#orgbb52983">Resources</a></li>
+<li><a href="#org52f4799">Notes</a>
+<ul>
+<li><a href="#orgc93fe74">Section 3.1: What Matters In This Section</a></li>
+<li><a href="#org11d4e12">Section 3.2: Introduction to HTML</a></li>
+<li><a href="#org7b5cf78">Section 3.3: Our Very First HTML Page</a></li>
+<li><a href="#org2f002f3">Section 3.4: Mozilla Developer Network</a></li>
+<li><a href="#org3c2e8bd">Section 3.5: Paragraph Elements</a></li>
+<li><a href="#org956788e">Section 3.6: Heading Elements</a></li>
+<li><a href="#orga326b06">Section 3.7: HTML Boilerplate</a></li>
+<li><a href="#orgfa100c9">Section 3.8: List Elements</a></li>
+<li><a href="#org7a31160">Section 3.9: Anchor Tags</a></li>
+<li><a href="#org3ebb8a6">Section 3.10: Images</a></li>
+<li><a href="#org4806453">Section 3.11: Comments</a></li>
+</ul>
+</li>
+<li><a href="#org63d329b">Keywords</a></li>
+<li><a href="#org214b5f0">Questions</a></li>
+<li><a href="#orgb704a94">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org74c1d49" class="outline-2">
+<h2 id="org74c1d49">Navigation</h2>
+<div class="outline-text-2" id="text-org74c1d49">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">The Web Developer Bootcamp 2024</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Section 2: Course Orientation</td>
+<td class="org-left">&vert; <a href="../002.An_Introduction_to_Web_Development/002.000.Notes.html">html</a> &vert; <a href="../002.An_Introduction_to_Web_Development/002.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024/002.An_Introduction_to_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Section 4: HTML - Next Steps &amp; Semantics</td>
+<td class="org-left">&vert; <a href="../004.HTML_Next_Steps_and_Semantics/004.000.Notes.html">html</a> &vert; <a href="../004.HTML_Next_Steps_and_Semantics/004.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024/004.HTML_Next_Steps_and_Semantics">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgbb52983" class="outline-2">
+<h2 id="orgbb52983">Resources</h2>
+<div class="outline-text-2" id="text-orgbb52983">
+<p>
+<a href="./003.HTML_The_Essentials_Slides.pdf">Section 3: HTML - The Essentials Slides</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org52f4799" class="outline-2">
+<h2 id="org52f4799">Notes</h2>
+<div class="outline-text-2" id="text-org52f4799">
+</div>
+<div id="outline-container-orgc93fe74" class="outline-3">
+<h3 id="orgc93fe74">Section 3.1: What Matters In This Section</h3>
+<div class="outline-text-3" id="text-orgc93fe74">
+<ul class="org-ul">
+<li>Paragraph elements, HTML headings, HTML lists, HTML anchor tags, HTML images, and HTML boilerplate are crucial parts of this section</li>
+<li>MDN is an important resource</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org11d4e12" class="outline-3">
+<h3 id="org11d4e12">Section 3.2: Introduction to HTML</h3>
+<div class="outline-text-3" id="text-org11d4e12">
+<ul class="org-ul">
+<li>HTML is the what is on the page (buttons, lists, headers, etc.)</li>
+<li>HTML is HyperText Markup Language, it is not a programming language (you can't implemenet logic with HTML)</li>
+<li>All that HTML does is "markup" a document or annotate a document or add more information to the current document</li>
+<li>The goal of HTML is to take text (a document) and markup and add some structure to the document</li>
+<li>For example, if you have a sentence like "I like donuts!"; how do you bold it and italicize it? Some syntax can be used to describe that "markup"</li>
+<li>So what is this syntax? The syntax is HTML and HTML has HTML elements</li>
+<li>Each HTML elements have something caled tags and the content you want to "markup" is enclosed by these tags (e.g. <code>&lt;tag&gt; content &lt;/tag&gt;</code> )</li>
+<li>So now you have a way to markup text in a document to be bold or italicized (although note that are some self-closing tags but those typically do not markup text in a document)</li>
+<li>For example, if we want "I like donuts!" to be in bold I can just do "&lt;b&gt;I like donuts!&lt;/b&gt;", notice how we now have a syntax to markup text</li>
+<li>In reality, HTML has various HTML elements that used in a HTML document with various elements being nested in each other</li>
+<li>Now we can do a lot with HTML like bold, headers, paragraphs, links, display images, lists, etc</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7b5cf78" class="outline-3">
+<h3 id="org7b5cf78">Section 3.3: Our Very First HTML Page</h3>
+<div class="outline-text-3" id="text-org7b5cf78">
+<ul class="org-ul">
+<li>Whenever you don't close a tag, the browser will implement the markup from the opening tag to the end of the document because it is trying to find the closing tag but there is none</li>
+<li><a href="./003.003.Our_Very_First_HTML_Page/index.html">Here is the finished web page</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2f002f3" class="outline-3">
+<h3 id="org2f002f3">Section 3.4: Mozilla Developer Network</h3>
+<div class="outline-text-3" id="text-org2f002f3">
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/">Mozilla Developer Resources (Home)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer HTML Elements Reference</a></li>
+<li>Think of Mozilla Developer resources as the Wikipedia of HTML, CSS, and JS</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3c2e8bd" class="outline-3">
+<h3 id="org3c2e8bd">Section 3.5: Paragraph Elements</h3>
+<div class="outline-text-3" id="text-org3c2e8bd">
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p">Mozilla Paragraph Element</a></li>
+<li>The <code>&lt;p&gt;</code> HTML element represents a paragraph (hence paragraph element)</li>
+<li>The paragraph element doesn't necessarily mean a paragraph of text (although often the case), a paragraph can be any related content that you want to group together such as images or form fields</li>
+<li>Paragraphs are block-level elements and will automatically close if another block-level element is parsed or encountered (nested) befroe the closing <code>&lt;/p&gt;</code> tag</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org956788e" class="outline-3">
+<h3 id="org956788e">Section 3.6: Heading Elements</h3>
+<div class="outline-text-3" id="text-org956788e">
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">Mozilla Heading Elements</a></li>
+<li>The heading element represent six level of section headings with <code>&lt;h1&gt;</code> being the highest section level and <code>&lt;h6&gt;</code> being the lowest</li>
+<li>All heading elements create a block-level box in the layout (starting on a new line and taking up the full width available in their containing block)</li>
+<li>Do not use the headings just because of the size or style (because that can be changed in CSS)</li>
+<li>Only have one h1 in the page nd it should always be the top level main heading</li>
+<li>Always have the heading sections in order and do not skip heading sections (do not go from h2 to h4; you are skipping h3; do not do that, go in order)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga326b06" class="outline-3">
+<h3 id="orga326b06">Section 3.7: HTML Boilerplate</h3>
+<div class="outline-text-3" id="text-orga326b06">
+<ul class="org-ul">
+<li>Every HTML document needs structure needs the HTML boilerplate or "skeleton"</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The <code>DOCTYPE</code> tells the browser we want or are using the latest version of HTML (HTML5)</li>
+<li><code>&lt;html&gt;</code> is the root element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html">Mozilla HTML Element</a>) and represetns the top-level (root) of an HTML document; all other elements must be descendants (nested) of this element</li>
+<li>The html element can only have one <code>&lt;head&gt;</code> followed by one <code>&lt;body&gt;</code> element</li>
+<li>The head element or Document Metadata element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head">Mozilla Header Element</a>) is all metadata or information about the page; this will not be displayed in the browser</li>
+<li>The title element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title">Mozilla Title Element</a>) defines the document's title and it will be shown in the browser's title bar or page's tab</li>
+<li>The body element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body">Mozilla Body Element</a>) represents all of the content of the document; there can only be one body in the document and everything that will be displayed in the browser will be in the body</li>
+<li>This would be the skeleton of every HTML document we create from now on</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfa100c9" class="outline-3">
+<h3 id="orgfa100c9">Section 3.8: List Elements</h3>
+<div class="outline-text-3" id="text-orgfa100c9">
+<ul class="org-ul">
+<li>There are two types of lists: unordered lists and ordered lists</li>
+<li><code>&lt;ol&gt;</code> is for ordered lists and <code>&lt;ul&gt;</code> is for unordered lists</li>
+<li>Each list as a nested element called an list item</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol">Mozilla Ordered List</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul">Mozilla Unordered List</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li">Mozilla List Item</a></li>
+<li>Inside list items, we can have more nested lists (ordered or unordered)</li>
+<li>List items can have more nested elements unlike <code>&lt;ol&gt;</code> or <code>&lt;ul&gt;</code> which can only have <code>&lt;li&gt;</code> (and <code>&lt;script&gt;</code> and <code>&lt;template&gt;</code>)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7a31160" class="outline-3">
+<h3 id="org7a31160">Section 3.9: Anchor Tags</h3>
+<div class="outline-text-3" id="text-org7a31160">
+<ul class="org-ul">
+<li>Anchor tags (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">Mozilla Anchor Element</a>) are used to create links to other web pages, files, email addresses, or just a location in the same page</li>
+<li>The most common is creating hyperlinks to different web pages</li>
+<li>The way it is used is by inserting the <code>&lt;a&gt;</code> and <code>&lt;/a&gt;</code> tags placing the text that is going to be the link inside the tags</li>
+<li>However by itself the anchor tags will not create the link</li>
+<li>In addition to the anchor tags you will need to use the <code>href</code> attribute</li>
+<li><code>href</code> attribute will be the URL to the location of the file, section, email address, web page, etc</li>
+<li>Anchor elements can use the links to point to other HTML files in the current working directory or in the same computer (if permissions allow)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3ebb8a6" class="outline-3">
+<h3 id="org3ebb8a6">Section 3.10: Images</h3>
+<div class="outline-text-3" id="text-org3ebb8a6">
+<ul class="org-ul">
+<li>The image element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">Mozilla Image Element</a>) allows for the browser to render an image into the document</li>
+<li>To provide the location of the image we use an attribute called <code>src</code>; this attribute is required and contains the path to the image you want to embed into the document</li>
+<li>The image element is self-closing and does not need a closing tag</li>
+<li>The src can be a local file or an image on the internet; the src attribute will embed the image into the HTML document</li>
+<li>The alt attribute is definitely recommended to have for accessbility purposes or if the images does not load but the alt attribute is a text description of the image</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4806453" class="outline-3">
+<h3 id="org4806453">Section 3.11: Comments</h3>
+<div class="outline-text-3" id="text-org4806453">
+<ul class="org-ul">
+<li>Comments in a HTML file is not an element; it is just a way to add notes, feedback, reminders, etc</li>
+<li>Comments are ignored by the browser; it is just for the developer to see the comments as reminders or explanations of the code written</li>
+<li><p>
+The syntax for a comment is the following:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;!-- Comment --&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Notice the <code>&lt;!--</code> in the beginning and then the end is <code>--&gt;</code> and everything in between is considered a comment</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org63d329b" class="outline-2">
+<h2 id="org63d329b">Keywords</h2>
+<div class="outline-text-2" id="text-org63d329b">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>HTML</b></td>
+<td class="org-left">HyperText Markup Language; it is not a programming language instead it is a markup language which means it has syntax to "markup" text (e.g. how to make it bold, how to make it italicized, how to make a heading, etc.)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Paragraph Element</b></td>
+<td class="org-left">Represents a paragraph; doesn't necessarily mean a paragraph of text but it can also be content that you want to group together such as images or form elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Heading Element</b></td>
+<td class="org-left">Heading element represetns six level of section headings</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Boilerplate</b></td>
+<td class="org-left">Every HTML document needs structure and this structure is the skeleton of the document and it is the same across every HTML document</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Root Element</b></td>
+<td class="org-left">The root element is the outer most HTML element and can only have two children: one for head and one for body</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Head Element</b></td>
+<td class="org-left">The metadata element (header) contains all the metadata of the webpage; none of the content gets displayed is just metadata for the browser</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Body Element</b></td>
+<td class="org-left">The body element contains all the content that will be displayed and rendered by the browser</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML List Element</b></td>
+<td class="org-left">The list element creates a list in HTML; it can be ordered (<code>&lt;ol&gt;</code>) or unordered (<code>&lt;ul&gt;</code>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Anchor Element</b></td>
+<td class="org-left">Anchor element is used to create hyperlinks to files, other web pages, email addresses, etc</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Image Element</b></td>
+<td class="org-left">Image element is self closing and is used to embed an image (from a local file or from a server) into the document</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Comments</b></td>
+<td class="org-left">Comments are ignored by the browser and are only for the developer to see as notes, reminders, TODO list, explanations, etc</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org214b5f0" class="outline-2">
+<h2 id="org214b5f0">Questions</h2>
+<div class="outline-text-2" id="text-org214b5f0">
+<ul class="org-ul">
+<li><b>Q</b>: What can go inside the header element?
+<ul class="org-ul">
+<li>It can contain one or more elements of metadata content and exactly one <code>&lt;title&gt;</code> element</li>
+</ul></li>
+
+<li><b>Q</b>: What are metadata elements?
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta">Mozilla Metadata Element</a> - According to the docs, the metadata element represents metadata that cannot be represented by other HTML meta-related elements</li>
+<li>There are various metadata that can be represented by the meta element</li>
+<li>It can define keywords for search engines, description, author, refresh document every X seconds, set the viewport, and many more</li>
+<li>The way it works is that there are four attributes mainly used meta: name, http-equiv, charset, and itemprop</li>
+<li>Let's first look at name; name is used along with the attribute called content these two attributes work together to specify some metadata
+<ul class="org-ul">
+<li>According to mozilla docs: the name and content attributes can be used together to provide document metadata in terms of name-value pairs, with the name attribute giving the metadata name, and the content attribute giving the value</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name">Mozilla Standard Metadata Names</a></li>
+<li>So basically to provide some metadata we use the attribute <code>name</code> and give it the value author, description, keywords, etc. whatever we want to provide info about and then the attribute content would be the value of that metadata</li>
+</ul></li>
+<li>The next attribute that the meta element can use is the <code>http-equiv</code>; according to the docs if this attribute is set the element would be a pragma directive providing info equivalent to what can be given by a similarly-named HTTP header
+<ul class="org-ul">
+<li>So basically instead of modifying or adding some specification to the HTTP header request, we do so in the meta element</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#http-equiv">Mozilla http-equiv Docs</a></li>
+<li>This includes values like <code>content-security-policy</code>, <code>content-type</code>, <code>refresh</code>, <code>default-style</code>, and <code>x-ua-compatible</code></li>
+<li>The content attribute needs to be used too to provide a value to the attribute <code>http-equiv</code> (whichever one specificed)</li>
+</ul></li>
+<li>Other attributes are <code>charset</code> which sets the charset declaration and <code>itemprop</code> which can add properties to a HTML element</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb704a94" class="outline-2">
+<h2 id="orgb704a94">Summary</h2>
+<div class="outline-text-2" id="text-orgb704a94">
+<ul class="org-ul">
+<li>HTML is HyperText Markup Language, it is a language that has syntax to markup text, thus it can specify which text is bold, which text is a header, etc</li>
+<li>HTML consists of various elements including: paragraph element, heading element, head element, root element, body element, meta element, list element, anchor element, image element, and more</li>
+<li>Each HTML element has a boilerplate or a skeleton that every HTML document should have; the version of html is declared using <code>DOCTYPE</code></li>
+<li>Then the root element is the first HTML element; the root element can only have one head and one body</li>
+<li>The head element is an element that is used for metadata and information inside the head element will not be rendered by the browser</li>
+<li>Metadata information can be provided by the meta element which has various attribute pair values to specify info about the web page</li>
+<li>The title element specifies the title of the web page</li>
+<li>The body element is what the browser renders so everything that will be displayed in the browser will be in the body element</li>
+<li>This includes the heading which has six levels of heading sections; the rules (suggestions) are there should only be one h1 in the webpage and do not skip headings</li>
+<li>The paragraph element can also be used inside the body and it is used to group content such as text, images, or form elements</li>
+<li>Inisde the body there can also be ordered or unordered lists and nested lists as well</li>
+<li>Anchor element is used to create hyperlinks and the image element is used to embed an image in the webpage</li>
+<li>Finally, you can create comments in the HTML document which is ignored by the browser and is only used for the developer's case</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,508 @@
+#+title: Chapter 3: Functions, Methods & Objects
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
+| Prev  | Chapter 2: Basic JavaScript Instructions                    | \vert [[file:../002.Basic_JavaScript_Instructions/002.000.Notes.html][html]] \vert [[file:../002.Basic_JavaScript_Instructions/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/002.Basic_JavaScript_Instructions][github]] \vert |
+| Next  | Chapter 4: Decisions & Loops                                | \vert [[file:../004.Decisions_and_Loops/004.000.Notes.html][html]] \vert [[file:../004.Decisions_and_Loops/004.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/004.Decisions_and_Loops][github]] \vert |
+
+* Notes
+
+** Section 3.1: What is a Funtion?
+   - A function is a reusable group of series of statements that perform a specific task
+   - Grouping together statements required to perform a task helps organize code
+   - Functions are not automatically performed, a function must be "called" or "invoked" to perform the steps inside the function thus functions are only performed when needed
+   - The function must be given a name to invoke it later, this is known as "calling" the function
+   - A function is created in a code block and some functions need info to be passed along to the function, these are called parameters
+   - For example, if you a function that calculates area then you need the height and width as input the function so height and width will be the parameters
+   - Some functions might return a response too and this is called a return value
+   - For example, the function that calculates area might want to return the value to whoever called it so the return value will be the area calculated from the parameters
+   - There are other functions called anonymous functions which do not have a name so they cannot be called but instead are executed as soon as the interpreter comes across them
+
+** Section 3.2: Declaraing a Function
+   - In JS, a function declaration is a function with a name with a code block and inside the code blockwe have statements that achieves a task
+   - You declare a functionusing the ~function~ keyword
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     function sayHello(){
+       document.write('Hello!');
+     }
+   #+END_SRC
+
+   - Some functions will need information from the caller
+   - The functions that need information will have to be declared with parameters
+   - Once the parameters are declared for the function inside the function the parameters will act like regular variables
+   - The parameters are delcared inside the parentheses after the function name and each name given acts like a variable name inside the function
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     function getArea(width, height) {
+       return width* height;
+     }
+   #+END_SRC
+
+   - ~width~ and ~height~ are the parameters to function ~getArea()~
+   - The function will return the value of the calculation to the caller
+   - In addition, each time this function is called then the caller will need to specify a width and a height
+
+** Section 3.3: Calling a Function
+   - Once the function has been declared you can then execute the statements inside the function by calling the function
+   - You can call the same function as many times as you want
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     sayHello();	
+   #+END_SRC
+
+   - In JS, you can call a function before it has been declared because the interpreter runs through the script before executing each statement so it will know what function is being referred
+   - However it is good practice to declare them before using them because many other languages require for functions to be declared before using so it would be a good habit to develop
+   - Some functions may require arguments
+   - When you call a function that has parameters you specify the values it should use in the parentheses that follow its name
+   - The values given by the caller are called arguments and these arguments may be variables or literal values
+   - Each time you invoke the function it can be different variables and literals, it does not need to be the same values
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     getArea(3,5);
+
+     let width = 3;
+     let height =5;
+
+     getArea(width, height);
+   #+END_SRC
+
+   - *Arguments vs. Parameters*: Arguments are the values passed by the caller and parameters are the variables used by the callee
+
+** Section 3.4: Returning a Single Value
+   - Some functions return data back to the caller
+   - For example, if the caller invokes ~getArea~ then it expects the area to be returned so it can use it in some way
+   - The ~return~ keyword is used to return a value to the caller
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     function calculateArea(width,height) {
+       return width * area;
+     }
+
+     let area1 = calculateArea(3,5);
+     console.log("Area: ", area1);
+   #+END_SRC
+
+   - Note that the ~return~ keyword returns the callee to the caller and no subsequent statements would be processed in the function after the ~return~ statement
+   - It will return to the point where the caller invoked the function and after the function has returned it will continue execution as normal
+
+** Section 3.5: Returning Multiple Values
+   - Recall that arrays in JS can be of multiple data types they do not have to be of the same data type
+   - Thus you can use an array to return a single array holding multiple values
+   - Although it technically returns "one" value, it can think of it as returning multiple values because the array can store multiple values
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     function getSize(width, height, depth) {
+       let area = width * height;
+       let volume = width * height * depth;
+       let sizes [area, volume];
+       return sizes;
+     }
+
+     let vals = getSize(3, 5, 7);
+     let area = vals[0];
+     let volume = vals[1]
+   #+END_SRC
+
+** Section 3.6: Anonymous Functions & Function Expressions
+   - Expressions produce a value
+   - If a function is placed where a browser expects to see an expression (e.g., as an argument to a function) then it gets treated as an expression
+   - So far we have seen /named functions/ which you give a name to the function which can then be called using its name
+   - Since the interpreter always goes through the script before executing, you can call a function before it is declared
+   - If you put a function where the interpreter would expect to see an expression then it is treated as an expression known as a function expression
+   - In function expressions, the name is usually omitted but function expressions can also have names
+   - A function with no name is called an anonymous function
+   - So every anonymous function is a function expression but *not* all function expressions are anonymous functions because function expressions can have names
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     // Function expression with name
+     let val = function area(width, height){
+       return width * height;
+     }
+
+     // Function expression with no name
+     let val2 = function(width, height) {
+       return width * height;
+     }
+
+     console.log(val(3,2));
+     console.log(val2(5,5));
+   #+END_SRC
+
+   - What can you do with function expressions that have names?
+   - Anonymous functions and named function expressions behave the same
+   - With named function expressions you *cannot* access or call the function by name outside of the function itself
+   - So what is the point of named function expressions?
+   - Named function expressions allow for better debugging because the function's name appear in stack traces and error messages
+   - Named function expressions also allow for it to be called within the function so if the function is recursive then you will need a named function expression
+   - Plus named function expressions allow for better readability because you can describe the function's task with the name
+   - Another thing to note is that although you can call named functions before it is declared for function expressions you cannot do so
+   - The function is not processed until the interpreter gets to that statement and then you can only use the function expression after
+
+** Section 3.7: Immediately Invoked Function Expressions
+   - Immediately invoked function expressions (IIFE), "iffy", are functions that are not given a name but instead are executed once the interpreter comes across them
+   - So instead of storing the function itself so it can be called later, the IIFE will immediately invoke the function and return a value
+   - So how do you have function expressions to be invoked immediately?
+   - Simple, after the curly braces of the function expression you place the parentheses like a function call and add any arguments to the function because you are basically invoking the function
+   - By placing the parentheses and the arguments after the function you are telling the interpreter to call or invoke the function immediately
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     let area = function getArea(width, height){
+       return width * height;
+     } (3, 5);
+   #+END_SRC
+
+   - Some developers like to add parentheses around the whole function in order to group the function and ensure the interpreter treats the function as an expression
+   - Although the parentheses are not required it can add readability to your code
+   - IIFEs are good when you need a task to be run once rather than repeatedly being called
+   - IIFEs are also good as arguments to other functions because the argument may be some calculation for example if you have a volume function then you can possibly pass a IIFE that calculates the area first
+   - IIFEs are also good to assign values of properties to an object, they are good in event handlers and listeners to perform a task when an event occurs, and it can help prevent conflicts between multiple scripts (if in use) that might use the same variable names
+   - Variables declared inside the anonymous functions are effectively protected from variables in other scripts that might have the same name because of scoping (or in this case variables in the function scope)
+
+** Section 3.8: Variable Scope
+   - The location where you declare a variable will affect where it can be used within your code
+   - If you declare it within a function then it can only be used within that function, this is known as the variable's scope
+   - When a variable is created inside a function using the ~var~ keyword then it can only be used in that function thus it is called a local variable or function-level variable so it has a local scope or function-level scope
+   - When the variable is a local variable it cannot be accessed outside of the function in which it was declared in
+   - The interpreter creates local variables when the function is run and removes them as soon as the function has finished its task
+   - If you create a variable outside of a function then it can be used anywhere within the script
+   - It is called a global variable and it has global scope
+   - Global variables are stored in memory for as long as the web page is loaded nto the web browser which means more memory consumed and possible naming conflicts thus local variables are always preferred
+   - If you do not use ~var~ then the variable will be treated as a global variable which is considered bad practice
+
+** Section 3.9: How Memory & Variables Work
+   - Global variables use more memory because the browser has to remember them for as long as the web page using them is loaded
+   - Local variables are only remembered during the period of time that a function is being executed
+   - Each variable declared takes up memory and the more variables a browser has to remember the more memory your script requires to run and scripts that require a lot of memory can perform slower which in turn makes your web page take longer to respond
+   - A variable actually references a value that is stored in memory and the same value can be used with more than one variable (e.g. val1 and val2 might both "hold" 10 but in reality it references the same value 10)
+   - Many web pages use multiple JavaScript files written by multiple people so there could be potential naming collisions causing errors for global variables but if the same named variables have a function scope then there should be no conflict which is why using global variables can lead to naming conflicts
+
+** Section 3.10: Objects
+   - Objects group together a set of variables and functions to create a model of something you would recongize from the real world (in a object variables and functions take on new names)
+   - If a variable is part of an object then it is called a property and if a function is part of an object then it is called a method
+   - Methods represent tasks that are associated with the object
+   - Object literals are the easiest ways to create objects (there are several ways to create objects)
+   - To create an object literal you use curly braces and you create key/value pairs similar to JSON
+   - To separate each key from its value you use a colon and to separate each property and method then you use a comma except for the last value
+   - You then assign this object literal to a variable and now you can reference this object literal by using the variable
+   - The object cannot have two keys with the same name because keys are used to access their corresponding values and the value can be any data type even another object
+   - The value of a method is always a function
+   - In order for functions to reference properties in the same object you will have to use ~this~ keyword with the dot operator and the name of the property
+   - The ~this~ keyword indicates you want to reference the current object and its properties / methods
+   - The dot notation can be used with the ~this~ keyword or with the name of the object literal
+   - The dot notation allows you to access the properties or methods of an object or you can also access the object's properties using square brackets
+   - For example, you use the name of the object, followed by a period, then the name of the property or method for the dot notation such as: ~objectName.val1~ or ~objectName.func()~
+   - The dot operator is also known as the member operator and the property or method on the right belongs to the object on the left
+   - You can use square brackets to access the properties of an object but not its methods (object name is followed by square brackets and the property name in quotes or variable string inside of the square brackets)
+   - Example of an object literal:
+
+   #+BEGIN_SRC JavaScript
+     let hotel = {
+       name: 'Park'
+     }
+   #+END_SRC
+
+** Section 3.11: Creating an Object
+   - The ~new~ keyword and the "object" constructor creates a blank object which you can then add properties and methods to the object
+   - First you create a new object using a combination of the ~new~ keyword and the ~Object()~ constructor function, for example: ~let hotel = new Object()~
+   - Then you can add properties and methods to the blank object using dot notation, for example: ~hotel.name = 'Quay';~
+   - You can use this syntax to add properties and methods to any object you have created no matter which notation you used to create it
+   - To create an empty object using literal notation you can do: ~var hotel = {}~
+
+** Section 3.12: Updating an Object
+   - To update the value of properties, use dot notation or square brackets, they work on objects created using literal or constructor notation
+   - To delete a property use the ~delete~ keyword
+   - Example of updating an object: ~hotel.name = 'New Name';~ or ~hotel['name'] = 'New Name'~ (this only works for properties not functions)
+   - If the property you are trying to update it does not exist in the object then it will be added to the object
+   - Example of deleting a property: ~delete hotel.name~
+   - Example of clearing a property: ~delete hotel.name = ''~
+
+** Section 3.13: Constructor Notation
+   - Object constructors can use a function as a template for creating objects
+   - You create the template with the object's properties and methods
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     function Hotel(name, rooms, booked) {
+       this.name = name;
+       this.rooms = rooms;
+       this.booked = booked;
+
+       this.checkAvailability = function () {
+         return this.rooms - this.booked;
+       };
+     }
+   #+END_SRC
+
+   - Then to create an object using the function you run:
+
+   #+BEGIN_SRC JavaScript
+     let parkHotel = new Hotel('Park', 120, 77);
+   #+END_SRC
+
+   - Two things to notice when creating a function constructor: ~this~ and ~new~
+   - ~this~ is used inside the function to refer the object being created
+   - ~new~ is used to tell the interpreter you want an object to be created
+   - Here is how it works:
+     - When you use the ~new~ operator, the interpreter creates a new empty object and sets ~this~ inside the function to refer the newly created object
+     - So once it enters the function, ~this~ is referring to the newly created object and now you set the properties and methods
+   - What if you don't use ~new~?
+   - If you do not use ~new~ then a new object will NOT be created and ~this~ could be referring to the global object (~window~ in browswers) or it could lead to an "undefined" error, this depends which mode are you in non-strict or strict mode
+   - If you are in non-strict mode and ~this~ refers to the global object then you may unintentionally create global variables
+   - Thus, you always use ~new~ to create a new object
+   - ~new~ creates and returns the object for you and the function simply initializes the object for you which automatically is referred to by ~this~ if the ~new~ keyword is used
+   - Thus you can invoke the constructor function with the ~new~ keyword as much as you would like creating multiple different objects with the same properties (possibly different values) and methods
+   - Each variable / object's name need to be different because then you get naming conflicts
+
+*** Section 3.13.1: Classes
+    - This book does not go over classes because classes came out after the book in ES6
+    - Classes are another way to create templates for objects
+    - When creating a class you must also use the ~new~ keyword like the following: ~let obj1 = new ClassName()~
+    - Classes are very similar to constructor functions but syntactically it must be invoked with the ~new~ keyword
+    - Classes are designed to be invoked only with the ~new~ keyword and without the keyword an error will be thrown
+    - To declare properties are very similar to constructor functions but methods are created slightly different
+    - [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes][More about classes by Mozilla Docs]]
+
+** Section 3.14: Adding and Removing Properties
+   - Once you have created an object using literal or constructor notation then you can add new properties to it
+   - To add properties you simply using the dot notation to add or create a property and assign it a value, for example:
+
+   #+BEGIN_SRC JavaScript
+     var hotel = {
+       name:'Park'
+     };
+
+     hotel.rooms = 10;
+     console.log(hotel.rooms);
+   #+END_SRC
+   
+   - To delete a propertyyou use the keyword ~delete~ followed by the method or property you want to remove from the object (e.g. ~delete hotel.rooms;~)
+   - Note if you use a constructor function then you will only add and delete properties and methods from that single instance of the constructor function, if you have other instances (objects) then those will remain unaffected
+   - This includes for classes too
+
+** Section 3.15: This (it is a keyword)
+   - The keyword ~this~ is commonly used inside functions and objects
+   - Depending on the function and where the function is declared alters what ~this~ refers to
+   - ~this~ always refers to one object and usually the object in which the function operates
+   - When a function is created at the top level of a script (that is, not inside anoher object or function), then it is in the global scope of global context thus the default object in this context (what ~this~ refers to) is the ~window~ object
+   - So when ~this~ is used inside a function in the global context then it refers to the ~window~ object
+   - For example, you can use the properties of the ~window~ object in the global context as follows: ~this.innerWidth~, ~this.innerHeight~, and more
+   - Under the hood, the ~this~ keyword is a reference to the object that the function is created inside
+   - All global variables also become properties of the ~window~ object so when a function is in the global context you can access global variables using the ~window~ object as well as its other properties
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     let width = 100;
+     function showWidth() {
+       console.log(this.width);
+     };
+
+     showWidth();
+   #+END_SRC
+
+   - Notice how we created a global variable called ~width~ and we are able to access it using the ~this~ keyword because ~this~ refers to the ~window~ object (global object) and we created a variable in the global object
+   - Thus all global variables become properties of the ~window~ object
+   - Also we are able to refer to the global object because the function is also in the global context, if the function would be inside a class or another function then it could be referring to something else
+   - *Note* that ~this~ only works for functions, objects, and classes
+
+*** Section 3.15.1: Keyword ~this~ in Other Situations
+    - Whenever you create a function inside let's say an object literal then the function becomes a method and the keyword ~this~ now refers to the containing object
+    - If you are using a function constructor or a class then ~this~ will refer to the individual instance of the new object you are creating
+    - *Note* that if a named function has been defined in global scope and then it is used as a method of an object (by adding the function to the object using the dot notation) then ~this~ refers to the object it is contained within (in this case it is the object)
+    - Also *note* that whenever a function is nested inside another function the value of ~this~ can vary depending on which browser you are using but the work around is storing the value of ~this~ in a variable in the first function and using the variable name in child functions instead of ~this~
+
+** Section 3.16: Arrays Are Objects
+   - Arrays are a special type of object that can store multiple pieces of information
+   - Each value in an array is assigned a number called an index
+   - Arrays hold key/value pairs (like all objects) but the key is the index number and the values are shown in the comma-separated list
+   - To retrieve an item you use its index number as the key
+   - If the key is a number then you must place the number in square brackets (DO NOT USE the dot notation it will not work for arrays) and generally speaking arrays are the only times when the key would be a number
+   - arrays have a ~length~ property telling you how many items are in the array
+   - Arrays and other objects can be used together to create complex data structures so arrays can store a series of objects (and remember their order) and objects can also hold arrays (as values of their properties)
+   - In an object, the order in which the properties appear is not important but in an array the index numbers dictate the order of the properties
+
+** Section 3.17: What Are Built-In Objects?
+   - Browsers come with a set of built-in objects that represent things like the browser window and the current page shown in that window
+   - Thee build-in objects act like a toolkit for creating interactive web pages
+   - Built-in objects contain functionality commonly needed by many scripts
+   - As soon as a web page has loaded into the browser, these objects are available to use in your scripts
+   - These built-in objects help you get a wide range of info such as the width of the browser window, the content of the main heading in the page, or the length of text a user entered into a form field (all these properties are accessed using dot notation just like any other object)
+   - Think of the built-in objects having 3 different types of groups: global JavaScript objects(represents objects JS need such as dates, times, etc.), Browser Object Model (contains objects that repesent the current browser window or tab such as browser history and device screen), and Document Object Model(uses objects to create a representation of the current page creating a new object for each HTML element)
+   - An object model is a group of objects each of which represent related things from the real world and together they form a model of something larger
+   - Objects can be nested inside other objects as properties, the nested object is referred to as a child object and the outter object as the parent object
+
+*** Section 3.17.1: Global Objects
+    - The global objects do not form a single model
+    - The global objects are a group of individual objects that relate to different parts of the JS language
+    - The names of the global objects usually start with a captial letter (e.g. ~String~ and ~Date~ objects)
+    - Objects representing basic data types: ~String~, ~Number~, ~Boolean~
+    - Objects representing real-world concepts: ~Date~, ~Math~ (for working with numbers and calculations), ~Regex~ (for matching patterns within strings of text)
+    - Method examples include for strings objects ~strVal.toUpperCase()~
+    - Recall, we have 6 data types in JS, 5 are simple or primitive and one is complex
+    - We have String, Number, Boolean, Undefined, and Null as the simple and for the complex we have the object data type
+    - Under the hood, JS treats every variable as an object in its own right which is why a simple value like a string, number or boolean can have methods and properties
+    - For variables that contain a string you can use properties and methods of the ~String~ object
+    - For variables that store a number you can use the properties and methods of the ~Number~ object
+    - For variables that store true or false then you can use a boolean object but it is rarely used
+    - Undefined and null values *do not* have objects
+    - Under the hood, JS treats every array and function as types of objects as well
+    - Arrays have properties and methods
+    - Functions are objects but they have an additional feature: they are callable (which means you can tell the interpreter when you want to execute the statements that it contains)
+
+**** Section 3.17.1.1: String Object
+     - Whenever you have a value that is a string, you can use the properties and methods of the ~String~ object on that value
+     - The properties and methods are used to work with text stored in variables or objects
+     - The ~String~ object is known as a global object because it works anywhere within your script and a wrapper object because it acts like a wrapper around any value that is a string and use the properties and methods on any value that is a string
+     - For example, a string property can be used like ~strVar.length~ and the methods can be used like ~strVar.toUpperCase()~, ~strVar.charAt()~, and more
+     - Note that every character in a string is automatically given a number called an index and the index number always start at zero just like arrays
+     - You can use this index to access specific characters at a certain position using ~strVar.charAt(index)~ or perform some other task using the index and one of the string methods
+
+**** Section 3.17.1.2: Number Object
+     - Whenever you have a value that is a number you can use the methods and properties of the ~Number~ object on it
+     - You can use methods like ~numVar.isNaN()~, ~numVar.toFixed()~, and more
+     - These properties and methods can be used with any value that is a number
+
+**** Section 3.17.1.3: Math Object
+     - The ~Math~ object has properties and methods for mathematical constants and functions
+     - For example, ~Math.PI~ is a property that returns pi or you can use Math's methods such as ~Math.round()~, ~Math.sqrt(n)~, and more
+     - The Math object is known as a global object and thus you can use the name of the ~Math~ object followd by the property or method you want to access anywhere in the script
+     - You then store the result in another variable
+     - Note that while some global objects you need to create to use, the ~Math~ object has no constructor so you cannot use ~new~ with the ~Math~ object
+     - The ~Math~ object is a static object and does not require instantiation or construction via ~new~ and is the reason why you can use ~Math.<property>~ because there is only one global static ~Math~ object
+
+**** Section 3.17.1.4: Date Object
+     - To work with dates you create an instance of the ~Date~ object
+     - You can then specify the time and date that you want it to represent
+     - To create a ~Date~ object, use the ~Date()~ object constructor and the syntax is the same for creating any object with a constructor function
+     - For example: ~var today = new Date();~
+     - Like any constructor function you can create more than one ~Date~ object
+     - By default, when you create a ~Date~ object it will hold today's date and the current time, if you want to store another date then you must explicitly specify the date and time you want it to hold
+     - Dates are stored as a number specifically the number of milliseconds since midnight on Jan 1, 1970
+     - Note that the current date / time is determined by the computer's clock so if the user is in a different time zone than you then their day may start earlier or later than yours, also if the internal clock on their computer has the wrong date or time then the ~Date~ object could reflect this by holding the wrong date
+     - You can set the date and / or time using any of the following formats of the constructor functions: ~new Date(1996, 11, 26, 15,  45, 55)~, ~new Date('Dec 26, 1996 15:45:55')~, or ~new Date(1996, 11, 26)~
+     - Once you have created a ~Date~ object you can use the methods to let you set and retrieve the time and date that it represents
+     - Some methods include ~getDate()~, ~setDate()~, ~getFullYear()~, ~setFullYear()~, ~getHours()~, ~setHours()~, and more
+     - The ~Date~ object does not store locale info, it does not store the names of days or months because this can vary from language to language (although it does have methods to print the date into a locale by using the numbers and then figuring out the date for that locale)
+     - Instead it uses a number from 0 to 6 for the days of the week and 0 to 11 for the months which can then be used to show the date in whatever locale the programmer would like to show
+     - You can also speicfy time in the ~Date~ object by giving the following arguments in this order in the constructor function: year, month, day, hour, minutes, seconds, and milliseconds, for example: ~new Date(1996, 11, 26, 15,  45, 55)~ (there are other ways to format date and time as well)
+     - You can omit the time portion if you do not need it
+     - If you want to work with only time then you can still use the ~Date~ object except just ignore the date portion and use the time portion (there are methods to get the time - e.g. ~today.getTime()~)
+   
+*** Section 3.17.2: The Browser Object Model
+    - The Browser Object Model creates a model of the browser tab or window
+    - The top most object is the ~window~ object which represents the current browser window or tab and its child objects represent other browser features
+    - For example, some child objects of the ~window~ object are: ~Document~ object (current web page), ~History~ object (pages in browser history), ~Location~ object (url of current page), ~Navigator~ object (information about browser), and ~Screen~ object (device display information)
+    - You can access methods and properties of the ~window~ object (e.g. ~window.print()~ or ~window.screen.width~)
+    - Other examples include ~window.innerHeight~, ~window.screenX~, ~window.document~ (references the ~document~ object), ~window.history.length~ and for methods there are ~window.alert()~, ~window.open()~, and more
+    - The root object of everything including DOM is the ~window~ object
+    - The default global object is the ~window~ object
+    - So if you are in the global context and no other object is specified, you can access properties and methods without specifying the ~window~ object
+    - For example, in the DOM we use ~document~ but in reality what we are using is ~window.document~
+    - Another example is the method ~alert~, you can use it like ~document.alert()~ or you can simply use ~alert()~ in the global context
+    - However, when comes to properties like ~innerHeight~ it is best to use ~window~ because it may have naming conflicts with other variables
+    - Another thing to note is that you can override variables and methods of ~window~ just like any other object but it is not recommended
+
+*** Section 3.17.3: The Document Object Model
+    - The Document Object Model (DOM) creates a model of the current web page
+    - The top most object is the ~document~ object which represents the page as as whole
+    - The child objects represent other items on the page, for example the ~html~ object, the ~head~ object, the ~body~ object, the ~title~ object, the ~div~ object, and more
+    - Each object can be nested in other objects, for example, inside of ~body~ there may be ~div~ objects and inside ~div~ objects may be ~p~ objects
+    - The DOM forms a tree structure with ~document~ being the root and every element being a node in the tree
+    - Each node is an object and there can be nodes nested inside other nodes
+    - The ~document~ object has properties and methods, for example, ~document.getElementById()~ (gets an element by the value of its ~id~ attribute) or ~document.lastModified~ (tell you the date that the page was last updated)
+    - Some properties of ~document~ are ~document.title~, ~document.URL~, and more, and some methods of ~document~ are ~document.write()~, ~document.getElementById()~, ~document.querySelectorAll()~, and more
+    - Note that ~document~ is actually a child of ~window~, although ~document~ represents the structure of the page, you can access it using ~window~ but it is not needed if you are accessing ~document~ in the global context
+
+** Section 3.18: Chapter Exercise
+   - For this exercise we are going to create 3 hotels
+   - The customer is going to be able to select the hotel and see details such as room rate, percentage discount being offered, and a method to calculate the offer price
+   - Here are the requirements:
+     - You need to use a ~hotel~ object / class with hotel name, room rate, and percentage discount being offered
+     - You show this info to the user whenever that hotel is selected
+     - Use the method ~.toFixed()~ on the ~Number~ object to show the discounted rate with two decimal places
+     - The ~hotel~ class / object will have a function called ~offerExpires()~ which calculates how much time is left using the user's clock
+     - Make sure to use the ~Date~ object inside the function ~offerExpires()~
+     - Use ~offerExpires()~ to show when it expires (month, day, year) and how much time is left
+     - Display that info in the HTML
+   - [[file:./003.018.Chapter_Exercise/index.html][Here is my chapter 3 exercise]]
+
+** Section 3.19: Summary
+   - Functions allow you to group a set of related statements together that represent a single task
+   - Functions can take parameters (info required to do a task) and may return a value
+   - An object is a series of variables and functions that represent something from the world around you
+   - In an object, variables are properties and functions are methods
+   - Web browsers implement objects that represent both the browser window (BOM) and the document loaded (DOM) into the browser window
+   - JS has several built-in objects such as String, Number, Math, Date, and more and each object has properties and/or methods to help use the objects in the script
+   - Arays and objects can be used to create complex data sets such as arrays of objects, objects that have arrays, arrays that have nested arrays, objects that have nested objects, or any combination of what we just said
+     
+* Keywords
+
+| Term                                           | Definition                                                                                                                                                                                                                                                                                                                                                                                              |
+|------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Function                                       | Reusable group of series of statements that perform a specific task                                                                                                                                                                                                                                                                                                                                     |
+| Method                                         | A function inside an object                                                                                                                                                                                                                                                                                                                                                                             |
+| Anonymous Function                             | Anonymous functions are functions without a name and are used in callbacks (arguments to other functions as an function expression), immediately invoked function expressions (IIFEs), or as general function expressions; thus every anonymous function is a function expression but not every function expression is an anonymous function because some function expressions can have named functions |
+| Function Expression                            | A function expression is an expression defined as a function so instead of having an expression you can have a function; this means the function is created as a value that can be assigned to a variable or passed as an argument to another function; function expressions can have named functions or unnamed functions                                                                              |
+| Immediately Invoked Function Expression (IIFE) | IIFEs are self-executing anonymous functions in JS, they are defined and executed immediately after their creation                                                                                                                                                                                                                                                                                      |
+| ~new~ Keyword                                  | The ~new~ keyword is an operator used to create an instance of an object from a constructor function or class                                                                                                                                                                                                                                                                                           |
+| ~this~ Keyword                                 | The ~this~ keyword refers to the object that is currently executing the code and the value is determined by how the function or method is called; in the glboal context it refers to the ~window~ object                                                                                                                                                                                                |
+| Browser Object Model (BOM)                     | BOM in JS is an API that allows interaction with the browser environment; BOM provides access to browser-specific functionalities and controls                                                                                                                                                                                                                                                          |
+| Document Object Model (DOM)                    | DOM is an API for web documents that represent the page so the programs can change the document structure, style, and content                                                                                                                                                                                                                                                                           |
+
+* Questions
+  - *Q*: What is the difference between functions and methods in JS?
+         - Functions are standalone blocks of reusable code that are defined at the top level of your script or within other functions
+	 - In functions ~this~ keyword will typically refer to the global object (~window~ in browsers and ~global~ in Node.js)
+	 - Methods are functions that are associated with an object and thus the methods are properties of an object whose value is a function
+	 - They are invoked using dot notation (unlike the function name) and ~this~ keyword inside a method refers to the object that the method is being called on
+	   
+  - *Q*: What is the difference between anonymous functions and function expressions?
+         - Anonymous functions are function expressions but without a name
+	 - Function expressions are expressions that evaulate to a function
+	 - All anonymous functions are function expressions but not all function expressions are anonymous because some may have names
+         - You cannot call named function expressions like normal functions so what is the point of giving the function expressions names?
+	 - The point is that by giving the function expression a name you allow for better debugging and you can call the named function expression but only inside the function so it is good for recursive function expressions
+	 - Plus adding a name to the function expression can add readability to your code
+
+* Summary
+  - A function is a reusable group of series of statements that performs a specific task
+  - A function may have parameters declared in the function's signature, they represent placeholders for the values that will be passed into the function when it is called
+  - Arguments are the actual values that are passed to a function when it is called / invoked
+  - Functions may return a single value or multiple values using an array
+  - Anonymous functions are function expressions without names and is used for callbacks (arguments to other functions), IIFE (immediately invoked function expression), or some other use of function expressions
+  - Function expressions are functions that take up the form of expressions so the function expression can be passed to a variable, as an argument, etc.
+  - Function expressions may be named or unnamed (anonymous), if it is named then it can be used as a recursive function (if needed), it adds readability to your code, and it helps with debugging as the name will be shown in the stack trace
+  - Each variable has some type of scope, if you use ~var~ then it has a function scope or global scope depending on how you use it
+  - If you use ~var~ within a function then it has a function scope and it is only accessible inside the function and any nested functions that may exist
+  - If you create a variable using ~var~ within a function and inside the function you create a block of code (e.g. if-statement, loop, etc.), you will still be able to use the variable outside the block scope because the scope is a function scope
+  - If you use ~var~ outside any function then it becomes a global variable and attaches to the ~window~ object in browsers (or the global object in other environments)
+  - ~let~ is a block scope so only accessbile in the block it is declared and you cannot redeclare ~let~ variables unlike ~var~ but you can reassign ~let~ variables
+  - ~const~ is also block scope but cannot be reassigned or redeclared unlike ~let~ and ~var~
+  - If you do not use any of the keywords then you will implicitly create a global variable which is bad practice, so always use a keyword
+  - In addition, JS variables actually references a value that is stored in memory, if it happens that two variables have the exact same value then there will only be one instance of that value and both variables will reference that one instance of the value
+  - Objects group together a set of variables and functions to create a model
+  - You can create object literals using curly braces, you can create an empty object using ~new~ and add properties to it later, you can use the function constructor which uses ~new~ when the function constructor is called and ~this~ once inside the function, or you can use classes which also use ~new~ to create a new object from that class
+  - You can always add properties (variables and methods) and delete (remove) properties
+  - ~this~ keyword refers to one object and usually the object in which the function operates
+  - By default the ~this~ refers to the ~window~ object but whenever you use ~new~ with a class or function constructor then ~this~ becomes the object you just created inside the class or function constructor
+  - JS has many built-in objects and this includes global objects, such as arrays, Math objects, and more, the browser object model, and the document object model
+  - The Browser Object Model (BOM) creates a model of the browser tab or window and the top most object is the ~window~ object which represents the current browser window or tab and its child objects represent other browser features
+  - The Document Object Model (DOM) creates a model of the current web page and represents the page as a whole
+  - For DOM, the top most object is ~document~ and the child objects represent other items on the page such as ~head~, ~body~, ~title~, etc.
+  - DOM forms a tree structure with the ~document~ object being the root and every element being a node in the tree
+  - Each node is an object and there can be nodes nested inside other nodes
+    

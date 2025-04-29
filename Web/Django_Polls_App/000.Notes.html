@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 12:08 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Django Polls App</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Django Polls App</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf8bba30">Navigation</a></li>
+<li><a href="#orgad09199">Django Polls App</a>
+<ul>
+<li><a href="#org9c8bbe5">Create the Project Tutorial Part 1 Docs</a></li>
+<li><a href="#org9ebba5a">Create the Polls App</a></li>
+<li><a href="#org570394a">Writing My First View</a></li>
+<li><a href="#org2ec285d">Database Setup Tutorial Part 2 Docs</a></li>
+<li><a href="#orgfa57681">Creating Models</a></li>
+<li><a href="#orgbdc87cd">Activating Models</a></li>
+<li><a href="#orgb7d3a74">Playing with the API</a></li>
+<li><a href="#org46aff53">Creating an Admin User</a></li>
+<li><a href="#org9a63f40">Overview of Our App Tutorital Part 3 Docs</a></li>
+<li><a href="#orgb7ce0b5">Writing More Views</a></li>
+<li><a href="#org53879ce">Write Views That Actually Do Something</a></li>
+<li><a href="#orgeb831be">Raising 404 Error</a></li>
+<li><a href="#org6a9df1b">Removing Hardcoded URLs in Templates</a></li>
+<li><a href="#org32c332c">Namespacing URL Names</a></li>
+<li><a href="#orgbf29ede">Write A Minimal Form Tutorial Part 4 Docs</a></li>
+<li><a href="#orgaf1b3a7">Use Generic Views</a></li>
+<li><a href="#orgfcb9b57">Writing Our First Test Tutorial Part 5 Docs</a></li>
+<li><a href="#org13364a1">Test A View</a></li>
+<li><a href="#org1258c11">Finished</a></li>
+</ul>
+</li>
+<li><a href="#org4639020">Documentation</a>
+<ul>
+<li><a href="#org3291df2">Views</a>
+<ul>
+<li><a href="#orgef306d2">How Django Process a Request</a></li>
+</ul>
+</li>
+<li><a href="#orgc3b84db">Models Docs</a>
+<ul>
+<li><a href="#org920d583">Migrations Docs</a></li>
+</ul>
+</li>
+<li><a href="#org84646a3">Templates Docs</a></li>
+</ul>
+</li>
+<li><a href="#orgbc752c0">Final Thoughts</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf8bba30" class="outline-2">
+<h2 id="orgf8bba30">Navigation</h2>
+<div class="outline-text-2" id="text-orgf8bba30">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../index.html">html</a> &vert; <a href="../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgad09199" class="outline-2">
+<h2 id="orgad09199">Django Polls App</h2>
+<div class="outline-text-2" id="text-orgad09199">
+<p>
+I'm going to be following the <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial01/">documentation tutorial</a>.
+I'm not going to write everything down but I am only going to write topics that will help me understand Django or topics that I think are important.
+</p>
+</div>
+
+<div id="outline-container-org9c8bbe5" class="outline-3">
+<h3 id="org9c8bbe5">Create the Project <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial01/">Tutorial Part 1 Docs</a></h3>
+<div class="outline-text-3" id="text-org9c8bbe5">
+<ul class="org-ul">
+<li>Download python</li>
+<li>Download Django</li>
+<li>Start a Django project using <code>django-admin</code></li>
+<li><code>manage.py</code>: let's you interact with the Django project</li>
+<li><code>&lt;name_of_proj_dir&gt;</code>: directory of actual project</li>
+<li><code>settings.py</code>: settings &amp; configurations for the Django project</li>
+<li><code>urls.py</code>: URL declarations for the Django project</li>
+<li><code>asgi.py</code>: entry point for ASGI-compatible web servers to serve your project</li>
+<li><code>wsgi.py</code>: entry point for WSGI-compatible web servers to serve your project</li>
+<li>Start the development server</li>
+<li>The server automatically reloads Python code for each code change</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9ebba5a" class="outline-3">
+<h3 id="org9ebba5a">Create the Polls App</h3>
+<div class="outline-text-3" id="text-org9ebba5a">
+<ul class="org-ul">
+<li>Each application you write in Django consists of a Python package that follows a certain convention</li>
+<li>Django comes with a utility that automatically generates the basic directory structure of an app</li>
+<li>An app is a web application that does something while a project is a collection of configuration and apps for a particular website</li>
+<li>A project can have multiple apps and an app can be in multiple projects</li>
+<li>Use <code>manage.py</code> to create an app so to create an app you do <code>python manage.py startapp polls</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org570394a" class="outline-3">
+<h3 id="org570394a">Writing My First View</h3>
+<div class="outline-text-3" id="text-org570394a">
+<ul class="org-ul">
+<li>Once we have created an app we will create a "view"</li>
+<li>Create a <code>URLconf</code> named <code>urls.py</code></li>
+<li>This is the app's <code>URLconf</code></li>
+<li>So now we have configure the project's (global) <code>URLconf</code> in the outer most <code>urls.py</code></li>
+<li>Create an entry and use <code>include()</code> in the <code>urlpatterns</code> list which allows you to reference other <code>URLconfs</code> in this case the poll <code>URLconf</code></li>
+<li>Whenever Django encounters <code>include()</code> it chops off whatever part of the URL matched up to that point and sends the remaining string to the inluded <code>URLconf</code> for further processing</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2ec285d" class="outline-3">
+<h3 id="org2ec285d">Database Setup <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial02/">Tutorial Part 2 Docs</a></h3>
+<div class="outline-text-3" id="text-org2ec285d">
+<ul class="org-ul">
+<li>We need to create a database table so we are going to run <code>python manage.py migrate</code></li>
+<li>The migrate command looks at the <code>INSTALLED_APPS</code> setting and creates any necessary database tables according to the database setting in your <code>app/settings.py</code> file and the database migrations shipped with the app</li>
+<li>The <code>migrate</code> command will only run migrations for apps in <code>INSTALLED_APPS</code> (we have some default apps already thus the default apps have a couple migrations to apply)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfa57681" class="outline-3">
+<h3 id="orgfa57681">Creating Models</h3>
+<div class="outline-text-3" id="text-orgfa57681">
+<ul class="org-ul">
+<li>Models are essentially your database layout with additional metadata</li>
+<li>A model is the single definitive source of information about your data</li>
+<li>The model contains the essential fields and behaviors of the data you're storing</li>
+<li>The goal is to define your data model in one place and automatically derive things from it (including migrations)</li>
+<li>Let's create two models: "Question" and "Choice"</li>
+<li>Let's edit the <code>models.py</code> file inside the app and add the models</li>
+<li>Each model is represented by a class that subclasses <code>django.db.models.Model</code></li>
+<li>Each model is a table and the class variables are the database fields represented by a <code>Field</code> class (e.g. <code>CharField</code>, <code>DateTimeField</code>, etc.)</li>
+<li>You can even specify relationships using <code>ForeignKey</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbdc87cd" class="outline-3">
+<h3 id="orgbdc87cd">Activating Models</h3>
+<div class="outline-text-3" id="text-orgbdc87cd">
+<ul class="org-ul">
+<li>Let's add our app to the <code>INSTALLED_APPS</code> in the setting file by adding the app's configuration class</li>
+<li>The configuration class of the app is inside the directory of the app inside the <code>apps.py</code></li>
+<li>Then we run <code>python manage.py makemigrations polls</code></li>
+<li><code>makemigrations</code> tells Django that some changes were made to the models (or new ones added) and that we would like the changes to be stored as a migration</li>
+<li>Migrations are how Django stores changes to your models (and thus your database schema)</li>
+<li>Let's see the SQL commands this migration file will do by running <code>python manage.py sqlmigrate polls 0001</code></li>
+<li><code>sqlmigrate</code> take migration names and returns their SQL</li>
+<li><code>sqlmigrate</code> prints only the SQL commands, it does not run them, and each SQL command is database-specific depending on which database you are using</li>
+<li><code>python manage.py check</code> check for any problems in your project without making migrations or touching the database</li>
+<li>To run the migrations we use the command <code>migrate</code> and run something like the following: <code>python manage.py migrate</code></li>
+<li><code>migrate</code> command takes all the migrations that haven't been applied and runs them against your database synchronizing the changes you made to your models with the schema in the database</li>
+<li>Thus 3-step process to making model changes:
+<ol class="org-ol">
+<li>Make model changes in <code>models.py</code></li>
+<li>Run <code>python manage.py makemigrations &lt;optional_app_name&gt;</code></li>
+<li>Run <code>python manage.py migrate &lt;optional_app_name&gt;</code></li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb7d3a74" class="outline-3">
+<h3 id="orgb7d3a74">Playing with the API</h3>
+<div class="outline-text-3" id="text-orgb7d3a74">
+<ul class="org-ul">
+<li>Let's type <code>python manage.py shell</code> to open the python shell</li>
+<li>Why not just type <code>python</code>? Well because <code>manage.py</code> sets the <code>DJANGO_SETTINGS_MODULE</code> environment variable which gives Django the Python import path to your project's <code>settings.py</code> file</li>
+<li>Using the shell we can import the models from our apps, see all the objects <code>Question.objects.all()</code>, create an entry by calling the constructor and in our case <code>Question(question_text="" pub_date=timezone.now())</code></li>
+<li>Each object has an id member field and it can be saved onto the database calling the function <code>save()</code> (e.g. <code>p.save()</code>)</li>
+<li>The <code>save()</code> function will write to your database and that entry will be stored as row in the DB</li>
+<li>You can modify the model's field values by simply using the assignment operator and then saving after (e.g. <code>q.question_text = "New"</code>)</li>
+<li>You can change what is displayed for the model when calling <code>Question.objects.all()</code> simply override the function <code>__str__()</code> in your model class</li>
+<li>It is important to add <code>__str__()</code> because object's representations are used throughout Django's automatically-generated admin</li>
+<li>The API can also filter by id, member fields, or even "field lookups" like filter by this member field that starts with this, filter by this member field that is a timestamp extract the year and filter it that matches this year, etc.</li>
+<li>The API can not only filter but retrieve individual instances (row)</li>
+<li>You can also establish relationships, for example, we have choice which has a foreign key to question, so using a question instance we are able to use the <code>objectName_set.create()</code> to create choices that have their foreign key as the question that made them</li>
+<li>In addition, you can filter objects by their foreign key instance object's member fields, so for example, we can filter the choice based on question's member fields</li>
+<li>The API has many different field lookups and member fields to access related objects</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org46aff53" class="outline-3">
+<h3 id="org46aff53">Creating an Admin User</h3>
+<div class="outline-text-3" id="text-org46aff53">
+<ul class="org-ul">
+<li>Run <code>python manage.py createsuperuser</code> and enter the credentials</li>
+<li>Start server &amp; go to: <code>http://127.0.0.1:8000/admin</code></li>
+<li>Log in and you can use the groups, users, and apps</li>
+<li>But you have to specify the app to show up in the admin page</li>
+<li>You do this by going to <code>app/admin.py</code> and adding the model to the admin site by <code>admin.site.register(&lt;Model_Module&gt;)</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9a63f40" class="outline-3">
+<h3 id="org9a63f40">Overview of Our App <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial03/">Tutorital Part 3 Docs</a></h3>
+<div class="outline-text-3" id="text-org9a63f40">
+<ul class="org-ul">
+<li>Our poll application will have 4 views: question "index" page, question "detail" page, question "results" page, and vote action</li>
+<li>A view is a "type" of web page in your Django application that generally serves a specific function and has a specific template</li>
+<li>Each view is represented by a Python function (or method, in the case of class-based views)</li>
+<li>Django will choose a view by examining the URL that's requested</li>
+<li>To go from a URL to a view, Django uses what are known as <code>URLconfs</code> (<code>URLconf</code> maps URL patterns to views)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb7ce0b5" class="outline-3">
+<h3 id="orgb7ce0b5">Writing More Views</h3>
+<div class="outline-text-3" id="text-orgb7ce0b5">
+<ul class="org-ul">
+<li>We have the index, so now let's create for the detail, results, and vote page by adding them to <code>polls/views.py</code></li>
+<li>After adding the views, we now need a URL path to each view so we modify <code>polls/urls.py</code></li>
+<li>We added where you can type in the url <code>localhost:8000/polls/&lt;int&gt;</code></li>
+<li>The integer will represent the id of the question and you can specify <code>polls/34</code> or whatever</li>
+<li>We also added other URLs like <code>polls/&lt;int&gt;/results</code> to view the results for that question</li>
+<li>This was done for the detail (not url after the int), results, and vote</li>
+<li>Using the <code>path()</code> function each URL will be mapped to a view and the view will be called whenever it goes to the URL</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org53879ce" class="outline-3">
+<h3 id="org53879ce">Write Views That Actually Do Something</h3>
+<div class="outline-text-3" id="text-org53879ce">
+<ul class="org-ul">
+<li>Each view is responsible for doing one of two things: returning an <code>HttpResponse</code> object containing the content for the requested page or raising an exception such as <code>Http404</code></li>
+<li>The rest is up to you, it can read records from the DB or not, it can use a template or not, generate PDF file, output XML, create a ZIP file, anything you would like</li>
+<li>We are going to use Django's DB API to display the lastest 5 poll questions in system for the index view</li>
+<li>After create a directory called "templates", as Django will look for templates there</li>
+<li>Django looks for templates subdirectory in each of the installed apps (this can be modified)</li>
+<li>Then inside templates create a subdirectory called "polls" and then create a file in the "polls" directory called "index.html"</li>
+<li>Templates are used to create HTML dynamically</li>
+<li>Add the template code inside "index.html"</li>
+<li>Update <code>polls/views.py</code> to use the template by calling <code>template.render(context, request)</code></li>
+<li>The <code>template</code> is a variable you created by loading the template you want to use "polls/index.html" and the <code>context</code> is a dictionary mapping template variable names to python objects</li>
+<li>This can be shorten by using <code>django.shortcuts.render</code> and return that <code>render()</code> function instead of the <code>HttpRequest</code> for example <code>return render(request, "polls/index.html", context)</code> this will return a <code>HttpRequest</code> without you specifying it</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgeb831be" class="outline-3">
+<h3 id="orgeb831be">Raising 404 Error</h3>
+<div class="outline-text-3" id="text-orgeb831be">
+<ul class="org-ul">
+<li>To raise a 404 error you use raise <code>django.http.Http404</code> and a message, for example, <code>raise Http404("Question does not exist")</code></li>
+<li>Another shortcut would be to use <code>get_object_or_404()</code> which can either get you an object or raise a 404 error</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6a9df1b" class="outline-3">
+<h3 id="org6a9df1b">Removing Hardcoded URLs in Templates</h3>
+<div class="outline-text-3" id="text-org6a9df1b">
+<ul class="org-ul">
+<li>Instead of using something like <code>href="/polls/{{question.id}}/"</code> we can instead use <code>href="{% url 'detail' question.id %}"</code></li>
+<li>What does this do?</li>
+<li>This will look at the URL in the <code>polls/url.py</code> called 'detail'</li>
+<li>Thus it will then use that URL with the argument <code>question.id</code></li>
+<li>So now if you change the URL in <code>url.py</code> then that is the only place you need to change it because all of the other URLs will use the new update</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org32c332c" class="outline-3">
+<h3 id="org32c332c">Namespacing URL Names</h3>
+<div class="outline-text-3" id="text-org32c332c">
+<ul class="org-ul">
+<li>To not confuse Django between multiple URLs each <code>urls.py</code> can have a namespace by adding <code>app_name="&lt;app_name&gt;"</code> to the file before <code>urlpatterns</code></li>
+<li>So now in the template instead of using <code>detail</code> we will use <code>polls::detail</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbf29ede" class="outline-3">
+<h3 id="orgbf29ede">Write A Minimal Form <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial04/">Tutorial Part 4 Docs</a></h3>
+<div class="outline-text-3" id="text-orgbf29ede">
+<ul class="org-ul">
+<li>Modify the <code>detail.html</code> file to create a form</li>
+<li>The form will be submitted using POST and all POST forms that are targeted at internal URLs should use the <code>{% csrf_token %}</code> template tag</li>
+<li>Now let's modify the view that maps to the URL "vote" which is where the form will be submitted</li>
+<li><code>request.POST</code> is a dictionary-like object that lets you access submitted data by key name</li>
+<li><code>request.POST</code> always return strings and if you try to access a data name that wasn't specified in the POST request then it will raise a <code>KeyError</code></li>
+<li>We also use a function called <code>F()</code> which instructs the database to increase the vote by 1</li>
+<li>The view then returns an <code>HttpResponseRedirect</code> (takes a ignle argument the URL to redirect the user to) rather than a normal <code>HttpResponse</code> (this is just best practices when dealing with a POST request)</li>
+<li>The <code>reverse()</code> function is used to avoid having to hardcode a URL</li>
+<li>After voting, it redirects to the results page, so let's write that view and the template for it</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaf1b3a7" class="outline-3">
+<h3 id="orgaf1b3a7">Use Generic Views</h3>
+<div class="outline-text-3" id="text-orgaf1b3a7">
+<ul class="org-ul">
+<li>Generic views abstract common patterns to the point where you don't even need to write Python code to write an app (e.g. <code>ListView</code> and <code>DetailView</code> generic views abstract the concepts of "display list of objects" and "display detail page for a particular type of object"</li>
+<li>So let's convert our poll app to use the generic views system</li>
+<li>So we take 3 steps: (1) Convert the <code>URLConf</code>, (2) delete the old unneeded views, and (3) introduce new view baed on Django's generic views</li>
+<li>So we change the <code>polls/url.py</code> and we know use <code>&lt;pk&gt;</code> instead of <code>&lt;question_id&gt;</code> because this is necessary for the generic views as it expects the primary key to be called "pk"</li>
+<li>We then modify the <code>views.py</code>, we create a class that that derives from <code>generic.DetailView</code> and <code>generic.ListView</code></li>
+<li>Each generic view needs to know what model it will be acting upon, this provided using either the <code>model</code> attribute or by defining the <code>get_queryset()</code> method</li>
+<li>The <code>template_name</code> attribute is used to tell Django to use a specific template name instead of the autogenerated default template name</li>
+<li>For <code>DetailView</code> the <code>question</code> variable is provided automatically, however, for <code>ListView</code> the automatically generated context variable is <code>question_list</code> but to override this we provide the <code>context_object_name</code> specifying the name that you'd like to use instead</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfcb9b57" class="outline-3">
+<h3 id="orgfcb9b57">Writing Our First Test <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial05/">Tutorial Part 5 Docs</a></h3>
+<div class="outline-text-3" id="text-orgfcb9b57">
+<ul class="org-ul">
+<li>A common place for an application's tests is the appliccation's <code>test.py</code></li>
+<li>For example, in our current code we show the 5 most recent question but this includes future questions so that is a bug and let's create a test for it in the <code>test.py</code> file</li>
+<li>You run the test with the command <code>python manage.py test &lt;optional_app_name&gt;</code></li>
+<li>Fix the bug</li>
+<li>Run the test again</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org13364a1" class="outline-3">
+<h3 id="org13364a1">Test A View</h3>
+<div class="outline-text-3" id="text-org13364a1">
+<ul class="org-ul">
+<li>One of the rules should be by setting a <code>pub_date</code> in the future means that the question is published at that moment but invisible until then</li>
+<li>Fix the view</li>
+<li>Test the view</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1258c11" class="outline-3">
+<h3 id="org1258c11">Finished</h3>
+<div class="outline-text-3" id="text-org1258c11">
+<ul class="org-ul">
+<li>Here is where I stopped the tutorial because the rest of the tutorial are optional material</li>
+<li>I feel like have a basic understanding of how to use Django</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4639020" class="outline-2">
+<h2 id="org4639020">Documentation</h2>
+<div class="outline-text-2" id="text-org4639020">
+<p>
+This section are for notes that were not included in the tutorial but found in <a href="https://docs.djangoproject.com/en/5.1/">Django docs</a>.
+</p>
+</div>
+
+<div id="outline-container-org3291df2" class="outline-3">
+<h3 id="org3291df2">Views</h3>
+<div class="outline-text-3" id="text-org3291df2">
+<ul class="org-ul">
+<li>According to the <a href="https://docs.djangoproject.com/en/5.1/topics/http/urls/">Django Docs</a>, "views" are used to encapsulate the logic responsible for processing a user's request and for returning the response</li>
+<li>To design URLs for an app, you create a Python module informally called a <code>URLconf</code> (URL configuration)</li>
+<li>This odule is pure Python code and is a mapping between URL path expressions to Python functions (your views)</li>
+<li>The mapping can be short, long, reference other mappings, and be constructed dynamically</li>
+</ul>
+</div>
+
+<div id="outline-container-orgef306d2" class="outline-4">
+<h4 id="orgef306d2">How Django Process a Request</h4>
+<div class="outline-text-4" id="text-orgef306d2">
+<ul class="org-ul">
+<li>When a user requests a page from your Django-powered site, this algorithm is followed:</li>
+<li>Django determines the root <code>URLconf</code> module (since <code>URLconf</code> modules can be created in a hierarchical structure) to use (the setting <code>ROOT_URLCONF</code> has value that specifies the root <code>URLconf</code> module but if the incoming <code>HttpRequest</code> object has a <code>urlconf</code> attribute which was set by middleware then that will be used instead of <code>ROOT_URLCONF</code>)</li>
+<li>Django loads the Python module and looks for the variable <code>urlpatterns</code>; the variable <code>urlpatterns</code> should be a sequence of <code>django.urls.path()</code> and/or <code>django.urls.re_path()</code> instances
+<ul class="org-ul">
+<li><a href="https://docs.djangoproject.com/en/5.1/ref/urls/#django.urls.path"><code>django.urls.path()</code></a> returns an element for inclusion in <code>urlpattern</code> and it accepts 4 arguments: route, view, kwargs, and name</li>
+<li>The route is a string that contains a URL pattern</li>
+<li>The view argument is a view function or the result <code>as_view()</code> for class-based views</li>
+<li>The kwargs argument allows you to pass additional arguments to the view function or method</li>
+<li>The name argument lets you refer to your URL in a unambiguously from elesewhere in Django especially from within templates</li>
+<li><a href="https://docs.djangoproject.com/en/5.1/ref/urls/#django.urls.re_path"><code>django.urls.re_path()</code></a> is the same as <code>path()</code> but now the route argument can contain a regular expression compatible with Python's <code>re</code> module</li>
+<li><b>NOTE</b>: <a href="https://docs.djangoproject.com/en/5.1/ref/urls/#django.urls.include"><code>django.urls.include</code></a> is a function that takes a full Python import path to another <code>URLconf</code> module that should be "included" in this place</li>
+</ul></li>
+<li>Django runs through each URL pttern, in order, and stops at the first one that matches the requested URL, matching against <code>path_info</code></li>
+<li>Once one of the URL patterns matches, Django imports and calls the given view, which is a Python function or a class-based view, the view gets passed the following arguments:
+<ul class="org-ul">
+<li>An instance of <code>HttpRequest</code></li>
+<li>If the matched URL pattern contained no named groups, then the matches from the regular expression are provided as positional arguments</li>
+<li>The keyword arguments are made up of any named parts matched by the path expression that are provided, overriden by any arguments specified in the optional <code>kwargs</code> argument to <code>path()</code> or <code>re_path()</code></li>
+</ul></li>
+<li>If no URL pattern matches or if an exception is raised during any point in this process, Django invokes an appropriate error-handling view</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc3b84db" class="outline-3">
+<h3 id="orgc3b84db">Models <a href="https://docs.djangoproject.com/en/5.1/topics/db/models/">Docs</a></h3>
+<div class="outline-text-3" id="text-orgc3b84db">
+<ul class="org-ul">
+<li>A model is the single, definitive source of information about your data containing the essential fields and behaviors of the data you're storing</li>
+<li>Generally each model maps to a single database table</li>
+<li>The basics are:
+<ul class="org-ul">
+<li>Each model is a Python class that subclasses <code>django.db.models.Model</code></li>
+<li>Each attribute of the model represents a database field</li>
+<li>With all of this, Django gives you an automatically-generated database-access API</li>
+</ul></li>
+<li>Once you have defined your models, you need to tell Django you are going to use those models by editing the settings file and changing the <code>INSTALLED_APPS</code> setting and addings the name of the module that contains your <code>models.py</code></li>
+<li>Then you run <code>python manage.py migrate</code></li>
+<li>Fields are the only thing required in a model and it defines the database fields specified by class attributes</li>
+</ul>
+</div>
+
+<div id="outline-container-org920d583" class="outline-4">
+<h4 id="org920d583">Migrations <a href="https://docs.djangoproject.com/en/5.1/topics/migrations/">Docs</a></h4>
+<div class="outline-text-4" id="text-org920d583">
+<ul class="org-ul">
+<li>Migrations are Django's way of propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema</li>
+<li>They're designed to be mostly automatically but we need to know when to make migrations, when to run them, and common problems with migrations</li>
+<li><code>migrate</code>: responsible for applying and unapplying migrations</li>
+<li><code>makemigrations</code>: responsible for creating new migrations based on the changes you have made to your models</li>
+<li><code>sqlmigrate</code>: displays the SQL statements for a migration</li>
+<li><code>showmigrations</code>: lists a project's migrations and their status</li>
+<li>Think of <code>makemigrations</code> as responsible for packaging up your model changes into migration files (think of them like commits)</li>
+<li><code>migrations</code> is responsible for applying those to your database</li>
+<li>Migration files for each app live in a "migrations" directory inside of that app, and are designed to be committed to, and distributed as part, its codebase</li>
+<li>For example, you run them once in your development machine and then you run the same migrations on your colleagues' machines, your staging machines, and eventually your production machines</li>
+<li>Django will make migrations for any change to your models or fields even if the options do not affect the database as this is the only way to reconstruct a field correctly by having all the changes in the history</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org84646a3" class="outline-3">
+<h3 id="org84646a3">Templates <a href="https://docs.djangoproject.com/en/5.1/topics/templates/">Docs</a></h3>
+<div class="outline-text-3" id="text-org84646a3">
+<ul class="org-ul">
+<li>Templates allow you to build HTML dynamically</li>
+<li>A template contains the static parts of the desired HTML output as well as some special syntax describing how dynamic content will be inserted</li>
+<li>Django project can be configured with one or several template engines and Django already ships buil-in backends for its own template system called the Django Template Language (DTL) but you can use other engines such as Jinja2 or something else</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbc752c0" class="outline-2">
+<h2 id="orgbc752c0">Final Thoughts</h2>
+<div class="outline-text-2" id="text-orgbc752c0">
+<p>
+Django seems like a very structured way to implement a web framework. It uses classes and we are often using these classes to implement our own features. On one hand, this can help with learning Django but on the other hand it can lead to poor performance.
+Django has its use cases and it is a very structured and easy to learn web framework. This was my first tutorial application using Django so I have a lot to learn from Django.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

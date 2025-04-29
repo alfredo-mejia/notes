@@ -1,0 +1,27 @@
+#+title: Section 6: CSS - The Very Basics
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                 | Links                                   |
+|-------+---------------------------------------+-----------------------------------------|
+| Index | Notes Home                            | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | The Web Developer Bootcamp 2024       | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024][github]] \vert |
+| Prev  | Section 5: HTML - Forms & Tables      | \vert [[file:../005.HTML_Forms_and_Tables/005.000.Notes.html][html]] \vert [[file:../005.HTML_Forms_and_Tables/005.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024/005.HTML_Forms_and_Tables][github]] \vert |
+| Next  | Section 7: The World of CSS Selectors | \vert [[file:../007.The_World_of_CSS_Selectors/007.000.Notes.html][html]] \vert [[file:../007.The_World_of_CSS_Selectors/007.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024/007.The_World_of_CSS_Selectors][github]] \vert |
+
+* Resources
+
+* Notes
+
+* Keywords
+
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*:
+  
+* Summary

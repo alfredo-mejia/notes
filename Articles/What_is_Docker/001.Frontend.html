@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-28 Fri 15:17 -->
+<!-- 2025-04-29 Tue 11:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Creating the Frontend</title>
@@ -193,7 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -202,26 +202,26 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgaa0c247">Navigation</a></li>
-<li><a href="#org3e59d4a">Apache HTTP Server</a>
+<li><a href="#org7d2243e">Navigation</a></li>
+<li><a href="#org678e419">Apache HTTP Server</a>
 <ul>
-<li><a href="#org890798b">Clients, Servers, &amp; URLs</a></li>
-<li><a href="#org02dceb8">Hostnames &amp; DNS</a></li>
-<li><a href="#org8582d8c">Configuration Files &amp; Directives</a></li>
-<li><a href="#org98b3c45">Web Site Content</a></li>
-<li><a href="#org3fb92d9">Log Files &amp; Troubleshooting</a></li>
-<li><a href="#org671d279">Installing</a></li>
-<li><a href="#org423845e">Configuring Apache</a></li>
-<li><a href="#org42216e9">Building the Frontend</a></li>
+<li><a href="#org8986f69">Clients, Servers, &amp; URLs</a></li>
+<li><a href="#org4c8579c">Hostnames &amp; DNS</a></li>
+<li><a href="#org6ffc148">Configuration Files &amp; Directives</a></li>
+<li><a href="#orgc1444e2">Web Site Content</a></li>
+<li><a href="#org5e97ee9">Log Files &amp; Troubleshooting</a></li>
+<li><a href="#orga21b0ce">Installing</a></li>
+<li><a href="#org014f796">Configuring Apache</a></li>
+<li><a href="#orgdbdd576">Building the Frontend</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgaa0c247" class="outline-2">
-<h2 id="orgaa0c247">Navigation</h2>
-<div class="outline-text-2" id="text-orgaa0c247">
+<div id="outline-container-org7d2243e" class="outline-2">
+<h2 id="org7d2243e">Navigation</h2>
+<div class="outline-text-2" id="text-org7d2243e">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -247,14 +247,8 @@
 </tr>
 
 <tr>
-<td class="org-left">Home</td>
-<td class="org-left">Articles</td>
-<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles">github</a> &vert;</td>
-</tr>
-
-<tr>
 <td class="org-left">Prev</td>
-<td class="org-left">What is Docker?</td>
+<td class="org-left">What is Docker</td>
 <td class="org-left">&vert; <a href="./000.Notes.html">html</a> &vert; <a href="./000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker">github</a> &vert;</td>
 </tr>
 
@@ -268,9 +262,9 @@
 </div>
 </div>
 
-<div id="outline-container-org3e59d4a" class="outline-2">
-<h2 id="org3e59d4a">Apache HTTP Server</h2>
-<div class="outline-text-2" id="text-org3e59d4a">
+<div id="outline-container-org678e419" class="outline-2">
+<h2 id="org678e419">Apache HTTP Server</h2>
+<div class="outline-text-2" id="text-org678e419">
 <p>
 I'm not too familiar with Apache HTTP Server so let's start in the <a href="https://httpd.apache.org/docs/2.4/getting-started.html">documentation</a> and take notes.
 All of the information below is taken from the documentation.
@@ -278,9 +272,9 @@ I will be using WSL 2 on Windows 11.
 </p>
 </div>
 
-<div id="outline-container-org890798b" class="outline-3">
-<h3 id="org890798b">Clients, Servers, &amp; URLs</h3>
-<div class="outline-text-3" id="text-org890798b">
+<div id="outline-container-org8986f69" class="outline-3">
+<h3 id="org8986f69">Clients, Servers, &amp; URLs</h3>
+<div class="outline-text-3" id="text-org8986f69">
 <ul class="org-ul">
 <li>Addresses on the web are expresed with URLs</li>
 <li>They have a protocol (e.g. <code>http</code>), a servername (e.g. <code>www.apache.org</code>), a URL-path (<code>e.g. /docs/current/getting-started.html</code>), and possibly a query string (e.g. <code>?arg=value</code>) used to pass additional arguments to the server</li>
@@ -292,9 +286,9 @@ I will be using WSL 2 on Windows 11.
 </div>
 </div>
 
-<div id="outline-container-org02dceb8" class="outline-3">
-<h3 id="org02dceb8">Hostnames &amp; DNS</h3>
-<div class="outline-text-3" id="text-org02dceb8">
+<div id="outline-container-org4c8579c" class="outline-3">
+<h3 id="org4c8579c">Hostnames &amp; DNS</h3>
+<div class="outline-text-3" id="text-org4c8579c">
 <ul class="org-ul">
 <li>The client has to resolve the servername to an IP address</li>
 <li>Thus for the web server to be reachable it is necessary that the servername be in the DNS (domain name system) so clients can map the servername into IP addresses</li>
@@ -313,9 +307,9 @@ I will be using WSL 2 on Windows 11.
 </div>
 </div>
 
-<div id="outline-container-org8582d8c" class="outline-3">
-<h3 id="org8582d8c">Configuration Files &amp; Directives</h3>
-<div class="outline-text-3" id="text-org8582d8c">
+<div id="outline-container-org6ffc148" class="outline-3">
+<h3 id="org6ffc148">Configuration Files &amp; Directives</h3>
+<div class="outline-text-3" id="text-org6ffc148">
 <ul class="org-ul">
 <li>Apache HTTP Server is configured via simple text files</li>
 <li>These files may be located on a variety of places depending on how the server was installed</li>
@@ -330,9 +324,9 @@ I will be using WSL 2 on Windows 11.
 </div>
 </div>
 
-<div id="outline-container-org98b3c45" class="outline-3">
-<h3 id="org98b3c45">Web Site Content</h3>
-<div class="outline-text-3" id="text-org98b3c45">
+<div id="outline-container-orgc1444e2" class="outline-3">
+<h3 id="orgc1444e2">Web Site Content</h3>
+<div class="outline-text-3" id="text-orgc1444e2">
 <ul class="org-ul">
 <li>Web site content can take many forms but can be broadly divided into static or dynamic content</li>
 <li>Static conent are files that reside in the filesystem (html, css, js, etc.) and the <code>DocumentRoot</code> directive specifies where in your filesystem you should place these files</li>
@@ -344,9 +338,9 @@ I will be using WSL 2 on Windows 11.
 </div>
 </div>
 
-<div id="outline-container-org3fb92d9" class="outline-3">
-<h3 id="org3fb92d9">Log Files &amp; Troubleshooting</h3>
-<div class="outline-text-3" id="text-org3fb92d9">
+<div id="outline-container-org5e97ee9" class="outline-3">
+<h3 id="org5e97ee9">Log Files &amp; Troubleshooting</h3>
+<div class="outline-text-3" id="text-org5e97ee9">
 <ul class="org-ul">
 <li>There are a couple of log files that may help you in time of troubleshooting</li>
 <li>One of them is the error log which is defined by the <code>ErrorLog</code> which may be set globally or per virtua host</li>
@@ -354,9 +348,9 @@ I will be using WSL 2 on Windows 11.
 </div>
 </div>
 
-<div id="outline-container-org671d279" class="outline-3">
-<h3 id="org671d279">Installing</h3>
-<div class="outline-text-3" id="text-org671d279">
+<div id="outline-container-orga21b0ce" class="outline-3">
+<h3 id="orga21b0ce">Installing</h3>
+<div class="outline-text-3" id="text-orga21b0ce">
 <div class="org-src-container">
 <pre class="src src-bash">sudo apt install apache2
 
@@ -386,9 +380,9 @@ sudo systemctl start apache2
 </div>
 </div>
 
-<div id="outline-container-org423845e" class="outline-3">
-<h3 id="org423845e">Configuring Apache</h3>
-<div class="outline-text-3" id="text-org423845e">
+<div id="outline-container-org014f796" class="outline-3">
+<h3 id="org014f796">Configuring Apache</h3>
+<div class="outline-text-3" id="text-org014f796">
 <ul class="org-ul">
 <li>If we take a look at the enabled sites config <code>/etc/apache2/sites-enabled/000-default.conf</code> we see that the <code>DocumentRoot</code> is specified as <code>/var/www/html</code></li>
 <li>We can change the value in <code>/etc/apache2/sites-available/000-default.conf</code> if we'd like, but we'll leave it how it is</li>
@@ -444,9 +438,9 @@ sudo sytemctl reload apache2
 </div>
 </div>
 
-<div id="outline-container-org42216e9" class="outline-3">
-<h3 id="org42216e9">Building the Frontend</h3>
-<div class="outline-text-3" id="text-org42216e9">
+<div id="outline-container-orgdbdd576" class="outline-3">
+<h3 id="orgdbdd576">Building the Frontend</h3>
+<div class="outline-text-3" id="text-orgdbdd576">
 <ul class="org-ul">
 <li><a href="./App/Frontend/What_is_Docker/index.html">Here</a> is the index file</li>
 <li>With the index file you can enter a name and DOB and if successful it will register with the DB and display the results</li>

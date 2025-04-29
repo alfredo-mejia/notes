@@ -1,0 +1,120 @@
+#+title: Chapter 2: Text
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 1: Structure                   | \vert [[file:../001.Structure/001.000.Notes.html][html]] \vert [[file:../001.Structure/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/001.Structure][github]] \vert |
+| Next  | Chapter 3: Lists                       | \vert [[file:../003.Lists/003.000.Notes.html][html]] \vert [[file:../003.Lists/003.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/003.Lists][github]] \vert |
+
+* Notes
+
+** Section 2.1: Headings
+   - HTML has six levels of headings with ~<h1>~ being used for the main headings, ~<h2>~ for subheading, ~<h3>~, and so forth all the way to ~<h6>~
+   - Browsers display the contents of the headings at differnet sizes with h1 being the largest size and h6 being the smallest (this can later be changed with CSS)
+
+** Section 2.2: Paragraphs
+   - The paragraph element uses the following tags: ~<p> </p>~
+   - By default, a browser will show each paragraph on a new line with some space between it and any subsequent paragraphs
+
+** Section 2.3: Bold & Italic
+   - Enclosing text with the tags ~<b> </b>~ can make characters appear bold
+   - The bring-to-attention element can represent a section of text that would be presented in a visually different way (e.g. keywords in a paragraph) although the use of bring-to-attention element does not imply any additional meaning (we will later learn about the strong element)
+   - Enclosing text with the tags ~<i> </i>~ can make characters appear italic
+   - The idiomatic element can represent a section of text that would be said in a different way from surrounding content (e.g. names of ships, foreign words, or other words that would usually be italicized) but again does not imply any additional meaning only formatting (we will later learn about the emphasis element)
+
+** Section 2.4: SuperScript & SubScript
+   - The superscript element is used to contain characters that should be superscript commonly used with suffixes of dates or mathematical concepts (e.g. exponent)
+   - The subscript element is used to contain characters that should be subscript commonly used with foot notes or chemical formulas
+
+** Section 2.5: Whitespace, Line Breaks, & Horizontal Rules
+   - When the browser comes across two or more spaces next to each other, it only displays one space
+   - Similarly if you have a line break in your code, it will treat it as a single space too; this is known as white space collapsing
+   - So how do you add a line break inside the middle of a paragraph? You can add line breaks by using the ~<br />~ element
+   - Another element used is a horiztonal rule (basically a horizontal line); this break can be done because of a change of topic or scene in a play or between sections
+   - The line break and horizontal rule are self-closing elements and thus have only one self-closing tag which is written different: ~<tag />~
+
+** Section 2.6: Semantic Markup
+   - There are some text elements that are not intended to affect the structure of your web pages but they do add extra information to the pages and these are known as semantic markup
+   - Although some of the semantic markup do change the appearence of text (doesn't change structurally); the elements should not be used just because the browser renders them in a visually different way
+   - The purpose of semantic markup is to describe the content of your web pages more accurately
+   - The reason for these elements are for screen readers and search engines which can use this extra information
+
+** Section 2.7: Strong & Emphasis
+   - The ~<strong>~ element indicates that its content has strong importance
+   - By default, browsers will show the contents of a ~<strong>~ element in bold
+   - The ~<em>~ element indicates emphasis that subtly changes the meaning of a sentence
+   - By default, browsers will show the contents of an ~<em>~ element in italic
+
+** Section 2.8: Quotations
+   - There are two elements commonly used for marking up quotations: ~<blockquote>~ and ~<q>~
+   - The ~<blockquote>~ element is used for longer quotes that take up an entire paragraph (normally a ~<p>~ element is added inside the blockquote)
+   - Browsers tend to indent the contents of the ~<blockquote>~ element but this element should not be used just to indent a piece of text because that can be done using CSS
+   - The ~<q>~ element is used for shorter quotes that sit within a paragraph
+   - Browsers are suppose to put quotes around the ~<q>~ element however it could be that some browsers may not (thus the ~<q>~ element is not used as much)
+   - Both elements may use the cite attribute to indicate where the quote is from (value should be a URL that will have more information about the source of the quotation)
+
+** Section 2.9: Abbreviations & Acronyms
+   - If you use an abbreviation or an acronym then the ~<abbr>~ element can be used
+   - A title attribute on the opening tag is used to specify the full term
+
+** Section 2.10: Citations & Definitions
+   - When you are referencing a piece of work such a a book, film, or research paper, the ~<cite>~ element can be used to indicate where the citation is from
+   - ~<cite>~ should not be used for a person's name but many developers did so in HTML4 (because it was allowed)
+   - The first time you explain some new terminology (perhaps an academic concept or some jargon) in a document, it is known as the defining instance of it
+   - The ~<dfn>~ element is used to indicate the defining instance of a new term (some browsers show the element in italics and others do not change the appearance of the element)
+
+** Section 2.11: Author Details
+   - The ~<address>~ element has quite a specific use: to contain contact details for the author of the page
+   - There could be nested elements inside the ~<address>~ element like paragraphs, links, etc 
+   - It can contain a physical address but it does not have to (it can contain a phone number or email address)
+   - Browsers often display the content of the ~<address>~ element in italics but that can be changed with CSS
+
+** Section 2.12: Changes to Content
+   - The ~<ins>~ element can be used to show content that has been inserted into a document (usually has the text underlined)
+   - The ~<del>~ element can be used to show text that has been deleted from it (usually has a line through the text)
+   - The ~<s>~ element indicates something that is no longer accurate or relevant but should not be deleted (visually the content of an ~<s>~ element will be usually be displayed with a line through the center)
+
+** Section 2.13: Creating A Simple HTML Page
+   - We are going to create a HTML page that demonstrates text markup which includes ~<h1>~, ~<h2>~, ~<p>~, ~<cite>~, ~<em>~, and more
+   - [[file:./002.013.Creating_A_Simple_HTML_Page/index.html][Here is the finished web page]]
+     
+* Keywords
+| Term                              | Definition                                                                                                             |
+|-----------------------------------+------------------------------------------------------------------------------------------------------------------------|
+| *HTML Heading Element*            | An element that is used to display headings and subheadings; it has six level of headings                              |
+| *HTML Paragraph Element*          | An element used to represent a paragraph                                                                               |
+| *HTML Bring-to-Attention Element* | An element to make text bold (only used to change visual appearence of text and has no meaning)                        |
+| *HTML Idiomatic Element*          | An element to make text italic (only used to change visual appearence of text and has no meaning)                      |
+| *HTML Superscript Element*        | An element to create superscript elements                                                                              |
+| *HTML Subscript Element*          | An element to create subscript elements                                                                                |
+| *HTML Line Break Element*         | A self-closing element to create a line break                                                                          |
+| *HTML Horizontal Rule Element*    | A self-closing element to create a horizontal line to signify a thematic break or change                               |
+| *HTML Strong Element*             | An element to indicate its content has strong importance                                                               |
+| *HTML Emphasis Element*           | An element to indicate emphasis that subtly change the meaning of a sentence                                           |
+| *HTML Blockquote Element*         | An element used to for longer quotes                                                                                   |
+| *HTML Inline Quote Element*       | An element used to inline quotation                                                                                    |
+| *HTML Abbreviation Element*       | An element used for abbreviations and acronyms                                                                         |
+| *HTML Cite Element*               | An element used to indicate where the citation is from                                                                 |
+| *HTML Definition Element*         | An element used to indicate a term to be defined                                                                       |
+| *HTML Address Element*            | An element used to enclose contact information for a person, people, or for an organziation                            |
+| *HTML Insert Element*             | An element that represents text that has been added to a document                                                      |
+| *HTML Delete Element*             | An element that represents text that has been deleted from a document                                                   |
+| *HTML Strikethrough Element*      | An element that render text with a strikethrough or a line through it (not appropriate when indicating document edits) |
+  
+* Questions
+  - *Q*: Is the inline quotation element still used in HTML5?
+         - Yes the quotation element is still being used but because of the browser's inconsistency, CSS is used to add quotations or not
+
+* Summary
+  - There are many HTML elements to add structure to the document such as headings, paragraphs, make text bold or italic, add subscript or superscript
+  - You can also add line breaks, horizontal rules (lines) 
+  - One thing to note is that whitespace is collapsed by the browser so if you were to have multiple spaces or line breaks in your code then the browser will just render that has a single white-space which is why we have elements to control that behavior for us
+  - Another thing to note is that we have semantic markup which does not change the structure of the page but just add meaning to the element and its content (e.g. instead of bold we can possibly use strong which visually does the same thing but semantically mean different things)
+  - Strong and emphasis are example of semantic elements
+  - Other elements are quotations (blockquote for multiline quotes or ~<q>~ for inline quotes), abbreviations and acronyms, citations and definitions, author details (~<address>~), and inserting text, deleting text, and strikethrough text
+  - This chapter was mainly how to use elements to affect text

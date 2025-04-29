@@ -1,0 +1,255 @@
+#+title: Chapter 10: Introducing CSS
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 9: Flash, Video and Audio      | \vert [[file:../009.Flash_Video_and_Audio/009.000.Notes.html][html]] \vert [[file:../009.Flash_Video_and_Audio/009.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/009.Flash_Video_and_Audio][github]] \vert |
+| Next  | Chapter 11: Color                      | \vert [[file:../011.Color/011.000.Notes.html][html]] \vert [[file:../011.Color/011.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/011.Color][github]] \vert |
+
+* Notes
+
+** Section 10.1: Introduction to CSS
+   - The key to understanding how CSS works is to imagine that there is an invisible box around every HTML element
+   - Recall what are block level elements and inline level elements: block level elements start on a new line while inline elements flow within the text and do not start on a new line
+   - CSS allows you to create rules that control the way that each individual box and the contents of that box is presented
+   - For example, for elements or "boxes" you can add a border around any of the boxes and specify the width, height, color, style, background color, and more
+   - For text inside a box you can control the typeface (e.g. font which is a specific style of the typeface like Roboto which is the typeface and the font is Roboto Regular or Roboto Thin), size, color, italics, bold, uppercase, lowercase, and more
+   - However there are specific rules in CSS to specifically specify the ways you want to style certain elements
+
+*** Section 10.1.1: CSS Rules
+    - CSS works by associating rules with HTML elements
+    - What do we mean by that? These rules govern how the content of specified elements should be displayed
+    - A CSS rule contains two parts: a *selector* and a *declaration*
+    - For example:
+
+    #+BEGIN_SRC css
+      p {
+	  font-family: Arial;
+      }
+    #+END_SRC
+
+    - The p is the selector and indicates that all ~<p>~ elements should be shown in the Arial typeface
+    - The declaration is the ~font-family: Arial~
+    - Selectors indicate which element the rule applies to and the same rule can apply to more than one element if you separate the elemet names with commas like ~p, h1, div {}~ (the declaraction will be applied to ~<p>~, ~<h1>~, and ~<div>~ elements)
+    - Declarations indicate how the elements referred to in the selector should be styled
+
+*** Section 10.1.2: CSS Declaration Rules
+    - Declarations are split into two parts: a property and a value
+    - The property and value are separated by a colon and it ends with a semi-colon
+    - CSS declarations sit inside curly brackets after specifying the selectors
+    - Several /properties/ can be specified in one declaration by separating the property / value pair by a semi-color
+    - Properties indicate the aspects of the element you want to change (e.g. color, font, width, etc.)
+    - Values specify the settings you want to use for the chosen properties (e.g. green for color, Roboto for typeface, etc.)
+    - For example:
+
+    #+BEGIN_SRC css
+      h1, h2, h3 {
+	  font-family: Arial;
+	  color: yellow;
+      }
+    #+END_SRC
+
+    - The example above says for h1, h2, and h3 elements I want the typeface to be Arial and the text color to be yellow
+    - Let's do an [[file:./010.001.First_CSS_Example/index.html][exmaple with HTML and CSS]]
+
+** Section 10.2: Using CSS
+
+*** Section 10.2.1: Using External CSS
+   - The ~<link>~ element can be used in a HTML document to tell the browser where to find the CSS file to style the page
+   - The ~<link>~ element is a self-closing tag and it is inside the ~<head>~ element and it should use three attributes:
+     1. ~href~: specifies the path to the CSS file (often placed in a folder called css or styles)
+     2. ~type~: specifies the type of document being linked to (e.g. ~text/css~)
+     3. ~ref~: specifies the relationship between the HTML page and the file it is linked to (e.g. ~stylesheet~)
+   - An HTML page can use more than one CSS style sheet
+   - To do this it could have a ~<link>~ element for every CSS file it uses (e.g. one CSS file to control presentation and a second to control the layout)
+   - Here is an example:
+
+     #+BEGIN_SRC html
+       <!DOCTYPE html>
+       <html>
+	 <head>
+	   <title>An Example Using External CSS</title>
+	   <link href="css/styles.css" type="text/css" rel="stylesheet" />
+	 </head>
+       </html>
+     #+END_SRC
+     
+*** Section 10.2.2: Using Internal CSS
+   - You can use the ~<style>~ element which sits inside the ~<head>~ element which allows you to include CSS rules within an HTML page by placing them inside the ~<style>~ element
+   - The ~<style>~ element should use the ~type~ attribute to indicate that the styles are specified in CSS (e.g. ~text/css~ specifies the style is in CSS)
+   - Although you can use internal CSS with HTML, it is best to use an external CSS style sheet especially when building a site with more than one page
+   - The benefits of using external CSS style sheet are:
+     - Same style sheet can be applied to multiple pages instead of repeating them
+     - Keeps the content separate from how the page looks
+     - Can change the style of all pages by modifying only one file
+   - Here is an example:
+     
+     #+BEGIN_SRC html
+       <!DOCTYPE html>
+       <html>
+	 <head>
+	   <title>An Example Using Internal CSS</title>
+	   <style type="text/css">
+	     body {
+	       font-family: arial;
+	     }
+	   </style>
+	 </head>
+       </html>
+     #+END_SRC
+
+*** Section 10.2.3: Using Inline CSS
+    - Another way to specify CSS are by the ~style~ attribute which is avaiable in most of the elements that appear in the body of a page
+    - The CSS rules that appeared within the value of the attribute would only apply to that one element
+    - Here's an example:
+
+      #+BEGIN_SRC html
+	<p style="color:red;">This is an example</p>
+      #+END_SRC
+
+** Section 10.3: CSS Selectors
+   - Recall a CSS rule has one or more selectors and a declaration
+   - The declaration can have one or more properties which specify some CSS property to a HTML element?
+   - What are CSS selectors? CSS selectors are a pattern of elements and other terms to basically tell the browser which HTML elements should be selected to have the CSS property values declared in the declaration of the CSS rule
+   - There are many different types of CSS selectors that allow you to target rules to specific elements in a HTML document
+   - CSS selectors are case sensitive so they must match element names and attribute values exactly (e.g. class names, ids, any other attribute because it can be used to select a HTML element)
+   - There are advanced selectors which allow you to select elements based on attributes and their values
+   - Here are the list of selectors:
+
+   | Selector                         | Meaning                                                                                                                                                                               | Example                                                                                   | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+   |----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | Universal Selector               | Applies to all elements in the document                                                                                                                                               | ~* {}~                                                                                    | Notice how the "*" indicates all the properties declared in the declaration will be applied to every HTML element declared in the page                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+   | Type Selector                    | Applies to HTML elements with the same name                                                                                                                                           | ~h1, h2, h3 {}~                                                                           | Notice how it will use the names and match it with the HTML elements' names; multiple html elements can be specified all having the same declaration declared instead of repeating the same declaration                                                                                                                                                                                                                                                                                                                                                                                                                          |
+   | Class Selector                   | Matches an element whose ~class~ attribute has a value that matches the one specified after the period symbol                                                                         | ~.note {}~ or ~p.note {}~                                                                 | Notice to use a class selector you must use a period which will apply to HTML elements with that class or you can target HTML elements with that class attribute but the HTML element must be a specific element for the properties to be applied (e.g. ~p.note~ specifies only ~<p>~ elements whose ~class~ attribute has a value of ~note~)                                                                                                                                                                                                                                                                                    |
+   | ID Selector                      | Matches an element whose ~id~ attribute has a value that matches the one specified after the pound or hash symbol                                                                     | ~#introduction {}~                                                                        | Notice to use a id selector you must use the pound symbol and targets a specific HTML element with the same id attribute                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+   | Attribute Selector               | Matches HTML elements with certain attributes                                                                                                                                         | ~a[title]~ or ~a[href="example.com"]~ or ~p[class~="special"]~ or ~div[lang \vert ="zh"]~ | Notice the first example will apply the properties to the ~<a>~ elements that have an attribute called ~title~, the second example will apply to ~<a>~ elements that have the attribute ~href~ and the exact value ~example.com~, the third example matches ~<p>~ elements whose attribute ~class~ has an exact value or contains the value in a space separated list of ~special~, and the fourth example matches with ~<div>~ elements with the attribute ~lang~ whose value is exactly or begins with ~zh~ immediately followed by a hyphen; these are just examples but many combinations can be created using this selector |
+   | Pseudo Class & Elements          | Matches with certain states of an element (pseudo class) or a certain part of the element rather than an element itself (pseudo element)                                              | ~a:hover {}~ or ~p::first-line {}~                                                        | The properties will be applied to only ~<a>~ elements when the element is hovered over by a mouse pointer and the second example indicates the first line inside the ~<p>~ element will have the properties applied; these are just examples and there are various pseudo classes and elements                                                                                                                                                                                                                                                                                                                                   |
+   | Child Selector                   | Matches an element that is a direct child of another                                                                                                                                  | ~li > a {}~                                                                               | Notice the ">" symbol used indicate the parent and child; In the example, it will target any ~<a>~ elements that are direct children of an ~<li>~ element (but not other ~<a>~ elements in the page)                                                                                                                                                                                                                                                                                                                                                                                                                             |
+   | Descendant Selector              | Matches an element that is a descendent of another specified element (includes but not just a direct child of that element)                                                           | ~p a {}~                                                                                  | Notice how a space is used to describe the relationship; it targets any ~<a>~ elements that sit inside a ~<p>~ element, even if there are other elements nested between them (does not matter the number of elements in between)                                                                                                                                                                                                                                                                                                                                                                                                 |
+   | Next (Adjacent) Sibling Selector | Matches an element that is the next sibling of another                                                                                                                                | ~h1 + p {}~                                                                               | The "+" is used to describe the relationship; In the example, it will target the *first* (hence next) ~<p>~ element after any ~<h1>~ elements (but not any other ~<p>~ elements)                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+   | Subsquent Sibling Selector       | Matches an element that is a sibling of another, although it does not have to be the directly adjacent element; basically matches any sibling of the element that come anywhere after | ~h1 ~ p {}~                                                                               | The "\~" is used to describe the relationship and in the example if you had two ~<p>~ elements that are siblings of an ~<h1>~ element then this rule would apply to both                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+   - [[https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors][Mozilla CSS Selectors Docs]]
+   - [[https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors][Mozilla Type, Class, and ID Selectors Docs]]
+   - [[https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors][Mozilla Attribute Selectors Docs]]
+   - [[https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements][Mozilla Pseudo-Classes and Pseudo-Elements Docs]]
+   - [[https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators][Mozilla Combinators Selectors Docs]]
+
+   - There are many more ways to combine selectors in CSS, the ones discussed above are just examples
+   - For example, you may use an attribute selector along with a child selector
+
+** Section 10.4: How CSS Rules Cascade
+   - What if there are two or more rules that apply to the same element? There are a couple precendence rules to dictate the CSS rules precedence
+   1. Last Rule
+      - If there are two selectors that are identical (e.g. ~p {}~ and ~p {}~ appear twice) then the latter of the two will take precedence
+   2. Specificity
+      - If one selector is more specific than the others, the more specific rule will take precedence over more general ones
+      - How is specifcity determined? According to the [[https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#selector_weight_categories][Mozilla Specificity Docs]] the specificity of the CSS rule is determined by an algorithm depending on the selectors weight category (e.g. id selectors have the highest weight)
+      - An example is that ~h1~ is more specific than ~*~ and ~p b~ is more specific than ~p~ and ~p#intro~ is more specific than ~p~
+      - Note that inline CSS have the highest preccedence
+      - However, you can add ~!important~ after any property value to indicate that it should be considered more important than other rules that apply to the same element (thus overriding any other rule applied to the element including inline CSS)
+      - An example of using ~!important~ is the following: ~p {color: blue !important;}~
+   - Benefit of understanding cascading rules is that you can create generic rules that apply to most elements and then override the properties on individual elements that need to appear differently
+
+** Section 10.5: Inheritance
+   - There are some CSS properties that when applied to the element then all descendants of that element will inherit the same property
+   - For example, if you specify the ~font-family~ or the ~color~ properties on the ~<body>~ element then they will be applied to most child elements
+   - This is because those properties are inherited by the child elements
+   - There are other properties that are not inherited by child elements (e.g. ~background-color~, ~border~, ~width~, etc.)
+   - However, you can force a lot of properties to inheirt values from their parent elements by using ~inherit~ for the value of the properties
+   - For example:
+
+     #+BEGIN_SRC css
+       body {
+	   padding: 10px;
+       }
+
+       h1 {
+	   padding: inherit;
+       }
+     #+END_SRC
+
+   - In this example, the ~<h1>~ elements will have the padding inherited from the parent
+   - Note that ~inherit~ is used in the child elements and not in the parent; thus if you want a selector to inherit certain properties of their parent then use the ~inherit~ for the value of the properties
+
+** Section 10.6: Why Use External Style Sheets
+   - The benefits of using external style sheets are:
+     1. All web pages can share common style sheets by using the ~<link>~ element on the pages
+     2. Your website will be faster to download because the files will be smaller because there will be shared files and thus will not be needed to repeat files or code
+     3. Changing your whole website can be done quicker and efficient by having only one place to edit
+     4. Easier to understand HTML code because CSS rules will be removed
+     5. Good practice to have the content of the site separated from the rules that determine how it appears
+   - Why use internal CSS?
+     1. You are creating a single HTML page and thus want to keep everything in one file (although good practice to separate HTML and CSS)
+     2. Want to override some CSS rules only for that specific page (although good practice to separate HTML and CSS)
+
+** Section 10.7: Different Versions of CSS & Browser Quirks
+   - CSS1 was released in 1996 followed by CSS2 in 1998 and finally CSS3 is the latest CSS version
+   - There may be some quirks or nuances in the way different browsers implement certain CSS properties
+   - Best way to find such nuances in your website is to test your site in multiple browsers in multiple OS
+   - If something does not display as expected you can either find a solution or change the CSS rule
+   - Normally when a CSS property does not display as expected it is generally referred to as a browser quirk or CSS bug
+   
+* Keywords
+| Term                     | Definition                                                                                                                                                                                                                        |
+|--------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CSS                      | Cascading Style Sheets (CSS) is a style sheet language used for specifying the presentation and styling of a document written in HTML or XML                                                                                      |
+| Block-level Elements     | Block level elements are elements that start on a new line and take up the school width of its parent regardless of its content                                                                                                   |
+| Inline-level Elements    | Inline-level elements are elements that only take up space as needed and do not start on a new line                                                                                                                               |
+| CSS Rule                 | CSS rules dictate what styling should be applied to what element; the css rule has two parts the selector and the declaration                                                                                                     |
+| CSS Selectors            | Part of the CSS rule, the selector indicates which element the rule will be applied to; the same rule can apply to more than one element                                                                                          |
+| CSS Declaration          | Part of the CSS rule, indicates how the elements selector should be styled and again can be applied to more than one element; it has two parts: a property and a value                                                            |
+| CSS Declaration Property | Properties indicate a certain aspect of the element you want to change (e.g. color, font, width, etc); a declaration may have declared multiple properties                                                                        |
+| CSS Declaration Value    | Values specify the settings you want to use for the chosen properties (e.g. green for color, Roboto for typeface, etc.)                                                                                                           |
+| ~<link>~ Element         | The link element specifies relationships between the current document and an external resource (in our case the CSS stylesheets)                                                                                                  |
+| ~<style>~ Element        | It is a HTML element that contains CSS (style information) for the document or part of the document                                                                                                                               |
+| ~!important~             | This can be used at the end of a CSS value to indicate that the CSS property is more important than any other rule that it applies to the same element thus overriding any other rule that applies to the element including inline CSS |
+| ~inherit~                | This is used as a value to a CSS property and it inherits the values for that property from their parent                                                                                                                          |
+
+* Questions
+  - *Q*: Besides CSS files, can ~<link>~ elements be used for other purposes? Does it need to be inside the ~<head>~ element? Can it be inside other elements? 
+         - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link][Mozilla Link Element Docs]]
+         - According to the Mozilla docs the ~<link>~ element specifies relationships between the current document and an external resource
+         - It is commonly used to link stylesheets but can also be used establish site icons (favicon, icons for home screen, etc.)
+         - Recall a favicon is a small 16x16 pixels icon used as a shortcut icon for your website often used in bookmarks and tabs
+         - For example,
+	   
+	   #+BEGIN_SRC html
+	       <link rel="icon" href="favicon.ico" />
+	   #+END_SRC
+
+	 - For stylesheets ~rel~ becomes ~stylesheet~
+	 - The ~rel~ attribute stands for "relationship" and denotes how the item being linked to is related to the containing document
+         - The ~<link>~ element can be in either the ~<head>~ or the ~<body>~ element depending on whether it has a "link-type" that is allowed in the body
+	 - The ~rel~ attribute has various relations from bookmark, stylesheet, icon, author, and more
+         - Here is the list of values for ~rel~: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel
+
+* Summary
+  - CSS is used to style and specify the presentation of HTML
+  - In order to understand how to use CSS we must remember the difference between block-level and inline elements
+  - You can do a lot of customization with CSS such as font, color, borders, etc. but to do so you need to specify rules in CSS to apply the style changes to certain elements
+  - These are called CSS rules and the CSS rules have two parts to them: the selector and the declaration
+  - The selector specifies which element this rule will be applied to, the selector can be specific like one element or it can be more general and be applied to many elements, or a mixture but point is the selector chooses the element to apply the rule
+  - The declaration are the properties that will be applied to the elements declared in the selector so it basically indicates how the elements selected should be styled and these can be zero to many elements
+  - The declaration can be split into two parts: a property and a value
+  - Each property and value are separated by a colon and it ends with a semi-colon; a declaration may have multiple properties (property/value pair) it is not limited to just one but it can be many
+  - Properties indicate certain aspects  of the element you want to change of the element selected such as color, font, width, etc. and the values specify the settings you want to use for the chosen property such as green for color, Roboto for the typeface, etc.
+  - Some properties will only work for certain elements while other properties are universal (global)
+  - There are three ways to use CSS: external, internal, and inline
+  - To use CSS externally, you create a CSS file and add the CSS rules there then you link the HTML file and CSS file by adding the ~<link>~ element in the ~<head>~ element of the HTML document
+  - You can add multiple CSS files by adding more ~<link>~ elements to the head of the HTML document
+  - To use CSS internally, you use the ~<style>~ element; in-between the opening and closing tags you add the CSS rules instead in a separate file; there is no difference it is the same CSS rules but it is generally recommended to separate CSS in a separate file
+  - Another way to add CSS is by using the inline CSS, each element has an attribute called ~style~ and you can declare the style attribute in any element you would like to style and for its value you add the CSS declaration (properties and values) and the declaration will be applied to only that element; again this is not recommended
+  - There are many ways to combine syntax and use CSS selectors
+  - For example, there are ways to select children of an element, a specific element or group of elements by using ids and class names, siblings of an element, adjacent elements, grandchilren, etc. there are many rules that can be used in CSS selectors
+  - Another question is what if there are multiple rules that apply to the same element? Well, it tries to use the rule that is more specific to that element (e.g. uses the id instead of the element) if the selectors are the same then it uses the last rule it encounters, however, you can add ~!important~ that the end of any property which will be consider more important than any other rule that is applies to the element thus overriding any cascading properties
+  - There are also some properties that when applied to an element, it's descendents will inherit the same property (e.g. font if applied to the ~<body>~ element)
+  - Not all properties will be inherited but you can inherit it's parent property by using the ~inherit~ as the CSS value to a property indicating for that property you would like to inherit its parent's styling
+  - External CSS is encouraged because you separate HTML and CSS, web pages will share a common stylesheet, it only requires changes to one file if needed, and it is easier to understand when the styling and content are separated
+  - CSS properites may present itself differently in different browsers and if the CSS property does not display as expected it is referred to as a CSS bug
+ 

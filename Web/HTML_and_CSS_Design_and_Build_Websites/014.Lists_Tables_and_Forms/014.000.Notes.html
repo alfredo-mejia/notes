@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 12:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 14: Lists, Tables &amp; Forms</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Chapter 14: Lists, Tables &amp; Forms</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2ca0f88">Navigation</a></li>
+<li><a href="#org1a4c330">Notes</a>
+<ul>
+<li><a href="#orgb8c09c1">Section 14.1: Bullet Point Styles</a></li>
+<li><a href="#orgdf3bfb0">Section 14.2: Positioning the Bullet Point</a></li>
+<li><a href="#org8829762">Section 14.3: Table Properties</a></li>
+<li><a href="#orgc2a9fce">Section 14.4: Tips to Styling Tables</a></li>
+<li><a href="#org4146d80">Section 14.5: Styling Forms</a>
+<ul>
+<li><a href="#orgd374c77">Section 14.5.1: Styling Inputs</a></li>
+<li><a href="#org7fa20a7">Section 14.5.2: Styling Submit Buttons</a></li>
+<li><a href="#org8a96e65">Section 14.5.3: Styling Fieldsets &amp; Legends</a></li>
+<li><a href="#org20cde3b">Section 14.5.4: Aligning Forms Controls</a></li>
+</ul>
+</li>
+<li><a href="#orga2be751">Section 14.6: Cursor Styles &amp; Web Developer Toolbar</a></li>
+<li><a href="#org63ff557">Section 14.7: Lists, Tables, and Forms Example</a></li>
+</ul>
+</li>
+<li><a href="#org11646d6">Keywords</a></li>
+<li><a href="#org1eed19a">Questions</a></li>
+<li><a href="#org5a632b3">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2ca0f88" class="outline-2">
+<h2 id="org2ca0f88">Navigation</h2>
+<div class="outline-text-2" id="text-org2ca0f88">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">HTML &amp; CSS - Design and Build Websites</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 13: Boxes</td>
+<td class="org-left">&vert; <a href="../013.Boxes/013.000.Notes.html">html</a> &vert; <a href="../013.Boxes/013.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/013.Boxes">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 15: Layout</td>
+<td class="org-left">&vert; <a href="../015.Layout/015.000.Notes.html">html</a> &vert; <a href="../015.Layout/015.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/015.Layout">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org1a4c330" class="outline-2">
+<h2 id="org1a4c330">Notes</h2>
+<div class="outline-text-2" id="text-org1a4c330">
+</div>
+<div id="outline-container-orgb8c09c1" class="outline-3">
+<h3 id="orgb8c09c1">Section 14.1: Bullet Point Styles</h3>
+<div class="outline-text-3" id="text-orgb8c09c1">
+<ul class="org-ul">
+<li>The <code>list-style-type</code> property allows you to control the shape or style of a bullet point (also known as a marker)</li>
+<li>It can be used on rules that apply to the <code>&lt;ol&gt;</code>, <code>&lt;ul&gt;</code>, and <code>&lt;li&gt;</code> elements</li>
+<li>For an unordered list you can use the following values: <code>none</code>, <code>disc</code>, <code>circle</code>, and <code>square</code></li>
+<li>For an ordered (numbered) list you can use the following values: <code>decimal</code>, <code>decimal-leading-zero</code>, <code>lower-alpha</code>, <code>upper-alpha</code>, <code>lower-roman</code>, and <code>upper-roman</code></li>
+<li>You can specify an image to act as a bullet point using the <code>list-style-image</code> property</li>
+<li>The value of the property starts with the letters <code>url()</code> and inside the parentheses is the path to the image in double quotes</li>
+<li>This property can be aplied to the <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code> elements</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdf3bfb0" class="outline-3">
+<h3 id="orgdf3bfb0">Section 14.2: Positioning the Bullet Point</h3>
+<div class="outline-text-3" id="text-orgdf3bfb0">
+<ul class="org-ul">
+<li>Lists are indented into the page by default and <code>list-style-position</code> property indicates whether the marker should appear on the inside or outside of the box containing the main points</li>
+<li>This property can take one of two values: <code>outside</code> or <code>inside</code></li>
+<li>Outside sits to the left of the block of text (this is the default behavior)</li>
+<li>Inside sits inside the box of text which is indented</li>
+<li>There is a short-hand version property called <code>list-style</code> which allows you to express the markers' style, image, and position properties in any order</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8829762" class="outline-3">
+<h3 id="org8829762">Section 14.3: Table Properties</h3>
+<div class="outline-text-3" id="text-org8829762">
+<ul class="org-ul">
+<li><code>width</code>: set the width of the table</li>
+<li><code>padding</code>: set the space between the border of each table cell and its content</li>
+<li><code>text-transform</code>: convert the content of the table headers to uppercase</li>
+<li><code>letter-spacing</code>: set the space between letters</li>
+<li><code>font-size</code>: sets the font size</li>
+<li><code>border-top</code> &amp; <code>border-bottom</code>: set borders above and below the table headers</li>
+<li><code>text-align</code>: align the writing to the left of some table cells and to the right of the others</li>
+<li><code>background-color</code>: change the background color of the alternating table rows</li>
+<li><code>:hover</code>: highlight a table row when a user's mouse goes over it</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc2a9fce" class="outline-3">
+<h3 id="orgc2a9fce">Section 14.4: Tips to Styling Tables</h3>
+<div class="outline-text-3" id="text-orgc2a9fce">
+<ul class="org-ul">
+<li>(1). Give cells padding to improve readability</li>
+<li>(2). Distinguish headings to make them easier to read</li>
+<li>(3). Shade alternate rows to help users follow along the lines</li>
+<li>(4). Align numerals to easily distinguish between large and small numbers</li>
+<li>(5). If you have empty cells in your table then use the <code>empty-cells</code> property to specify whether or not their borders should be shown (values are <code>show</code> which shows the border, <code>hide</code> which hides the border, and <code>inherit</code> which inherits only if the table is nested within another table)</li>
+<li>(6). Allocated enough gap space between cells using <code>border-spacing</code> which allows you to control the distance between adjacent cells (it has a default value and is specified in pixels and you can specify two values one for horizontal and one for vertical) and, sometimes when two cells meet and have a border, the width of the lines would be twice that of the outside edges but it is possible to collapse adjacent borders by using the <code>border-collapse</code> property and the values can be <code>collapse</code> (borders are collapsed into a single border where possible; <code>border-spacing</code> and <code>empty-cells</code> will be ignored) and <code>separate</code> (borders are detached from each; <code>border-spacing</code> and <code>empty-cells</code> will be obeyed)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4146d80" class="outline-3">
+<h3 id="org4146d80">Section 14.5: Styling Forms</h3>
+<div class="outline-text-3" id="text-org4146d80">
+</div>
+<div id="outline-container-orgd374c77" class="outline-4">
+<h4 id="orgd374c77">Section 14.5.1: Styling Inputs</h4>
+<div class="outline-text-4" id="text-orgd374c77">
+<ul class="org-ul">
+<li><code>font-size</code>: sets the size of the text entered by the user</li>
+<li><code>color</code>: sets the the text color</li>
+<li><code>background-color</code>: sets the background color of the input</li>
+<li><code>border</code>: adds a border around the edge of the input box</li>
+<li><code>border-radius</code>: used to create rounded corners</li>
+<li><code>:focus</code>: pseudo-class is used to change the background color of the text input when it is being used</li>
+<li><code>:hover</code>: psuedo-class applies the same styles when the user hovers over them</li>
+<li><code>background-image</code>: adds a background image to the box</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7fa20a7" class="outline-4">
+<h4 id="org7fa20a7">Section 14.5.2: Styling Submit Buttons</h4>
+<div class="outline-text-4" id="text-org7fa20a7">
+<ul class="org-ul">
+<li>Submit button inherits the styles set for the <code>&lt;input&gt;</code> element talked about in the previous section</li>
+<li><code>color</code>: used to change the color of the text on the button</li>
+<li><code>text-shadow</code>: can give a 3D look to the text</li>
+<li><code>border-bottom</code>: used to make the bottom border of the button slightly thicker which gives it a more 3D feel</li>
+<li><code>background-color</code>: can make the submit button stand out from other items around it and creating a consistent style for all buttons help users understand how they should interact with the site</li>
+<li><code>:hover</code>: psuedo-class has been used to change the appearance of the button when the user hovers over it</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8a96e65" class="outline-4">
+<h4 id="org8a96e65">Section 14.5.3: Styling Fieldsets &amp; Legends</h4>
+<div class="outline-text-4" id="text-org8a96e65">
+<ul class="org-ul">
+<li>Fieldsets are particularly helpful in determining the edges of a form</li>
+<li>In a long form they can help group together related information within it</li>
+<li>The legend is used to indicate what information is required in the fieldset</li>
+<li>Properties commonly used with these two elements include:</li>
+<li><code>width</code>: used to control the width of the fieldset (the width of the fieldset forces the form elements to wrap onto a new line in the correct place because if it was too wide the items might sit on one line)</li>
+<li><code>color</code>: used to control the color of text</li>
+<li><code>background-color</code>: change the color behind these items</li>
+<li><code>border</code>: used to control the appearance of the border around the fieldset and/or legend</li>
+<li><code>border-radius</code>: is used to soften the edges of these elements in browsers that support this property</li>
+<li><code>padding</code>: used to add space inside these elements</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org20cde3b" class="outline-4">
+<h4 id="org20cde3b">Section 14.5.4: Aligning Forms Controls</h4>
+<div class="outline-text-4" id="text-org20cde3b">
+<ul class="org-ul">
+<li>Labels for form elements are often different lengths, which means that the form controls will not appear in a straight line</li>
+<li>It is easier for users to fill in a form if the form controls are aligned in a straight vertical line</li>
+<li>When the form only contains text inputs, by setting all of the text inputs to be the same width, as well as aligning all of the form content to the right, the fields line up and the labels are in a consistent place</li>
+<li>A property called <code>float</code> can help with alignment, you can move the labels to the left of the page</li>
+<li>You can also use the <code>width</code> property for the labels so that each label takes up the same amount of width, therefore the form controls next to them will line up</li>
+<li><code>text-align</code> property can be used to align the title to the right within the box and <code>padding</code> is used to make sure there is a gap between the text in the title boxes and the form controls</li>
+<li>The div or container containing the form control can also be styled with the <code>width</code> property and add margins or paddings to create space vertically between each row</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga2be751" class="outline-3">
+<h3 id="orga2be751">Section 14.6: Cursor Styles &amp; Web Developer Toolbar</h3>
+<div class="outline-text-3" id="text-orga2be751">
+<ul class="org-ul">
+<li>The <code>cursor</code> property allows you to control the type of mouse cursor that should be displayed to users</li>
+<li>Commonly used values for the <code>cursor</code> property: <code>auto</code>, <code>crosshair</code>, <code>default</code>, <code>pointer</code>, <code>move</code>, <code>text</code>, <code>wait</code>, <code>help</code>, <code>url("cursor.gif")</code></li>
+<li>You should only use these values to add helpful information for users in places they would expect to see that cursor</li>
+<li>You can use the web developer tools in browsers to see the structure of the HTML and CSS code, each element can be highlighted and see the code</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org63ff557" class="outline-3">
+<h3 id="org63ff557">Section 14.7: Lists, Tables, and Forms Example</h3>
+<div class="outline-text-3" id="text-org63ff557">
+<ul class="org-ul">
+<li><a href="./014.007.Lists_Tables_and_Forms_Example/index.html">Lists, Tables, and Forms Example</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org11646d6" class="outline-2">
+<h2 id="org11646d6">Keywords</h2>
+<div class="outline-text-2" id="text-org11646d6">
+<p>
+<b>Note</b>: Many CSS properties will not be written as keywords because they are so many and easily forgettable and searchable
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Web Developer Tools</td>
+<td class="org-left">A browser tool that allows you to view the source code (the HTML and CSS code) of the website</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org1eed19a" class="outline-2">
+<h2 id="org1eed19a">Questions</h2>
+<div class="outline-text-2" id="text-org1eed19a">
+<ul class="org-ul">
+<li><b>Q</b>: What is the best way to align form controls?
+<ul class="org-ul">
+<li><a href="https://stackoverflow.com/questions/4309950/how-to-align-input-forms-in-html">Stackoverflow Answer</a></li>
+<li>According to the answer in stackoverflow, we can set the width but this can lead to other problems</li>
+<li>Instead we use "CSS tables" which is basically they use the property <code>display</code></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">Mozilla CSS Display Property Docs</a></li>
+<li>The <code>display</code> property sets whether an element is treated as a block or inline box</li>
+<li>The stackoverflow answer uses the <code>display</code> and as the value uses <code>table</code>, <code>table-row</code>, and <code>table-cell</code></li>
+<li>According to the docs, the elements will behave like a table element (<code>&lt;table&gt;</code>), like a table row (<code>&lt;tr&gt;</code>), and like a table cell (<code>&lt;td&gt;</code>)</li>
+<li>Because they make the elements behave like a table it will be aligned perfectly like a table and thus this is a good way to align form controls</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5a632b3" class="outline-2">
+<h2 id="org5a632b3">Summary</h2>
+<div class="outline-text-2" id="text-org5a632b3">
+<ul class="org-ul">
+<li>Bullet points style can be changed by using the <code>list-style-type</code> for both unordered lists and ordered lists</li>
+<li>You can even set an image or icon using <code>list-style-image</code> for unordered lists</li>
+<li>Bullet points can also be indented or not using <code>list-style-position</code></li>
+<li>There are various table properties to style the table such as <code>width</code>, <code>padding</code>, <code>text-transform</code>, <code>letter-spacing</code>, <code>font-size</code>, <code>border-top</code>, <code>border-bottom</code>, <code>text-align</code>, <code>background-color</code>, <code>:hover</code>, etc.</li>
+<li>Some tips to styling tables are: give cells padding to improve readability, distinguish headings to make them easier to read, shade alternate rows to help users follow along the lines, use <code>empty-cells</code> property when having empty cells and allocate enough gap space between cells using <code>border-spacing</code></li>
+<li>You can style inputs with various properties like <code>font-size</code>, <code>color</code>, <code>background-color</code>, <code>border</code>, <code>border-radius</code>, <code>:focus</code>, <code>:hover</code>, and <code>background-image</code></li>
+<li>You can also style submit buttons using <code>color</code>, <code>text-shadow</code>, <code>border-bottom</code>, <code>background-color</code>, <code>:hover</code>, and more</li>
+<li>Fieldsets can also be styled using <code>width</code>, <code>color</code>, <code>background-color</code>, <code>border</code>, <code>border-radius</code>, <code>padding</code>, and more</li>
+<li>To align forms you make sure each title and form element have the same <code>width</code>, you add <code>padding</code> to improve readability, you use <code>float</code> to move the element, and you use <code>text-align</code> to align the text</li>
+<li>You can change the cursor type with the <code>cursor</code> property</li>
+<li>You can also view each website's HTML and CSS code using the web developer tools</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

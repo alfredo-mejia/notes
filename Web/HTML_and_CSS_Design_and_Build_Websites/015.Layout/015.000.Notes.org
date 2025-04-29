@@ -1,0 +1,421 @@
+#+title: Chapter 15: Layout
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 14: Lists, Tables & Forms      | \vert [[file:../014.Lists_Tables_and_forms/014.000.Notes.html][html]] \vert [[file:../014.Lists_Tables_and_Forms/014.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/014.Lists_Tables_and_Forms][github]] \vert |
+| Next  | Chapter 16: Images                     | \vert [[file:../016.Images/016.000.Notes.html][html]] \vert [[file:../016.Images/016.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/016.Images][github]] \vert |
+
+* Notes
+
+** Section 15.1: Key Concepts in Positioning Elements
+   - CSS treats each HTML element as if it is in its own box; this box will either be a block-level box or an inline box
+   - Block level boxes start on a new line and act as the main building blocks of any layout
+   - Inline level boxes flow between surrounding text
+   - You can control how much space each box takes up by setting the width of the boxes (and sometimes the height too)
+   - To separate boxes, you can use borders, margins, padding, and background colors
+   - If one block-level element sits inside another block-level element then the outer box is known as the containing or parent element
+   - It is common to group a number of elements inside a ~<div>~ (or other block-level) element (e.g. you might group together all of the elements that form the header of a site such as the logo and the main navigation)
+   - The block element (e.g. ~<nav>~) contining a group of elements is then referred to as the containing element
+   - A box may be nested inside several other block-level elements (the containing element is always the direct parent of that element)
+
+** Section 15.2: Controlling the Position of Elements
+   - CSS has the following *positioning schemes* that allow you to control the layout of a page: normal flow, relative positioning, and absolute positioning
+   - You can specify the positioning scheme using the ~position~ property in CSS and you can float elements using the ~float~ property
+   - *Normal Flow*: Every block-level element appears on a new line, causing each item to appear lower down the page than the previous one
+   - Even if you change the width of the boxes so they can fit in a single line they will *not* appear next to each other unless you tell the browser to do something different
+   - *Relative Positioning*: This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow) 
+   - *Absolute Positioning*: This positions the element in relation to its containing element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up
+   - Absolutely positioned elements move as users scroll up and down the page (that means when you scroll the elements rise up or rise down, the elements will move out of the screen if you scroll too far up or down)
+   - *Fixed Positioning*: This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element
+   - Fixed positioned elements do not affect the position of surrounding elements and they do not move when the user scrolls up or down the page (meaning if you scroll up or down the elements will stay where they are always in sight of the browser window)
+   - *Floating Elements*: Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box
+   - The floating element becomes a block-level element around which other content can flow
+   - To indicate where a box should be positioned, you may also need to use box offset properties to tell the browser how far from the top or bottom and left or right it should be placed
+   - When you move any element from normal flow, boxes can overlap and thus the ~z-index~ property allows you to control which box appears on top
+
+** Section 15.3: Normal Flow
+   - In normal flow, each block-level element sits on top of the next one (this is the default behavior of HTML)
+   - You don't need a CSS property to indicate that the elements should appear in normal flow but the syntax would be ~position: static~
+   - Here's an [[file:./015.003.Normal_Flow_Example/index.html][example]]
+   - As you can see in the example, the paragraph blocks take up 50% and 25% respectively but they do not sit side by side instead they go onto the next line despite there being space
+   - I also wanted to test the ~position: static~ attribute so I created two divs, the top one is without a ~position~ attribute and the bottom one is with the ~position~ attribute and as expected the default behavior is the same as ~position: static~
+
+** Section 15.4: Relative Positioning
+   - Relative positioning moves an element in relation to where it would have been in normal flow
+   - For example, you can move it 10 pixels lower than it would have been in normal flow or 20% to the right
+   - You can indicate that an element should be relatively positioned using the ~position: relative~ property
+   - You can then use the offset properties, ~top~, ~bottom~, ~left~, and ~right~ to indicate how far to move the element from where it would have been in normal flow
+   - The values of the box offset properties are usually given in pixels, percentages, or ems
+   - Here's an [[file:./015.004.Relative_Positioning_Example/index.html][example]]
+   - The example shows that relative positioning is all relative to the position of the element when it is in normal flow
+   - Thus if you offset the element from its normal flow position and it stays within bounds meaning it looks like it belongs or it doesn't overlap with other elements then great
+   - But what if we offset too much, what happens?
+   - In the example, I offset two elements relative to their normal flow position
+   - The first element I put it to the right and down but I did it so much so that it overlap with other elements
+   - This overlapping stays overlapped and does not affect the position of the affected elements
+   - The last element I pushed to the right but since there are no elements there it seems like it belongs there but if there were elements there it would also overlap
+   - Thus relative positioning moves elements relative to their normal flow position to any place in the web page, it doesn't matter if it is super far, in another div, or there are elements there, the element will move based on its original position and offset
+   - Relative positioning may overlap with other elements and stay in that position but will not affect the position of other elements (besides taking space in its original normal flow position)
+
+** Section 15.5: Absolute Positioning
+   - In order to understand more about ~position~ and ~absolute~ positioning, I visited these 3 websites:
+     - [[https://developer.mozilla.org/en-US/docs/Web/CSS/position][Mozilla Docs - CSS Position]]
+     - [[https://stackoverflow.com/questions/45784777/what-is-a-positioned-ancestor#:~:text=When%20referring%20to%20positioned%20ancestor,ancestors%20we%20mean%20the%20closest.][Stackoverflow - What is a Positioned Ancestor]]
+     - [[https://css-irl.info/finding-an-elements-nearest-relative-positioned-ancestor/][Finding an Element's Nearest Relative Positioned Ancestor]]
+    
+   - When the ~position~ property is given a value of ~absolute~ the box is taken out of normal flow and no longer affects the position of other elements on the page (they act like it is not there)
+   - What do you mean they act like it is not there? According to Mozilla the element is removed from the normal document flow, and no space is created for the element in the page layout
+   - So no space is created for them, let's show an example, [[file:./015.005.Absolute_Positioning_Example/index.html][here ]]is the example
+   - We have 3 boxes that use ~position: absolute~
+   - When we offset the element, what is it offset from? Would it be from where its original normal flow position would be?
+   - No it would not be from where its original normal flow position would be because no space was created for that element so its "normal flow position" is actually already occupied by some other element because nothing was there previously
+   - We see that in the example, the blue ~p~ box that is to the right belongs after the last blue ~p~ box inside the red ~div~ box but the red border ends after the last blue ~p~ box and doesn't create extra space like in the relative positioning and that is because there is no space dedicated for that element
+   - So again, what is it offset from? The offset is from the closest ancestor element that does not have the default ~position~ or ~position: static~, it can be anything else but the default position
+   - If no ancestor exists with some other ~position~ then it offsets from the ~body~ element
+   - Thus the element will just be placed to whereever you tell it go even if there's elements there or it is outside the body or browser window
+   - To the browser that element does not even exists in terms of space because it takes no space
+   - Thus if offset it or not, the browser will place the next element to where it should go despite there being an ~absolute~ positioned element because it "doesn't see" it
+   - That's why in the example, the last blue ~p~ box is outside the window because I didn't offset it but also to the browser the last box was the previous one (inside the red box) because the space doesn't exists for the one that is outside the body
+   - Again, the browser will place elements where they go, ignoring ~absolute~ positioned elements because they do not have space dedicated and thus can lead to overlapping elements
+   
+** Section 15.6: Fixed Positioning
+   - ~fixed~ positioning is very similiar to ~absolute~ positioning; the only difference what the elements are offsetting from
+   - In ~absolute~ positioning the elements are offsetting from the closest positioned ancestor (element that has ~position~ to be anything besides ~static~ - default) ancestor
+   - In ~fixed~ positioning the elements are offsetting from the browser window (the window screen that you are viewing, the viewport, the browser window that allows you to see even if maximize or minimize the browser, the browser window changes, this is not related to any elements, this is related to the browser window and what you are able to see in the browser)
+   - It positions the element in relation to the browser window
+   - Therefore, when a user scrolls down the page, it stays in the exact same place (the elements do not move)
+   - This can cause elements to overlap because as you scroll down or up the elements stay in the exact same place even though new elements appear
+   - Recall, ~fixed~ positioning is a type of absolute positioning thus it does not take up space (just like ~absolute~ positioning)
+   - [[file:./015.006.Fixed_Positioning_Example/index.html][Here]] is an example
+
+** Section 15.7: Overlapping Elements
+   - When you use relative, fixed, or absolute positioning, boxes can overlap as shown in the previous example in 15.4
+   - If boxes do overlap, the elements that appear /later/ in the HTML doc (HTML code) will sit on the top between overlapping elements
+   - If you want to control which element sits on top, you can use the ~z-index~ property
+   - Its value is a number, and the higher the number the closer that element is to the front (e.g. an element with a ~z-index~ of 10 will appear over the top of one with a ~z-index~ of 5
+   - ~z-index~ is sometimes referred to as the stacking context (as if the blocks have been stacked on top of each other on a z-axis)
+   - Let' try it, [[file:./015.007.Overlapping_Elements_Example/index.html][here]] is the example
+   - The offset properites (~top~, ~bottom~, ~left~, and ~right~) and the ~z-index~ are tricky subjects
+   - But in the example it shows when an element is brought to the front and when an element is sent to the back
+
+** Section 15.8: Floating Elements
+   - The ~float~ property allows you to take an element in *normal flow* and place it as far to the left or right of the *containing* element as possible
+   - Anything else that sits inside the containing element will flow around the element that is floated
+   - [[file:./015.008.Floating_Elements_Example/index.html][Here]] is an example
+   - When you use the ~float~ property, you should also use the ~width~ property to indicate how wide the floated should be, if you do not, results can be inconsistent but the box is likely to take up the full width of the containing element (just like it would in normal flow)
+   - Thus if you use ~width~ with the floated element and it is less than 100% (full width of the containing element) then the next element will start in that same line with the little width that is left over
+   - As you can see in the example, the first paragraph is given a width of 90% and floated to the left so the next element starts on the right of the element in 10% of space that is left and once it passes the height of the floating element it continues to take up the designated width
+   - One thing to note in the example is the first floated element and its next sibling. It looks like its sibling does flow around the floated element but the actual element acts like if its not there, what do you mean by that? Well we see the sentences take up the rest 10% of width but the element takes up the entire width, not just the 10%, despite there being a floated element, well that is because it acts like the floated element is not there
+   - How can that be? Well according to [[https://developer.mozilla.org/en-US/docs/Web/CSS/float][Mozilla docs]] and [[https://stackoverflow.com/questions/2062258/floating-elements-within-a-div-floats-outside-of-div-why][Stackoverflow]], "float elements are removed from the normal flow of the page though still remaining a part of the flow"
+   - That means it is no longer in normal flow and thus why other elements take up the space but it is still in flow which is why the content of the elements wrap around the floating elements (it is a bit tricky and more research is needed to understand it)
+
+** Section 15.9: Using Float to Place Elements Side-By-Side
+   - A lot of layouts place boxes next to each other and the ~float~ property is commonly used to achieve this
+   - When elements are floated, the height of the boxes can affect where the following elements sit
+   - What do you mean by this? Well if one the elements height is large and others are small then in the same "line" (e.g. to the right of the tall element) it may be able to fit two small elements or at least start to the second element
+   - The second element could potentially could be taller (in addition to the element on top of it) than the taller element
+   - Thus when new elements are introduced where they start could be all over the place because each element has a different height
+   - For example, I did created a webpage [[file:./015.009.Float_Side_by_Side_Example/index.html][here]]
+   - The the second ~div~ you can see that the paragraph elements are not perfectly aligned and that is because the boxes have different heights
+   - The third ~div~ are the same boxes but now they are aligned because each box has the same height
+   - Since the paragraph boxes are floating elements that means they are out of normal flow so the technically the ~div~ doesn't see anything and has a zero height but we can fix that by introducing ~display: flow-root~ to the div to make it have height of the tallest paragraph box
+   - However, how can you set the height of a box if the content may change like when you adjust the window or if you do not know ahead of time what the content will be
+   - Instead the better approach would be to use the ~clear~ property
+
+** Section 15.10: Clearing Floats
+   - The ~clear~ property allows you to say that no element (within the same containing element) should touch the left or right-hand sides of a box
+   - According to the [[https://developer.mozilla.org/en-US/docs/Web/CSS/clear][Mozilla Docs]] the ~clear~ property sets whether an element must be moved below (cleared) floating elements that precede it and this applies to floating and non-floating elements
+   - It can take the following values:
+     - ~none~
+     - ~left~
+     - ~right~
+     - ~both~
+     - ~inline-start~
+     - ~inline-end~
+   - ~left~ states that the element is moved down to clear past left floats (cannot touch left hand side floats)
+   - ~right~ states that the lement is moved down to clear past right floats (cannot touch right hand side floats)
+   - ~both~ is moved down to clear past both left and right floats
+   - ~none~ states that the element is not moved down to clear past floating elements (it can touch either left or right side floats)
+   - Let's take the previous example and try to make the second ~div~ use clear
+   - [[file:./015.010.Clearing_Floats_Example/index.html][Here]] is the new example as you can see I fixed the second ~div~ by not changing the heights but by using ~clear~
+   - What exactly is ~clear~ in my own words? Well ~clear~ is a property than can be applied to floating and non-floating elements but the point is it will "clear" floating elements
+   - In other words, the element that the ~clear~ property is being applied to will not have "floating" elements to whatever value you set ~clear~, it wont have floating elements to the left, right, both, etc.
+   - It does this by moving the ~clear~ applied element
+
+   - In example, the 5th paragraph was starting in an unaligned height because it had space to be there but if we noticed from the previous example to the left of it, it had a floating element
+   - So we applied the ~clear~ property to that element and assign the value ~left~ and it seems to work without needing to set the height
+
+** Section 15.11: Parents of Floated Elements
+   - Recall, that we used ~display: flow-root~ in the ~div~ because we only had floated elements which caused the div to be basically empty and causing the next ~div~ to be placed right after even though we had floated elements it didn't matter and the floated elements will overlap with the next ~div~
+   - The book talks about it: if a containing element only contains floated elements, some browsers will treat it as if it is zero pixels tall
+   - Before developers will solve this issue by adding an extra element after the last floated box and then setting that element with the ~clear: both~
+   - More recently, developers have opted for a purely CSS-based solutions by adding two rules to the containing element:
+     1. ~overflow: auto~
+     2. ~width: 100%~
+   - According to the [[https://developer.mozilla.org/en-US/docs/Web/CSS/overflow][Mozilla Docs]] ~overflow~ sets the desired behavior when the content does not fit in the element's padding box (overflows) in the horizontal and/or vertical direction
+   - [[file:./015.011.Parents_of_Floated_Elements_Example/index.html][Here]] is the example
+   - As you can see the first containing element only has floated elements and thus will treat the container as if there was nothing there and the floated elements will overflow outside the container because normally floated elements are bigger than empty ~div~
+   - The next ~div~ shows how to apply the solution using ~overflow~ and ~width~
+   - Using ~width~ it set the container to use the full width that is avaiable to it (as it normally would by default) and then use ~overflow: auto~ which will take care of the elements going over the container because remember floating elements are out of normal flow but still remain part of the flow so it knows the elements are there but just not in normal flow
+
+** Section 15.12: Creating MultiColumn Layouts with Floats
+   - Many web pages use multiple column in their design
+   - This is achieved by using a ~<div>~ element to represent each column
+   - The following 3 CSS properties are used to position the columns next to each other:
+     1. ~width~: sets the width of the columns
+     2. ~float~: positions the columns next to each other
+     3. ~margin~: creates a gap between columns
+
+   - An example is a 2 column layout possibly one for the main content and the other for the sidebar, and inside each ~div~ element there can be headings, paragraph, images, and even other ~div~ elements
+   - [[file:./015.012.Creating_MultiColumn_Layouts_Example/index.html][Here]] is an example that I did using the 3 CSS properties
+   - I also used ~border-left~ and ~padding-left~ to add a visible divider between columns
+   - Similarly a 3 column layout could be created by floating 3 ~div~ elements next to each other but just make sure there is enough space in the containing container for all 3 widths (if not reduce the widths of the ~div~)
+
+** Section 15.13: Screen Sizes, Screen Resolution, and Page Sizes
+   - Different visitors to your site will have different sized screens that show different amounts of information, so your design needs to be able to work on a range of different sized screens
+   - The size of a user's screen affects how big they can open their windows and how much of the page they will see, plus nowadays people surf the web in handheld devices (phones and tablets) that have smaller screens than computers & monitors
+   - Resolution refers to the number of dots a screen shows per inch (some deivces have higher resolution than other computers and most operating systems allow users to adjust the resolution of their screens)
+   - *Note*: The higher the resolution, the smaller the text appears and mobile devices tend to have higher resolution than desktops (but this has gap closed over time)
+   - Because screen sizes and display resolutions vary so much, web designers often try to create pages of around 960 - 1000 pixels wide (since most users will be able to see designs this wide on their screens)
+   - The height of a screen without scrolling is harder to judge and for years designers assumed the height of 570 - 600 pixels
+   - The area of the page that users would see without scrolling was often referred as being "above the fold"
+   - This area is so important because users will judge a page under a second and decide if they'll scroll down or not so this area must be relevant to the user
+   - As a result, many designs still try to let the user know what the site is about within the top 570 - 600 pixels, as well as hint at more content below this point (I wonder how true this is now many years later)
+   - However, we should not try to cram too much into the top area
+
+** Section 15.14: Fixed Width Layouts
+   - Fixed width layout designs do not change size as the user increases or decreases the size of their browser window (measurements tend to be given in pixels)
+   - Advantages:
+     - Pixel values are accurate at controlling size and positioning of elements
+     - The designer has far greater control over the appearace and position of items on the page than liquid layouts
+     - You can control the lengths of lines of text regardless of size of the user's window
+     - The size of an image will always remain the same relative to the rest of the page
+   - Disadvantages:
+     - You can end with big gaps around the edge of a page (if the window is larger than your fixed web page)
+     - If the user's screen is a much higher resolution than the designer's screen, the page can look smaller and text can be harder to read
+     - If a user increases font sizes, text might not fit into the allotted spaces
+     - The design works best on devices that have a site or resolution similar to that of desktop or laptop computers
+     - The page will often take up more vertical space than a liquid layout with the same content
+   - To create a fixed width layout, the width of the main boxes on a page will usually be specified in pixels (and sometimes their height too)
+   - Let's do an example, let's create a shopping site with a simple search at the top and some items
+   - [[file:./015.014.Fixed_Width_Layouts_Examples/1/index.html][Here]] is the example, I tried to do everything in px so whenever you adjust the window the elements stay the same size
+   - [[file:./015.014.Fixed_Width_Layouts_Examples/2/index.html][Here]] is the book example, I tried to do on my own and it is slightly different than the example in the book
+   - Both show a fixed width layout, no matter what the size the browser window is, the layout will have the same width
+   - The body for the book exaple has a width of 960 pixels and it is centered by setting the left and right margins to ~auto~
+   - In the book example, we add margins, use float to create columns, and other techniques we have learned
+
+** Section 15.15: Liquid Layouts
+   - Liquid layout designs stretch and contract as the user increases or decreases the size of their browser window (measurements tend to be given in percentages instead of pixels)
+   - Advantages:
+     - Pages expand to fill the entire browser window so there are no spaces around the page on a large screen
+     - If the user has a small window, the page can contract to fit it without the user having to scroll to the /side/
+     - The design is tolerant of users setting font sizes larger than the designer intended (because the page can stretch)
+   - Disadvantages:
+     - If you do not control the width of sections of the page then the design can look very different than you intended, with unexpected gaps around certain elements or items squashed together
+     - If the user has a wide window, lines of text can become very long, which makes them harder to read (this is where you use ~max-width~)
+     - If the user has a very narrow window, words may be squashed and you can end up with few words on each line (this is where you use ~min-width~)
+     - If a fixed width item (such as an image) is in a box that is too small to hold it (because the user has made the window smaller) the image can overflow over the text
+   - Because liquid layouts can stretch the entire width of the browser, resulting in long lines of text that are hard to read, some liquid layouts only let part of the page expand and contract, and other parts of the page have minimum and maximum widths
+   - [[file:./015.015.Liquid_Layouts_Examples/1/index.html][Here]] is the first example now using liquid layout
+   - [[file:./015.015.Liquid_Layouts_Examples/2/index.html][Here]] is the second example using liquid layout
+   - I felt it much harder to do it in liquid layout but now our websites can resize to the browser's window as the user increases or decreases its window screen
+   - I didn't follow the code in the book as I wanted to try it for myself, I got close enough but the book's code is much cleaner but it is a learning process
+   - Although I didn't use it, the properties ~min-width~ and ~max-width~ help create boundaries within which the layout can stretch to prevent from making the window too wide and having the text lines being too long or having the window too narrow and having the text lines too short
+     
+** Section 15.16: Layout Grids
+   - Composition in any visual art (e.g. design, painting or photography) is the placement or arrangement of visual elements and how they are organized on a page
+   - Many deigners use a grid structure to help them position items on a page and the same is true for web designers
+   - A grid called 960 pixel grid is widely used by web designers (how true is that now?)
+   - Grids set consistent proportions and spaces between items which helps to create a professional looking design
+   - Some benefits of using a grid:
+     - Creates a continuity between different pages which may use different designs
+     - Helps users predict where to find information on various pages
+     - Makes it easier to add new content to the site in a consistent way
+     - Helps people collaborate on the design of a site in a consistent way
+   - The 960 pixels grid is 960 pixels wide and there are 12 equal sized columns which are 60 pixels wide and has a margin set to 10 pixels which creates a gap of 20 pixels between each column and 10 pixels to the left and right hand sides of the page
+
+** Section 15.17: 960.GS Grid (CSS Framework)
+   - CSS frameworks aim to make your life easier by providing the code for common tasks such as creating layout grids, styling forms, creating printer-friendly versions of pages and so on
+   - Thus you can include the CSS framework code in your projects rather than writing the CSS from scratch
+   - Advantages:
+     - Save time from avoiding to write repeative code for the same tasks
+     - Code has been tested across different browsers
+   - Disadvantages:
+     - Require you to use their class names in your HTML code and these names tend to only describe how it is going to look rather than describe its content
+     - Often have more code than you need for your particular web page thus it has bloat code
+   - One of the most popular uses of CSS frameworks is in creating grids to layout pages
+   - There are several grid frameworks out there and one of them is called 960 Grid System
+   - 960.gs provides a style sheet that you can include in your HTML pages and once your page links to this style sheet, you can provide the appropriate classes to your HTML code and it will create multiple column layouts for you
+   - The 960.gs have templates you can download to help design your pages using a 12 column grid or a 16 column grid
+   - To create a 12 column grid, an element that contains the entire page is given a ~class~ attribute whose value is ~container_12~ which sets the content of the page to be 960 pixels wide and indicates that we are using a 12 column grid
+   - There are different classes for blocks that take up 1, 2, 3, 4, and up to 12 columns of the grid, each block uses class names such as ~grid_3~ (for a block that stretches over 3 columns), ~grid_4~ (for a block that stretches over 4 columns) and so forth all the way to ~grid_12~ (full-width of the page)
+   - These columns all float to the left and there is a 10 pixel margin to the left and right of each one
+   - There are several other grid-based CSS frameworks available online as well
+     
+   - *Note*: That the 960.gs is outdated has it focuses on a fixed width of 960 pixels, nowadays websites want to be designed as responsive adjusting to the user's screen regardless of size
+   - *Note*: Because of the changes in web design, the successor to 960.gs is actually called unsemantic from the same inventor; unsemantic is the successor to the 960 Grid System and works  in a similar way but instead of being a set number of columns, it's entirely based on percentages
+
+   - Let's do two examples: one with 960.gs and another with unsemantic
+   - [[file:./015.017.CSS_Framework_Grid_Examples/960/index.html][Here]] is using the 960.gs it was much easier to create a layout using the CSS framework
+   - [[file:./015.017.CSS_Framework_Grid_Examples/unsemantic/index.html][Here]] is using the unsemantic framework, however, I struggled with putting margins between the columns because it would increase the width of the column and thus push it to the next line so I didn't add a margin and left it how it is
+   - It was easier using 960.gs framework because it actually adds margins between grid columns but for the unsemantic framework it uses percentages which fills in that percentage and I filled in the entire width (3 columns thus 33.33%) so if I were to add margins it will overflow because that includes margins, padding, border, etc. and thus create a new line
+   - Using CSS frameworks for layout was so much easier and will definitely use in the future
+
+** Section 15.18: Multiple Style Sheets
+   - Some web page authors split up their CSS style rules into separate style sheets (e.g. one css style sheet to control the layout, another for fonts, another for colors, and so on)
+   - Some authors take an even more modular apporach to stylesheets, creating separate stylesheets to control typography, layout, forms, tables, even different styles for each sub-section of a site
+   - There are two ways to add multiple style sheets to a page
+   - Using ~@import~
+     - Your HTML page can link to *one* style sheet
+     - So how are you going to add multiple style sheets?
+     - Well that /one/ stylesheet you added to your HTML page will use the ~@import~ rule to import the other style sheets
+     - Thus your HTML page will use one stylesheet but that /one/ stylesheet will import other style sheets
+     - *Note*: If you use the ~@import~ rule then it must appear before the other rules in the CSS file
+   - Using ~link~
+     - You can use separate ~<link>~ elements for each style sheet inside your HTML header
+   - Remember the rules of property precedence which by default the rule that appears later will take precedence over previous rules
+   - Thus the CSS style sheet that is last will have more precedence than the first inputted CSS style sheets when using ~link~
+   - When using ~@import~ the one CSS stylesheet will take precedence because its ~@import~ need to appear before the other rules in the CSS file thus making the CSS rules in the file the last rules applied    
+
+** Section 15.19: Chapter Example
+   - [[file:./015.019.Chapter_Example/index.html][Here]] is the chapter example
+   - I was going to try and do a responsive version of the example but figured it might take too much time
+   - The example is a good way to show what we learned but uses fixed position which is outdated now (now it is about responsive websites)
+
+** Section 15.20: Summary
+   - ~<div>~ element are often used as containing elements to group together sections of a page
+   - There are other elements to group together sections in a more meaningful way which are called semantic elements
+   - Browsers display pages in normal flow unless you specify relative, absolute, or fixed positioning
+   - The ~float~ property moves content to the left or right of the page and can be used to create multi-column layouts (floated items require a defined width)
+   - Pages can be fixed width or liquid (responsive) layouts
+   - Desingers keep pages within 960 - 1000 pixels wide and indicate what the site is about within the top 600 pixels (to demonstrate its relevance without scrolling)
+   - *Note*: The width size now is outdated and now we use responsive designs
+   - Grids help create professional and flexible designs and CSS frameworks provide rules for common tasks
+   - Finally, you can have multiple CSS files in one HTML page
+
+     
+* Keywords
+| Term                 | Definition                                                                                                                                                                                                                                                                                                                                                                                |
+|----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Block-level box      | Boxes that start on a new line and act as the main building blocks of any layout                                                                                                                                                                                                                                                                                                          |
+| Inline-level box     | Boxes that flow between surrounding text                                                                                                                                                                                                                                                                                                                                                  |
+| Normal Flow Position | Every block-level element appears on a new line even if there is space in the current line thus causing each item to appear lower down the page than the previous one                                                                                                                                                                                                                     |
+| Relative Positioning | This moves an element from the position it would be in normal flow, shifting it to the top, right, bottom, or left of where it would have been placed (this does not affect the position of surrounding elements; they stay in the position they would be in normal flow). Also the element will only take up space of where its original position in normal flow would be                |
+| Absolute Positioning | This positions the element in relation to its containing (closest positioned ancestor) element as it is taken out of normal flow meaning that it does not affect the position of any surrounding elements as they simply ignore the space it would have taken up (basically moves the element to the offset designation and the element does not take up space like relative positioning) |
+| Fixed Positioning    | This is a form of absolute positioning that positions the element in relation to the browser window, as opposed to the containing element (unlike absolute positioning when you scroll the elements move out of the window view, fixed positioning makes the elements stay in place and thus it is always inside the browser window)                                                      |
+| Floating Elements    | Floating an element allows you to take that element out of normal flow and position it to the far left or right of a containing box allowing other elements to "flow" around it of the space it has left if the width is less than 100% basically if there is space from the width of the containing element then the next element will start and be placed there                         |
+| ~z-indez~ Property   | CSS property that controls the overlapping of elements, overlapping elements with a larger z-index cover those with a smaller one                                                                                                                                                                                                                                                         |
+| ~clear~ Property     | According to Mozilla [[https://developer.mozilla.org/en-US/docs/Web/CSS/clear][docs]], ~clear~ property sets whether an element must be moved below (cleared) from floating elements that precede it from its value (e.g. ~clear: left~, the element will be cleared from the left side and no floating elements will be next to the element's left side)                                                                                             |
+| Resolution           | According to Google Gemini, screen resolution refers to the number of pixels a screen can display, essentially measuring how many tiny dots make up the image on your screen, with a higher pixel count resulting in a sharper and clearer picture                                                                                                                                        |
+| Fixed Width Layout   | A website layout that is fixed meaning the entire website maintains a set width regardless of the user's screen device                                                                                                                                                                                                                                                                    |
+| Liquid Layout        | A website layout that stretches and contracts as the user increases or decreases the size of their browser window thus the size of the website responds to the user's screen device                                                                                                                                                                                                       |
+| 960 Pixels Grid      | A 960 pixels website grid that allows designers to positions items on a page, there are 12 equal sized columns which are 60 pixels wide and has a margin set to 10 pixels which creates a gap of 20 pixels between each column and 10 pixels to the left and right hand sides of the page                                                                                                 |
+| CSS Framework        | A CSS Framework is a library that allows you to use ready to use CSS components in your website                                                                                                                                                                                                                                                                                           |
+
+
+* Questions
+  - *Q*: How does the offset properties (~top~, ~bottom~, ~left~, and ~right~) and the ~z-index~ work?
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/top][Mozilla Docs - Top]]
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/bottom][Mozilla Docs - Bottom]]
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/left][Mozilla Docs - Left]]
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/right][Mozilla Docs - Right]]
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/z-index][Mozilla Docs - Z-index]]
+         - These properties affected positioned elements that are: ~relative~, ~absolute~, ~fixed~, and ~sticky~ (these properties do not affect elements positioned as static)
+	 - ~top~ property sets the vertical position of a positioned element
+	 - For example, when the ~position~ is set to ~absolute~ or ~fixed~, the ~top~ property sets the top edge of an element to a unit above / below the top of edge of its nearest positioned ancestor
+	 - When ~position~ is set to ~relative~, the ~top~ property specifies the distance the element's top edge is moved below its normal position
+	 - ~bottom~ also participates in setting the vertical position of a positioned element
+	 - For example, when the ~position~ is set to ~relative~, the ~bottom~ property specifies the distance the elemet's bottom edge is moved above its normal position
+	 - ~left~ and ~right~ participates in specifying the horizontal position of a positioned element
+	 - For these properties when the ~position~ is set to ~absolute~ and ~fixed~ the property sets the left edge of an element to a unit to the left of the left edge of its nearest positioned ancestor (this is for ~left~ but the same is applied for ~right~ but for the right edge and right side)
+	 - The ~z-index~ sets the z-order of a positioned element and its descendants or flex and grid items; overlapping elements with a larger z-index cover or are in front of those with a smaller one
+	 - Recall the ~z-index~ is part of the [[https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context][stacking context (Mozilla Docs)]] which is a three-dimensional conceptualization of HTML elements along an imaginary z-axis relative to the user, who is assumed to be facing the viewport or the webpage, thus the property ~z-index~ controls elements on the z-axis, which elements with a higher ~z-index~ will be closer to the user (on top of other elements) than elements with a smaller value 
+	     
+  - *Q*: What is sticky positioning?
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/position][Mozilla Docs - Position]]
+	 - [[https://www.w3schools.com/css/css_positioning.asp][W3 Schools - CSS Positioning]]
+	 - The ~sticky~ position is based on the user's scroll position, the element toggles between ~relative~ and ~fixed~ depending on the scroll position
+	 - The element is positioned relative until a given offset position (~top~, ~bottom~, etc.) is met in the viewport then it "sticks" in place (like ~position:fixed~)
+	 - For example, if you specify the ~sticky~ position and provide ~top: 0~ then when the element will be in its unchanged relative position and when you reach its scroll position it will stick to the top of the page
+	   
+  - *Q*: What does it mean "float elements are removed from the normal flow of the page though still remaining a part of the flow"?
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/float][Mozilla Docs - Float]]
+	 - This means that the float element is positioned outisde the typical linear layout of the webpage but it still affects the positioning of other elements around it
+	 - Unlike being taken "out of flow" like in absolute positioning (where "out of flow" elements do not affect the positioning of other elements), elements that encounter floated elements will wrap around or adjust their position to accommodate its presence on the page
+	   
+  - *Q*: What is ~display: flow-root~?
+         - [[https://developer.mozilla.org/en-US/docs/Web/CSS/display][Mozilla Docs - Display]]
+	 - The property ~display~ sets whether an element is treated as a block or inline box and the layout used for its children such as flow layout (by default), grid (divides a page into major regions), or flex (dynamic resizing and positioning of items based on available space)
+	 - The value ~flow-root~ generates a block box that establishes a new block formatting context
+	 - [[https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context][Block formatting context (Mozilla Docs)]] is a region in which the layout of block boxes occurs and in which floats interact with other elements
+	 - BFC is a concept that helps control the layout and positioning of elements on a web page and it islates its internal contents from external elements, therby preventing certain types of layout issues (e.g. margins between elements inside the BFC do not collapse with margins outside the BFC)
+	 - Thus ~flow-root~ creates a new BFC and it behaves as a block-level container while also containing its floated children, preventing them from escaping the element, essentially wrapping the content in a logical block enforcing a new layout context
+	   
+  - *Q*: Why does the text appear smaller in a screen with higher resolution?
+         - This is because a higher resolution will have more pixels and thus the PPI will increase
+	 - Thus the pixels will actually get smaller in a higher resolution than a lower resolution
+	 - For example, let's say we have two same sized monitors, one is 1920 rows of pixels and 1080 columns of pixels (1920 x 1080) and another one that is 3840 rows of pixels and 2160 columns pixels (3840 x 2160)
+	 - If both are the same size then how can one have more pixels? The only answer is that the pixels are smaller and closer to each other than the lower resolution device
+	 - So if we take a region in the screen, the higher resolution will have more pixels in that area than the lower resolution because the pixels are smaller
+	 - Thus if a region is 25 pixels by 25 pixels in the lower resolution then in the higher resolution it will fit more pixels in there for the same physical device screen
+	 - So now let's say we have an image or menu that takes up 540 pixels wide that is approximately half the screen for 1080p
+	 - But for the higher resolution it is only 14% of the width of the 4k device
+	 - Again, this is because the pixels are smaller thus to cover a X amount of pixels, the higher resolution needs less physical screen than the lower resolution because the pixels are smaller and more densely compacted thus making things appear smaller because it is taking less screen space (because pixels are smaller) even though it has the same amount of pixels
+    
+* Summary
+  - CSS treats each HTML element as if it is in its own box
+  - The box is either block-level box (which start on a new line and act as the main building blocks of any layout) or inline-level box (which flow between surrounding text)
+  - There may be nested block-level elements and the block-level element that contains the nested block-level elements are referred to as the containing element or direct parent of the nested block elements
+  - CSS has the following *positioning schemes* that allow you to control the layout of a page: normal flow, relative positioning, and absolute positioning
+  - Normal flow is the default behavior (~position: static~) and thus doesn't require a ~position~ property but can be added if needed, in this scheme each block-level element sits on top of the next one
+  - Relative positioning (~position: relative~) is a scheme where it moves an element in relative to where it would have been in normal flow
+  - You offset the element from where it would have been in normal flow by using ~top~, ~bottom~, ~left~, and ~right~ (e.g. 10 pixels lower than it would have been in normal flow), this can cause elements to overlap because the other elements only know the space in normal flow not the offset position
+  - Absolute position (~position: absolute~) scheme takes elements out of normal flow (thus it no longer takes space, the space it would have used in normal flow is ignored by all other elements because no space is created fr the element in the page layout) and offsetted by the offset properties
+  - The absolute positioned elements are offsetted from the closest ancestor that does not have the default position (~position: static~), if there is no ancestor that applies then it offsets from the ~body~ element
+  - Similar to relative positioning, absolute positioning can overlap with other elements
+  - Fixed position (~position: fixed~) scheme is similar to absolute position but instead of being offsetted by the closest positioned ancestor it is instead offsetted by the browser's window (viewport)
+  - Thus, fixed position elements are always in screen even when the user scrolls up or down, the elements stay in the same place even when new elements appear because it is offsetted by the browser window
+  - Fixed positioning is a type of absolute positioning and does not take up space and can overlap with other elements
+  - To control how elements sit on top of other elements you use the ~z-index~ property and give it a value, the higher numbered elements will overlap other elements with a smaller ~z-index~ value
+  - The ~float~ property allows you to take an element in *normal flow* and place it as far to the left or right of the *containing* element as possible
+  - Other content inside the containing element will flow around the element that is floated
+  - This can only be applied to normal flow elements because ~float~ will take elements out of the normal flow of the page and how can it do that to absolute positioning and fixed positioning when those elements are already out of the normal flow of the page
+  - ~float~ can also not be applied to ~relative~, despite the element *still* being in normal flow, the position is determined by the offset so the ~float~ property will have no affect
+  - ~float~ takes out elements from normal flow of the page but still keeps them part of the flow
+  - ~float~ is often used to put elements side-by-side (you push floated elements left or right making columns) but ~float~ requires the ~width~ property because then it won't know how much space to take (e.g. in normal flow it knows by default it is the full window width) and if it is not specified, results can be inconsistent but the box is likely to take up the full width of the containing element (just like in normal flow)
+  - When dealing with only ~float~ elements the container element may not see the space of the floated elements because it is taken out of normal flow but this can be fixed by applying ~display: flow-root~ to the container
+  - How can we ensure the start of floated elements are aligned vertically? You use the ~clear~ property
+  - ~clear~ property sets whether an element must be moved below (cleared) from floating elements that precede it by the value given (e.g. you have a paragraph surrounded by two floating elements, one left and one right, then you if you specify ~clear: left~ it will move the paragraph below to *not* have any floated elements to the left of the paragraph and this can be applied to floated elements as well)
+  - So ~clear~ ensures the element that has the ~clear~ applied will not be touching a floated element on its left side, right side, both, none, etc.
+  - Another way of dealing with containers with only floated elements are the properties: ~overflow~ and ~width~
+  - ~overflow~ sets the desired behavior when the content does not fit in the element's padding box (thus overflowing) in the horizontal and/or vertical direction so to fix the issue of containers with only floating elements we use ~overflow: auto~ and ~width: 100%~, this should cause the div to take up the space enough for the floated elements
+  - To create columns in HTML and CSS, you use ~width~ (sets the width of the columns), ~float~ (positions the columns next to each other), and ~margin~ (creates a gap between columns), you apply these to some containers representing the columns and now inside the containers you can have headers, paragraphs, images, etc.
+  -  Different visitors to your site will have different sized screens that show different amounts of information, so your design needs to be able to work on a range of different sized screens
+  - Resolution refers to the number of pixels on a screen and pixel per inch (ppi) are the number of pixels in a given area, so for example, a monitor and phone might have the same resolution (1920 rows of pixels x 1080 columns of pixels) but their size are different because the monitor is larger and thus is having larger pixels, so the PPI is less for the monitor compared to the phone, the pixels are smaller (compacted) in a phone and provides a "clearer" picture however it is more like perceived clarity / sharpness, since the phone has more compacted pixels it is harder to see the pixels and makes the image appears smooth and sharp but in reality it is the same number of pixels only the density of pixels is different and is easier to notice on larger screens compared to smaller screen with the same resolution
+  - The higher the resolution the smaller the text appears
+  - The top spot or the "above the fold" is important because users tend to judge a page under a second and decide if they want to continue by the first thing they see in the website so the first thing (the top spot) must be revelant for the users
+  - There are two types of layout, fixed width layouts and liquid layouts
+  - Fixed width layouts do not change size as the user increases or decreases the size of their browser window and measurements tend to be given in pixels, thus all the sizes are fixed
+  - Liquid layout designs stretch and contract as the user increases or decreases the size of their browser window and these measurements tend to be given in percentages instead of pixels
+  - Composition in any visual art is the placement or arrangement of visual elements and how they are organized on a page, thus many designers use a grid structure to help them position items on a page
+  - CSS Frameworks are libraries that have ready to use CSS components, one example is 960.GS which allows you to easily layout your website using a fixed width layout but this is outdated
+  - Another example, from the same inventor as 960.GS is unsemantic which allows you to create a liquid layout or a responsive website
+  - You can also add multiple style sheets into your website, there are two methods
+  - The first method is using ~@import~, this ~@import~ is added inside a CSS file
+  - This basically imports other CSS files into the CSS file that called import
+  - So now using HTML you only need to include this CSS file because this CSS file imports other CSS files
+  - Note that if you use ~@import~ it must appear before the other rules in the actual CSS file and also remember the rules of precedence which by default the rule that appears later will take precedence over previous rules thus the file calling ~@import~ will have a higher precedence than the imported CSS files
+  - The second method is using ~link~ in the HTML header element, basically each stylesheet is added by one ~link~ element and the last ~link~ added will have the highest precedence because the last one always have the highest precedence
+    
+* Resources
+  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/position][Mozilla Docs - CSS Position]]
+  - [[https://stackoverflow.com/questions/45784777/what-is-a-positioned-ancestor#:~:text=When%20referring%20to%20positioned%20ancestor,ancestors%20we%20mean%20the%20closest.][Stackoverflow - What is a Positioned Ancestor]]
+  - [[https://css-irl.info/finding-an-elements-nearest-relative-positioned-ancestor/][Finding an Element's Nearest Relative Positioned Ancestor]]
+  - [[https://developer.mozilla.org/en-US/docs/Web/CSS/float][Mozilla Docs - Float]]
+  - [[https://stackoverflow.com/questions/2062258/floating-elements-within-a-div-floats-outside-of-div-why][Stackoverflow - Floating Elements within a Div, Floats Outside of Div. Why?]]

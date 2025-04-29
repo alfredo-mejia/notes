@@ -1,0 +1,238 @@
+#+title: Chapter 2: Basic JavaScript Instructions
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
+| Prev  | Chapter 1: The ABC of Programming                           | \vert [[file:../001.The_ABC_of_Programming/001.000.Notes.html][html]] \vert [[file:../001.The_ABC_of_Programming/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/001.The_ABC_of_Programming][github]] \vert |
+| Next  | Chapter 3: Functions, Methods & Objects                     | \vert [[file:../003.Functions_Methods_and_Objects/003.000.Notes.html][html]] \vert [[file:../003.Functions_Methods_and_Objects/003.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/003.Functions_Methods_and_Objects][github]] \vert |
+
+* Notes
+
+** Section 2.1: Statements & Comments
+   - A script is a series of instructions that a computer can follow one-by-one
+   - Each individual instruction or step is known as a statement
+   - Each statement ends with a semicolon
+   - A code block is a block of statements and it starts with a curly brace and ends with a curly brace
+   - JavaScript is case sensitive so variables with the same name but different casing will be treated differently
+   - Statements are instructions that the computer needs to follow and each start in a new line and end with a semicolon
+   - Comments can be added to JS code to explain what your code does
+   - Single line comments start with ~//~ and anything after those characters in the same line will not be processed by the JS interpreter
+   - Multiline comments start with ~/*~ and end with ~*/~, these characters can be in different lines and anything in between is regarded as a comment and not processed by the JS interpreter
+
+** Section 2.2: Variables
+   - Scripts need to store information to do its job and this information is stored in variables
+   - Variables will be forgotten once the browser leaves the page
+   - The data inside the variable can change or vary each time a script runs
+   - The use of variables to represent numbers or other kinds of data is very similar to the algebra variables (e.g. x, y, z)
+   - Before you can use a variable, you need to declare the variable by creating the variable and giving it a name
+   - ~var~ is the keyword to tell the interpreter that you want to create a variable next you will give the variable a name
+   - If the name is more than one word it is written in camelCase (first word is lowercase and next words have their first letter capitalized)
+   - So it would be something like this: ~var width;~
+   - The name should describe the kind of data the variable holds
+   - Next you assign a value to the variable (tell it what info to hold), for example ~width = 5;~
+   - Now you can use the variable by its name
+   - The ~=~ is an assignment operator which tells the interpreter you are going to assign a value to the variable or update the variable
+   - The variable is said to be undefined until a value has been assigned
+   - Where a variable is declared can have an effect upon whether the rest of the script can use it, this is called the scope of a variable
+   - Since the script is read from top to bottom, a variable declared can only be used after it is has been declared and cannot be used anytime before the declaration
+
+** Section 2.3: Data Types
+   - JavaScript distinguishes between numbers, strings, and booleans (true or false)
+   - The numeric data type handles numbers (positive, negative, and decimals
+   - Numeric data can represent numbers to add, size of objects like screens, positioning and much more
+   - String data type consists of letters and other characters
+   - String data type is enclosed with a pair of single quotes or double quotes but the opening quote must match the closing quote
+   - Strings are used when working with any kind of text
+   - Boolean data types can only have true or false
+   - Booleans are useful to make decisions and changing which code in the script should run
+   - There are other data types as well such as objects, ~undefined~, and ~null~
+   - Unlike other programming languages in JS you do not need to specify what type of data it will hold
+
+** Section 2.4: Naming Variables and Using Variables
+   - There are six rules to follow when giving a variable a name:
+     1. The name must begin with a letter, dollar sign ($), or an underscore (_), it cannot start with a number
+     2. The name can only contain letters, numbers, dollar sign ($), or an underscore (_), it cannot contain dash (-) or a period (.)
+     3. You cannot use keywords or reserved words (keywords are special words that tell the interpreter to do something and reserved words are words that may be used by JS in the future), note JS is case sensitive so if a reserved word is ~enum~ then technically you can use ~Enum~ but it is a very bad idea to do something like that
+     4. All variables are case sensitive so ~score~ and ~Score~ are different variable names but it would be a very bad idea to create two variables with the same name but different casing
+     5. Use a name that describes the kind of information that the variables store
+     6. If your variable name is made up of more than one word, use a capital letter for the first letter of every word after the first word which is called camelCase, for example ~firstName~ notice how "name" is captialized and not "first"
+   - Using number variables: ~var cost = 5;~
+   - Using string variables: ~var name = "John"~
+   - Using quotes in string variables: ~var name = "John \"Doe\""~
+   - You use backwards slash (~\~) or backslash before any type of quote mark that appears within a string, the backslash tells the interpreter that the following character is part of the string
+   - Using boolean variables: ~var isInStock = false;~, useful to take different code paths in the script
+   - Different ways to declare variables:
+
+     #+BEGIN_SRC JavaScript
+       // 1
+       var cost = 5;
+       var quantity = 5;
+
+       // 2
+       var cost;
+       var quantity;
+       cost = 5;
+       quantity = 5;
+
+       // 3
+       var cost, quantity;
+       cost = 5;
+       quantity = 5;
+
+       // 4
+       var cost = 5, quantity = 5, isInStock = false;
+     #+END_SRC
+     
+   - It is best to make your code legible so declaring different variables on separate lines is better because it makes your code easier to read
+   - You can assign a new value to the variable even after it has been initialized basically changing what is stored in the variable later
+   - You use the assignment operator (~=~) to assign new values to the variables
+   - For example:
+
+     #+BEGIN_SRC JavaScript
+       var cost = 5;
+
+       // Some code
+
+       cost = 1;
+     #+END_SRC
+
+** Section 2.5: Arrays
+   - An array is a special type of variable, it doesn't just store one value but stores a list of values
+   - Arrays are good when working with a list or a set of values that are related to each other
+   - Arrays are helpful when you do not know how many items a list will contain because when you create the array you do not need to specify how many values it will hold
+   - Arrays make more sense than creating multiple single variables which you might create more or less than you actually need
+   - To create an array you use the ~var~ keyword and give it a name and the values are assigned to the array inside a pair of square brackets separated by a comma like the following:
+
+     #+BEGIN_SRC JavaScript
+       var colors;
+       colors = ["white", "black", "brown"];
+
+       var arry = [10, "hello", false];
+
+       var fruits = new Array("apple", "banana", "mango");
+     #+END_SRC
+
+   - The arrays do not need to hold values of the same data type, it can be strings, numbers, booleans, etc.
+   - Using the square brackets is an array literal or you can create an array object using the ~new~ keyword
+   - According to the [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new][Mozilla Web Docs]] the ~new~ operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function
+   - To access the values of the array, think of it as a numbered list, where the first value is at position 0, each value has a number called an index (it starts at 0)
+   - To access a value in the array it would be something like: ~var firstFruit = fruits[0];~
+   - Each array has a property called length which holds the number of items in the array and it can be accessed like the following: ~var numFruits = fruits.length;~
+   - ~length~ is a property of array and the ~.~ is a member access operator which can access properties of the object, we discussed this topic in the previous chapter
+   - You can change array values by selecting the value and assigning it a new value just as you would any other variable like so: ~fruits[0] = "orange";~
+   - After changing it, "apple" no longer exists and if you access ~fruits[0]~ you will get "orange"
+
+** Section 2.6: Expressions & Operators
+   - An expression evaluates into or results in a single value, broadly speaking there are two types of expressions
+     1. Expressions that just assign a value to a variable ( ~var fruit = "mango"~ ) before you assign a value to the variable (but it is already created) it has a value of ~undefined~ (~undefined~ is a data type)
+     2. Expressions that use two or more values to return a single value, basically you can perform operations on any number or individual values to determine a single value ( ~var area = 3 * 2;~ or ~var name = "John" + "Doe"~ )
+   - Expressions rely on things called operators; they allow programmers to create a single value from one or more values (these are only a certain type of operators, there are other operators for different purposes like the member access operator which doesn't create a single value from one or more values)
+   - The operators that create a value from one or more values are only the assignment operator, arithmetic operator, string operators, comparison operators, and logical operators
+
+   #+BEGIN_SRC JavaScript
+     // Assignment Operator
+     var fruit = "mango";
+
+     // Arithmetic Operators
+     var add = 1 + 2;
+     var sub = 1 - 2;
+     var mul = 1 * 2;
+     var div = 1 / 2;
+     var mod = 1 % 2;
+     var exp = 1 ** 2;
+     var one = 1;
+
+     // inc
+     one++;
+
+     // dec
+     dec--;
+
+     // String Operators
+     var name = "John" + " " + "Doe";
+
+     // Comparison Operator
+     var isGreater = 3 > 5;
+
+     // Logical Operator
+     var isTrue = (5 > 3) && (2 < 4)
+     
+   #+END_SRC
+
+   - Remember arithmetic precedence in math class, the same applies here, multiplication and division are applied first and then addition and substraction
+   - You can use parentheses to change order of which operation performs first
+   - For strings, there is only one string operator ~+~
+   - The ~+~ operator is used to join strings on either side of it
+   - Joining together two or more strings to create one new string is called concatenation
+   - You can add numbers to strings but the result will be a string and the number will become part of the string
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     var streetNum = 123;
+     var streetName = "1st";
+     var address = streetNum + " " + streetName; // 123 1st
+   #+END_SRC
+
+   - If you try to use any of the other arithmetic operators on a string then the value that results is usually a value called NaN (not a number)
+   - NaN also results in indetermine mathematical operation such as dividing by zero
+
+** Section 2.7: Chapter Exercise
+   - In this book I am going to try and do something different
+   - Instead of trying to mimic or copy what the author has done, I am going to understand what the author is doing and then do my own version
+   - I feel like this is a better approach to learning than simply mimicing the author
+   - So this project has the following requirements:
+     1. Get user's name
+     2. Get custom sign the user wants to do
+     3. User finished
+     4. Display custom message with user's name
+     5. Show breakdown, the sign, how many tiles, subtotal, shipping, and grand total
+   - [[file:./002.007.Chapter_Exercise/index.html][Here is my Ch.2 Exercise]]
+
+** Section 2.8: Summary
+   - A script is made up of a series of statements and each statement is like a step in a recipe
+   - Scripts contain very precise instructions (e.g. store variables and perform calculations)
+   - Variables are used to temporarily store pieces of infomration used in the script
+   - Arrays are special types of variables that store more than one piece of related information
+   - JavaScript distinguishes between numbers (0-9), strings (text), and Boolean values (true or false)
+   - Expressions evaluate into a single value
+   - Expressions rely on operators to calculate a value
+     
+* Keywords
+| Term           | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Variable Scope | Variable scope depends on what you use ~var~, ~const~, or ~let~. ~var~ has function scope thus any variables declared anywhere in the function can be used anywhere else (given that it is after it is declared), for example in a loop you might create a variable with ~var~ and could use it outside the loop. ~const~ and ~let~ have block scope thus any variables declared in the block only are accessible within that block and not outside the block. ~const~ you cannot reassign and ~let~ behaves similar to other programming languages such as not being able to reference it before it is declared, you cannot redeclare it, and there are other differences with ~var~ |
+| ~new~ Operator | ~new~ operator is used to create new instances of objects and invoke constructor functions or classes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Expression     | Unit of code that be evaluated or "compute" into a single value (e.g. "Hello", 5 + 5, etc.)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+* Questions
+  - *Q*: Does the ~new~ operator function the same way as the ~new~ operator in C++?
+         - Both create new objects in the heap
+         - However two notable differences is that in JS you have garbage collection and when objects are no longer referenced then the JS engine will automically clean up memory
+         - In C++, you have to do this manually and use the ~delete~ operator
+         - Another thing is that JS will return the actual object after using the ~new~ operator thus you can easily access the object's members without needing to deference it because it returned the actual object instead of the pointer
+         - In C++, it will return a pointer and you will need to deference to use the pointer
+
+* Summary
+  - A script is a series of instructions that a computer can follow one-by-one
+  - Each instruction or step is known as a statement
+  - Comments are added with ~//~ or a multiline comment starts with ~/*~ and ends with ~*/~
+  - You declare variables using ~var~, ~let~, and ~const~ and use an assignment operator to assign a value to the variable
+  - You do not need to specify the data type to the variable
+  - The scope of variables depends on how it was created, ~var~ has function scope, and ~let~ and ~const~ have block scope
+  - Although you don't need to explicitly state the data types when creating variables, JS does have data types such as numeric data, strings, boolean, undefined, and null
+  - To name a variable it must begin with a letter, dollar sign, or an underscore, can only include letters, numbers, dollar sign, and underscore, it cannot contain dash or period, the name cannot be a reserved word or keyword, and try to use the convention of camelCase
+  - To special characters you can always escape the character using a backslash to tell the interpreter the following is part of the string and not something else
+  - An array is a special type of variable that can store a list of values
+  - To create an array it is very similar creating variables but in the assignment you use square brackets and insert the list of values separated by commas
+  - You can also use the ~new~ operator and the ~Array~ object to create arrays
+  - You can always add or remove elements to the array later
+  - An expression evluates into or results in a single value
+  - There are many things that are considered expressions such as string literals, boolean literals, and numeric literals
+  - But also there are operators that are expressions as well such as the assignment operator, arithmetic operators, string operators, comparison operators, and logical operators (all of these result in one value)
+  - Each operator has certain rules such as you cannot be multiply a string and a number
+  

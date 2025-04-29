@@ -1,0 +1,136 @@
+#+title: Chapter 19: Practical Information
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation                                                                                                                                                                                                          
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 18: Process & Design           | \vert [[file:../018.Process_and_Design/018.000.Notes.html][html]] \vert [[file:../018.Process_and_Design/018.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/018.Process_and_Design][github]] \vert |
+
+* Notes
+
+** Section 19.1: Search Engine Optimization (SEO)
+   - Search engine optimization (or SEO) is the practice of trying to help your site appear nearer the top of search engine results when people look for the topics that your website covers
+   - At the heart of SEO is the idea of working out which terms people are likely to enter into a search engine to find your site and then using these terms in the right places on your site to increase the chances that search engines will show a link to your site in their results (now SEO is much more than that)
+   - Search engines also consider how many sites link to your and how relevant those links are
+   - Thus SEO is split into two areas: on-page techniques and off-page techniques
+   - On-page techniques are the methods you can use on your web pages to improve their rating in search engines such as looking at keywords that people are likely to enter into a search engine if they wanted to find your site and then including these in the text in HTML code for your site in order to help search engines know that your site covers these topics
+   - Search engines rely on text in your pages so it is important that the terms people are going to search for are actually in your page text
+   - If you have any images then always including the ~alt~ attribute helps search engines understand the content of images
+   - Off-page techniques deal with other sites having links to your web page which helps search engines determine how to rank your site
+   - Search engines are interested in sites whose content is related to yours and it looks for the words used to describe the link (e.g. "click here" is not relevant but "Geroge Washington (Wikipedia)" may be more relevant if you want to learn about George Washington), the link contains keywords it may be considered more relevant
+   - The words that appear in links to your site should also appear in the text of the page that the site links to, all of these helps the site rank higher than others if it has links from other web pages that are similar and use keywords for the links that are already present in the original site
+     
+*** Section 19.1.1: On-Page SEO
+    - In your page of your website there are seven key places where keywords (the words people might search on to find your site) can appear in order to improve its findability:
+      1. Page Title: Specified in the ~<title>~ element which lives inside the ~<head>~ element
+      2. URL: The name of the file is part of the URL, where possible use the keywords in the file name
+      3. Headings: If keywords are in a heading element then a search engine will know that this page is all about the subject and give it greater weight than other text
+      4. Text: Where possible, it helps to repeat the keywords in the main body of the text at least 2-3 times but do not over-use these terms because the text must be easy for a human to read
+      5. Link Text: Use keywords in the text that create links between pages, don't use generic words such as "click here"
+      6. Image Alt Text: Search engines rely on you providing accurate descriptions on images in the alt text and this will also show up in the results of image-based searches
+      7. Page Descriptions: The description lives inside the ~<head>~ element and is specified using a ~<meta>~ tag, the description should be a sentence that describes the content of the page, these descriptions may not be shown in the browser window but they may be displayed in the results of search engines
+    - Never try to fool search engines because they will penalize you for it (e.g. add a bunch of keywords repeatedly but use the same color as the background or make it transparent because search engines will know)
+
+*** Section 19.1.2: How to Identify Keywords & Phrases
+    - Determining which keywords to use on your site can be one of the hardest tasks when you start to think about SEO
+    1. Brainstorm: List down the words / phrases that someone might type into Google to find your site (be sure to include various topics, products or services your site is about and ask people what they would type to find your service / product)
+    2. Organize: Group the keywords into separate lists for the different sections or categories of your website
+    3. Research: There are several tools online that let you enter your keywords and then they will suggest additional keywords to consider and add relevant options to your lists
+    4. Compare: It is very unlikely that your site will appear at the top of the search results for every keyword especially if there is already a site optimized for a given keyword thus compare what is the competition and what keywords are they using
+    5. Refine: Now you need to pick which keywords you will focus on, these should always be the ones that are most relevant to each section of your site even if there is a lot of competition for that term (try to add more / different terms to stand out like location and such to help people find you)
+    6. Map: Now that you have a refined list of keywords, you know which have the most competition and which are the most relevant then it is time to start picking which keywords you will use for each page (pick 3-5 keywords or phrases that map to each page of your website and use these as the keywords for each page and do not repeat the same keywords on all of the pages and it is ok if the terms get specific as you move onto pages in the site)
+
+** Section 19.2: Analytics: Learning About Your Visitors
+   - You can use Google Analytics to see how people found you, what were they looking at and at what point did they leave (this can happen as soon as your website goes live)
+   - Google Analytics gives you a piece of code to place into every page of your site and that code sends data to the Google servers which then shows you the results in a web interface to consume the information (e.g how many visitors are using your site)
+   - Google Analytics tells you:
+     - How many people are coming to your site
+     - Total number of unique visits over the specified period (e.g. a user comes back under a specified period then the visits will be more than the unique visits)
+     - Total number of pages all visitors have viewed on your site
+     - Average number of pages each visitor has looked at on your site per visit
+     - Average time on site per visit
+     - Which pages your visitors are looking at the most
+     - Which pages users spend the most time on
+     - Which page was the first site the user opened (e.g. the landing page or some other page)
+     - Which pages people most commonly leave from
+     - Number of people who left on the same page that they arrived on (bounce right and if we have a high bounce rate then the users were not happy for whatever reason with the site)
+     - Show where your users are coming from: another site to yours or via a direct link like a bookmark or typed the URL
+     - Google Analytics may even show the terms users entered into a search engine to find your site and this can help you fine tune your content and SEO keywords
+     - Google Analytics also have e-commerce features such as products sold, average basket size and more
+   - Google Analytics also allows you to change the dates for the data and export the data
+
+** Section 19.3: Domain Names & Hosting
+   - To place your site on the web you will need a domain name and web hosting
+   - The domain name is your web address and you have to pay an annual fee for the domain name
+   - Then you'll need web hosting basically placing your site into a web server for others to be able to access it and see it
+   - It is better to host your websites with web hosting companies because it is cheaper and more reliable than trying to run your own web servers
+   - Things to consider when choosing web hosting companies:
+     - Disk Space: How much space is your website going to take
+     - Bandwidth: The amount of data the hostingcompnay will send to your site's visitors (e.g. you have 10 visitors thus the server will send 10 x amount of disk space your site takes; thus more visitors more bandwidth is needed)
+     - Backups: What type of backups do they use? If the server crashes is your site backed up? What if you break it while updating it, does it have a backup?
+   - Many web hosting companies also provide email servers the price will depend on the size of the email and the number of emails
+   - If your site is using a server-side programming language and a database make sure the web hosting company supports the technologies your website needs to run
+
+** Section 19.4: FTP & Third Party Tools
+   - To transfer your code and images from your computer to your hosting company, you use something known as File Transfer Protocol
+   - FTP allows you to transfer files across the Internet from your computer to the web server hosting your site
+
+** Section 19.5: Summary
+   - Search engine optimization helps visitors find your sites when using search engines
+   - Analytics tools such as Google Analytics allow you to see how many people visit your site, how they find it, and what they do when they get there
+   - To put your site on the web, you will need to obtain a domain name and web hosting
+   - FTP programs allow you to transfer files from your local computer to your web server
+   - Many companies provide platforms for blogging, email newsletters, e-commerce and other popular website tools (to save you writing them from scratch)
+
+* Keywords
+| Term                             | Definition                                                                                                                                                      |
+|----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Search Engine Optimization (SEO) | SEO is the process of improving a website's visibility in search engine results to increae the amount of unpaid traffic from search engines to the website      |
+| Google Analytics                 | Google analytics is a free service that measures how users interact with websites, and apps, and analyzes online traffic                                        |
+| Domain Name                      | A domain name is a unique (typically a easy to remember address) that people type into a web browser to access a website                                        |
+| Web Hosting                      | Web hosting is a service that stores all the files that make up a website on a server allowing it to be accessed online through the internet                    |
+| File Transfer Protocol (FTP)     | According to [[https://www.fortinet.com/resources/cyberglossary/file-transfer-protocol-ftp-meaning#:~:text=FTP%20(File%20Transfer%20Protocol)%20is,to%20communicate%20with%20each%20other.][Fortinet]], FTP is a standard network protocol used for the transfer of files from one host to another over a TCP-based network such as the internet |
+
+* Questions
+  - *Q*: Has SEO changed over time? How does SEO work now? And how can I optimize SEO for my website?
+         - [[https://www.marketingaid.io/the-evolution-of-seo/#:~:text=Over%20the%20past%2025%2B%20years,intelligence%20that%20we%20see%20today.][Marketing Aid IO]] states that SEO has changed from keywords to PageRank and now machine learning and AI
+	 - Now SEO is more complex but it uses a lot of factors like descriptive URLs, good file structure, reduced duplicate content, search terms, link to relevant resources, images, content, links that point to your website, and much more
+	 - [[https://developers.google.com/search/docs/fundamentals/seo-starter-guide][Google Developer Docs]] go over how SEO works and how it can be optimized
+	 - [[https://www.mtu.edu/umc/services/websites/seo/][Michigan Tech]] also go over SEO optimization and this includes publishing relevant content, use keywords, update content regularly, and more
+	   
+  - *Q*: What are alternatives to Google Analytics and why would you use an alternative?
+         - Some alternatives are Heap, Matomo, Cloudflare's Web Analytics and more
+	 - Some people would not like to use Google Analytics because Google Analytics store a lot of information from the user and is it not GDPR compliant
+	 - GDPR compliance means following the General Data Protection Regulation (GDPR) to protect the personal data of European Union citizens
+	 - Matomo is GDPR compliance
+	 - Although Google Analytics may be the most advanced analytic tool it may not be the best for everyone
+	   
+  - *Q*: What are some options for web hosting?
+         - BlueHost (questionable)
+	 - A2 Host
+	 - Namecheap
+	 - DigitalOcean
+	 - Netlify
+	 - Vercel
+	 - There are many but I need to do more research and choose one that is best for me
+    
+* Summary
+  - Search engine optimization (or SEO) is the practice of trying to help your site appear nearer the top of search engine results when people look for the topics that your website covers
+  - SEO optimization involves a lot of factors including key terms and phrases, descriptive URLs, useful content, and more
+  - SEO optimization can be split into two areas: on-page techniques (techniques used on your web pages) and off-page techniques (other sites having links that are descriptive that point to your website)
+  - Also, it is always good to include the ~alt~ tag in images and provide a clear description of the image
+  - Always have descriptive links as well
+  - Some places to include the keyterms are in the page title, website URL, headings, text, link text, image alt text, and the page description
+  - To come up with keywords and phrases you brainstorm words and phrases, then you organize these words / phrases into groups, then you research similar words that users would use, then you compare with the competition and their keywords used, then you refine you basically filter out which ones you won't use and which ones you will use, and then you map these keywords into your website (e.g. where do they belong, which page, etc.)
+  - Never try to fool the search engine because search engines notice that and penalize you for that
+  - You can use an analytic tool to gain insights on your website like Google Analytics
+  - Google analytics is a free tool that you include in your website and it sends data back to the Google servers and then you have a web interface to show you the info gathered
+  - Google analytics can sshow you the number of people coming to your site, unique visits, avrage time on site per visit, which pages are visited the most, number of people who left on the same page that they arrived on, which page did the users arrive on, and much more
+  - To place your site on the web you will need a domain name (web address) and web hosting (place your files in a web server for others to access it over the internet)
+  - Things to consider when selecting a web hosting company: disk space, bandwidth, backups, and supportive technologies
+  - Last thing to note is that FTP (File Transfer Protocol) is used to transfer files between your own machine / computer and the web server
+  - FTP allows you to place your website files into the web server so it can start hosting it

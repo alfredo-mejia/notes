@@ -1,19 +1,19 @@
 #+title: Notes
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="./resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
 
 * Welcome
 Welcome to my repository called notes. This repo will have notes about anything I wish to take notes on. This can be a YouTube video, a course, a book, a process, like how to wash a car properly, research papers, articles, technologies, etc. Many of the times, when I take down notes on whatever it may be, I either delete the files, throw out the paper, or simply take down bad notes.
 
 I want to start something different. I want to build my "second brain", my garden of knowledge, or whatever you may call it. I've tried before. I've tried to build this "second brain" either by using OneNote, Notion, Obsidian, MediaWiki, or Confluence. However, each time, I overcomplicate it. I've spent countless hours researching the best workflow for taking down notes. I've tried to build folders for different categories, then subfolders for different subcategories, tried to interconnect my notes with each other, and I've tried to add tags to my notes. I realized, that was a waste of time because none of that seemed to work for me. In the end, I was left exhausted and without good notes.
 
-Now, I'm going to take a different approach. For one, each book, course, video, article, research paper, whatever it may be, will have its own folder in the root directory. This would avoid having so many nested folders to eventually get to the notes of interest. Second, I'm going to try and keep it simple. I will take down notes in plain text using Org-Mode in Emacs. Hopefully this new process works for me and hopefully I don't get stuck in this cycle where I am changing my process once more to take down notes.
+Now, I'm going to take a different approach. For one, each book, course, video, article, research paper, whatever it may be, will have its own folder. I am going to try and organize my notes but at the same time avoid having so many nested folders. Second, I'm going to try and keep it simple. I will take down notes in plain text using Org-Mode in Emacs. Hopefully this new process works for me and hopefully I don't get stuck in this cycle where I am changing my process once more to take down notes.
 
 * What will each folder have?
 The goal is for each folder to correspond to a course, book, research paper, article, video, etc. If the video / book is long there may be folders or multiple files to separate the topics / chapters. However, I am not just going to take down notes. Notes are great but you need to do more to fully understand the material. So, in addition to notes, I am going to try to create how-to-wikis, projects, answer textbook questions, and more. Each folder will be more than just notes.
 
-In addition, each folder will have an org-file and a HTML file. The org-file would be used to store the notes but the great thing about Org-Mode in Emacs is that you can create internal links and navigate between files. Emacs also have a great HTML export option which I will be using. Thus we will have two files per note: an org-file and a HTML file.
+In addition, each folder will have an org-file and a HTML file. The org-file would be used to store the notes but the great thing about Org-Mode in Emacs is that you can create internal links and navigate between files. Emacs also has a great HTML export option which I will be using. Thus we will have two files per note: an org-file and a HTML file.
 
 The HTML file will use the default export options of Emacs but the only difference is that I will be using [[https://bulma.io][Bulma]] CSS to simply style my headings, paragraphs, etc. I will simply attach the Bulma's CSS file to the HTML file. Other than that no changes will be made to the HTML file.
 
@@ -22,19 +22,37 @@ Please feel free to enter any folder, explore my projects and use my notes. Most
 
 Depending on how you are navigating my notes (html, org, or Github) you can click on the internal links below to explore my notes.
 
-* Folders
-| Title                                                            | Author                          | HTML | ORG | GitHub | Status      |
-|------------------------------------------------------------------+---------------------------------+------+-----+--------+-------------|
-| Articles                                                         |                                 | [[file:./Articles/000.Home.html][html]] | [[file:./Articles/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Articles][github]] | N/A         |
-| Books                                                            |                                 | [[file:./Books/000.Home.html][html]] | [[file:./Books/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Books][github]] | N/A         |
-| College Algebra                                                  | Ron Larson & Robert Hostetler   | [[file:./College_Algebra/000.Home.html][html]] | [[file:./College_Algebra/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/College_Algebra][github]] | Archived    |
-| Computer Networking: A Top-Down Approach                         | James F. Kurose & Keith W. Ross | [[file:./Computer_Networking_A_Top_Down_Approach/000.Home.html][html]] | [[file:./Computer_Networking_A_Top_Down_Approach/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Computer_Networking_A_Top_Down_Approach][github]] | In-Progress |
-| Foundations of Multidimensional and Metric Data Structures       | Hanan Samet                     | [[file:./Foundations_of_Multidimensional_and_Metric_Data_Structures/000.Home.html][html]] | [[file:./Foundations_of_Multidimensional_and_Metric_Data_Structures/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Foundations_of_Multidimensional_and_Metric_Data_Structures][github]] | In-Progress |
-| HTML & CSS - Design and Build Websites                           | Jon Duckett                     | [[file:./HTML_and_CSS_Design_and_Build_Websites/000.Home.html][html]] | [[file:./HTML_and_CSS_Design_and_Build_Websites/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/HTML_and_CSS_Design_and_Build_Websites][github]] | Completed   |
-| Introduction to Oracle Cloud Essentials                          | [[https://mylearn.oracle.com/ou/home][Oracle University]]               | [[file:./Introduction_to_Oracle_Cloud_Essentials/000.Home.html][html]] | [[file:./Introduction_to_Oracle_Cloud_Essentials/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Introduction_to_Oracle_Cloud_Essentials][github]] | In-Progress |
-| JavaScript & JQuery - Interactive Front-End Web Development      | Jon Duckett                     | [[file:./JavaScript_and_JQuery_Interactive_Frontend_Web_Development/000.Home.html][html]] | [[file:./JavaScript_and_JQuery_Interactive_Frontend_Web_Development/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] | In-Progress |
-| The Complete 2024 Web Development Bootcamp                       | Dr. Angela Yu                   | [[file:./The_Complete_2024_Web_Development_Bootcamp/000.Home.html][html]] | [[file:./The_Complete_2024_Web_Development_Bootcamp/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/The_Complete_2024_Web_Development_Bootcamp][github]] | Archived    |
-| The Web Developer Bootcamp 2024                                  | Colt Steele                     | [[file:./The_Web_Developer_Bootcamp_2024/000.Home.html][html]] | [[file:./The_Web_Developer_Bootcamp_2024/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/The_Web_Developer_Bootcamp_2024][github]] | Archived    |
-| Tutorials                                                        |                                 | [[file:./Tutorials/000.Home.html][html]] | [[file:./Tutorials/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Tutorials][github]] | N/A         |
-| User's Guide for Oracle Business Intelligence Enterprise Edition | [[https://docs.oracle.com/][Oracle Docs]]                     | [[file:./Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Home.html][html]] | [[file:./Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition][github]] | Archived    |
+-----
 
+** Articles
+| Title          | Author  | Subject                | Html | Org | GitHub | Status   |
+|----------------+---------+------------------------+------+-----+--------+----------|
+| What is Docker | Alfredo | Developer Technologies | [[file:./Articles/What_is_Docker/000.Notes.html][html]] | [[file:./Articles/What_is_Docker/000.Notes.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Articles/What_is_Docker][github]] | Complete |
+
+-----
+
+** Books
+| Title                 | Author     | Type  | Html | Org | GitHub | Status      |
+|-----------------------+------------+-------+------+-----+--------+-------------|
+| To Kill A Mockingbird | Harper Lee | Novel | [[file:./Books/To_Kill_A_Mockingbird/000.Notes.html][html]] | [[file:./Books/To_Kill_A_Mockingbird/000.Notes.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Books/To_Kill_A_Mockingbird][github]] | In-Progress |
+
+-----
+
+** Cloud
+| Title                                                            | Author            | Html | Org | GitHub | Status      |
+|------------------------------------------------------------------+-------------------+------+-----+--------+-------------|
+| Introduction to Oracle Cloud Essentials                          | Oracle University | [[file:./Cloud/Introduction_to_Oracle_Cloud_Essentials/000.Home.html][html]] | [[file:./Cloud/Introduction_to_Oracle_Cloud_Essentials/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Cloud/Introduction_to_Oracle_Cloud_Essentials][github]] | In-progress |
+| User's Guide for Oracle Business Intelligence Enterprise Edition | Oracle Docs       | [[file:./Cloud/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Home.html][html]] | [[file:./Cloud/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Cloud/Users_Guide_for_Oracle_Business_Intelligence_Enterprise_Edition][github]] | In-progress |
+
+-----
+
+** Web
+| Title                                                       | Author        | Description     | Html | Org | GitHub | Status      |
+|-------------------------------------------------------------+---------------+-----------------+------+-----+--------+-------------|
+| Django Polls App                                            | Django Docs   | Django Tutorial | [[file:./Web/Django_Polls_App/000.Notes.html][html]] | [[file:./Web/Django_Polls_App/000.Notes.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Web/Django_Polls_App][github]] | Complete    |
+| HTML & CSS - Design and Build Websites                      | Jon Duckett   | Book            | [[file:Web/HTML_and_CSS_Design_and_Build_Websites/000.Home.html][html]] | [[file:Web/HTML_and_CSS_Design_and_Build_Websites/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites][github]] | Complete    |
+| JavaScript & JQuery - Interactive Front-end Web Development | Jon Duckett   | Book            | [[file:Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/000.Home.html][html]] | [[file:Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] | In-Progress |
+| The Complete 2024 Web Development Bootcamp                  | Dr. Angela Yu | Udemy Course    | [[file:Web/The_Complete_2024_Web_Development_Bootcamp/000.Home.html][html]] | [[file:Web/The_Complete_2024_Web_Development_Bootcamp/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp][github]] | In-progress |
+| The Web Developer Bootcamp 2024                             | Colt Steele   | Udemy Course    | [[file:Web/The_Web_Developer_Bootcamp_2024/000.Home.html][html]] | [[file:Web/The_Web_Developer_Bootcamp_2024/000.Home.org][org]] | [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024][github]] | In-progress |
+
+-----

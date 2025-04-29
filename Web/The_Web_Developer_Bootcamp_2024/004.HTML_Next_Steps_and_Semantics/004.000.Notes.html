@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 17:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Section 4: HTML - Next Steps &amp; Semantics</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Section 4: HTML - Next Steps &amp; Semantics</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org291b151">Navigation</a></li>
+<li><a href="#org6c79a99">Resources</a></li>
+<li><a href="#org42aa4a9">Notes</a>
+<ul>
+<li><a href="#orgc40d1ac">Section 4.1: What Matters In This Section</a></li>
+<li><a href="#org6b57f52">Section 4.2: What Exactly Is HTML5?</a></li>
+<li><a href="#org5f889ae">Section 4.3: Block vs Inline Elements (Divs and Spans)</a></li>
+<li><a href="#org5e974b5">Section 4.4: An Odd Assortment of Elements: HR, BR, Sup, &amp; Sub</a></li>
+<li><a href="#org708f0f7">Section 4.5: Entity Codes</a></li>
+<li><a href="#org8f0bcd1">Section 4.6: Intro to Semantic Markup</a></li>
+<li><a href="#orgec2d570">Section 4.7: Playing With Semantic Elements</a></li>
+<li><a href="#org12c8391">Section 4.8: Screen reader Demonstration</a></li>
+<li><a href="#orgb0ae06f">Section 4.9: VSCode Tip: Emmet</a></li>
+</ul>
+</li>
+<li><a href="#org36688ce">Keywords</a></li>
+<li><a href="#orgc9da252">Questions</a></li>
+<li><a href="#org6a85ba3">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org291b151" class="outline-2">
+<h2 id="org291b151">Navigation</h2>
+<div class="outline-text-2" id="text-org291b151">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">The Web Developer Bootcamp 2024</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Section 3: HTML - The Essentials</td>
+<td class="org-left">&vert; <a href="../003.HTML_The_Essentials/003.000.Notes.html">html</a> &vert; <a href="../003.HTML_The_Essentials/003.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024/003.HTML_The_Essentials">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Section 5: HTML - Forms &amp; Tables</td>
+<td class="org-left">&vert; <a href="../005.HTML_Forms_and_Tables/005.000.Notes.html">html</a> &vert; <a href="../005.HTML_Forms_and_Tables/005.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024/005.HTML_Forms_and_Tables">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org6c79a99" class="outline-2">
+<h2 id="org6c79a99">Resources</h2>
+<div class="outline-text-2" id="text-org6c79a99">
+<p>
+<a href="./004.HTML_Next_Steps_and_Semantics_Slides.pdf">Section 4: HTML - Next Steps &amp; Semantics Slides</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org42aa4a9" class="outline-2">
+<h2 id="org42aa4a9">Notes</h2>
+<div class="outline-text-2" id="text-org42aa4a9">
+</div>
+<div id="outline-container-orgc40d1ac" class="outline-3">
+<h3 id="orgc40d1ac">Section 4.1: What Matters In This Section</h3>
+<div class="outline-text-3" id="text-orgc40d1ac">
+<ul class="org-ul">
+<li>The crucial components of this section are: understanding what HTML is, block vs inline elements, span and div elements, semantic elements (header, footer, nav, etc.)</li>
+<li>Nice to have (or understand) of this section are: sub element, horizontal break element, sup element, and break element</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6b57f52" class="outline-3">
+<h3 id="org6b57f52">Section 4.2: What Exactly Is HTML5?</h3>
+<div class="outline-text-3" id="text-org6b57f52">
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5">Mozilla HTML5</a></li>
+<li>HTML5 refers to new version of HTML with new elements but also a set of modern web technologies (e.g. new JS APIs)</li>
+<li>The way HTML works is not a download instead it is a set of instructions in how HTML should work and the browser takes these instructions and build and render the webpage</li>
+<li>Think of HTML as the blueprint while the browser builds the blueprint</li>
+<li><a href="https://html.spec.whatwg.org">HTML Living Standard Spec</a> - a link that explains how each element and how HTML should work</li>
+<li>So think of HTML5 as new way to create a blueprint or basically new specs for HTML (hence HTML5)</li>
+<li>Basically each browser has HTML5 "turned on" and you can specify the version of HTML with the <code>DOCTYPE</code> but it won't turn off HTML5 in the browser</li>
+<li>For example, if you use an older version of HTML but add HTML5 elements the browser will still render them because the browsers are built for HTML5 so the <code>DOCTYPE</code> simply informs the browser which HTML you are using but does not do much beside that</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5f889ae" class="outline-3">
+<h3 id="org5f889ae">Section 4.3: Block vs Inline Elements (Divs and Spans)</h3>
+<div class="outline-text-3" id="text-org5f889ae">
+<ul class="org-ul">
+<li>Inline elements fit in alongise other elements</li>
+<li>Block level elements take up a whole "block" of space or the entire width of it's parent's width</li>
+<li>This behavior can be changed with CSS later</li>
+<li>Divs and Spans are generic containers</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div">Mozilla Div Element</a></li>
+<li>Div element is a generic container for flow content and it has no effect on the content or layout until styled in some way using CSS (applying some styling or layout model)</li>
+<li>Basically, div is a generic container to group / hold elements together and it is a block-level element</li>
+<li>Why would you use div? You'll use this to group content together and stylize it together</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span">Mozilla Span Element</a></li>
+<li>Span element is a generic container (but unlike the block-level div element) and it is an inline container for phrasing content</li>
+<li>It can be used to group elements for styling purposes and it very much like the div element but div is a block-level element whereas a span element is an inline-level element</li>
+<li>Span is just a generic container and styling can be added (e.g. you have a paragraph with a ingredients and you want to color that red so you wrap around the ingredients with a span element to stylize it)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5e974b5" class="outline-3">
+<h3 id="org5e974b5">Section 4.4: An Odd Assortment of Elements: HR, BR, Sup, &amp; Sub</h3>
+<div class="outline-text-3" id="text-org5e974b5">
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr">Thematic Break (Horizontal Rule) Element</a> - A self-closing element that represents a thematic break between paragraph-level elements (e.g. a change of scene or a shift in topic)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br">Line Break Element</a> - A self-closing element that produces a line break in text and it is useful for writing a poem or an address where the division of lines is significant</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup">Superscript Element</a> - A HTML element that specifies inline text which is suppose to be displayed as superscript for solely typographical reasons (usually rendered with a raised baseline using smaller text)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub">Subscript Element</a> - A HTML that specifies inline text which should be displayed as subscript for solely typographical reasons (usally rendered with a lowered baseline using smaller text)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org708f0f7" class="outline-3">
+<h3 id="org708f0f7">Section 4.5: Entity Codes</h3>
+<div class="outline-text-3" id="text-org708f0f7">
+<ul class="org-ul">
+<li>HTML entities are special codes or speical sequeneces that we can use inside of our HTML that will result in different characters</li>
+<li>You'll start with an ampersand and end with a semicolon; normally used to display reserved characters that normally would be invalid or used in place of difficult to type characters</li>
+<li>The browser interprets them and renders the correct character instead</li>
+<li><a href="https://html.spec.whatwg.org/multipage/named-characters.html">List of HTML Entity Codes</a></li>
+<li>Entities have names and numbers to display certain characters</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8f0bcd1" class="outline-3">
+<h3 id="org8f0bcd1">Section 4.6: Intro to Semantic Markup</h3>
+<div class="outline-text-3" id="text-org8f0bcd1">
+<ul class="org-ul">
+<li>Semantic means relating to meaning, so semantic markup is meaningful markup or markup that relates or pertains to meaning of the content of that element</li>
+<li>So you ask yourself, what purpose or role does that HTML element have and how does it relate to the content the element is displaying? You try to use a semantic element (when applicable) that clearly describes its meaning to both the browser and the developer</li>
+<li>There are non-sematic elements like div and span (because those elements don't necesarily mean anything) and semantic elements like form, table, article, etc</li>
+<li>Many people use div and span but you can use semantic elements like the main element which works the same way as a div but has semantic meaning; it means it is the main content of the page</li>
+<li>There are semantic elements like header, section, nav, footer, etc. and they all work like div but give meaning they have semantic meaning</li>
+<li>Why does it matter? Well it adds meaning to our markup which can help web crawlers make more sense of your web page, makes it more friendly to other programs, and it helps accessibility as screen readers can easily interpret nav, header, section and those act as signposts and understand the semantic meaning of the page (e.g. know where the nav is), and finally you make your own code for developers and yourself more code readable</li>
+<li>There are semantic elements that are like span but have meaning as well like the time element</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgec2d570" class="outline-3">
+<h3 id="orgec2d570">Section 4.7: Playing With Semantic Elements</h3>
+<div class="outline-text-3" id="text-orgec2d570">
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">Mozilla Main Element</a> - Represents the dominant conent of the body of a document (directly related to or expands upon the central topic of the document or the central functionality of an application)</li>
+<li>The main element content should be unique to the document and not repeated contnet such as sidebars, nav links, copyright info, site logos, search forms (unless the search is the main function of the page), etc</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav">Mozilla Navigation Element</a> - Rperesents a section of a page whose purpose is to provide navigation links either within the current document or to other documents (e.g. menus, table of contents, indexes, etc.)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section">Mozilla Section Element</a> - Represents a generic standalone section of a document which doesn't have a more specific semantic element to represent it</li>
+<li>Sections should always have a heading (very few exceptions)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article">Mozilla Article Element</a> - Represetns a self-contained composition in a document page, application, or site which is intended to be independently distributable or reusable</li>
+<li>Some examples of articles include a forum post, a magazine, newspapaer aticle, blog entry, product car, user-submitted comment, interactive widget or gadget, or any other independent item of content</li>
+<li>Each article should be identified by typically including a heading as a child of the article element</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside">Mozilla Aside Element</a> - Represents a portion of a document whose content is only indirectly related to the document's main content (basically not essential to the main content)</li>
+<li>Asides are frequently presented as sidebars or call-out boxes</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header">Mozilla Header Element</a> - Represents introductory content, typically a group of introductory or navigational aids</li>
+<li>The heading element may contain some heading elements but also a logo, a search form, an author name, and other elements</li>
+<li>Headers can be nested in other elements and there can be more than one header in a document (this also applies to footers)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer">Mozilla Footer Element</a> - Represents a footer for its nearest ancestor sectioning content or sectioning root elemenet</li>
+<li>The footer typically contains info about the author of the section, copyright data or links to related documents</li>
+<li>There are other semantic elements like the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time">time element (Mozilla)</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure">figure element (Mozilla)</a> which represents self-contained content with an optional caption and it is referenced as a single unit (images, diagrams, etc.), <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr">abbreviation element (Mozilla)</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data">data element (mozilla)</a>, and more</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org12c8391" class="outline-3">
+<h3 id="org12c8391">Section 4.8: Screen reader Demonstration</h3>
+<div class="outline-text-3" id="text-org12c8391">
+<ul class="org-ul">
+<li>The screen reader can easily distinguish different parts of a web page when semantic elements are used instead of non-semantic elements</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb0ae06f" class="outline-3">
+<h3 id="orgb0ae06f">Section 4.9: VSCode Tip: Emmet</h3>
+<div class="outline-text-3" id="text-orgb0ae06f">
+<ul class="org-ul">
+<li>Emmet is built-in VS Code but has various syntax for shortcuts to create HTML elements; you quickly create child elements, sibling elements, parent elements, etc</li>
+<li><a href="https://emmet.io">Emmet Website</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org36688ce" class="outline-2">
+<h2 id="org36688ce">Keywords</h2>
+<div class="outline-text-2" id="text-org36688ce">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>HTML5</b></td>
+<td class="org-left">HTML 5 refers to the newest version of HTML which includes a bundle of new elements and a set of modern web technologies</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Block-Level Element</b></td>
+<td class="org-left">Block level element takes the whole space of the container and starts in a new line</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Inline-Level Element</b></td>
+<td class="org-left">Inline level element fits alongside other elements and do not take up the whole width of the container and do not start in a new line</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Div Element</b></td>
+<td class="org-left">Generic (non-semantic) block-level container that is able to group elements and can be stylized using CSS</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Span Element</b></td>
+<td class="org-left">Generic (non-semantic) inline-level container that is able to group elements and can be styalized using CSS</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Horizontal Rule Element</b></td>
+<td class="org-left">Self-closing element that adds a horizontal line to the web page to divide sections</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Line Break Element</b></td>
+<td class="org-left">Self-closing element that produces a line break in text</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Superscript Element</b></td>
+<td class="org-left">An element that specifies inline text which is suppose to be displayed as superscript</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Subscript Element</b></td>
+<td class="org-left">An element that specifies inline text which is suppose to be displayed as subscript</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Entity Codes</b></td>
+<td class="org-left">Code that are signified by an amerpsand in the beginning and semicolon at the end and it is able to display characters (that are not in the keyboard or hard to type)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Semantic Elements</b></td>
+<td class="org-left">There are various elements that behavior simialarily to div and span but have semanic meaning which means the element has a purpose or a meaning than just being a generic container (e.g. a nav is a container for navigation links)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Main Element</b></td>
+<td class="org-left">Semantic element for the dominant content of the body of a document</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Navigation Element</b></td>
+<td class="org-left">Semantic element for a section of a page whose purpose is to provide navigation links</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Section Element</b></td>
+<td class="org-left">Semantic element for a generic standalone section of a document</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Article Element</b></td>
+<td class="org-left">Semantic element for a self-contained composition in a document page</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Aside Element</b></td>
+<td class="org-left">Semantic element whose content is only indirectly related to the document's main content</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Header Element</b></td>
+<td class="org-left">Semantic element that represents introductory content</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Footer Element</b></td>
+<td class="org-left">Semantic element that represetns a footer for its nearest ancestor sectioning content or sectioning root element</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc9da252" class="outline-2">
+<h2 id="orgc9da252">Questions</h2>
+<div class="outline-text-2" id="text-orgc9da252">
+<ul class="org-ul">
+<li><b>Q</b>: What is the difference between section and article?
+<ul class="org-ul">
+<li><a href="https://www.geeksforgeeks.org/difference-between-article-tag-and-section-tag/">GeeksForGeeks Answer</a></li>
+<li><a href="https://stackoverflow.com/questions/33910294/what-is-the-difference-between-article-and-section-in-html5">Stackoverflow Answer</a></li>
+<li>Both are semantic elements</li>
+<li>The article element contains <b>independent</b> content that doesn't require any other context</li>
+<li>The article element can be inside the main content but each article should contain independent content within it</li>
+<li>The article element is self-contained and can theoretically be grabbed and be placed anywhere in the document without losing context</li>
+<li>The section element is used to split a page into sections like introduction, contact info, details, etc</li>
+<li>The section element is used to divide content like chapters and the sections are not self-contained; for example section 2 (chapter 2) may be dependent on section 1 (chapter 1)</li>
+</ul></li>
+
+<li><b>Q</b>: Can we nest sections and articles?
+<ul class="org-ul">
+<li><a href="https://stackoverflow.com/questions/9527378/should-sections-have-articles-or-should-articles-have-sections">Stackoverflow Answer</a></li>
+<li>An article may have multiple articles nested with each other or multiple sections nested with each other</li>
+<li>A section may have multiple sections nested with each other or multiple articles nested with each other</li>
+<li>If the nesting makes sense then it is possible</li>
+<li>For example, a section may talk about browsers and each has a description of a specific browser</li>
+<li>Each description can be an article because you won't lose the context of what you are talking about (a specific browser); thus it is self-contained</li>
+<li>Then inside each article you can have sections to divide the technologies of that browser</li>
+<li>Or inside each article you can have further articles if the content is self-contained</li>
+<li>Just remember each article should be identified by including a heading as a child of the article and normally so do sections</li>
+</ul></li>
+
+<li><b>Q</b>: How should main, header, footer, section, article, etc. be used?
+<ul class="org-ul">
+<li><a href="https://www.w3schools.com/html/html5_semantic_elements.asp">W3 Schools HTML Semantic Elements Explanation</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html">Mozilla Semantics in HTML Explanation</a></li>
+<li>There is not an easy answer for this question</li>
+<li>Depending on your content and how you want organize your elements you can use the semantic elements in various ways</li>
+<li>For example, headers can be inside main or section or article</li>
+<li>Footer can be inside main or section or article</li>
+<li>Sections can be inside main or article or sections itself</li>
+<li>Articles can be inside main, sections, or articles itself</li>
+<li>It all depends on what you are doing but make sure the content you are doing is semantically correct with the elements you are using</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6a85ba3" class="outline-2">
+<h2 id="org6a85ba3">Summary</h2>
+<div class="outline-text-2" id="text-org6a85ba3">
+<ul class="org-ul">
+<li>HTML5 introduced various new elements but also a set of modern web technologies so it isn't just about the new HTML5 elements</li>
+<li>There are specifications for each element and although many specs violated won't break your webpage it is recommended to follow</li>
+<li><code>DOCTYPE</code> is used to tell the browser what HTML version we are using; although the browser's HTML5 technologies will still be "on" and working</li>
+<li>Block-level elements start on a new line and take up the entire width of their container (mostly their parent's width) and inline elements do not start in a new line and do not take up the entire width instead it fits alongside other elements</li>
+<li>Div is an example of a block-level element and is a generic container to group together content which can be stylized later</li>
+<li>Span element is an example of inline-level element and is a generic container to group togerher content (inline) which can be stylized later</li>
+<li>There many other elements such as the horizontal rule element (adds a horizontal line to the webpage) which divides sections / topics, the break element (breaks into a new line) which is useful for addresses and poems, and sub and superscript elements</li>
+<li>There are character we cannot type but still use and this is when entity codes come in; entity codes can be used to insert some code and the browser will render that code into a symbol / character like the copyright symbol, trademark symbol, and more</li>
+<li>We try to create sematic markup for SEO optimizations, improve accessbility, and produce more readable code</li>
+<li>There are various semantic elements like main, navigation, section, article, aside, header, footer and more</li>
+<li>Instead of using many divs it is better to use these semantic elements which behave the same way div or span behaves but adds meaning to your content</li>
+<li>For example, nav is simply a container whose content should be a group of links for navigation</li>
+<li>So many of these semantic elements are containers but their content should reflect the element and thus provide meaning</li>
+<li>These meanings could help accessibility, web crawlers and other programs, and help yourself and other developers understand what you are coding</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

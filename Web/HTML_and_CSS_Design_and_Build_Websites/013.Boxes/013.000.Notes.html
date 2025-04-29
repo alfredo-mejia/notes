@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 12:24 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 13: Boxes</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Chapter 13: Boxes</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org6e51a0a">Navigation</a></li>
+<li><a href="#orgc0ae7de">Notes</a>
+<ul>
+<li><a href="#org812a583">Section 13.1: Introduction to Box Properties</a></li>
+<li><a href="#orgf9cf877">Section 13.2: Boxes Appearances</a></li>
+<li><a href="#orge71e1ca">Section 13.3 Margin &amp; Padding</a></li>
+<li><a href="#org15e63ab">Section 13.4: Centering Content</a></li>
+<li><a href="#org7b0f68d">Section 13.5: More Box Properties</a></li>
+<li><a href="#org6d6937a">Section 13.6: CSS3 Border Properties</a></li>
+<li><a href="#org7f3d9b5">Section 13.7: Chapter 13 Example</a></li>
+</ul>
+</li>
+<li><a href="#org05366ef">Keywords</a></li>
+<li><a href="#org5bc4bf6">Questions</a></li>
+<li><a href="#orgf047b12">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6e51a0a" class="outline-2">
+<h2 id="org6e51a0a">Navigation</h2>
+<div class="outline-text-2" id="text-org6e51a0a">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">HTML &amp; CSS - Design and Build Websites</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 12: Text</td>
+<td class="org-left">&vert; <a href="../012.Text/012.000.Notes.html">html</a> &vert; <a href="../012.Text/012.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/012.Text">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 14: Lists, Tables and Audio</td>
+<td class="org-left">&vert; <a href="../014.Lists_Tables_and_Forms/014.000.Notes.html">html</a> &vert; <a href="../014.Lists_Tables_and_Forms/014.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/014.Lists_Tables_and_Forms">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc0ae7de" class="outline-2">
+<h2 id="orgc0ae7de">Notes</h2>
+<div class="outline-text-2" id="text-orgc0ae7de">
+</div>
+<div id="outline-container-org812a583" class="outline-3">
+<h3 id="org812a583">Section 13.1: Introduction to Box Properties</h3>
+<div class="outline-text-3" id="text-org812a583">
+<ul class="org-ul">
+<li>By default a box is sized just big enough to hold its content</li>
+<li>To set your own dimensions for a box you can use the <code>height</code> and <code>width</code> properties</li>
+<li>These properties can use pixels, percentages or ems; when you use percentages the size of the box is relative to the size of the browser window or if the box is encased within another box, it is a percentage of the size of the containing box; when you use ems, the size of the box is based on the size of text within it</li>
+<li>You can also specify <code>min-width</code> and <code>max-width</code> because some designs expand and shrink to fit the size of the user's screen so this specifies the smallest size box it can be displayed and maximum width a box can stretch</li>
+<li>These can help ensure that the box is not too narrow or not too large</li>
+<li>You can also specify <code>min-height</code> and <code>max-height</code> which is similar to <code>min-width</code> and <code>max-width</code> but for height now</li>
+<li>If the box is not bigh enough to hold the content, and the content expands outside the box it can look very messy because it will overflow and lay on top of the next elements</li>
+<li>To control what happens when there is not enough space for the content of a box, you can use the <code>overflow</code> property</li>
+<li>The <code>overflow</code> property tells the browser what to do if the content within a box is larger than the box itself</li>
+<li><code>overflow</code> can have two values: <code>hidden</code> which simply hides any extra content that does not fit in the box or <code>scroll</code> which adds a scrollbar to the box so that users can scroll to see the missing content</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf9cf877" class="outline-3">
+<h3 id="orgf9cf877">Section 13.2: Boxes Appearances</h3>
+<div class="outline-text-3" id="text-orgf9cf877">
+<ul class="org-ul">
+<li><code>border-width</code> property is used to control the width of a border, the value given can be in pixels or using thin, medium, and thick (you cannot use percentages with this property)</li>
+<li>You can control the individaul size of borders using four separate properties: <code>border-top-width</code>, <code>border-right-width</code>, <code>border-bottom-width</code>, and <code>border-left-width</code></li>
+<li>You can also specify different widths for the four border values in one property (e.g. <code>border-width: 2px 1px 1px 2px;</code>) - the values here appear in clockwise order: top, right, bottom, left</li>
+<li>You can control the style of a border using the <code>border-style</code> property and it can take up the following values: <code>solid</code>, <code>dotted</code>, <code>dashed</code>, <code>double</code>, <code>groove</code>, <code>ridge</code>, <code>inset</code>, <code>hidden</code> or <code>none</code></li>
+<li>You can individually change the styles of different borders using: <code>border-top-style</code>, <code>border-left-style</code>, <code>border-right-style</code>, and <code>border-bottom-style</code></li>
+<li>You can specify the color of a border using either RGB values, hex codes, HSL values, or CSS color names</li>
+<li>You do so by using the <code>border-color</code> property and it is possible to individually control the colors of the borders on different sides of a box using: <code>border-top-color</code>, <code>border-right-color</code>, <code>border-bottom-color</code>, and <code>border-left-color</code></li>
+<li>Again you can use one property to specify all four border colors (e.g. <code>border-color: darkcyan deeppink darkcyan deeppink;</code> again values here appear in clockwise order)</li>
+<li><code>border</code> property allows you to specify the width, style, and color of a border in one property and the values should be coded in that specific order)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge71e1ca" class="outline-3">
+<h3 id="orge71e1ca">Section 13.3 Margin &amp; Padding</h3>
+<div class="outline-text-3" id="text-orge71e1ca">
+<ul class="org-ul">
+<li>Every box has three available properties that can be adjusted to control its appearance: border, margin, and padding</li>
+<li>Every box has a border even if it is 0px wide; the border separates the edge of one box from another</li>
+<li>Margin sits outside the edge of the border and you can set the width of a margin to create a gap between the borders of two adjacent boxes</li>
+<li>Padding is the space between the border of a box and any content contained within it; adding padding can increase the readability of its contents</li>
+<li>If you sepcfy a width for a box then the borders, margin, and padding are added to its width and height</li>
+<li>The <code>padding</code> and <code>margin</code> properties are very helpful in adding space between various items on the page</li>
+<li>Designers refer to the space between items on a page as white space</li>
+<li>Thus white space is used to help with readability however there may be some nuances (e.g. if the bottom margin of any box touches the top margin of another, the browser will render it differently it will only show the large of the two margins and if they are the same it will only show one)</li>
+<li>We went over border now let's go over padding and margin</li>
+<li><code>padding</code> allows you to specify how much space should appear between the content of an element and its border</li>
+<li>The value can take pixels, percentages or ems; if percentage is used the padding is a percentage of the browser window or the containing box if it is inside another box</li>
+<li>If a width is specified for a box, padding is added onto the width of the box</li>
+<li>You can specify different values for each side of a box using <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, and <code>padding-left</code> or you can use the shorthand by just using <code>padding</code> and the values are in clockwise order</li>
+<li><code>padding</code> property is not inherited by child elements so you need to specify the <code>padding</code> for every element that needs to use it</li>
+<li><code>margin</code> property controls the gap between boxes and its value can be given in pixels, percentages, or ems</li>
+<li>If one box sits on top of another margins collapsed which means the larger of the two margins will be used and the smaller will be disregarded</li>
+<li>If the width of a box is specified then the margin is added to the width of the box</li>
+<li>You can specify values for each side of a box using <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, and <code>margin-left</code> or you can use the shorthand <code>margin</code> where the values are in clockwise order</li>
+<li>You can also specify top/bottom and left/right such as (e.g. <code>margin: 20px 10px;</code>)</li>
+<li>The same short hand be applied to padding</li>
+<li>The value of <code>margin</code> is not inherited by the child elements so you need to specify the margin for every element that needs to use it</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org15e63ab" class="outline-3">
+<h3 id="org15e63ab">Section 13.4: Centering Content</h3>
+<div class="outline-text-3" id="text-org15e63ab">
+<ul class="org-ul">
+<li>If you want to center a box on the page (or inside the element it sits in) you can set the <code>left-margin</code> and <code>right-margin</code> to <code>auto</code></li>
+<li>Setting the left and right margins to auto will make the browser put an equal gap on each side of the box thus centing the box on the page (or within the element that the box sits inside)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7b0f68d" class="outline-3">
+<h3 id="org7b0f68d">Section 13.5: More Box Properties</h3>
+<div class="outline-text-3" id="text-org7b0f68d">
+<ul class="org-ul">
+<li>The <code>display</code> property allows you to turn an inline element into a block-level element or vice verse and can also be used to hide an element from the page</li>
+<li>The values this property can take are: <code>inline</code> (causes a block-level element to act like an inline element), <code>block</code> (causes a inline element to act like a block-level element), and <code>inline-block</code> (causes a block-level element to flow like an inline elment while retaining other features of a block-level element), and <code>none</code> (hides an element from the page)</li>
+<li>Using <code>none</code> will treat the element as if it is not on the page at all</li>
+<li><code>visibility</code> property allows you to hide boxes from users but it leaves a space where the element would have been</li>
+<li><code>visibility</code> can take two values: <code>hidden</code> which hides the element or <code>visible</code> which shows the element</li>
+<li>If <code>visibility</code> of an element is set to hidden, a blank space will appear in its place and if you do not want a blank space to appear then you should use the <code>display</code> property with a value of <code>none</code> instead</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6d6937a" class="outline-3">
+<h3 id="org6d6937a">Section 13.6: CSS3 Border Properties</h3>
+<div class="outline-text-3" id="text-org6d6937a">
+<ul class="org-ul">
+<li><code>border-image</code> property applies an image to the border of any box; it takes a background image and slices it into nine pieces</li>
+<li>The corners of the image is placed in the corners of the box but we have a choice whether the sides are stretched or repeated from the image to the border</li>
+<li>The property requires three pieces of information:
+<ol class="org-ol">
+<li>URL of the image</li>
+<li>Where to slice the image</li>
+<li>What to do with the straight edges; the possible values are: stretch (stretches the image), repeat (repeats the image), or round (like repeat but if the tiles do not fit exactly, scales the tile image so they will)</li>
+</ol></li>
+<li>The box must also have a border width for the image to be shown</li>
+<li>The <code>box-shadow</code> property allows you to add a drop shadow around a box, it works just like the <code>text-shadow</code> property</li>
+<li>It must use at least the first of the two values as well as a color: horizontal offset, vertical offset, blur distance, and spread of shadow (if used a positive value will cause the shadow to expand in all directions and a negative value will make it contract)</li>
+<li>The <code>insert</code> keyword can also be used before these values to create an inner-shadow</li>
+<li><code>border-radius</code> can be used to create rounded corners on any box, the value indicates the size of the radius in pixels</li>
+<li>You can specify individual values for each conrner of a box using: <code>border-top-right-radius</code>, <code>border-bottom-right-radius</code>, <code>border-bottom-left-radius</code>, and <code>border-top-left-radius</code></li>
+<li>You can use a shorthand of these four properites in clockwise order just using <code>border-radius</code></li>
+<li>To create more complex shapes, you can specify different distances for the horizontal and vertical parts of the rounded corners</li>
+<li>For example <code>border-top-left-radius: 80px 50px</code> will create a radius that is wider than it is tall</li>
+<li>There is a shorthand for targetting all four corners at once: first you specify the four horizontal values then the four vertical values</li>
+<li>You can even create a circle by taking a square box and making the <code>border-radius</code> the same height as the square</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7f3d9b5" class="outline-3">
+<h3 id="org7f3d9b5">Section 13.7: Chapter 13 Example</h3>
+<div class="outline-text-3" id="text-org7f3d9b5">
+<ul class="org-ul">
+<li><a href="./013.007.Chapter_13_Example/index.html">Chapter 13 Example</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org05366ef" class="outline-2">
+<h2 id="org05366ef">Keywords</h2>
+<div class="outline-text-2" id="text-org05366ef">
+<p>
+<b>Note</b>: I won't be adding properties unless important or common to the keywords because those are easily forgettable and searchable and there are simply just too many of them which will dilute the significance of the keywords section
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Border</td>
+<td class="org-left">Every box has a border (even if it is not visible or is specified to be 0 pixels wide). The border separates the edge of one box from another. The border can signify the border of a web element, outside the border is not part of a page element and inside it is.</td>
+</tr>
+
+<tr>
+<td class="org-left">Margin</td>
+<td class="org-left">Margin sits outside the edge of the border. You can set the width of a margin to create a gap between the borders of two adjacent boxes. In other words margin is the space outisde of a page element (outside the border).</td>
+</tr>
+
+<tr>
+<td class="org-left">Padding</td>
+<td class="org-left">Padding is the space between the border of a box and any content contained within it. Padding defines the space surrounding the content within a web element (within the borders).</td>
+</tr>
+
+<tr>
+<td class="org-left">Width</td>
+<td class="org-left">The width of element but it DOES NOT include the margin, border, and padding (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">Mozilla Box Sizing Docs</a> states "The width and height properties include the content, but does not include the padding, border, or margin. For example, .box {width: 350px; border: 10px solid black;} renders a box that is 370px wide.")</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org5bc4bf6" class="outline-2">
+<h2 id="org5bc4bf6">Questions</h2>
+<div class="outline-text-2" id="text-org5bc4bf6">
+<ul class="org-ul">
+<li><b>Q</b>: Is it true that if the bottom margin of any box touches the top margin of another then it will only show the large of the two margins? (If it is the same then it will only show one)
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing">Mozilla Mastering Margin Collapsing Docs</a></li>
+<li>The top and bottom margins are sometimes collapsed into a single margin whose size is the largest margin of the two and if they are equal then it is the size of just one of the margins</li>
+<li>This is known as margin collapsing</li>
+<li>However margin collapsing does not occur of floating and absolute positioned elements</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf047b12" class="outline-2">
+<h2 id="orgf047b12">Summary</h2>
+<div class="outline-text-2" id="text-orgf047b12">
+<ul class="org-ul">
+<li>By default the box is sized just big enough to hold its content</li>
+<li>The box can be changed by using <code>height</code> or <code>width</code> properties and specify <code>min-width</code>, <code>max-width</code>, <code>min-height</code>, and <code>max-height</code> if needed</li>
+<li>If the box is too small then the contents will overflow and lay on top of the next elements but this can be controlled with the <code>overflow</code> property</li>
+<li>Boxes can be modified in appearance with <code>border-width</code>, <code>border-style</code>, <code>border-color</code>, and more</li>
+<li>Boxes have border, margin, and padding</li>
+<li>Margins sits outisde the edge of the border (even if the border is not visible) and the margin can be increased to create a gap between the borders of two adjacent boxes</li>
+<li>Padding is the space between the border of a box (even if the border is not visible because it is there) and any content contained within it; adding padding can increase the readability of its contents</li>
+<li>Margin: controls gap between boxes (space between border to the next border)</li>
+<li>Padding: controls gap between content and border</li>
+<li>Margins collapses with each other which means the larger of the two adjacent boxes will be used and the smaller will be disregarded</li>
+<li>You can center a box on the page by setting <code>left-margin</code> and <code>right-margin</code> to <code>auto</code></li>
+<li>You can hide elements and convert elements from block to inline using <code>display</code> property</li>
+<li>You can change visibility of boxes using the <code>visibility</code> property</li>
+<li>Other properties include <code>border-image</code> which applies an image to the border of any box and <code>box-shadow</code> which adds a drop shadow around a box</li>
+<li><code>border-radius</code> can be used to create rounded corners on any box</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

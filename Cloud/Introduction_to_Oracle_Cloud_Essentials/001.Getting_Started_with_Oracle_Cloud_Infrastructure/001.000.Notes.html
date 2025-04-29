@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 11:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Section 1: Getting Started with Oracle Cloud Infrastructure</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Section 1: Getting Started with Oracle Cloud Infrastructure</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org99dd990">Navigation</a></li>
+<li><a href="#orgbd94cde">Notes</a>
+<ul>
+<li><a href="#orgcfad879">Section 1.1: Why Oracle Cloud?</a></li>
+<li><a href="#org6e270fe">Section 1.2: Oracle Cloud Introduction</a>
+<ul>
+<li><a href="#org57fdf20">Section 1.2.1: Oracle Cloud Infrastructure (OCI)</a></li>
+<li><a href="#orge1782a8">Section 1.2.2: Oracle Cloud Applications</a></li>
+</ul>
+</li>
+<li><a href="#org7376f63">Section 1.3: Oracle Cloud Infrastructure (OCI) Architecture</a>
+<ul>
+<li><a href="#orgaa2c528">Section 1.3.1: Choosing A Region</a></li>
+<li><a href="#org0ffcf48">Section 1.3.2: Availability Domains</a></li>
+<li><a href="#org1ee6cb1">Section 1.3.3: Fault Domains</a></li>
+</ul>
+</li>
+<li><a href="#org1744e80">Section 1.4: OCI Console Walkthrough Demo</a></li>
+<li><a href="#orgd90cc65">Section 1.5: Compute Services</a></li>
+<li><a href="#org9203ae2">Section 1.6: Demo - Compute</a></li>
+</ul>
+</li>
+<li><a href="#orgbbd33f0">Keywords</a></li>
+<li><a href="#org41c8c3e">Questions</a></li>
+<li><a href="#org2a591d1">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org99dd990" class="outline-2">
+<h2 id="org99dd990">Navigation</h2>
+<div class="outline-text-2" id="text-org99dd990">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">Introduction to Oracle Cloud Essentials</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Cloud/Introduction_to_Oracle_Cloud_Essentials">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Section 2: Getting Started with Oracle Cloud Applications</td>
+<td class="org-left">&vert; <a href="../002.Getting_Started_with_Oracle_Cloud_Applications/002.000.Notes.html">html</a> &vert; <a href="../002.Getting_Started_with_Oracle_Cloud_Applications/002.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Cloud/Introduction_to_Oracle_Cloud_Essentials/002.Getting_Started_with_Oracle_Cloud_Applications">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgbd94cde" class="outline-2">
+<h2 id="orgbd94cde">Notes</h2>
+<div class="outline-text-2" id="text-orgbd94cde">
+</div>
+<div id="outline-container-orgcfad879" class="outline-3">
+<h3 id="orgcfad879">Section 1.1: Why Oracle Cloud?</h3>
+<div class="outline-text-3" id="text-orgcfad879">
+<ul class="org-ul">
+<li>Oracle Cloud is unique because it can offer cloud infrastructure such as storage, compute, networking, etc. and cloud applications such as finanical apps, healthcare apps, retail apps, human captial management app, etc. all in one cloud</li>
+<li>They can also bring 3rd party apps</li>
+<li>Oracle also has various developer services such as APEX, kubernetes, AI services, and more</li>
+<li>Oracle also have "distributed cloud", they can get the services through the public cloud, hybrid cloud (in-prem), or dedicated cloud where the services are running in customer data centers (OCI dedicated region)</li>
+<li>Oracle is also investing in multicloud interacting with other cloud providers</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6e270fe" class="outline-3">
+<h3 id="org6e270fe">Section 1.2: Oracle Cloud Introduction</h3>
+<div class="outline-text-3" id="text-org6e270fe">
+<ul class="org-ul">
+<li>Oracle Cloud may have over 100 services, at a high-level, it can be classified into two categories: Oracle Cloud Infrastructure and Oracle Cloud Applications</li>
+<li>Oracle Cloud Infrastructure (OCI) are the infrstructure services that are designed to run any type of application (e.g. modern cloud-native application or any other mission critical workload)</li>
+<li>The global cloud data center infrastructure is the physical foundation organized into geographic regions that comprise the OCI platform (think of these regions as cities or regions where you want your OCI services to run)</li>
+</ul>
+</div>
+
+<div id="outline-container-org57fdf20" class="outline-4">
+<h4 id="org57fdf20">Section 1.2.1: Oracle Cloud Infrastructure (OCI)</h4>
+<div class="outline-text-4" id="text-org57fdf20">
+<ul class="org-ul">
+<li>The core services of OCI are: compute, storage, and networking</li>
+<li>Compute service provides compute capacity with CPUs and memory (RAM &amp; persistent compute storage) often provisioned as virtual machines</li>
+<li>Storage provides different service types for securely storing your data</li>
+<li>Networking services allow you to manage and scale public or private networks providing many connectivity options for internal or external components</li>
+<li>Other services provided by OCI are databases, developer services, containers &amp; functions, application integrations, ML &amp; AI, Data Lakehouse, analytics, and more</li>
+<li>There are security services at every layer to meet regulations, compliance and security requirements</li>
+<li>This is all for allowing customers to run their applications in the Oracle Cloud Infrastructure</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge1782a8" class="outline-4">
+<h4 id="orge1782a8">Section 1.2.2: Oracle Cloud Applications</h4>
+<div class="outline-text-4" id="text-orge1782a8">
+<ul class="org-ul">
+<li>There are also applications (by Oracle in the cloud) that customers may be able to use and these software are referred to as Software as a Service or SaaS</li>
+<li>Some examples include Oracle Fusion Cloud Enterprise Resource Planning (ERP) which is a complete modern enterprise resource-planning suite that provides financials, general ledger, accounts payable and receivables, and more</li>
+<li>Other apps are Supply Chain Management, Human Captial Management, Advertising and Customer Experience, Industry Applications (purposely built applications e.g. construction, engineering, etc.)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7376f63" class="outline-3">
+<h3 id="org7376f63">Section 1.3: Oracle Cloud Infrastructure (OCI) Architecture</h3>
+<div class="outline-text-3" id="text-org7376f63">
+<ul class="org-ul">
+<li>There are 3 main constructs of the physical architecture of OCI: regions, availability domains, fault domains</li>
+<li>A <b>region</b> represents a localized geographic area that is comprised of one or more <b>availability domains</b> (ADs) which are essentially physical data centers located within that region</li>
+<li>These availability domains are connected to each other by a low latency, high bandwidth network</li>
+<li>The fault domain is a grouping of hardware and infrastructure within each availability domain</li>
+<li>Fault domains allow you to distribute your cloud resources such as compute instances to ensure that they are not running on the same physical hardware within a single availability domain, helping to avoid any single point of failure</li>
+<li>Why would you want a cloud provider with multiple regions? Well if your application is growing in Europe then you would like to allocate resources in a region in Europe to reduce the latency your application has with your customers</li>
+</ul>
+</div>
+
+<div id="outline-container-orgaa2c528" class="outline-4">
+<h4 id="orgaa2c528">Section 1.3.1: Choosing A Region</h4>
+<div class="outline-text-4" id="text-orgaa2c528">
+<ol class="org-ol">
+<li>You'd like a region closest to your users for lowest latency and highest performance</li>
+<li>Data residency and compliance for storing enterprise data meaning many countries have strict data residency requirements (thus another factor to take into account; the laws and rules of storing data in that country / region)</li>
+<li>Another factor to keep in mind are OCI service availability as some services are not offered everywhere and new cloud services can be made available based on regional demand, regulatory compliance, resource availability, and other factors</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org0ffcf48" class="outline-4">
+<h4 id="org0ffcf48">Section 1.3.2: Availability Domains</h4>
+<div class="outline-text-4" id="text-org0ffcf48">
+<ul class="org-ul">
+<li>Although there may be multiple availability domains within a region, each availability domain are still isolated from each other</li>
+<li>This provides fault tolerance and becomes very unlikely for more than one availability domain to fail at the same time because the physical infrastructure are not shared between availability domains</li>
+<li>Thus a fail in one availability domain will not impact another availbility domain</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1ee6cb1" class="outline-4">
+<h4 id="org1ee6cb1">Section 1.3.3: Fault Domains</h4>
+<div class="outline-text-4" id="text-org1ee6cb1">
+<ul class="org-ul">
+<li>Fault domains are a grouping of hardware and insfrastructure within an availability domain</li>
+<li>You control the placement of your infrastructure resources such as VMs or cloud storage to specific fault domains as you're configuring the provisioning of those resources</li>
+<li>The reason for using separate fault domains is to protect against any unexpected hardware failure or planned outages during maintenance</li>
+<li>Each availability domain provide 3 fault domains allowing you to distribute resources</li>
+<li>Fault domains can be thought as logical data centers within an availability domain which AD is itself a physical data center</li>
+<li>Thus resources placed in different FDs will not share single points of hardware failure</li>
+<li>In summary, OCI architecture is organized into geographic regions and each region contains one or more data centers (availability domains) and each data center is subdivided further into 3 fault domains, and these fault domains can be thought as logical data centers placing resources in them</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1744e80" class="outline-3">
+<h3 id="org1744e80">Section 1.4: OCI Console Walkthrough Demo</h3>
+<div class="outline-text-3" id="text-org1744e80">
+<ul class="org-ul">
+<li>When logging into the OCI console on the top banner towards the right you will see the regions you are subscribed to</li>
+<li>The hamburger on the left allow you to navigate OCI services such as compute, storage, networking, etc.</li>
+<li><b>Note</b>: In the demo, I noticed each OCI service there are specific "sub-services" and got me curious to what those mean (see questions 1-4)</li>
+<li>In addition to the navigation hamburger, you have a search bar to search for resources, services, documentation, etc. (see question 5)</li>
+<li>You can also interact with OCI resources programmatically using Cloud Shell (a development tool that allows you to use the terminal to interact with OCI resources)</li>
+<li>Whenever you click on a OCI service you are brought to a page with various options but all these services (or resources?) will belong to a compartment</li>
+<li>What is a compartment? Think of it like a logical collection of related resources, so whenever you want to a create a resource (service?) make sure the right compartment is collected</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd90cc65" class="outline-3">
+<h3 id="orgd90cc65">Section 1.5: Compute Services</h3>
+<div class="outline-text-3" id="text-orgd90cc65">
+<ul class="org-ul">
+<li>OCI Compute Services allow you to create and manage compute resources which are also known as compute instances</li>
+<li>What are compute instances? They are simply <b>servers</b></li>
+<li>These servers can be used to deploy your applications and workload on these servers</li>
+<li>The servers are the foundation for many other OCI services as you simply create an instance, access the instance, and use it (e.g. install apps in the server)</li>
+<li>Computer instances are based on shapes which determine the type of CPU, how much RAM (memory), and persistent storage</li>
+<li>There are three types of compute instances:
+<ol class="org-ol">
+<li>Virtual Machine: A logical server that runs on top of a bare metal server (usually the bare metal server may have other VMs with other Oracle customers)</li>
+<li>Bare Metal: Dedicated physical server (usually used when workloads are performance-intensive, can't run in VM, or some other requirement)</li>
+<li>Dedicated VM Host: Runs Virtual Machines on <b>dedicated</b> servers (unlike using VMs where it can run on bare metal servers that may be shared by others) thus you get a bare metal server but it is used to create VMs instead</li>
+</ol></li>
+<li>Shapes: A template that determines the resources allocated to an instance (CPU &amp; RAM)</li>
+<li>Fixed shapes: A number of CPUs and RAM and cannot be customized, applies to bare metal machines and some VMs</li>
+<li>Flexible Shapes: The number of CPUs and RAM can be customized and changed but only applies to VMs</li>
+<li>Some VMs allow for vertical scaling where you can change the shape to scale up or down (increase or decrease the number of cpu and ram)</li>
+<li>You can also horizontal scaling or "autoscaling" where you can create more or less VM instances</li>
+<li>This can be done automatically based on some metric criteria causing an autoscaling event to be triggered and thus increasing or decreasing the number of VMs</li>
+<li>Another way to automatically do "autoscaling" is by scheduling, you can schedule an autoscaling event to be triggered at a certain time in the day, in the week, month, etc. and thus increasing or decreasing the number of VMs</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9203ae2" class="outline-3">
+<h3 id="org9203ae2">Section 1.6: Demo - Compute</h3>
+<div class="outline-text-3" id="text-org9203ae2">
+<ul class="org-ul">
+<li>You can create compute instances and configure them to the shape (cpu and ram) that you need as Oracle have "flex" shapes</li>
+<li>You can also create compute instances with a public IP address or without one (thus it uses private IP addresses)</li>
+<li>You can also create compute instances with a SSH key or not so that users will need the key to be able to access the VM instance</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbbd33f0" class="outline-2">
+<h2 id="orgbbd33f0">Keywords</h2>
+<div class="outline-text-2" id="text-orgbbd33f0">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Public Cloud</td>
+<td class="org-left">A public cloud is a computing environment that provides services and resources (in Oracle's case applications too) over the internet from a company (Oracle)</td>
+</tr>
+
+<tr>
+<td class="org-left">Hybrid Cloud</td>
+<td class="org-left">A hybrid cloud is a computing environemnt that combines computing, storage, services etc. from a company's on-premises infrastructure with a public cloud thus creating a more versatile infrastructure (the services &amp; resources from the on-prem infrastructure can interact with the public cloud)</td>
+</tr>
+
+<tr>
+<td class="org-left">Dedicated Cloud</td>
+<td class="org-left">A dedicated cloud is a computing environment that are exlusively allocated to a company thus the resources &amp; services are isolated from everyone else, the company has full control over the cloud even if it is still managed by the cloud provider, thus the company has more security and more flexibility to scale up or down as they are managing the cloud and are constrained to the physcical hardware that they choose</td>
+</tr>
+
+<tr>
+<td class="org-left">MultiCloud</td>
+<td class="org-left">Multicloud is a computing strategy where a customer may use services and resouces from multiple cloud providers using the service or resource that they need from that cloud provider and using other services and resources from other cloud providers (these services and resouces may interact with each other and more cloud providers are providing ways to easily integrate other cloud providers into their infrastructure)</td>
+</tr>
+
+<tr>
+<td class="org-left">Oracle Cloud Infrastructure (OCI)</td>
+<td class="org-left">Oracle Cloud Infrastructure (OCI) are the infrstructure services that are designed to run any type of application (e.g. modern cloud-native application or any other mission critical workload), not only run but build, test, deploy, and manage</td>
+</tr>
+
+<tr>
+<td class="org-left">Oracle Cloud Applications</td>
+<td class="org-left">Oracle Cloud Applications are applications as a cloud service to help businesses meet their needs (these applications try to be various solutions for businesses and often integrates well with other Oracle applications and services)</td>
+</tr>
+
+<tr>
+<td class="org-left">Region</td>
+<td class="org-left">A region is geographic area where a cloud provider has data centers and infrastructure of cloud services (each Oracle region has one or more availability domains)</td>
+</tr>
+
+<tr>
+<td class="org-left">Availability Domains</td>
+<td class="org-left">Think of availability domains as the actual data centers, the region is simply a geographical area but ADs are the data centers and usually each region has multiple availability domains. These availability domains are the data centers within that region and these availability domains are isolated from each other but connect to each other by a low latency high bandwidth network (the infrastructure are not connected to each other providing fault tolerance)</td>
+</tr>
+
+<tr>
+<td class="org-left">Fault Domains</td>
+<td class="org-left">The fault domain is a grouping of hardware and infrastructure within each availability domain (this allows to distribute resources and not have a single point of failure). You can think of fault domains as logical data centers, each AD has 3 fault domains providing fault tolerance</td>
+</tr>
+
+<tr>
+<td class="org-left">Compartment</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Virtual Machine</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Bare Metal Machine</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Dedicated VM Host</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Shapes</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Vertical Scaling</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Horizontal Scaling ("Autoscaling")</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org41c8c3e" class="outline-2">
+<h2 id="org41c8c3e">Questions</h2>
+<div class="outline-text-2" id="text-org41c8c3e">
+<ul class="org-ul">
+<li><b>Q</b>: What are Virtual Cloud Networks?</li>
+<li><b>Q</b>: What is Web Application Acceleration?</li>
+<li><b>Q</b>: What are Load Balancers in Networks?</li>
+<li><b>Q</b>: What is DNS?</li>
+<li><b>Q</b>: What are resources in OCI and what are services in OCI?</li>
+<li><b>Q</b>: What is a public subnet?</li>
+<li><b>Q</b>: What is an internet gateway?</li>
+<li><b>Q</b>: What is an compartment in OCI?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2a591d1" class="outline-2">
+<h2 id="org2a591d1">Summary</h2>
+</div>
+</div>
+</body>
+</html>

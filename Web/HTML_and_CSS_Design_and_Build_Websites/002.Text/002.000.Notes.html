@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 12:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 2: Text</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Chapter 2: Text</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgfddb5b7">Navigation</a></li>
+<li><a href="#orge6839c5">Notes</a>
+<ul>
+<li><a href="#org29b72ed">Section 2.1: Headings</a></li>
+<li><a href="#orgcbd68ef">Section 2.2: Paragraphs</a></li>
+<li><a href="#orge79d0d7">Section 2.3: Bold &amp; Italic</a></li>
+<li><a href="#org642205d">Section 2.4: SuperScript &amp; SubScript</a></li>
+<li><a href="#org4c2ead3">Section 2.5: Whitespace, Line Breaks, &amp; Horizontal Rules</a></li>
+<li><a href="#orged15c8f">Section 2.6: Semantic Markup</a></li>
+<li><a href="#orgb493f13">Section 2.7: Strong &amp; Emphasis</a></li>
+<li><a href="#org9c1734a">Section 2.8: Quotations</a></li>
+<li><a href="#org1a16f0f">Section 2.9: Abbreviations &amp; Acronyms</a></li>
+<li><a href="#org08b767e">Section 2.10: Citations &amp; Definitions</a></li>
+<li><a href="#org7fd8b0a">Section 2.11: Author Details</a></li>
+<li><a href="#orgb70f251">Section 2.12: Changes to Content</a></li>
+<li><a href="#org01b0b7a">Section 2.13: Creating A Simple HTML Page</a></li>
+</ul>
+</li>
+<li><a href="#org06f25d6">Keywords</a></li>
+<li><a href="#org7f698a3">Questions</a></li>
+<li><a href="#org0306bf3">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfddb5b7" class="outline-2">
+<h2 id="orgfddb5b7">Navigation</h2>
+<div class="outline-text-2" id="text-orgfddb5b7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">HTML &amp; CSS - Design and Build Websites</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 1: Structure</td>
+<td class="org-left">&vert; <a href="../001.Structure/001.000.Notes.html">html</a> &vert; <a href="../001.Structure/001.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/001.Structure">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 3: Lists</td>
+<td class="org-left">&vert; <a href="../003.Lists/003.000.Notes.html">html</a> &vert; <a href="../003.Lists/003.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/003.Lists">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orge6839c5" class="outline-2">
+<h2 id="orge6839c5">Notes</h2>
+<div class="outline-text-2" id="text-orge6839c5">
+</div>
+<div id="outline-container-org29b72ed" class="outline-3">
+<h3 id="org29b72ed">Section 2.1: Headings</h3>
+<div class="outline-text-3" id="text-org29b72ed">
+<ul class="org-ul">
+<li>HTML has six levels of headings with <code>&lt;h1&gt;</code> being used for the main headings, <code>&lt;h2&gt;</code> for subheading, <code>&lt;h3&gt;</code>, and so forth all the way to <code>&lt;h6&gt;</code></li>
+<li>Browsers display the contents of the headings at differnet sizes with h1 being the largest size and h6 being the smallest (this can later be changed with CSS)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcbd68ef" class="outline-3">
+<h3 id="orgcbd68ef">Section 2.2: Paragraphs</h3>
+<div class="outline-text-3" id="text-orgcbd68ef">
+<ul class="org-ul">
+<li>The paragraph element uses the following tags: <code>&lt;p&gt; &lt;/p&gt;</code></li>
+<li>By default, a browser will show each paragraph on a new line with some space between it and any subsequent paragraphs</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge79d0d7" class="outline-3">
+<h3 id="orge79d0d7">Section 2.3: Bold &amp; Italic</h3>
+<div class="outline-text-3" id="text-orge79d0d7">
+<ul class="org-ul">
+<li>Enclosing text with the tags <code>&lt;b&gt; &lt;/b&gt;</code> can make characters appear bold</li>
+<li>The bring-to-attention element can represent a section of text that would be presented in a visually different way (e.g. keywords in a paragraph) although the use of bring-to-attention element does not imply any additional meaning (we will later learn about the strong element)</li>
+<li>Enclosing text with the tags <code>&lt;i&gt; &lt;/i&gt;</code> can make characters appear italic</li>
+<li>The idiomatic element can represent a section of text that would be said in a different way from surrounding content (e.g. names of ships, foreign words, or other words that would usually be italicized) but again does not imply any additional meaning only formatting (we will later learn about the emphasis element)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org642205d" class="outline-3">
+<h3 id="org642205d">Section 2.4: SuperScript &amp; SubScript</h3>
+<div class="outline-text-3" id="text-org642205d">
+<ul class="org-ul">
+<li>The superscript element is used to contain characters that should be superscript commonly used with suffixes of dates or mathematical concepts (e.g. exponent)</li>
+<li>The subscript element is used to contain characters that should be subscript commonly used with foot notes or chemical formulas</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4c2ead3" class="outline-3">
+<h3 id="org4c2ead3">Section 2.5: Whitespace, Line Breaks, &amp; Horizontal Rules</h3>
+<div class="outline-text-3" id="text-org4c2ead3">
+<ul class="org-ul">
+<li>When the browser comes across two or more spaces next to each other, it only displays one space</li>
+<li>Similarly if you have a line break in your code, it will treat it as a single space too; this is known as white space collapsing</li>
+<li>So how do you add a line break inside the middle of a paragraph? You can add line breaks by using the <code>&lt;br /&gt;</code> element</li>
+<li>Another element used is a horiztonal rule (basically a horizontal line); this break can be done because of a change of topic or scene in a play or between sections</li>
+<li>The line break and horizontal rule are self-closing elements and thus have only one self-closing tag which is written different: <code>&lt;tag /&gt;</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orged15c8f" class="outline-3">
+<h3 id="orged15c8f">Section 2.6: Semantic Markup</h3>
+<div class="outline-text-3" id="text-orged15c8f">
+<ul class="org-ul">
+<li>There are some text elements that are not intended to affect the structure of your web pages but they do add extra information to the pages and these are known as semantic markup</li>
+<li>Although some of the semantic markup do change the appearence of text (doesn't change structurally); the elements should not be used just because the browser renders them in a visually different way</li>
+<li>The purpose of semantic markup is to describe the content of your web pages more accurately</li>
+<li>The reason for these elements are for screen readers and search engines which can use this extra information</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb493f13" class="outline-3">
+<h3 id="orgb493f13">Section 2.7: Strong &amp; Emphasis</h3>
+<div class="outline-text-3" id="text-orgb493f13">
+<ul class="org-ul">
+<li>The <code>&lt;strong&gt;</code> element indicates that its content has strong importance</li>
+<li>By default, browsers will show the contents of a <code>&lt;strong&gt;</code> element in bold</li>
+<li>The <code>&lt;em&gt;</code> element indicates emphasis that subtly changes the meaning of a sentence</li>
+<li>By default, browsers will show the contents of an <code>&lt;em&gt;</code> element in italic</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9c1734a" class="outline-3">
+<h3 id="org9c1734a">Section 2.8: Quotations</h3>
+<div class="outline-text-3" id="text-org9c1734a">
+<ul class="org-ul">
+<li>There are two elements commonly used for marking up quotations: <code>&lt;blockquote&gt;</code> and <code>&lt;q&gt;</code></li>
+<li>The <code>&lt;blockquote&gt;</code> element is used for longer quotes that take up an entire paragraph (normally a <code>&lt;p&gt;</code> element is added inside the blockquote)</li>
+<li>Browsers tend to indent the contents of the <code>&lt;blockquote&gt;</code> element but this element should not be used just to indent a piece of text because that can be done using CSS</li>
+<li>The <code>&lt;q&gt;</code> element is used for shorter quotes that sit within a paragraph</li>
+<li>Browsers are suppose to put quotes around the <code>&lt;q&gt;</code> element however it could be that some browsers may not (thus the <code>&lt;q&gt;</code> element is not used as much)</li>
+<li>Both elements may use the cite attribute to indicate where the quote is from (value should be a URL that will have more information about the source of the quotation)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1a16f0f" class="outline-3">
+<h3 id="org1a16f0f">Section 2.9: Abbreviations &amp; Acronyms</h3>
+<div class="outline-text-3" id="text-org1a16f0f">
+<ul class="org-ul">
+<li>If you use an abbreviation or an acronym then the <code>&lt;abbr&gt;</code> element can be used</li>
+<li>A title attribute on the opening tag is used to specify the full term</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org08b767e" class="outline-3">
+<h3 id="org08b767e">Section 2.10: Citations &amp; Definitions</h3>
+<div class="outline-text-3" id="text-org08b767e">
+<ul class="org-ul">
+<li>When you are referencing a piece of work such a a book, film, or research paper, the <code>&lt;cite&gt;</code> element can be used to indicate where the citation is from</li>
+<li><code>&lt;cite&gt;</code> should not be used for a person's name but many developers did so in HTML4 (because it was allowed)</li>
+<li>The first time you explain some new terminology (perhaps an academic concept or some jargon) in a document, it is known as the defining instance of it</li>
+<li>The <code>&lt;dfn&gt;</code> element is used to indicate the defining instance of a new term (some browsers show the element in italics and others do not change the appearance of the element)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7fd8b0a" class="outline-3">
+<h3 id="org7fd8b0a">Section 2.11: Author Details</h3>
+<div class="outline-text-3" id="text-org7fd8b0a">
+<ul class="org-ul">
+<li>The <code>&lt;address&gt;</code> element has quite a specific use: to contain contact details for the author of the page</li>
+<li>There could be nested elements inside the <code>&lt;address&gt;</code> element like paragraphs, links, etc</li>
+<li>It can contain a physical address but it does not have to (it can contain a phone number or email address)</li>
+<li>Browsers often display the content of the <code>&lt;address&gt;</code> element in italics but that can be changed with CSS</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb70f251" class="outline-3">
+<h3 id="orgb70f251">Section 2.12: Changes to Content</h3>
+<div class="outline-text-3" id="text-orgb70f251">
+<ul class="org-ul">
+<li>The <code>&lt;ins&gt;</code> element can be used to show content that has been inserted into a document (usually has the text underlined)</li>
+<li>The <code>&lt;del&gt;</code> element can be used to show text that has been deleted from it (usually has a line through the text)</li>
+<li>The <code>&lt;s&gt;</code> element indicates something that is no longer accurate or relevant but should not be deleted (visually the content of an <code>&lt;s&gt;</code> element will be usually be displayed with a line through the center)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org01b0b7a" class="outline-3">
+<h3 id="org01b0b7a">Section 2.13: Creating A Simple HTML Page</h3>
+<div class="outline-text-3" id="text-org01b0b7a">
+<ul class="org-ul">
+<li>We are going to create a HTML page that demonstrates text markup which includes <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;cite&gt;</code>, <code>&lt;em&gt;</code>, and more</li>
+<li><a href="./002.013.Creating_A_Simple_HTML_Page/index.html">Here is the finished web page</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org06f25d6" class="outline-2">
+<h2 id="org06f25d6">Keywords</h2>
+<div class="outline-text-2" id="text-org06f25d6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>HTML Heading Element</b></td>
+<td class="org-left">An element that is used to display headings and subheadings; it has six level of headings</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Paragraph Element</b></td>
+<td class="org-left">An element used to represent a paragraph</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Bring-to-Attention Element</b></td>
+<td class="org-left">An element to make text bold (only used to change visual appearence of text and has no meaning)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Idiomatic Element</b></td>
+<td class="org-left">An element to make text italic (only used to change visual appearence of text and has no meaning)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Superscript Element</b></td>
+<td class="org-left">An element to create superscript elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Subscript Element</b></td>
+<td class="org-left">An element to create subscript elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Line Break Element</b></td>
+<td class="org-left">A self-closing element to create a line break</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Horizontal Rule Element</b></td>
+<td class="org-left">A self-closing element to create a horizontal line to signify a thematic break or change</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Strong Element</b></td>
+<td class="org-left">An element to indicate its content has strong importance</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Emphasis Element</b></td>
+<td class="org-left">An element to indicate emphasis that subtly change the meaning of a sentence</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Blockquote Element</b></td>
+<td class="org-left">An element used to for longer quotes</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Inline Quote Element</b></td>
+<td class="org-left">An element used to inline quotation</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Abbreviation Element</b></td>
+<td class="org-left">An element used for abbreviations and acronyms</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Cite Element</b></td>
+<td class="org-left">An element used to indicate where the citation is from</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Definition Element</b></td>
+<td class="org-left">An element used to indicate a term to be defined</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Address Element</b></td>
+<td class="org-left">An element used to enclose contact information for a person, people, or for an organziation</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Insert Element</b></td>
+<td class="org-left">An element that represents text that has been added to a document</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Delete Element</b></td>
+<td class="org-left">An element that represents text that has been deleted from a document</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Strikethrough Element</b></td>
+<td class="org-left">An element that render text with a strikethrough or a line through it (not appropriate when indicating document edits)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org7f698a3" class="outline-2">
+<h2 id="org7f698a3">Questions</h2>
+<div class="outline-text-2" id="text-org7f698a3">
+<ul class="org-ul">
+<li><b>Q</b>: Is the inline quotation element still used in HTML5?
+<ul class="org-ul">
+<li>Yes the quotation element is still being used but because of the browser's inconsistency, CSS is used to add quotations or not</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0306bf3" class="outline-2">
+<h2 id="org0306bf3">Summary</h2>
+<div class="outline-text-2" id="text-org0306bf3">
+<ul class="org-ul">
+<li>There are many HTML elements to add structure to the document such as headings, paragraphs, make text bold or italic, add subscript or superscript</li>
+<li>You can also add line breaks, horizontal rules (lines)</li>
+<li>One thing to note is that whitespace is collapsed by the browser so if you were to have multiple spaces or line breaks in your code then the browser will just render that has a single white-space which is why we have elements to control that behavior for us</li>
+<li>Another thing to note is that we have semantic markup which does not change the structure of the page but just add meaning to the element and its content (e.g. instead of bold we can possibly use strong which visually does the same thing but semantically mean different things)</li>
+<li>Strong and emphasis are example of semantic elements</li>
+<li>Other elements are quotations (blockquote for multiline quotes or <code>&lt;q&gt;</code> for inline quotes), abbreviations and acronyms, citations and definitions, author details (<code>&lt;address&gt;</code>), and inserting text, deleting text, and strikethrough text</li>
+<li>This chapter was mainly how to use elements to affect text</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

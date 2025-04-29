@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 12:35 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 2: Basic JavaScript Instructions</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Chapter 2: Basic JavaScript Instructions</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org406dbb8">Navigation</a></li>
+<li><a href="#orge062a44">Notes</a>
+<ul>
+<li><a href="#org78feae9">Section 2.1: Statements &amp; Comments</a></li>
+<li><a href="#orgffffead">Section 2.2: Variables</a></li>
+<li><a href="#org396d5cf">Section 2.3: Data Types</a></li>
+<li><a href="#org556ba03">Section 2.4: Naming Variables and Using Variables</a></li>
+<li><a href="#org724e52b">Section 2.5: Arrays</a></li>
+<li><a href="#org5ef83e7">Section 2.6: Expressions &amp; Operators</a></li>
+<li><a href="#orge6be6f1">Section 2.7: Chapter Exercise</a></li>
+<li><a href="#org1971b5c">Section 2.8: Summary</a></li>
+</ul>
+</li>
+<li><a href="#orgf487daf">Keywords</a></li>
+<li><a href="#org4db5b65">Questions</a></li>
+<li><a href="#orgfc2f76f">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org406dbb8" class="outline-2">
+<h2 id="org406dbb8">Navigation</h2>
+<div class="outline-text-2" id="text-org406dbb8">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 1: The ABC of Programming</td>
+<td class="org-left">&vert; <a href="../001.The_ABC_of_Programming/001.000.Notes.html">html</a> &vert; <a href="../001.The_ABC_of_Programming/001.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/001.The_ABC_of_Programming">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 3: Functions, Methods &amp; Objects</td>
+<td class="org-left">&vert; <a href="../003.Functions_Methods_and_Objects/003.000.Notes.html">html</a> &vert; <a href="../003.Functions_Methods_and_Objects/003.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/003.Functions_Methods_and_Objects">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orge062a44" class="outline-2">
+<h2 id="orge062a44">Notes</h2>
+<div class="outline-text-2" id="text-orge062a44">
+</div>
+<div id="outline-container-org78feae9" class="outline-3">
+<h3 id="org78feae9">Section 2.1: Statements &amp; Comments</h3>
+<div class="outline-text-3" id="text-org78feae9">
+<ul class="org-ul">
+<li>A script is a series of instructions that a computer can follow one-by-one</li>
+<li>Each individual instruction or step is known as a statement</li>
+<li>Each statement ends with a semicolon</li>
+<li>A code block is a block of statements and it starts with a curly brace and ends with a curly brace</li>
+<li>JavaScript is case sensitive so variables with the same name but different casing will be treated differently</li>
+<li>Statements are instructions that the computer needs to follow and each start in a new line and end with a semicolon</li>
+<li>Comments can be added to JS code to explain what your code does</li>
+<li>Single line comments start with <code>//</code> and anything after those characters in the same line will not be processed by the JS interpreter</li>
+<li>Multiline comments start with <code>/*</code> and end with <code>*/</code>, these characters can be in different lines and anything in between is regarded as a comment and not processed by the JS interpreter</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgffffead" class="outline-3">
+<h3 id="orgffffead">Section 2.2: Variables</h3>
+<div class="outline-text-3" id="text-orgffffead">
+<ul class="org-ul">
+<li>Scripts need to store information to do its job and this information is stored in variables</li>
+<li>Variables will be forgotten once the browser leaves the page</li>
+<li>The data inside the variable can change or vary each time a script runs</li>
+<li>The use of variables to represent numbers or other kinds of data is very similar to the algebra variables (e.g. x, y, z)</li>
+<li>Before you can use a variable, you need to declare the variable by creating the variable and giving it a name</li>
+<li><code>var</code> is the keyword to tell the interpreter that you want to create a variable next you will give the variable a name</li>
+<li>If the name is more than one word it is written in camelCase (first word is lowercase and next words have their first letter capitalized)</li>
+<li>So it would be something like this: <code>var width;</code></li>
+<li>The name should describe the kind of data the variable holds</li>
+<li>Next you assign a value to the variable (tell it what info to hold), for example <code>width = 5;</code></li>
+<li>Now you can use the variable by its name</li>
+<li>The <code>=</code> is an assignment operator which tells the interpreter you are going to assign a value to the variable or update the variable</li>
+<li>The variable is said to be undefined until a value has been assigned</li>
+<li>Where a variable is declared can have an effect upon whether the rest of the script can use it, this is called the scope of a variable</li>
+<li>Since the script is read from top to bottom, a variable declared can only be used after it is has been declared and cannot be used anytime before the declaration</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org396d5cf" class="outline-3">
+<h3 id="org396d5cf">Section 2.3: Data Types</h3>
+<div class="outline-text-3" id="text-org396d5cf">
+<ul class="org-ul">
+<li>JavaScript distinguishes between numbers, strings, and booleans (true or false)</li>
+<li>The numeric data type handles numbers (positive, negative, and decimals</li>
+<li>Numeric data can represent numbers to add, size of objects like screens, positioning and much more</li>
+<li>String data type consists of letters and other characters</li>
+<li>String data type is enclosed with a pair of single quotes or double quotes but the opening quote must match the closing quote</li>
+<li>Strings are used when working with any kind of text</li>
+<li>Boolean data types can only have true or false</li>
+<li>Booleans are useful to make decisions and changing which code in the script should run</li>
+<li>There are other data types as well such as objects, <code>undefined</code>, and <code>null</code></li>
+<li>Unlike other programming languages in JS you do not need to specify what type of data it will hold</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org556ba03" class="outline-3">
+<h3 id="org556ba03">Section 2.4: Naming Variables and Using Variables</h3>
+<div class="outline-text-3" id="text-org556ba03">
+<ul class="org-ul">
+<li>There are six rules to follow when giving a variable a name:
+<ol class="org-ol">
+<li>The name must begin with a letter, dollar sign ($), or an underscore (_), it cannot start with a number</li>
+<li>The name can only contain letters, numbers, dollar sign ($), or an underscore (_), it cannot contain dash (-) or a period (.)</li>
+<li>You cannot use keywords or reserved words (keywords are special words that tell the interpreter to do something and reserved words are words that may be used by JS in the future), note JS is case sensitive so if a reserved word is <code>enum</code> then technically you can use <code>Enum</code> but it is a very bad idea to do something like that</li>
+<li>All variables are case sensitive so <code>score</code> and <code>Score</code> are different variable names but it would be a very bad idea to create two variables with the same name but different casing</li>
+<li>Use a name that describes the kind of information that the variables store</li>
+<li>If your variable name is made up of more than one word, use a capital letter for the first letter of every word after the first word which is called camelCase, for example <code>firstName</code> notice how "name" is captialized and not "first"</li>
+</ol></li>
+<li>Using number variables: <code>var cost = 5;</code></li>
+<li>Using string variables: <code>var name = "John"</code></li>
+<li>Using quotes in string variables: <code>var name = "John \"Doe\""</code></li>
+<li>You use backwards slash (<code>\</code>) or backslash before any type of quote mark that appears within a string, the backslash tells the interpreter that the following character is part of the string</li>
+<li>Using boolean variables: <code>var isInStock = false;</code>, useful to take different code paths in the script</li>
+<li><p>
+Different ways to declare variables:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">// 1
+var cost = 5;
+var quantity = 5;
+
+// 2
+var cost;
+var quantity;
+cost = 5;
+quantity = 5;
+
+// 3
+var cost, quantity;
+cost = 5;
+quantity = 5;
+
+// 4
+var cost = 5, quantity = 5, isInStock = false;
+</pre>
+</div></li>
+
+<li>It is best to make your code legible so declaring different variables on separate lines is better because it makes your code easier to read</li>
+<li>You can assign a new value to the variable even after it has been initialized basically changing what is stored in the variable later</li>
+<li>You use the assignment operator (<code>=</code>) to assign new values to the variables</li>
+<li><p>
+For example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">var cost = 5;
+
+// Some code
+
+cost = 1;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org724e52b" class="outline-3">
+<h3 id="org724e52b">Section 2.5: Arrays</h3>
+<div class="outline-text-3" id="text-org724e52b">
+<ul class="org-ul">
+<li>An array is a special type of variable, it doesn't just store one value but stores a list of values</li>
+<li>Arrays are good when working with a list or a set of values that are related to each other</li>
+<li>Arrays are helpful when you do not know how many items a list will contain because when you create the array you do not need to specify how many values it will hold</li>
+<li>Arrays make more sense than creating multiple single variables which you might create more or less than you actually need</li>
+<li><p>
+To create an array you use the <code>var</code> keyword and give it a name and the values are assigned to the array inside a pair of square brackets separated by a comma like the following:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">var colors;
+colors = ["white", "black", "brown"];
+
+var arry = [10, "hello", false];
+
+var fruits = new Array("apple", "banana", "mango");
+</pre>
+</div></li>
+
+<li>The arrays do not need to hold values of the same data type, it can be strings, numbers, booleans, etc.</li>
+<li>Using the square brackets is an array literal or you can create an array object using the <code>new</code> keyword</li>
+<li>According to the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new">Mozilla Web Docs</a> the <code>new</code> operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function</li>
+<li>To access the values of the array, think of it as a numbered list, where the first value is at position 0, each value has a number called an index (it starts at 0)</li>
+<li>To access a value in the array it would be something like: <code>var firstFruit = fruits[0];</code></li>
+<li>Each array has a property called length which holds the number of items in the array and it can be accessed like the following: <code>var numFruits = fruits.length;</code></li>
+<li><code>length</code> is a property of array and the <code>.</code> is a member access operator which can access properties of the object, we discussed this topic in the previous chapter</li>
+<li>You can change array values by selecting the value and assigning it a new value just as you would any other variable like so: <code>fruits[0] = "orange";</code></li>
+<li>After changing it, "apple" no longer exists and if you access <code>fruits[0]</code> you will get "orange"</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5ef83e7" class="outline-3">
+<h3 id="org5ef83e7">Section 2.6: Expressions &amp; Operators</h3>
+<div class="outline-text-3" id="text-org5ef83e7">
+<ul class="org-ul">
+<li>An expression evaluates into or results in a single value, broadly speaking there are two types of expressions
+<ol class="org-ol">
+<li>Expressions that just assign a value to a variable ( <code>var fruit = "mango"</code> ) before you assign a value to the variable (but it is already created) it has a value of <code>undefined</code> (<code>undefined</code> is a data type)</li>
+<li>Expressions that use two or more values to return a single value, basically you can perform operations on any number or individual values to determine a single value ( <code>var area = 3 * 2;</code> or <code>var name = "John" + "Doe"</code> )</li>
+</ol></li>
+<li>Expressions rely on things called operators; they allow programmers to create a single value from one or more values (these are only a certain type of operators, there are other operators for different purposes like the member access operator which doesn't create a single value from one or more values)</li>
+<li>The operators that create a value from one or more values are only the assignment operator, arithmetic operator, string operators, comparison operators, and logical operators</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">// Assignment Operator
+var fruit = "mango";
+
+// Arithmetic Operators
+var add = 1 + 2;
+var sub = 1 - 2;
+var mul = 1 * 2;
+var div = 1 / 2;
+var mod = 1 % 2;
+var exp = 1 ** 2;
+var one = 1;
+
+// inc
+one++;
+
+// dec
+dec--;
+
+// String Operators
+var name = "John" + " " + "Doe";
+
+// Comparison Operator
+var isGreater = 3 &gt; 5;
+
+// Logical Operator
+var isTrue = (5 &gt; 3) &amp;&amp; (2 &lt; 4)
+
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Remember arithmetic precedence in math class, the same applies here, multiplication and division are applied first and then addition and substraction</li>
+<li>You can use parentheses to change order of which operation performs first</li>
+<li>For strings, there is only one string operator <code>+</code></li>
+<li>The <code>+</code> operator is used to join strings on either side of it</li>
+<li>Joining together two or more strings to create one new string is called concatenation</li>
+<li>You can add numbers to strings but the result will be a string and the number will become part of the string</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">var streetNum = 123;
+var streetName = "1st";
+var address = streetNum + " " + streetName; // 123 1st
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>If you try to use any of the other arithmetic operators on a string then the value that results is usually a value called NaN (not a number)</li>
+<li>NaN also results in indetermine mathematical operation such as dividing by zero</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge6be6f1" class="outline-3">
+<h3 id="orge6be6f1">Section 2.7: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-orge6be6f1">
+<ul class="org-ul">
+<li>In this book I am going to try and do something different</li>
+<li>Instead of trying to mimic or copy what the author has done, I am going to understand what the author is doing and then do my own version</li>
+<li>I feel like this is a better approach to learning than simply mimicing the author</li>
+<li>So this project has the following requirements:
+<ol class="org-ol">
+<li>Get user's name</li>
+<li>Get custom sign the user wants to do</li>
+<li>User finished</li>
+<li>Display custom message with user's name</li>
+<li>Show breakdown, the sign, how many tiles, subtotal, shipping, and grand total</li>
+</ol></li>
+<li><a href="./002.007.Chapter_Exercise/index.html">Here is my Ch.2 Exercise</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1971b5c" class="outline-3">
+<h3 id="org1971b5c">Section 2.8: Summary</h3>
+<div class="outline-text-3" id="text-org1971b5c">
+<ul class="org-ul">
+<li>A script is made up of a series of statements and each statement is like a step in a recipe</li>
+<li>Scripts contain very precise instructions (e.g. store variables and perform calculations)</li>
+<li>Variables are used to temporarily store pieces of infomration used in the script</li>
+<li>Arrays are special types of variables that store more than one piece of related information</li>
+<li>JavaScript distinguishes between numbers (0-9), strings (text), and Boolean values (true or false)</li>
+<li>Expressions evaluate into a single value</li>
+<li>Expressions rely on operators to calculate a value</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf487daf" class="outline-2">
+<h2 id="orgf487daf">Keywords</h2>
+<div class="outline-text-2" id="text-orgf487daf">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Variable Scope</td>
+<td class="org-left">Variable scope depends on what you use <code>var</code>, <code>const</code>, or <code>let</code>. <code>var</code> has function scope thus any variables declared anywhere in the function can be used anywhere else (given that it is after it is declared), for example in a loop you might create a variable with <code>var</code> and could use it outside the loop. <code>const</code> and <code>let</code> have block scope thus any variables declared in the block only are accessible within that block and not outside the block. <code>const</code> you cannot reassign and <code>let</code> behaves similar to other programming languages such as not being able to reference it before it is declared, you cannot redeclare it, and there are other differences with <code>var</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>new</code> Operator</td>
+<td class="org-left"><code>new</code> operator is used to create new instances of objects and invoke constructor functions or classes</td>
+</tr>
+
+<tr>
+<td class="org-left">Expression</td>
+<td class="org-left">Unit of code that be evaluated or "compute" into a single value (e.g. "Hello", 5 + 5, etc.)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4db5b65" class="outline-2">
+<h2 id="org4db5b65">Questions</h2>
+<div class="outline-text-2" id="text-org4db5b65">
+<ul class="org-ul">
+<li><b>Q</b>: Does the <code>new</code> operator function the same way as the <code>new</code> operator in C++?
+<ul class="org-ul">
+<li>Both create new objects in the heap</li>
+<li>However two notable differences is that in JS you have garbage collection and when objects are no longer referenced then the JS engine will automically clean up memory</li>
+<li>In C++, you have to do this manually and use the <code>delete</code> operator</li>
+<li>Another thing is that JS will return the actual object after using the <code>new</code> operator thus you can easily access the object's members without needing to deference it because it returned the actual object instead of the pointer</li>
+<li>In C++, it will return a pointer and you will need to deference to use the pointer</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfc2f76f" class="outline-2">
+<h2 id="orgfc2f76f">Summary</h2>
+<div class="outline-text-2" id="text-orgfc2f76f">
+<ul class="org-ul">
+<li>A script is a series of instructions that a computer can follow one-by-one</li>
+<li>Each instruction or step is known as a statement</li>
+<li>Comments are added with <code>//</code> or a multiline comment starts with <code>/*</code> and ends with <code>*/</code></li>
+<li>You declare variables using <code>var</code>, <code>let</code>, and <code>const</code> and use an assignment operator to assign a value to the variable</li>
+<li>You do not need to specify the data type to the variable</li>
+<li>The scope of variables depends on how it was created, <code>var</code> has function scope, and <code>let</code> and <code>const</code> have block scope</li>
+<li>Although you don't need to explicitly state the data types when creating variables, JS does have data types such as numeric data, strings, boolean, undefined, and null</li>
+<li>To name a variable it must begin with a letter, dollar sign, or an underscore, can only include letters, numbers, dollar sign, and underscore, it cannot contain dash or period, the name cannot be a reserved word or keyword, and try to use the convention of camelCase</li>
+<li>To special characters you can always escape the character using a backslash to tell the interpreter the following is part of the string and not something else</li>
+<li>An array is a special type of variable that can store a list of values</li>
+<li>To create an array it is very similar creating variables but in the assignment you use square brackets and insert the list of values separated by commas</li>
+<li>You can also use the <code>new</code> operator and the <code>Array</code> object to create arrays</li>
+<li>You can always add or remove elements to the array later</li>
+<li>An expression evluates into or results in a single value</li>
+<li>There are many things that are considered expressions such as string literals, boolean literals, and numeric literals</li>
+<li>But also there are operators that are expressions as well such as the assignment operator, arithmetic operators, string operators, comparison operators, and logical operators (all of these result in one value)</li>
+<li>Each operator has certain rules such as you cannot be multiply a string and a number</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

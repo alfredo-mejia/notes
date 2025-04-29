@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 12:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 9: Flash, Video &amp; Audio</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Chapter 9: Flash, Video &amp; Audio</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org894115a">Navigation</a></li>
+<li><a href="#orgaca4891">Notes</a>
+<ul>
+<li><a href="#orgf7af124">Section 9.1: Introduction to Flash</a></li>
+<li><a href="#orga50b5d6">Section 9.2: Adding a Flash Movie</a></li>
+<li><a href="#org5de3345">Section 9.3 Understanding Video Formats &amp; Video Players</a></li>
+<li><a href="#org8a86b4b">Section 9.4: Preparing A Flash Video For Your Site</a></li>
+<li><a href="#org2a08f94">Section 9.4: Preparing A Flash Video For Your Site (Duplicate)</a></li>
+<li><a href="#org6adc622">Section 9.5: Preparing and Adding Videos To Your Page</a></li>
+<li><a href="#org4878c16">Section 9.6: Adding Audio Sources</a></li>
+<li><a href="#org7bb7e72">Section 9.7: Creating a Web Page with Video &amp; Audio</a></li>
+</ul>
+</li>
+<li><a href="#org26a66b4">Keywords</a></li>
+<li><a href="#org5cd7012">Questions</a></li>
+<li><a href="#orge4b8a5c">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org894115a" class="outline-2">
+<h2 id="org894115a">Navigation</h2>
+<div class="outline-text-2" id="text-org894115a">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">HTML &amp; CSS - Design and Build Websites</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 8: Extra Markup</td>
+<td class="org-left">&vert; <a href="../008.Extra_Markup/008.000.Notes.html">html</a> &vert; <a href="../008.Extra_Markup/008.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/008.Extra_Markup">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 10: Introducing CSS</td>
+<td class="org-left">&vert; <a href="../010.Introducing_CSS/010.000.Notes.html">html</a> &vert; <a href="../010.Introducing_CSS/010.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites/010.Introducing_CSS">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgaca4891" class="outline-2">
+<h2 id="orgaca4891">Notes</h2>
+<div class="outline-text-2" id="text-orgaca4891">
+</div>
+<div id="outline-container-orgf7af124" class="outline-3">
+<h3 id="orgf7af124">Section 9.1: Introduction to Flash</h3>
+<div class="outline-text-3" id="text-orgf7af124">
+<ul class="org-ul">
+<li><b>Note</b> this book is over a decade old (published in 2011) and web developement has changed since then, with that in mind, Adobe Flash has since been discountined and no longer used by virtually everyone</li>
+<li>For the sake of completing the book, we will still continue with this section</li>
+<li>Flash <b>was</b> a very popular technology used to add animations, video, and audio to websites</li>
+<li>The files you put on your websites in Flash were referred to as Flash movies</li>
+<li>To create Flash movies you needed to purchase the Flash authoring environment from Adobe</li>
+<li>When saving a Flash movie it is saved using the extension <i>.fla</i> but to use it in your website you would have to export it into a file with the extension <i>.swf</i></li>
+<li>The file will then have the code that you can use to embed the flash movie into your website</li>
+<li>In the beginning, this code inolved using the HTML elements <code>&lt;object&gt;</code> and <code>&lt;embed&gt;</code> but later started to use JavaScript</li>
+<li>To run Flash movies in browsers, the browser must have installed a plugin called the Flash Player</li>
+<li>Slowly over time the use of Flash decreased with the introduction of new HTML5 elements and JavaScript libraries allowing for people to easily add audio, video, and animations</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga50b5d6" class="outline-3">
+<h3 id="orga50b5d6">Section 9.2: Adding a Flash Movie</h3>
+<div class="outline-text-3" id="text-orga50b5d6">
+<ul class="org-ul">
+<li>Although no longer relevant let's continue with adding a flash movie to our web page</li>
+<li>The most popular way of adding Flash into a web page is using JavaScript and one of the scripts that allow you to do so is called SWFObject</li>
+<li>You add a <code>&lt;script&gt;</code> element for the SWFObject script and you add a another <code>&lt;script&gt;</code> element using one of the functions to embed the flash file with the extension <code>.swf</code></li>
+<li>After adding the script elements, you create a <code>&lt;div&gt;</code> element where the flash movie should sit</li>
+<li>The div element will have an id attribute whose value is used by the SWFObject script and if it can replace the <code>&lt;div&gt;</code> with the <code>.swf</code> file</li>
+<li>Inside the <code>&lt;div&gt;</code> element you can place the alternative content for users who are not able to play flash</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5de3345" class="outline-3">
+<h3 id="org5de3345">Section 9.3 Understanding Video Formats &amp; Video Players</h3>
+<div class="outline-text-3" id="text-org5de3345">
+<ul class="org-ul">
+<li>There are many video formats such as AVI, Flash Video, H264, MPEG, Ogg Theora, MP4, and more</li>
+<li>Some browsers may only support certain formats so you will need to convert a video into another format sometimes referred to as "encoding" the video</li>
+<li>Before 2010 browsers did not have a video player built in and you would have to use another program called a video player or install a plugin but nowadays all browsers have built-in video players that support HTML5's <code>&lt;video&gt;</code> element</li>
+<li>The question is do you host the video in your website or do use a hosting service like YouTube or Vimeo?</li>
+<li>Using Youtube or Vimeo would allow you to use their technologies and not have to worry if your browser supports the video or worry about encoding videos, you would simply embed the video into your page</li>
+<li>In addition, if you host your video in YouTube or Vimeo it is free while if you self-host it in your website then it may be costly due to the bandwidth and size of the video</li>
+<li>There are some disadvantages of hosting your video with other companies like following policies, forcing ads in your video, the video won't be exclusive to your website, and possibly a change of resolution to limit memory consumption</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8a86b4b" class="outline-3">
+<h3 id="org8a86b4b">Section 9.4: Preparing A Flash Video For Your Site</h3>
+<div class="outline-text-3" id="text-org8a86b4b">
+<ul class="org-ul">
+<li>(1): Convert your video into FLV format</li>
+<li>(2): Find an FLV player to play the video</li>
+<li>(3): Include the player and video in your page</li>
+<li>To include it into your page you will use the SWFObject script, the same script we have previously discussed and used to embed a flash movie</li>
+<li>Using the SWFObject and the <code>&lt;script&gt;</code> elements in the head, you will be able to specify what script you are using, what video player you are using, and what video you want the player to play</li>
+<li>Depending on the video player you will need the video file to be in a specific format</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2a08f94" class="outline-3">
+<h3 id="org2a08f94">Section 9.4: Preparing A Flash Video For Your Site (Duplicate)</h3>
+<div class="outline-text-3" id="text-org2a08f94">
+<ul class="org-ul">
+<li>There are 3 steps you need to follow to add a Flash Video to your web page:
+<ol class="org-ol">
+<li>Convert your video into FLV format</li>
+<li>Find an FLV player (written in Flash) to play the video</li>
+<li>Include the player &amp; video in your page (using JS like SWFObject)</li>
+</ol></li>
+<li>So how do you add it to your page? Similar way to how we have discussed SWFObject, you had a <code>&lt;script&gt;</code> element in the head to specify the SWFObject script</li>
+<li>Then using another <code>&lt;script&gt;</code> element you add JavaScript to indicate where the FLV video is located, where is the FLV player in a SWF format since it is written in Flash, it specifies which element to replace, the size of the player, and the version of flash</li>
+<li>It is very similar to what we have seen before in adding a flash movie into your web page</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6adc622" class="outline-3">
+<h3 id="org6adc622">Section 9.5: Preparing and Adding Videos To Your Page</h3>
+<div class="outline-text-3" id="text-org6adc622">
+<ul class="org-ul">
+<li>With HTML5, it introduced a new element called <code>&lt;video&gt;</code> which allows to include videos into your web page without needing a player</li>
+<li>When it was introduced some issues arose such as depending on the browser it may acceptable different video formats, the video player and controls are native to the browser thus each browser will have a different style of controls (not uniform), and there are no ways to handle copyrights of the video</li>
+<li>However, there were many benefits to HTML5's new <code>&lt;video&gt;</code> element such has having a native video player and resolving issues with how other elements behave near the video player</li>
+<li>So how do you add the video to your page? You add the <code>&lt;video&gt;</code> element and the element has a number of attributes which allow you to control video playback such as:
+<ul class="org-ul">
+<li><code>src</code>: specifies the path to the video</li>
+<li><code>poster</code>: specifies an image to show while the video is downloading or until the user tells the video to player</li>
+<li><code>width</code> &amp; <code>height</code>: specifies the size of the player in pixels</li>
+<li><code>controls</code>: indicates to the browser it should supply its own controls for playback</li>
+<li><code>autoplay</code>: specifies that the video should play automatically</li>
+<li><code>loop</code>: indicates that the video should start playing again once it has ended</li>
+<li><code>preload</code>: tells the browser what to do when the page loads it can have one of three values:
+<ol class="org-ol">
+<li><code>none</code>: browser should not load the video until the user presses play</li>
+<li><code>auto</code>: browser should download the video when the page loads</li>
+<li><code>metadata</code>: browser shoudl just collect information such as the size, first frame, track list, and duration</li>
+</ol></li>
+</ul></li>
+<li>You do not need to specify all the attributes; if omitted the attribute will be disable, if present the attribute will be enabled</li>
+<li>If the video player does not render then it will display whatever is inside the <code>&lt;video&gt;</code> element</li>
+<li>Since the <code>&lt;video&gt;</code> element has an opening and closing element you can nest elements inside the <code>&lt;video&gt;</code> element</li>
+<li>Instead of using <code>src</code> attribute you can then use the <code>&lt;source&gt;</code> element inside the <code>&lt;video&gt;</code> element</li>
+<li>The <code>&lt;source&gt;</code> thus replaces the attribute <code>src</code> in the <code>&lt;video&gt;</code> element and you can specify multiple <code>&lt;source&gt;</code> elements to specify that the video is available in different formats</li>
+<li>The <code>&lt;source&gt;</code> element is self-closing and some of the following attributes are:
+<ul class="org-ul">
+<li><code>src</code>: specifies the path to the video</li>
+<li><code>type</code>: specifies what format the video is in
+<ul class="org-ul">
+<li>Inside the <code>type</code> attribute you can include a <code>codecs</code> parameters which allows you to more precisely describe the format of the data within them</li>
+</ul></li>
+</ul></li>
+<li>You can do many things with video such as create your own controls, provide different resolution videos for different sized screens, and tell different parts of a page to change when the video reaches a certain point</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4878c16" class="outline-3">
+<h3 id="org4878c16">Section 9.6: Adding Audio Sources</h3>
+<div class="outline-text-3" id="text-org4878c16">
+<ul class="org-ul">
+<li>The most popular format for putting audio on web pages is MP3</li>
+<li>There are 3 ways to add audio to your web page:
+<ol class="org-ol">
+<li>Use a hosted service such as sound cloud where you upload your audio and the hosted service provides you with a player to embed into your page</li>
+<li>Use flash as there are several flash movies that allow you to play MP3 files from one track to complex players that allow you to create playlists and juke boxes</li>
+<li>Use HTML5 new <code>&lt;audio&gt;</code> element which browsers provide their own controls similar to the <code>&lt;video&gt;</code> element</li>
+</ol></li>
+<li><b>Note</b> I am not sure of the status now but before, playing music while the user moves from one page to another was difficult to do so what developers would do would be to offer audio players in new windows so that listeners are not interrupted when they move between pages</li>
+<li>There are many MP3 players that have already been written in Flash and each player has different functionality</li>
+<li>To a flash MP3 player you use the SWFObject script as discussed previously; it is very similar to what we have seen, you specify the script you are using (SWFObject) and then you use another <code>&lt;script&gt;</code> element to specify the audio file, the MP3 player, the element it is replacing, the size of the player, and the version of Flash</li>
+<li>To add audio using HTML5, you include the <code>&lt;audio&gt;</code> element and each browser will have their audio player and may expect different audio formats</li>
+<li>The <code>&lt;audio&gt;</code> element has a number of attributes which allow you to control audio playback:
+<ul class="org-ul">
+<li><code>src</code>: specifies the path to the audio file</li>
+<li><code>controls</code>: indicates whether or not the player should display controls (if you omit you then no controls will be displayed and you can specify your own controls using JS)</li>
+<li><code>autoplay</code>: the presence of the attribute indicates that the audio should start playing automatically (however best practice to let users choose to play the audio)</li>
+<li><code>preload</code>: indicates what the browser should do if the player is not set to <code>autoplay</code> and it has the same values we saw for the <code>&lt;video&gt;</code> element</li>
+<li><code>loop</code>: specifies that the audio track should play again once it has finished</li>
+</ul></li>
+<li>Similar to <code>&lt;video&gt;</code> you can use the <code>&lt;source&gt;</code> element nested inside the <code>&lt;audio&gt;</code> element</li>
+<li>You can specify more than one audio file using the <code>&lt;source&gt;</code> element nested between the <code>&lt;audio&gt;</code> opening and closing tags instead of the <code>src</code> attribute on the opening <code>&lt;audio&gt;</code> tag</li>
+<li>This is great for specifying different formats of audio files since browsers may support different formats</li>
+<li>The <code>&lt;source&gt;</code> element has the <code>src</code> and <code>type</code> attributes to indicate where the audio file is located and the type of audio</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7bb7e72" class="outline-3">
+<h3 id="org7bb7e72">Section 9.7: Creating a Web Page with Video &amp; Audio</h3>
+<div class="outline-text-3" id="text-org7bb7e72">
+<ul class="org-ul">
+<li><a href="./009.007.Creating_A_Web_Page_with_Video_and_Audio/index.html">Example of Creating a Web Page with Video &amp; Audio</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org26a66b4" class="outline-2">
+<h2 id="org26a66b4">Keywords</h2>
+<div class="outline-text-2" id="text-org26a66b4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Adobe Flash</td>
+<td class="org-left">Software platform used to create animations, rich web applications, video players, audio players, games, and more but has been discountined</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;script&gt;</code></td>
+<td class="org-left">The script element is used to embed executable code or data; typically used to embed or refer to JavaScript code</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;video&gt;</code></td>
+<td class="org-left">A HTML element that embeds media player which supports video playback into the web page</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;audio&gt;</code></td>
+<td class="org-left">A HTML element that embeds sound content in documents</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;source&gt;</code></td>
+<td class="org-left">A HTML element that specifies one or more media resources for the <code>&lt;picture&gt;</code>, <code>&lt;audio&gt;</code>, and <code>&lt;video&gt;</code> elements; it is a self-closing element, commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for media file formats</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org5cd7012" class="outline-2">
+<h2 id="org5cd7012">Questions</h2>
+<div class="outline-text-2" id="text-org5cd7012">
+<ul class="org-ul">
+<li><b>Q</b>: If we have multiple <code>&lt;source&gt;</code> in <code>&lt;video&gt;</code> which one is played first? Do they have to be the same video but in different formats or can they be completely different videos?
+<ul class="org-ul">
+<li><a href="https://stackoverflow.com/questions/22698718/can-a-html-5-video-tag-have-multiple-mp4-sources-with-different-codecs">Stackoverflow Answer</a></li>
+<li><a href="https://www.w3schools.com/tags/tag_video.asp#:~:text=The%20tag%20contains%20one,support%20the%20element.">W3 Schools Video Tag</a></li>
+<li>First there can be any number of source elements nested inside the video element</li>
+<li>The source element could care less what video it is referring to; it does not have to be the same video; it can be completely different videos but generally it is the same video in a different format (because what is the point of different videos if only one video wil be played)</li>
+<li>So what video will be rendered? The browser will do a fall-through order (sequential order) from the first source to the last source and it will display the video from the first source tag with a <i>compatible</i> video file for the current device / browser</li>
+<li>A similar approach is taken for the audio element</li>
+</ul></li>
+
+<li><b>Q</b>: What are <code>codecs</code> parameter?
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Media/Formats/codecs_parameter">Mozilla Codecs in Common Media Types</a></li>
+<li><a href="https://www.techtarget.com/searchunifiedcommunications/definition/codec">What is a Codec - Tech Target</a></li>
+<li>In simple terms, codec is a software based process that compresses and decompresses large amounts of data</li>
+<li>Codecs are used in applications to play and create media files for users and send media files over a network</li>
+<li>Thus codecs compress media files in order to save device space and send those files over a network</li>
+<li>So you can use the <code>codecs</code> parameter to the attribute <code>type</code> to describe the media content and what format is used to encode the file</li>
+<li>In summary, <code>codecs</code> parameter allow you to specify an encoder to your file</li>
+<li>Encoding is the process of converting data into a format and each codec may or may not use some type of compression</li>
+</ul></li>
+
+<li><b>Q</b>: How do you let audio play in one page while the user browses other pages?
+<ul class="org-ul">
+<li>When it comes to audio, if you are using the <code>&lt;audio&gt;</code> element it will continue to play despite the user going to a different web page</li>
+<li>When it comes to video, if you are using the <code>&lt;video&gt;</code> element it will also continue to play despite the user going to a different web page or tab</li>
+<li>Thus, you don't need anything else to play video or audio in one page while the user browses other pages if you are using HTML5</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge4b8a5c" class="outline-2">
+<h2 id="orge4b8a5c">Summary</h2>
+<div class="outline-text-2" id="text-orge4b8a5c">
+<ul class="org-ul">
+<li>Adobe Flash was used a lot in the early 2000s to create animations, video, audio, video players, audio players but with the introduction of new technologies, libraries in JS, and HTML5 flash got discountined</li>
+<li>To run flash in the 2000s you must have installed a plugin into your browser called the Flash Player</li>
+<li>Flash movies or flash files were often in the format of <code>.swf</code> extension</li>
+<li>Most popular way to add a Flash movie was using a script called SWFObject</li>
+<li>Using the <code>&lt;script&gt;</code> tag you will able to add the script SWFObject and then using the <code>&lt;script&gt;</code> tag again you were able to embed the flash movie by specifying JavaScript code</li>
+<li>Using the JavaScript code you were able to specify the HTML element to replace and add the Flash movie, this be an animation, a video player, a game, an audio player, or any other object created in Flash</li>
+<li>To embed a video into your website there are 3 ways: using a Flash video player (discountined), host your video in a hosting service like YouTube and then use their API to embed their services into your web page and not have to worry about encoding and controls as everything will be provided, or embed the video yourself using HTML5 <code>&lt;video&gt;</code> element</li>
+<li>If you are going to use Flash (which is probably no longer possible) you need to convert the video to a correct format (FLV - Flash Video), find a Flash video player, and include the video and video player into your web page using the SWFObject script and the <code>&lt;script&gt;</code> element</li>
+<li>If you are going to use HTML5 <code>&lt;video&gt;</code> element, note that browsers may support different formats of videos so if you are going to embed the video yourself make sure you provide the necessary formats for the browser to render the video</li>
+<li>The <code>&lt;video&gt;</code> element has various attributes to specify controls, autoplay, looping, and more</li>
+<li>The <code>&lt;video&gt;</code> element has opening and closing tags and you could specify elements inside the video element</li>
+<li>To specify the video file you'd like to use you can use the <code>src</code> attribute in the video element or you could use the <code>&lt;source&gt;</code> element inside the video element</li>
+<li>If the browser cannot render the video then it will display whatever is inside the <code>&lt;video&gt;</code> besides the <code>&lt;source&gt;</code> element since the source element does not display anything</li>
+<li>The <code>&lt;source&gt;</code> element is used to specify the video file and the type of the video (e.g. mp4)</li>
+<li>There can be any number of <code>&lt;source&gt;</code> elements inside <code>&lt;video&gt;</code> but only one will be displayed, so what is the purpose? Since browsers may support different formats you can include multiple <code>&lt;sources&gt;</code> each specifying the video in a different format</li>
+<li>The browser will use the first <code>&lt;source&gt;</code> video that it supports</li>
+<li>Thus the source element is self closing and it is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for media file formats</li>
+<li>The <code>&lt;audio&gt;</code> element is very similar to the video element but instead for video it is for audio; it provides a native audio player and using the attributes can specify if controls are needed, looping, autoplay, and you can specify the source in the attributes of audio or you can also use the <code>&lt;source&gt;</code> element</li>
+<li>The <code>&lt;source&gt;</code> element works the same way in <code>&lt;audio&gt;</code> like in <code>&lt;video&gt;</code>; the audio element has an opening and closing tag and will use the first source element that is compatibile with the browser</li>
+<li>Just like video, if the audio cannot be rendered because of the source elements provide a usable source then the browser will fall back to displaying the content included between the element's opening and closing tags (disregrading the source elements since those elements do not display anything)</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

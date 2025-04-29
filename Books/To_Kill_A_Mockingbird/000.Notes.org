@@ -1,13 +1,12 @@
 #+title: To Kill A Mockingbird
 #+author: Alfredo Mejia
 #+options: num:nil html-postamble:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="../../resources/bulma/bulma.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%}</style>
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
 
 * Navigation
 | Nav   | Title      | Links                                   |
 |-------+------------+-----------------------------------------|
 | Index | Notes Home | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
-| Home  | Books      | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Books][github]] \vert |
 
 * Notes & Thoughts
 
@@ -130,3 +129,5 @@ The town depended on Atticus on his courage and bravery but Atticus believes cou
 I think later we are going to see the kids realize their father is a good, brave, and honest person not because of his shot but because of other actions.
 
 ** Chapter 11 - 15 Thoughts
+
+* Final Thoughts

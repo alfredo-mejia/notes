@@ -1,0 +1,204 @@
+#+title: Section 5: HTML - Forms & Tables
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                    | Links                                   |
+|-------+------------------------------------------+-----------------------------------------|
+| Index | Notes Home                               | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | The Web Developer Bootcamp 2024          | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024][github]] \vert |
+| Prev  | Section 4: HTML - Next Steps & Semantics | \vert [[file:../004.HTML_Next_Steps_and_Semantics/004.000.Notes.html][html]] \vert [[file:../004.HTML_Next_Steps_and_Semantics/004.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024/004.HTML_Next_Steps_and_Semantics][github]] \vert |
+| Next  | Section 6: CSS - The Very Basics         | \vert [[file:../006.CSS_The_Very_Basics/006.000.Notes.html][html]] \vert [[file:../006.CSS_The_Very_Basics/006.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Web_Developer_Bootcamp_2024/006.CSS_The_Very_Basics][github]] \vert |
+
+* Resources
+
+[[file:./005.HTML_Forms_and_Tables_Slides.pdf][Section 5: HTML - Forms & Tables Slides]]
+
+* Notes
+
+** Section 5.1: What Matters In This Section
+   - Crucial topics: table basics (e.g. ~<table>~, ~<tr>~, ~<td>~, ~<th>~), form element basics, button elements, labels, and common input types
+   - Important topics: tale sections (e.g. ~<thead>~, ~<tfoot>~, ~<tbody>~), range and text areas, and form validations
+   - Nice to understand topics: table colspan and rowspan
+
+** Section 5.2: Unit Goals
+   - Last unit exclusively on HTML
+   - Cover tables and forms (important topics)
+   - We'll do validation in the forms but also make them accessible
+     
+** Section 5.3: Introducing HTML Tables
+   - Before in the 90s and early 2000s tables were used to layout websites
+   - Now, we do not do that or shouldn't do that; we now only use tables to display tabular data
+
+** Section 5.4: Tables: TR, TD, and TH Elements
+   - There are various table elements: ~<table>~, ~<td>~, ~<tr>~, ~<th>~, ~<thead>~, ~<tbody>~, ~<tfoot>~, ~<colgroup>~, and ~<caption>~
+   - In this section we just focus on ~<table>~, ~<td>~, and ~<tr>~
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table][Mozilla Table Element]]
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td][Mozilla Tabel Data Cell Element]] - Defines a cell of a table that contains data and may be used as a child of the ~<tr>~ element
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr][Mozilla Table Row Element]] - Defines a row of cells in a table and then the row's cell can then be established using a mix of ~<td>~ and ~<th>~
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th][Mozilla Table Header Element]] - Defines a cell as the header of a group of table cells and may be used as a child of the ~<tr>~ element
+   - The nature of the header is defined by the scope and header attributes
+   - [[file:./005.004.Tables_TR_TD_and_TH_Elements/index.html][Finished a webpage using TR, TD, and TH elements as an exercise]]
+
+** Section 5.5: Tables: Thead, Tbody, and Tfoot Elements
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead][Mozilla Table Head Element]] - Encapsulates a set of table rows indicating that they comprise the head of a table with information about the table's columns
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody][Mozilla Table Body Element]] - Encapsulates a set of table rows indicating that they comrpise the body of a table's (main) data
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot][Mozilla Table Foot Element]] - Encapsulates a set of table rows indicating that they comprise the foot of a table with information about the table's columns (e.g. sum of a column)
+   - These elements do not do much besides break your table into logical sections where you can distinguish the header of table, the main content (body) of the table, and the footer of the table
+
+** Section 5.6: Tables: Colspan & Rowspan
+   - We can make a cell span multiple rows or multiple columns (e.g. one cell takes 3 row spaces or one cell takes 2 column spaces)
+   - This can be specified in the ~<td>~ element with the attribute called colspan or rowspan
+   - Both attributes accept a non-negative integer value that indicates how many columns / rows the data cell spans or extends (default value is 1)
+
+** Section 5.7: The Form Element
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form][Mozilla Form Element]] represents a document section containing interactive controls for submitting information
+   - The form element itself is a shell or container that doesn't have any visual impact; it will have a bunch of individual form controls like text inputs, checkboxes, password inputs, etc. all of that will be a form
+   - Thus the form is just a container for form elements (e.g. text inputs, checkboxes, password input, radio, etc.)   
+   - The form element is not just to group form element together but the form element dictates where the form data should be sent when the form is submitted; the form element specifies how and where the data is going to be sent
+   - The action attribute of the form element is important because it specifies where the data should be sent (it is the URL that processes the form submission)
+   - The method attribute of the form element specifies the HTTP method to submit the form with like post, get, and dialog
+   - The form will be sent as a HTTP request and HTTP method can be specified
+   - For example, in reddit, you send a HTTP request to an endpoint with your data, the server will do some processing and send the data back to your browser
+   - [[file:./005.007.The_Form_Element/index.html][Created a simple webpage using the form element]]
+   
+** Section 5.8: Common Input Types
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input][Mozilla Input (Form Input) Element]] - HTML element used to create interactive controls for web-based forms in order to accept data from the user
+   - The input element is a versatile element because you can crete different types of input from text, date pickers, checkboxes, etc
+   - It all depends on the attribute called "type"; depending on the value of type will the input element behave differently
+   - Input is self-closing element
+   - "placeholder" is another attribute which valid only for cetain types of inut which provides a brief hint to the user as to what kind of information is expected in the field
+
+** Section 5.9: The All-Important Label
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label][Mozilla Label Element]] - Represents a caption for an item in a user interface
+   - Many times label are disregarded but are important in terms of accessbility and making your forms easier to use
+   - Since input is self-closing it might not always be clear what is the input element asking so you create a label that will be associated with the input element
+   - Thus screen readers will be able to see the label is associated with the input element because if a ~<p>~ element was used then it wouldn't understand it is part of the input; the screen reader would think it is just a paragraph
+   - In addition, labels can also become part of the input, for example if the input is a checkbox then the user can click on the label and that will enable / disable the checkbox as if the user clicked on the checkbox itself (this is useful for people with small screens or poor eyesight)
+   - So we need some label for our inputs and the label element gives us a way to do so
+   - So how do we make these connections between a label and an input? We do this by using an attribute of input called id and we give our input an id
+   - Then in the label element we use an attribute called "for" and we set the value of the for attribute to be the name or the value of the input id
+   - Note these ids should be unique and only one element in a given page should have a given id
+   - Label element is an inline-level element
+   - Any way to associate them is to nest the input inside the label element but it is less common and has some drawbacks but benefit is that you don't need to specify the for or the id attributes as both elements will automatically be associated with each other (the first way is better to stylize and this way is more intuitive but less common)
+
+** Section 5.10: HTML Buttons
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button][Mozilla Button Element]] - Interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology
+   - By default, if you have button inside a form and it is not specified to not submit the form then it will submit the form when clicked
+   - You can use the attribute called "type" to specify the behavior of the button; you can have "submit" which submits the form data to the server, "reset" button which resets all the controls to their initial values or "button" which has no default behavior and does nothing when pressed by default
+   - Another way to make a submit button is by creating an input element of type "submit"
+
+** Section 5.11: The Name Attribute
+   - Another important attribute to the input element is "name"
+   - When the data is sent to the server, the server must need a way to identify each input value and thus each input has a unique name and this is specified by the attribute called name
+   - Often these names are short, simple, with no spaces because server will need to identify them
+   - According to the docs, name is submitted along with the control's value when the form data is submitted; if name is empty the input's value is not submitted with the form
+   - Think of the name attribute as a pair value when the form is submitted; the name of the input and the value which the user has specified
+   - There are different types of methods; get request will send it as a URL which can be bad because, for example, a password could show in the url
+   - There type is get post which sends data in a less visually obvious way
+     
+** Section 5.12: Hijacking Google & Reddit's Search
+   - By default, if you have a form without a button; pressing enter will submit the form (only applies to certain inputs)
+   - We use google and reddit's endpoint to search their servers via our form
+
+** Section 5.13: Radio Buttons, Checkboxes, & Selects
+   - To create checkboxes you simply give the input attribute type the value of "checkbox"
+   - You give the checkbox a label and you can specify if the checkbox is checked by default or not
+   - Radio buttons are similar to checkboxes but with a group of radio buttons you can only select one
+   - So how do you specify a group of radio buttons? So first change the input type radio
+   - If you need 5 radio buttons then you create 5 inputs of type radio and the way you associate them is by giving them the same name
+   - Normally, checkboxes / radios have the value attribute also specified because according to the docs the value attribute is the value associated with the button's name when it is submitted with the form data (the value is passed to server in the params) - this only applies to checkbox and radio and another input type
+   - Since radio and checkboxes cannot be modified by the user a value must be given to it in HTML
+   - So now whenever the form is sent the name of the parameter would be the name specified in the associated radio buttons but depending on which radio button the value will be the value of the value attribute specified for that specific radio input
+   - For example, if the name is "size" and the selected radio value was "m" then the data sent to the server will be ~size=m~
+   - Another form of input is the [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select][select element (Mozilla)]] which is a drop-down menu
+   - To create a drop-down menu, you use the select element and the [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option][option element (Mozilla)]]
+   - The select element would have a name and id and nested inside the select element there would be nested option elements with the name of the options and with the attribute value to indicate the value of the option when submitting the form
+   - Here's an example:
+
+   #+BEGIN_SRC html
+     <select name="pets" id="pet-select">
+       <option value="dog">Dog</option>
+     </select>
+   #+END_SRC
+
+   - You can have an option preselected by using the selected attribute
+   
+** Section 5.14: Range & Text Area
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range][Mozilla Range Input Element]] let the user specify a numeric value which must be no less than a given value and no more than another given value indicated by a slider that the user can control
+   - The minimum and maximum value can be controlled by attributes min and max
+   - You can also specify the step of the range by the attribute called "step"
+   - You can also specify an initial value by the attribute "value"
+   - You can do the same for the input type number (the min, max, step, and initial value)
+   - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea][Mozilla Textarea Element]] represents a multi-line plain-text editing control which is useful when you want to allow users to enter a sizeable amount of free-form text
+   - The textarea element has a opening and closing tag
+   - You can control the initial amount of rows / cols (but doesn't limit you to ten rows / cols; as the user can expand it later)
+   - You can also specify a placeholder
+
+** Section 5.15: HTML5 Form Validations
+   - Form validation includes validating user input or basically adding rules to the form (e.g. some characters aren't allowed or password needs to be between 12 or 20 characters or some other rule)
+   - For we will do simple form validations or the "builtin" validations that is allowed in the browser more form validations are done with JS
+   - This is called client-side validation
+   - One form of validation is using the "required" attribute which can be used in any of the inputs we have learned so far
+   - Other ways to perform validation is by specifying the min and max characters so whenever the input doesn't align with the min and max rules the browser will display an error message
+   - Some input have a built-in validation using regex which needs to match a specific pattern
+   - The pattern attribute can be used to specify the regex
+   - Some input types already have some validation like the email type which matches the pattern of text @ text; thus it is just looking for the @ in the input
+   - The input type for URL also wants a specific pattern as well (but this can be changed if needed)
+   - The input type for telephone also has a specific pattern that is required
+
+** Section 5.16: Creating A Marathon Registration
+   - Build a marathon form
+   - [[file:./005.016.Creating_A_Marathon_Registration_Form/index.html][Completed the marathon registration exercise]]
+   
+* Keywords
+| Term                   | Definition                                                                                                                                                                                    |
+|------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *Table Element*        | Represents tabular data in a two-dimensional table comprised of rows and columns of cells containing data                                                                                     |
+| *Table Data Cell*      | A cell of a table that contains data nad may be used as a child of the table row element                                                                                                      |
+| *Table Row Element*    | Defines a row of cells in table                                                                                                                                                               |
+| *Table Header Element* | Defines a cell as the header of a group of table cells and may be used as a child of the table row element                                                                                    |
+| *Table Head Element*   | Encapsulate a set of table rows indicating that they comprise the head of a table with information about the table's columns                                                                  |
+| *Table Body Element*   | Encapsulates a set of table rows indicating that they comprise the body of a table's (main) data                                                                                              |
+| *Table Foot Element*   | Encapsulates a set of table rows indicating that they comprise the foot of a table with information about the table's columns                                                                 |
+| *Colspan & Rowspan*    | Attributes allowing for the table data cell to span multiple rows or multiple columns                                                                                                         |
+| *Form Element*         | Represents a document section containing interactive controls for submitting information                                                                                                      |
+| *Input Element*        | Used to create interactive controls for web-based forms in order to accept data from the user                                                                                                 |
+| *Label Element*        | Represents a caption for an item in a user interface                                                                                                                                          |
+| *Button Element*       | Interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology                                                                          |
+| *Name Attribute*       | Name attribute of the input type is the name of input when sent to the server; for example, if an input has a name called "q" then the data will be sent with a param named "q" and its value |
+| *Checkboxes*           | A type of input where multiple checkboxes can be selected                                                                                                                                     |
+| *Select Element*       | Represents a control that provides a menu of options                                                                                                                                          |
+| *Radio*                | A type of input where only one option can be selected from multiple choices                                                                                                                   |
+| *Range*                | A type of input where a slider is used to indicate a number between a range                                                                                                                   |
+| *Textarea Element*     | Represents a multi-line plain-text editing control which is useful to enter sizeable amount of free-form text                                                                                 |
+| *Form Validation*      | Form validation is a way to make sure the input of the user is what we expect and follows our specified rules                                                                                                                                                                                              |
+   
+* Questions
+  - *Q*: Are labels (label element) automatically associated with the input element?
+         - The label element has an attribute called for and the value should be a single id of a form-related element in the same document as the label element so any given label element can be associated with only one form control (this assume the form-related element already has an id by using the id attribute)
+  - *Q*: How does the value attribute work in the input element?
+         - [[https://www.w3schools.com/tags/att_input_value.asp][W3 Schools Answer]]
+         - The value attribute is used differently for different input types
+         - For button, reset, and submit, it defines the text on the button
+         - For text, password, and hidden it defines the initial default value of the input field
+         - For checkbox, radio, and image it defines the value associated with the input (this is also the value that is sent on submit to the server)
+    
+* Summary
+  - To create tables you use the table element
+  - There are various elements used to create a table; firstly it can be separated into three sections using the table head element, the table body, and the table footer
+  - Then you can specify a table row and then you can specify if the cell is a table header or just a regular data cell
+  - These data cells can then be modified to span multiple rows and columns
+  - Another important component are forms
+  - To create a form, you use the form element and the action attribute specifies the endpoint of where the data wil be sent to
+  - The form element then has nested elements; typically labels and input elements
+  - There are various types of input elements from text, email, radio, checkbox, password, etc
+  - Each input should have a label associated and a label is associated with an input by using the label's for attribute to have the value of the input's id value
+  - By default if there is a button in the form and it is not specified the type then it will become a submit button (when clicked will submit the form to the endpoint specified)
+  - To associate radio buttons together you use the same value in name
+  - The name attribute is the name of the parameter of the input when it is sent to the server at the endpoint specified
+  - Selects is another type user specified element but it uses a nested element called option to present a dropdown menu in which the user can select from
+  - Different types of input need the value attribute to understand the value selected by the user when the data is sent to the endpoint
+  - Another element is the text area element which allows user to specify free-form text and this textbox can be expanded (although the initial cols and rows can be specified)
+  - Finally, depending on the type there may be some form of validation already implemented (e.g. input type email needs a "@" symbol) but you can also do some form validation by specifying a pattern by the pattern attribute or specify other validation rules by different attributes like required, min, max, min characters, max characters, etc

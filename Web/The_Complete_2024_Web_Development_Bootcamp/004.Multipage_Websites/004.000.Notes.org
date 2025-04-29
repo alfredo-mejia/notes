@@ -1,0 +1,133 @@
+#+title: Section 4: Multipage Websites
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                      | Links                                   |
+|-------+--------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                 | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | The Complete 2024 Web Development Bootcamp | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp][github]] \vert |
+| Prev  | Section 3: Intermediate HTML               | \vert [[file:../003.Intermediate_HTML/003.000.Notes.html][html]] \vert [[file:../003.Intermediate_HTML/003.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp/003.Intermediate_HTML][github]] \vert |
+| Next  | Section 5: Introduction to CSS             | \vert [[file:../005.Introduction_to_CSS/005.000.Notes.html][html]] \vert [[file:../005.Introduction_to_CSS/005.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp/005.Introduction_to_CSS][github]] \vert |
+
+* Notes
+** Section 4.1: Computer File Paths
+   - A file path is a unique location in your computer for a specific file or folder
+   - The file path will indicate the computer where to look for the file / folder in the hard drive
+   - There are two types of file paths: absolute and relative
+   - Absolute file path is a path that starts at the root of the filing system (normally the hard drive of the computer); this means the path will start with the root (e.g. / or C:) so basically the start is the root
+   - No matter where you are currently in the file system the absolute file path will tell the computer where to find the file / folder regardless of current position in the file system
+   - Relative file path is a path that starts at the current directory the user / program / file is currently in and from there (the starting point) the path will continue to the endpoint to indicate the computer, starting here, the location for the file / folder will be here
+   - Relative file path are shorter because you don't start at the root, another thing, parent and grandparent folders of the current directory will unaffect the path because the starting point is the current folder unlike an absolute path which takes into account the root, the parents, the current directory, and then subfolders to reach the file
+   - To create a relative file path, you can use two special characters ~..~ (double dot) means access the parent folder (go to parent folder) and ~.~ (single dot) means access the current directory
+   - [[file:./004.001.Computer_File_Paths/Folder0/index.html][Completed Computer File Paths Exercise]]
+     
+** Section 4.2: What Are Webpages
+   - A multi-page website is consisted of multiple HTML files in the same project folder
+   - How are these HTML files navigated to and from other HTML files? You use the anchor tags to link the URL to the HTML file
+   - Adding links to other HTML files will render that HTML file and thus you'll now have a multi-page website
+   - [[file:./004.002.What_Are_Webpages/index.html][Completed What Are Webpages Exercise]]
+     
+   #+BEGIN_SRC html
+     <a href="./about.html">About Page</a>
+   #+END_SRC
+
+** Section 4.3: The HTML Boilerplate
+   #+BEGIN_SRC html
+     <!DOCTYPE html>
+     <html lang="en">
+       <head>
+	 <meta charset="UTF-8">
+	 <title>My Website</title>
+       </head>
+
+       <body>
+	 <h1>Hello World!</h1>
+       </body>
+     </html>
+   #+END_SRC
+
+   - Every HTML file has a structure and its called a "boilerplate" and normally that is what you start off with when you create any new HTML file
+   - The doctype specifies which HTML version the file was written in; so ~<!DOCTYPE html>~ specifies the file was written in HTML 5
+   - Next is the ~<html> </html>~ this is going to be root of the document indicating everything else will be in-between those tags and the attribute ~lang~ indicates the language of the text content in that element 
+   - The lang attribute is important for assistance technology
+   - The ~head~ element is metadata that will not be displayed; it will help the browser render the website correctly such as a meta tag to set the encoding of the web page to ensure the characters you are using on your website gets displayed correctly
+   - Depending on the character sets some characters are missing or not allowed (like emojis, multiplication and division symbols, etc)
+   - UTF-8 is one of the most common encoding
+   - There are various meta tags such as telling the browser how to display your website when it first opens (e.g. use the full width of the device's screen, etc.)
+   - The ~title~ element is the name of the website and gets displayed on the tab of the website in the browser
+   - There are more information that can be inserted in your header element but for now we'll only use the meta for encoding and the title element
+   - The next element is the body element and inside the body element will be the content of the website; the body element is what gets displayed in the browser such as the text, the headers, images, links, and everything else
+
+** Section 4.4: Portfolio Website Project
+   - We are going to make a very simple portfolio website with just HTML
+   - [[file:./004.004.Portfolio_Website_Project/index.html][Completed Portfolio Website Project]]
+     
+** Section 4.5: How to Host Your Website for Free with GitHub
+   - What is web hosting? It is basically the processing making your website available anywhere on the internet
+   - How do we do that? We put all of our files into a web server; this web server will be on 24/7 and connected to the internet allowing anyone to access the files at anytime
+   - For now we access the files locally in our computer
+
+** Section 4.6: Capstone Projects - Online Resume
+   - What is a capstone project? This is a project that is bigger than the exercises and "projects" done in class and this aims to demonstrate a student's mastery of a particular subject or topic
+   - [[file:./004.006.Capstone_Project_Online_Resume_HTML_Only/index.html][Completed Capstone Project - Online Resume]]
+     
+*** Requirements
+    1. Create an HTML file named ~index.html~
+    2. Include a ~DOCTYPE~, a header (title will be "My Resume"), and a body
+    3. In the body, it will have a summary or objective statement, education (list degrees, schools, and dates), work experience (list job titles, employers, dates, and responsibilities), skills (list relevant skills or areas of expertise), and finally any awards, certifications, or achievements
+    4. Use relevant anchor tags to create a multi-page website, listing other aspects of your resume such as Hobbies and Contact details
+    5. Add a footer element with your name and any copyright information or other disclaimers
+
+* Keywords
+| Term                 | Definition                                                                                                                                                                                                    |
+|----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *File Path*          | Unique location in your computer for a specific file or folder                                                                                                                                                |
+| *Absolute Path*      | A file path that starts at your root of the computer's filing system                                                                                                                                          |
+| *Relative Path*      | A file path that starts at your current directory thus it is relative to your current working directory and you can use either ~.~ to indicate the current directory or ~..~ to indicate the parent directory |
+| *Multi-page Website* | A website containing multiple HTML files with links (anchor tags) to link and navigate between HTML files                                                                                                     |
+| *HTML BoilerPlate*   | Every HTML file has a structure and it is called a "boilerplate" which is essentially the structure of the HTML which is the same across HTML files                                                           |
+| *Web Hosting*        | A web server holds your files and service any request 24/7 with your website                                                                                                                                                                                                              |
+
+  
+* Questions
+  - *Q*: What is the difference between src and href (can it be used in anchor elments)?
+         - [[https://www.quora.com/Whats-the-difference-between-HREF-and-SRC-in-HTML][Quora Answer]]
+	 - [[https://stackoverflow.com/questions/3395359/difference-between-src-and-href][Stackoverflow Answer]]
+         -  In short, src is used to add some resource to the page while href establishes a relationship (or link) to another resource without actually adding it to the page itself
+         - This means that href specifies the location to some web resource using the anchor tag and establishes a relationship (link) with the resource without adding it to the current page but can be directed to the resource using the href and anchor tag (link)
+         - Src embeds the resource in the current document at the location of the element's definition (think of it as using the resource instead of providing a link to the resource and not using it like in href)
+
+  - *Q*: What is the difference between anchor and href and link and href?
+         - [[https://www.geeksforgeeks.org/difference-between-link-and-anchor-tags/][GeeksForGeeks Answer]]
+	 - [[https://stackoverflow.com/questions/28650076/link-vs-a-when-to-use-one-over-the-other][Stackoverflow Answer]]
+         - The link tag is used to establish a connection / relationship between the current document and some external resource that is *associated* with the current webpage
+	   - This can be a CSS file, icon, maniest, etc
+	   - The link tag goes inside the head element to establish the relationship between the current document and the external resource
+         - The anchor tag establishes a different type of relationship, a link, to some internal or external HTML document, adddress, URL, etc and is not associated with the current webpage
+	   - The relationship is only established to navigate from one resource (current document) to another resource without it being used in any way in the current document
+	   - In link, the resource may be connected / integrated / associated to the current page but with the anchor tag is it simply used to direct you to the external / internal resource
+
+  - *Q*: How do you resize an image?
+         - [[https://imagekit.io/blog/how-to-resize-image-in-html/][ImageKit.io Blog Answer]]
+         - Use the width and height attributes and specify how many pixels you want the image to be
+           - The browser tries to keep the aspect ratio of the image
+         - Use CSS and specify both the width and height or only specify one dimension and specify auto for the second dimension
+	   - The auto feature for the second dimension with try to preserve the aspect ratio depending on the specified dimension
+         - Use CSS and percentages; the percentages will scale up depending on the percentage indicated but it is based on the parent element's dimension
+	   - For example, if you say ~width: 100%~ then it will take one hundred percent of the parent's width
+         - Use CSS and specify the max dimension so if the image is larger than wanted it will scale down but if it is smaller than the max then it will keep its original size
+	  
+  - *Q*: Does it matter if the header element is inside the anchor or does the anchor need to be inside the header element?
+         - [[https://stackoverflow.com/questions/8174497/anchors-inside-headers-or-vice-versa-is-there-a-different-in-relation-to-seo][Stackoverflow Answer]]
+         - As of HTML5, it does not matter which order and we can try to use the order that makes the most *semantic* sense
+         - Before HTML5, the anchor *cannot* have a block-level element inside; thus, the anchor has to be inside the header
+	  
+* Summary
+  - A file path is a unique location in your computer for a specific file or folder
+  - There are two types of file paths: relative path which starts the path at the current working directory and absolute path which starts the path at the root of the computer's filing system
+  - A multi-page website is consisted of multiple HTML files in the same project folder and are linked together by anchor tags with the relative path to the other HTML files
+  - Note that every HTML file has a structure with the version of HTML, the head, and the body; this is what we call HTML boilerplate
+  - Web hosting is the processing of putting your files into a web server so it can be accessed anywhere at any time (24/7) with a URL (it will be on the internet)
+

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-29 Tue 14:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Section 2: Introduction to HTML</title>
+<meta name="author" content="Alfredo Mejia" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Section 2: Introduction to HTML</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf0185a6">Navigation</a></li>
+<li><a href="#org0fb20d7">Notes</a>
+<ul>
+<li><a href="#org4110e99">Section 2.1: What is HTML?</a></li>
+<li><a href="#orgc24ad63">Section 2.2: HTML Heading Elements</a>
+<ul>
+<li><a href="#orgea5bb9a">Section 2.2.1: Resources</a></li>
+</ul>
+</li>
+<li><a href="#orga80e46f">Section 2.3: HTML Paragraph Elements</a></li>
+<li><a href="#org9d089bf">Section 2.4: Self Closing Tags</a></li>
+<li><a href="#orgf658fde">Section 2.5: Movie Ranking Project</a></li>
+<li><a href="#orga5e72aa">Section 2.6: How to Ace This Course (And Keep You Motivated)</a></li>
+</ul>
+</li>
+<li><a href="#org8ea0425">Keywords</a></li>
+<li><a href="#orga1cf0e0">Questions</a></li>
+<li><a href="#org236ef6a">Summary</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf0185a6" class="outline-2">
+<h2 id="orgf0185a6">Navigation</h2>
+<div class="outline-text-2" id="text-orgf0185a6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">The Complete 2024 Web Development Bootcamp</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Section 1: Frontend Web Development</td>
+<td class="org-left">&vert; <a href="../001.Frontend_Web_Development/001.000.Notes.html">html</a> &vert; <a href="../001.Frontend_Web_Development/001.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp/001.Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Section 3: Intermediate HTML</td>
+<td class="org-left">&vert; <a href="../003.Intermediate_HTML/003.000.Notes.html">html</a> &vert; <a href="../003.Intermediate_HTML/003.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/The_Complete_2024_Web_Development_Bootcamp/003.Intermediate_HTML">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org0fb20d7" class="outline-2">
+<h2 id="org0fb20d7">Notes</h2>
+<div class="outline-text-2" id="text-org0fb20d7">
+</div>
+<div id="outline-container-org4110e99" class="outline-3">
+<h3 id="org4110e99">Section 2.1: What is HTML?</h3>
+<div class="outline-text-3" id="text-org4110e99">
+<ul class="org-ul">
+<li>Every browser take different files and render them into a website</li>
+<li>Websites cannot be made with just the CSS file or JS but you can make a website with just a HTML file</li>
+<li>Remember HTML is just for structure and content</li>
+<li>HTML stands for HyperText Markup Language</li>
+<li>HyperText means it can have text with links (hyperlinks) so the browser (user) can be redirected</li>
+<li>Markup Language means there are ways to "mark" text to have appear or behave some type of way; this is done with HTML tags</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc24ad63" class="outline-3">
+<h3 id="orgc24ad63">Section 2.2: HTML Heading Elements</h3>
+<div class="outline-text-3" id="text-orgc24ad63">
+<div class="org-src-container">
+<pre class="src src-html">&lt;h1&gt;Hello World&lt;/h1&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Notice the opening and ending tag; the difference is the closing tag has a forward slash</li>
+<li>The content of that HTML element is placed inside the tags</li>
+<li>Tag vs Element? The tag are the actual <code>&lt;h1&gt;</code> and <code>&lt;/h1&gt;</code> are the tags and the element is the entire thing including the tags and the content</li>
+<li>The highest ("smallest") heading is <code>&lt;h6&gt;</code></li>
+<li>Level 1 (<code>&lt;h1&gt;</code>) is the largest heading while level 6 (<code>&lt;h6&gt;</code>) is the smallest</li>
+<li>Don't try to have multiple <code>h1</code> espeically back to back</li>
+<li>Don't skip header levels so go in order (e.g. <code>h1</code> to <code>h2</code> etc.) not from <code>h1</code> to <code>h3</code></li>
+<li><a href="./002.002.HTML_Heading_Elements/index.html">Completed HTML Heading Elements Exercise</a></li>
+</ul>
+</div>
+
+<div id="outline-container-orgea5bb9a" class="outline-4">
+<h4 id="orgea5bb9a">Section 2.2.1: Resources</h4>
+<div class="outline-text-4" id="text-orgea5bb9a">
+</div>
+<ul class="org-ul">
+<li><a id="org6abbf16"></a>Section 2.2.1.1: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">The HTML Section Heading Elements by MDN Web Docs</a><br />
+<div class="outline-text-5" id="text-org6abbf16">
+<ul class="org-ul">
+<li><code>h1</code> to <code>h6</code> represent six levels of section headings with <code>h1</code> being the largest and <code>h6</code> being the smallest</li>
+<li>By default, headings start on a new line and take up the full width available in their containing block and thus create a "box-level" box in the layout</li>
+<li>The headings can be used as a table of contents, do not use them to resize text and don't skip heading levels</li>
+<li>Avoid using multiple <code>&lt;h1&gt;</code> elements on one page (the top level should describe the content of the page similar to a title of a book)</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga80e46f" class="outline-3">
+<h3 id="orga80e46f">Section 2.3: HTML Paragraph Elements</h3>
+<div class="outline-text-3" id="text-orga80e46f">
+<div class="org-src-container">
+<pre class="src src-html">&lt;p&gt;This is a paragraph&lt;/p&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Similar to the heading element; you have the opening and closing tag and then the content in between</li>
+<li>Why do we need a paragraph element? The paragraph element would allow us to separate blocks of texts (paragraphs) to make content easier to read</li>
+<li><a href="./002.003.HTML_Paragraph_Elements/index.html">Completed HTML Paragraph Elements Exercise</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9d089bf" class="outline-3">
+<h3 id="org9d089bf">Section 2.4: Self Closing Tags</h3>
+<div class="outline-text-3" id="text-org9d089bf">
+<ul class="org-ul">
+<li>What is a void element? A void element is an element you are forebidden to put content inside the tag</li>
+<li>So how do tags work with no content? These elements are called self-closing tags and it only has one tag (self-closing) instead of one opening and one closing</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;hr /&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Notice how it opens with an angle bracket and then uses a forward slash and then angle bracket similar (but in different way) to closing tags</li>
+<li><code>&lt;hr /&gt;</code> is the horizontal rule which divides or adds a horizontal rule or "line"</li>
+<li>Other void elements are the break element denoted as <code>&lt;br /&gt;</code> and this element is used to separate content (text) into separate lines</li>
+<li>Note when to use <code>&lt;br /&gt;</code> and when to use <code>&lt;p&gt;</code>; if you need to create another paragraph do not use <code>&lt;br /&gt;</code> instead create a new paragraph element</li>
+<li>Only use <code>&lt;br /&gt;</code> when you need to separate lines but it is still the same paragraph like a poem or an address</li>
+<li>Also the forward slash is not required; with the latest HTML it simply ignores the forward slash but it is good practice to add so it can be more understandable when viewing your code</li>
+<li><a href="./002.004.Self_Closing_Tags/index.html">Completed HTML Self Closing Tags Exercise</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf658fde" class="outline-3">
+<h3 id="orgf658fde">Section 2.5: Movie Ranking Project</h3>
+<div class="outline-text-3" id="text-orgf658fde">
+<ul class="org-ul">
+<li>Create a webpage ranking your favorite movies with what you learned (headers, paragraph, and self closing tags)</li>
+<li><a href="./002.005.Movie_Ranking_Project/index.html">Completed Move Ranking Project</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga5e72aa" class="outline-3">
+<h3 id="orga5e72aa">Section 2.6: How to Ace This Course (And Keep You Motivated)</h3>
+<div class="outline-text-3" id="text-orga5e72aa">
+<ul class="org-ul">
+<li>In order to keep you motivatd, set yourself goals ask yourself the following question</li>
+<li>Why do I want to learn this skill? I want to expand my skillset and create my own website agency company eventually</li>
+<li>What will I achieve if I learn this skill? Possibly new career options and be able to full services on behalf of myself and not a company</li>
+<li>How will this skill change my life and my career? Possibly get a higher position job and be able to work on my own company</li>
+<li>How will learning this skill impact the lives of my family, friends, and coworkers? If I am able to target a higher position job or start a company then I'll be able to help the ones I love and help others start with own business</li>
+<li>How will I feel if I never accomplish this? I'll feel like I failed. I'll feel like I have nothing to look forward to</li>
+<li>What would my life look like if I manage to accomplish this? Hopefuly my life would look more fulfilled and more prosperous with possibly having a side business of my own</li>
+<li><a href="./002.006.How_to_Ace_This_Course_And_Keep_You_Motivated_Questions_Template.pdf">How to Ace This Course (And Keep You Motivated) Questions Template (PDF)</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8ea0425" class="outline-2">
+<h2 id="org8ea0425">Keywords</h2>
+<div class="outline-text-2" id="text-org8ea0425">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>HTML</b></td>
+<td class="org-left">HyperText Markup Language</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Tag</b></td>
+<td class="org-left">Actual "tag" that indicates which element it is</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Element</b></td>
+<td class="org-left">It is the HTML tags and the content it represents</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Header Element</b></td>
+<td class="org-left">Element that allows to provide and format titles and subtitles</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Paragraph Element</b></td>
+<td class="org-left">Element to display blocks of text</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>HTML Self Closing Elements</b></td>
+<td class="org-left">HTML elements that do not require content or a closing tag</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga1cf0e0" class="outline-2">
+<h2 id="orga1cf0e0">Questions</h2>
+<div class="outline-text-2" id="text-orga1cf0e0">
+<ul class="org-ul">
+<li><b>Q</b>: If headers behave as a box where it takes the whole width of the page, is it possible to change that behavior?
+<ul class="org-ul">
+<li>Possibly but we'll need CSS for that</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org236ef6a" class="outline-2">
+<h2 id="org236ef6a">Summary</h2>
+<div class="outline-text-2" id="text-org236ef6a">
+<ul class="org-ul">
+<li>HTML stands for HyperText Markup Language which is a way to format text into titles, paragraphs, underline, bold, italicized, etc.</li>
+<li>There are many HTML elements like headers, paragraph, self closing elements, and format and display content differently; these elements need an opening HTML tag and a closing HTML tag and the content goes in between while other are self-closing with no content</li>
+<li>Not all HTML elements affect text, some add lines or images; also although there are not rules with some HTML there are standards such as only using one <code>&lt;h1&gt;</code> in a page and no skipping header levels</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
