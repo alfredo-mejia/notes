@@ -10,3 +10,172 @@
 | Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
 | Prev  | Chapter 3: Functions, Methods & Objects                     | \vert [[file:../002.Basic_JavaScript_Instructions/002.000.Notes.html][html]] \vert [[file:../002.Basic_JavaScript_Instructions/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/002.Basic_JavaScript_Instructions][github]] \vert |
 | Next  | Chapter 5: Document Object Model                            | \vert [[file:../005.Document_Object_Model/005.000.Notes.html][html]] \vert [[file:../005.Document_Object_Model/005.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/005.Document_Object_Model][github]] \vert |
+
+
+* Notes
+** Section 4.1: Decision Making
+   - Code can take different paths depending on the condition set
+   - Each path is made up of a different set of tasks which means you have to write different code for each situation
+   - To set a condition you can use the comparison operators
+   - Some examples of the comparison operators are: greater than (~>~), less than (~<~), double equal sign (~==~), and more
+   - There are two components to a decision:
+     1. An expression is evaluated which returns a value
+     2. A conditional statement says what to do in a given situation
+   - How does this work? The expression given is usually comparing two values using a comparison operator which returns a value of true or false
+   - Now the conditional statements are the ~if/else~ statements, so if a condition is met then it executes a block of code, otherwise it will execute the other block of code
+   - You can combine comparison operators to have multiple conditions inside a conditional statement
+
+** Section 4.2: Comparison Operators - Evaluating Conditions
+   - Evaluations using comparison operators will always result in a true or false
+   - Here are the following comparison operators:
+   | Operator                        | Definition                                                                                         | Example                       |
+   |---------------------------------+----------------------------------------------------------------------------------------------------+-------------------------------|
+   | ~==~ (Is Equal To)              | This operator compares two values (numbers, strings, or booleans) to see if they are the same      | ~"Hello" == "Bye"~ => false   |
+   |                                 |                                                                                                    | ~"Hello" == "Hello"~ => true  |
+   |                                 |                                                                                                    | ~"3" == 3~ => true            |
+   | ~===~ (Strict Equal To)         | This operator compares two values to check that both the data type and value are the same          | ~"3" === 3~ => false          |
+   |                                 |                                                                                                    | ~"3" === "3"~ => true         |
+   | ~!=~ (Is Not Equal To)          | This operator compares two values (numbers, strings, or booleans) to see if they are not the same  | ~"Hello" != "Bye"~ => true    |
+   |                                 |                                                                                                    | ~"Hello" != "Hello"~ => false |
+   |                                 |                                                                                                    | ~"3" != 3~ => false           |
+   | ~!==~ (Strict Not Equal To)     | This operator compares two values to check that both the data type and value are not the same      | ~"3" !== 3~ => true           |
+   |                                 |                                                                                                    | ~"3" !== "3"~ => false        |
+   | ~>~ (Greater Than)              | This operator checks if the number on the left is greater than the number on the right             | ~4 > 3~ => true               |
+   |                                 |                                                                                                    | ~3 > 4~ => false              |
+   | ~>=~ (Greater Than or Equal To) | This operator checks if the number on the left is greater than or equal to the number on the right | ~4 >= 4~ => true              |
+   |                                 |                                                                                                    | ~3 >= 4~ => false             |
+   |                                 |                                                                                                    | ~3 >= "3"~ => true            |
+   | ~<~ (Less Than)                 | This operator checks if the number on the left is less than the number on the right                | ~4 < 3~ => false              |
+   |                                 |                                                                                                    | ~3 < 4~ => true               |
+   | ~<=~ (Less Than or Equal To)    | This operator checks if the number on the left is less than or equal to the number on the right    | ~4 <= 3~ => false             |
+   |                                 |                                                                                                    | ~3 <= 4~ => true              |
+   |                                 |                                                                                                    | ~3 <= 3~ => true              |
+
+   - These comparison operators require two operands and each operand is placed on each side of the operator
+   - The operands can be values, variables, or other expressions that evaluate to a single value
+   - Recall using a comparison operator with operands is an expression itself because it resolves into a single value: true or false
+   - Thus, you can have a conditional expression that is made up of mathematical expressions, string expressions, or even other conditional expressions
+   - How can conditional expressions be operands to another conditional expression?
+   - Well think of ~true~ as a 1 and ~false~ as a 0, thus if you were to evaluate the condition ~true > false~ then this will evaluate to true because true is made to be a 1 and false is made to be a 0, so it is true that one is greater than 0
+   - Example of conditional expression as operands to a conditional expression: ~(3 >= "3") > (3 <= 4)~ => this evaulates to ~true > true~ which in turn evaluates to false because 1 is not greater than 1
+   - Example of mathematical expression as operands to a conditional expression: ~(3 + 5) > (1 + 2)~ => this evaulates to ~8 > 3~ which is true
+   - These comparison expressions can be joined and combined with other comparison or boolean expressions by using the logical operators
+
+** Section 4.3: Logical Operators
+   - Comparison operators usually return single values of ~true~ or ~false~
+   - Logical operators allow you to compare the results of more than one comparison operator
+   - Here are the logical operators
+   | Operator                | # of Operands | Defintion                                                                                      | Example                                                                                                            |
+   |-------------------------+---------------+------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------|
+   | ~&&~ (Logical And)      |             2 | This operator evaluate to true, only if *BOTH* operands evaluate to true, otherwise false      | ~(2 < 5) && (3 > 4)~ => false because the right operand evaluates to false                                         |
+   | \vert\vert (Logical OR) |             2 | This operator evaluate to true, only if at least one operand evaluate to true, otherwise false | (2 < 5) \vert\vert (3 > 4) => true because the left operand is true                                                |
+   | ~!~ (Logical Not)       |             1 | This operator takes a single boolean value and inverts it                                      | ~!(2 < 1)~ => true because ~(2 < 1)~ evaluates to false but then the logical not inverts the value and we get true |
+   - The logical AND and logical OR both take two operands, these are binary operators while the logical NOT is a uniary operator and only needs one operand
+   -
+
+** Section 4.4: Short-Circuit Evaluation
+   - Logical expressions are evaluated left to right
+   - If the first condition can provide enough information to get the answer, then there is no need to evaluate the second condition
+   - For example, for logical AND we need both operands to evaluate to true for the expression to be true otherwise it is false, so if we have ~false && anything~ this automatically tells us this will evaluate to false because once one operand is false it is not possible to have both operands to be true
+   - For logical OR there must be at least one operand to evaluate to true for the expression to be true otherwise it is false, so if we have ~true || anything~ then there is no need to check the second condition because this will automatically be true because it met the requirement for at least one operand to be true
+   - One thing to note about short-circuit evaulation is that it will return the value that stopped the processing even if the value is not a real boolean value such as true or false
+   - The value may be a number or string depending on how JS treats it (either true or false)
+   - For example:
+
+   #+BEGIN_SRC JavaScript
+     var artist1 = "Artist";
+     var artist2 = (artist1 || "Unknown")
+   #+END_SRC
+
+   - In the example above, ~artist1~ is a string with a value so JS will treat it as true and no longer needs to check the other condition, thus it returns the value that stopped the processing (~artist1~)
+   - Thus short-circuit evaluation will return "Artist" the string obtained from the variable ~artist1~ and not a boolean value because the variable was not a boolean but a string
+   - Programmers use this creatively to set values for variables or even create objects
+   - Programmers often put the code most likely to return true first in OR operations and false answers first in AND operations
+   - Place the options requiring the most processing power last, just in case short-circuit evaluation determines an answer before
+
+** Section 4.5: If-Statements & If-Else Statements
+   - The ~if~ statement evaluates (or checks) a condition and if the condition evaluates to true then any statements in the subsequent code block are executed
+   - If the condition evaluates to false then the subsequent code block is not executed and is skipped and continues to run whatever is after the ~if~ statement
+   - Example:
+
+   #+BEGIN_SRC JavaScript
+     if (score >= 50) {
+       congratulate();
+     }
+   #+END_SRC
+
+   - The ~if-else~ statements is similar to the ~if~ statements, a condition is evaluated and if it resolves to true then the first code block is executed inside the ~if~
+   - If the condition resolves to false then the second code block is run instead inside the ~else~ statement
+   - Example:
+
+   #+BEGIN_SRC JavaScript
+     if (scopre >= 50) {
+       congratulate();
+     }
+
+     else {
+       encourage();
+     }
+   #+END_SRC
+
+** Section 4.6: Switch Statements
+   - A switch statement starts with a variable called the switch value
+   - Each case indicates a possible value for this variable (switch value) and the code that should if the variable matches that value
+   - Example:
+
+   #+BEGIN_SRC JavaScript
+     switch (level) {
+       case "One":
+         title = "Level 1";
+         break;
+       case "Two":
+         title = "Level 2";
+         break;
+       case "Three":
+         title = "Level 3";
+         break;
+       default:
+         title = "Test";
+         break;
+     }
+   #+END_SRC
+
+   - In the example above, the variable named ~level~ is the switch value (the switch value can also be an expression, not just a variable)
+   - If the value of the ~level~ variable matches with string "One", "Two", or "Three" it will execute the corresponding code below the case
+   - If none of these match the variable then the code after the default will be executed
+   - The ~break~ keyword tells the interpreter that it has finished with the ~switch~ statement, thus without it will continue to execute code until it finds a break keyword or the switch statement ends
+   - This is why after each case statement we add a ~break~ so that option will not begin executing code from a different case option
+   - Although similar to ~if-else~ statements and ultimately can achieve the same results as ~if-else~ statements, the switch statement has its use cases and is more suitable for certain situations than if-else statements (please see the questions section in this notes)
+
+** Section 4.7: Type Coercion & Weak Typing
+   - If you use a data type JavaScript did not expect then it tries to make sense of the operation rather than report an error
+   - JS can convert data types behind the scenes to complete an operation, this is known as type coercion
+   - For example, the string '1' can be converted to a number 1 in the following expression: ~('1' > 0)~
+   - Type coercion can lead to unexpected values, bugs, or errors in your code and is often recommended to use strict equals operators such as ~===~ or ~!==~ than ~==~ and ~!=~ as strict operators check that the value and data types match
+   - Due to type coercion, every value in JS can be treated as if it were true or false
+   - Falsy values are treated as if they are false and this includes the boolean value false, the number 0, empty string, NaN (not a number), and a variable with no value assigned to it
+   - Truthy values are treated as if they are true and this includes almost everything else besides the falsy values which are the boolean value true, numbers other than zero, strings with content, number calculations, objects, arrays, etc.
+   - Objects and arrays are evaulated to true and can be useful when checking if an object exists and it is not pointing to null
+   - Because the presence of an object or array can be considered truthy it is often used to check for the existence of an element within a page
+   - When comparing falsy values and not using the strict equality operators then the boolean value false, zero, and an empty string are equivalent but when using the strict equality operators they are not equivalent
+   - Null and undefined are both falsy and are equivalent only to themselves when not using the strict equality operators but when using the strict equality operators they are not equivalent
+   - NaN is not equivalent to anything even if you do not use the strict equality operators, not even to itself
+   - JS has weak typing because the data type for a variable can change unlike strong typing languages in which they require you to specify what data type each variable will be
+
+** Section 4.8: Loops
+   - Loops check a condition, and if it returns true then a code block will run, then the condition will be checked again and if it still returns true the code block will run again, it repeats until the condition returns false
+   - There are 3 common types of loops:
+     - For Loops: 
+     - While Loops:
+     - Do-While Loops: 
+  
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*: What is the difference between the comparison operators ~==~ and ~===~?
+  - *Q*: Is there a strict greater than or equal to operator?
+  - *Q*: When to use ~switch~ statements compared to ~if-else~ statements?
+* Summary

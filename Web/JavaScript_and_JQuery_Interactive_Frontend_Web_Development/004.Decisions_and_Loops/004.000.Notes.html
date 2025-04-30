@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-29 Tue 12:39 -->
+<!-- 2025-04-30 Wed 17:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 4: Decisions &amp; Loops</title>
@@ -202,14 +202,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6cc3b4c">Navigation</a></li>
+<li><a href="#org11842f1">Navigation</a></li>
+<li><a href="#org9930942">Notes</a>
+<ul>
+<li><a href="#org04840ab">Section 4.1: Decision Making</a></li>
+<li><a href="#org6f1877b">Section 4.2: Comparison Operators - Evaluating Conditions</a></li>
+<li><a href="#org415605a">Section 4.3: Logical Operators</a></li>
+<li><a href="#org26f22ca">Section 4.4: Short-Circuit Evaluation</a></li>
+<li><a href="#org72438be">Section 4.5: If-Statements &amp; If-Else Statements</a></li>
+<li><a href="#org17c25e6">Section 4.6: Switch Statements</a></li>
+<li><a href="#org9615a85">Section 4.7: Type Coercion &amp; Weak Typing</a></li>
+<li><a href="#orgc74d831">Section 4.8: Loops</a></li>
+</ul>
+</li>
+<li><a href="#org8424e8e">Keywords</a></li>
+<li><a href="#org4dfd540">Questions</a></li>
+<li><a href="#org3c2fe7e">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6cc3b4c" class="outline-2">
-<h2 id="org6cc3b4c">Navigation</h2>
-<div class="outline-text-2" id="text-org6cc3b4c">
+<div id="outline-container-org11842f1" class="outline-2">
+<h2 id="org11842f1">Navigation</h2>
+<div class="outline-text-2" id="text-org11842f1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -254,6 +269,430 @@
 </tbody>
 </table>
 </div>
+</div>
+
+
+<div id="outline-container-org9930942" class="outline-2">
+<h2 id="org9930942">Notes</h2>
+<div class="outline-text-2" id="text-org9930942">
+</div>
+<div id="outline-container-org04840ab" class="outline-3">
+<h3 id="org04840ab">Section 4.1: Decision Making</h3>
+<div class="outline-text-3" id="text-org04840ab">
+<ul class="org-ul">
+<li>Code can take different paths depending on the condition set</li>
+<li>Each path is made up of a different set of tasks which means you have to write different code for each situation</li>
+<li>To set a condition you can use the comparison operators</li>
+<li>Some examples of the comparison operators are: greater than (<code>&gt;</code>), less than (<code>&lt;</code>), double equal sign (<code>==</code>), and more</li>
+<li>There are two components to a decision:
+<ol class="org-ol">
+<li>An expression is evaluated which returns a value</li>
+<li>A conditional statement says what to do in a given situation</li>
+</ol></li>
+<li>How does this work? The expression given is usually comparing two values using a comparison operator which returns a value of true or false</li>
+<li>Now the conditional statements are the <code>if/else</code> statements, so if a condition is met then it executes a block of code, otherwise it will execute the other block of code</li>
+<li>You can combine comparison operators to have multiple conditions inside a conditional statement</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6f1877b" class="outline-3">
+<h3 id="org6f1877b">Section 4.2: Comparison Operators - Evaluating Conditions</h3>
+<div class="outline-text-3" id="text-org6f1877b">
+<ul class="org-ul">
+<li>Evaluations using comparison operators will always result in a true or false</li>
+<li>Here are the following comparison operators:</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operator</th>
+<th scope="col" class="org-left">Definition</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>==</code> (Is Equal To)</td>
+<td class="org-left">This operator compares two values (numbers, strings, or booleans) to see if they are the same</td>
+<td class="org-left"><code>"Hello" == "Bye"</code> =&gt; false</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>"Hello" == "Hello"</code> =&gt; true</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>"3" == 3</code> =&gt; true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>===</code> (Strict Equal To)</td>
+<td class="org-left">This operator compares two values to check that both the data type and value are the same</td>
+<td class="org-left"><code>"3" === 3</code> =&gt; false</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>"3" === "3"</code> =&gt; true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!=</code> (Is Not Equal To)</td>
+<td class="org-left">This operator compares two values (numbers, strings, or booleans) to see if they are not the same</td>
+<td class="org-left"><code>"Hello" != "Bye"</code> =&gt; true</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>"Hello" != "Hello"</code> =&gt; false</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>"3" != 3</code> =&gt; false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!==</code> (Strict Not Equal To)</td>
+<td class="org-left">This operator compares two values to check that both the data type and value are not the same</td>
+<td class="org-left"><code>"3" !== 3</code> =&gt; true</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>"3" !== "3"</code> =&gt; false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&gt;</code> (Greater Than)</td>
+<td class="org-left">This operator checks if the number on the left is greater than the number on the right</td>
+<td class="org-left"><code>4 &gt; 3</code> =&gt; true</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>3 &gt; 4</code> =&gt; false</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&gt;=</code> (Greater Than or Equal To)</td>
+<td class="org-left">This operator checks if the number on the left is greater than or equal to the number on the right</td>
+<td class="org-left"><code>4 &gt;= 4</code> =&gt; true</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>3 &gt;= 4</code> =&gt; false</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>3 &gt;= "3"</code> =&gt; true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;</code> (Less Than)</td>
+<td class="org-left">This operator checks if the number on the left is less than the number on the right</td>
+<td class="org-left"><code>4 &lt; 3</code> =&gt; false</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>3 &lt; 4</code> =&gt; true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;=</code> (Less Than or Equal To)</td>
+<td class="org-left">This operator checks if the number on the left is less than or equal to the number on the right</td>
+<td class="org-left"><code>4 &lt;= 3</code> =&gt; false</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>3 &lt;= 4</code> =&gt; true</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>3 &lt;= 3</code> =&gt; true</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>These comparison operators require two operands and each operand is placed on each side of the operator</li>
+<li>The operands can be values, variables, or other expressions that evaluate to a single value</li>
+<li>Recall using a comparison operator with operands is an expression itself because it resolves into a single value: true or false</li>
+<li>Thus, you can have a conditional expression that is made up of mathematical expressions, string expressions, or even other conditional expressions</li>
+<li>How can conditional expressions be operands to another conditional expression?</li>
+<li>Well think of <code>true</code> as a 1 and <code>false</code> as a 0, thus if you were to evaluate the condition <code>true &gt; false</code> then this will evaluate to true because true is made to be a 1 and false is made to be a 0, so it is true that one is greater than 0</li>
+<li>Example of conditional expression as operands to a conditional expression: <code>(3 &gt;= "3") &gt; (3 &lt;= 4)</code> =&gt; this evaulates to <code>true &gt; true</code> which in turn evaluates to false because 1 is not greater than 1</li>
+<li>Example of mathematical expression as operands to a conditional expression: <code>(3 + 5) &gt; (1 + 2)</code> =&gt; this evaulates to <code>8 &gt; 3</code> which is true</li>
+<li>These comparison expressions can be joined and combined with other comparison or boolean expressions by using the logical operators</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org415605a" class="outline-3">
+<h3 id="org415605a">Section 4.3: Logical Operators</h3>
+<div class="outline-text-3" id="text-org415605a">
+<ul class="org-ul">
+<li>Comparison operators usually return single values of <code>true</code> or <code>false</code></li>
+<li>Logical operators allow you to compare the results of more than one comparison operator</li>
+<li>Here are the logical operators</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operator</th>
+<th scope="col" class="org-right"># of Operands</th>
+<th scope="col" class="org-left">Defintion</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>&amp;&amp;</code> (Logical And)</td>
+<td class="org-right">2</td>
+<td class="org-left">This operator evaluate to true, only if <b>BOTH</b> operands evaluate to true, otherwise false</td>
+<td class="org-left"><code>(2 &lt; 5) &amp;&amp; (3 &gt; 4)</code> =&gt; false because the right operand evaluates to false</td>
+</tr>
+
+<tr>
+<td class="org-left">&vert;&vert; (Logical OR)</td>
+<td class="org-right">2</td>
+<td class="org-left">This operator evaluate to true, only if at least one operand evaluate to true, otherwise false</td>
+<td class="org-left">(2 &lt; 5) &vert;&vert; (3 &gt; 4) =&gt; true because the left operand is true</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!</code> (Logical Not)</td>
+<td class="org-right">1</td>
+<td class="org-left">This operator takes a single boolean value and inverts it</td>
+<td class="org-left"><code>!(2 &lt; 1)</code> =&gt; true because <code>(2 &lt; 1)</code> evaluates to false but then the logical not inverts the value and we get true</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>The logical AND and logical OR both take two operands, these are binary operators while the logical NOT is a uniary operator and only needs one operand</li>
+<li></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org26f22ca" class="outline-3">
+<h3 id="org26f22ca">Section 4.4: Short-Circuit Evaluation</h3>
+<div class="outline-text-3" id="text-org26f22ca">
+<ul class="org-ul">
+<li>Logical expressions are evaluated left to right</li>
+<li>If the first condition can provide enough information to get the answer, then there is no need to evaluate the second condition</li>
+<li>For example, for logical AND we need both operands to evaluate to true for the expression to be true otherwise it is false, so if we have <code>false &amp;&amp; anything</code> this automatically tells us this will evaluate to false because once one operand is false it is not possible to have both operands to be true</li>
+<li>For logical OR there must be at least one operand to evaluate to true for the expression to be true otherwise it is false, so if we have <code>true || anything</code> then there is no need to check the second condition because this will automatically be true because it met the requirement for at least one operand to be true</li>
+<li>One thing to note about short-circuit evaulation is that it will return the value that stopped the processing even if the value is not a real boolean value such as true or false</li>
+<li>The value may be a number or string depending on how JS treats it (either true or false)</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">var artist1 = "Artist";
+var artist2 = (artist1 || "Unknown")
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>In the example above, <code>artist1</code> is a string with a value so JS will treat it as true and no longer needs to check the other condition, thus it returns the value that stopped the processing (<code>artist1</code>)</li>
+<li>Thus short-circuit evaluation will return "Artist" the string obtained from the variable <code>artist1</code> and not a boolean value because the variable was not a boolean but a string</li>
+<li>Programmers use this creatively to set values for variables or even create objects</li>
+<li>Programmers often put the code most likely to return true first in OR operations and false answers first in AND operations</li>
+<li>Place the options requiring the most processing power last, just in case short-circuit evaluation determines an answer before</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org72438be" class="outline-3">
+<h3 id="org72438be">Section 4.5: If-Statements &amp; If-Else Statements</h3>
+<div class="outline-text-3" id="text-org72438be">
+<ul class="org-ul">
+<li>The <code>if</code> statement evaluates (or checks) a condition and if the condition evaluates to true then any statements in the subsequent code block are executed</li>
+<li>If the condition evaluates to false then the subsequent code block is not executed and is skipped and continues to run whatever is after the <code>if</code> statement</li>
+<li>Example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">if (score &gt;= 50) {
+  congratulate();
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The <code>if-else</code> statements is similar to the <code>if</code> statements, a condition is evaluated and if it resolves to true then the first code block is executed inside the <code>if</code></li>
+<li>If the condition resolves to false then the second code block is run instead inside the <code>else</code> statement</li>
+<li>Example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">if (scopre &gt;= 50) {
+  congratulate();
+}
+
+else {
+  encourage();
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17c25e6" class="outline-3">
+<h3 id="org17c25e6">Section 4.6: Switch Statements</h3>
+<div class="outline-text-3" id="text-org17c25e6">
+<ul class="org-ul">
+<li>A switch statement starts with a variable called the switch value</li>
+<li>Each case indicates a possible value for this variable (switch value) and the code that should if the variable matches that value</li>
+<li>Example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">switch (level) {
+  case "One":
+    title = "Level 1";
+    break;
+  case "Two":
+    title = "Level 2";
+    break;
+  case "Three":
+    title = "Level 3";
+    break;
+  default:
+    title = "Test";
+    break;
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>In the example above, the variable named <code>level</code> is the switch value (the switch value can also be an expression, not just a variable)</li>
+<li>If the value of the <code>level</code> variable matches with string "One", "Two", or "Three" it will execute the corresponding code below the case</li>
+<li>If none of these match the variable then the code after the default will be executed</li>
+<li>The <code>break</code> keyword tells the interpreter that it has finished with the <code>switch</code> statement, thus without it will continue to execute code until it finds a break keyword or the switch statement ends</li>
+<li>This is why after each case statement we add a <code>break</code> so that option will not begin executing code from a different case option</li>
+<li>Although similar to <code>if-else</code> statements and ultimately can achieve the same results as <code>if-else</code> statements, the switch statement has its use cases and is more suitable for certain situations than if-else statements (please see the questions section in this notes)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9615a85" class="outline-3">
+<h3 id="org9615a85">Section 4.7: Type Coercion &amp; Weak Typing</h3>
+<div class="outline-text-3" id="text-org9615a85">
+<ul class="org-ul">
+<li>If you use a data type JavaScript did not expect then it tries to make sense of the operation rather than report an error</li>
+<li>JS can convert data types behind the scenes to complete an operation, this is known as type coercion</li>
+<li>For example, the string '1' can be converted to a number 1 in the following expression: <code>('1' &gt; 0)</code></li>
+<li>Type coercion can lead to unexpected values, bugs, or errors in your code and is often recommended to use strict equals operators such as <code>===</code> or <code>!==</code> than <code>==</code> and <code>!=</code> as strict operators check that the value and data types match</li>
+<li>Due to type coercion, every value in JS can be treated as if it were true or false</li>
+<li>Falsy values are treated as if they are false and this includes the boolean value false, the number 0, empty string, NaN (not a number), and a variable with no value assigned to it</li>
+<li>Truthy values are treated as if they are true and this includes almost everything else besides the falsy values which are the boolean value true, numbers other than zero, strings with content, number calculations, objects, arrays, etc.</li>
+<li>Objects and arrays are evaulated to true and can be useful when checking if an object exists and it is not pointing to null</li>
+<li>Because the presence of an object or array can be considered truthy it is often used to check for the existence of an element within a page</li>
+<li>When comparing falsy values and not using the strict equality operators then the boolean value false, zero, and an empty string are equivalent but when using the strict equality operators they are not equivalent</li>
+<li>Null and undefined are both falsy and are equivalent only to themselves when not using the strict equality operators but when using the strict equality operators they are not equivalent</li>
+<li>NaN is not equivalent to anything even if you do not use the strict equality operators, not even to itself</li>
+<li>JS has weak typing because the data type for a variable can change unlike strong typing languages in which they require you to specify what data type each variable will be</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc74d831" class="outline-3">
+<h3 id="orgc74d831">Section 4.8: Loops</h3>
+<div class="outline-text-3" id="text-orgc74d831">
+<ul class="org-ul">
+<li>Loops check a condition, and if it returns true then a code block will run, then the condition will be checked again and if it still returns true the code block will run again, it repeats until the condition returns false</li>
+<li>There are 3 common types of loops:
+<ul class="org-ul">
+<li>For Loops:</li>
+<li>While Loops:</li>
+<li>Do-While Loops:</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8424e8e" class="outline-2">
+<h2 id="org8424e8e">Keywords</h2>
+<div class="outline-text-2" id="text-org8424e8e">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4dfd540" class="outline-2">
+<h2 id="org4dfd540">Questions</h2>
+<div class="outline-text-2" id="text-org4dfd540">
+<ul class="org-ul">
+<li><b>Q</b>: What is the difference between the comparison operators <code>==</code> and <code>===</code>?</li>
+<li><b>Q</b>: Is there a strict greater than or equal to operator?</li>
+<li><b>Q</b>: When to use <code>switch</code> statements compared to <code>if-else</code> statements?</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3c2fe7e" class="outline-2">
+<h2 id="org3c2fe7e">Summary</h2>
 </div>
 </div>
 </body>
