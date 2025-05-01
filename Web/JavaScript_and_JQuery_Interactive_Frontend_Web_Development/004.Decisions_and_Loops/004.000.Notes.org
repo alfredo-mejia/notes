@@ -165,17 +165,128 @@
 ** Section 4.8: Loops
    - Loops check a condition, and if it returns true then a code block will run, then the condition will be checked again and if it still returns true the code block will run again, it repeats until the condition returns false
    - There are 3 common types of loops:
-     - For Loops: 
-     - While Loops:
-     - Do-While Loops: 
-  
+     - For Loops: In a for loop, the condition is usually a counter which is used to tell how many times the loop should run so if you need to run code a specific number of times, use a for loop
+     - While Loops: The condition in a while loop can be other than a counter and the code will continue to loop for as long as the condition is true so if you do not know how many times the code should run you can use a while loop
+     - Do-While Loops: The do-while loop is similar to a while loop except the code block of the loop will run at least once (at the minimum) even if the condition evaluates to false
+
+   - Example of for-loop:
+
+   #+BEGIN_SRC JavaScript
+     for(var i = 0; i < 10; i++) {
+       document.write(i);
+     }
+   #+END_SRC
+
+   - A for loop uses a counter as a condition and this instructs the code to run a specified number of times
+   - The for-loop condition is made up of three statements:
+     1. Initialization: Create a variable (or use an existing variable), initialize the variable, it is often called i, and this variable acts as the counter; this variable is only created the first time the loop is run
+     2. Condition: The loop should continue to run until the counter reaches a specified number (e.g. ~i < 10~), the condition may also use variables to compare with the counter instead of number literals
+     3. Update: After every loop it executes the "update" statement, in this case ~i++~ adds one to the counter but the update statement is not limited to adding, it can subtract, multiply, divide, etc
+   - So each time the condition is true it executes the code block inside the for-loop
+   - The counter variable can be used inside the for-loop
+
+   - Example of while-loop:
+
+   #+BEGIN_SRC JavaScript:
+     while (i < 10) {
+       document.write(i);
+     }
+   #+END_SRC
+
+   - The while-loop only has one statement and that is the condition
+   - This loop will continue to run for as long as the condition in the parentheses is true
+
+   - Example of do-while-loop:
+
+   #+BEGIN_SRC JavaScript
+     do {
+       document.write(i);
+     } while (i < 1);
+   #+END_SRC
+
+   - Notice that the code block for the loop comes before the while loop in a do-while unlike a regular while-loop
+   - This is because the code block is run once regardless of the condition, the code block will run once even if the condition is false
+   - After the first loop then that is when the condition is checked, if true it will continue to loop again, if false it will stop but the loop as executed at least once
+
+*** Section 4.8.1: Key Loop Concepts
+    - Keyword ~break~ causes the termination of the loop and tells the interpreter to go onto the next statement of code *outside* of the loop; in other words, it terminates the loop and continues with the code path
+    - Keyword ~continue~ tells the interpreter to stop the current iteration, it will stop the current loop, execute the update statement, check the condition, and if true continue with the loop
+    - Loops are very helpful when dealing with arrays if you want to run the same code for each item in the array
+    - You may not known how many items will be in array when writing a script but when the code runs it can check the total number of items in a loop and run a set of statements for each array item
+    - Recall, when a browser comes across JS it will stop doing anything else until it has processed that script so if you have a loop that loops many times it can make the page slower to load
+    - Be careful with infinite loops where the condition never returns false which will cause the browser to run out of memory and break your script
+    - Any variable you can define outside of the loop and that does not change within the loop should be defined outside of it because if you declare it inside the loop then it would be recalculated every time the loop ran thus using needlessly resources which we want to avoid
+
+** Section 4.9: Chapter Exercise
+   - We are going to build a times-table, similar to the times-table they give elementary students so they can learn their multiplications
+   - The user will be able specify how many columns and rows they would like and the table will be generated for them
+   - [[file:./004.009.Chapter_Exercise/index.html][Here is my times-table generator]]
+
+** Section 4.10: Chapter Summary
+   - Conditional statements allow your code to make decisions about what to do next
+   - Comparison operators are used to compare two operands
+   - Logical operators allow you to combine more than one set of comparison operators
+   - ~if-else~ statements allow you to run one set of code if a condition is true and another if it is false
+   - ~switch~ statements allow you to compare a value against possible outcomes and provide a default option if none match
+   - Data types can be coerced from one type to another
+   - All values evaluate to either truthy or falsy
+   - There are three types of loops: for, while, and do-while loops
+   
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term                     | Definition                                                                                                                                                                                                                                                                                                                                                                              |
+|--------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Comparison Operators     | Comparison operators are binary operators that compare two operands and evaluate to either true or false, the operators are the following: ~>~, ~<~, ~==~, ~!=~, ~>=~, ~<=~, ~===~, and ~!==~                                                                                                                                                                                           |
+| Logical Operators        | Logical operators combine or modify boolean values, the operators are either binary or unary, the operators are the following: ~&&~ (AND), OR, ~!~ (NOT)                                                                                                                                                                                                                                |
+| Condition                | A condition is a logical (conditional) expression that evaluates to either true or false (no other value)                                                                                                                                                                                                                                                                               |
+| Short-Circuit Evaluation | Short-circuit evaluation is a behavior in JS (and many other languages) that in a binary logical operation (using logical operators), if the first operand provides enough info to evaluate the logical expression then it will not check the second operand, in other words, the second operand will only be checked if the first operand is not sufficient to determine true or false |
+| Type Coercion            | Type coercion is when JS automatically or implicitly converts a value from one data type to another during an operation because it expects the value to be a certain type, for example if you do ~5 == "5"~ then it will convert (coerced) the string 5 into the number 5                                                                                                               |
+| Weak Typing              | Weak typing is a characteristic of a programming language like JS where the variable does not need to declare its type and the type of the variable can change during runtime                                                                                                                                                                                                           |
 
 * Questions
   - *Q*: What is the difference between the comparison operators ~==~ and ~===~?
+         - The difference between equality and "strict" equality is whether or not they perform type coercion before comparing the values
+	 - Recall type coercion is when JS converts a data type to another data type that it expects
+	 - For example ~5 == "5"~ then the string 5 will be converted to the number 5
+	 - Type coercion (converting data types) happens with ~==~ before it compares the values
+	 - With strict equality (~===~) the operator does not attempt to convert any operands and no type coercion is performed
+	 - Thus the difference is that ~==~ performs type coercion while ~===~ does not perform type coercion
+	 - ~5 == "5"~ evalues to true because the string is converted to a number and both are the same number
+	 - ~5 === "5"~ evalues to false because they are different data types and thus different values
+	   
   - *Q*: Is there a strict greater than or equal to operator?
+         - No there is not a strict greater than or equal to
+	 - The only strict comparison operators are the strict equality operator and the strict inequality operator
+	 - All other operators perform type coercion
+	 - When comparing operands and you want to perform a strict greater than or any other unsupported strict operation then you will need create a custom function that compares the data types of each operand and the value
+	   
   - *Q*: When to use ~switch~ statements compared to ~if-else~ statements?
+         - If-else statements are good when the conditions are complexed, there are multiple logical and comparison operators, when you need to check a range, and when checking data types
+	 - Switch statements are good when comparing discrete values or fixed values for equality like strings and single digits, and these values need to be checked by the equality
+	 - For example, if you have a string called apple and you want to compare with other strings then instead of if-statements then use a switch because the strings are fixed values
+	   
 * Summary
+  - In code it is good to be able to make decisions based on certain conditions
+  - A condition is a logical expression that evaluates to either true or false
+  - You can use comparison operators to create a logical expression
+  - Comparison operators are binary operators that compare two operands and evaluate to true or false
+  - You can also use logical operators to combine other logical expressions
+  - Logical operators may be binary or unary operators that evaluate to true or false
+  - Logical operators can be used with other logical expressions that may be using comparison operators or other logical operators
+  - The operands of the comparison operators may be a variable, literal, or any other conditional expression
+  - The operands of the logical operators can also be any expression because JS treats certain data types as truthy or falsy values
+  - For example, truthy values include the boolean value true, numbers other than zero, strings with content, number calculations, objects, and arrays
+  - Falsy values include the boolean value false, the number 0, empty string, NaN (not a number), and a variable with no value assigned to it
+  - When comparing falsy values using the loose equality, the boolean false value, zero, and empty string are equivalent
+  - Null and undefined are equivalent when using the loose equality but NaN is not equivalent to anything not even itself
+  - When using comparison operators except the strict equality and strict inequality they all perform something called type coercion
+  - Type coercion converts a data type into another data type that JS is expecting
+  - For example if you compare a string with a number then JS will convert the string into a number to be able to perform the comparison operation
+  - This is why we can compare some falsy values like null and undefined because of type coercion
+  - However when you use strict equality or strict inequality type coercion is not performed
+  - When dealing with logical operators, JS performs short-circuit evaluation which states that if the first operand of a binary logical operation provides enough information to determine the value of the expression then there is no need to take a look at the second operand
+  - To make decisions in code you can use if, if-else, and switch statements
+  - To repeat a set of statements you can use either a for-loop, while-loop, or do-while-loop which will repeat a set of statements depending on a condition
+  - For loops are good whenever you need a counter and that counter is used in the condition
+  - While loops are good when you do not have a counter but just have a condition
+  - Do-while are similar to while except this will always run the set of statements once before checking the condition even if the condition evaluates to false
+  - Finally JS is weak typing meaning variables do not need to declare their data type and their data type can change during runtime

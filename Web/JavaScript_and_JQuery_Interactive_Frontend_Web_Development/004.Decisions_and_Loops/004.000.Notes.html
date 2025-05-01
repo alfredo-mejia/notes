@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-30 Wed 17:28 -->
+<!-- 2025-05-01 Thu 16:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 4: Decisions &amp; Loops</title>
@@ -202,29 +202,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org11842f1">Navigation</a></li>
-<li><a href="#org9930942">Notes</a>
+<li><a href="#orgc786515">Navigation</a></li>
+<li><a href="#org7719702">Notes</a>
 <ul>
-<li><a href="#org04840ab">Section 4.1: Decision Making</a></li>
-<li><a href="#org6f1877b">Section 4.2: Comparison Operators - Evaluating Conditions</a></li>
-<li><a href="#org415605a">Section 4.3: Logical Operators</a></li>
-<li><a href="#org26f22ca">Section 4.4: Short-Circuit Evaluation</a></li>
-<li><a href="#org72438be">Section 4.5: If-Statements &amp; If-Else Statements</a></li>
-<li><a href="#org17c25e6">Section 4.6: Switch Statements</a></li>
-<li><a href="#org9615a85">Section 4.7: Type Coercion &amp; Weak Typing</a></li>
-<li><a href="#orgc74d831">Section 4.8: Loops</a></li>
+<li><a href="#org107a3db">Section 4.1: Decision Making</a></li>
+<li><a href="#orgde5f724">Section 4.2: Comparison Operators - Evaluating Conditions</a></li>
+<li><a href="#org574a7e7">Section 4.3: Logical Operators</a></li>
+<li><a href="#org60983fb">Section 4.4: Short-Circuit Evaluation</a></li>
+<li><a href="#org3edb9d8">Section 4.5: If-Statements &amp; If-Else Statements</a></li>
+<li><a href="#org02337c1">Section 4.6: Switch Statements</a></li>
+<li><a href="#org82e3016">Section 4.7: Type Coercion &amp; Weak Typing</a></li>
+<li><a href="#org829adbd">Section 4.8: Loops</a>
+<ul>
+<li><a href="#orgf99ff3e">Section 4.8.1: Key Loop Concepts</a></li>
 </ul>
 </li>
-<li><a href="#org8424e8e">Keywords</a></li>
-<li><a href="#org4dfd540">Questions</a></li>
-<li><a href="#org3c2fe7e">Summary</a></li>
+<li><a href="#org3c55abc">Section 4.9: Chapter Exercise</a></li>
+<li><a href="#org7100c2e">Section 4.10: Chapter Summary</a></li>
+</ul>
+</li>
+<li><a href="#org2c2321d">Keywords</a></li>
+<li><a href="#orgc263207">Questions</a></li>
+<li><a href="#org37f1a7b">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org11842f1" class="outline-2">
-<h2 id="org11842f1">Navigation</h2>
-<div class="outline-text-2" id="text-org11842f1">
+<div id="outline-container-orgc786515" class="outline-2">
+<h2 id="orgc786515">Navigation</h2>
+<div class="outline-text-2" id="text-orgc786515">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -272,13 +278,13 @@
 </div>
 
 
-<div id="outline-container-org9930942" class="outline-2">
-<h2 id="org9930942">Notes</h2>
-<div class="outline-text-2" id="text-org9930942">
+<div id="outline-container-org7719702" class="outline-2">
+<h2 id="org7719702">Notes</h2>
+<div class="outline-text-2" id="text-org7719702">
 </div>
-<div id="outline-container-org04840ab" class="outline-3">
-<h3 id="org04840ab">Section 4.1: Decision Making</h3>
-<div class="outline-text-3" id="text-org04840ab">
+<div id="outline-container-org107a3db" class="outline-3">
+<h3 id="org107a3db">Section 4.1: Decision Making</h3>
+<div class="outline-text-3" id="text-org107a3db">
 <ul class="org-ul">
 <li>Code can take different paths depending on the condition set</li>
 <li>Each path is made up of a different set of tasks which means you have to write different code for each situation</li>
@@ -296,9 +302,9 @@
 </div>
 </div>
 
-<div id="outline-container-org6f1877b" class="outline-3">
-<h3 id="org6f1877b">Section 4.2: Comparison Operators - Evaluating Conditions</h3>
-<div class="outline-text-3" id="text-org6f1877b">
+<div id="outline-container-orgde5f724" class="outline-3">
+<h3 id="orgde5f724">Section 4.2: Comparison Operators - Evaluating Conditions</h3>
+<div class="outline-text-3" id="text-orgde5f724">
 <ul class="org-ul">
 <li>Evaluations using comparison operators will always result in a true or false</li>
 <li>Here are the following comparison operators:</li>
@@ -457,9 +463,9 @@
 </div>
 </div>
 
-<div id="outline-container-org415605a" class="outline-3">
-<h3 id="org415605a">Section 4.3: Logical Operators</h3>
-<div class="outline-text-3" id="text-org415605a">
+<div id="outline-container-org574a7e7" class="outline-3">
+<h3 id="org574a7e7">Section 4.3: Logical Operators</h3>
+<div class="outline-text-3" id="text-org574a7e7">
 <ul class="org-ul">
 <li>Comparison operators usually return single values of <code>true</code> or <code>false</code></li>
 <li>Logical operators allow you to compare the results of more than one comparison operator</li>
@@ -515,9 +521,9 @@
 </div>
 </div>
 
-<div id="outline-container-org26f22ca" class="outline-3">
-<h3 id="org26f22ca">Section 4.4: Short-Circuit Evaluation</h3>
-<div class="outline-text-3" id="text-org26f22ca">
+<div id="outline-container-org60983fb" class="outline-3">
+<h3 id="org60983fb">Section 4.4: Short-Circuit Evaluation</h3>
+<div class="outline-text-3" id="text-org60983fb">
 <ul class="org-ul">
 <li>Logical expressions are evaluated left to right</li>
 <li>If the first condition can provide enough information to get the answer, then there is no need to evaluate the second condition</li>
@@ -544,9 +550,9 @@ var artist2 = (artist1 || "Unknown")
 </div>
 </div>
 
-<div id="outline-container-org72438be" class="outline-3">
-<h3 id="org72438be">Section 4.5: If-Statements &amp; If-Else Statements</h3>
-<div class="outline-text-3" id="text-org72438be">
+<div id="outline-container-org3edb9d8" class="outline-3">
+<h3 id="org3edb9d8">Section 4.5: If-Statements &amp; If-Else Statements</h3>
+<div class="outline-text-3" id="text-org3edb9d8">
 <ul class="org-ul">
 <li>The <code>if</code> statement evaluates (or checks) a condition and if the condition evaluates to true then any statements in the subsequent code block are executed</li>
 <li>If the condition evaluates to false then the subsequent code block is not executed and is skipped and continues to run whatever is after the <code>if</code> statement</li>
@@ -579,9 +585,9 @@ else {
 </div>
 </div>
 
-<div id="outline-container-org17c25e6" class="outline-3">
-<h3 id="org17c25e6">Section 4.6: Switch Statements</h3>
-<div class="outline-text-3" id="text-org17c25e6">
+<div id="outline-container-org02337c1" class="outline-3">
+<h3 id="org02337c1">Section 4.6: Switch Statements</h3>
+<div class="outline-text-3" id="text-org02337c1">
 <ul class="org-ul">
 <li>A switch statement starts with a variable called the switch value</li>
 <li>Each case indicates a possible value for this variable (switch value) and the code that should if the variable matches that value</li>
@@ -617,9 +623,9 @@ else {
 </div>
 </div>
 
-<div id="outline-container-org9615a85" class="outline-3">
-<h3 id="org9615a85">Section 4.7: Type Coercion &amp; Weak Typing</h3>
-<div class="outline-text-3" id="text-org9615a85">
+<div id="outline-container-org82e3016" class="outline-3">
+<h3 id="org82e3016">Section 4.7: Type Coercion &amp; Weak Typing</h3>
+<div class="outline-text-3" id="text-org82e3016">
 <ul class="org-ul">
 <li>If you use a data type JavaScript did not expect then it tries to make sense of the operation rather than report an error</li>
 <li>JS can convert data types behind the scenes to complete an operation, this is known as type coercion</li>
@@ -638,25 +644,117 @@ else {
 </div>
 </div>
 
-<div id="outline-container-orgc74d831" class="outline-3">
-<h3 id="orgc74d831">Section 4.8: Loops</h3>
-<div class="outline-text-3" id="text-orgc74d831">
+<div id="outline-container-org829adbd" class="outline-3">
+<h3 id="org829adbd">Section 4.8: Loops</h3>
+<div class="outline-text-3" id="text-org829adbd">
 <ul class="org-ul">
 <li>Loops check a condition, and if it returns true then a code block will run, then the condition will be checked again and if it still returns true the code block will run again, it repeats until the condition returns false</li>
 <li>There are 3 common types of loops:
 <ul class="org-ul">
-<li>For Loops:</li>
-<li>While Loops:</li>
-<li>Do-While Loops:</li>
+<li>For Loops: In a for loop, the condition is usually a counter which is used to tell how many times the loop should run so if you need to run code a specific number of times, use a for loop</li>
+<li>While Loops: The condition in a while loop can be other than a counter and the code will continue to loop for as long as the condition is true so if you do not know how many times the code should run you can use a while loop</li>
+<li>Do-While Loops: The do-while loop is similar to a while loop except the code block of the loop will run at least once (at the minimum) even if the condition evaluates to false</li>
 </ul></li>
+
+<li>Example of for-loop:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">for(var i = 0; i &lt; 10; i++) {
+  document.write(i);
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>A for loop uses a counter as a condition and this instructs the code to run a specified number of times</li>
+<li>The for-loop condition is made up of three statements:
+<ol class="org-ol">
+<li>Initialization: Create a variable (or use an existing variable), initialize the variable, it is often called i, and this variable acts as the counter; this variable is only created the first time the loop is run</li>
+<li>Condition: The loop should continue to run until the counter reaches a specified number (e.g. <code>i &lt; 10</code>), the condition may also use variables to compare with the counter instead of number literals</li>
+<li>Update: After every loop it executes the "update" statement, in this case <code>i++</code> adds one to the counter but the update statement is not limited to adding, it can subtract, multiply, divide, etc</li>
+</ol></li>
+<li>So each time the condition is true it executes the code block inside the for-loop</li>
+<li>The counter variable can be used inside the for-loop</li>
+
+<li>Example of while-loop:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript:">while (i &lt; 10) {
+  document.write(i);
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The while-loop only has one statement and that is the condition</li>
+<li>This loop will continue to run for as long as the condition in the parentheses is true</li>
+
+<li>Example of do-while-loop:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-JavaScript">do {
+  document.write(i);
+} while (i &lt; 1);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Notice that the code block for the loop comes before the while loop in a do-while unlike a regular while-loop</li>
+<li>This is because the code block is run once regardless of the condition, the code block will run once even if the condition is false</li>
+<li>After the first loop then that is when the condition is checked, if true it will continue to loop again, if false it will stop but the loop as executed at least once</li>
+</ul>
+</div>
+
+<div id="outline-container-orgf99ff3e" class="outline-4">
+<h4 id="orgf99ff3e">Section 4.8.1: Key Loop Concepts</h4>
+<div class="outline-text-4" id="text-orgf99ff3e">
+<ul class="org-ul">
+<li>Keyword <code>break</code> causes the termination of the loop and tells the interpreter to go onto the next statement of code <b>outside</b> of the loop; in other words, it terminates the loop and continues with the code path</li>
+<li>Keyword <code>continue</code> tells the interpreter to stop the current iteration, it will stop the current loop, execute the update statement, check the condition, and if true continue with the loop</li>
+<li>Loops are very helpful when dealing with arrays if you want to run the same code for each item in the array</li>
+<li>You may not known how many items will be in array when writing a script but when the code runs it can check the total number of items in a loop and run a set of statements for each array item</li>
+<li>Recall, when a browser comes across JS it will stop doing anything else until it has processed that script so if you have a loop that loops many times it can make the page slower to load</li>
+<li>Be careful with infinite loops where the condition never returns false which will cause the browser to run out of memory and break your script</li>
+<li>Any variable you can define outside of the loop and that does not change within the loop should be defined outside of it because if you declare it inside the loop then it would be recalculated every time the loop ran thus using needlessly resources which we want to avoid</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8424e8e" class="outline-2">
-<h2 id="org8424e8e">Keywords</h2>
-<div class="outline-text-2" id="text-org8424e8e">
+<div id="outline-container-org3c55abc" class="outline-3">
+<h3 id="org3c55abc">Section 4.9: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org3c55abc">
+<ul class="org-ul">
+<li>We are going to build a times-table, similar to the times-table they give elementary students so they can learn their multiplications</li>
+<li>The user will be able specify how many columns and rows they would like and the table will be generated for them</li>
+<li><a href="./004.009.Chapter_Exercise/index.html">Here is my times-table generator</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7100c2e" class="outline-3">
+<h3 id="org7100c2e">Section 4.10: Chapter Summary</h3>
+<div class="outline-text-3" id="text-org7100c2e">
+<ul class="org-ul">
+<li>Conditional statements allow your code to make decisions about what to do next</li>
+<li>Comparison operators are used to compare two operands</li>
+<li>Logical operators allow you to combine more than one set of comparison operators</li>
+<li><code>if-else</code> statements allow you to run one set of code if a condition is true and another if it is false</li>
+<li><code>switch</code> statements allow you to compare a value against possible outcomes and provide a default option if none match</li>
+<li>Data types can be coerced from one type to another</li>
+<li>All values evaluate to either truthy or falsy</li>
+<li>There are three types of loops: for, while, and do-while loops</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2c2321d" class="outline-2">
+<h2 id="org2c2321d">Keywords</h2>
+<div class="outline-text-2" id="text-org2c2321d">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -673,26 +771,104 @@ else {
 </thead>
 <tbody>
 <tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Comparison Operators</td>
+<td class="org-left">Comparison operators are binary operators that compare two operands and evaluate to either true or false, the operators are the following: <code>&gt;</code>, <code>&lt;</code>, <code>==</code>, <code>!=</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>===</code>, and <code>!==</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Logical Operators</td>
+<td class="org-left">Logical operators combine or modify boolean values, the operators are either binary or unary, the operators are the following: <code>&amp;&amp;</code> (AND), OR, <code>!</code> (NOT)</td>
+</tr>
+
+<tr>
+<td class="org-left">Condition</td>
+<td class="org-left">A condition is a logical (conditional) expression that evaluates to either true or false (no other value)</td>
+</tr>
+
+<tr>
+<td class="org-left">Short-Circuit Evaluation</td>
+<td class="org-left">Short-circuit evaluation is a behavior in JS (and many other languages) that in a binary logical operation (using logical operators), if the first operand provides enough info to evaluate the logical expression then it will not check the second operand, in other words, the second operand will only be checked if the first operand is not sufficient to determine true or false</td>
+</tr>
+
+<tr>
+<td class="org-left">Type Coercion</td>
+<td class="org-left">Type coercion is when JS automatically or implicitly converts a value from one data type to another during an operation because it expects the value to be a certain type, for example if you do <code>5 == "5"</code> then it will convert (coerced) the string 5 into the number 5</td>
+</tr>
+
+<tr>
+<td class="org-left">Weak Typing</td>
+<td class="org-left">Weak typing is a characteristic of a programming language like JS where the variable does not need to declare its type and the type of the variable can change during runtime</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org4dfd540" class="outline-2">
-<h2 id="org4dfd540">Questions</h2>
-<div class="outline-text-2" id="text-org4dfd540">
+<div id="outline-container-orgc263207" class="outline-2">
+<h2 id="orgc263207">Questions</h2>
+<div class="outline-text-2" id="text-orgc263207">
 <ul class="org-ul">
-<li><b>Q</b>: What is the difference between the comparison operators <code>==</code> and <code>===</code>?</li>
-<li><b>Q</b>: Is there a strict greater than or equal to operator?</li>
-<li><b>Q</b>: When to use <code>switch</code> statements compared to <code>if-else</code> statements?</li>
+<li><b>Q</b>: What is the difference between the comparison operators <code>==</code> and <code>===</code>?
+<ul class="org-ul">
+<li>The difference between equality and "strict" equality is whether or not they perform type coercion before comparing the values</li>
+<li>Recall type coercion is when JS converts a data type to another data type that it expects</li>
+<li>For example <code>5 == "5"</code> then the string 5 will be converted to the number 5</li>
+<li>Type coercion (converting data types) happens with <code>==</code> before it compares the values</li>
+<li>With strict equality (<code>===</code>) the operator does not attempt to convert any operands and no type coercion is performed</li>
+<li>Thus the difference is that <code>==</code> performs type coercion while <code>===</code> does not perform type coercion</li>
+<li><code>5 == "5"</code> evalues to true because the string is converted to a number and both are the same number</li>
+<li><code>5 === "5"</code> evalues to false because they are different data types and thus different values</li>
+</ul></li>
+
+<li><b>Q</b>: Is there a strict greater than or equal to operator?
+<ul class="org-ul">
+<li>No there is not a strict greater than or equal to</li>
+<li>The only strict comparison operators are the strict equality operator and the strict inequality operator</li>
+<li>All other operators perform type coercion</li>
+<li>When comparing operands and you want to perform a strict greater than or any other unsupported strict operation then you will need create a custom function that compares the data types of each operand and the value</li>
+</ul></li>
+
+<li><b>Q</b>: When to use <code>switch</code> statements compared to <code>if-else</code> statements?
+<ul class="org-ul">
+<li>If-else statements are good when the conditions are complexed, there are multiple logical and comparison operators, when you need to check a range, and when checking data types</li>
+<li>Switch statements are good when comparing discrete values or fixed values for equality like strings and single digits, and these values need to be checked by the equality</li>
+<li>For example, if you have a string called apple and you want to compare with other strings then instead of if-statements then use a switch because the strings are fixed values</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3c2fe7e" class="outline-2">
-<h2 id="org3c2fe7e">Summary</h2>
+
+<div id="outline-container-org37f1a7b" class="outline-2">
+<h2 id="org37f1a7b">Summary</h2>
+<div class="outline-text-2" id="text-org37f1a7b">
+<ul class="org-ul">
+<li>In code it is good to be able to make decisions based on certain conditions</li>
+<li>A condition is a logical expression that evaluates to either true or false</li>
+<li>You can use comparison operators to create a logical expression</li>
+<li>Comparison operators are binary operators that compare two operands and evaluate to true or false</li>
+<li>You can also use logical operators to combine other logical expressions</li>
+<li>Logical operators may be binary or unary operators that evaluate to true or false</li>
+<li>Logical operators can be used with other logical expressions that may be using comparison operators or other logical operators</li>
+<li>The operands of the comparison operators may be a variable, literal, or any other conditional expression</li>
+<li>The operands of the logical operators can also be any expression because JS treats certain data types as truthy or falsy values</li>
+<li>For example, truthy values include the boolean value true, numbers other than zero, strings with content, number calculations, objects, and arrays</li>
+<li>Falsy values include the boolean value false, the number 0, empty string, NaN (not a number), and a variable with no value assigned to it</li>
+<li>When comparing falsy values using the loose equality, the boolean false value, zero, and empty string are equivalent</li>
+<li>Null and undefined are equivalent when using the loose equality but NaN is not equivalent to anything not even itself</li>
+<li>When using comparison operators except the strict equality and strict inequality they all perform something called type coercion</li>
+<li>Type coercion converts a data type into another data type that JS is expecting</li>
+<li>For example if you compare a string with a number then JS will convert the string into a number to be able to perform the comparison operation</li>
+<li>This is why we can compare some falsy values like null and undefined because of type coercion</li>
+<li>However when you use strict equality or strict inequality type coercion is not performed</li>
+<li>When dealing with logical operators, JS performs short-circuit evaluation which states that if the first operand of a binary logical operation provides enough information to determine the value of the expression then there is no need to take a look at the second operand</li>
+<li>To make decisions in code you can use if, if-else, and switch statements</li>
+<li>To repeat a set of statements you can use either a for-loop, while-loop, or do-while-loop which will repeat a set of statements depending on a condition</li>
+<li>For loops are good whenever you need a counter and that counter is used in the condition</li>
+<li>While loops are good when you do not have a counter but just have a condition</li>
+<li>Do-while are similar to while except this will always run the set of statements once before checking the condition even if the condition evaluates to false</li>
+<li>Finally JS is weak typing meaning variables do not need to declare their data type and their data type can change during runtime</li>
+</ul>
+</div>
 </div>
 </div>
 </body>
