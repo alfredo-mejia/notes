@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-01 Thu 16:22 -->
+<!-- 2025-05-06 Tue 16:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 4: Decisions &amp; Loops</title>
@@ -202,35 +202,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc786515">Navigation</a></li>
-<li><a href="#org7719702">Notes</a>
+<li><a href="#orgf0d7868">Navigation</a></li>
+<li><a href="#orgd5a7ca2">Notes</a>
 <ul>
-<li><a href="#org107a3db">Section 4.1: Decision Making</a></li>
-<li><a href="#orgde5f724">Section 4.2: Comparison Operators - Evaluating Conditions</a></li>
-<li><a href="#org574a7e7">Section 4.3: Logical Operators</a></li>
-<li><a href="#org60983fb">Section 4.4: Short-Circuit Evaluation</a></li>
-<li><a href="#org3edb9d8">Section 4.5: If-Statements &amp; If-Else Statements</a></li>
-<li><a href="#org02337c1">Section 4.6: Switch Statements</a></li>
-<li><a href="#org82e3016">Section 4.7: Type Coercion &amp; Weak Typing</a></li>
-<li><a href="#org829adbd">Section 4.8: Loops</a>
+<li><a href="#org1830ed5">Section 4.1: Decision Making</a></li>
+<li><a href="#org02b9919">Section 4.2: Comparison Operators - Evaluating Conditions</a></li>
+<li><a href="#orgc7a4a89">Section 4.3: Logical Operators</a></li>
+<li><a href="#org225a434">Section 4.4: Short-Circuit Evaluation</a></li>
+<li><a href="#org81de4a6">Section 4.5: If-Statements &amp; If-Else Statements</a></li>
+<li><a href="#org8cbeaa5">Section 4.6: Switch Statements</a></li>
+<li><a href="#org98454af">Section 4.7: Type Coercion &amp; Weak Typing</a></li>
+<li><a href="#org4c8aaf5">Section 4.8: Loops</a>
 <ul>
-<li><a href="#orgf99ff3e">Section 4.8.1: Key Loop Concepts</a></li>
+<li><a href="#orgb2c0f7a">Section 4.8.1: Key Loop Concepts</a></li>
 </ul>
 </li>
-<li><a href="#org3c55abc">Section 4.9: Chapter Exercise</a></li>
-<li><a href="#org7100c2e">Section 4.10: Chapter Summary</a></li>
+<li><a href="#org6816fde">Section 4.9: Chapter Exercise</a></li>
+<li><a href="#org83c20b4">Section 4.10: Chapter Summary</a></li>
 </ul>
 </li>
-<li><a href="#org2c2321d">Keywords</a></li>
-<li><a href="#orgc263207">Questions</a></li>
-<li><a href="#org37f1a7b">Summary</a></li>
+<li><a href="#org059bb0d">Keywords</a></li>
+<li><a href="#orgf06b1fb">Questions</a></li>
+<li><a href="#org1ac921a">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc786515" class="outline-2">
-<h2 id="orgc786515">Navigation</h2>
-<div class="outline-text-2" id="text-orgc786515">
+<div id="outline-container-orgf0d7868" class="outline-2">
+<h2 id="orgf0d7868">Navigation</h2>
+<div class="outline-text-2" id="text-orgf0d7868">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -264,7 +264,7 @@
 <tr>
 <td class="org-left">Prev</td>
 <td class="org-left">Chapter 3: Functions, Methods &amp; Objects</td>
-<td class="org-left">&vert; <a href="../002.Basic_JavaScript_Instructions/002.000.Notes.html">html</a> &vert; <a href="../002.Basic_JavaScript_Instructions/002.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/002.Basic_JavaScript_Instructions">github</a> &vert;</td>
+<td class="org-left">&vert; <a href="../003.Functions_Methods_and_Objects/003.000.Notes.html">html</a> &vert; <a href="../003.Functions_Methods_and_Objects/003.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/003.Functions_Methods_and_Objects">github</a> &vert;</td>
 </tr>
 
 <tr>
@@ -278,13 +278,13 @@
 </div>
 
 
-<div id="outline-container-org7719702" class="outline-2">
-<h2 id="org7719702">Notes</h2>
-<div class="outline-text-2" id="text-org7719702">
+<div id="outline-container-orgd5a7ca2" class="outline-2">
+<h2 id="orgd5a7ca2">Notes</h2>
+<div class="outline-text-2" id="text-orgd5a7ca2">
 </div>
-<div id="outline-container-org107a3db" class="outline-3">
-<h3 id="org107a3db">Section 4.1: Decision Making</h3>
-<div class="outline-text-3" id="text-org107a3db">
+<div id="outline-container-org1830ed5" class="outline-3">
+<h3 id="org1830ed5">Section 4.1: Decision Making</h3>
+<div class="outline-text-3" id="text-org1830ed5">
 <ul class="org-ul">
 <li>Code can take different paths depending on the condition set</li>
 <li>Each path is made up of a different set of tasks which means you have to write different code for each situation</li>
@@ -302,9 +302,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgde5f724" class="outline-3">
-<h3 id="orgde5f724">Section 4.2: Comparison Operators - Evaluating Conditions</h3>
-<div class="outline-text-3" id="text-orgde5f724">
+<div id="outline-container-org02b9919" class="outline-3">
+<h3 id="org02b9919">Section 4.2: Comparison Operators - Evaluating Conditions</h3>
+<div class="outline-text-3" id="text-org02b9919">
 <ul class="org-ul">
 <li>Evaluations using comparison operators will always result in a true or false</li>
 <li>Here are the following comparison operators:</li>
@@ -463,9 +463,9 @@
 </div>
 </div>
 
-<div id="outline-container-org574a7e7" class="outline-3">
-<h3 id="org574a7e7">Section 4.3: Logical Operators</h3>
-<div class="outline-text-3" id="text-org574a7e7">
+<div id="outline-container-orgc7a4a89" class="outline-3">
+<h3 id="orgc7a4a89">Section 4.3: Logical Operators</h3>
+<div class="outline-text-3" id="text-orgc7a4a89">
 <ul class="org-ul">
 <li>Comparison operators usually return single values of <code>true</code> or <code>false</code></li>
 <li>Logical operators allow you to compare the results of more than one comparison operator</li>
@@ -521,9 +521,9 @@
 </div>
 </div>
 
-<div id="outline-container-org60983fb" class="outline-3">
-<h3 id="org60983fb">Section 4.4: Short-Circuit Evaluation</h3>
-<div class="outline-text-3" id="text-org60983fb">
+<div id="outline-container-org225a434" class="outline-3">
+<h3 id="org225a434">Section 4.4: Short-Circuit Evaluation</h3>
+<div class="outline-text-3" id="text-org225a434">
 <ul class="org-ul">
 <li>Logical expressions are evaluated left to right</li>
 <li>If the first condition can provide enough information to get the answer, then there is no need to evaluate the second condition</li>
@@ -550,9 +550,9 @@ var artist2 = (artist1 || "Unknown")
 </div>
 </div>
 
-<div id="outline-container-org3edb9d8" class="outline-3">
-<h3 id="org3edb9d8">Section 4.5: If-Statements &amp; If-Else Statements</h3>
-<div class="outline-text-3" id="text-org3edb9d8">
+<div id="outline-container-org81de4a6" class="outline-3">
+<h3 id="org81de4a6">Section 4.5: If-Statements &amp; If-Else Statements</h3>
+<div class="outline-text-3" id="text-org81de4a6">
 <ul class="org-ul">
 <li>The <code>if</code> statement evaluates (or checks) a condition and if the condition evaluates to true then any statements in the subsequent code block are executed</li>
 <li>If the condition evaluates to false then the subsequent code block is not executed and is skipped and continues to run whatever is after the <code>if</code> statement</li>
@@ -585,9 +585,9 @@ else {
 </div>
 </div>
 
-<div id="outline-container-org02337c1" class="outline-3">
-<h3 id="org02337c1">Section 4.6: Switch Statements</h3>
-<div class="outline-text-3" id="text-org02337c1">
+<div id="outline-container-org8cbeaa5" class="outline-3">
+<h3 id="org8cbeaa5">Section 4.6: Switch Statements</h3>
+<div class="outline-text-3" id="text-org8cbeaa5">
 <ul class="org-ul">
 <li>A switch statement starts with a variable called the switch value</li>
 <li>Each case indicates a possible value for this variable (switch value) and the code that should if the variable matches that value</li>
@@ -623,9 +623,9 @@ else {
 </div>
 </div>
 
-<div id="outline-container-org82e3016" class="outline-3">
-<h3 id="org82e3016">Section 4.7: Type Coercion &amp; Weak Typing</h3>
-<div class="outline-text-3" id="text-org82e3016">
+<div id="outline-container-org98454af" class="outline-3">
+<h3 id="org98454af">Section 4.7: Type Coercion &amp; Weak Typing</h3>
+<div class="outline-text-3" id="text-org98454af">
 <ul class="org-ul">
 <li>If you use a data type JavaScript did not expect then it tries to make sense of the operation rather than report an error</li>
 <li>JS can convert data types behind the scenes to complete an operation, this is known as type coercion</li>
@@ -644,9 +644,9 @@ else {
 </div>
 </div>
 
-<div id="outline-container-org829adbd" class="outline-3">
-<h3 id="org829adbd">Section 4.8: Loops</h3>
-<div class="outline-text-3" id="text-org829adbd">
+<div id="outline-container-org4c8aaf5" class="outline-3">
+<h3 id="org4c8aaf5">Section 4.8: Loops</h3>
+<div class="outline-text-3" id="text-org4c8aaf5">
 <ul class="org-ul">
 <li>Loops check a condition, and if it returns true then a code block will run, then the condition will be checked again and if it still returns true the code block will run again, it repeats until the condition returns false</li>
 <li>There are 3 common types of loops:
@@ -708,9 +708,9 @@ else {
 </ul>
 </div>
 
-<div id="outline-container-orgf99ff3e" class="outline-4">
-<h4 id="orgf99ff3e">Section 4.8.1: Key Loop Concepts</h4>
-<div class="outline-text-4" id="text-orgf99ff3e">
+<div id="outline-container-orgb2c0f7a" class="outline-4">
+<h4 id="orgb2c0f7a">Section 4.8.1: Key Loop Concepts</h4>
+<div class="outline-text-4" id="text-orgb2c0f7a">
 <ul class="org-ul">
 <li>Keyword <code>break</code> causes the termination of the loop and tells the interpreter to go onto the next statement of code <b>outside</b> of the loop; in other words, it terminates the loop and continues with the code path</li>
 <li>Keyword <code>continue</code> tells the interpreter to stop the current iteration, it will stop the current loop, execute the update statement, check the condition, and if true continue with the loop</li>
@@ -724,9 +724,9 @@ else {
 </div>
 </div>
 
-<div id="outline-container-org3c55abc" class="outline-3">
-<h3 id="org3c55abc">Section 4.9: Chapter Exercise</h3>
-<div class="outline-text-3" id="text-org3c55abc">
+<div id="outline-container-org6816fde" class="outline-3">
+<h3 id="org6816fde">Section 4.9: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org6816fde">
 <ul class="org-ul">
 <li>We are going to build a times-table, similar to the times-table they give elementary students so they can learn their multiplications</li>
 <li>The user will be able specify how many columns and rows they would like and the table will be generated for them</li>
@@ -735,9 +735,9 @@ else {
 </div>
 </div>
 
-<div id="outline-container-org7100c2e" class="outline-3">
-<h3 id="org7100c2e">Section 4.10: Chapter Summary</h3>
-<div class="outline-text-3" id="text-org7100c2e">
+<div id="outline-container-org83c20b4" class="outline-3">
+<h3 id="org83c20b4">Section 4.10: Chapter Summary</h3>
+<div class="outline-text-3" id="text-org83c20b4">
 <ul class="org-ul">
 <li>Conditional statements allow your code to make decisions about what to do next</li>
 <li>Comparison operators are used to compare two operands</li>
@@ -752,9 +752,9 @@ else {
 </div>
 </div>
 
-<div id="outline-container-org2c2321d" class="outline-2">
-<h2 id="org2c2321d">Keywords</h2>
-<div class="outline-text-2" id="text-org2c2321d">
+<div id="outline-container-org059bb0d" class="outline-2">
+<h2 id="org059bb0d">Keywords</h2>
+<div class="outline-text-2" id="text-org059bb0d">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -804,9 +804,9 @@ else {
 </div>
 </div>
 
-<div id="outline-container-orgc263207" class="outline-2">
-<h2 id="orgc263207">Questions</h2>
-<div class="outline-text-2" id="text-orgc263207">
+<div id="outline-container-orgf06b1fb" class="outline-2">
+<h2 id="orgf06b1fb">Questions</h2>
+<div class="outline-text-2" id="text-orgf06b1fb">
 <ul class="org-ul">
 <li><b>Q</b>: What is the difference between the comparison operators <code>==</code> and <code>===</code>?
 <ul class="org-ul">
@@ -838,9 +838,9 @@ else {
 </div>
 </div>
 
-<div id="outline-container-org37f1a7b" class="outline-2">
-<h2 id="org37f1a7b">Summary</h2>
-<div class="outline-text-2" id="text-org37f1a7b">
+<div id="outline-container-org1ac921a" class="outline-2">
+<h2 id="org1ac921a">Summary</h2>
+<div class="outline-text-2" id="text-org1ac921a">
 <ul class="org-ul">
 <li>In code it is good to be able to make decisions based on certain conditions</li>
 <li>A condition is a logical expression that evaluates to either true or false</li>
