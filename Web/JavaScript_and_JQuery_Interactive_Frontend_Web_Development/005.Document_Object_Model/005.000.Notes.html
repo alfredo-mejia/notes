@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-19 Wed 14:32 -->
+<!-- 2025-05-09 Fri 18:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Chapter 5: Document Object Model</title>
+<meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -192,13 +193,714 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
+<h1 class="title">Chapter 5: Document Object Model</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org85f10f0">Navigation</a></li>
+<li><a href="#org878c68d">Notes</a>
+<ul>
+<li><a href="#orgc39d9e2">Section 5.1: Introduction</a></li>
+<li><a href="#orgf5b9658">Section 5.2: DOM Tree</a></li>
+<li><a href="#org8846bd2">Section 5.3: Working with the DOM Tree</a>
+<ul>
+<li><a href="#org2f53f31">Section 5.3.1: Locating / Retrieving the Elements</a></li>
+<li><a href="#orgd663e75">Section 5.3.2: Use / Update the Elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org38b8677">Keywords</a></li>
+<li><a href="#orgdf715db">Questions</a></li>
+<li><a href="#org977eb42">Summary</a></li>
+<li><a href="#org323a703">Resources</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="date">Created: 2025-02-19 Wed 14:32</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+<div id="outline-container-org85f10f0" class="outline-2">
+<h2 id="org85f10f0">Navigation</h2>
+<div class="outline-text-2" id="text-org85f10f0">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 4: Decisions &amp; Loops</td>
+<td class="org-left">&vert; <a href="../004.Decisions_and_Loops/004.000.Notes.html">html</a> &vert; <a href="../004.Decisions_and_Loops/004.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/004.Decisions_and_Loops">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 6: Events</td>
+<td class="org-left">&vert; <a href="../006.Events/006.000.Notes.html">html</a> &vert; <a href="../006.Events/006.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/006.Events">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org878c68d" class="outline-2">
+<h2 id="org878c68d">Notes</h2>
+<div class="outline-text-2" id="text-org878c68d">
+</div>
+<div id="outline-container-orgc39d9e2" class="outline-3">
+<h3 id="orgc39d9e2">Section 5.1: Introduction</h3>
+<div class="outline-text-3" id="text-orgc39d9e2">
+<ul class="org-ul">
+<li>The Document Object Model (DOM) specifies how browsers should create a model of an HTML page and how JavaScript can access and update the contents of a web page while it is in the browser window</li>
+<li>The DOM is neither part of HTML nor poart of JavaScript instead it is a separate set of rules that is implemented by all major browsers and covers two areas: making a model of the HTML page and accessing and changing the HTML page</li>
+<li>When the browser loads a web page it creates a model of the page in memory and DOM specifies the way in which the browser should structure this model using a DOM tree</li>
+<li>DOM is called an object model because the model (the DOM tree) is a made of objects and each object represents a different part of the page loaded in the browser window</li>
+<li>DOM also defines methods and properties to access and update each object in the DOM tree which in turn updates what the user sees in the browser</li>
+<li>DOM is sometimes referred to as an application programming interface (API)</li>
+<li>Using the API your script can ask the browser about the current page and how to tell the browser to update what is being shown to the user</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf5b9658" class="outline-3">
+<h3 id="orgf5b9658">Section 5.2: DOM Tree</h3>
+<div class="outline-text-3" id="text-orgf5b9658">
+<ul class="org-ul">
+<li>As a browser loads a web page, it creates a model of that page and the model is called a DOM tree</li>
+<li>The DOM tree is stored in the browsers' memory and it consists of four main types of nodes:
+<ul class="org-ul">
+<li>Document node (root node)</li>
+<li>Element nodes (e.g. h1, h2, li, ul, etc.)</li>
+<li>Attribute nodes (e.g. attribute belonging to h1)</li>
+<li>Text nodes (text within the element)</li>
+</ul></li>
+<li>Every element, attribute, and piece of text in HTML is represented by its own DOM node</li>
+<li>The root of the tree is the document node and it represents the entire page</li>
+<li>The root node is the document node which is the document object we have discussed in previous chapters</li>
+<li>Let's take the following HTML:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="heading"&gt;Heading&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The example above will produce a tree like the following:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-text">document
+|- html
+|  |- head
+|  |  |- text: "\n"
+|  |  |- title
+|  |     |- text: "Example"
+|  |  |- text: "\n"
+|  |- text: "\n"
+|  |- body
+|  |  |- text: "\n"
+|  |  |- h1
+|  |     |- attribute: id
+|  |     |- text: "Heading"
+|  |  |- "text: "\n" 
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Notice the root of the dom tree is the document object</li>
+<li><b>Every tree node is an object even the leaf nodes</b></li>
+<li>The root node is the document object</li>
+<li>Then we have the element nodes which are element objects (objects that use the <code>Element</code> interface)</li>
+<li>Then we have the text nodes which are text objects (objects that use the <code>Text</code> interface)</li>
+<li>The fourth node are the attribute nodes which are attribute objects (objects that use the <code>Attr</code> interface)</li>
+<li>These are the main 4 nodes in a DOM tree but there are 11 types of nodes in the DOM tree:
+<ol class="org-ol">
+<li>Document Node</li>
+<li>Element Node</li>
+<li>Attribute Node</li>
+<li>Text Node</li>
+<li>CDATA Section Node</li>
+<li>Entity Reference Node</li>
+<li>Entity Node</li>
+<li>Processing Instruction Node</li>
+<li>Comment Node</li>
+<li>Document Type Node</li>
+<li>Document Fragment Node</li>
+</ol></li>
+<li>There are some things to note however</li>
+<li>Typically the leaf nodes include text nodes, comment nodes, and CDATA section nodes</li>
+<li>Attribute nodes are <b>not</b> considered leaf nodes because attribute nodes are <b>not</b> considered to be part of the main DOM tree hierarchy like element or text nodes</li>
+<li>Instead attribute nodes are "associated" with element nodes and held separately as part of the element's "NamedNodeMap"</li>
+<li>The DOM tree represents parent-child relationships and attribute nodes are properties of elements, thus attributes are not children of the elements but properties (attributes) that exist on the element node</li>
+<li>This is why attributes will not appear in the <code>childNodes</code> of an element and you can access the attributes using the element's property called <code>attributes</code></li>
+<li>Another thing to note is that spaces and newlines are valid characters and become part of the DOM tree</li>
+<li>Any character including whitespace, newlines, tabs, etc. that are inside an element will be part of the DOM tree as text objects under the element node as shown in the example above</li>
+<li>There are only two exceptions and that is whitespace characters before the element <code>&lt;head&gt;</code> are ignored and white space after the closing body tag (<code>&lt;/body&gt;</code>) are automatically moved inside the body</li>
+<li>Other than those exceptions every whitespace characters are placed into the DOM tree as text objects</li>
+
+<li>Going back to the main nodes, the document node is the starting point for all visits to the DOM tree so when you access any element, attribute or text node you navigate to that node via the <code>document</code> node</li>
+<li>HTML elements describe the structure of an HTML page so to access the DOM tree you start by looking for elements (via the document node) and once you find the element you want then you can access its text and attribute nodes</li>
+<li>Thus you go from document node then you use some methods to find the element nodes and then you use methods / properties to find the text and attributes of the element you want to modify</li>
+<li>HTML elements can carry attributes and these are represented by the attribute nodes in the DOM tree</li>
+<li>Attribute nodes are <b>not</b> children of the element that carries them instead they <b>are part</b> of that element</li>
+<li>Once you access an element there are specific JavaScript methods and properties to read or change that element's attributes</li>
+<li>Once you have accessed an element node, you can can then reach the text within that element and this is stored in its own text node</li>
+<li>Text nodes cannot have children and thus text nodes are leaf nodes</li>
+<li>So if an element contains a text node <b>and</b> another child element, the other child element is <b>not</b> a child of the text node but rather a sibling of the text node and a child of the containing element</li>
+<li>Thus relationships between the <code>document</code> and all of the element nodes are described using the same terms as a family tree: parents, children, siblings, ancestors, and descendents (so every node is technically a descendant of the <code>document</code> node)</li>
+<li>Finally, each node is an object with methods and properties so scripts can access and update the DOM tree (not the source HTML file) but the DOM tree structure and any changes made to the DOM tree are reflected in the browser</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8846bd2" class="outline-3">
+<h3 id="org8846bd2">Section 5.3: Working with the DOM Tree</h3>
+<div class="outline-text-3" id="text-org8846bd2">
+<ul class="org-ul">
+<li>Accessing and updating the DOM tree involves two steps:
+<ol class="org-ol">
+<li>Locate the node that represents the element you want to work with</li>
+<li>Use its text content, child elements, and attributes</li>
+</ol></li>
+</ul>
+</div>
+
+<div id="outline-container-org2f53f31" class="outline-4">
+<h4 id="org2f53f31">Section 5.3.1: Locating / Retrieving the Elements</h4>
+<div class="outline-text-4" id="text-org2f53f31">
+<ul class="org-ul">
+<li>There two common ways to locate or retrieve an element using DOM: DOM queries or traversing the DOM</li>
+<li>Methods that find elements in the DOM tree are called DOM queries</li>
+<li>For example, to select an individual element node, the most common methods are:
+<ul class="org-ul">
+<li><code>getElementByID(&lt;id&gt;)</code>: uses the value of an element's <code>id</code> attribute</li>
+<li><code>querySelector(&lt;selectors&gt;)</code>: uses a CSS selector or group of CSS selectors and returns the first matching element</li>
+</ul></li>
+<li>Common methods to select multiple elements are:
+<ul class="org-ul">
+<li><code>getElementsByClassName(&lt;names&gt;)</code>: selects all elements that have all of the given class names</li>
+<li><code>getElementsByTagName(&lt;names&gt;)</code>: selects all elements that have the specified tag name</li>
+<li><code>querySelectorAll(&lt;selectors&gt;)</code>: uses a CSS selector or group of CSS selectors to select all matching elements</li>
+</ul></li>
+<li>These methods are commonly referred to as DOM queries because you query DOM to retrieve elements</li>
+<li>Another way to retrieve elements is by traversing the DOM</li>
+<li>Since the DOM is represented by a tree it can be traversed through the parents, children, and siblings</li>
+<li>To traverse the DOM tree you need to have access to at least one element</li>
+<li>For example, we all have access to the <code>document</code> element so we can use the property <code>document.firstChild</code> or <code>document.lastChild</code> to traverse the tree and get another element</li>
+<li>You can then use continue to traverse until you receive a null value for example <code>document.lastChild.lastChild.lastChild</code> will return a valid element if it exists</li>
+<li>So every element has the following properties which reference other elements and they are:
+<ul class="org-ul">
+<li><code>&lt;elem&gt;.parentNode</code>: selects the parent of the current element node (will return just one element)</li>
+<li><code>&lt;elem&gt;.previousSibling</code> or <code>&lt;elem&gt;.nextSibling</code>: selects the previous or next sibling from the DOM tree</li>
+<li><code>&lt;elem&gt;.firstChild</code> or <code>&lt;elem&gt;.lastChild</code>: Select the first or last child of current element</li>
+</ul></li>
+<li>All of these elements can be stored in a variable so whenever you use a property or a method (DOM query), you can use a variable to store the element and use the element later via the variable created</li>
+<li>Once you have the element in a variable you can work with that node, its parent, or any children without needing to find or retrieve that element again</li>
+<li>The way the variable store the element is by storing a reference to the location of the element in the DOM tree so it can easily access the element without needing to find it again</li>
+<li>Storing an element in a variable is called caching the selection because instead of having the browser find the element it will use the variable as a form of "cache"</li>
+<li>Finding the quickest way to access an element within your web page will make the page seem faster and / or more responsive thus evaluating the minimum number of nodes on the way to the element you want to work with is best for a faster and more responsive web page</li>
+<li>Usually <code>getElementById()</code> may be the fastest way to get to a single element since no two elements on the same page shuld have the same value for an <code>id</code> attribute but not all elements have the <code>id</code> attribute so we have to use what we can to get the fastest or shortest route to our element of interest</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org8d47769"></a>Section 5.3.1.1: Selecting Individual Elements<br />
+<div class="outline-text-5" id="text-org8d47769">
+<ul class="org-ul">
+<li>DOM queries may return one element, or they may return a <code>NodeList</code> which is a collection of nodes</li>
+<li>Sometimes we would like to select one element or a group of elements (e.g. all <code>&lt;h1&gt;</code> elements)</li>
+<li>Methods that return a single element node:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>getElementById('id')</code></td>
+<td class="org-left">Selects an individual element given the value of its <code>id</code> attribute</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>querySelector('css selector')</code></td>
+<td class="org-left">Uses CSS selector syntax that would select one or more elements but this method will only return the first of the matching elements</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><code>getElementById()</code> and <code>querySelector()</code> can both search an entire document and return individual elements (both use a similar syntax)</li>
+<li><code>getElementById()</code> is the quickest and most efficient way to access an element because no two elements can share the same value for their <code>id</code> attribute</li>
+<li><code>getElementById()</code> allows you to select a single element node by specifying the value of its <code>id</code> attribute</li>
+<li><code>getElementById()</code> has one parameter: the value of the <code>id</code> attribute on the element you want to select which is placed inside quotation marks because it is a string</li>
+<li><code>querySelector()</code> is a more flexible because its parameter is a CSS selector which means it can be used to accurately target many more elements but returns the first node of the matching elements</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org1807c13"></a>Section 5.3.1.2: Selecting Multiple Elements<br />
+<div class="outline-text-5" id="text-org1807c13">
+<ul class="org-ul">
+<li>If a method <i>can</i> return more than one node then it will always return a <code>NodeList</code> which is a collection of nodes (even if it only finds one matching element)</li>
+<li>You then can either iterate through the list or select the element you want from the list using an index number (recall the index number always start at zero)</li>
+<li>Methods that return one or more elements as a <code>NodeList</code></li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>getElementsByClassName('class')</code></td>
+<td class="org-left">Selects one or more elements given the value of their class attribute (this method is faster than <code>querySelectorAll()</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>getElementsByTagName('tagName')</code></td>
+<td class="org-left">Selects all elements on the page with the specified tag name (this method is faster than <code>querySelectorAll()</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>querySelectorAll('css selector')</code></td>
+<td class="org-left">Uses CSS selector syntax to select one or more elements and returns all of those that match</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>A <code>NodeList</code> is a collection of element nodes and each node has an index number (starting at zero)</li>
+<li>The order in which the element nodes are stored in a <code>NodeList</code> is the same order that they appear in the HTML page</li>
+<li>When a DOM query returns a <code>NodeList</code> you may want to select one element from the list or loop through each item in the list and perform some statements on the elements</li>
+<li>Although <code>NodeList</code> may have similar characteristics like an array, it is <b>not</b> an actual array, instead they are a type of object called a collection</li>
+<li><code>NodeList</code> has properties and methods such as <code>.length</code> (specifies the amount of items in the list) and <code>.item()</code> which returns a specific node from the list when you tell it the index number of item that you want</li>
+<li>You can also use square brackets with the list to retrieve an item just like an array</li>
+<li>You can store the object reference to the <code>NodeList</code> in a variable to work with the same selection of elements several times rather than collecting the same elements again</li>
+<li>There are type "types" of <code>NodeList</code> you can use, either "live" <code>NodeList</code> or "static" <code>NodeList</code></li>
+<li>Live <code>NodeList</code> are lists that are automatically updated when the DOM changes, for example, let's say we get all the items with the class "item" and later the DOM changes because we changed a node to have the class "item" the list will be automatically updated to reflect the DOM changes so it will include the new item we just added</li>
+<li>So live <code>NodeList</code> reflect the changes of DOM if items have been added or removed from the list without needing to do any work because it happens automatically</li>
+<li>The methods beginning with <code>getElementsBy...</code> return live <code>NodeList</code> and are typically faster to generate than static <code>NodeList</code></li>
+<li>Static <code>NodeList</code> does not update the list automatically when the DOM changes thus whenever a new item is added or removed that is under your search criteria, you will have to re-query the DOM tree to get an updated list</li>
+<li>If you do not re-query then the static <code>NodeList</code> will have the old unchanged list, it will not update or change to reflect the changes of DOM</li>
+<li>The methods that begin <code>querySelector...</code> which use CSS selector syntax return static <code>NodeList</code> as they reflect the document when the query was made</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org2e5fce7"></a>Section 5.3.1.2.1: Selecting Elements Using Class Attributes<br />
+<div class="outline-text-6" id="text-org2e5fce7">
+<ul class="org-ul">
+<li><code>getElementsByClassName()</code> method allows you to select elements whose class attribute contains a specific value</li>
+<li>The method has one parameter: the class name which is given in quotes within the parentheses after the method name</li>
+<li>This method always returns a <code>NodeList</code></li>
+<li>The value of a class attribute can contain several class names each separated by a space but the method will try to find the class specified in the method within those class names separated by space</li>
+<li>For example, let's say we have a class attribute with the value "style1 style2 style3" then if you were to specify to the method <code>getElementsByClassName()</code> "style1" then it will still retrieve it, "style2" will retrieve it as well, "style1 style2" will retrieve it as well, and even "style1 style3" will retrieve it as well</li>
+<li>Why does the example above work? Take for example the argument "style1 style3" it is checking for elements that contain the class name "style1" and the elements that contain "style3" the order does not matter and each class name separated by a space are treated separate and individual class names just because an element has multiple class names does not mean that is their class names instead they have multiple class names</li>
+<li>In other words, each class name are separated and individual class names which an element may be part of multiple class names and when you specify an argument in the method <code>getElementsByClassName</code> you are also treating the space separated class names as individual class names</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orge28c202"></a>Section 5.3.1.2.2: Selecting Elements By Tag Name<br />
+<div class="outline-text-6" id="text-orge28c202">
+<ul class="org-ul">
+<li>The <code>getElementsByTagName()</code> method allows you to select elements using their tag name</li>
+<li>The element name is spceified as a parameter so it is placed inside the parentheses and is contained by quotation marks</li>
+<li>Note that you do not include the angled brackets that surround the tag name in the HTML just the letters inside the brackets</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org309ae45"></a>Section 5.3.1.2.3: Selecting Elements Using CSS Selectors<br />
+<div class="outline-text-6" id="text-org309ae45">
+<ul class="org-ul">
+<li><code>querySelector()</code> returns the first element node that matches the CSS-style selector</li>
+<li><code>querySelectorAll()</code> returns a <code>NodeList</code> of all of the elements that matches the CSS-style selector</li>
+<li>Both methods take a CSS selector as their only parameter and the CSS selector syntax offers more flexibility and accuracy when selecting an element than just specifying a calss name or a tag name</li>
+<li>JS code runs one line at a time and statements affect the content of a page as the interpreter processes them</li>
+<li>So if a DOM query runs when a page loads and there are some statements that can affect the elements then rerunning the same query could return different set of elements because the elements were changed / modified</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgde6389b"></a>Section 5.3.1.2.3: Using the <code>NodeList</code><br />
+<div class="outline-text-6" id="text-orgde6389b">
+<ul class="org-ul">
+<li>To select an element from a <code>NodeList</code> you can item use the <code>item()</code> method or the array syntax: both require the index number of the element you want</li>
+<li>The <code>item()</code> method returns an individual node from the <code>NodeList</code> by specifying the index number of the element you want as a parameter of the method</li>
+<li>You can use the <code>length</code> property of the <code>NodeList</code> to tell you how many items are in the <code>NodeList</code></li>
+<li>Array syntax is preferred over the <code>item()</code> method because it is faster</li>
+<li>You can access individual nodes using a square bracket syntax similar to that used to access individual items from an array by specifying the index number of the element you want inside the square brackets</li>
+<li>Store the <code>NodeList</code> in a variable if you repeatedly use the <code>NodeList</code></li>
+<li>When you have a <code>NodeList</code> you can loop through each node in the collection and apply the same statements to each</li>
+<li>You can loops (for-loops are more adequate for <code>NodeList</code>) to iterate through the loops and apply some statements to each item</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org239027e"></a>Section 5.3.1.3: Traversing the DOM<br />
+<div class="outline-text-5" id="text-org239027e">
+<ul class="org-ul">
+<li>When you have an element node you can select another element in relation to it using these five properties (this is known as traversing the DOM):
+<ul class="org-ul">
+<li><code>parentNode</code>: Finds the element node for the containing or parent element of the current node (e.g. you have a <code>&lt;li&gt;</code> node then the parent node could be <code>&lt;ol&gt;</code> or <code>&lt;ul&gt;</code>)</li>
+<li><code>previousSibling</code> / <code>nextSibling</code>: Finds the previous or next siblings element nodes of the current node (e.g. you have a <code>&lt;li&gt;</code> then the siblings nodes could be other <code>&lt;li&gt;</code> that came before or after the current <code>&lt;li&gt;</code> node)</li>
+<li><code>firstChild</code> / <code>lastChild</code>: Find the first or last child node of the currrent node (e.g. you have a <code>&lt;ul&gt;</code> then the children nodes, first or last, could be <code>&lt;li&gt;</code> nodes)</li>
+</ul></li>
+<li>These are properties of the current node not methods to select an element therfore they do not end in parentheses</li>
+<li>If you use these properties and they do not have a previous sibling, next sibling, first child, or last child then the result will be <code>null</code></li>
+<li>These properties are <b>read-only</b> they can only be used to select a new node but you <b>cannot</b> update the parent, sibling, or child (you will need to use other methods to change the DOM tree)</li>
+<li>Traversing the DOM can be difficult because some browsers add a text node whenever they come across whitespace between elements</li>
+<li>Whitespace between elements are treated as text nodes so the properties (<code>previousSibling</code>, <code>nextSibling</code>, <code>firstChild</code>, and <code>lastChild</code>) can return different elements depending on the browser and how it treats whitespace</li>
+<li>Thus text nodes are created for whitespace characters and added to the DOM tree</li>
+<li>You could take out all the whitespace from your HTML page and it will technically be smaller and faster (because no text nodes) but it will make the code much harder to read</li>
+<li>Another solution is to avoid using the properties <code>previousSibling</code>, <code>nextSibling</code>, <code>firstChild</code>, and <code>lastChild</code> to avoid any possible unexpected behavior and instead use a JS library such as jQuery which helps deal with such problems</li>
+<li>Some browsers may or may not create text nodes for whitespaces so it all depends on the browsers' implementation thus the properties may be pointing you may not expect and thus it is best to avoid using these properties</li>
+<li>However, almost all modern browsers create text nodes for whitespaces</li>
+<li>The only time it is safe to use these properties (<code>previousSibling</code>, <code>nextSibling</code>, <code>firstChild</code>, and <code>lastChild</code>) is if there are no whitespace or if you know your web page will only be run in browsers that treat whitespace as text nodes</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgd663e75" class="outline-4">
+<h4 id="orgd663e75">Section 5.3.2: Use / Update the Elements</h4>
+<div class="outline-text-4" id="text-orgd663e75">
+<ul class="org-ul">
+<li>Text inside any element is stored inside a text node</li>
+<li>Recall that if text exist within an element, the element will have one or multiple text nodes as children in the DOM tree</li>
+<li>How can you access the text nodes?</li>
+<li>There isn't a method or property that retrieves the text nodes or the child text nodes instead you use the properties that traverse the DOM tree such as <code>.firstChild</code> or <code>.lastChild</code> or you can use the property <code>.childNodes</code> which returns a <code>NodeList</code> which is a list with all the child nodes</li>
+<li>Then you can determine the type of node by using <code>.nodeType</code> and filter based on the text node</li>
+<li>An element may have multiple text nodes</li>
+<li>So to access the text node, you first retrieve an element (other than the text node) and you use one of their properties to retrieve their child text node (using <code>.firstChild</code>, <code>.lastChild</code>, or <code>.childNodes</code>)</li>
+<li>Recall that the text nodes are leaf nodes and do not have any children</li>
+<li>Once you have access to the text node, then you can use the text node's <b>only</b> property <code>.nodeValue</code> to get the text from the element</li>
+<li>The property <code>.nodeValue</code> is only useful and meaningful to a few nodes such as text nodes (stores text content), comment nodes (stores comment text), attribute nodes (stores attribute values), and CDATA section nodes (stores CDATA content)</li>
+<li>The property <code>.nodeValue</code> for the other nodes is null</li>
+<li>You can use the property <code>.nodeValue</code> to update, use, or change the text contents of the text node within the parent element, for example, if the text content says "hello" you can change it by overriding the content to "bye"</li>
+<li>Thus the <code>.nodeValue</code> lets you access or update contents of a text node and recall that if the parent element has other child elements then there may be multiple text nodes that were separated due to the child elements and the text nodes only represent a portion of the full text and the text node will <b>not</b> have the text of the other child elements (or sibling elements to the text nodes)</li>
+<li>For example, let's say we have the following HTML:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;div id="example"&gt;
+  Hello
+  &lt;span&gt;World&lt;/span&gt;
+&lt;/div&gt;	
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>This creates the following DOM tree (starting with the div to just demonstrate the example)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-text">div
+|- text: "\nHello\n"
+   |- span
+      |- text: "World"
+|- text: "\n"
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Notice how the text is split because there is a child element in-between</li>
+<li>Notice how there are multiple text nodes</li>
+<li>Finally notice the contents within each text node, the first text node only contains "\nHello" and nothing else, this is what is meant by text nodes do not include any text from other child elements (or sibling elements from the text node) because new text nodes are created for those child elements such as the element span in the example</li>
+
+<li>There are also other properties to access the contents of the element and those properties are <code>.innerHTML</code> and <code>.textContent</code></li>
+<li><code>.innerHTML</code> returns HTML markup as a string so for example <code>document.getElementById("example").innerHTML</code> will return "Hello\n&lt;span&gt;World&lt;/span&gt;" notice how the HTML tags are included</li>
+<li>If you were to modify <code>.innerHTML</code> then you may include HTML tags and it will be rendered by the browser onto the web page</li>
+<li><code>.textContent</code> only returns the text inside the element with no tags so for example <code>document.getElementById("example").textContent</code> will return "Hello World" without any HTML tags</li>
+<li>If you were to replace <code>.textContent</code> you will replace all the text with your update string and if you were to include HTML tags then it will <b>not</b> render the tags and just treat it as plain text</li>
+<li><code>.innerHTML</code> may be dangerous since you can enter HTML and thus include scripts while <code>.textContent</code> only inserts plain scripts and is safe from HTML injection</li>
+<li>So <code>.innerHTML</code> gets the all the content and HTML tags within an element and you can update the HTML because the browser will render HTML tags</li>
+<li><code>.textContent</code> gets all the plain text inside an element and you can update the plain text with a string and the string will be treated as plain text</li>
+<li>When an element contains a mix of text and other elements, you are more likely to work with the containing element rather than the idividualnodes for each descendant</li>
+
+<li>There are other ways to update elements and the DOM tree using methods such as:
+<ul class="org-ul">
+<li><code>document.createElement()</code>: creates HTML element</li>
+<li><code>document.createTextNode()</code>: creates a text node</li>
+</ul></li>
+<li>However just by creating a new HTML element node or a text node does not automatically add them to an existing element or the DOM tree</li>
+<li>To add an HTML element to the DOM tree you use <code>elem.appendChild(&lt;newNode&gt;)</code> to add it to an element that is already in the DOM tree</li>
+<li>If you add the new node to another node that is already in the DOM tree then your new node is added to the DOM tree</li>
+<li>The same goes for text nodes, text nodes are needed to be added to an element, this element can be already in the DOM tree or be added later</li>
+<li>You can also insert the text node using <code>appendChild()</code>, <code>insertBefore()</code>, or any other valid method</li>
+<li>You may also remove elements using <code>removeChild(&lt;node&gt;)</code></li>
+<li>Creating, inserting and removing nodes in the DOM is called DOM manipulation</li>
+
+<li>Finally, you can access or update attribute values such as the attributes "class" and "id"</li>
+<li>To get the classes and id of an element you simply use the attributes <code>&lt;elem&gt;.className</code> or <code>&lt;elem&gt;.id</code> and you can override such attributes</li>
+<li>However, there are methods to manipulate attributes, for example <code>hasAttribute()</code> checks if an attribute exists, <code>getAttribute()</code> gets the value of the attribute, <code>setAttribute()</code> updates the value of the attribute, and <code>removeAttribute()</code> removes an attribute</li>
+
+<li>To work with the content of elements you can: navigate to the text nodes (works best when elements only contains text no other elements) or when can work with the containing element because this allows you to access its text nodes and child elements (works best if the element has text nodes and child elements that are siblings)</li>
+<li>Once you have navigated from an element to its text node, there is one property that you will use and that is <code>nodeValue</code> which accesses text from the node</li>
+<li>When you are working with an element node (rather than its text node) that element can contain markup so you have to choose whether you want to retrieve (get) or update (set) the markup as well as the text</li>
+<li>For example, <code>innerHTML</code> gets / sets the text &amp; HTML markup while <code>textContent</code> and <code>innerText</code> gets and sets text only</li>
+<li>When you use these properties to update the content of an element, the new content will overwrite the entire contents of the element both text and markup</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgbdc2faa"></a>Section 5.3.2.1: Accessing the Text Node<br />
+<div class="outline-text-5" id="text-orgbdc2faa">
+<ul class="org-ul">
+<li>When you select a text node, you can retrieve or amend the content of it using the <code>nodeValue</code> property</li>
+<li>In order to use the <code>nodeValue</code> you must be on a text node, not the element that contains the text</li>
+<li>To work with text in an element, first the element node is accessed and then its text node</li>
+<li>The text node has a property called <code>nodeValue</code> which returns the text in that next node</li>
+<li>You can also use the <code>nodeValue</code> property to update the content of a text node</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgb290902"></a>Section 5.3.2.2: Accessing Text (Not Text Node)<br />
+<div class="outline-text-5" id="text-orgb290902">
+<ul class="org-ul">
+<li><code>textContent</code> property allows you to collect or update just the text that is in the containing element and its children</li>
+<li>Why do I mean by that? Basically, <code>textContent</code> will retrieve all the text from all text nodes <b>including</b> from child elements</li>
+<li>For example, let's say we have the following HTML:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;p&gt;Hello &lt;span&gt;World&lt;/span&gt;&lt;/p&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>This will produce a DOM tree as such:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-text">p
+|- text: "Hello "
+|- span
+   |- text: "World"
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>So what <code>textContent</code> will do, it will try to find all text nodes that are children of the node or text nodes that are descendants of the node</li>
+<li>In this case we have two text nodes and it will retrieve the text and return it so it will retrieve "Hello " + "World" = "Hello World"</li>
+<li>So <code>textContent</code> will retrieve all text from all text nodes that are descendants even if the text node are not direct children of the containing node</li>
+<li>You can also use this property to update the content of the element but it is replaces the entire content of it (including any markup)</li>
+<li><b>Assumption</b>: I'm assuming what it does when we update the content, it replaces all children involved (directly like the text nodes or indirectly like the parent of a descendant of a text node) with a single text node that holds the updated value</li>
+<li>This is why updating the content of <code>textContent</code> will replace the entire content including any markup thus possibly changing your HTML web page (not just like the text)</li>
+<li>There is also another property that is similar to <code>textContent</code> and that is <code>innerText</code></li>
+<li>The difference is that <code>innerText</code> takes into account CSS rules and gets the text of how it actually appears on the screen</li>
+<li>Thus if the CSS rule says to hide the element (e.g. <code>display: none</code>) then it won't show it, if the CSS element says uppercase but the actual HTML is in lowercase then instead of showing it lowercase like in <code>textContent</code>, it will show it in uppercase in <code>innerText</code>, if there are new line characters then it will show it in <code>innerText</code></li>
+<li><code>innerText</code> will show the text just as how it appears by respecting the CSS rules</li>
+<li>However, because it takes into account CSS rules it is slower than <code>textContent</code></li>
+<li>You can also update <code>innerText</code> but will replace all child elements with a single text node with the value given just like <code>textContent</code></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org0ebf859"></a>Section 5.3.2.3: Adding or Removing HTML Content<br />
+<div class="outline-text-5" id="text-org0ebf859">
+<ul class="org-ul">
+<li>There are two very different approaches to adding and removing content from a DOM tree: <code>innerHTML</code> property and DOM manipulation</li>
+<li>There are security risks associated with using <code>innerHTML</code> but <code>innerHTML</code> can be used on any element node</li>
+<li><code>innerHTML</code> can be used to retrieve and replace content</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org38b8677" class="outline-2">
+<h2 id="org38b8677">Keywords</h2>
+<div class="outline-text-2" id="text-org38b8677">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">DOM</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">DOM Tree</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Document Node</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Element Node</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Attribute Node</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Text Node</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.innerHTML</code> Property</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.innerText</code> Property</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.textContent</code> Property</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgdf715db" class="outline-2">
+<h2 id="orgdf715db">Questions</h2>
+<div class="outline-text-2" id="text-orgdf715db">
+<ul class="org-ul">
+<li><b>Q</b>: How does DOM treat whitespaces?</li>
+<li><b>Q</b>: How does DOM treat attributes?</li>
+<li><b>Q</b>: Which nodes are leaf nodes and why isn't attribute nodes considered leaf nodes?</li>
+<li><b>Q</b>: Is there a function or property that gets the text node directly?</li>
+<li><b>Q</b>: What is the difference between <code>.innerHTML</code>, <code>innerText</code>, and <code>.textContent</code>?</li>
+<li><b>Q</b>: What is the difference between live <code>NodeList</code> and static <code>NodeList</code>?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org977eb42" class="outline-2">
+<h2 id="org977eb42">Summary</h2>
+</div>
+
+<div id="outline-container-org323a703" class="outline-2">
+<h2 id="org323a703">Resources</h2>
+<div class="outline-text-2" id="text-org323a703">
+<ul class="org-ul">
+<li><a href="https://javascript.info/dom-nodes">https://javascript.info/dom-nodes</a></li>
+</ul>
+</div>
+</div>
 </div>
 </body>
 </html>

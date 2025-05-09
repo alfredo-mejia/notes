@@ -1,0 +1,367 @@
+#+title: Chapter 5: Document Object Model
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
+| Prev  | Chapter 4: Decisions & Loops                                | \vert [[file:../004.Decisions_and_Loops/004.000.Notes.html][html]] \vert [[file:../004.Decisions_and_Loops/004.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/004.Decisions_and_Loops][github]] \vert |
+| Next  | Chapter 6: Events                                           | \vert [[file:../006.Events/006.000.Notes.html][html]] \vert [[file:../006.Events/006.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/006.Events][github]] \vert |
+
+* Notes
+
+** Section 5.1: Introduction
+   - The Document Object Model (DOM) specifies how browsers should create a model of an HTML page and how JavaScript can access and update the contents of a web page while it is in the browser window
+   - The DOM is neither part of HTML nor poart of JavaScript instead it is a separate set of rules that is implemented by all major browsers and covers two areas: making a model of the HTML page and accessing and changing the HTML page
+   - When the browser loads a web page it creates a model of the page in memory and DOM specifies the way in which the browser should structure this model using a DOM tree
+   - DOM is called an object model because the model (the DOM tree) is a made of objects and each object represents a different part of the page loaded in the browser window
+   - DOM also defines methods and properties to access and update each object in the DOM tree which in turn updates what the user sees in the browser
+   - DOM is sometimes referred to as an application programming interface (API)
+   - Using the API your script can ask the browser about the current page and how to tell the browser to update what is being shown to the user
+
+** Section 5.2: DOM Tree
+   - As a browser loads a web page, it creates a model of that page and the model is called a DOM tree
+   - The DOM tree is stored in the browsers' memory and it consists of four main types of nodes:
+     - Document node (root node)
+     - Element nodes (e.g. h1, h2, li, ul, etc.)
+     - Attribute nodes (e.g. attribute belonging to h1)
+     - Text nodes (text within the element)
+   - Every element, attribute, and piece of text in HTML is represented by its own DOM node
+   - The root of the tree is the document node and it represents the entire page
+   - The root node is the document node which is the document object we have discussed in previous chapters
+   - Let's take the following HTML:
+
+   #+BEGIN_SRC html
+     <!DOCTYPE html>
+     <html>
+       <head>
+	 <title>Example</title>
+       </head>
+       <body>
+	 <h1 id="heading">Heading</h1>
+       </body>
+     </html>
+   #+END_SRC
+
+   - The example above will produce a tree like the following:
+
+   #+BEGIN_SRC text
+     document
+     |- html
+     |  |- head
+     |  |  |- text: "\n"
+     |  |  |- title
+     |  |     |- text: "Example"
+     |  |  |- text: "\n"
+     |  |- text: "\n"
+     |  |- body
+     |  |  |- text: "\n"
+     |  |  |- h1
+     |  |     |- attribute: id
+     |  |     |- text: "Heading"
+     |  |  |- "text: "\n" 
+   #+END_SRC
+
+   - Notice the root of the dom tree is the document object
+   - *Every tree node is an object even the leaf nodes*
+   - The root node is the document object
+   - Then we have the element nodes which are element objects (objects that use the ~Element~ interface)
+   - Then we have the text nodes which are text objects (objects that use the ~Text~ interface)
+   - The fourth node are the attribute nodes which are attribute objects (objects that use the ~Attr~ interface)
+   - These are the main 4 nodes in a DOM tree but there are 11 types of nodes in the DOM tree:
+     1. Document Node
+     2. Element Node
+     3. Attribute Node
+     4. Text Node
+     5. CDATA Section Node
+     6. Entity Reference Node
+     7. Entity Node
+     8. Processing Instruction Node
+     9. Comment Node
+     10. Document Type Node
+     11. Document Fragment Node
+   - There are some things to note however
+   - Typically the leaf nodes include text nodes, comment nodes, and CDATA section nodes
+   - Attribute nodes are *not* considered leaf nodes because attribute nodes are *not* considered to be part of the main DOM tree hierarchy like element or text nodes
+   - Instead attribute nodes are "associated" with element nodes and held separately as part of the element's "NamedNodeMap"
+   - The DOM tree represents parent-child relationships and attribute nodes are properties of elements, thus attributes are not children of the elements but properties (attributes) that exist on the element node
+   - This is why attributes will not appear in the ~childNodes~ of an element and you can access the attributes using the element's property called ~attributes~
+   - Another thing to note is that spaces and newlines are valid characters and become part of the DOM tree
+   - Any character including whitespace, newlines, tabs, etc. that are inside an element will be part of the DOM tree as text objects under the element node as shown in the example above
+   - There are only two exceptions and that is whitespace characters before the element ~<head>~ are ignored and white space after the closing body tag (~</body>~) are automatically moved inside the body
+   - Other than those exceptions every whitespace characters are placed into the DOM tree as text objects
+
+   - Going back to the main nodes, the document node is the starting point for all visits to the DOM tree so when you access any element, attribute or text node you navigate to that node via the ~document~ node
+   - HTML elements describe the structure of an HTML page so to access the DOM tree you start by looking for elements (via the document node) and once you find the element you want then you can access its text and attribute nodes
+   - Thus you go from document node then you use some methods to find the element nodes and then you use methods / properties to find the text and attributes of the element you want to modify
+   - HTML elements can carry attributes and these are represented by the attribute nodes in the DOM tree
+   - Attribute nodes are *not* children of the element that carries them instead they *are part* of that element
+   - Once you access an element there are specific JavaScript methods and properties to read or change that element's attributes
+   - Once you have accessed an element node, you can can then reach the text within that element and this is stored in its own text node
+   - Text nodes cannot have children and thus text nodes are leaf nodes
+   - So if an element contains a text node *and* another child element, the other child element is *not* a child of the text node but rather a sibling of the text node and a child of the containing element
+   - Thus relationships between the ~document~ and all of the element nodes are described using the same terms as a family tree: parents, children, siblings, ancestors, and descendents (so every node is technically a descendant of the ~document~ node)
+   - Finally, each node is an object with methods and properties so scripts can access and update the DOM tree (not the source HTML file) but the DOM tree structure and any changes made to the DOM tree are reflected in the browser
+
+** Section 5.3: Working with the DOM Tree
+   - Accessing and updating the DOM tree involves two steps:
+     1. Locate the node that represents the element you want to work with
+     2. Use its text content, child elements, and attributes
+
+*** Section 5.3.1: Locating / Retrieving the Elements
+    - There two common ways to locate or retrieve an element using DOM: DOM queries or traversing the DOM
+    - Methods that find elements in the DOM tree are called DOM queries
+    - For example, to select an individual element node, the most common methods are:
+      - ~getElementByID(<id>)~: uses the value of an element's ~id~ attribute
+      - ~querySelector(<selectors>)~: uses a CSS selector or group of CSS selectors and returns the first matching element
+    - Common methods to select multiple elements are:
+      - ~getElementsByClassName(<names>)~: selects all elements that have all of the given class names
+      - ~getElementsByTagName(<names>)~: selects all elements that have the specified tag name
+      - ~querySelectorAll(<selectors>)~: uses a CSS selector or group of CSS selectors to select all matching elements
+    - These methods are commonly referred to as DOM queries because you query DOM to retrieve elements
+    - Another way to retrieve elements is by traversing the DOM
+    - Since the DOM is represented by a tree it can be traversed through the parents, children, and siblings
+    - To traverse the DOM tree you need to have access to at least one element
+    - For example, we all have access to the ~document~ element so we can use the property ~document.firstChild~ or ~document.lastChild~ to traverse the tree and get another element
+    - You can then use continue to traverse until you receive a null value for example ~document.lastChild.lastChild.lastChild~ will return a valid element if it exists
+    - So every element has the following properties which reference other elements and they are:
+      - ~<elem>.parentNode~: selects the parent of the current element node (will return just one element)
+      - ~<elem>.previousSibling~ or ~<elem>.nextSibling~: selects the previous or next sibling from the DOM tree
+      - ~<elem>.firstChild~ or ~<elem>.lastChild~: Select the first or last child of current element
+    - All of these elements can be stored in a variable so whenever you use a property or a method (DOM query), you can use a variable to store the element and use the element later via the variable created
+    - Once you have the element in a variable you can work with that node, its parent, or any children without needing to find or retrieve that element again
+    - The way the variable store the element is by storing a reference to the location of the element in the DOM tree so it can easily access the element without needing to find it again
+    - Storing an element in a variable is called caching the selection because instead of having the browser find the element it will use the variable as a form of "cache"
+    - Finding the quickest way to access an element within your web page will make the page seem faster and / or more responsive thus evaluating the minimum number of nodes on the way to the element you want to work with is best for a faster and more responsive web page
+    - Usually ~getElementById()~ may be the fastest way to get to a single element since no two elements on the same page shuld have the same value for an ~id~ attribute but not all elements have the ~id~ attribute so we have to use what we can to get the fastest or shortest route to our element of interest
+      
+**** Section 5.3.1.1: Selecting Individual Elements
+     - DOM queries may return one element, or they may return a ~NodeList~ which is a collection of nodes
+     - Sometimes we would like to select one element or a group of elements (e.g. all ~<h1>~ elements)
+     - Methods that return a single element node:
+
+     | Method                          | Description                                                                                                                         |
+     |---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------|
+     | ~getElementById('id')~          | Selects an individual element given the value of its ~id~ attribute                                                                 |
+     | ~querySelector('css selector')~ | Uses CSS selector syntax that would select one or more elements but this method will only return the first of the matching elements |
+
+     - ~getElementById()~ and ~querySelector()~ can both search an entire document and return individual elements (both use a similar syntax)
+     - ~getElementById()~ is the quickest and most efficient way to access an element because no two elements can share the same value for their ~id~ attribute
+     - ~getElementById()~ allows you to select a single element node by specifying the value of its ~id~ attribute
+     - ~getElementById()~ has one parameter: the value of the ~id~ attribute on the element you want to select which is placed inside quotation marks because it is a string
+     - ~querySelector()~ is a more flexible because its parameter is a CSS selector which means it can be used to accurately target many more elements but returns the first node of the matching elements
+
+**** Section 5.3.1.2: Selecting Multiple Elements
+     - If a method /can/ return more than one node then it will always return a ~NodeList~ which is a collection of nodes (even if it only finds one matching element)
+     - You then can either iterate through the list or select the element you want from the list using an index number (recall the index number always start at zero)
+     - Methods that return one or more elements as a ~NodeList~
+
+     | Method                             | Description                                                                                                            |
+     |------------------------------------+------------------------------------------------------------------------------------------------------------------------|
+     | ~getElementsByClassName('class')~  | Selects one or more elements given the value of their class attribute (this method is faster than ~querySelectorAll()~ |
+     | ~getElementsByTagName('tagName')~  | Selects all elements on the page with the specified tag name (this method is faster than ~querySelectorAll()~          |
+     | ~querySelectorAll('css selector')~ | Uses CSS selector syntax to select one or more elements and returns all of those that match                            |
+
+     - A ~NodeList~ is a collection of element nodes and each node has an index number (starting at zero)
+     - The order in which the element nodes are stored in a ~NodeList~ is the same order that they appear in the HTML page
+     - When a DOM query returns a ~NodeList~ you may want to select one element from the list or loop through each item in the list and perform some statements on the elements
+     - Although ~NodeList~ may have similar characteristics like an array, it is *not* an actual array, instead they are a type of object called a collection
+     - ~NodeList~ has properties and methods such as ~.length~ (specifies the amount of items in the list) and ~.item()~ which returns a specific node from the list when you tell it the index number of item that you want
+     - You can also use square brackets with the list to retrieve an item just like an array
+     - You can store the object reference to the ~NodeList~ in a variable to work with the same selection of elements several times rather than collecting the same elements again
+     - There are type "types" of ~NodeList~ you can use, either "live" ~NodeList~ or "static" ~NodeList~
+     - Live ~NodeList~ are lists that are automatically updated when the DOM changes, for example, let's say we get all the items with the class "item" and later the DOM changes because we changed a node to have the class "item" the list will be automatically updated to reflect the DOM changes so it will include the new item we just added
+     - So live ~NodeList~ reflect the changes of DOM if items have been added or removed from the list without needing to do any work because it happens automatically
+     - The methods beginning with ~getElementsBy...~ return live ~NodeList~ and are typically faster to generate than static ~NodeList~
+     - Static ~NodeList~ does not update the list automatically when the DOM changes thus whenever a new item is added or removed that is under your search criteria, you will have to re-query the DOM tree to get an updated list
+     - If you do not re-query then the static ~NodeList~ will have the old unchanged list, it will not update or change to reflect the changes of DOM
+     - The methods that begin ~querySelector...~ which use CSS selector syntax return static ~NodeList~ as they reflect the document when the query was made
+
+***** Section 5.3.1.2.1: Selecting Elements Using Class Attributes
+      - ~getElementsByClassName()~ method allows you to select elements whose class attribute contains a specific value
+      - The method has one parameter: the class name which is given in quotes within the parentheses after the method name
+      - This method always returns a ~NodeList~
+      - The value of a class attribute can contain several class names each separated by a space but the method will try to find the class specified in the method within those class names separated by space
+      - For example, let's say we have a class attribute with the value "style1 style2 style3" then if you were to specify to the method ~getElementsByClassName()~ "style1" then it will still retrieve it, "style2" will retrieve it as well, "style1 style2" will retrieve it as well, and even "style1 style3" will retrieve it as well
+      - Why does the example above work? Take for example the argument "style1 style3" it is checking for elements that contain the class name "style1" and the elements that contain "style3" the order does not matter and each class name separated by a space are treated separate and individual class names just because an element has multiple class names does not mean that is their class names instead they have multiple class names
+      - In other words, each class name are separated and individual class names which an element may be part of multiple class names and when you specify an argument in the method ~getElementsByClassName~ you are also treating the space separated class names as individual class names
+	
+***** Section 5.3.1.2.2: Selecting Elements By Tag Name
+      - The ~getElementsByTagName()~ method allows you to select elements using their tag name
+      - The element name is spceified as a parameter so it is placed inside the parentheses and is contained by quotation marks
+      - Note that you do not include the angled brackets that surround the tag name in the HTML just the letters inside the brackets
+
+***** Section 5.3.1.2.3: Selecting Elements Using CSS Selectors
+      - ~querySelector()~ returns the first element node that matches the CSS-style selector
+      - ~querySelectorAll()~ returns a ~NodeList~ of all of the elements that matches the CSS-style selector
+      - Both methods take a CSS selector as their only parameter and the CSS selector syntax offers more flexibility and accuracy when selecting an element than just specifying a calss name or a tag name
+      - JS code runs one line at a time and statements affect the content of a page as the interpreter processes them
+      - So if a DOM query runs when a page loads and there are some statements that can affect the elements then rerunning the same query could return different set of elements because the elements were changed / modified
+
+***** Section 5.3.1.2.3: Using the ~NodeList~
+      - To select an element from a ~NodeList~ you can item use the ~item()~ method or the array syntax: both require the index number of the element you want
+      - The ~item()~ method returns an individual node from the ~NodeList~ by specifying the index number of the element you want as a parameter of the method
+      - You can use the ~length~ property of the ~NodeList~ to tell you how many items are in the ~NodeList~
+      - Array syntax is preferred over the ~item()~ method because it is faster
+      - You can access individual nodes using a square bracket syntax similar to that used to access individual items from an array by specifying the index number of the element you want inside the square brackets
+      - Store the ~NodeList~ in a variable if you repeatedly use the ~NodeList~
+      - When you have a ~NodeList~ you can loop through each node in the collection and apply the same statements to each
+      - You can loops (for-loops are more adequate for ~NodeList~) to iterate through the loops and apply some statements to each item
+
+**** Section 5.3.1.3: Traversing the DOM
+     - When you have an element node you can select another element in relation to it using these five properties (this is known as traversing the DOM):
+       - ~parentNode~: Finds the element node for the containing or parent element of the current node (e.g. you have a ~<li>~ node then the parent node could be ~<ol>~ or ~<ul>~)
+       - ~previousSibling~ / ~nextSibling~: Finds the previous or next siblings element nodes of the current node (e.g. you have a ~<li>~ then the siblings nodes could be other ~<li>~ that came before or after the current ~<li>~ node)
+       - ~firstChild~ / ~lastChild~: Find the first or last child node of the currrent node (e.g. you have a ~<ul>~ then the children nodes, first or last, could be ~<li>~ nodes)
+     - These are properties of the current node not methods to select an element therfore they do not end in parentheses
+     - If you use these properties and they do not have a previous sibling, next sibling, first child, or last child then the result will be ~null~
+     - These properties are *read-only* they can only be used to select a new node but you *cannot* update the parent, sibling, or child (you will need to use other methods to change the DOM tree)
+     - Traversing the DOM can be difficult because some browsers add a text node whenever they come across whitespace between elements
+     - Whitespace between elements are treated as text nodes so the properties (~previousSibling~, ~nextSibling~, ~firstChild~, and ~lastChild~) can return different elements depending on the browser and how it treats whitespace
+     - Thus text nodes are created for whitespace characters and added to the DOM tree
+     - You could take out all the whitespace from your HTML page and it will technically be smaller and faster (because no text nodes) but it will make the code much harder to read
+     - Another solution is to avoid using the properties ~previousSibling~, ~nextSibling~, ~firstChild~, and ~lastChild~ to avoid any possible unexpected behavior and instead use a JS library such as jQuery which helps deal with such problems
+     - Some browsers may or may not create text nodes for whitespaces so it all depends on the browsers' implementation thus the properties may be pointing you may not expect and thus it is best to avoid using these properties
+     - However, almost all modern browsers create text nodes for whitespaces
+     - The only time it is safe to use these properties (~previousSibling~, ~nextSibling~, ~firstChild~, and ~lastChild~) is if there are no whitespace or if you know your web page will only be run in browsers that treat whitespace as text nodes
+       
+*** Section 5.3.2: Use / Update the Elements
+    - Text inside any element is stored inside a text node
+    - Recall that if text exist within an element, the element will have one or multiple text nodes as children in the DOM tree
+    - How can you access the text nodes?
+    - There isn't a method or property that retrieves the text nodes or the child text nodes instead you use the properties that traverse the DOM tree such as ~.firstChild~ or ~.lastChild~ or you can use the property ~.childNodes~ which returns a ~NodeList~ which is a list with all the child nodes
+    - Then you can determine the type of node by using ~.nodeType~ and filter based on the text node
+    - An element may have multiple text nodes
+    - So to access the text node, you first retrieve an element (other than the text node) and you use one of their properties to retrieve their child text node (using ~.firstChild~, ~.lastChild~, or ~.childNodes~)
+    - Recall that the text nodes are leaf nodes and do not have any children
+    - Once you have access to the text node, then you can use the text node's *only* property ~.nodeValue~ to get the text from the element
+    - The property ~.nodeValue~ is only useful and meaningful to a few nodes such as text nodes (stores text content), comment nodes (stores comment text), attribute nodes (stores attribute values), and CDATA section nodes (stores CDATA content)
+    - The property ~.nodeValue~ for the other nodes is null
+    - You can use the property ~.nodeValue~ to update, use, or change the text contents of the text node within the parent element, for example, if the text content says "hello" you can change it by overriding the content to "bye"
+    - Thus the ~.nodeValue~ lets you access or update contents of a text node and recall that if the parent element has other child elements then there may be multiple text nodes that were separated due to the child elements and the text nodes only represent a portion of the full text and the text node will *not* have the text of the other child elements (or sibling elements to the text nodes)
+    - For example, let's say we have the following HTML:
+
+    #+BEGIN_SRC html
+      <div id="example">
+	Hello
+	<span>World</span>
+      </div>	
+    #+END_SRC
+
+    - This creates the following DOM tree (starting with the div to just demonstrate the example)
+
+    #+BEGIN_SRC text
+      div
+      |- text: "\nHello\n"
+	 |- span
+	    |- text: "World"
+      |- text: "\n"
+    #+END_SRC
+
+    - Notice how the text is split because there is a child element in-between
+    - Notice how there are multiple text nodes
+    - Finally notice the contents within each text node, the first text node only contains "\nHello" and nothing else, this is what is meant by text nodes do not include any text from other child elements (or sibling elements from the text node) because new text nodes are created for those child elements such as the element span in the example
+
+    - There are also other properties to access the contents of the element and those properties are ~.innerHTML~ and ~.textContent~
+    - ~.innerHTML~ returns HTML markup as a string so for example ~document.getElementById("example").innerHTML~ will return "Hello\n<span>World</span>" notice how the HTML tags are included
+    - If you were to modify ~.innerHTML~ then you may include HTML tags and it will be rendered by the browser onto the web page
+    - ~.textContent~ only returns the text inside the element with no tags so for example ~document.getElementById("example").textContent~ will return "Hello World" without any HTML tags
+    - If you were to replace ~.textContent~ you will replace all the text with your update string and if you were to include HTML tags then it will *not* render the tags and just treat it as plain text
+    - ~.innerHTML~ may be dangerous since you can enter HTML and thus include scripts while ~.textContent~ only inserts plain scripts and is safe from HTML injection
+    - So ~.innerHTML~ gets the all the content and HTML tags within an element and you can update the HTML because the browser will render HTML tags
+    - ~.textContent~ gets all the plain text inside an element and you can update the plain text with a string and the string will be treated as plain text
+    - When an element contains a mix of text and other elements, you are more likely to work with the containing element rather than the idividualnodes for each descendant
+      
+    - There are other ways to update elements and the DOM tree using methods such as:
+      - ~document.createElement()~: creates HTML element
+      - ~document.createTextNode()~: creates a text node
+    - However just by creating a new HTML element node or a text node does not automatically add them to an existing element or the DOM tree
+    - To add an HTML element to the DOM tree you use ~elem.appendChild(<newNode>)~ to add it to an element that is already in the DOM tree
+    - If you add the new node to another node that is already in the DOM tree then your new node is added to the DOM tree
+    - The same goes for text nodes, text nodes are needed to be added to an element, this element can be already in the DOM tree or be added later
+    - You can also insert the text node using ~appendChild()~, ~insertBefore()~, or any other valid method
+    - You may also remove elements using ~removeChild(<node>)~
+    - Creating, inserting and removing nodes in the DOM is called DOM manipulation
+
+    - Finally, you can access or update attribute values such as the attributes "class" and "id"
+    - To get the classes and id of an element you simply use the attributes ~<elem>.className~ or ~<elem>.id~ and you can override such attributes
+    - However, there are methods to manipulate attributes, for example ~hasAttribute()~ checks if an attribute exists, ~getAttribute()~ gets the value of the attribute, ~setAttribute()~ updates the value of the attribute, and ~removeAttribute()~ removes an attribute
+    
+    - To work with the content of elements you can: navigate to the text nodes (works best when elements only contains text no other elements) or when can work with the containing element because this allows you to access its text nodes and child elements (works best if the element has text nodes and child elements that are siblings)
+    - Once you have navigated from an element to its text node, there is one property that you will use and that is ~nodeValue~ which accesses text from the node
+    - When you are working with an element node (rather than its text node) that element can contain markup so you have to choose whether you want to retrieve (get) or update (set) the markup as well as the text
+    - For example, ~innerHTML~ gets / sets the text & HTML markup while ~textContent~ and ~innerText~ gets and sets text only
+    - When you use these properties to update the content of an element, the new content will overwrite the entire contents of the element both text and markup
+
+**** Section 5.3.2.1: Accessing the Text Node
+     - When you select a text node, you can retrieve or amend the content of it using the ~nodeValue~ property
+     - In order to use the ~nodeValue~ you must be on a text node, not the element that contains the text
+     - To work with text in an element, first the element node is accessed and then its text node
+     - The text node has a property called ~nodeValue~ which returns the text in that next node
+     - You can also use the ~nodeValue~ property to update the content of a text node
+
+**** Section 5.3.2.2: Accessing Text (Not Text Node)
+     - ~textContent~ property allows you to collect or update just the text that is in the containing element and its children
+     - Why do I mean by that? Basically, ~textContent~ will retrieve all the text from all text nodes *including* from child elements
+     - For example, let's say we have the following HTML:
+
+     #+BEGIN_SRC html
+       <p>Hello <span>World</span></p>
+     #+END_SRC
+
+     - This will produce a DOM tree as such:
+
+     #+BEGIN_SRC text
+       p
+       |- text: "Hello "
+       |- span
+	  |- text: "World"
+     #+END_SRC
+
+     - So what ~textContent~ will do, it will try to find all text nodes that are children of the node or text nodes that are descendants of the node
+     - In this case we have two text nodes and it will retrieve the text and return it so it will retrieve "Hello " + "World" = "Hello World"
+     - So ~textContent~ will retrieve all text from all text nodes that are descendants even if the text node are not direct children of the containing node
+     - You can also use this property to update the content of the element but it is replaces the entire content of it (including any markup)
+     - *Assumption*: I'm assuming what it does when we update the content, it replaces all children involved (directly like the text nodes or indirectly like the parent of a descendant of a text node) with a single text node that holds the updated value
+     - This is why updating the content of ~textContent~ will replace the entire content including any markup thus possibly changing your HTML web page (not just like the text)
+     - There is also another property that is similar to ~textContent~ and that is ~innerText~
+     - The difference is that ~innerText~ takes into account CSS rules and gets the text of how it actually appears on the screen
+     - Thus if the CSS rule says to hide the element (e.g. ~display: none~) then it won't show it, if the CSS element says uppercase but the actual HTML is in lowercase then instead of showing it lowercase like in ~textContent~, it will show it in uppercase in ~innerText~, if there are new line characters then it will show it in ~innerText~
+     - ~innerText~ will show the text just as how it appears by respecting the CSS rules
+     - However, because it takes into account CSS rules it is slower than ~textContent~
+     - You can also update ~innerText~ but will replace all child elements with a single text node with the value given just like ~textContent~
+
+**** Section 5.3.2.3: Adding or Removing HTML Content
+     - There are two very different approaches to adding and removing content from a DOM tree: ~innerHTML~ property and DOM manipulation
+     - There are security risks associated with using ~innerHTML~ but ~innerHTML~ can be used on any element node
+     - ~innerHTML~ can be used to retrieve and replace content
+     
+    
+* Keywords
+| Term                    | Definition |
+|-------------------------+------------|
+| DOM                     |            |
+| DOM Tree                |            |
+| Document Node           |            |
+| Element Node            |            |
+| Attribute Node          |            |
+| Text Node               |            |
+| ~.innerHTML~ Property   |            |
+| ~.innerText~ Property   |            |
+| ~.textContent~ Property |            |
+
+* Questions
+  - *Q*: How does DOM treat whitespaces?
+  - *Q*: How does DOM treat attributes?
+  - *Q*: Which nodes are leaf nodes and why isn't attribute nodes considered leaf nodes?
+  - *Q*: Is there a function or property that gets the text node directly?
+  - *Q*: What is the difference between ~.innerHTML~, ~innerText~, and ~.textContent~?
+  - *Q*: What is the difference between live ~NodeList~ and static ~NodeList~?
+    
+* Summary
+
+* Resources
+  - https://javascript.info/dom-nodes
