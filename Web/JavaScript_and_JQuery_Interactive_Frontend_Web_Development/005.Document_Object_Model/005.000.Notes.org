@@ -338,6 +338,20 @@
      - There are two very different approaches to adding and removing content from a DOM tree: ~innerHTML~ property and DOM manipulation
      - There are security risks associated with using ~innerHTML~ but ~innerHTML~ can be used on any element node
      - ~innerHTML~ can be used to retrieve and replace content
+     - To update an element using ~innerHTML~ the new content is provided as a string and it can contain markup for descendant elements
+     - So to add new content for ~innerHTML~ you store new content (including markup) as a string in variable, you select the element whose content you want to replace, and you set the element's ~innerHTML~ property to be the new string
+     - To remove content from ~innerHTML~ you either provide an empty string or if you want to remove a single descendant and not remove the rest then you provide the entire markup in the new string but now *without* the element you want to remove
+     - DOM manipulation easily targets individual nodes in the DOM tree whereas ~innerHTML~ is better suited to updating entire fragments within a node
+     - DOM manipulation can be safer than using ~innerHTML~ but it requires more code and can be slower
+     - DOM manipulation refers to a set of DOM methods that allow you to create elements and text nodes, and then attach them to the DOM tree or remove them from the DOM tree
+     - To add content (via DOM manipulation) you use a DOM method to create a new node with some stype of content, one at a time, and store it in a variable then another DOM method is used to attach the node in the correct position in the DOM tree
+     - You can also remove nodes along with its content and child nodes from the DOM tree using a DOM method
+
+***** Section 5.3.2.3.1: Inner HTML
+      - Using the ~innerHTML~ property you can access and amend the contents of an element including any child elements
+      - 
+	
+***** Section 5.3.2.3.2: DOM Manipulation
      
     
 * Keywords
