@@ -349,10 +349,58 @@
 
 ***** Section 5.3.2.3.1: Inner HTML
       - Using the ~innerHTML~ property you can access and amend the contents of an element including any child elements
-      - 
+      - When getting HTML from an element, the ~innerHTML~ property will get the content of an element and return it as one long string including markup that the element contains
+      - When used to set new content for an element, it will take a string that /can/ contain markup and process that string adding any elements within it to the DOM tree
+      - When adding new content using ~innerHTML~, be aware that one missing closing tag would throw out the design of the entire page
+      - Even worse, if ~innerHTML~ is used to add content that your users created to a page, they could add malicious content
+      - Any new elements will also be available to other scripts in the page
+      - Quotation marks can be escaped whenever you need to use them such as in attributes for elements
 	
 ***** Section 5.3.2.3.2: DOM Manipulation
-     
+      - DOM manipulation offers another technique to add new content to a page (rather than ~innerHTML~)
+      - To add nodes to DOM, there are 3 steps:
+	1. Create the element using ~createElement()~, store it in a variable but note that when the element node is created it is not yet part of the DOM tree
+	2. Create the text node using ~createTextNode()~, store it in a variable, modify the ~nodeValue~ to add text or use the parameter in the function ~createTextNode()~, and add it to the element using ~appendChild()~
+	3. Then you add it to the DOM, just like how you added the text node to the element node, you now have to add the element node to the DOM or add it to another element that is already in the DOM by using ~appendChild()~ so now the newly created element can be a child of the ~document~ object or some other element
+      - You can technically add nodes to the other nodes that are still not in the DOM tree, the only time the nodes are added to the DOM tree is when you add the node to an existing element that is already present in the DOM, otherwise it won't be in the DOM tree
+      - There are other methods to add newly created elements to other nodes (either living in the DOM tree or not) such as ~insertBefore()~ which adds an element before the selected DOM node
+      - Some developers leave empty elements in the HTML so content can be added later via JS but this practice should be avoided unless absolutely necessary instead they should create the element in JS and add it via the DOM methods as needed and not create an empty HTML element
+      - DOM manipulation can also be used to remove elements from the DOM tree
+        1. We get and select the element we want to remove and store the element in a variable
+	2. Find, select, and store the parent of the element you want to remove and the simplest way to get this element is to use the ~parentNode~ property
+	3. Using the parent element you call the method ~removeChild()~ and the method takes in one parameter which is the reference to the element you want to remove or the node that will be removed
+      - When you remove an element from the DOM it will also remove any child elements
+      - Also adding or removing elements from the DOM will affect the ~NodeList~ of siblings or children
+
+***** Section 5.3.2.3.2: Comparing Techniques to Update HTML
+      - There are 3 ways to add HTML to a web page
+	- ~document.write()~: Simple way to add content to the page and DOM by passing a string with markup as the argument but this feature is no longer recommended and deprecated
+	- ~innerHTML~: An element property that lets you get / update the entire content of any element (including markup) as a string
+	- DOM Manipulation: DOM manipulation refers to a set of methods and properties to access, create, and update elements and text nodes
+      - The ~document.write()~ is quick and easy to add content to a page but only worked when the page initially loads and can have unexpected behavior so it is no longer used and it is deprecated
+      - The ~innerHTML~ property is another easy way to add and remove large amount of elements with very little code since it uses a string and it can be much faster than DOM manipulation but it should *not* be used when the content comes from the user (e.g. a username text box) due to security risks, it is harder to isolate elements, and event handlers may no longer work
+      - DOM manipulation allows you to isolate and modify single elements, it does not affect event handlers, and elements can be added incrementally by the script but the downside of this is that DOM manipulation is slower than ~innerHTML~ and it requires more code to change and alter elements compared to ~innerHTML~
+
+** Section 5.4: Security Risks
+   - If you add HTML to a page using ~innerHTML~ or several jQuery methods you need to be aware of Cross-Site Scripting Attacks or XSS
+   - These attacks can be detrimental with potential exposed data or unauthorized access
+   - XSS involves an attacker placing malicious code into a site, for example users may be able to write comments, create profiles, post an article, modify an article, upload a file or video and in addition data / code may  come from third-party sites such as Facebook, Twitter, etc.
+   - Data you do not have complete control over is known as untrusted data and it must be handled with care
+   - XSS attacks can give the attacker information on the DOM, website's cookies, session tokens (info that identifies you as the user as not some other user) and this can be used complete actions (e.g. purchases, publish, delete) with that account, post defamatory content, and spread more malicious code further / faster
+   - Any HTML from untrusted sources open your site to XSS attacks but the threat is only from certain situations and characters
+
+*** Section 5.4.1: Defending Against Cross-Site Scripting
+    - Validate input going to the server
+    - Only let visitors input the kind of characters they need to when supplying information and this is known as validation (do not allow untrusted users to submit HTML markup or JavaScript, better do not let anyone submit HTML markup or JS)
+    - Validate input again (double check) on the server before displaying user content / storing it in a database because if you do some type of validation in JS, users can turn off JS in the browser and bypass client-side validation so it is better to also do server-side validation
+    - The database itself may safely contain markup and script from trusted sources because DBs do not run HTML or JS, DBs simply store the data they do not process code
+    - After the DB returns data all potentially dangerous characters should be escaped
+    - Then you make sure that you are only inserting content generated by the users into certain parts of the template files only where it is necessary
+    - Finally, do not create DOM fragments containing HTML from untrusted sources as it should only be added as text once it has been escaped
+    - Thus, the developer should be the only one using ~innerHTML~ (if the developer wrote the markup) but content from any untrusted sources (like users) should be escaped and added as text (not markup) using properties like ~textContent~
+
+*** Section 5.4.2: Validation & Templates
+    - 
     
 * Keywords
 | Term                    | Definition |
@@ -374,7 +422,7 @@
   - *Q*: Is there a function or property that gets the text node directly?
   - *Q*: What is the difference between ~.innerHTML~, ~innerText~, and ~.textContent~?
   - *Q*: What is the difference between live ~NodeList~ and static ~NodeList~?
-    
+  - *Q*: Do all scripts use the same DOM tree, so if one script affects the DOM tree does the other script see the changes?
 * Summary
 
 * Resources

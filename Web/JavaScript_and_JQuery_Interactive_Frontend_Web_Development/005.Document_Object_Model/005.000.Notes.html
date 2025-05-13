@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-09 Fri 18:38 -->
+<!-- 2025-05-13 Tue 11:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 5: Document Object Model</title>
 <meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -234,30 +234,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org85f10f0">Navigation</a></li>
-<li><a href="#org878c68d">Notes</a>
+<li><a href="#org5e49ee7">Navigation</a></li>
+<li><a href="#orgd1afe1b">Notes</a>
 <ul>
-<li><a href="#orgc39d9e2">Section 5.1: Introduction</a></li>
-<li><a href="#orgf5b9658">Section 5.2: DOM Tree</a></li>
-<li><a href="#org8846bd2">Section 5.3: Working with the DOM Tree</a>
+<li><a href="#orga0d3651">Section 5.1: Introduction</a></li>
+<li><a href="#orgb2bee63">Section 5.2: DOM Tree</a></li>
+<li><a href="#org0f4163b">Section 5.3: Working with the DOM Tree</a>
 <ul>
-<li><a href="#org2f53f31">Section 5.3.1: Locating / Retrieving the Elements</a></li>
-<li><a href="#orgd663e75">Section 5.3.2: Use / Update the Elements</a></li>
+<li><a href="#org5992ac3">Section 5.3.1: Locating / Retrieving the Elements</a></li>
+<li><a href="#orgfbf4665">Section 5.3.2: Use / Update the Elements</a></li>
+</ul>
+</li>
+<li><a href="#org40a1ca8">Section 5.4: Security Risks</a>
+<ul>
+<li><a href="#org7beb248">Section 5.4.1: Defending Against Cross-Site Scripting</a></li>
+<li><a href="#org59bebde">Section 5.4.2: Validation &amp; Templates</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org38b8677">Keywords</a></li>
-<li><a href="#orgdf715db">Questions</a></li>
-<li><a href="#org977eb42">Summary</a></li>
-<li><a href="#org323a703">Resources</a></li>
+<li><a href="#org50881de">Keywords</a></li>
+<li><a href="#orgc2f28c8">Questions</a></li>
+<li><a href="#org7ee3cbc">Summary</a></li>
+<li><a href="#orge78fb85">Resources</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org85f10f0" class="outline-2">
-<h2 id="org85f10f0">Navigation</h2>
-<div class="outline-text-2" id="text-org85f10f0">
+<div id="outline-container-org5e49ee7" class="outline-2">
+<h2 id="org5e49ee7">Navigation</h2>
+<div class="outline-text-2" id="text-org5e49ee7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -303,14 +308,13 @@
 </table>
 </div>
 </div>
-
-<div id="outline-container-org878c68d" class="outline-2">
-<h2 id="org878c68d">Notes</h2>
-<div class="outline-text-2" id="text-org878c68d">
+<div id="outline-container-orgd1afe1b" class="outline-2">
+<h2 id="orgd1afe1b">Notes</h2>
+<div class="outline-text-2" id="text-orgd1afe1b">
 </div>
-<div id="outline-container-orgc39d9e2" class="outline-3">
-<h3 id="orgc39d9e2">Section 5.1: Introduction</h3>
-<div class="outline-text-3" id="text-orgc39d9e2">
+<div id="outline-container-orga0d3651" class="outline-3">
+<h3 id="orga0d3651">Section 5.1: Introduction</h3>
+<div class="outline-text-3" id="text-orga0d3651">
 <ul class="org-ul">
 <li>The Document Object Model (DOM) specifies how browsers should create a model of an HTML page and how JavaScript can access and update the contents of a web page while it is in the browser window</li>
 <li>The DOM is neither part of HTML nor poart of JavaScript instead it is a separate set of rules that is implemented by all major browsers and covers two areas: making a model of the HTML page and accessing and changing the HTML page</li>
@@ -322,10 +326,9 @@
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orgf5b9658" class="outline-3">
-<h3 id="orgf5b9658">Section 5.2: DOM Tree</h3>
-<div class="outline-text-3" id="text-orgf5b9658">
+<div id="outline-container-orgb2bee63" class="outline-3">
+<h3 id="orgb2bee63">Section 5.2: DOM Tree</h3>
+<div class="outline-text-3" id="text-orgb2bee63">
 <ul class="org-ul">
 <li>As a browser loads a web page, it creates a model of that page and the model is called a DOM tree</li>
 <li>The DOM tree is stored in the browsers' memory and it consists of four main types of nodes:
@@ -345,10 +348,10 @@
 <pre class="src src-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
-    &lt;title&gt;Example&lt;/title&gt;
+         &lt;title&gt;Example&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;h1 id="heading"&gt;Heading&lt;/h1&gt;
+         &lt;h1 id="heading"&gt;Heading&lt;/h1&gt;
   &lt;/body&gt;
 &lt;/html&gt;
 </pre>
@@ -422,10 +425,9 @@
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org8846bd2" class="outline-3">
-<h3 id="org8846bd2">Section 5.3: Working with the DOM Tree</h3>
-<div class="outline-text-3" id="text-org8846bd2">
+<div id="outline-container-org0f4163b" class="outline-3">
+<h3 id="org0f4163b">Section 5.3: Working with the DOM Tree</h3>
+<div class="outline-text-3" id="text-org0f4163b">
 <ul class="org-ul">
 <li>Accessing and updating the DOM tree involves two steps:
 <ol class="org-ol">
@@ -434,10 +436,9 @@
 </ol></li>
 </ul>
 </div>
-
-<div id="outline-container-org2f53f31" class="outline-4">
-<h4 id="org2f53f31">Section 5.3.1: Locating / Retrieving the Elements</h4>
-<div class="outline-text-4" id="text-org2f53f31">
+<div id="outline-container-org5992ac3" class="outline-4">
+<h4 id="org5992ac3">Section 5.3.1: Locating / Retrieving the Elements</h4>
+<div class="outline-text-4" id="text-org5992ac3">
 <ul class="org-ul">
 <li>There two common ways to locate or retrieve an element using DOM: DOM queries or traversing the DOM</li>
 <li>Methods that find elements in the DOM tree are called DOM queries</li>
@@ -472,10 +473,9 @@
 <li>Usually <code>getElementById()</code> may be the fastest way to get to a single element since no two elements on the same page shuld have the same value for an <code>id</code> attribute but not all elements have the <code>id</code> attribute so we have to use what we can to get the fastest or shortest route to our element of interest</li>
 </ul>
 </div>
-
 <ul class="org-ul">
-<li><a id="org8d47769"></a>Section 5.3.1.1: Selecting Individual Elements<br />
-<div class="outline-text-5" id="text-org8d47769">
+<li><a id="org0b62a38"></a>Section 5.3.1.1: Selecting Individual Elements<br />
+<div class="outline-text-5" id="text-org0b62a38">
 <ul class="org-ul">
 <li>DOM queries may return one element, or they may return a <code>NodeList</code> which is a collection of nodes</li>
 <li>Sometimes we would like to select one element or a group of elements (e.g. all <code>&lt;h1&gt;</code> elements)</li>
@@ -518,9 +518,8 @@
 </ul>
 </div>
 </li>
-
-<li><a id="org1807c13"></a>Section 5.3.1.2: Selecting Multiple Elements<br />
-<div class="outline-text-5" id="text-org1807c13">
+<li><a id="orgfccf818"></a>Section 5.3.1.2: Selecting Multiple Elements<br />
+<div class="outline-text-5" id="text-orgfccf818">
 <ul class="org-ul">
 <li>If a method <i>can</i> return more than one node then it will always return a <code>NodeList</code> which is a collection of nodes (even if it only finds one matching element)</li>
 <li>You then can either iterate through the list or select the element you want from the list using an index number (recall the index number always start at zero)</li>
@@ -576,10 +575,9 @@
 <li>The methods that begin <code>querySelector...</code> which use CSS selector syntax return static <code>NodeList</code> as they reflect the document when the query was made</li>
 </ul>
 </div>
-
 <ul class="org-ul">
-<li><a id="org2e5fce7"></a>Section 5.3.1.2.1: Selecting Elements Using Class Attributes<br />
-<div class="outline-text-6" id="text-org2e5fce7">
+<li><a id="org0e26663"></a>Section 5.3.1.2.1: Selecting Elements Using Class Attributes<br />
+<div class="outline-text-6" id="text-org0e26663">
 <ul class="org-ul">
 <li><code>getElementsByClassName()</code> method allows you to select elements whose class attribute contains a specific value</li>
 <li>The method has one parameter: the class name which is given in quotes within the parentheses after the method name</li>
@@ -591,9 +589,8 @@
 </ul>
 </div>
 </li>
-
-<li><a id="orge28c202"></a>Section 5.3.1.2.2: Selecting Elements By Tag Name<br />
-<div class="outline-text-6" id="text-orge28c202">
+<li><a id="org0a78c3d"></a>Section 5.3.1.2.2: Selecting Elements By Tag Name<br />
+<div class="outline-text-6" id="text-org0a78c3d">
 <ul class="org-ul">
 <li>The <code>getElementsByTagName()</code> method allows you to select elements using their tag name</li>
 <li>The element name is spceified as a parameter so it is placed inside the parentheses and is contained by quotation marks</li>
@@ -601,9 +598,8 @@
 </ul>
 </div>
 </li>
-
-<li><a id="org309ae45"></a>Section 5.3.1.2.3: Selecting Elements Using CSS Selectors<br />
-<div class="outline-text-6" id="text-org309ae45">
+<li><a id="org45c05c1"></a>Section 5.3.1.2.3: Selecting Elements Using CSS Selectors<br />
+<div class="outline-text-6" id="text-org45c05c1">
 <ul class="org-ul">
 <li><code>querySelector()</code> returns the first element node that matches the CSS-style selector</li>
 <li><code>querySelectorAll()</code> returns a <code>NodeList</code> of all of the elements that matches the CSS-style selector</li>
@@ -613,9 +609,8 @@
 </ul>
 </div>
 </li>
-
-<li><a id="orgde6389b"></a>Section 5.3.1.2.3: Using the <code>NodeList</code><br />
-<div class="outline-text-6" id="text-orgde6389b">
+<li><a id="orgc378d07"></a>Section 5.3.1.2.3: Using the <code>NodeList</code><br />
+<div class="outline-text-6" id="text-orgc378d07">
 <ul class="org-ul">
 <li>To select an element from a <code>NodeList</code> you can item use the <code>item()</code> method or the array syntax: both require the index number of the element you want</li>
 <li>The <code>item()</code> method returns an individual node from the <code>NodeList</code> by specifying the index number of the element you want as a parameter of the method</li>
@@ -630,9 +625,8 @@
 </li>
 </ul>
 </li>
-
-<li><a id="org239027e"></a>Section 5.3.1.3: Traversing the DOM<br />
-<div class="outline-text-5" id="text-org239027e">
+<li><a id="org4ae7f0e"></a>Section 5.3.1.3: Traversing the DOM<br />
+<div class="outline-text-5" id="text-org4ae7f0e">
 <ul class="org-ul">
 <li>When you have an element node you can select another element in relation to it using these five properties (this is known as traversing the DOM):
 <ul class="org-ul">
@@ -656,10 +650,9 @@
 </li>
 </ul>
 </div>
-
-<div id="outline-container-orgd663e75" class="outline-4">
-<h4 id="orgd663e75">Section 5.3.2: Use / Update the Elements</h4>
-<div class="outline-text-4" id="text-orgd663e75">
+<div id="outline-container-orgfbf4665" class="outline-4">
+<h4 id="orgfbf4665">Section 5.3.2: Use / Update the Elements</h4>
+<div class="outline-text-4" id="text-orgfbf4665">
 <ul class="org-ul">
 <li>Text inside any element is stored inside a text node</li>
 <li>Recall that if text exist within an element, the element will have one or multiple text nodes as children in the DOM tree</li>
@@ -679,8 +672,8 @@
 
 <div class="org-src-container">
 <pre class="src src-html">&lt;div id="example"&gt;
-  Hello
-  &lt;span&gt;World&lt;/span&gt;
+        Hello
+        &lt;span&gt;World&lt;/span&gt;
 &lt;/div&gt;	
 </pre>
 </div>
@@ -692,8 +685,8 @@
 <div class="org-src-container">
 <pre class="src src-text">div
 |- text: "\nHello\n"
-   |- span
-      |- text: "World"
+         |- span
+            |- text: "World"
 |- text: "\n"
 </pre>
 </div>
@@ -737,10 +730,9 @@
 <li>When you use these properties to update the content of an element, the new content will overwrite the entire contents of the element both text and markup</li>
 </ul>
 </div>
-
 <ul class="org-ul">
-<li><a id="orgbdc2faa"></a>Section 5.3.2.1: Accessing the Text Node<br />
-<div class="outline-text-5" id="text-orgbdc2faa">
+<li><a id="orgeabab7c"></a>Section 5.3.2.1: Accessing the Text Node<br />
+<div class="outline-text-5" id="text-orgeabab7c">
 <ul class="org-ul">
 <li>When you select a text node, you can retrieve or amend the content of it using the <code>nodeValue</code> property</li>
 <li>In order to use the <code>nodeValue</code> you must be on a text node, not the element that contains the text</li>
@@ -750,9 +742,8 @@
 </ul>
 </div>
 </li>
-
-<li><a id="orgb290902"></a>Section 5.3.2.2: Accessing Text (Not Text Node)<br />
-<div class="outline-text-5" id="text-orgb290902">
+<li><a id="orgd7138a0"></a>Section 5.3.2.2: Accessing Text (Not Text Node)<br />
+<div class="outline-text-5" id="text-orgd7138a0">
 <ul class="org-ul">
 <li><code>textContent</code> property allows you to collect or update just the text that is in the containing element and its children</li>
 <li>Why do I mean by that? Basically, <code>textContent</code> will retrieve all the text from all text nodes <b>including</b> from child elements</li>
@@ -772,7 +763,7 @@
 <pre class="src src-text">p
 |- text: "Hello "
 |- span
-   |- text: "World"
+          |- text: "World"
 </pre>
 </div>
 
@@ -792,25 +783,120 @@
 </ul>
 </div>
 </li>
-
-<li><a id="org0ebf859"></a>Section 5.3.2.3: Adding or Removing HTML Content<br />
-<div class="outline-text-5" id="text-org0ebf859">
+<li><a id="org2ac0fe5"></a>Section 5.3.2.3: Adding or Removing HTML Content<br />
+<div class="outline-text-5" id="text-org2ac0fe5">
 <ul class="org-ul">
 <li>There are two very different approaches to adding and removing content from a DOM tree: <code>innerHTML</code> property and DOM manipulation</li>
 <li>There are security risks associated with using <code>innerHTML</code> but <code>innerHTML</code> can be used on any element node</li>
 <li><code>innerHTML</code> can be used to retrieve and replace content</li>
+<li>To update an element using <code>innerHTML</code> the new content is provided as a string and it can contain markup for descendant elements</li>
+<li>So to add new content for <code>innerHTML</code> you store new content (including markup) as a string in variable, you select the element whose content you want to replace, and you set the element's <code>innerHTML</code> property to be the new string</li>
+<li>To remove content from <code>innerHTML</code> you either provide an empty string or if you want to remove a single descendant and not remove the rest then you provide the entire markup in the new string but now <b>without</b> the element you want to remove</li>
+<li>DOM manipulation easily targets individual nodes in the DOM tree whereas <code>innerHTML</code> is better suited to updating entire fragments within a node</li>
+<li>DOM manipulation can be safer than using <code>innerHTML</code> but it requires more code and can be slower</li>
+<li>DOM manipulation refers to a set of DOM methods that allow you to create elements and text nodes, and then attach them to the DOM tree or remove them from the DOM tree</li>
+<li>To add content (via DOM manipulation) you use a DOM method to create a new node with some stype of content, one at a time, and store it in a variable then another DOM method is used to attach the node in the correct position in the DOM tree</li>
+<li>You can also remove nodes along with its content and child nodes from the DOM tree using a DOM method</li>
+</ul>
+</div>
+<ul class="org-ul">
+<li><a id="org956dbec"></a>Section 5.3.2.3.1: Inner HTML<br />
+<div class="outline-text-6" id="text-org956dbec">
+<ul class="org-ul">
+<li>Using the <code>innerHTML</code> property you can access and amend the contents of an element including any child elements</li>
+<li>When getting HTML from an element, the <code>innerHTML</code> property will get the content of an element and return it as one long string including markup that the element contains</li>
+<li>When used to set new content for an element, it will take a string that <i>can</i> contain markup and process that string adding any elements within it to the DOM tree</li>
+<li>When adding new content using <code>innerHTML</code>, be aware that one missing closing tag would throw out the design of the entire page</li>
+<li>Even worse, if <code>innerHTML</code> is used to add content that your users created to a page, they could add malicious content</li>
+<li>Any new elements will also be available to other scripts in the page</li>
+<li>Quotation marks can be escaped whenever you need to use them such as in attributes for elements</li>
+</ul>
+</div>
+</li>
+<li><a id="org71ed1e7"></a>Section 5.3.2.3.2: DOM Manipulation<br />
+<div class="outline-text-6" id="text-org71ed1e7">
+<ul class="org-ul">
+<li>DOM manipulation offers another technique to add new content to a page (rather than <code>innerHTML</code>)</li>
+<li>To add nodes to DOM, there are 3 steps:
+<ol class="org-ol">
+<li>Create the element using <code>createElement()</code>, store it in a variable but note that when the element node is created it is not yet part of the DOM tree</li>
+<li>Create the text node using <code>createTextNode()</code>, store it in a variable, modify the <code>nodeValue</code> to add text or use the parameter in the function <code>createTextNode()</code>, and add it to the element using <code>appendChild()</code></li>
+<li>Then you add it to the DOM, just like how you added the text node to the element node, you now have to add the element node to the DOM or add it to another element that is already in the DOM by using <code>appendChild()</code> so now the newly created element can be a child of the <code>document</code> object or some other element</li>
+</ol></li>
+<li>You can technically add nodes to the other nodes that are still not in the DOM tree, the only time the nodes are added to the DOM tree is when you add the node to an existing element that is already present in the DOM, otherwise it won't be in the DOM tree</li>
+<li>There are other methods to add newly created elements to other nodes (either living in the DOM tree or not) such as <code>insertBefore()</code> which adds an element before the selected DOM node</li>
+<li>Some developers leave empty elements in the HTML so content can be added later via JS but this practice should be avoided unless absolutely necessary instead they should create the element in JS and add it via the DOM methods as needed and not create an empty HTML element</li>
+<li>DOM manipulation can also be used to remove elements from the DOM tree
+<ol class="org-ol">
+<li>We get and select the element we want to remove and store the element in a variable</li>
+<li>Find, select, and store the parent of the element you want to remove and the simplest way to get this element is to use the <code>parentNode</code> property</li>
+<li>Using the parent element you call the method <code>removeChild()</code> and the method takes in one parameter which is the reference to the element you want to remove or the node that will be removed</li>
+</ol></li>
+<li>When you remove an element from the DOM it will also remove any child elements</li>
+<li>Also adding or removing elements from the DOM will affect the <code>NodeList</code> of siblings or children</li>
+</ul>
+</div>
+</li>
+<li><a id="org55b5dee"></a>Section 5.3.2.3.2: Comparing Techniques to Update HTML<br />
+<div class="outline-text-6" id="text-org55b5dee">
+<ul class="org-ul">
+<li>There are 3 ways to add HTML to a web page
+<ul class="org-ul">
+<li><code>document.write()</code>: Simple way to add content to the page and DOM by passing a string with markup as the argument but this feature is no longer recommended and deprecated</li>
+<li><code>innerHTML</code>: An element property that lets you get / update the entire content of any element (including markup) as a string</li>
+<li>DOM Manipulation: DOM manipulation refers to a set of methods and properties to access, create, and update elements and text nodes</li>
+</ul></li>
+<li>The <code>document.write()</code> is quick and easy to add content to a page but only worked when the page initially loads and can have unexpected behavior so it is no longer used and it is deprecated</li>
+<li>The <code>innerHTML</code> property is another easy way to add and remove large amount of elements with very little code since it uses a string and it can be much faster than DOM manipulation but it should <b>not</b> be used when the content comes from the user (e.g. a username text box) due to security risks, it is harder to isolate elements, and event handlers may no longer work</li>
+<li>DOM manipulation allows you to isolate and modify single elements, it does not affect event handlers, and elements can be added incrementally by the script but the downside of this is that DOM manipulation is slower than <code>innerHTML</code> and it requires more code to change and alter elements compared to <code>innerHTML</code></li>
 </ul>
 </div>
 </li>
 </ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org40a1ca8" class="outline-3">
+<h3 id="org40a1ca8">Section 5.4: Security Risks</h3>
+<div class="outline-text-3" id="text-org40a1ca8">
+<ul class="org-ul">
+<li>If you add HTML to a page using <code>innerHTML</code> or several jQuery methods you need to be aware of Cross-Site Scripting Attacks or XSS</li>
+<li>These attacks can be detrimental with potential exposed data or unauthorized access</li>
+<li>XSS involves an attacker placing malicious code into a site, for example users may be able to write comments, create profiles, post an article, modify an article, upload a file or video and in addition data / code may  come from third-party sites such as Facebook, Twitter, etc.</li>
+<li>Data you do not have complete control over is known as untrusted data and it must be handled with care</li>
+<li>XSS attacks can give the attacker information on the DOM, website's cookies, session tokens (info that identifies you as the user as not some other user) and this can be used complete actions (e.g. purchases, publish, delete) with that account, post defamatory content, and spread more malicious code further / faster</li>
+<li>Any HTML from untrusted sources open your site to XSS attacks but the threat is only from certain situations and characters</li>
+</ul>
+</div>
+<div id="outline-container-org7beb248" class="outline-4">
+<h4 id="org7beb248">Section 5.4.1: Defending Against Cross-Site Scripting</h4>
+<div class="outline-text-4" id="text-org7beb248">
+<ul class="org-ul">
+<li>Validate input going to the server</li>
+<li>Only let visitors input the kind of characters they need to when supplying information and this is known as validation (do not allow untrusted users to submit HTML markup or JavaScript, better do not let anyone submit HTML markup or JS)</li>
+<li>Validate input again (double check) on the server before displaying user content / storing it in a database because if you do some type of validation in JS, users can turn off JS in the browser and bypass client-side validation so it is better to also do server-side validation</li>
+<li>The database itself may safely contain markup and script from trusted sources because DBs do not run HTML or JS, DBs simply store the data they do not process code</li>
+<li>After the DB returns data all potentially dangerous characters should be escaped</li>
+<li>Then you make sure that you are only inserting content generated by the users into certain parts of the template files only where it is necessary</li>
+<li>Finally, do not create DOM fragments containing HTML from untrusted sources as it should only be added as text once it has been escaped</li>
+<li>Thus, the developer should be the only one using <code>innerHTML</code> (if the developer wrote the markup) but content from any untrusted sources (like users) should be escaped and added as text (not markup) using properties like <code>textContent</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org59bebde" class="outline-4">
+<h4 id="org59bebde">Section 5.4.2: Validation &amp; Templates</h4>
+<div class="outline-text-4" id="text-org59bebde">
+<ul class="org-ul">
+<li></li>
+</ul>
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org38b8677" class="outline-2">
-<h2 id="org38b8677">Keywords</h2>
-<div class="outline-text-2" id="text-org38b8677">
+</div>
+<div id="outline-container-org50881de" class="outline-2">
+<h2 id="org50881de">Keywords</h2>
+<div class="outline-text-2" id="text-org50881de">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -874,10 +960,9 @@
 </table>
 </div>
 </div>
-
-<div id="outline-container-orgdf715db" class="outline-2">
-<h2 id="orgdf715db">Questions</h2>
-<div class="outline-text-2" id="text-orgdf715db">
+<div id="outline-container-orgc2f28c8" class="outline-2">
+<h2 id="orgc2f28c8">Questions</h2>
+<div class="outline-text-2" id="text-orgc2f28c8">
 <ul class="org-ul">
 <li><b>Q</b>: How does DOM treat whitespaces?</li>
 <li><b>Q</b>: How does DOM treat attributes?</li>
@@ -885,17 +970,17 @@
 <li><b>Q</b>: Is there a function or property that gets the text node directly?</li>
 <li><b>Q</b>: What is the difference between <code>.innerHTML</code>, <code>innerText</code>, and <code>.textContent</code>?</li>
 <li><b>Q</b>: What is the difference between live <code>NodeList</code> and static <code>NodeList</code>?</li>
+<li><b>Q</b>: Do all scripts use the same DOM tree, so if one script affects the DOM tree does the other script see the changes?</li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org977eb42" class="outline-2">
-<h2 id="org977eb42">Summary</h2>
+<div id="outline-container-org7ee3cbc" class="outline-2">
+<h2 id="org7ee3cbc">Summary</h2>
 </div>
 
-<div id="outline-container-org323a703" class="outline-2">
-<h2 id="org323a703">Resources</h2>
-<div class="outline-text-2" id="text-org323a703">
+<div id="outline-container-orge78fb85" class="outline-2">
+<h2 id="orge78fb85">Resources</h2>
+<div class="outline-text-2" id="text-orge78fb85">
 <ul class="org-ul">
 <li><a href="https://javascript.info/dom-nodes">https://javascript.info/dom-nodes</a></li>
 </ul>
