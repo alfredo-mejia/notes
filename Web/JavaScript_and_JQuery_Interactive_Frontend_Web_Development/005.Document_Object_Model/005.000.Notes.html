@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-13 Tue 11:22 -->
+<!-- 2025-05-14 Wed 15:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 5: Document Object Model</title>
 <meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
-<style type="text/css">
+<style>
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -234,35 +234,39 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5e49ee7">Navigation</a></li>
-<li><a href="#orgd1afe1b">Notes</a>
+<li><a href="#org71134fb">Navigation</a></li>
+<li><a href="#org4e6fc37">Notes</a>
 <ul>
-<li><a href="#orga0d3651">Section 5.1: Introduction</a></li>
-<li><a href="#orgb2bee63">Section 5.2: DOM Tree</a></li>
-<li><a href="#org0f4163b">Section 5.3: Working with the DOM Tree</a>
+<li><a href="#orgcff5891">Section 5.1: Introduction</a></li>
+<li><a href="#orgdf24ced">Section 5.2: DOM Tree</a></li>
+<li><a href="#orgebe6f32">Section 5.3: Working with the DOM Tree</a>
 <ul>
-<li><a href="#org5992ac3">Section 5.3.1: Locating / Retrieving the Elements</a></li>
-<li><a href="#orgfbf4665">Section 5.3.2: Use / Update the Elements</a></li>
+<li><a href="#org76d964b">Section 5.3.1: Locating / Retrieving the Elements</a></li>
+<li><a href="#org0171a40">Section 5.3.2: Use / Update the Elements</a></li>
 </ul>
 </li>
-<li><a href="#org40a1ca8">Section 5.4: Security Risks</a>
+<li><a href="#orge4a5037">Section 5.4: Security Risks</a>
 <ul>
-<li><a href="#org7beb248">Section 5.4.1: Defending Against Cross-Site Scripting</a></li>
-<li><a href="#org59bebde">Section 5.4.2: Validation &amp; Templates</a></li>
+<li><a href="#org67a14c3">Section 5.4.1: Defending Against Cross-Site Scripting</a></li>
+<li><a href="#org453dc5a">Section 5.4.2: Validation &amp; Templates</a></li>
+<li><a href="#orgec89e2c">Section 5.4.3: Escaping &amp; Controlling Markup</a></li>
 </ul>
 </li>
+<li><a href="#orgdce0d83">Section 5.5: Attribute Nodes</a></li>
+<li><a href="#orgefd3272">Section 5.6: Chapter Exercise</a></li>
 </ul>
 </li>
-<li><a href="#org50881de">Keywords</a></li>
-<li><a href="#orgc2f28c8">Questions</a></li>
-<li><a href="#org7ee3cbc">Summary</a></li>
-<li><a href="#orge78fb85">Resources</a></li>
+<li><a href="#orgf1aad65">Keywords</a></li>
+<li><a href="#org637c4bb">Questions</a></li>
+<li><a href="#orga93d066">Summary</a></li>
+<li><a href="#org425d148">Resources</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5e49ee7" class="outline-2">
-<h2 id="org5e49ee7">Navigation</h2>
-<div class="outline-text-2" id="text-org5e49ee7">
+
+<div id="outline-container-org71134fb" class="outline-2">
+<h2 id="org71134fb">Navigation</h2>
+<div class="outline-text-2" id="text-org71134fb">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -308,13 +312,14 @@
 </table>
 </div>
 </div>
-<div id="outline-container-orgd1afe1b" class="outline-2">
-<h2 id="orgd1afe1b">Notes</h2>
-<div class="outline-text-2" id="text-orgd1afe1b">
+
+<div id="outline-container-org4e6fc37" class="outline-2">
+<h2 id="org4e6fc37">Notes</h2>
+<div class="outline-text-2" id="text-org4e6fc37">
 </div>
-<div id="outline-container-orga0d3651" class="outline-3">
-<h3 id="orga0d3651">Section 5.1: Introduction</h3>
-<div class="outline-text-3" id="text-orga0d3651">
+<div id="outline-container-orgcff5891" class="outline-3">
+<h3 id="orgcff5891">Section 5.1: Introduction</h3>
+<div class="outline-text-3" id="text-orgcff5891">
 <ul class="org-ul">
 <li>The Document Object Model (DOM) specifies how browsers should create a model of an HTML page and how JavaScript can access and update the contents of a web page while it is in the browser window</li>
 <li>The DOM is neither part of HTML nor poart of JavaScript instead it is a separate set of rules that is implemented by all major browsers and covers two areas: making a model of the HTML page and accessing and changing the HTML page</li>
@@ -326,9 +331,10 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb2bee63" class="outline-3">
-<h3 id="orgb2bee63">Section 5.2: DOM Tree</h3>
-<div class="outline-text-3" id="text-orgb2bee63">
+
+<div id="outline-container-orgdf24ced" class="outline-3">
+<h3 id="orgdf24ced">Section 5.2: DOM Tree</h3>
+<div class="outline-text-3" id="text-orgdf24ced">
 <ul class="org-ul">
 <li>As a browser loads a web page, it creates a model of that page and the model is called a DOM tree</li>
 <li>The DOM tree is stored in the browsers' memory and it consists of four main types of nodes:
@@ -348,10 +354,10 @@
 <pre class="src src-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
-         &lt;title&gt;Example&lt;/title&gt;
+    &lt;title&gt;Example&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
-         &lt;h1 id="heading"&gt;Heading&lt;/h1&gt;
+    &lt;h1 id="heading"&gt;Heading&lt;/h1&gt;
   &lt;/body&gt;
 &lt;/html&gt;
 </pre>
@@ -425,9 +431,10 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org0f4163b" class="outline-3">
-<h3 id="org0f4163b">Section 5.3: Working with the DOM Tree</h3>
-<div class="outline-text-3" id="text-org0f4163b">
+
+<div id="outline-container-orgebe6f32" class="outline-3">
+<h3 id="orgebe6f32">Section 5.3: Working with the DOM Tree</h3>
+<div class="outline-text-3" id="text-orgebe6f32">
 <ul class="org-ul">
 <li>Accessing and updating the DOM tree involves two steps:
 <ol class="org-ol">
@@ -436,9 +443,10 @@
 </ol></li>
 </ul>
 </div>
-<div id="outline-container-org5992ac3" class="outline-4">
-<h4 id="org5992ac3">Section 5.3.1: Locating / Retrieving the Elements</h4>
-<div class="outline-text-4" id="text-org5992ac3">
+
+<div id="outline-container-org76d964b" class="outline-4">
+<h4 id="org76d964b">Section 5.3.1: Locating / Retrieving the Elements</h4>
+<div class="outline-text-4" id="text-org76d964b">
 <ul class="org-ul">
 <li>There two common ways to locate or retrieve an element using DOM: DOM queries or traversing the DOM</li>
 <li>Methods that find elements in the DOM tree are called DOM queries</li>
@@ -473,9 +481,10 @@
 <li>Usually <code>getElementById()</code> may be the fastest way to get to a single element since no two elements on the same page shuld have the same value for an <code>id</code> attribute but not all elements have the <code>id</code> attribute so we have to use what we can to get the fastest or shortest route to our element of interest</li>
 </ul>
 </div>
+
 <ul class="org-ul">
-<li><a id="org0b62a38"></a>Section 5.3.1.1: Selecting Individual Elements<br />
-<div class="outline-text-5" id="text-org0b62a38">
+<li><a id="org924b46b"></a>Section 5.3.1.1: Selecting Individual Elements<br />
+<div class="outline-text-5" id="text-org924b46b">
 <ul class="org-ul">
 <li>DOM queries may return one element, or they may return a <code>NodeList</code> which is a collection of nodes</li>
 <li>Sometimes we would like to select one element or a group of elements (e.g. all <code>&lt;h1&gt;</code> elements)</li>
@@ -518,8 +527,9 @@
 </ul>
 </div>
 </li>
-<li><a id="orgfccf818"></a>Section 5.3.1.2: Selecting Multiple Elements<br />
-<div class="outline-text-5" id="text-orgfccf818">
+
+<li><a id="org25cf76d"></a>Section 5.3.1.2: Selecting Multiple Elements<br />
+<div class="outline-text-5" id="text-org25cf76d">
 <ul class="org-ul">
 <li>If a method <i>can</i> return more than one node then it will always return a <code>NodeList</code> which is a collection of nodes (even if it only finds one matching element)</li>
 <li>You then can either iterate through the list or select the element you want from the list using an index number (recall the index number always start at zero)</li>
@@ -575,9 +585,10 @@
 <li>The methods that begin <code>querySelector...</code> which use CSS selector syntax return static <code>NodeList</code> as they reflect the document when the query was made</li>
 </ul>
 </div>
+
 <ul class="org-ul">
-<li><a id="org0e26663"></a>Section 5.3.1.2.1: Selecting Elements Using Class Attributes<br />
-<div class="outline-text-6" id="text-org0e26663">
+<li><a id="org631b0d5"></a>Section 5.3.1.2.1: Selecting Elements Using Class Attributes<br />
+<div class="outline-text-6" id="text-org631b0d5">
 <ul class="org-ul">
 <li><code>getElementsByClassName()</code> method allows you to select elements whose class attribute contains a specific value</li>
 <li>The method has one parameter: the class name which is given in quotes within the parentheses after the method name</li>
@@ -589,8 +600,9 @@
 </ul>
 </div>
 </li>
-<li><a id="org0a78c3d"></a>Section 5.3.1.2.2: Selecting Elements By Tag Name<br />
-<div class="outline-text-6" id="text-org0a78c3d">
+
+<li><a id="org7bf0761"></a>Section 5.3.1.2.2: Selecting Elements By Tag Name<br />
+<div class="outline-text-6" id="text-org7bf0761">
 <ul class="org-ul">
 <li>The <code>getElementsByTagName()</code> method allows you to select elements using their tag name</li>
 <li>The element name is spceified as a parameter so it is placed inside the parentheses and is contained by quotation marks</li>
@@ -598,8 +610,9 @@
 </ul>
 </div>
 </li>
-<li><a id="org45c05c1"></a>Section 5.3.1.2.3: Selecting Elements Using CSS Selectors<br />
-<div class="outline-text-6" id="text-org45c05c1">
+
+<li><a id="orgecb190c"></a>Section 5.3.1.2.3: Selecting Elements Using CSS Selectors<br />
+<div class="outline-text-6" id="text-orgecb190c">
 <ul class="org-ul">
 <li><code>querySelector()</code> returns the first element node that matches the CSS-style selector</li>
 <li><code>querySelectorAll()</code> returns a <code>NodeList</code> of all of the elements that matches the CSS-style selector</li>
@@ -609,8 +622,9 @@
 </ul>
 </div>
 </li>
-<li><a id="orgc378d07"></a>Section 5.3.1.2.3: Using the <code>NodeList</code><br />
-<div class="outline-text-6" id="text-orgc378d07">
+
+<li><a id="orgb9be33b"></a>Section 5.3.1.2.3: Using the <code>NodeList</code><br />
+<div class="outline-text-6" id="text-orgb9be33b">
 <ul class="org-ul">
 <li>To select an element from a <code>NodeList</code> you can item use the <code>item()</code> method or the array syntax: both require the index number of the element you want</li>
 <li>The <code>item()</code> method returns an individual node from the <code>NodeList</code> by specifying the index number of the element you want as a parameter of the method</li>
@@ -625,8 +639,9 @@
 </li>
 </ul>
 </li>
-<li><a id="org4ae7f0e"></a>Section 5.3.1.3: Traversing the DOM<br />
-<div class="outline-text-5" id="text-org4ae7f0e">
+
+<li><a id="orga94ea2f"></a>Section 5.3.1.3: Traversing the DOM<br />
+<div class="outline-text-5" id="text-orga94ea2f">
 <ul class="org-ul">
 <li>When you have an element node you can select another element in relation to it using these five properties (this is known as traversing the DOM):
 <ul class="org-ul">
@@ -650,9 +665,10 @@
 </li>
 </ul>
 </div>
-<div id="outline-container-orgfbf4665" class="outline-4">
-<h4 id="orgfbf4665">Section 5.3.2: Use / Update the Elements</h4>
-<div class="outline-text-4" id="text-orgfbf4665">
+
+<div id="outline-container-org0171a40" class="outline-4">
+<h4 id="org0171a40">Section 5.3.2: Use / Update the Elements</h4>
+<div class="outline-text-4" id="text-org0171a40">
 <ul class="org-ul">
 <li>Text inside any element is stored inside a text node</li>
 <li>Recall that if text exist within an element, the element will have one or multiple text nodes as children in the DOM tree</li>
@@ -672,8 +688,8 @@
 
 <div class="org-src-container">
 <pre class="src src-html">&lt;div id="example"&gt;
-        Hello
-        &lt;span&gt;World&lt;/span&gt;
+  Hello
+  &lt;span&gt;World&lt;/span&gt;
 &lt;/div&gt;	
 </pre>
 </div>
@@ -685,8 +701,8 @@
 <div class="org-src-container">
 <pre class="src src-text">div
 |- text: "\nHello\n"
-         |- span
-            |- text: "World"
+   |- span
+      |- text: "World"
 |- text: "\n"
 </pre>
 </div>
@@ -730,9 +746,10 @@
 <li>When you use these properties to update the content of an element, the new content will overwrite the entire contents of the element both text and markup</li>
 </ul>
 </div>
+
 <ul class="org-ul">
-<li><a id="orgeabab7c"></a>Section 5.3.2.1: Accessing the Text Node<br />
-<div class="outline-text-5" id="text-orgeabab7c">
+<li><a id="org25b94d5"></a>Section 5.3.2.1: Accessing the Text Node<br />
+<div class="outline-text-5" id="text-org25b94d5">
 <ul class="org-ul">
 <li>When you select a text node, you can retrieve or amend the content of it using the <code>nodeValue</code> property</li>
 <li>In order to use the <code>nodeValue</code> you must be on a text node, not the element that contains the text</li>
@@ -742,8 +759,9 @@
 </ul>
 </div>
 </li>
-<li><a id="orgd7138a0"></a>Section 5.3.2.2: Accessing Text (Not Text Node)<br />
-<div class="outline-text-5" id="text-orgd7138a0">
+
+<li><a id="org048ba75"></a>Section 5.3.2.2: Accessing Text (Not Text Node)<br />
+<div class="outline-text-5" id="text-org048ba75">
 <ul class="org-ul">
 <li><code>textContent</code> property allows you to collect or update just the text that is in the containing element and its children</li>
 <li>Why do I mean by that? Basically, <code>textContent</code> will retrieve all the text from all text nodes <b>including</b> from child elements</li>
@@ -763,7 +781,7 @@
 <pre class="src src-text">p
 |- text: "Hello "
 |- span
-          |- text: "World"
+   |- text: "World"
 </pre>
 </div>
 
@@ -783,8 +801,9 @@
 </ul>
 </div>
 </li>
-<li><a id="org2ac0fe5"></a>Section 5.3.2.3: Adding or Removing HTML Content<br />
-<div class="outline-text-5" id="text-org2ac0fe5">
+
+<li><a id="org6e587ef"></a>Section 5.3.2.3: Adding or Removing HTML Content<br />
+<div class="outline-text-5" id="text-org6e587ef">
 <ul class="org-ul">
 <li>There are two very different approaches to adding and removing content from a DOM tree: <code>innerHTML</code> property and DOM manipulation</li>
 <li>There are security risks associated with using <code>innerHTML</code> but <code>innerHTML</code> can be used on any element node</li>
@@ -799,9 +818,10 @@
 <li>You can also remove nodes along with its content and child nodes from the DOM tree using a DOM method</li>
 </ul>
 </div>
+
 <ul class="org-ul">
-<li><a id="org956dbec"></a>Section 5.3.2.3.1: Inner HTML<br />
-<div class="outline-text-6" id="text-org956dbec">
+<li><a id="org91aeb27"></a>Section 5.3.2.3.1: Inner HTML<br />
+<div class="outline-text-6" id="text-org91aeb27">
 <ul class="org-ul">
 <li>Using the <code>innerHTML</code> property you can access and amend the contents of an element including any child elements</li>
 <li>When getting HTML from an element, the <code>innerHTML</code> property will get the content of an element and return it as one long string including markup that the element contains</li>
@@ -813,8 +833,9 @@
 </ul>
 </div>
 </li>
-<li><a id="org71ed1e7"></a>Section 5.3.2.3.2: DOM Manipulation<br />
-<div class="outline-text-6" id="text-org71ed1e7">
+
+<li><a id="org7685c71"></a>Section 5.3.2.3.2: DOM Manipulation<br />
+<div class="outline-text-6" id="text-org7685c71">
 <ul class="org-ul">
 <li>DOM manipulation offers another technique to add new content to a page (rather than <code>innerHTML</code>)</li>
 <li>To add nodes to DOM, there are 3 steps:
@@ -837,8 +858,9 @@
 </ul>
 </div>
 </li>
-<li><a id="org55b5dee"></a>Section 5.3.2.3.2: Comparing Techniques to Update HTML<br />
-<div class="outline-text-6" id="text-org55b5dee">
+
+<li><a id="orgb764076"></a>Section 5.3.2.3.2: Comparing Techniques to Update HTML<br />
+<div class="outline-text-6" id="text-orgb764076">
 <ul class="org-ul">
 <li>There are 3 ways to add HTML to a web page
 <ul class="org-ul">
@@ -857,9 +879,10 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org40a1ca8" class="outline-3">
-<h3 id="org40a1ca8">Section 5.4: Security Risks</h3>
-<div class="outline-text-3" id="text-org40a1ca8">
+
+<div id="outline-container-orge4a5037" class="outline-3">
+<h3 id="orge4a5037">Section 5.4: Security Risks</h3>
+<div class="outline-text-3" id="text-orge4a5037">
 <ul class="org-ul">
 <li>If you add HTML to a page using <code>innerHTML</code> or several jQuery methods you need to be aware of Cross-Site Scripting Attacks or XSS</li>
 <li>These attacks can be detrimental with potential exposed data or unauthorized access</li>
@@ -869,9 +892,10 @@
 <li>Any HTML from untrusted sources open your site to XSS attacks but the threat is only from certain situations and characters</li>
 </ul>
 </div>
-<div id="outline-container-org7beb248" class="outline-4">
-<h4 id="org7beb248">Section 5.4.1: Defending Against Cross-Site Scripting</h4>
-<div class="outline-text-4" id="text-org7beb248">
+
+<div id="outline-container-org67a14c3" class="outline-4">
+<h4 id="org67a14c3">Section 5.4.1: Defending Against Cross-Site Scripting</h4>
+<div class="outline-text-4" id="text-org67a14c3">
 <ul class="org-ul">
 <li>Validate input going to the server</li>
 <li>Only let visitors input the kind of characters they need to when supplying information and this is known as validation (do not allow untrusted users to submit HTML markup or JavaScript, better do not let anyone submit HTML markup or JS)</li>
@@ -884,19 +908,157 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org59bebde" class="outline-4">
-<h4 id="org59bebde">Section 5.4.2: Validation &amp; Templates</h4>
-<div class="outline-text-4" id="text-org59bebde">
+
+<div id="outline-container-org453dc5a" class="outline-4">
+<h4 id="org453dc5a">Section 5.4.2: Validation &amp; Templates</h4>
+<div class="outline-text-4" id="text-org453dc5a">
 <ul class="org-ul">
-<li></li>
+<li>Make sure that your users can only input characters they need to use and limit where this content will be shown on the page</li>
+<li>Most basic defense to these attacks is to prevent users from entering specific characters into form fields especially the characters that are not needed</li>
+<li>For example, in email text boxes characters such as angled brackets, ampersands, or parentheses are not needed and should be prevented from being entered</li>
+<li>This type of validation can be done in both the browser (client-side) and in the server (server-side)</li>
+<li>Even websites that do allow you to enter markup limit the type of markup you can enter, for example, it may not let you enter <code>&lt;script&gt;</code> tags, elements with an event handling attribute, or it may not even let you enter a lot of HTML, it may even want to correct any markup that looks malicious</li>
+<li>Malicious users will not <i>just</i> use <code>&lt;scirpt&gt;</code> tags to try and create an XSS attack as malicious code can also live in an event handler attribute (without needing to use <code>&lt;script&gt;</code> tags)</li>
+<li>XSS attacks can also be triggered by code in CSS or URLs</li>
+<li>Since browsers process HTML, CSS, and JS differently then different characters can cause problems which is why you should only add content from untrusted sources as text (not markup) and place that text in elements that are visible in the viewport</li>
+<li>Never place any user's content in the following places without detailed experience of the issues involved:
+<ul class="org-ul">
+<li>Script tags</li>
+<li>HTML comments</li>
+<li>Tag names</li>
+<li>Attributes</li>
+<li>CSS values</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgec89e2c" class="outline-4">
+<h4 id="orgec89e2c">Section 5.4.3: Escaping &amp; Controlling Markup</h4>
+<div class="outline-text-4" id="text-orgec89e2c">
+<ul class="org-ul">
+<li>Any content generated by users that contain characters that are used in code should be escaped on the server (you must control any markup added to the page)</li>
+<li>All data from untrusted sources should be escaped on the server before it is shown on the page and most server-side languages offer helper functions to strip-out or escape malicious code</li>
+<li>For example instead of using the character "&amp;" it is best to escape the character and use "&amp;amp" for HTML</li>
+<li>For JS, never include data from untrusted sources in JS which means escaping all ASCII characters with a value less than 256 that are not alphanumeric characters because that can be a security risk</li>
+<li>For URLS use the JS <code>encodeURIComponent()</code> method to encode the user input which encodes the following characters: <code>,</code>, <code>/</code>, <code>?</code>, <code>:</code>, and more</li>
+<li>When you add untrusted content to an HTML page, once it has been escaped on the server, it should still be added to the page as text and JS and jQuery both offer tools for doing this:
+<ul class="org-ul">
+<li>For JS use <code>textContent</code> and <code>innerText</code> instead of <code>innerHTML</code></li>
+<li>For jQuery use <code>.text()</code> instead of <code>.html()</code></li>
+</ul></li>
+<li>You can still use <code>innerHTML</code> or <code>.html()</code> but you have to make sure that you control <b>all</b> of the markup being generated (not outside users) and the actual user's content does not use the HTML methods instead the content is escaped and treated as text and use the text methods</li>
 </ul>
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgdce0d83" class="outline-3">
+<h3 id="orgdce0d83">Section 5.5: Attribute Nodes</h3>
+<div class="outline-text-3" id="text-orgdce0d83">
+<ul class="org-ul">
+<li>Once you have an element node, you can use other properties and methods on that element node to access and change its attributes</li>
+<li>There are two steps to accessing and updating attributes:
+<ol class="org-ol">
+<li>Select the element node that carries the attribute</li>
+<li>Use the dot operator to use one of the methods or properties to work with that element's attributes</li>
+</ol></li>
+<li>Methods to access and change attributes of an element:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method / Property</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>getAttribute()</code></td>
+<td class="org-left">Gets the value of an attribute</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>hasAttribute()</code></td>
+<td class="org-left">Checks if element node has a specified attribute</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>setAttribute()</code></td>
+<td class="org-left">Sets the value of an attribute</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>removeAttribute()</code></td>
+<td class="org-left">Removes an attribute from an element node</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>className</code></td>
+<td class="org-left">Gets or sets the value of the <code>class</code> attribute</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>id</code></td>
+<td class="org-left">Gets or sets the value of the <code>id</code> attribute</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Properties of an element (object) coresspond to the attributes that type of element can carry</li>
+<li>For example, <code>href</code>, <code>checked</code>, <code>title</code>, etc. may be properties of the element's object but may or may not have valid values depending on the type of element itself</li>
+<li>Other properties include <code>className</code> and <code>id</code> which an element may or may not have</li>
+<li>The <code>className</code> property allows you to change the value of the <code>class</code> attribute and if the attribute does not exist it will be created and given the specified value</li>
+<li>However instead of using <code>className</code> we can use <code>setAttribute()</code> to update the value of <i>any</i> attribute, it takes two parameters the attribute name and value for the attribute</li>
+<li>Generally when there is a property for the attribute like <code>className</code> or <code>id</code> it is generally considered better to update the properties rather than use a method because the method will simply use the properties to update the value</li>
+<li>Changing the <code>className</code> can trigger new CSS rules and change the appearance of the elements</li>
+<li>By changing the value of class either through <code>className</code> or the method you will be overriding the entire value of the <code>class</code> attribute, they do not add a new value to the existing value of the <code>class</code> attribute</li>
+<li>Instead you can add or remove idividual class names by using the property <code>.classList</code> and the method <code>.classList.add()</code> or <code>.classList.remove()</code></li>
+<li>In jQuery you can also use the method <code>.addClass()</code></li>
+<li>Before you work with an attribute, it is good practice to check whether it exists because this will save resources if the attribute cannot be found</li>
+<li>The <code>hasAttribute()</code> method of any element node lets you check if an attribute exists and the attribute name is given as an argument in parentheses</li>
+<li>To remove an attribute from an element, first select the element, then call <code>removeAttribute()</code> and it only has one parameter which is the name of the attribute to remove</li>
+<li>Trying to remove an attribute that does not exist will not cause an error but it is good practice to check for its existence before attempting to remove it</li>
+</ul>
 </div>
-<div id="outline-container-org50881de" class="outline-2">
-<h2 id="org50881de">Keywords</h2>
-<div class="outline-text-2" id="text-org50881de">
+</div>
+
+<div id="outline-container-orgefd3272" class="outline-3">
+<h3 id="orgefd3272">Section 5.6: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-orgefd3272">
+<ul class="org-ul">
+<li>We are going to create a todo-list purely from JS</li>
+<li>We will not have HTML elements instead we are going to create the elements in JS</li>
+<li>This will help us understand the DOM tree and understand how to change the DOM tree</li>
+<li>Our todo-list will have the following features:
+<ol class="org-ol">
+<li>Add an item to the list</li>
+<li>Remove an item from the list</li>
+<li>Mark an item to be finished</li>
+<li>Change the background color of the item</li>
+<li>Change the position of the item (either move it up the list or move it down the list)</li>
+<li>Keep track of recently deleted items</li>
+<li>Count the amount of active items and display it in the header</li>
+</ol></li>
+<li>The entire body will be done using JS via DOM manipulation</li>
+<li><a href="./005.006.Chapter_Exercise/index.html">Here is the Todo Web App</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf1aad65" class="outline-2">
+<h2 id="orgf1aad65">Keywords</h2>
+<div class="outline-text-2" id="text-orgf1aad65">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -960,9 +1122,10 @@
 </table>
 </div>
 </div>
-<div id="outline-container-orgc2f28c8" class="outline-2">
-<h2 id="orgc2f28c8">Questions</h2>
-<div class="outline-text-2" id="text-orgc2f28c8">
+
+<div id="outline-container-org637c4bb" class="outline-2">
+<h2 id="org637c4bb">Questions</h2>
+<div class="outline-text-2" id="text-org637c4bb">
 <ul class="org-ul">
 <li><b>Q</b>: How does DOM treat whitespaces?</li>
 <li><b>Q</b>: How does DOM treat attributes?</li>
@@ -974,13 +1137,13 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org7ee3cbc" class="outline-2">
-<h2 id="org7ee3cbc">Summary</h2>
+<div id="outline-container-orga93d066" class="outline-2">
+<h2 id="orga93d066">Summary</h2>
 </div>
 
-<div id="outline-container-orge78fb85" class="outline-2">
-<h2 id="orge78fb85">Resources</h2>
-<div class="outline-text-2" id="text-orge78fb85">
+<div id="outline-container-org425d148" class="outline-2">
+<h2 id="org425d148">Resources</h2>
+<div class="outline-text-2" id="text-org425d148">
 <ul class="org-ul">
 <li><a href="https://javascript.info/dom-nodes">https://javascript.info/dom-nodes</a></li>
 </ul>

@@ -1,0 +1,93 @@
+.title {
+    max-width: fit-content;
+    margin: auto;
+}
+
+.nav-menu {
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+#table-nav {
+    margin-top: 1%;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#table-nav tr th:hover {
+    color: blue;
+}
+
+
+.active {
+    border-bottom: 3px solid black;
+}
+
+#input-container {
+    margin-top: 1%;
+    width: 50%;
+    margin: 1% auto;
+    padding: 0;
+    text-align: center;
+}
+
+#input-container input {
+    width: 80%;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 1%;
+    vertical-align: middle;
+}
+
+#input-container button {
+    padding: 0;
+    margin: 0 1%;
+    width: 4%;
+    vertical-align: middle;
+    background: none;
+    border: none;
+    min-width: 20px;
+}
+
+#input-container svg:hover {
+    fill: green;
+}
+
+#input-container svg {
+    margin: 0;
+    padding: 0;
+}
+
+#todo-table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+#todo-table tr th {
+    border: 1px solid pink;
+}
+
+#todo-table tr td {
+    text-align: center;
+    border: 1px solid pink;
+}
+
+#actions-cell {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+svg {
+    vertical-align: middle;
+    width: 20px;
+}
+
+#check-todo-icon:hover {
+    fill: aqua;
+}
+
+#trash-todo-icon:hover {
+    fill: red;
+}
