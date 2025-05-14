@@ -465,35 +465,129 @@
      1. Add an item to the list
      2. Remove an item from the list
      3. Mark an item to be finished
-     3. Change the background color of the item
-     4. Change the position of the item (either move it up the list or move it down the list)
-     5. Keep track of recently deleted items
-     6. Count the amount of active items and display it in the header
+     4. Keep track of recently deleted items
    - The entire body will be done using JS via DOM manipulation
    - [[file:./005.006.Chapter_Exercise/index.html][Here is the Todo Web App]]
-     
+
+** Section 5.7: Summary
+   - The browser represents the page using a DOM tree
+   - DOM trees have four main types of nodes: document nodes, element nodes, attribute nodes, and text nodes (there are more nodes but these are the main ones)
+   - You can select element nodes by their id or class attributes, by tag name, or using CSS selector syntax
+   - Whenever a DOM query can return more than one node it will always return a ~NodeList~
+   - From an element node you can access and update its content using properties such as ~textContent~ and ~innerHTML~ or using DOM manipulation techniques
+   - An element node can contain multiple text nodes and child elements that are siblings to each other
+   - In older browsers, implementation of the DOM is inconsistent and is a popular reason for using jQuery; however, with modern browsers and other frameworks jQuery has decreased in popularity
+   - Browsers offer tools for viewing the DOM tree
+    
 * Keywords
-| Term                    | Definition |
-|-------------------------+------------|
-| DOM                     |            |
-| DOM Tree                |            |
-| Document Node           |            |
-| Element Node            |            |
-| Attribute Node          |            |
-| Text Node               |            |
-| ~.innerHTML~ Property   |            |
-| ~.innerText~ Property   |            |
-| ~.textContent~ Property |            |
+| Term                    | Definition                                                                                                                                                                                                                                                                                                                                                |
+|-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| DOM                     | The Document Object Model (DOM) is the data representation of the objects that comprise the structure and content of a document on the web, basically, DOM is a programming interface for web documents that represent the page so that programs can change the document structure, style, and content                                                    |
+| DOM Tree                | The DOM tree is a hierarchical representation of an HTML or XML document structured as a tree where each element, attribute, and text content is a node and the tree-like structure allows programming languages like JS to interact with and manipulate the web page's content, structure, and styles                                                    |
+| Document Node           | The document node is the topmost root node in the DOM tree that represents the entire HTML or XML document as it is the entry point to access all elements in a web page, the document node does not represent any visible content but acts as a container for the rest of the nodes in the DOM                                                           |
+| Element Node            | The element node in the DOM represents an HTML or XML element like ~<div>~, ~<p>~, and so on as it directly corresponds to the tags in the HTML or XML document, these elements may have attributes, child nodes, and text content                                                                                                                        |
+| Attribute Node          | The attribute node in the DOM represents an attribute of an HTML or XML element such as ~class~, ~id~, ~href~, etc. the element node can have zero or more attribute nodes and these attribute nodes are *not* considered to be child nodes of the element node                                                                                           |
+| Text Node               | Text nodes in the DOM represent the actual text content inside an element or attribute (not the element or attribute itself), these text nodes are always leaf node and only contain the text value under the property ~nodeValue~                                                                                                                        |
+| ~.innerHTML~ Property   | Retrieves and sets all the HTML content inside the element, the value is a string with HTML markup so you can retrieve this string or you can set a new string and it will process HTML markup and replace all child elements with the new HTML given                                                                                                     |
+| ~.innerText~ Property   | ~innerText~ retrieves text from all child elements and stores it into a string just like how it is displayed depending on the CSS rules, if the CSS rule says the text is uppercase then the string will be in uppercase; it does not have markup and you can set the value of ~innerText~ but it will replace all child elements with a single text node |
+| ~.textContent~ Property | ~textContent~ is similar to ~innerText~ as it gets all the text from the child elements but it only gets the text from the HTML, if any CSS rule is applicable it will be ignored in the string, you can also replace the string but it will replace all child elements with a single text node with the value given                                      |
 
 * Questions
   - *Q*: How does DOM treat whitespaces?
+         - DOM creates text nodes for whitespace characters
+	 - So if you have the following:
+	 #+BEGIN_SRC html
+	   <div>
+	     <p>Hello World</p>
+	   </div>
+	 #+END_SRC
+	 - It will create a element node for ~div~ then it will create 3 child nodes, one text node for the first newline character, the second node for the element ~p~, and the third node for the next newline character
+	 - So whitespace characters are preserved in DOM and treated as part of the content in the text node
+	 - The actual content in text nodes is preserved exactly as it appears in the HTML
+	   
   - *Q*: How does DOM treat attributes?
+         - DOM creates nodes for the attributes but these attributes are not children of the element node
+	 - Instead attribute nodes are stored as part of the element node
+	 - Attributes are treated as name-value pairs with the name of the attribute and its value
+	 - Attribute nodes are case-insensitive and again they are not children of the element but part of the element as properties
+	   
   - *Q*: Which nodes are leaf nodes and why isn't attribute nodes considered leaf nodes?
+         - The nodes that can be leaf nodes are text nodes, comment nodes, and empty elements (no children)
+         - Attribute nodes are not considered leaf nodes because attributes are not part of the child-node hierarchy because they are associated with the element node itself as a property / metadata
+	 - Since attribute nodes are not children of the element, they do not appear in the node's child list and thus not part of the document's tree structure because they are a part of the element itself
+	 - So attributes cannot be leaf nodes because they are not even considered as part of the tree instead they are considered as properties of the element itself
+	   
   - *Q*: Is there a function or property that gets the text node directly?
-  - *Q*: What is the difference between ~.innerHTML~, ~innerText~, and ~.textContent~?
-  - *Q*: What is the difference between live ~NodeList~ and static ~NodeList~?
-  - *Q*: Do all scripts use the same DOM tree, so if one script affects the DOM tree does the other script see the changes?
-* Summary
+         - No there is not a direct way to get the text node
+	 - Instead you would have to use other methods / properties
+	 - You could use the child nodes of the element, iterate through the list, and find the node whose's type is a text node
+	 - You could use the property ~.textContent~ to change the text content inside the element
 
+  - *Q*: What is the difference between ~.innerHTML~, ~.innerText~, and ~.textContent~?
+         - The ~.innerHTML~ property allows you to get or set the HTML content inside an element with a string containing HTML markup
+	 - This string is processed by HTML to add elements to the DOM
+	 - ~.innerText~ returns or sets the visible text content from all its children as a string as it appears after the CSS rules have been applied
+	 - So if some text is hidden by CSS then the text will not show up, if some text is uppercased by CSS then the string will return text uppercased
+	 - ~.innerText~ does not contain HTML markup, it only returns plain text
+	 - ~.textContent~ is similar to ~.innerText~ but it does not consider CSS styles so it will return the text of all children elements as plain text without any CSS changes just like how it appears in HTML
+	 - ~.textContent~ does not contain HTML markup
+	 - So ~.innerHTML~ gets and sets HTML markup, ~.innerText~ gets and sets plain text with CSS stylings, and ~.textContent~ gets and sets the raw text content without any CSS stylings
+	   
+  - *Q*: What is the difference between live ~NodeList~ and static ~NodeList~?
+         - Both live ~NodeList~ and static ~NodeList~ are ~NodeList~ which is a collection of nodes but the only difference between the two is how they update in response to changes in the DOM tree
+	 - For live ~NodeList~ when the DOM is changed and modified, the ~NodeList~ will have those changes in real-time without having to do anything
+	 - The live ~NodeList~ will reflect the changes in DOM dynamically and is always kept in sync with the current state of the document
+	 - Methods that return live ~NodeList~ are: ~getElementsByTagName()~ and ~getElementsByClassName()~
+	 - Static ~NodeList~ is a snapshot of the nodes that match the query when the ~NodeList~ was created
+	 - Once a static ~NodeList~ is created, it does not update if the DOM changes, the content of a NodeList is frozen at the time it was created
+	 - The method that returns static ~NodeList~ is ~querySelectorAll()~ 
+	   
+  - *Q*: Do all scripts use the same DOM tree, so if one script affects the DOM tree does the other script see the changes?
+         - There is a single DOM object for one page, so all scripts running in the web page will have the same shared DOM
+	 - Thus if one script changes the DOM, those changes will be reflected in the DOM tree and the other script running on the same page will see the updated DOM
+	 - The DOM is a global representation of the HTML document in the browser so all scripts on the page interact with the same DOM
+	 - Thus any changes to DOM is visible to all scripts
+* Summary
+  - The Document Object Model (DOM) specifies how browsers should create a model of an HTML page and how JS can access and update the contents of a web page while it is in the browser window
+  - DOM is not part of HTML or JS instead it is implemented by all major browsers that make the model of the HTML page and based on the model allows JS to access and change the HTML page
+  - When a page is loaded the browser creates a model of the page in memory and DOM specifies the way in which the browser should structure this model using a DOM tree
+  - DOM defines methods and properties to access and update each object in the DOM tree which is why the DOM is sometimes referred to as an application programming interface (API)
+  - The DOM tree is stored in the browser's memory and it consists of four main types of nodes: document nodes, element nodes, attribute nodes, and text nodes
+  - The document node is the root node (~document~ node) and it represents the entire page
+  - Every tree node in the DOM tree is an object even the leaf nodes
+  - Text nodes are created for whitespace characters
+  - Attribute nodes are not part of the hierarchical tree structure instead the attribute nodes are part (properties) of the element nodes
+  - To retrieve nodes (objects) from the DOM tree there are many ways, you can use methods (DOM queries) or properties to traverse the DOM tree
+  - To retrieve single nodes using the DOM queries you use the following methods: ~getElementByID()~ and ~querySelector()~
+  - To retrieve multiple nodes using DOM queries you use the following methods: ~getElementsByClassName()~, ~getElementsByTagName()~, and ~querySelectorAll()~
+  - The methods that retrieve multiple nodes will return a ~NodeList~
+  - The ~NodeList~ may be live or static depending on the method used
+  - Methods that start like ~getElementsBy~ will return live ~NodeList~ that means any changes to the DOM will automatically be reflected in the ~NodeList~ if applicable
+  - The method ~querySelectorAll()~ returns static ~NodeList~ and static lists do not change if the DOM changes instead they capture or store the query results of the DOM query at the time of the query and does not change after if the DOM changes
+  - You can also traverse through the nodes by using the properties ~parentNode~, ~previousSibling~, ~nextSibling~, ~firstChild~, and ~lastChild~
+  - To access the contents of a node you can use the properties and methods of the node
+  - To access a node's text, you can access it's child text node, however there is no property or function that directly gives you the text node instead you will need to use other methods / properties to get the text node
+  - Once you have access to the text node you can use the property ~nodeValue~ to get the text from the text node
+  - Some elements may have multiple text nodes so you will have to go through each one to get the full text
+  - Instead you can use the property ~.textContent~ of the element to retireve or set the text from all children of the element
+  - ~textContent~ will retrieve all text as a string with plain text
+  - You could also use ~.innerText~, it is similar to ~textContent~ in the sense that you can replace or retrieve the value but it will reflect any CSS stylings such as hidden text will be hidden, uppercase text will be uppercased, etc.
+  - Or you could use ~.innerHTML~ but the string stored in ~.innerHTML~ is the actual HTML markup with the tags so if you were to replace the value with a string, the string may contain HTML markup and DOM will reflect the changes added / removed from ~.innerHTML~ because it understands to process the string as HTML markup
+  - However ~.innerHTML~ can lead to security risks (due to being able to add malicious HTML with script tags) so it is best to avoid ~.innerHTML~ if possible and if we need to use it then we should be the only person who uses ~.innerHTML~
+  - Some websites receive user input so always validate input in the client-side and server-side, never add user input into script tags, HTML comments, tag names, attributes, CSS values, and always escape your strings on the server before the browser processes it
+  - There are functions to create and remove nodes from the DOM tree using the ~document~ object
+  - You can use the functions ~createElement()~ and ~createTextNode()~ to create nodes and then use the methods ~appendChild()~ or ~insertBefore()~ to add nodes to existing nodes
+  - You can remove nodes by the functions ~removeChild()~
+  - Also just because you created an element or node, does *not* mean you have added the node to the DOM tree
+  - To add newly created objects (nodes) to the DOM tree you need to append it as a child to an already existing node in the DOM tree
+  - If you append the newly created node to another node that is not in the DOM tree then both nodes do not exist in the DOM tree and it will not show up in the web page
+  - You have to add the newly created node to a node that is already present in the DOM tree so it can be successfully added to the DOM tree and shown in the page
+  - To add new elements in HTML you can use ~.innerHTML~, DOM manipulation with the methods shown above, or with ~document.write()~
+  - Although DOM manipulation may be slower and requires more code it may be more secure than ~innerHTML~ and ~document.write()~ has since been deprecated and should no longer be used
+  - Finally, attribute nodes are not child nodes of the element but part of the element itself
+  - Attribute nodes can be retrieved, checked for, set, and removed using the following functions: ~getAttribute()~, ~hasAttribute()~, ~setAttribute()~, and ~removeAttribute()~
+  - However, depending on the object you may have access to the attribute directly, for example, for links instead of saying ~setAttribute("href", "www.example.com")~ you have be able to access it using ~.href~
+  - It is better to use these properties directly if possible because it is faster and because behind the scenes the methods shown above regarding attributes use these same properties to set attributes, check attributes, get attributes, and remove attributes
+    
 * Resources
   - https://javascript.info/dom-nodes
