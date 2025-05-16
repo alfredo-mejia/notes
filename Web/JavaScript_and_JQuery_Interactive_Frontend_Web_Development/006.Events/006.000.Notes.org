@@ -63,16 +63,126 @@
    | Mutation Events | ~DOMNodeRemoved~              | Node has been removed from another node                                                                |
    | Mutation Events | ~DOMNodeInsertedIntoDocument~ | Node has been inserted as a descendant of another node                                                 |
    | Mutation Events | ~DOMNodeRemovedFromDocument~  | Node has been removed as a descendant of another node                                                  |
+
+** Section 6.3: How Events Trigger JS Code
+   - When the user interacts with the HTML on a web page there are 3 steps involved in getting it to trigger some JS code and together these steps are known as event handling
+     1. Select the element node(s) you want the script to respond to (for example, if you want to trigger a function when a user clicks on a specific link you need to get the DOM node for that link element)
+     2. Indicate which event on the select node(s) will trigger the response (programmers call this binding an event to a DOM node, so if you want to "bind" or respond to a mouse event specify "mousedown" or any other event)
+     3. State the code you want to run when the event occurs (when the event occurs on a specified element, it will trigger a function it can be a named or anonymous function)
+   - The user interface events that related to the browser window (rather than the HTML page loaded in it) work with the ~window~ object rather than an element node (example includes the events that occur when a requested page has finished loading or when the user scrolls)
+   - Some events work with most element nodes, such as the ~mouseover~ event which is triggered when the user rolls over any element but other events only work with specific element nodes such as the ~submit~ event which only works with a form
+   - Event handlers let you indicate which event you are waiting for on any particular element
+
+*** Section 6.3.1: HTML Event Handlers
+    - HTML event handlers are bad practice and should not be used
+    - Earlyversions of HTML included a set of attributes that could respond to events on the element they were added to
+    - The attribute names matched the event names and their values called the function that was to run when the event occurred
+    - For example the following: ~<a onclick="hide()">~ indicated that when a user clicked on this ~<a>~ element the ~hide()~ function would be called
+    - This method of event handling is no longer used because it is better to separate JS from HTML
+    - In HTML, the first ~<input>~ element has an attribute called ~onblur~ (triggered when the user leaves the element) and the value of the attribute is the name of the function that it should trigger
+    - The value of the event handler attributes would be JavaScript and often the JS would be written in the ~<head>~ element or a separate JS file
+    - The names of the HTML event handler attributes are identical to the event names shown previously except that they are preceded by the word "on" (e.g. ~onclick~, ~onblur~, ~onmousemove~, etc.)
+    - ~<a>~ elements have ~onclick~, ~onmouseover~, ~onmouseout~, etc.
+    - ~<form>~ elements can have ~onsubmit~
+    - ~<input>~ elements for text can have ~onkeypress~, ~onfocus~, ~onblur~, etc. 
+
+*** Section 6.3.2: Traditional DOM Event Handlers
+    - DOM *event handlers* were introduced in the original specification for DOM and are considered better than HTML event handlers because they let you separate the JS from the HTML
+    - The drawback of DOM event handlers is that you can only attach a single function to any event thus if you have more than one script used on the same page and both scripts respond to the same event then one or both of the scripts may not work as intended
+    - All modern browsers understand this way of creating an event handler but you can only attach one function each event handler
+    - Here is the syntax to bind an event to an element using an event handler and to indicate which function should execute when the event fires:
+
+    #+BEGIN_SRC javascript
+      element.onevent = functionName;
+    #+END_SRC
+
+    - "element" is a placeholder for the actual element object
+    - "onevent" is a placeholder for the event bound to the node(s) preceded by the word "on"
+    - "functionName" is a placeholder to the name of the function to call without parentheses following it
+    - For example:
+
+    #+BEGIN_SRC javascript
+      function checkUsername() {
+      }
+
+      var el = document.getElementById(<id>);
+      el.onblur = checkUsername;
+    #+END_SRC
+
+    - Notice how the parentheses are omitted from the function in the event handler
+    - This is an example of an event handler using named functions
+    - You could also use anonymous functions like the following: ~el.onblur = function (){}~
+    - Also remember when using event handlers, the event name is preceded by the word "on"
+    - You cannot pass arguments to the function, you will need to do a workaround to pass argumments (data) to the function
+    - Also note that when assigning functions to an element's event, in the function you can use the keyword ~this~ and it would refer to the element object because the function was called from the element's event being fired
+    - Since we cannot pass arguments to the functions in event handlers we need a workaround and that workaround is to wrap the function call in an anonymous function
+    - For example, instead of ~el.onblur = checkUsername~ without any arguments we run the following ~el.onblur = function() {checkUsername(argument)}~
+    - Thus the event handler only sees one function with no arguments but inside the argument you call the true event handler function with some arguments
+       
+*** Section 6.3.3: DOM Level 2 Event Listeners
+    - *Event listeners* were introduced to an update to the DOM specification and they are now the favored way of handling events
+    - The syntax is different from the traditional (old) event handlers and allows one event to trigger multiple functions, thus there are less likely to be conflicts between different scripts that run on the same page
+    - Another reason why jQuery became popular because in the old browsers there were differences in browser support for DOM and events
+    - Event listeners allow for multiple listeners to be attached to the same event and it does not overwrite any existing listeners
+    - Event listeners are more modern as they support more than one function at a time but are not supported in older browsers (which doesn't apply anymore because every modern browser supports it now)
+    - Here is the syntax to bind an event to an element using an event listener which indicates which function should execute when the event fires on the specified element
+
+    #+BEGIN_SRC javascript
+      element.addEventListener('event', functionName, [, Boolean]);
+    #+END_SRC
+
+    - "element" is the DOM element node to target
+    - "event" is the event to bind Node(s) to in quotation marks
+    - "functionName" is the name of the function or it could be an anonymous function
+    - The last part of the syntax indicates something called capture and is usually set to false (we'll talk about it more later) and the last part (parameters inside the square brackets) is optional
+    - For example:
+
+    #+BEGIN_SRC javascript
+      function checkUsername() {}
+      var el = document.getElementById('username');
+      el.addEventListener('blur', checkUsername, false);
+    #+END_SRC
+
+    - An anonymous function can also be used as the following: ~el.addEventListener('blur', function(){}, false)~
+    - The ~addEventListener()~ method takes 3 parameters:
+      1. The event you want it to listen for
+      2. The code that you want it to run when the event fires (notice if you are using named functions you need to omit the parentheses because that would mean you are calling the function but that is incorrect, the function will be called only when the event is fired / raised so omit the parentheses)
+      3. A boolean indicating how events flow (we'll talk about it later)
+    - Note that unlike HTML handlers and traditional DOM event handlers when you specify the name of the event that you want to react to, the event name is not preceded by the word "on"
+    - If you want to remove an event listener, there is a function called ~removeEventListener()~ which removes the event listener from the specified element and it has the same parameters as ~addEventListener()~
+    - One workaround to pass arguments is to enclose the function in the event listener in an anonymous function and call the original function inside the anonymous function with the appropriate arguments
+    - For example, instead of ~el.addEventListener('blur', checkUsername, false)~ without any arguments we call ~el.addEventListener('blur', function() {checkUsername(5)}, false)~
+    - To pass arguments from other the event listener to the function, the most common and natural way, is to simply use the variables exposed based on scope, in JS, you can define variables outside the event listener and be able to access them inside the event listener due to how scope works in JS
+
+**** Section 6.3.3.1: Supporting Older Versions of Internet Explorer (IE) - OUTDATED!!
+     - IE8 and earlier do not support ~addEventListener()~ but you can provide fallback code to make event listeners work with older versions of IE
+     - Instead of ~addEventListener()~ it uses its own method called ~attachEvent()~ which does the same job (accepts the event name preceded by the word "on" and a function) but only available in IE
+     - Thus to support IE8 or earlier you use an if-else statement, you check if ~addEventListener~ exists by running ~if(element.addEventListener)~, if it returns true then you can use ~addEventListener~ and if it returns false you use the else statement to run ~attachEvent~
+     - When ~attachEvent()~ is used the event name should be preceded by the word "on" (e.g. "onblur")
+     - If you need to support IE8 or older, instead of writing this fallback code for every event it is better to write your own helper function that creates the event hanlder for you for whichever method it supports (~addEventListener~ or ~attachEvent~) so instead of writing this if-else multiple times, you write it once in your helper function and now you use your helper function to create events
+
+** Section 6.4: Event Flow
      
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term            | Definition |
+|-----------------+------------|
+| Events          |            |
+| Event Handlers  |            |
+| Event Listeners |            |
 
 * Questions
   - *Q*: If you have no event handler in JS, are events still fired (but does not trigger any code)?
 
   - *Q*: What does the mutation events actually do like ~DOMSubtreeModified~, ~DOMNodeInserted~, ~DOMNodeRemoved~, ~DOMNodeInsertedIntoDocument~, and ~DOMNodeRemovedFromDocument~?
+
+  - *Q*: What is the difference between DOM event handlers and DOM event listeners?
+
+  - *Q*: If two scripts on the same page handle the same event, which code is run first?
+
+  - *Q*: Can you pass function arguments to event handlers?
+         - No, you cannot directly pass arguments to event handlers
+
+  - *Q*: How can I pass arguments from outside the event listener into the event listener function?
 
 * Summary
 

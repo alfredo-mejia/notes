@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-15 Thu 23:52 -->
+<!-- 2025-05-16 Fri 18:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6: Events</title>
@@ -202,23 +202,31 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org999a698">Navigation</a></li>
-<li><a href="#org2d84830">Notes</a>
+<li><a href="#orgba27c4b">Navigation</a></li>
+<li><a href="#org53d9d96">Notes</a>
 <ul>
-<li><a href="#orgc0d3b0c">Section 6.1: Introduction to Events</a></li>
-<li><a href="#org3a11fd0">Section 6.2: Event Types</a></li>
+<li><a href="#org199a350">Section 6.1: Introduction to Events</a></li>
+<li><a href="#org90c5129">Section 6.2: Event Types</a></li>
+<li><a href="#orgd6ea1b9">Section 6.3: How Events Trigger JS Code</a>
+<ul>
+<li><a href="#org5b6ba0c">Section 6.3.1: HTML Event Handlers</a></li>
+<li><a href="#org39d1337">Section 6.3.2: Traditional DOM Event Handlers</a></li>
+<li><a href="#org4589200">Section 6.3.3: DOM Level 2 Event Listeners</a></li>
 </ul>
 </li>
-<li><a href="#org295350a">Keywords</a></li>
-<li><a href="#orgcdbd165">Questions</a></li>
-<li><a href="#org1c74847">Summary</a></li>
+<li><a href="#org35a49fe">Section 6.4: Event Flow</a></li>
+</ul>
+</li>
+<li><a href="#orgeac8a64">Keywords</a></li>
+<li><a href="#org6726b45">Questions</a></li>
+<li><a href="#org223272a">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org999a698" class="outline-2">
-<h2 id="org999a698">Navigation</h2>
-<div class="outline-text-2" id="text-org999a698">
+<div id="outline-container-orgba27c4b" class="outline-2">
+<h2 id="orgba27c4b">Navigation</h2>
+<div class="outline-text-2" id="text-orgba27c4b">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -265,13 +273,13 @@
 </div>
 </div>
 
-<div id="outline-container-org2d84830" class="outline-2">
-<h2 id="org2d84830">Notes</h2>
-<div class="outline-text-2" id="text-org2d84830">
+<div id="outline-container-org53d9d96" class="outline-2">
+<h2 id="org53d9d96">Notes</h2>
+<div class="outline-text-2" id="text-org53d9d96">
 </div>
-<div id="outline-container-orgc0d3b0c" class="outline-3">
-<h3 id="orgc0d3b0c">Section 6.1: Introduction to Events</h3>
-<div class="outline-text-3" id="text-orgc0d3b0c">
+<div id="outline-container-org199a350" class="outline-3">
+<h3 id="org199a350">Section 6.1: Introduction to Events</h3>
+<div class="outline-text-3" id="text-org199a350">
 <ul class="org-ul">
 <li>When you browse the web, your browser registers different types of events</li>
 <li>It is the browser's way of saying "Hey, this just happened"</li>
@@ -285,9 +293,9 @@
 </div>
 </div>
 
-<div id="outline-container-org3a11fd0" class="outline-3">
-<h3 id="org3a11fd0">Section 6.2: Event Types</h3>
-<div class="outline-text-3" id="text-org3a11fd0">
+<div id="outline-container-org90c5129" class="outline-3">
+<h3 id="org90c5129">Section 6.2: Event Types</h3>
+<div class="outline-text-3" id="text-org90c5129">
 <ul class="org-ul">
 <li>When an event has occurred it is often described as having <b>fired</b> or been <b>raised</b></li>
 <li>So for example the user clicks on a button, the <i>click</i> event would be fired in the browser</li>
@@ -499,11 +507,159 @@
 </table>
 </div>
 </div>
+
+<div id="outline-container-orgd6ea1b9" class="outline-3">
+<h3 id="orgd6ea1b9">Section 6.3: How Events Trigger JS Code</h3>
+<div class="outline-text-3" id="text-orgd6ea1b9">
+<ul class="org-ul">
+<li>When the user interacts with the HTML on a web page there are 3 steps involved in getting it to trigger some JS code and together these steps are known as event handling
+<ol class="org-ol">
+<li>Select the element node(s) you want the script to respond to (for example, if you want to trigger a function when a user clicks on a specific link you need to get the DOM node for that link element)</li>
+<li>Indicate which event on the select node(s) will trigger the response (programmers call this binding an event to a DOM node, so if you want to "bind" or respond to a mouse event specify "mousedown" or any other event)</li>
+<li>State the code you want to run when the event occurs (when the event occurs on a specified element, it will trigger a function it can be a named or anonymous function)</li>
+</ol></li>
+<li>The user interface events that related to the browser window (rather than the HTML page loaded in it) work with the <code>window</code> object rather than an element node (example includes the events that occur when a requested page has finished loading or when the user scrolls)</li>
+<li>Some events work with most element nodes, such as the <code>mouseover</code> event which is triggered when the user rolls over any element but other events only work with specific element nodes such as the <code>submit</code> event which only works with a form</li>
+<li>Event handlers let you indicate which event you are waiting for on any particular element</li>
+</ul>
 </div>
 
-<div id="outline-container-org295350a" class="outline-2">
-<h2 id="org295350a">Keywords</h2>
-<div class="outline-text-2" id="text-org295350a">
+<div id="outline-container-org5b6ba0c" class="outline-4">
+<h4 id="org5b6ba0c">Section 6.3.1: HTML Event Handlers</h4>
+<div class="outline-text-4" id="text-org5b6ba0c">
+<ul class="org-ul">
+<li>HTML event handlers are bad practice and should not be used</li>
+<li>Earlyversions of HTML included a set of attributes that could respond to events on the element they were added to</li>
+<li>The attribute names matched the event names and their values called the function that was to run when the event occurred</li>
+<li>For example the following: <code>&lt;a onclick="hide()"&gt;</code> indicated that when a user clicked on this <code>&lt;a&gt;</code> element the <code>hide()</code> function would be called</li>
+<li>This method of event handling is no longer used because it is better to separate JS from HTML</li>
+<li>In HTML, the first <code>&lt;input&gt;</code> element has an attribute called <code>onblur</code> (triggered when the user leaves the element) and the value of the attribute is the name of the function that it should trigger</li>
+<li>The value of the event handler attributes would be JavaScript and often the JS would be written in the <code>&lt;head&gt;</code> element or a separate JS file</li>
+<li>The names of the HTML event handler attributes are identical to the event names shown previously except that they are preceded by the word "on" (e.g. <code>onclick</code>, <code>onblur</code>, <code>onmousemove</code>, etc.)</li>
+<li><code>&lt;a&gt;</code> elements have <code>onclick</code>, <code>onmouseover</code>, <code>onmouseout</code>, etc.</li>
+<li><code>&lt;form&gt;</code> elements can have <code>onsubmit</code></li>
+<li><code>&lt;input&gt;</code> elements for text can have <code>onkeypress</code>, <code>onfocus</code>, <code>onblur</code>, etc.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org39d1337" class="outline-4">
+<h4 id="org39d1337">Section 6.3.2: Traditional DOM Event Handlers</h4>
+<div class="outline-text-4" id="text-org39d1337">
+<ul class="org-ul">
+<li>DOM <b>event handlers</b> were introduced in the original specification for DOM and are considered better than HTML event handlers because they let you separate the JS from the HTML</li>
+<li>The drawback of DOM event handlers is that you can only attach a single function to any event thus if you have more than one script used on the same page and both scripts respond to the same event then one or both of the scripts may not work as intended</li>
+<li>All modern browsers understand this way of creating an event handler but you can only attach one function each event handler</li>
+<li>Here is the syntax to bind an event to an element using an event handler and to indicate which function should execute when the event fires:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">element.onevent = functionName;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>"element" is a placeholder for the actual element object</li>
+<li>"onevent" is a placeholder for the event bound to the node(s) preceded by the word "on"</li>
+<li>"functionName" is a placeholder to the name of the function to call without parentheses following it</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">function checkUsername() {
+}
+
+var el = document.getElementById(&lt;id&gt;);
+el.onblur = checkUsername;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Notice how the parentheses are omitted from the function in the event handler</li>
+<li>This is an example of an event handler using named functions</li>
+<li>You could also use anonymous functions like the following: <code>el.onblur = function (){}</code></li>
+<li>Also remember when using event handlers, the event name is preceded by the word "on"</li>
+<li>You cannot pass arguments to the function, you will need to do a workaround to pass argumments (data) to the function</li>
+<li>Also note that when assigning functions to an element's event, in the function you can use the keyword <code>this</code> and it would refer to the element object because the function was called from the element's event being fired</li>
+<li>Since we cannot pass arguments to the functions in event handlers we need a workaround and that workaround is to wrap the function call in an anonymous function</li>
+<li>For example, instead of <code>el.onblur = checkUsername</code> without any arguments we run the following <code>el.onblur = function() {checkUsername(argument)}</code></li>
+<li>Thus the event handler only sees one function with no arguments but inside the argument you call the true event handler function with some arguments</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4589200" class="outline-4">
+<h4 id="org4589200">Section 6.3.3: DOM Level 2 Event Listeners</h4>
+<div class="outline-text-4" id="text-org4589200">
+<ul class="org-ul">
+<li><b>Event listeners</b> were introduced to an update to the DOM specification and they are now the favored way of handling events</li>
+<li>The syntax is different from the traditional (old) event handlers and allows one event to trigger multiple functions, thus there are less likely to be conflicts between different scripts that run on the same page</li>
+<li>Another reason why jQuery became popular because in the old browsers there were differences in browser support for DOM and events</li>
+<li>Event listeners allow for multiple listeners to be attached to the same event and it does not overwrite any existing listeners</li>
+<li>Event listeners are more modern as they support more than one function at a time but are not supported in older browsers (which doesn't apply anymore because every modern browser supports it now)</li>
+<li>Here is the syntax to bind an event to an element using an event listener which indicates which function should execute when the event fires on the specified element</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">element.addEventListener('event', functionName, [, Boolean]);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>"element" is the DOM element node to target</li>
+<li>"event" is the event to bind Node(s) to in quotation marks</li>
+<li>"functionName" is the name of the function or it could be an anonymous function</li>
+<li>The last part of the syntax indicates something called capture and is usually set to false (we'll talk about it more later) and the last part (parameters inside the square brackets) is optional</li>
+<li>For example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">function checkUsername() {}
+var el = document.getElementById('username');
+el.addEventListener('blur', checkUsername, false);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>An anonymous function can also be used as the following: <code>el.addEventListener('blur', function(){}, false)</code></li>
+<li>The <code>addEventListener()</code> method takes 3 parameters:
+<ol class="org-ol">
+<li>The event you want it to listen for</li>
+<li>The code that you want it to run when the event fires (notice if you are using named functions you need to omit the parentheses because that would mean you are calling the function but that is incorrect, the function will be called only when the event is fired / raised so omit the parentheses)</li>
+<li>A boolean indicating how events flow (we'll talk about it later)</li>
+</ol></li>
+<li>Note that unlike HTML handlers and traditional DOM event handlers when you specify the name of the event that you want to react to, the event name is not preceded by the word "on"</li>
+<li>If you want to remove an event listener, there is a function called <code>removeEventListener()</code> which removes the event listener from the specified element and it has the same parameters as <code>addEventListener()</code></li>
+<li>One workaround to pass arguments is to enclose the function in the event listener in an anonymous function and call the original function inside the anonymous function with the appropriate arguments</li>
+<li>For example, instead of <code>el.addEventListener('blur', checkUsername, false)</code> without any arguments we call <code>el.addEventListener('blur', function() {checkUsername(5)}, false)</code></li>
+<li>To pass arguments from other the event listener to the function, the most common and natural way, is to simply use the variables exposed based on scope, in JS, you can define variables outside the event listener and be able to access them inside the event listener due to how scope works in JS</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org84c6046"></a>Section 6.3.3.1: Supporting Older Versions of Internet Explorer (IE) - OUTDATED!!<br />
+<div class="outline-text-5" id="text-org84c6046">
+<ul class="org-ul">
+<li>IE8 and earlier do not support <code>addEventListener()</code> but you can provide fallback code to make event listeners work with older versions of IE</li>
+<li>Instead of <code>addEventListener()</code> it uses its own method called <code>attachEvent()</code> which does the same job (accepts the event name preceded by the word "on" and a function) but only available in IE</li>
+<li>Thus to support IE8 or earlier you use an if-else statement, you check if <code>addEventListener</code> exists by running <code>if(element.addEventListener)</code>, if it returns true then you can use <code>addEventListener</code> and if it returns false you use the else statement to run <code>attachEvent</code></li>
+<li>When <code>attachEvent()</code> is used the event name should be preceded by the word "on" (e.g. "onblur")</li>
+<li>If you need to support IE8 or older, instead of writing this fallback code for every event it is better to write your own helper function that creates the event hanlder for you for whichever method it supports (<code>addEventListener</code> or <code>attachEvent</code>) so instead of writing this if-else multiple times, you write it once in your helper function and now you use your helper function to create events</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org35a49fe" class="outline-3">
+<h3 id="org35a49fe">Section 6.4: Event Flow</h3>
+</div>
+</div>
+
+<div id="outline-container-orgeac8a64" class="outline-2">
+<h2 id="orgeac8a64">Keywords</h2>
+<div class="outline-text-2" id="text-orgeac8a64">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -520,7 +676,17 @@
 </thead>
 <tbody>
 <tr>
+<td class="org-left">Events</td>
 <td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Event Handlers</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Event Listeners</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
@@ -528,19 +694,30 @@
 </div>
 </div>
 
-<div id="outline-container-orgcdbd165" class="outline-2">
-<h2 id="orgcdbd165">Questions</h2>
-<div class="outline-text-2" id="text-orgcdbd165">
+<div id="outline-container-org6726b45" class="outline-2">
+<h2 id="org6726b45">Questions</h2>
+<div class="outline-text-2" id="text-org6726b45">
 <ul class="org-ul">
 <li><b>Q</b>: If you have no event handler in JS, are events still fired (but does not trigger any code)?</li>
 
 <li><b>Q</b>: What does the mutation events actually do like <code>DOMSubtreeModified</code>, <code>DOMNodeInserted</code>, <code>DOMNodeRemoved</code>, <code>DOMNodeInsertedIntoDocument</code>, and <code>DOMNodeRemovedFromDocument</code>?</li>
+
+<li><b>Q</b>: What is the difference between DOM event handlers and DOM event listeners?</li>
+
+<li><b>Q</b>: If two scripts on the same page handle the same event, which code is run first?</li>
+
+<li><b>Q</b>: Can you pass function arguments to event handlers?
+<ul class="org-ul">
+<li>No, you cannot directly pass arguments to event handlers</li>
+</ul></li>
+
+<li><b>Q</b>: How can I pass arguments from outside the event listener into the event listener function?</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1c74847" class="outline-2">
-<h2 id="org1c74847">Summary</h2>
+<div id="outline-container-org223272a" class="outline-2">
+<h2 id="org223272a">Summary</h2>
 </div>
 </div>
 </body>
