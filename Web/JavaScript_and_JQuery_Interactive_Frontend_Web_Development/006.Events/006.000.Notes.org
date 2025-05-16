@@ -1,0 +1,78 @@
+#+title: Chapter 6: Events
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
+| Prev  | Chapter 5: Document Object Model                            | \vert [[file:../005.Document_Object_Model/005.000.Notes.html][html]] \vert [[file:../005.Document_Object_Model/005.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/005.Document_Object_Model][github]] \vert |
+| Next  | Chapter 7: jQuery                                           | \vert [[file:../007.jQuery/007.000.Notes.html][html]] \vert [[file:../007.jQuery/007.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/007.jQuery][github]] \vert |
+
+* Notes
+** Section 6.1: Introduction to Events
+   - When you browse the web, your browser registers different types of events
+   - It is the browser's way of saying "Hey, this just happened"
+   - For example, whenever you click on a button, the browser knows you clicked on the button and it can register an event for that scenario, so whenever a user clicks a button the browser can tell you that button has been clicked
+   - Your script can then respond to these events
+   - Scripts often respond to these events by updating the content of the web page (via DOM) which makes the page feel more interactive
+   - Events occur when users click or tap on a link, hover or swipe over an element, type on the keyboard, resize the window, or when the page they request has loaded
+   - When an event occurs, or fies, it can be used to trigger a particular function and different code can be triggered when users interact with different parts of the page
+   - This code can then use the DOM to update the page and thus the web page is interacting with the user
+
+** Section 6.2: Event Types
+   - When an event has occurred it is often described as having *fired* or been *raised*
+   - So for example the user clicks on a button, the /click/ event would be fired in the browser
+   - Events are said to trigger a function or script
+   - So in code, if the /click/ event is fired it could trigger more code or other scripts
+   - This means in the browser events are *always* fired even if they do not trigger any function or script or even if the developer does not "handle" any event
+   - The events in the browser will happen regardless of your JS code, so it is up to the developer to make it trigger some code or not
+   - Here are the following different types of events:
+
+   | Type of Event   | Event                         | Description                                                                                            |
+   |-----------------+-------------------------------+--------------------------------------------------------------------------------------------------------|
+   | UI Events       | ~load~                        | Web page has finished loading                                                                          |
+   | UI Events       | ~unload~                      | Web page is unloading (usually because a new page was requested)                                       |
+   | UI Events       | ~error~                       | Browser encounters a JS error or an asset does not exist                                               |
+   | UI Events       | ~resize~                      | Browser window has been resized                                                                        |
+   | UI Events       | ~scroll~                      | User has scrolled up or down the page                                                                  |
+   | Keyboard Events | ~keydown~                     | User first presses a key (repeats while key is depressed)                                              |
+   | Keyboard Events | ~keyup~                       | User releases a key                                                                                    |
+   | Keyboard Events | ~keypress~                    | Character is being inserted (repeats while key is depressed)                                           |
+   | Mouse Events    | ~click~                       | User presses and releases a button over the same element                                               |
+   | Mouse Events    | ~dbclick~                     | User presses and releases a button twice over the same element                                         |
+   | Mouse Events    | ~mousedown~                   | User presses a mouse button while over an element                                                      |
+   | Mouse Events    | ~mouseup~                     | User releases a mouse button while over an element                                                     |
+   | Mouse Events    | ~mousemove~                   | User moves the mouse (not on a touchscreen)                                                            |
+   | Mouse Events    | ~mouseover~                   | User moves the mouse over an element (not on a touchscreen)                                            |
+   | Mouse Events    | ~mouseout~                    | User moves the mouse off an element (not on a touchscreen)                                             |
+   | Focus Events    | ~focus~ / ~focusin~           | Element gains focus                                                                                    |
+   | Focus Events    | ~blur~ / ~focusout~           | Element loses focus                                                                                    |
+   | Form Events     | ~input~                       | Value in any ~<input>~ or ~<textarea>~ has changed or any element with the ~contenteditable~ attribute |
+   | Form Events     | ~change~                      | Value in select box, checkbox, or radio button changes                                                 |
+   | Form Events     | ~submit~                      | User submits a form (using a button or key)                                                            |
+   | Form Events     | ~reset~                       | User clicks on a form's reset button (rarely used these days)                                          |
+   | Form Events     | ~cut~                         | User cuts content from a form field                                                                    |
+   | Form Events     | ~copy~                        | User copies content from a form field                                                                  |
+   | Form Events     | ~paste~                       | User pastes content into a form field                                                                  |
+   | Form Events     | ~select~                      | User selects some text in a form field                                                                 |
+   | Mutation Events | ~DOMSubtreeModified~          | Change has been made to document                                                                       |
+   | Mutation Events | ~DOMNodeInserted~             | Node has been inserted as a direct child of another node                                               |
+   | Mutation Events | ~DOMNodeRemoved~              | Node has been removed from another node                                                                |
+   | Mutation Events | ~DOMNodeInsertedIntoDocument~ | Node has been inserted as a descendant of another node                                                 |
+   | Mutation Events | ~DOMNodeRemovedFromDocument~  | Node has been removed as a descendant of another node                                                  |
+     
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*: If you have no event handler in JS, are events still fired (but does not trigger any code)?
+
+  - *Q*: What does the mutation events actually do like ~DOMSubtreeModified~, ~DOMNodeInserted~, ~DOMNodeRemoved~, ~DOMNodeInsertedIntoDocument~, and ~DOMNodeRemovedFromDocument~?
+
+* Summary
+

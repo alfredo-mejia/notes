@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-19 Wed 14:32 -->
+<!-- 2025-05-15 Thu 23:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Chapter 6: Events</title>
+<meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -192,13 +193,355 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
 </head>
 <body>
 <div id="content" class="content">
+<h1 class="title">Chapter 6: Events</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org999a698">Navigation</a></li>
+<li><a href="#org2d84830">Notes</a>
+<ul>
+<li><a href="#orgc0d3b0c">Section 6.1: Introduction to Events</a></li>
+<li><a href="#org3a11fd0">Section 6.2: Event Types</a></li>
+</ul>
+</li>
+<li><a href="#org295350a">Keywords</a></li>
+<li><a href="#orgcdbd165">Questions</a></li>
+<li><a href="#org1c74847">Summary</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="date">Created: 2025-02-19 Wed 14:32</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+<div id="outline-container-org999a698" class="outline-2">
+<h2 id="org999a698">Navigation</h2>
+<div class="outline-text-2" id="text-org999a698">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 5: Document Object Model</td>
+<td class="org-left">&vert; <a href="../005.Document_Object_Model/005.000.Notes.html">html</a> &vert; <a href="../005.Document_Object_Model/005.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/005.Document_Object_Model">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 7: jQuery</td>
+<td class="org-left">&vert; <a href="../007.jQuery/007.000.Notes.html">html</a> &vert; <a href="../007.jQuery/007.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/007.jQuery">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org2d84830" class="outline-2">
+<h2 id="org2d84830">Notes</h2>
+<div class="outline-text-2" id="text-org2d84830">
+</div>
+<div id="outline-container-orgc0d3b0c" class="outline-3">
+<h3 id="orgc0d3b0c">Section 6.1: Introduction to Events</h3>
+<div class="outline-text-3" id="text-orgc0d3b0c">
+<ul class="org-ul">
+<li>When you browse the web, your browser registers different types of events</li>
+<li>It is the browser's way of saying "Hey, this just happened"</li>
+<li>For example, whenever you click on a button, the browser knows you clicked on the button and it can register an event for that scenario, so whenever a user clicks a button the browser can tell you that button has been clicked</li>
+<li>Your script can then respond to these events</li>
+<li>Scripts often respond to these events by updating the content of the web page (via DOM) which makes the page feel more interactive</li>
+<li>Events occur when users click or tap on a link, hover or swipe over an element, type on the keyboard, resize the window, or when the page they request has loaded</li>
+<li>When an event occurs, or fies, it can be used to trigger a particular function and different code can be triggered when users interact with different parts of the page</li>
+<li>This code can then use the DOM to update the page and thus the web page is interacting with the user</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3a11fd0" class="outline-3">
+<h3 id="org3a11fd0">Section 6.2: Event Types</h3>
+<div class="outline-text-3" id="text-org3a11fd0">
+<ul class="org-ul">
+<li>When an event has occurred it is often described as having <b>fired</b> or been <b>raised</b></li>
+<li>So for example the user clicks on a button, the <i>click</i> event would be fired in the browser</li>
+<li>Events are said to trigger a function or script</li>
+<li>So in code, if the <i>click</i> event is fired it could trigger more code or other scripts</li>
+<li>This means in the browser events are <b>always</b> fired even if they do not trigger any function or script or even if the developer does not "handle" any event</li>
+<li>The events in the browser will happen regardless of your JS code, so it is up to the developer to make it trigger some code or not</li>
+<li>Here are the following different types of events:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Type of Event</th>
+<th scope="col" class="org-left">Event</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">UI Events</td>
+<td class="org-left"><code>load</code></td>
+<td class="org-left">Web page has finished loading</td>
+</tr>
+
+<tr>
+<td class="org-left">UI Events</td>
+<td class="org-left"><code>unload</code></td>
+<td class="org-left">Web page is unloading (usually because a new page was requested)</td>
+</tr>
+
+<tr>
+<td class="org-left">UI Events</td>
+<td class="org-left"><code>error</code></td>
+<td class="org-left">Browser encounters a JS error or an asset does not exist</td>
+</tr>
+
+<tr>
+<td class="org-left">UI Events</td>
+<td class="org-left"><code>resize</code></td>
+<td class="org-left">Browser window has been resized</td>
+</tr>
+
+<tr>
+<td class="org-left">UI Events</td>
+<td class="org-left"><code>scroll</code></td>
+<td class="org-left">User has scrolled up or down the page</td>
+</tr>
+
+<tr>
+<td class="org-left">Keyboard Events</td>
+<td class="org-left"><code>keydown</code></td>
+<td class="org-left">User first presses a key (repeats while key is depressed)</td>
+</tr>
+
+<tr>
+<td class="org-left">Keyboard Events</td>
+<td class="org-left"><code>keyup</code></td>
+<td class="org-left">User releases a key</td>
+</tr>
+
+<tr>
+<td class="org-left">Keyboard Events</td>
+<td class="org-left"><code>keypress</code></td>
+<td class="org-left">Character is being inserted (repeats while key is depressed)</td>
+</tr>
+
+<tr>
+<td class="org-left">Mouse Events</td>
+<td class="org-left"><code>click</code></td>
+<td class="org-left">User presses and releases a button over the same element</td>
+</tr>
+
+<tr>
+<td class="org-left">Mouse Events</td>
+<td class="org-left"><code>dbclick</code></td>
+<td class="org-left">User presses and releases a button twice over the same element</td>
+</tr>
+
+<tr>
+<td class="org-left">Mouse Events</td>
+<td class="org-left"><code>mousedown</code></td>
+<td class="org-left">User presses a mouse button while over an element</td>
+</tr>
+
+<tr>
+<td class="org-left">Mouse Events</td>
+<td class="org-left"><code>mouseup</code></td>
+<td class="org-left">User releases a mouse button while over an element</td>
+</tr>
+
+<tr>
+<td class="org-left">Mouse Events</td>
+<td class="org-left"><code>mousemove</code></td>
+<td class="org-left">User moves the mouse (not on a touchscreen)</td>
+</tr>
+
+<tr>
+<td class="org-left">Mouse Events</td>
+<td class="org-left"><code>mouseover</code></td>
+<td class="org-left">User moves the mouse over an element (not on a touchscreen)</td>
+</tr>
+
+<tr>
+<td class="org-left">Mouse Events</td>
+<td class="org-left"><code>mouseout</code></td>
+<td class="org-left">User moves the mouse off an element (not on a touchscreen)</td>
+</tr>
+
+<tr>
+<td class="org-left">Focus Events</td>
+<td class="org-left"><code>focus</code> / <code>focusin</code></td>
+<td class="org-left">Element gains focus</td>
+</tr>
+
+<tr>
+<td class="org-left">Focus Events</td>
+<td class="org-left"><code>blur</code> / <code>focusout</code></td>
+<td class="org-left">Element loses focus</td>
+</tr>
+
+<tr>
+<td class="org-left">Form Events</td>
+<td class="org-left"><code>input</code></td>
+<td class="org-left">Value in any <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> has changed or any element with the <code>contenteditable</code> attribute</td>
+</tr>
+
+<tr>
+<td class="org-left">Form Events</td>
+<td class="org-left"><code>change</code></td>
+<td class="org-left">Value in select box, checkbox, or radio button changes</td>
+</tr>
+
+<tr>
+<td class="org-left">Form Events</td>
+<td class="org-left"><code>submit</code></td>
+<td class="org-left">User submits a form (using a button or key)</td>
+</tr>
+
+<tr>
+<td class="org-left">Form Events</td>
+<td class="org-left"><code>reset</code></td>
+<td class="org-left">User clicks on a form's reset button (rarely used these days)</td>
+</tr>
+
+<tr>
+<td class="org-left">Form Events</td>
+<td class="org-left"><code>cut</code></td>
+<td class="org-left">User cuts content from a form field</td>
+</tr>
+
+<tr>
+<td class="org-left">Form Events</td>
+<td class="org-left"><code>copy</code></td>
+<td class="org-left">User copies content from a form field</td>
+</tr>
+
+<tr>
+<td class="org-left">Form Events</td>
+<td class="org-left"><code>paste</code></td>
+<td class="org-left">User pastes content into a form field</td>
+</tr>
+
+<tr>
+<td class="org-left">Form Events</td>
+<td class="org-left"><code>select</code></td>
+<td class="org-left">User selects some text in a form field</td>
+</tr>
+
+<tr>
+<td class="org-left">Mutation Events</td>
+<td class="org-left"><code>DOMSubtreeModified</code></td>
+<td class="org-left">Change has been made to document</td>
+</tr>
+
+<tr>
+<td class="org-left">Mutation Events</td>
+<td class="org-left"><code>DOMNodeInserted</code></td>
+<td class="org-left">Node has been inserted as a direct child of another node</td>
+</tr>
+
+<tr>
+<td class="org-left">Mutation Events</td>
+<td class="org-left"><code>DOMNodeRemoved</code></td>
+<td class="org-left">Node has been removed from another node</td>
+</tr>
+
+<tr>
+<td class="org-left">Mutation Events</td>
+<td class="org-left"><code>DOMNodeInsertedIntoDocument</code></td>
+<td class="org-left">Node has been inserted as a descendant of another node</td>
+</tr>
+
+<tr>
+<td class="org-left">Mutation Events</td>
+<td class="org-left"><code>DOMNodeRemovedFromDocument</code></td>
+<td class="org-left">Node has been removed as a descendant of another node</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org295350a" class="outline-2">
+<h2 id="org295350a">Keywords</h2>
+<div class="outline-text-2" id="text-org295350a">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgcdbd165" class="outline-2">
+<h2 id="orgcdbd165">Questions</h2>
+<div class="outline-text-2" id="text-orgcdbd165">
+<ul class="org-ul">
+<li><b>Q</b>: If you have no event handler in JS, are events still fired (but does not trigger any code)?</li>
+
+<li><b>Q</b>: What does the mutation events actually do like <code>DOMSubtreeModified</code>, <code>DOMNodeInserted</code>, <code>DOMNodeRemoved</code>, <code>DOMNodeInsertedIntoDocument</code>, and <code>DOMNodeRemovedFromDocument</code>?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1c74847" class="outline-2">
+<h2 id="org1c74847">Summary</h2>
+</div>
 </div>
 </body>
 </html>
