@@ -162,13 +162,242 @@
      - If you need to support IE8 or older, instead of writing this fallback code for every event it is better to write your own helper function that creates the event hanlder for you for whichever method it supports (~addEventListener~ or ~attachEvent~) so instead of writing this if-else multiple times, you write it once in your helper function and now you use your helper function to create events
 
 ** Section 6.4: Event Flow
-     
+   - HTML elements nest inside other elements and if you hover or click on a link or other element, you will also be hovering or clicking on its parent elements
+   - Let's take for example a link using the element ~<a>~, when you hover over the link or click on it, JS can trigger events on the ~<a>~ element and also any elements ~<a>~ element sits inside
+   - Event handlers / listeners can be bound to the containing ~<li>~, ~<ul>~, ~<body>~, and ~<html>~ elements, plus the ~document~ object and the ~window~ object and the order in which the events fire is known as *event flow* and events flow in *two* directions
+   - Event bubbling: The event starts at the /most/ specific node and *flows outwards* to the least specific one or the outter most node, so this event flow goes from the inner most node (element that was clicked or hover) to the outter most node (the greatest grandparent of the element)
+   - Event bubbling is the default type of event flow with very wide browser support
+   - Event capturing: The event starts at the least specific node (or the outter most node / gratest grandparent of the element) and *flows inwards* to the most specific node thus traveling through its descendants (the element that was clicked or hovered)
+   - Event capturing is not supported in IE8 or earlier
+   - It all depends on the *originating element*, so for *event bubbling* it goes from the originating element to the farthest ancestor that has an event handler and for *event capturing* it starts at the farthest ancestor and continues through its descendants to finally reach the event handler of the originating element
+   - Note that if there is any children with event handlers from the originating element, those elements will not be called because their events were not fired, thus the only elements in question is the originating elements and all its descendants (not its children) and the event flow is concerned only with the order in which event handlers are fired
+   - By default modern browsers use event bubbling
+   - With event listeners, the final and third parameter in the ~addEventListener()~ method lets you choose the direction to trigger events: true is for capturing phase and false is for the bubbling phase (default)
+
+** Section 6.5: Event Object
+   - When an event occurs, the event object tells you information about the event and the element it happened upon
+   - Every time an event fires, the ~event~ object contains helpful data about the event such as:
+     - Which element the event happened on
+     - Which key was pressed for a ~keypress~ event
+     - What part of the viewport the user clicked for a ~click~ event (the viewport is the part of the browser window that shows the web page)
+   - The ~event~ object is passed to any function that is the event handler or listener
+   - If you need to pass arguments to a named function (including the event object) then the ~event~ object will first be passed to the anonymous wrapper function (this happens automatically) then you must specify it as a parameter to the named function so your named function can get all the arguments including the event object
+   - When the event object is passed into a function it is often given the parameter name ~e~ (for event) but other developers may use the letter ~e~ to mean error objects as well, so ~e~ can have multiple meanings depending on the context
+   - IE8 had different syntax for event listeners but also for properties and methods of the event object
+   - For example, usually the event object has a property named ~target~ which is the target of the event (most specific element interacted with) but in IE8 it is called ~srcElement~, another property is ~cancelable~ but IE8 does not support it, methods like ~preventDefault()~ and ~stopPropagation()~ are properties in IE8 called ~returnValue~ and ~cancelBubble~
+   - Note that the function given for the hanlder or listener will always be called with a reference to the event object but it is up to the function to give it a name or not, if no name is given then you won't be able to use it (because you can't reference it with a variable name), but if you do give a name then the event object can be used inside the function but the event object is automatically and always passed to the function even if you have a named parameter or not
+   - In IE8 and lower, the event object is not passed automatically to the event handler / listener functions but it is available as a child of the ~window~ object so instead of getting the event object as an argument you would have to get it from the window object as follows: ~window.event~
+   - So to support IE8 and lower, you can add a parameter to the function, check if it is not null, if it is then use the ~window.event~ instead of the parameter since it is null, otherwise just continue using the parameter
+   - Then to use the properties you can do something like the following: ~let target = e.target || e.srcElement~ thus if ~e.target~ exists then it will assign it to the variable but if it does not then it will use ~e.srcElement~
+
+** Section 6.6: Event Delegation
+   - Creating event listeners for a lot of elements can slow down a page but event flow allows you to listen for an event on a parent element
+   - If users can interact with a lot of elements on the page such as lots of buttons in the UI, a long list, every cell of a table, etc. adding event listeners to each element can use a lot of memory and slow down performance
+   - Because events affect containing (or ancestor) elements due to event flow, you can place event handlers on a containing element and use the event object's target property to find which of its children the event happened on
+   - By attaching an event listener to a containing element, you are only responding to one element rather than having an event handler for each child element
+   - You are *delegating* the job of the event listener to a parent of the elements
+   - For example, let's say we have a list using ~<ul>~ instead of adding event listeners for each ~<li>~ we add an event listener to ~<ul>~ and so when an event is fired we check which child fired the event and we do some work, this way we only have one event listener and if we add more ~<li>~ it should still work the same without any changes
+   - Recall, events are going to be fired regardless if you have event listeners or not, and the default is event bubbling so it will go from the target element all the way to the ~document~ object through its ancestors
+   - Thus, if we delegate events to one of the ancestors, we can have one event listener take care of all the work of its children or descendants, thus improving our performance and writing less code
+   - Event delegation allow us to add new elements and not need to add event listeners to the new elements because the job has been delegated to an ancestor and it simplifies our code thus making it easier to maintain
+
+*** Section 6.6.1: Which Element Did An Event Occur On?
+    - When calling a function, the event object's ~target~ property is the best way to determine which element the event occured on
+    - There are other ways to determine the "target" element by using the ~this~ keyword
+    - Inside an event listener function, ~this~ keyword refers to the owner of a function and thus when an event listener invokes the function, ~this~ refers to the element that the event is on
+    - This works when no parameters are being passed to the function and actually called from the event and not some anonymous function
+    - Therefore it is *not* called from an anonymous function because if you call it from an anonymous function ~this~ won't refer to the event that is calling it but rather the anonymous funciton that called it, so you have to provide the function name as an argument to ~addEventListener()~ instead of passing an anonymous function
+    - That is why you cannot pass arguments to the function because in order to pass arguments you need to create an anonymous function and call it from there and if that was case then the owner of the function is no longer the element that the event listener was bound to but the anonymous function
+    - A workaround is that you could create two named functions, the first going as a listener handler, then using ~this~ you pass it as an argument to the next named function, however this would be bad practice
+    - Finally, note that ~this~ is not a great way to determine the target element because ~this~ will refer to the element that called the function and in this case it would be the element that the event listener was added to, not the element that first fired the event
+    - In other words, if you have a parent that has an event listener because you doing event delegation, and one of its children trigger an event, then the parent will be the element that will be calling the function so ~this~ will refer to the parent and not the child that the event occured on, so the developer would need to do more work to figure out which child triggered the event
+    - This is why the ~event~ object is the preferred approach and the right approach
+
+*** Section 6.6.2: Changing Default Behavior
+    - The event object has methods that change the default behavior of an element and how the element's ancestors respond to the event
+    - ~preventDefault()~:
+      - Some events such as clicking on links and submitting forms, take the user to another page
+      - To prevent the default behavior of such elements (e.g. to keep the user on the same page rather than following a link or being taken to a new page after submitting a form) you can use the event object's ~preventDefault()~ method
+      - IE8 and earlier (up to IE5) have an equivalent property called returnValue which can be set to false
+      - A conditional statement can check if the ~preventDefault()~ method is supported and if not then use IE8's approach
+    - ~stopPropagation()~:
+      - Once you have handled an event using one element, you may want to stop that event from bubbling up to its ancestor elements especially if there are separate event handlers responding to the same events on the containing elements
+      - To stop the event bubbling up you can use the event object's ~stopPropogation()~ method
+      - The equivalent in IE8 and earlier is the ~cancelBubble~ property which can be set to true
+      - Again, a conditional statement can check if the ~stopPropagation()~ method is supported and if not then use IE8's approach
+    - Before in older JS, there could be situations where we run ~return false~ in a event listener function and that would prevent the default behavior of the element and prevents the event from bubbling up or capturing further, however that has changed in modern browsers
+    - Returning false use to work in older event models and in jQuery but in modern browsers that does no longer work, it only works now in jQuery but it is now considered legacy shortcut so it is no longer recommended and in inline HTML event handlers but it is bad practice to have inline HTML event handlers
+    - So in modern browsers returning false would not work and thus it requires to be explicit and clearly state ~preventDefault()~ and / or ~stopPropagation()~ for it to work
+
+** Section 6.7: Different Types of Events
+   - Events are defined in the W3C DOM specification, HTML5 specification, and in BOM (Browser Object Models)
+   - The DOM events specification is managed by the W3C (who also look after other specifications including HTML, CSS, and XL) and most of the events you will meet in this chapter are part of this DOM events specification
+   - Browsers implement all the events using the same ~event~ object which has properties and methods about the target element
+   - W3C DOM events defined standardized events but not all events are covered in the DOM event model
+   - Some events were introduced as part of HTML5 specification and often relate to the new HTML5 features such as media, form validation, and web APIs
+   - Many HTML5 events are built on top of the W3C DOM events model and are often tied to the new HTML5 elements which try to focus user interaction with new HTML5 capabilities
+   - BOM events are events associated with the Browser Object Model and are browser-sepcific or window-level events that involve global objects such as ~window~, ~navigator~, or ~screen~
+   - BOM events deal with the browser environment and user's system and are either tired to the ~window~ or ~document~ object but some events are not part of the W3C DOM standard but supported by all modern browsers
+   - Thus all modern browsers implement some events as part of their Browser Object Model (BOM) even if those events are not part of the W3C DOM specifications
+   - However, web technologies move fast and standardization of events are rapid so events are constantly changing from some being depcreated to new ones being introduced
+
+*** Section 6.7.1: User Interface Events
+    - User interface (UI) events occur as a result of interaction with the browser window rather than the HTML page contained within it (e.g. a page having loaded or the browser window being resized)
+    - The event handler / listener for UI events should be attached to the browser window (in old HTML5 event handlers you would use these events used as attributes on the opening ~<body>~ tag)
+
+    | Event    | Trigger                                                                                                                                                             | Browser Support                                                                                                                                                                                                                                                                                        |
+    |----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | ~load~   | Fires wehn the web page has finished loading and it can also fire on nodes of other elements that load such as images, scripts, or objects                          | The event can fire on the ~window~, ~document~, and other element objects such as ~<script>~, ~<img>~, and others but between ~window~ and ~document~ it is commonly used in ~window~ object                                                                                                           |
+    | ~unload~ | Fires when the web page is unloading (usually because a new page has been requested)                                                                                | The event can fire on the ~window~ object and in older code it might fire on the ~body~ element object (e.g. ~document.body.onunload~) but ~unload~ event's primary and most reliable target is the ~window~ object but W3C recommends to not use this event due to reliability and performance issues |
+    | ~error~  | Fires when the browser encounters a JS error or an asset does not exist                                                                                             | The event can fire on the ~window~ object or other element objects that can have errors such as images not being able to load, thus this error is good for JS errors and resource loading errors                                                                                                       |
+    | ~resize~ | Fires when the browser window has been resized                                                                                                                      | Browsers repeatedly fire the ~resize~ event as the window is being resized so avoid using complicated and long code in this event because it will make your page and less responsive                                                                                                                   |
+    | ~scroll~ | Fires when the user has scrolled up or down the page (it can related to the entire page or a specific element on the page such as ~<textarea>~ that has scrollbars) | Browsers repeatedly fire the event as the window is scrolled so avoid using complicated and long code for the event                                                                                                                                                                                    |
+
+    - The ~load~ event is commonly used to trigger scripts that access the contents of the page
+    - The ~load~ event is automatically raised by the ~window~ object when a page has finished loading the HTML and all of its resources: images, CSS, scripts (even third party content e.g. banner ads)
+    - Recall the ~load~ event is added to the ~window~ object
+    - Because the ~load~ event only fires when everything else on the page has loaded (images, scripts, and even ads) the user could have started to use the page before the script has started to run
+    - Users may notice when a script changes the appearance of the page, change focus, or selects from elements after they started to use it and this would make the site looker slower to load
+    - For example, let's say you have a form and you select an input but when the page loads it automatically focuses on another input (changing the cursor to other input) thus interrrupting the user and making the page seem slower
+
+*** Section 6.7.2: Focus & Blur Events
+    - The HTML elements you can interact with such as links and form elements can gain focus and these events fire when they gain or lose focus
+    - If you interact with an HTML element, then it can gain and lose focus and you can also tab between the elements that can gain focus (a technique often used by those with visual impairments)
+    - In older scripts, the ~focus~ and ~blur~ events were often used to change the apearance of an element as it gained focus, but now the CSS ~:focus~ pseudo-class is a better solution unless you need to affect an element /other/ than the one that gained focus
+    - The focus and blur events are most commonly used on forms and can be helpful when you want to show tips or feedback to users as they interact with an individual element within a form (the tips / feedback are usually shown in other elements and not the one they are interacting with) or when you need to trigger form validation as a user moves from one control to the next rather than waiting for them to submit the entire form first
+
+    | Event      | Trigger                                                                | Flow             |
+    |------------+------------------------------------------------------------------------+------------------|
+    | ~focus~    | When an element gains focus, the ~focus~ event fires for that DOM node | Capture          |
+    | ~blur~     | When an element loses focus, the ~blur~ event fires for that DM ndoe   | Capture          |
+    | ~focusin~  | Same as focus                                                          | Bubble & capture |
+    | ~focusout~ | Same as blur                                                           | Bubble & capture |
+
+    - The default behavior of ~focus~ is to call the event listener for the directly originating element, there is no bubbling or capture
+    - ~focus~ event cannot bubble but it can capture, you would need to specify ~true~ as the 3rd argument to ~addEventListener()~
+    - To bubble you would need to use ~focusin~ because by default it would bubble flow and to specify capture then it would specify ~true~ as the 3rd argument to ~addEventListener()~
+    - So ~focus~ does not support bubble, by default it will only fire the event listener of the direct target element, and it can use capture flow by specifying ~true~ as the 3rd argument to ~addEventListener()~
+    - ~focusin~ supports both bubble and capture, by default it would use bubble flow, and to use capture flow you would have to specify ~true~ as the 3rd argument to ~addEventListener()~
+
+*** Section 6.7.3: Mouse Events
+    - The mouse events are fired when the mouse is moved and also when its buttons are clicked
+    - All of the elements on a page support the mouse events and all of these bubble
+    - Note that actions are different on touchscreen devices
+    - Prevetning a default behavior can have unexpected results because a ~click~ only fires when both ~mousedown~ and ~mouseup~ event has fired
+
+    | Event       | Trigger                                                                                                                                                                                                                            | Touch                                                             |
+    |-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------|
+    | ~click~     | Fires when the user clicks on the primary mouse button, the ~click~ event will for the element that the mouse is currently overand it will also fire if the user presses the ~Enter~ key on the keyboard when an element has focus | A tap on the touchscreen will be treated like a single left-click |
+    | ~dblclick~  | Fires when the user clicks the primary mouse button twice in quick succession (cannot be triggered by keyboard)                                                                                                                    | A double-tap will be treated as a double left-click               |
+    | ~mousedown~ | Fires when the user clicks down on any mouse button (cannot be triggered by keyboard)                                                                                                                                              | You can use the ~touchstart~ event                                |
+    | ~mouseup~   | Fires when the user releases a mouse button (cannot be triggered by keyboard)                                                                                                                                                      | You can use the ~touchend~ event                                  |
+    | ~mouseover~ | Fires when the cursor was outside an element and is then moved inside it (cannot be triggered by keyboard)                                                                                                                         | Fires when the cursor is moved over an element                    |
+    | ~mouseout~  | Fires when the cursor is over an element and then moves onto another element, outside of the current element or a child of it (cannot be triggered by keyboard)                                                                    | Fires when the cursor is moved off an element                     |
+    | ~mousemove~ | Fires when the cursor is moved around an element, this event is repeatedly fired (cannot be triggered by keyboard)                                                                                                                 | Fires when the cursor is moved                                    |
+
+    - ~mouseover~ and ~mouseout~ events were often used to change the appearance of boxes or to switch images as the user rolls over them but to change the appearance of the element it is best to use the CSS ~:hover~ pseudo-class
+    - ~mousedown~ and ~mouseup~ events separate out the press and release of a mouse button and it is often used for adding drag and drop functionality or to add controls in game development
+    - The ~click~ event can be applied to any element but it is better to only use it on items that are usually clicked or it will not be accessible to people who rely upon keyboard navigation
+    - You may also be tempted to use the ~click~ event to run a script when a user clicks on a form element but it is better to use the ~focus~ event because that fires when the user accesses that control using the tab key
+
+*** Section 6.7.4: Keyboard Events
+    - The keyboard events are fired when a user interacts with the keyboard (they fire on any kind of device with a keyboard)
+
+    | Event      | Trigger                                                                                                                                                                                                                                                                    |
+    |------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | ~input~    | Fires when the value of an ~<input>~ or ~<textarea>~ element changes                                                                                                                                                                                                       |
+    | ~keydown~  | Fires when the user presses any key on the keyboard and if the user holds down a key, the event continues to fire repeatedly                                                                                                                                               |
+    | ~keypress~ | Fires when the user presses a key that would result in a character being shown on the screen (e.g. this event would not fire when the user presses the arrow key whereas the ~keydown~ event would and if the user holds down a key the event continues to fire repeatedly |
+    | ~keyup~    | Fires when the user releases a key on the keyboard, the ~keydown~ and ~keypress~ events fire before a character shows on screen whereas ~keyup~ fires after it appears                                                                                                     |
+
+    - The order of the events that start with key is the following:
+      1. ~keydown~: User presses key down
+      2. ~keypress~: User has pressed or is holding a key that adds a character into the page
+      3. ~keyup~: User releases key
+
+    - When you use the ~keydown~ or ~keypress~ events, the event object has a property called ~keyCode~ which can be used to tell which key was pressed
+    - However it does not return the letter for that key instead it returns an ASCII code that represents the lowercase character for that key
+    - To get the character from the ASCII code, the string object has a built-in method called ~String.fromCharCode(event.keycode)~ which will do the conversion from ASCII code to the character
+    
+*** Section 6.7.5: Form Events
+    - There are two events that are commonly used with forms: ~submit~ and ~change~
+
+    | Event    | Trigger                                                                                                                                                                                                                                                                                                   |
+    |----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | ~submit~ | When a form is submitted, the ~submit~ event fires on the node representing the ~<form>~ element and it is often used for validation before sending it to the server                                                                                                                                      |
+    | ~change~ | Fires when the status of several form elements change (e.g. dropdown selection was made, radio button is selected, checkbox is selected / deselected) and it is better to use than the ~click~ event because clicking is not the only way users interact with form elements (e.g. tab, arrow, enter keys) |
+    | ~input~  | Fires when the value of an ~<input>~ or ~<textarea>~ element changes                                                                                                                                                                                                                                      |
+
+    - The focus and blur events are often used with forms but they can also be used in other elements such as links so they are not specifically related to forms
+    - Validation is an important part of forms so being able to do client-side validation is important because server-side validation takes longer and unexpected data sent to the server can lead to unexpected results
+
+*** Section 6.7.6: Mutation Events & Observers
+    - Whenever elements are added to or removed from the DOM, its structure changes and this change triggers a mutation event
+    - When your script adds or removes content from a page it is updating the DOM tree
+    - There are many reasons why you might want to respond to the DOM being updated, for example, you may want to notify the user that the page had changed
+
+    | Event                         | Trigger                                                                                                         |
+    |-------------------------------+-----------------------------------------------------------------------------------------------------------------|
+    | ~DOMNodeInserted~             | Fires when a node is inserted into the DOM tree (e.g. ~appendChild()~, ~replaceChild()~, ~insertBefore()~)      |
+    | ~DOMNodeRemoved~              | Fires when a node is removed from the DOM tree (e.g. ~removeChild~, ~replaceChild()~)                           |
+    | ~DOMSubtreeModified~          | Fires when the DOM structure changes and it fires after the event ~DOMNodeInserted~ or ~DOMNodeRemoved~         |
+    | ~DOMNodeInsertedIntoDocument~ | Fires when a node is inserted into the DOM tree as a descendant of another node that is already in the document |
+    | ~DOMNodeRemovedFromDocument~  | Fires when a node is removed from the DOM tree as a descendant of another node that is already in the document  |
+
+    - If your script makes a lot of changes to the DOM then it would cause a lot of mutation events firing making the page feel slow and unresponsive
+    - The events can also trigger other event listeners as they propagate through DOM causing more DOM changes and thus more mutation events
+    - Thus mutation events are deprecated and does not work reliably in modern browsers
+    - Instead we now use mutation observers
+    - Mutation observers are designed to wait until a script has finished its task before reacting then report the changes as a batch rather than one at a time
+    - With mutation observers you can also specify the type of changes to the DOM that you want them to react to
+    - All these properties are part of the event object (check out the questions to see how mutation observers work)
+      
+*** Section 6.7.7: HTML5 Events
+    - There are page-level events that have been included in versions of the HTML5 spec that have become very popular quickly: ~DOMContentLoaded~, ~hashchange~, and ~beforeunload~
+    - ~DOMContentLoaded~ is an event when the DOM tree is formed unlike ~load~ where it loads all HTML, CSS, scripts, etc
+    - ~DOMContentLoaded~ is used with the ~document~ object because it is only concerned with the DOM which the root node is the ~document~ object
+    - Unlike ~load~ is used with the ~window~ object because it needs to the context of the entire browser page, not just DOM
+    - However, just like ~load~ can be added to both ~window~ and ~document~, ~DOMContentLoaded~ can also be added to ~window~ because the target element is the ~document~ object and it bubbles up to the ~window~ object
+      
+    | Event              | Trigger                                                                                                                                                                                                                                                                                                                                                                                                                     |
+    |--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | ~DOMContentLoaded~ | Event fires when the DOM tree is formed (images, CSS, and JS might still be loading), thus scripts start to run earlier than using the ~load~ event which waits for other resources such as images and ads to load but because of this if there are other scripts that adds content to DOM the early script will not be able to see it                                                                                      |
+    | ~hashchange~       | Event fires when the URL hash changes (without the entire window refreshing), recall that hashes are used on links to specific parts (sometimes known as anchors) within a page and also on pages that use AJAX to load content so ~hashchange~ event handler works on the ~window~ object and after firing, the event object will have ~oldURL~ and ~newURL~ properties that hold the url before and after the hash change |
+    | ~beforeunload~     | Event fires on the window object before the page is unloaded, it should only be used to help the user and not to encourage them to stay on a website if they are trying to leave (e.g. tell the user some work has not been saved yet)                                                                                                                                                                                      |
+
+    - Some things to note about ~beforeunload~, you can add a message to the dialog box that is shown by the browser but you do not have control over the text shown before the message you give or the buttons the user can press
+    - Thus the browser will always show a pop-up message but there are ways to avoid the pop-up message if it is not required and you have an event listener attached to the event but for the most part modern browsers are restrictive with the event ~beforeunload~ and thus the only thing you can do is simply give it a prompt
+    
+*** Section 6.7.8: Where Events Occur
+    - The event obect can tell you where the cursor was positioned when an event was triggered
+    - The properties of the event ~screenX~ and ~screenY~ indicate the position of the cursor within the entire screen on your monitor measuring from top left corner of the screen rather than the browser
+    - Thus ~screenX~ and ~screenY~ properties that give the position of the cursor relative to the monitor screen, *not* the page or the browser window, but the entire monitor even if the browser is minimized
+    - ~pageX~ and ~pageY~ properties indicate the position of the cursor within / relative to the entire page even if the top of the page may be outside of the viewport so the coordinates of the cursor of ~screenX~ and ~screenY~ may be different than ~pageX~ and ~pageY~
+    - ~clientX~ and ~clientY~ properties indicate the position of the cursor within the browser's viewport so if the top of the page is no longer in view it will not affect the client's coordinates
+    - So ~screenX~ and ~screenY~ coordinates are relative to the entire monitor screen (even if the browser is minimized), ~pageX~ and ~pageY~ coordinates are relative to the entire page (even if the viewport only shows a fraction of the page), and ~clientX~ and ~clientY~ coordinates are relative to the viewport inside the browser window (even if the user scrolls but the cursor stays the same then the coordinates will stay the same)
+
+** Section 6.8: Chapter Exercise
+   - We are going to create a voice notes app
+   - This app will allow the user to record voice notes
+   - The user can enter the name of the note, press record, the record button will change to a stop button, and the user can then press stop to save it
+   - Then the user will be able to go back listen to their notes, rename their note, or delete their note
+   - Technical requirements:
+     - As the user types, check if an existing note with that name already exists, if so display a message notifying the user to use a different name (use ~keyup~ event)
+     - For the record / stop buttons use an attribute called ~data-state~ (learn more about custom ~data-*~ attributes) and at first it will have the value of ~record~ and then when it is pressed it will change to ~stop~
+     - You can use a CSS rule depending on the value of ~data-state~ to change the appearance of the button (record icon or stop icon)
+     - Then when the button is clicked, you can see the current value of ~data-state~ and do some work depending on if it needs to record or stop
+     - Create a table with saved notes and provide 3 options, play, rename, and delete (use event delegation to determine which row was clicked on)
+   - [[file:./006.008.Chapter_Exercise/index.html][Here is my chapter exercise]]
+
+** Section 6.9: Summary
+    
 * Keywords
-| Term            | Definition |
-|-----------------+------------|
-| Events          |            |
-| Event Handlers  |            |
-| Event Listeners |            |
+| Term               | Definition |
+|--------------------+------------|
+| Events             |            |
+| Event Handlers     |            |
+| Event Listeners    |            |
+| Mutation Observers |            |
 
 * Questions
   - *Q*: If you have no event handler in JS, are events still fired (but does not trigger any code)?
@@ -183,6 +412,14 @@
          - No, you cannot directly pass arguments to event handlers
 
   - *Q*: How can I pass arguments from outside the event listener into the event listener function?
+
+  - *Q*: How does capturing and bubbling work in focus and blur events?
+
+  - *Q*: How does mutation observers work?
+
+  - *Q*: What is the difference between events ~load~ and ~DOMContentLoaded~?
+
+  - *Q*: What are custom ~data-*~ HTML attributes?
 
 * Summary
 

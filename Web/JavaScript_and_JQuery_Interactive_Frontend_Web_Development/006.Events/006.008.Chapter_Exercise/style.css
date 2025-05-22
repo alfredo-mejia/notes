@@ -1,0 +1,87 @@
+body {
+    text-align: center;
+    
+}
+
+label {
+    font-size: large;
+}
+
+input {
+    width: 50%;
+    font-size: large;
+    border-radius: 5px;
+    border: 2px solid grey;
+    padding: 1%;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid aqua;
+}
+
+button {
+    margin: 1%;
+    width: 60px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+svg {
+    fill: blue;
+    width: 80%;
+}
+
+svg[data-state="inactive"] {
+    display: none;
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 1%;
+    width: 50%;
+}
+
+table, th, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+tbody > tr:hover {
+    background-color: rgb(190, 190, 190);
+}
+
+p[data-error="off"] {
+    display: none;
+}
+
+p[data-error="on"] {
+    color: red;
+    width: fit;
+}
+
+.error {
+    border: 2px solid red !important;
+}
+
+.check {
+    margin-left: 3px;
+    width: 4%;
+    vertical-align: middle;
+}
+
+.x {
+    margin-right: 5px;
+    width: 20px;
+    vertical-align: middle;
+    float: right;
+}
+
+td > span > svg:hover {
+    fill: green;
+}
+
+td > * {
+    vertical-align: middle;
+}
