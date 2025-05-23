@@ -414,29 +414,116 @@
 
 * Questions
   - *Q*: If you have no event handler in JS, are events still fired (but does not trigger any code)?
+         - Yes events are still fired even if there are no event handlers attached
+	 - The events are part of the browser's system and will fire events when needed but if there are no event handlers it will simply not trigger any code
+	 - This is important because although you may not use event handlers some 3rd party library may have some event handlers to respond to some events
+	 - Regardless events are always fired no matter if there are event handlers or not
 
   - *Q*: What does the mutation events actually do like ~DOMSubtreeModified~, ~DOMNodeInserted~, ~DOMNodeRemoved~, ~DOMNodeInsertedIntoDocument~, and ~DOMNodeRemovedFromDocument~?
+         - These events are now deprecated and should not be used
+	 - These events fire synchronously (one by one) and fire very frequently often resulting in severe performance problems
+	 - Instead we use ~MutationObserver~ which handle changes in batches,it is more efficient and asynchronous thus providing better control
+	 - Nevertheless, I've go over these events
+	 - ~DOMSubtreeModified~ can be attached to any element and is fired when any changes are made to the subtree of the element node (insertion, removal, text / content cahnges, etc.)
+	 - Thus ~DOMSubtreeModified~ will fire the event with any kind of DOM change below the element node (the element does *not* need to be in the DOM tree for it to work)
+	 - ~DOMNodeInserted~ can be attached to any element and it is fired when a node is inserted below the element node
+	 - ~DOMNodeInserted~ does not care if the element node's subtree is already in DOM or not, it will simply fire an event when a descendant is added to the element
+	 - ~DOMNodeRemoved~ can be attached to any element and it is fired when a node is removed below the element node (it does not care if the element is in the DOM or not)
+	 - ~DOMNodeInsertedIntoDocument~ can be attached to the ~document~ object and is fired when a node is added to the document and becomes part of the main DOM tree so it will only fire you append a child to an existing element in the DOM tree
+	 - ~DOMNodeRemovedFromDocument~ can be attached to the ~document~ object and is fired when a node is removed from the main document tree and will only fire when you remove a child of an already existing element in the DOM tree
 
   - *Q*: What is the difference between DOM event handlers and DOM event listeners?
+         - Event handlers are element *properties* that are named as the event name preceded by the word "on"
+	 - You can then use this DOM element and assign it a named function to it directly (without any parentheses)
+	 - So whenever the event is fired, the event will be the one invoking the function
+	 - With event handlers you can only have one handler per event type (one for ~onclick~, one for ~onmouseover~, etc.) and if you assign multiple event handlers it may overwrite previous ones or cause unexpected behavior
+	 - Event listeners are added by using the *method* ~addEventListener()~
+	 - So whenever the event is fired you can use a named function or an anonymous function to fire in response
+	 - The benefits of listeners is that you can have multiple listeners for one event in a single element, it supports bubbling and capturing, you can remove it using ~removeEventListener()~, and it is a more modern and flexible API
+	 - Thus the recommended approach is to use event listeners
 
   - *Q*: If two scripts on the same page handle the same event, which code is run first?
+         - It depends on which script is imported first
+	 - If there are two scripts that assign event handlers using the properties and if unexpected behavior does not happen then the last assignment will be the one that will run because it overwrites the previous assignment
+	 - If two event listeners are added the listeners are called in the order they were added so if script A is run before script B then the listener in script A will run first
+	 - If you have one event handler and one event listener then the event listeners do not affect the event handlers and vice versa so the one that will run first depends on which event handler or listener appears first
 
-  - *Q*: Can you pass function arguments to event handlers?
-         - No, you cannot directly pass arguments to event handlers
+  - *Q*: Can you pass function arguments to event handlers or event listeners?
+         - No, you cannot directly pass arguments to event handlers or listeners
+	 - Event handlers only accept the function name and cannot accept arguments because that would mean you are invoking the function
+	 - Plus the event is the one calling the function, how does it know what arguments to pass to the function?
+	 - Event listeners is the same thing, you cannot pass a named function with arguments because that would mean you are invoking the function
+	 - Instead with event listeners you create an anonymous function and inside the anonymous function you call the function with the arguments that you want
+	 - Most of the time you can use variables outside the anonymous function as long as it is in scope and that is one way to add arguments to your event listeners
+	 - However, there is no direct way to pass arguments to event handlers or event listeners
 
   - *Q*: How can I pass arguments from outside the event listener into the event listener function?
+         - You create an anonymous function and you call the named function within the anonymous function
+	 - Inside the anonymous function you can create variables to pass along as arguments to the anonymous function
+	 - If you need variables from outside the anonymous function then you may use those variables as well as long as it is in scope
 
   - *Q*: How does capturing and bubbling work in focus and blur events?
+         - ~focus~ and ~blur~ events do not bubble but they do capture (it is just not a bubbling event)
+	 - So if you were to use ~focus~ and ~blur~, you would have to add the events directly on the originating element (unless you use capture event flow), otherwise if you do it in a parent it will not be called (unless for capture event flow)
+	 - If you want the focus or blur event to propagate either upward or downward, you would have to use their counterpart events called ~focusin~ and ~blurin~
+	 - ~focusin~ and ~blurin~ can bubble or capture depending on what you give as the 3rd argument in ~addEventListener()~
+	 - In summary, ~focus~ and ~blur~ events do not bubble but they do capture so you have to add the event directly on the originating element or use capture on the parent elements, otherwise you can use their counterparts ~focusin~ and ~blurin~ if you'd like an event flow
 
   - *Q*: How does mutation observers work?
+         - Mutation observers are replacing mutation events because observers get a batch of mutations instead of responding to each one thus there is fewer callbacks and improving performance
+	 - The way it is works is by creating a ~MutationObserver~ object
+	 - This mutation observer will be given a function, this function will run whenever the batch of mutations is received
+	 - This function will receive two arguments: one a list of all the changes that has happend and another one for the observer object
+	 - Inside this function you can do some work using the list of all the changes or all the mutations (e.g. one might be a child added, an attribute added, etc.) and the observer object
+	 - You get this function and pass it to the constructor of the ~MutationObserver~ object or you can create an anonymous function direclty inside the argument space of the constructor
+	 - Then you simply use the mutation observer object and call the method ~observe~ this method will accept two arguments one for the element node in which you want to start observing mutation changes and the other are the options of what you want to observe
+	 - The options is a object with key-value pairs (e.g. ~{attributes: true, childList: true}~) and this specifies which DOM mutations should be reported to the mutation observer's callback (given in the constructor)
+	 - At the minimum the options must have ~childList~, ~attributes~, and / or ~characterData~ otherwise a ~TypeError~ exception will be thrown
+	 - You can always stop observing by calling ~observer.disconnect()~
+	 - Thus mutation observers peform better and give you more control compared to mutation events
 
   - *Q*: What is the difference between events ~load~ and ~DOMContentLoaded~?
+         - Both events deal with the paging loading
+	 - ~load~ is an event that is fired when the entire page loads including images, CSS, ~iframes~, and all dependent resources
+	 - ~DOMContentLoaded~ is an event that is fired when only the DOM has been loaded and it does not need to wait for other dependent resources like CSS
+	 - ~load~ is an event registered with the ~window~ object while ~DOMContentLoaded~ is registered with the ~document~ object
+	 - If you need to trigger an event for the entire page is loaded including all resources (e.g. CSS) then use ~load~
+	 - If you only want an event to trigger when the DOM is finished loading then use ~DOMContentLoaded~
+	 - If you are only concerned with getting elements by id so you have to wait for DOM to be finished loading then use ~DOMContentLoaded~
+	 - In the end, ~load~ waits for the entire page to load including all resources while ~DOMContentLoaded~ waits for only DOM to be finished loading
 
   - *Q*: What are custom ~data-*~ HTML attributes?
+         - Custom ~data-*~ attributes in HTML are a way to embed custom, private data inside HTML elements, data that you can access and manipulate with JS
+	 - These are HTML attributes that begin with ~data-~ followed by a name of your choosing
+	 - These attributes are ignored by the browser's default rendering but are accessible via JS making them useful for storing extra data tied to an element without polluting other attributes or using hidden inputs
+	 - Thus you can store metadata in these attributes for each element
+	 - To get the attribute in JS, you can use ~getAttribute()~ or you can use the ~dataset~ property followed by another property and the name of this property is the name of the attribute after ~data-~
+	 - Dashes after ~data-~ are converted into camel case so you can access the attributes in JS by first using the ~dataset~ property and then get the property of the ~dataset~ which is named like the attribute after ~data-~
+	 - In summary, ~data-*~ are custom HTML attributes that can be used as any metadata attribute, the browser does not render the attributes and ignores the attributes, and you can access the attribute through the ~dataset~ property by using the property named just like the attribute after ~data-~
 
   - *Q*: What happens if you specify event bubbling in one script and event capturing in another script for the same event in the same element?
+         - Both event listeners will run but the first one that will run will be the capturing event flow listener and then the bubbling event flow listener
+	 - Here is the order of event propagation when events have different event flows
+	 - It always starts with the capturing phase
+	   - The event moves from the root (~window~ -> ~document~, etc.) down to the target element
+	   - Only the listeners with ~capture: true~ are triggered and run
+	 - Eventually, it reaches the target element (originating element)
+	   - If the target element has multiple listeners with different event flows then it will first run the capture-phase listeners on the target
+	   - Then it will run the bubble-phase listeners on the target
+	 - After the target element's listeners are run, it then starts the bubbling phase
+	   - The event bubbles from the target back up to the root and only listeners added with ~capture: false~ (or no argument) are triggered
+	 - This event phases always happen, it is first capturing phase, then target element, then bubbling phase (capture -> target element -> bubble)
+	 - Keep in mind there are some events that do not bubble, for example ~focus~, ~blur~, ~load~ and ~mouseenter~, so the event phases for these elements do not use bubble
+	 - However, for the majority of events, many of them follow the same phases: capture -> target element -> bubble
+	 - Also keep in mind the method ~stopProgapation()~, if the method is called in the capture phase then it will stop it right there and the bubbling phase will never be called after the invoked method because bubbling is after capturing
+	 - In summary, all events follow the same event phase: capture -> target element -> bubble (however there are some events that do not bubble and ~stopProgapation()~ will stop this flow at whatever point it is called)
 
   - *Q*: What is the difference between W3C DOM specs and HTML5 specs?
+         - This question is a bit erroneous because W3C specs included HTML5 specs since W3C specs released HTML versions and their specs like HTML5
+	 - What happened was in the early 2000s WHATWG was formed by the major browser vendors due to the frustration of W3C specs, so they started to make their specifications in parallel to W3C
+	 - Eventually, many browsers started to follow WHATWG HTML specs instead and in 2019 both organizations agreed, W3C will no longer handle HTML or DOM specs, it will follow the specs from WHATWG
+	 - So now WHATWG handles HTML and DOM specs and they contain a "living-standard" so they don't release versions because it is constantly changing (a different philosophy from W3C)
+	 - So in today's age there are no longer differing specs and discrepancies between specs because HTML and DOM are handled by one organization which encourages for standardization for useful features
 
 * Summary
   - Browsers registers and fires different types of events such as a click, hover, when content is loaded, and more, each event will have a reason it fires

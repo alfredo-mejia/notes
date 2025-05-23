@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-22 Thu 16:35 -->
+<!-- 2025-05-23 Fri 09:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6: Events</title>
@@ -202,52 +202,52 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org90b2f7e">Navigation</a></li>
-<li><a href="#org5d67d02">Notes</a>
+<li><a href="#org9e65fec">Navigation</a></li>
+<li><a href="#orgb097548">Notes</a>
 <ul>
-<li><a href="#org9062ba0">Section 6.1: Introduction to Events</a></li>
-<li><a href="#orge3846c1">Section 6.2: Event Types</a></li>
-<li><a href="#orga2f4b13">Section 6.3: How Events Trigger JS Code</a>
+<li><a href="#org809930e">Section 6.1: Introduction to Events</a></li>
+<li><a href="#org65bfcd8">Section 6.2: Event Types</a></li>
+<li><a href="#org5947652">Section 6.3: How Events Trigger JS Code</a>
 <ul>
-<li><a href="#org312ad59">Section 6.3.1: HTML Event Handlers</a></li>
-<li><a href="#org0c1a22b">Section 6.3.2: Traditional DOM Event Handlers</a></li>
-<li><a href="#org16728d1">Section 6.3.3: DOM Level 2 Event Listeners</a></li>
+<li><a href="#orgbaa72ee">Section 6.3.1: HTML Event Handlers</a></li>
+<li><a href="#orgb81ef75">Section 6.3.2: Traditional DOM Event Handlers</a></li>
+<li><a href="#org0218856">Section 6.3.3: DOM Level 2 Event Listeners</a></li>
 </ul>
 </li>
-<li><a href="#orgd8cf6e6">Section 6.4: Event Flow</a></li>
-<li><a href="#orgc2d8be1">Section 6.5: Event Object</a></li>
-<li><a href="#org2bd6454">Section 6.6: Event Delegation</a>
+<li><a href="#org11b5192">Section 6.4: Event Flow</a></li>
+<li><a href="#org51b9d10">Section 6.5: Event Object</a></li>
+<li><a href="#org1947533">Section 6.6: Event Delegation</a>
 <ul>
-<li><a href="#org4c120ed">Section 6.6.1: Which Element Did An Event Occur On?</a></li>
-<li><a href="#org4c5adce">Section 6.6.2: Changing Default Behavior</a></li>
+<li><a href="#org226b464">Section 6.6.1: Which Element Did An Event Occur On?</a></li>
+<li><a href="#orgd35a08d">Section 6.6.2: Changing Default Behavior</a></li>
 </ul>
 </li>
-<li><a href="#org6f3f8af">Section 6.7: Different Types of Events</a>
+<li><a href="#org4770115">Section 6.7: Different Types of Events</a>
 <ul>
-<li><a href="#org968a819">Section 6.7.1: User Interface Events</a></li>
-<li><a href="#org8a36e09">Section 6.7.2: Focus &amp; Blur Events</a></li>
-<li><a href="#orgf12ead6">Section 6.7.3: Mouse Events</a></li>
-<li><a href="#org58a6a1f">Section 6.7.4: Keyboard Events</a></li>
-<li><a href="#org64595a5">Section 6.7.5: Form Events</a></li>
-<li><a href="#orga47f069">Section 6.7.6: Mutation Events &amp; Observers</a></li>
-<li><a href="#org0febc9d">Section 6.7.7: HTML5 Events</a></li>
-<li><a href="#orgb385ed9">Section 6.7.8: Where Events Occur</a></li>
+<li><a href="#org2698c8c">Section 6.7.1: User Interface Events</a></li>
+<li><a href="#org9de349f">Section 6.7.2: Focus &amp; Blur Events</a></li>
+<li><a href="#orga45ad12">Section 6.7.3: Mouse Events</a></li>
+<li><a href="#org1670e61">Section 6.7.4: Keyboard Events</a></li>
+<li><a href="#orgb63b379">Section 6.7.5: Form Events</a></li>
+<li><a href="#orgf6721eb">Section 6.7.6: Mutation Events &amp; Observers</a></li>
+<li><a href="#org8a254ad">Section 6.7.7: HTML5 Events</a></li>
+<li><a href="#org69a9301">Section 6.7.8: Where Events Occur</a></li>
 </ul>
 </li>
-<li><a href="#org86c1396">Section 6.8: Chapter Exercise</a></li>
-<li><a href="#org17cad4f">Section 6.9: Summary</a></li>
+<li><a href="#orgd00df0f">Section 6.8: Chapter Exercise</a></li>
+<li><a href="#orgc881373">Section 6.9: Summary</a></li>
 </ul>
 </li>
-<li><a href="#org1f55bc3">Keywords</a></li>
-<li><a href="#orgf1eb7ad">Questions</a></li>
-<li><a href="#org6c1f151">Summary</a></li>
+<li><a href="#org475ccf8">Keywords</a></li>
+<li><a href="#org916623b">Questions</a></li>
+<li><a href="#orgcecbb2c">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org90b2f7e" class="outline-2">
-<h2 id="org90b2f7e">Navigation</h2>
-<div class="outline-text-2" id="text-org90b2f7e">
+<div id="outline-container-org9e65fec" class="outline-2">
+<h2 id="org9e65fec">Navigation</h2>
+<div class="outline-text-2" id="text-org9e65fec">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -294,13 +294,13 @@
 </div>
 </div>
 
-<div id="outline-container-org5d67d02" class="outline-2">
-<h2 id="org5d67d02">Notes</h2>
-<div class="outline-text-2" id="text-org5d67d02">
+<div id="outline-container-orgb097548" class="outline-2">
+<h2 id="orgb097548">Notes</h2>
+<div class="outline-text-2" id="text-orgb097548">
 </div>
-<div id="outline-container-org9062ba0" class="outline-3">
-<h3 id="org9062ba0">Section 6.1: Introduction to Events</h3>
-<div class="outline-text-3" id="text-org9062ba0">
+<div id="outline-container-org809930e" class="outline-3">
+<h3 id="org809930e">Section 6.1: Introduction to Events</h3>
+<div class="outline-text-3" id="text-org809930e">
 <ul class="org-ul">
 <li>When you browse the web, your browser registers different types of events</li>
 <li>It is the browser's way of saying "Hey, this just happened"</li>
@@ -314,9 +314,9 @@
 </div>
 </div>
 
-<div id="outline-container-orge3846c1" class="outline-3">
-<h3 id="orge3846c1">Section 6.2: Event Types</h3>
-<div class="outline-text-3" id="text-orge3846c1">
+<div id="outline-container-org65bfcd8" class="outline-3">
+<h3 id="org65bfcd8">Section 6.2: Event Types</h3>
+<div class="outline-text-3" id="text-org65bfcd8">
 <ul class="org-ul">
 <li>When an event has occurred it is often described as having <b>fired</b> or been <b>raised</b></li>
 <li>So for example the user clicks on a button, the <i>click</i> event would be fired in the browser</li>
@@ -529,9 +529,9 @@
 </div>
 </div>
 
-<div id="outline-container-orga2f4b13" class="outline-3">
-<h3 id="orga2f4b13">Section 6.3: How Events Trigger JS Code</h3>
-<div class="outline-text-3" id="text-orga2f4b13">
+<div id="outline-container-org5947652" class="outline-3">
+<h3 id="org5947652">Section 6.3: How Events Trigger JS Code</h3>
+<div class="outline-text-3" id="text-org5947652">
 <ul class="org-ul">
 <li>When the user interacts with the HTML on a web page there are 3 steps involved in getting it to trigger some JS code and together these steps are known as event handling
 <ol class="org-ol">
@@ -545,9 +545,9 @@
 </ul>
 </div>
 
-<div id="outline-container-org312ad59" class="outline-4">
-<h4 id="org312ad59">Section 6.3.1: HTML Event Handlers</h4>
-<div class="outline-text-4" id="text-org312ad59">
+<div id="outline-container-orgbaa72ee" class="outline-4">
+<h4 id="orgbaa72ee">Section 6.3.1: HTML Event Handlers</h4>
+<div class="outline-text-4" id="text-orgbaa72ee">
 <ul class="org-ul">
 <li>HTML event handlers are bad practice and should not be used</li>
 <li>Early versions of HTML included a set of attributes that could respond to events on the element they were added to</li>
@@ -564,9 +564,9 @@
 </div>
 </div>
 
-<div id="outline-container-org0c1a22b" class="outline-4">
-<h4 id="org0c1a22b">Section 6.3.2: Traditional DOM Event Handlers</h4>
-<div class="outline-text-4" id="text-org0c1a22b">
+<div id="outline-container-orgb81ef75" class="outline-4">
+<h4 id="orgb81ef75">Section 6.3.2: Traditional DOM Event Handlers</h4>
+<div class="outline-text-4" id="text-orgb81ef75">
 <ul class="org-ul">
 <li>DOM <b>event handlers</b> were introduced in the original specification for DOM and are considered better than HTML event handlers because they let you separate the JS from the HTML</li>
 <li>The drawback of DOM event handlers is that you can only attach a single function to any event thus if you have more than one script used on the same page and both scripts respond to the same event then one or both of the scripts may not work as intended</li>
@@ -609,9 +609,9 @@ el.onblur = checkUsername;
 </div>
 </div>
 
-<div id="outline-container-org16728d1" class="outline-4">
-<h4 id="org16728d1">Section 6.3.3: DOM Level 2 Event Listeners</h4>
-<div class="outline-text-4" id="text-org16728d1">
+<div id="outline-container-org0218856" class="outline-4">
+<h4 id="org0218856">Section 6.3.3: DOM Level 2 Event Listeners</h4>
+<div class="outline-text-4" id="text-org0218856">
 <ul class="org-ul">
 <li><b>Event listeners</b> were introduced to an update to the DOM specification and they are now the favored way of handling events</li>
 <li>The syntax is different from the traditional (old) event handlers and allows one event to trigger multiple functions, thus there are less likely to be conflicts between different scripts that run on the same page</li>
@@ -658,8 +658,8 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 
 <ul class="org-ul">
-<li><a id="org8d40bfa"></a>Section 6.3.3.1: Supporting Older Versions of Internet Explorer (IE) - OUTDATED!!<br />
-<div class="outline-text-5" id="text-org8d40bfa">
+<li><a id="orga12c260"></a>Section 6.3.3.1: Supporting Older Versions of Internet Explorer (IE) - OUTDATED!!<br />
+<div class="outline-text-5" id="text-orga12c260">
 <ul class="org-ul">
 <li>IE8 and earlier do not support <code>addEventListener()</code> but you can provide fallback code to make event listeners work with older versions of IE</li>
 <li>Instead of <code>addEventListener()</code> it uses its own method called <code>attachEvent()</code> which does the same job (accepts the event name preceded by the word "on" and a function) but only available in IE</li>
@@ -673,9 +673,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-orgd8cf6e6" class="outline-3">
-<h3 id="orgd8cf6e6">Section 6.4: Event Flow</h3>
-<div class="outline-text-3" id="text-orgd8cf6e6">
+<div id="outline-container-org11b5192" class="outline-3">
+<h3 id="org11b5192">Section 6.4: Event Flow</h3>
+<div class="outline-text-3" id="text-org11b5192">
 <ul class="org-ul">
 <li>HTML elements nest inside other elements and if you hover or click on a link or other element, you will also be hovering or clicking on its parent elements</li>
 <li>Let's take for example a link using the element <code>&lt;a&gt;</code>, when you hover over the link or click on it, JS can trigger events on the <code>&lt;a&gt;</code> element and also any elements <code>&lt;a&gt;</code> element sits inside</li>
@@ -692,9 +692,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-orgc2d8be1" class="outline-3">
-<h3 id="orgc2d8be1">Section 6.5: Event Object</h3>
-<div class="outline-text-3" id="text-orgc2d8be1">
+<div id="outline-container-org51b9d10" class="outline-3">
+<h3 id="org51b9d10">Section 6.5: Event Object</h3>
+<div class="outline-text-3" id="text-org51b9d10">
 <ul class="org-ul">
 <li>When an event occurs, the event object tells you information about the event and the element it happened upon</li>
 <li>Every time an event fires, the <code>event</code> object contains helpful data about the event such as:
@@ -716,9 +716,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-org2bd6454" class="outline-3">
-<h3 id="org2bd6454">Section 6.6: Event Delegation</h3>
-<div class="outline-text-3" id="text-org2bd6454">
+<div id="outline-container-org1947533" class="outline-3">
+<h3 id="org1947533">Section 6.6: Event Delegation</h3>
+<div class="outline-text-3" id="text-org1947533">
 <ul class="org-ul">
 <li>Creating event listeners for a lot of elements can slow down a page but event flow allows you to listen for an event on a parent element</li>
 <li>If users can interact with a lot of elements on the page such as lots of buttons in the UI, a long list, every cell of a table, etc. adding event listeners to each element can use a lot of memory and slow down performance</li>
@@ -732,9 +732,9 @@ el.addEventListener('blur', checkUsername, false);
 </ul>
 </div>
 
-<div id="outline-container-org4c120ed" class="outline-4">
-<h4 id="org4c120ed">Section 6.6.1: Which Element Did An Event Occur On?</h4>
-<div class="outline-text-4" id="text-org4c120ed">
+<div id="outline-container-org226b464" class="outline-4">
+<h4 id="org226b464">Section 6.6.1: Which Element Did An Event Occur On?</h4>
+<div class="outline-text-4" id="text-org226b464">
 <ul class="org-ul">
 <li>When calling a function, the event object's <code>target</code> property is the best way to determine which element the event occured on</li>
 <li>There are other ways to determine the "target" element by using the <code>this</code> keyword</li>
@@ -750,9 +750,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-org4c5adce" class="outline-4">
-<h4 id="org4c5adce">Section 6.6.2: Changing Default Behavior</h4>
-<div class="outline-text-4" id="text-org4c5adce">
+<div id="outline-container-orgd35a08d" class="outline-4">
+<h4 id="orgd35a08d">Section 6.6.2: Changing Default Behavior</h4>
+<div class="outline-text-4" id="text-orgd35a08d">
 <ul class="org-ul">
 <li>The event object has methods that change the default behavior of an element and how the element's ancestors respond to the event</li>
 <li><code>preventDefault()</code>:
@@ -777,9 +777,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-org6f3f8af" class="outline-3">
-<h3 id="org6f3f8af">Section 6.7: Different Types of Events</h3>
-<div class="outline-text-3" id="text-org6f3f8af">
+<div id="outline-container-org4770115" class="outline-3">
+<h3 id="org4770115">Section 6.7: Different Types of Events</h3>
+<div class="outline-text-3" id="text-org4770115">
 <ul class="org-ul">
 <li>Events are defined in the W3C DOM specification, HTML5 specification, and in BOM (Browser Object Models)</li>
 <li>The DOM events specification is managed by the W3C (who also look after other specifications including HTML, CSS, and XL) and most of the events you will meet in this chapter are part of this DOM events specification</li>
@@ -794,9 +794,9 @@ el.addEventListener('blur', checkUsername, false);
 </ul>
 </div>
 
-<div id="outline-container-org968a819" class="outline-4">
-<h4 id="org968a819">Section 6.7.1: User Interface Events</h4>
-<div class="outline-text-4" id="text-org968a819">
+<div id="outline-container-org2698c8c" class="outline-4">
+<h4 id="org2698c8c">Section 6.7.1: User Interface Events</h4>
+<div class="outline-text-4" id="text-org2698c8c">
 <ul class="org-ul">
 <li>User interface (UI) events occur as a result of interaction with the browser window rather than the HTML page contained within it (e.g. a page having loaded or the browser window being resized)</li>
 <li>The event handler / listener for UI events should be attached to the browser window (in old HTML5 event handlers you would use these events used as attributes on the opening <code>&lt;body&gt;</code> tag)</li>
@@ -863,9 +863,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-org8a36e09" class="outline-4">
-<h4 id="org8a36e09">Section 6.7.2: Focus &amp; Blur Events</h4>
-<div class="outline-text-4" id="text-org8a36e09">
+<div id="outline-container-org9de349f" class="outline-4">
+<h4 id="org9de349f">Section 6.7.2: Focus &amp; Blur Events</h4>
+<div class="outline-text-4" id="text-org9de349f">
 <ul class="org-ul">
 <li>The HTML elements you can interact with such as links and form elements can gain focus and these events fire when they gain or lose focus</li>
 <li>If you interact with an HTML element, then it can gain and lose focus and you can also tab between the elements that can gain focus (a technique often used by those with visual impairments)</li>
@@ -927,9 +927,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-orgf12ead6" class="outline-4">
-<h4 id="orgf12ead6">Section 6.7.3: Mouse Events</h4>
-<div class="outline-text-4" id="text-orgf12ead6">
+<div id="outline-container-orga45ad12" class="outline-4">
+<h4 id="orga45ad12">Section 6.7.3: Mouse Events</h4>
+<div class="outline-text-4" id="text-orga45ad12">
 <ul class="org-ul">
 <li>The mouse events are fired when the mouse is moved and also when its buttons are clicked</li>
 <li>All of the elements on a page support the mouse events and all of these bubble</li>
@@ -1008,9 +1008,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-org58a6a1f" class="outline-4">
-<h4 id="org58a6a1f">Section 6.7.4: Keyboard Events</h4>
-<div class="outline-text-4" id="text-org58a6a1f">
+<div id="outline-container-org1670e61" class="outline-4">
+<h4 id="org1670e61">Section 6.7.4: Keyboard Events</h4>
+<div class="outline-text-4" id="text-org1670e61">
 <ul class="org-ul">
 <li>The keyboard events are fired when a user interacts with the keyboard (they fire on any kind of device with a keyboard)</li>
 </ul>
@@ -1067,9 +1067,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-org64595a5" class="outline-4">
-<h4 id="org64595a5">Section 6.7.5: Form Events</h4>
-<div class="outline-text-4" id="text-org64595a5">
+<div id="outline-container-orgb63b379" class="outline-4">
+<h4 id="orgb63b379">Section 6.7.5: Form Events</h4>
+<div class="outline-text-4" id="text-orgb63b379">
 <ul class="org-ul">
 <li>There are two events that are commonly used with forms: <code>submit</code> and <code>change</code></li>
 </ul>
@@ -1113,9 +1113,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-orga47f069" class="outline-4">
-<h4 id="orga47f069">Section 6.7.6: Mutation Events &amp; Observers</h4>
-<div class="outline-text-4" id="text-orga47f069">
+<div id="outline-container-orgf6721eb" class="outline-4">
+<h4 id="orgf6721eb">Section 6.7.6: Mutation Events &amp; Observers</h4>
+<div class="outline-text-4" id="text-orgf6721eb">
 <ul class="org-ul">
 <li>Whenever elements are added to or removed from the DOM, its structure changes and this change triggers a mutation event</li>
 <li>When your script adds or removes content from a page it is updating the DOM tree</li>
@@ -1176,9 +1176,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-org0febc9d" class="outline-4">
-<h4 id="org0febc9d">Section 6.7.7: HTML5 Events</h4>
-<div class="outline-text-4" id="text-org0febc9d">
+<div id="outline-container-org8a254ad" class="outline-4">
+<h4 id="org8a254ad">Section 6.7.7: HTML5 Events</h4>
+<div class="outline-text-4" id="text-org8a254ad">
 <ul class="org-ul">
 <li>There are page-level events that have been included in versions of the HTML5 spec that have become very popular quickly: <code>DOMContentLoaded</code>, <code>hashchange</code>, and <code>beforeunload</code></li>
 <li><code>DOMContentLoaded</code> is an event when the DOM tree is formed unlike <code>load</code> where it loads all HTML, CSS, scripts, etc</li>
@@ -1226,9 +1226,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-orgb385ed9" class="outline-4">
-<h4 id="orgb385ed9">Section 6.7.8: Where Events Occur</h4>
-<div class="outline-text-4" id="text-orgb385ed9">
+<div id="outline-container-org69a9301" class="outline-4">
+<h4 id="org69a9301">Section 6.7.8: Where Events Occur</h4>
+<div class="outline-text-4" id="text-org69a9301">
 <ul class="org-ul">
 <li>The event obect can tell you where the cursor was positioned when an event was triggered</li>
 <li>The properties of the event <code>screenX</code> and <code>screenY</code> indicate the position of the cursor within the entire screen on your monitor measuring from top left corner of the screen rather than the browser</li>
@@ -1241,9 +1241,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-org86c1396" class="outline-3">
-<h3 id="org86c1396">Section 6.8: Chapter Exercise</h3>
-<div class="outline-text-3" id="text-org86c1396">
+<div id="outline-container-orgd00df0f" class="outline-3">
+<h3 id="orgd00df0f">Section 6.8: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-orgd00df0f">
 <ul class="org-ul">
 <li>We are going to create a voice notes app</li>
 <li>This app will allow the user to record voice notes</li>
@@ -1262,9 +1262,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-org17cad4f" class="outline-3">
-<h3 id="org17cad4f">Section 6.9: Summary</h3>
-<div class="outline-text-3" id="text-org17cad4f">
+<div id="outline-container-orgc881373" class="outline-3">
+<h3 id="orgc881373">Section 6.9: Summary</h3>
+<div class="outline-text-3" id="text-orgc881373">
 <ul class="org-ul">
 <li>Events are the browser's way of indicating when something has happened such as when a page has finished loading or a button has been clicked</li>
 <li>Binding is the process of stating which event you are waiting to happen and which element you are waiting for that event to happen upon</li>
@@ -1277,9 +1277,9 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 
 
-<div id="outline-container-org1f55bc3" class="outline-2">
-<h2 id="org1f55bc3">Keywords</h2>
-<div class="outline-text-2" id="text-org1f55bc3">
+<div id="outline-container-org475ccf8" class="outline-2">
+<h2 id="org475ccf8">Keywords</h2>
+<div class="outline-text-2" id="text-org475ccf8">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1354,43 +1354,158 @@ el.addEventListener('blur', checkUsername, false);
 </div>
 </div>
 
-<div id="outline-container-orgf1eb7ad" class="outline-2">
-<h2 id="orgf1eb7ad">Questions</h2>
-<div class="outline-text-2" id="text-orgf1eb7ad">
+<div id="outline-container-org916623b" class="outline-2">
+<h2 id="org916623b">Questions</h2>
+<div class="outline-text-2" id="text-org916623b">
 <ul class="org-ul">
-<li><b>Q</b>: If you have no event handler in JS, are events still fired (but does not trigger any code)?</li>
-
-<li><b>Q</b>: What does the mutation events actually do like <code>DOMSubtreeModified</code>, <code>DOMNodeInserted</code>, <code>DOMNodeRemoved</code>, <code>DOMNodeInsertedIntoDocument</code>, and <code>DOMNodeRemovedFromDocument</code>?</li>
-
-<li><b>Q</b>: What is the difference between DOM event handlers and DOM event listeners?</li>
-
-<li><b>Q</b>: If two scripts on the same page handle the same event, which code is run first?</li>
-
-<li><b>Q</b>: Can you pass function arguments to event handlers?
+<li><b>Q</b>: If you have no event handler in JS, are events still fired (but does not trigger any code)?
 <ul class="org-ul">
-<li>No, you cannot directly pass arguments to event handlers</li>
+<li>Yes events are still fired even if there are no event handlers attached</li>
+<li>The events are part of the browser's system and will fire events when needed but if there are no event handlers it will simply not trigger any code</li>
+<li>This is important because although you may not use event handlers some 3rd party library may have some event handlers to respond to some events</li>
+<li>Regardless events are always fired no matter if there are event handlers or not</li>
 </ul></li>
 
-<li><b>Q</b>: How can I pass arguments from outside the event listener into the event listener function?</li>
+<li><b>Q</b>: What does the mutation events actually do like <code>DOMSubtreeModified</code>, <code>DOMNodeInserted</code>, <code>DOMNodeRemoved</code>, <code>DOMNodeInsertedIntoDocument</code>, and <code>DOMNodeRemovedFromDocument</code>?
+<ul class="org-ul">
+<li>These events are now deprecated and should not be used</li>
+<li>These events fire synchronously (one by one) and fire very frequently often resulting in severe performance problems</li>
+<li>Instead we use <code>MutationObserver</code> which handle changes in batches,it is more efficient and asynchronous thus providing better control</li>
+<li>Nevertheless, I've go over these events</li>
+<li><code>DOMSubtreeModified</code> can be attached to any element and is fired when any changes are made to the subtree of the element node (insertion, removal, text / content cahnges, etc.)</li>
+<li>Thus <code>DOMSubtreeModified</code> will fire the event with any kind of DOM change below the element node (the element does <b>not</b> need to be in the DOM tree for it to work)</li>
+<li><code>DOMNodeInserted</code> can be attached to any element and it is fired when a node is inserted below the element node</li>
+<li><code>DOMNodeInserted</code> does not care if the element node's subtree is already in DOM or not, it will simply fire an event when a descendant is added to the element</li>
+<li><code>DOMNodeRemoved</code> can be attached to any element and it is fired when a node is removed below the element node (it does not care if the element is in the DOM or not)</li>
+<li><code>DOMNodeInsertedIntoDocument</code> can be attached to the <code>document</code> object and is fired when a node is added to the document and becomes part of the main DOM tree so it will only fire you append a child to an existing element in the DOM tree</li>
+<li><code>DOMNodeRemovedFromDocument</code> can be attached to the <code>document</code> object and is fired when a node is removed from the main document tree and will only fire when you remove a child of an already existing element in the DOM tree</li>
+</ul></li>
 
-<li><b>Q</b>: How does capturing and bubbling work in focus and blur events?</li>
+<li><b>Q</b>: What is the difference between DOM event handlers and DOM event listeners?
+<ul class="org-ul">
+<li>Event handlers are element <b>properties</b> that are named as the event name preceded by the word "on"</li>
+<li>You can then use this DOM element and assign it a named function to it directly (without any parentheses)</li>
+<li>So whenever the event is fired, the event will be the one invoking the function</li>
+<li>With event handlers you can only have one handler per event type (one for <code>onclick</code>, one for <code>onmouseover</code>, etc.) and if you assign multiple event handlers it may overwrite previous ones or cause unexpected behavior</li>
+<li>Event listeners are added by using the <b>method</b> <code>addEventListener()</code></li>
+<li>So whenever the event is fired you can use a named function or an anonymous function to fire in response</li>
+<li>The benefits of listeners is that you can have multiple listeners for one event in a single element, it supports bubbling and capturing, you can remove it using <code>removeEventListener()</code>, and it is a more modern and flexible API</li>
+<li>Thus the recommended approach is to use event listeners</li>
+</ul></li>
 
-<li><b>Q</b>: How does mutation observers work?</li>
+<li><b>Q</b>: If two scripts on the same page handle the same event, which code is run first?
+<ul class="org-ul">
+<li>It depends on which script is imported first</li>
+<li>If there are two scripts that assign event handlers using the properties and if unexpected behavior does not happen then the last assignment will be the one that will run because it overwrites the previous assignment</li>
+<li>If two event listeners are added the listeners are called in the order they were added so if script A is run before script B then the listener in script A will run first</li>
+<li>If you have one event handler and one event listener then the event listeners do not affect the event handlers and vice versa so the one that will run first depends on which event handler or listener appears first</li>
+</ul></li>
 
-<li><b>Q</b>: What is the difference between events <code>load</code> and <code>DOMContentLoaded</code>?</li>
+<li><b>Q</b>: Can you pass function arguments to event handlers or event listeners?
+<ul class="org-ul">
+<li>No, you cannot directly pass arguments to event handlers or listeners</li>
+<li>Event handlers only accept the function name and cannot accept arguments because that would mean you are invoking the function</li>
+<li>Plus the event is the one calling the function, how does it know what arguments to pass to the function?</li>
+<li>Event listeners is the same thing, you cannot pass a named function with arguments because that would mean you are invoking the function</li>
+<li>Instead with event listeners you create an anonymous function and inside the anonymous function you call the function with the arguments that you want</li>
+<li>Most of the time you can use variables outside the anonymous function as long as it is in scope and that is one way to add arguments to your event listeners</li>
+<li>However, there is no direct way to pass arguments to event handlers or event listeners</li>
+</ul></li>
 
-<li><b>Q</b>: What are custom <code>data-*</code> HTML attributes?</li>
+<li><b>Q</b>: How can I pass arguments from outside the event listener into the event listener function?
+<ul class="org-ul">
+<li>You create an anonymous function and you call the named function within the anonymous function</li>
+<li>Inside the anonymous function you can create variables to pass along as arguments to the anonymous function</li>
+<li>If you need variables from outside the anonymous function then you may use those variables as well as long as it is in scope</li>
+</ul></li>
 
-<li><b>Q</b>: What happens if you specify event bubbling in one script and event capturing in another script for the same event in the same element?</li>
+<li><b>Q</b>: How does capturing and bubbling work in focus and blur events?
+<ul class="org-ul">
+<li><code>focus</code> and <code>blur</code> events do not bubble but they do capture (it is just not a bubbling event)</li>
+<li>So if you were to use <code>focus</code> and <code>blur</code>, you would have to add the events directly on the originating element (unless you use capture event flow), otherwise if you do it in a parent it will not be called (unless for capture event flow)</li>
+<li>If you want the focus or blur event to propagate either upward or downward, you would have to use their counterpart events called <code>focusin</code> and <code>blurin</code></li>
+<li><code>focusin</code> and <code>blurin</code> can bubble or capture depending on what you give as the 3rd argument in <code>addEventListener()</code></li>
+<li>In summary, <code>focus</code> and <code>blur</code> events do not bubble but they do capture so you have to add the event directly on the originating element or use capture on the parent elements, otherwise you can use their counterparts <code>focusin</code> and <code>blurin</code> if you'd like an event flow</li>
+</ul></li>
 
-<li><b>Q</b>: What is the difference between W3C DOM specs and HTML5 specs?</li>
+<li><b>Q</b>: How does mutation observers work?
+<ul class="org-ul">
+<li>Mutation observers are replacing mutation events because observers get a batch of mutations instead of responding to each one thus there is fewer callbacks and improving performance</li>
+<li>The way it is works is by creating a <code>MutationObserver</code> object</li>
+<li>This mutation observer will be given a function, this function will run whenever the batch of mutations is received</li>
+<li>This function will receive two arguments: one a list of all the changes that has happend and another one for the observer object</li>
+<li>Inside this function you can do some work using the list of all the changes or all the mutations (e.g. one might be a child added, an attribute added, etc.) and the observer object</li>
+<li>You get this function and pass it to the constructor of the <code>MutationObserver</code> object or you can create an anonymous function direclty inside the argument space of the constructor</li>
+<li>Then you simply use the mutation observer object and call the method <code>observe</code> this method will accept two arguments one for the element node in which you want to start observing mutation changes and the other are the options of what you want to observe</li>
+<li>The options is a object with key-value pairs (e.g. <code>{attributes: true, childList: true}</code>) and this specifies which DOM mutations should be reported to the mutation observer's callback (given in the constructor)</li>
+<li>At the minimum the options must have <code>childList</code>, <code>attributes</code>, and / or <code>characterData</code> otherwise a <code>TypeError</code> exception will be thrown</li>
+<li>You can always stop observing by calling <code>observer.disconnect()</code></li>
+<li>Thus mutation observers peform better and give you more control compared to mutation events</li>
+</ul></li>
+
+<li><b>Q</b>: What is the difference between events <code>load</code> and <code>DOMContentLoaded</code>?
+<ul class="org-ul">
+<li>Both events deal with the paging loading</li>
+<li><code>load</code> is an event that is fired when the entire page loads including images, CSS, <code>iframes</code>, and all dependent resources</li>
+<li><code>DOMContentLoaded</code> is an event that is fired when only the DOM has been loaded and it does not need to wait for other dependent resources like CSS</li>
+<li><code>load</code> is an event registered with the <code>window</code> object while <code>DOMContentLoaded</code> is registered with the <code>document</code> object</li>
+<li>If you need to trigger an event for the entire page is loaded including all resources (e.g. CSS) then use <code>load</code></li>
+<li>If you only want an event to trigger when the DOM is finished loading then use <code>DOMContentLoaded</code></li>
+<li>If you are only concerned with getting elements by id so you have to wait for DOM to be finished loading then use <code>DOMContentLoaded</code></li>
+<li>In the end, <code>load</code> waits for the entire page to load including all resources while <code>DOMContentLoaded</code> waits for only DOM to be finished loading</li>
+</ul></li>
+
+<li><b>Q</b>: What are custom <code>data-*</code> HTML attributes?
+<ul class="org-ul">
+<li>Custom <code>data-*</code> attributes in HTML are a way to embed custom, private data inside HTML elements, data that you can access and manipulate with JS</li>
+<li>These are HTML attributes that begin with <code>data-</code> followed by a name of your choosing</li>
+<li>These attributes are ignored by the browser's default rendering but are accessible via JS making them useful for storing extra data tied to an element without polluting other attributes or using hidden inputs</li>
+<li>Thus you can store metadata in these attributes for each element</li>
+<li>To get the attribute in JS, you can use <code>getAttribute()</code> or you can use the <code>dataset</code> property followed by another property and the name of this property is the name of the attribute after <code>data-</code></li>
+<li>Dashes after <code>data-</code> are converted into camel case so you can access the attributes in JS by first using the <code>dataset</code> property and then get the property of the <code>dataset</code> which is named like the attribute after <code>data-</code></li>
+<li>In summary, <code>data-*</code> are custom HTML attributes that can be used as any metadata attribute, the browser does not render the attributes and ignores the attributes, and you can access the attribute through the <code>dataset</code> property by using the property named just like the attribute after <code>data-</code></li>
+</ul></li>
+
+<li><b>Q</b>: What happens if you specify event bubbling in one script and event capturing in another script for the same event in the same element?
+<ul class="org-ul">
+<li>Both event listeners will run but the first one that will run will be the capturing event flow listener and then the bubbling event flow listener</li>
+<li>Here is the order of event propagation when events have different event flows</li>
+<li>It always starts with the capturing phase
+<ul class="org-ul">
+<li>The event moves from the root (<code>window</code> -&gt; <code>document</code>, etc.) down to the target element</li>
+<li>Only the listeners with <code>capture: true</code> are triggered and run</li>
+</ul></li>
+<li>Eventually, it reaches the target element (originating element)
+<ul class="org-ul">
+<li>If the target element has multiple listeners with different event flows then it will first run the capture-phase listeners on the target</li>
+<li>Then it will run the bubble-phase listeners on the target</li>
+</ul></li>
+<li>After the target element's listeners are run, it then starts the bubbling phase
+<ul class="org-ul">
+<li>The event bubbles from the target back up to the root and only listeners added with <code>capture: false</code> (or no argument) are triggered</li>
+</ul></li>
+<li>This event phases always happen, it is first capturing phase, then target element, then bubbling phase (capture -&gt; target element -&gt; bubble)</li>
+<li>Keep in mind there are some events that do not bubble, for example <code>focus</code>, <code>blur</code>, <code>load</code> and <code>mouseenter</code>, so the event phases for these elements do not use bubble</li>
+<li>However, for the majority of events, many of them follow the same phases: capture -&gt; target element -&gt; bubble</li>
+<li>Also keep in mind the method <code>stopProgapation()</code>, if the method is called in the capture phase then it will stop it right there and the bubbling phase will never be called after the invoked method because bubbling is after capturing</li>
+<li>In summary, all events follow the same event phase: capture -&gt; target element -&gt; bubble (however there are some events that do not bubble and <code>stopProgapation()</code> will stop this flow at whatever point it is called)</li>
+</ul></li>
+
+<li><b>Q</b>: What is the difference between W3C DOM specs and HTML5 specs?
+<ul class="org-ul">
+<li>This question is a bit erroneous because W3C specs included HTML5 specs since W3C specs released HTML versions and their specs like HTML5</li>
+<li>What happened was in the early 2000s WHATWG was formed by the major browser vendors due to the frustration of W3C specs, so they started to make their specifications in parallel to W3C</li>
+<li>Eventually, many browsers started to follow WHATWG HTML specs instead and in 2019 both organizations agreed, W3C will no longer handle HTML or DOM specs, it will follow the specs from WHATWG</li>
+<li>So now WHATWG handles HTML and DOM specs and they contain a "living-standard" so they don't release versions because it is constantly changing (a different philosophy from W3C)</li>
+<li>So in today's age there are no longer differing specs and discrepancies between specs because HTML and DOM are handled by one organization which encourages for standardization for useful features</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6c1f151" class="outline-2">
-<h2 id="org6c1f151">Summary</h2>
-<div class="outline-text-2" id="text-org6c1f151">
+<div id="outline-container-orgcecbb2c" class="outline-2">
+<h2 id="orgcecbb2c">Summary</h2>
+<div class="outline-text-2" id="text-orgcecbb2c">
 <ul class="org-ul">
 <li>Browsers registers and fires different types of events such as a click, hover, when content is loaded, and more, each event will have a reason it fires</li>
 <li>When events happen in the browser it is said these events were fired or raised by the browser</li>
