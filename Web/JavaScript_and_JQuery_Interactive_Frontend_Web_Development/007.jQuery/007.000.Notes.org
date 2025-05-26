@@ -1,0 +1,90 @@
+#+title: Chapter 7: Query
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
+| Prev  | Chapter 6: Events                                           | \vert [[file:../006.Events/006.000.Notes.html][html]] \vert [[file:../006.Events/006.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/006.Events][github]] \vert |
+| Next  | Chapter 8: AJAX & JSON                                      | \vert [[file:../008.Ajax_and_JSON/008.000.Notes.html][html]] \vert [[file:../008.Ajax_and_JSON/008.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/008.Ajax_and_JSON][github]] \vert |
+
+* Notes
+
+** Section 7.1: Introduction
+   - jQuery offers a simple way to achieve a variety of common JavaScript tasks quickly and consistently across all major browsers and without any fallback code needed
+   - It is simpler to access elements using jQuery's CSS-style selectors than it is using DOM queries (the selectors are more flexible and powerful)
+   - jQuery's methods let you update the DOM tree, animate elements into and out of view, and loop through a set of elements, all in one line of code
+   - jQuery includes methods that allow you to attach event listeners to selected elements without having to write any fallback code to support older browsers
+
+** Section 7.2: What is jQuery?
+   - jQuery is a JS file that you include in your web pages
+   - jQuery lets you find elements using CSS-style selectors and then do something with the elements using jQuery methods
+
+*** Section 7.2.1: Finding Elements using CSS-Style Selectors
+    - A function called ~jQuery()~ lets you find one or more elements in the page
+    - This function creates an object called ~jQuery~ which holds references to those elements
+    - ~$()~ is often as a shorthand to save typing ~jQuery()~
+    - Example, let's say we have a link called "existing" and we run ~jQuery("a.existing")~ then it will return an object with the references to those elements
+    - The ~jQuery()~ function has one parameter: a CSS-style selector
+    - ~jQuery~ selectors perform similar task to traditional DOM queries but syntax is much simpler because all you need to do is ~$()~
+    - You can store the ~jQuery~ object in a variable, just like DOM nodes, and the ~jQuery~ object has methods and properties to manipulate the DOM nodes that you have selected just like DOM properties and methods
+
+*** Section 7.2.2: Do SOmething with Elements using jQuery Methods
+    - ~jQuery~ object has many methods that you can use to work with the elements you select, these methods represent tasks that you commonly need to perform with elements
+    - After using ~jQuery()~ the object and the elements it contains is referred to as a *matched set* or a *jQuery selection*
+    - You can then use the methods of the ~jQuery~ object to update the elements it contains
+    - For example, the method ~$().addClass()~ adds a new value to the class attribute for all the elements selected (the matched set)
+    - The differences from DOM is that jQuery is corss-browser and does not need to have fallback code
+    - Thus selecting elements is simpler (also due to CSS-style syntax and the shorthand of the method ~jQuery()~), add event handlers is also simple because it is cross-browser, methods affect all elements in the matched set without a need of the loop, additional methods are provided for animation, and once you have a set of elements you can apply multiple methods to it
+
+*** Section 7.2.3: A jQuery Example
+    - To use jQuery you need to include the jQuery script into your web page
+    - Once jQuery is added you can then import your own JS file that would be using jQuery
+    - Many people using jQuery use the minified file of jQuery so it ends with the extension ~.min.js~
+    - This file went through a process called minification which involves unnecessary spaces, carriage returns, comments being stripped from the code, and optimizations to make the file smaller and faster to load (although minified files are hard to read)
+    - You do not need to understand the jQuery code, all you need to know is how to select elements and use its methods and properties
+    - Example:
+
+    #+BEGIN_SRC javascript
+      $(":header").addClass("headline");
+      $("li:lt(3)").hide().fadeIn(1500);
+      $("li").on("click", function(){ $(this).remove(); });
+    #+END_SRC
+
+    - The first line selects all of the ~<h1> - <h6>~ headings and adds a value of "headline" to their class attributes
+    - The second line selects the first 3 list items and hides the elements, the reason why it hides them because if they are shown then how can they fade in, so after hiding them the elements are faded into view to give an animation of fading elements from unseen to seen
+    - Notice the selector ~:lt(3)~, this is a jQuery specific selector, it stands for "less than" and it uses a zero-based indexing, so it filters the selection to items with an index less than 3, so the first list item is index 0 and the next is index 2 and so on, so ~lt(3)~ wants to get only the list items that have an index "less than" 3
+    - The last line of the code set an event listener on each ~<li>~ element and when the user clicks on one then it triggers an anonymous function
+    - Inside this anonymous we can have ~element.target~ to get the target element or ~this~ (only if the event handler was added directly to the target element) so we use ~this~ with ~$()~ and whenever you give a DOM element to the function ~jQuery()~ or ~$()~ then you are basically wrapping the DOM element in a jQuery object giving you access to all of jQuery's powerful methods
+    - So the last line of code, we add an event handler, inside the anonymous function we get the target element using ~this~, we wrap it in a jQuery object, and then we finally call ~remove()~ on the object because this jQuery method removes the selected elements from the DOM completely along with all their child elements and associated data and event handlers
+    - Thus the last line of code is basically adding an event listener so when a user clicks on a list item it triggers a function that removes the element from the page
+
+** Section 7.3: Why Use jQuery?
+   - jQuery does not do anything you cannot achieve with pure JS, it is a JS file at the end but it can make coding simpler
+   - This is outdated but before selecting the elements you wanted was hard because older browsers did not support the lastest methods for selecting elements and IE did not treat whitespace as text nodes like the other browsers
+   - This makes it hard to select the right elements across all major browsers so jQuery instead uses CSS selectors to select elements because CSS selectors are fast at selecting elements, are more accurate about which elements to select, require less code (compared to older DOM methods), and is already used by most front-end developers
+   - 
+
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*: How is ~$()~ shorthand for ~jQuery()~?
+         - ~$()~ works because ~$~ is an alias for ~jQuery()~
+	 - jQuery assigns its main function to ~$~ because ~$~ is a valid variable or function name
+	 - For example, somewhere in the code it does the following: ~var $ = jQuery~
+	 - Of course it doesn't use the parentheses because it is not invoking it just yet
+	 - Thus we do add the parentheses to ~$~ then you get ~$()~ and that is the function being invoked
+	 - So if you were to override ~$~ to a different value then ~$()~ would no longer work
+	 - In the end, ~$~ is a variable (alias) for the function called ~jQuery~
+
+  - *Q*: Does the ~$().on()~ function accept anonymous functions and named functions?
+         - Yes they accept anonymous functions and they also accepted named functions
+	 - Both anonymous functions and named functions also accept the event object inside the ~on()~ jQuery method
+    
+* Summary
