@@ -18,7 +18,7 @@
    - It is simpler to access elements using jQuery's CSS-style selectors than it is using DOM queries (the selectors are more flexible and powerful)
    - jQuery's methods let you update the DOM tree, animate elements into and out of view, and loop through a set of elements, all in one line of code
    - jQuery includes methods that allow you to attach event listeners to selected elements without having to write any fallback code to support older browsers
-
+     
 ** Section 7.2: What is jQuery?
    - jQuery is a JS file that you include in your web pages
    - jQuery lets you find elements using CSS-style selectors and then do something with the elements using jQuery methods
@@ -66,8 +66,213 @@
    - jQuery does not do anything you cannot achieve with pure JS, it is a JS file at the end but it can make coding simpler
    - This is outdated but before selecting the elements you wanted was hard because older browsers did not support the lastest methods for selecting elements and IE did not treat whitespace as text nodes like the other browsers
    - This makes it hard to select the right elements across all major browsers so jQuery instead uses CSS selectors to select elements because CSS selectors are fast at selecting elements, are more accurate about which elements to select, require less code (compared to older DOM methods), and is already used by most front-end developers
-   - 
+   - In addition, jQuery adds extra selectors or extends the set of CSS selectors to offer greater functionality (these extensions are part of jQuery and do not work in CSS) such as ~:contains("text")~ which matches elements that contain the specified text
+   - DOM has their own CSS selector functions called ~querySelector()~ and ~querySelectorAll()~ but when they were introduced these methods were not supported by older browsers
+   - jQuery has methods that offer web developers simpler ways to perform common tasks such as loop through elements, add or remove elements from the DOM tree, handle events, fade elements into / out of view, and handle ajax requests, thus writing less code to achieve those tasks
+   - jQuery also offers chaining of methods, so once you have selected some elements, this allows you to apply multiple methods to the same selection
+   - jQuery is cross-browser compatible so instead of writing cross-browser fallback code, jQuery uses feature detection to find the best way to achieve a task by using conditional statements such as if the browser supports this then do this, if not check if it supports this, if not resort to last option (similar to checking if the browser supported methods in the previous chapter)
+   - During the time, jQuery was building a lot of code to support IE6, 7, and 8 (older browsers) and starting with jQuery 2.0 support for older browsers would be dropped but a lot of people still used older browsers at the time so the jQuery team decided to maintain two parallel versions of jQuery: jQuery 1.9+ and jQuery 2.0+
+   - This book is outdated and we are now in jQuery 3.0+ with no plans to ever release jQuery 4.0
 
+** Section 7.4: Finding Elements
+   - With jQuery you select elements using CSS-style selectors but jQuery also offers some extra selectors that are not part of CSS
+
+   - *Basic Selectors:*
+   | Selector               | CSS or jQuery                | Description                                                                                                                 |
+   |------------------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------|
+   | ~*~                    | CSS                          | Selects all elements                                                                                                        |
+   | ~element~              | CSS                          | All elements with that element name                                                                                         |
+   | ~#id~                  | CSS                          | Elements whose ~id~ attribute has thevalue specified                                                                        |
+   | ~.class~               | CSS                          | Elements whose ~class~ attribute has the value specified                                                                    |
+   | ~selector1, selector2~ | CSS                          | Elements that match more than one selector (see also the ~.add()~ method which is more efficient when combining selections) |
+
+   - *Hierarchy Selector*
+   | Selector              | CSS or jQuery | Description                                                                                                                                           |
+   |-----------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | ~ancestor descendant~ | CSS           | An element that is a descendant of another element (e.g. ~li a~)                                                                                      |
+   | ~parent > child~      | CSS           | An element that is a direct child of another element (you can use ~*~ in the place of the child to select all child elements of the specified parent) |
+   | ~previous + next~     | CSS           | Adjacent sibling selector only selectors elements that are immediately followed by the previous element                                               |
+   | ~previous ~ siblings~ | CSS           | Sibling selector will select any elements that are a sibling of the previous element                                                                  |
+
+   - *Basic Filters*
+   | Selector         | CSS or jQuery | Description                                                              |
+   |------------------+---------------+--------------------------------------------------------------------------|
+   | ~:not(selector)~ | CSS           | All elements except the one in the selector (e.g. ~div:not('#summary')~) |
+   | ~:first~         | jQuery        | The first element from the selection                                     |
+   | ~:last~          | jQuery        | The last element from the selection                                      |
+   | ~:even~          | jQuery        | Elements with an even index number in the selection                      |
+   | ~:odd~           | jQuery        | Elements with an odd index number in the selection                       |
+   | ~:eq(index)~     | jQuery        | Elements with an index number equal to the one in the parameter          |
+   | ~:gt(index)~     | jQuery        | Elements with an index number greater than the parameter                 |
+   | ~:lt(index)~     | jQuery        | Elements with an index number less than the parameter                    |
+   | ~:header~        | jQuery        | All ~<h1> - <h6>~ elements                                               |
+   | ~:animated~      | jQuery        | Elements that are currently being animated                               |
+   | ~:focus~         | CSS           | The element that currently has focus                                     |
+
+   - *Content Filters*
+   | Selector            | CSS or jQuery | Description                                                                                                                                      |
+   |---------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------|
+   | ~:contains('text')~ | jQuery        | Elements that contain the specified text as a parameter                                                                                          |
+   | ~:empty~            | jQuery        | All elements that have no children                                                                                                               |
+   | ~:parent~           | jQuery        | All elements that have a child node (can be text or element)                                                                                     |
+   | ~:has(selector)~    | jQuery        | Elements that contain at least one element that matches the selector (e.g. ~div:has(p)~ matches all ~div~ elements that contain a ~<p>~ element) |
+
+   - *Visibility Filters*
+   | Selector   | CSS or jQuery | Description                                                                                                                                                                                                                          |
+   |------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | ~:hidden~  | jQuery        | Selects all elements that are hidden                                                                                                                                                                                                 |
+   | ~:visible~ | jQuery        | All elements that consume space in the layout of the page, not selected if ~:display:none; height / width: 0;~ or ancestor is hidden and selected if ~visibility: hidden; opacity: 0~ because they would take up space in the layout |
+
+   - *Child Filters*
+   | Selector           | CSS or jQuery | Description                                                                          |
+   |--------------------+---------------+--------------------------------------------------------------------------------------|
+   | ~:nth-child(expr)~ | CSS           | Selects the nth child but it uses a 1-based index                                    |
+   | ~:first-child~     | CSS           | Selects the first child from the current selection                                   |
+   | ~:last-child~      | CSS           | Selects the last child from the current selection                                    |
+   | ~:only-child~      | CSS           | Selects the only child of the element only when there is only a child in the element |
+
+   - *Attribute Filters*
+   | Selector                     | CSS or jQuery | Description                                                             |
+   |------------------------------+---------------+-------------------------------------------------------------------------|
+   | ~[attribute]~                | CSS           | Element that carry the specified attribute (with any value)             |
+   | ~[attribute='value']~        | CSS           | Elements that carry the specified attribute with the specified value    |
+   | ~[attribute!='value']~       | jQuery        | Elements that carry the specified attribute but not the specified value |
+   | ~[attribute^='value']~       | CSS           | The value of the attribute begins with this value                       |
+   | ~[attribute$='value']~       | CSS           | The value of the attribute ends with this value                         |
+   | ~[attribute*='value']~       | CSS           | The value should appear somewhere in the attribute value                |
+   | ~[attribute \vert ='value']~ | CSS           | Equal to given string or starting with string and followed by a hyphen  |
+   | ~[attribute~='value']~       | CSS           | The value should be one of the values in a space separated list         |
+   | ~[attribute][attribute2]~    | CSS           | Elements that match all of the selectors                                |
+
+   - *Form Selectors*
+   | Selector    | CSS or jQuery | Description                                                            |
+   |-------------+---------------+------------------------------------------------------------------------|
+   | ~:input~    | jQuery        | All input elements                                                     |
+   | ~:text~     | jQuery        | All text inputs                                                        |
+   | ~:password~ | jQuery        | All password inputs                                                    |
+   | ~:radio~    | jQuery        | All radio buttons                                                      |
+   | ~:checkbox~ | jQuery        | All checkboxes                                                         |
+   | ~:submit~   | jQuery        | All submit buttons                                                     |
+   | ~:image~    | jQuery        | All ~<img>~ elements                                                   |
+   | ~:reset~    | jQuery        | All reset buttons                                                      |
+   | ~:button~   | jQuery        | All ~<button>~ elements                                                |
+   | ~:file~     | jQuery        | All file inputs                                                        |
+   | ~:selected~ | jQuery        | All selected items from drop-down lists                                |
+   | ~:enabled~  | CSS           | All enabled form elements (which is the default for all form elements) |
+   | ~:disabled~ | CSS           | All disabled form elements (using the HTML ~disabled~ attribute)       |
+   | ~:checked~  | CSS           | All checked radio buttons or checkboxes                                |
+
+   - When you select one or more elements, a jQuery object is returned and it is known as a matched set of a jQuery selection
+   - If a selector returns one element, the jQuery object contains a reference to just one element node
+   - If a selector returns several elements, the jQuery object contains references to each element
+   - Each element is given an index number and the index number starts at zero
+     
+** Section 7.5: jQuery Methods
+   - Once you have made a selection of elements then you can now call methods to do some task on the selected elements
+   - You often see jQuery method *names* (not the actual code) written starting with a period (~.~) before the name to highlight that those methods are part of the jQuery object and not JS methods or some other object's methods
+   - When you make a selection the jQuery object has a property called ~length~ which will return the number of elements in the object
+   - If the jQuery selection did not find any matching elements, you will not get an error by calling any of these methods because they simply won't do or return anything
+   - There are also methods that are specifically designed to work with Ajax (which lets you refresh part of the page rather than an entire page)
+   - So once we have selected the elements we want (and they are in a jQuery object), the jQuery methods perform tasks on those elements
+   - These methods:
+     - Get or change content of elements, attributes, and text nodes (content filters)
+     - Find and select elements to work with & traverse in the DOM
+     - Get or update the dimensions or position of a box (dimension / position)
+     - Add effects and animation to parts of the page (effects & animation)
+     - Create event listeners for each element in the selection (events)
+   - To find all the methods available in jQuery for the latest version, visit: https://api.jquery.com
+   - Some jQuery methods both retrieve info from, and update the contents of, elements, but they do not always apply to all elements
+   - If a jQuery selection holds more than one element and a method is used to get info from the selected elements, it will retrieve info from only the first element in the matched set
+   - For example, let's say we have a list and we select the listed items ~$('li')~ and it returns multiple list items, so when we use the ~.html()~ method to get info from each element, it will return the content of the first element in the matched set
+   - To get a different element you can use the methods to traverse or filter the selection or we can write a more specific selector
+   - To get the content of all of the elements, one way to do so is by the ~.each()~ method
+   - If a jQuery selections holds more than one element and a method is used to update information on the page then it will update all of the elements in the matched set not just the first one
+   - When you use the ~.html()~ method to update the elements, it will replace the contents of each element in the matched set
+   - To update just one element you can use methods to traverse or filter the selection or write a more specific selector
+   - So when a method is used on a selection to get information it will only retrieve info only from the first element but if a method is used on a selection to update info then it will update the info for all elements
+
+** Section 7.6: jQuery Objects
+   - When you create a selection with jQuery, it stores a reference to the corresponding nodes in the DOM tree, it does not create copies of them
+   - jQuery object is an array-like object because it stores a list of the elements in the same order that they appear in the HTML document (thus preserving the order unlike other objects where the order of the properties is not usually preserved)
+   - As you have seen, when HTML pages load, the browser creates a model of the page in memory
+   - When you create a jQuery selection, the jQuery object holds references to the already existing elements in the DOM so it does not create a copy of them (it uses the references to the already existing elements in the DOM)
+   - When programmers say that a variable or object is storing a reference to something, what it is doing is storing the /location/, a piece of info, in the browser's memory
+   - To create a jQuery object it takes time, processing resources, and memory because the interpreter must: find the matching nodes in the DOM tree, create the jQuery object, and store references to the nodes in the jQuery object
+   - So if the code needs to use the same selection more than once it is better to use the same jQUery object again rather than repeat the above process
+   - To do this, you store a reference to the jQuery object in a variable, thus in a sense you are caching a jQuery object by having a variable store the reference to the jQuery object
+   - Note that when a variable contains a jQuery object, it is often given a name beginning with the ~$~ symbol to help differentiate it from other variables in your script
+   - Caching jQuery selections is similar to the idea of storing a reference to a DOM node once you have made a DOM query
+
+** Section 7.7: Looping & Chaining
+   - In plain JS, if you wanted to do the same thing to several elements, you would need to write code to loop through all of the elements you selected
+   - With jQuery when a selector returns multiple elements, you can update all of them using the one method and there is no need to use a loop
+   - For example ~$('li.em').addClass('seasonal');~ this method is going to add to the class attribute for all the elements that are found using the selector (doesn't matter if there are one or many)
+   - The ability to update all of the elements in the jQuery selection is known as *implicit iteration*
+   - When you want to get information from a series of elements you use ~.each()~ method rather than writing a loop (more on it later)
+   - If you want to use more than one jQuery method on the same selection of elements, you can list several methods at a time using dot notation to separate each one (for example ~$('li').hide().deplay(500).fadeIn(1400);~)
+   - Thus the methods act on the same selection of elements and this process of placing several methods in the same selector is referred to as *chaining*
+   - Most methods used to update the jQuery selection can be chained however the methods that retrieve info from the DOM (or about the browser) cannot be chained
+   - If one of the method in the chain does not work then the rest will not run either
+
+** Section 7.8: Checking a Page is Ready to Work With
+   - jQuery's ~.ready()~ method checks that the page is ready for your code to work with
+   - For example, ~$(document).ready(function() {});~ this creates a jQuery object represent the page and when the page is ready, the function inside the parentheses of the ~.ready()~ method is run
+   - As with plain JS, if the browser has yet constructed the DOM tree then jQuery will not be able to select elements from it so you either use the ~.ready()~ function or you place the script at the end of the page just before the closing ~</body>~ tag (because that point the elements will have been loaded into the DOM tree)
+   - A shortcut for the ready event method on the document object is the following: ~$(function() {});~
+   - The shorthand above is more commonly used than ~$(document).ready()~ and benefit of using an anonymous function to contain all of jQuery code is that it creates function-level scope for its variables so it prevents naming collisions with other scripts that might use the same variable names
+   - jQuery had a ~.load()~ method as it fired on the ~load~ event but this has been replaced by the ~.on()~ method, recall that the load event fires after the page and all of its resources have loaded so you should use this ~.on()~ method when your script relies on assets to have loaded (e.g. show dimensions of an image)
+   - The ~.on()~ method works in all browsers and provides function-level scope for the variables it contains
+   - jQuery's ~.ready()~ method checks if the browser supports the ~DOMContentLoaded~ event because it fires as soon as the DOM is loaded and it does not wait for other assets to finish loading making the page appear to load faster
+   - jQuery will use an event listener for ~DOMContentLoaded~ if the browser supports it but in older browsers jQuery will wait for the ~load~ event to fire
+   - If you were to place the script before the closing body tag then the HTML elements will have been loaded into DOM before your script runs but it is still common for people to use ~.ready()~ because it ensures no matter where the script is placed in the HTML the code will always run when the elements have been successfully loaded into DOM
+
+** Section 7.9: Getting Element Content
+   - The ~.html()~ and ~.text()~ methods both retrieve and update the content of elements
+   - When ~.html()~ is used to retrieve info from a jQuery selection it retrieves only the HTML inside the first element in the matched set along with any of its descendants (so if the selection has child HTML elements, it will return all the HTML for that selection)
+   - When ~.text()~ method is used to retrieve the text from a jQuery selection it returns the content from every element in the jQuery selection, along with the text from any descendants
+   - ~.text()~ returns all of the text content of the selected elements as a single string with no HTML tags and no structure it is just concatenated text
+   - ~.text()~ returns whitespace characters that are included inside the HTML elements but not the whitespace characters that separate the HTML elements (e.g. ~<li>Test \n New Line</li> <li>Test2</li>~ will return "Test \n New LineTest2" notice how the end of the first list item does not include space to the start of the next list item)
+   - To get the content from ~<input>~ or ~<textarea>~ elements use the ~.val()~ method (more about it later)
+
+** Section 7.10: Updating & Inserting Elements
+
+*** Section 7.10.1: Updating Elements
+    - There are four methods that update the content of all elements in a jQuery selection:
+      - ~.html()~: Gives every elment in the matched set the same new content and the new content may include HTML
+      - ~.text()~: Gives every element in the matched set the same new text content and any markup would be shown as text
+      - ~.replaceWith()~: Replaces every element in a matched set with new content and it also returns the replaced elements (this method replaces the selected elements entirely with new content, either HTML, a DOM element, or another jQuery element and inserts the new content in their place keeping the same position in the DOM)
+      - ~.remove()~: Removes all of the elements in the matched set
+       
+    - When the ~.html()~ and ~.text()~ methods are used as setters (to update content) they will replace the content of each element in the matched set along with any content and child elements
+    - The ~.replaceWith()~ and ~.remove()~ methods replace and remove the elements they match as well as their content and any child elements
+    - The ~.html()~ and ~.replaceWith()~ methods can take a string as a parameter and the string can be stored in a variable and contain markup while ~.text()~ also takes a string as a parameter but the markup would be treated as text
+    - ~.remove()~ only has 1 optional parameter and that is a selector to filter which matched elements to remove
+    - When you add markup to the DOM, be sure to escape all untrusted content properly on the server because both ~.html()~ and ~.replaceWith()~ methods carry the same security risks as using the DOM's ~innerHTML~ property
+    - If you want to use and amend the content of the current selection, these methods can take a function as a parameter and then this function can be used to create new content
+    - For example, if you want the existing html to be inside ~<em>~ tags so you take a function as an argument and in that function you return a new string with ~<em>~ tags but inside those tags will have the text of the element
+    - To access the current element's properties and methods, you use ~$(this)~ and thus you can get the HTML or text by running ~$(this).text()~ or ~$(this).html()~ and place it in-between the ~<em>~ tags and return the string
+    - So return indicates that the content should be returned by the function and replace the html, replace with, or replace the text and this refers to the current element so ~$(this)~ places that element in a new jQuery object so that you can use jQuery methods on it
+    - Thus when updating the content of an element you can use a string, a variable, or a function
+
+*** Section 7.10.2: Inserting Elements
+    - Inserting new elements involves two steps:
+      1. Create the new elements in a jQuery object
+      2. Use a method to insert the content into the page
+    - To create a new jQuery object you simply pass a string with markup into the ~jQuery()~ function
+    - For example, ~$('<li>')~ creates an empty ~<li>~ element and stores it in a jQuery object
+    - Another example, ~$('<li class="new">item</li>')~, this creates a jQuery object with a ~<li>~ element that has a class attribute and some text
+      
+
+** Section 7.11: Getting & Setting Attribute Values
+
+** Section 7.12: Getting & Setting CSS Properties
+
+** Section 7.13: Working with Every Element in a Selection
+
+** Section 7.14: Event Methods & The Event Object
+
+** Section 7.15: Event Handlers & Event Listeners
+   
 * Keywords
 | Term | Definition |
 |------+------------|
