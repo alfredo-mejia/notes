@@ -261,17 +261,182 @@
     - To create a new jQuery object you simply pass a string with markup into the ~jQuery()~ function
     - For example, ~$('<li>')~ creates an empty ~<li>~ element and stores it in a jQuery object
     - Another example, ~$('<li class="new">item</li>')~, this creates a jQuery object with a ~<li>~ element that has a class attribute and some text
+    - Once you have a variable holding the new content, you can use the following methods to add the content to the DOM tree:
+      - ~.before()~: Inserts content before the selected elements
+      - ~.after()~: Inserts content after the selected elements
+      - ~.prepend()~: Inserts content inside the selected elements after the opening tag
+      - ~.append()~: Inserts content inside the selected elements before the closing tag
+      - ~.prependTo()~: Inserts the selected elements inside the argument element after the opening tag
+      - ~.appendTo()~: Inserts the selected elements inside the argument element after the closing tag
+    - Thus you can create new jQuery objects to hold text and markup and then you can add the object to the DOM tree
+    - If you create a selection that returns multiple elements then the methods above (~before()~, ~after()~, etc.) will add the same content to each of the elements in the matched set
+    - When adding content to the DOM, make sure you have escaped all untrusted content properly on the server
       
-
 ** Section 7.11: Getting & Setting Attribute Values
+   - You can create attributes or access and update their contents using the following four methods
+     - ~.attr()~: This method can get or set a specified attribute and its value, to get the value of an attribute, you specify the name of the attribute as the argument (e.g. ~$('li').attr('id')~) and to update the value of an attribute you specify both the attribute name and its new value (e.g. ~$('li').attr('id', 'new-id')~)
+     - ~.removeAttr()~: This method removes a specified attribute and its value, you specify the name of the attribute as an argument (e.g. ~$('li').removeAttr('id')~)
+     - ~.addClass()~: This methods adds a new value to the existing value of the class attribute and it does not overwrite existing values
+     - ~.removeClass()~: This method removes a value from the class attribute leaving any other class names within that attribute intact
+   - You can work with any attribute on any element using ~attr()~ and ~removeAttr()~ methods
+   - If you use the ~attr()~ method to update an attribute that does not exist then it will create the attribute and give it the specified value
+   - The value of the ~class~ attribute can hold more than one class name each separated by a space
+   - The ~addClass()~ and ~removeClass()~ methods are powerful because they let you add or remove an individual class name within the value of the class attribute and they do not affect any other class names
 
 ** Section 7.12: Getting & Setting CSS Properties
+   - The ~.css()~ method lets you retrieve and set the values of CSS properties
+   - To get the value of a CSS property, you indicate which property you want to retrieve in parentheses (e.g. ~$('li').css('background-color');~) and if the matched set contains more than element it will return the value from the first element
+   - To set the values of a CSS property, you specify the property name as the first argument in the parentheses then a comma, followed by its value as the second argument (e.g. ~$(li).css('background-color', '#272727');~), this will update every element in the matched set
+   - You can also specify multiple properties in the same method using object literal notation where properties and values are placed in curly braces, a colon is used to separate property names from their values, and a comma separates each pair (but there is not one after the last pair)
+   - For example,
+     
+   #+BEGIN_SRC javascript
+     $('li').css({
+	 'background-color': '#272727',
+	 'font-family': 'Courier'
+     });
+   #+END_SRC
+
+   - When dealing with dimensions that are specified in pixels, you can increase and decreases the values using the ~+=~ and ~-=~ operators (e.g. ~$('li').css('padding-left', '+=20')~)
+   - Note that it is better to change the value of a class attribute to trigger new CSS rules in the style sheet rather than to change CSS properties from within the JS file itself
 
 ** Section 7.13: Working with Every Element in a Selection
+   - jQuery allows you to recreate the functionality of a loop on a selection of elements using the ~.each()~ method
+   - Although there are many jQuery methods that update all of the elements in a matched set without the need for a loop, however, there are times when you want to loop through each of the elements in the section often because you are trying to get info from each element in the matched set or you want to perform a series of actions on each of the elements
+   - The ~.each()~ method is provided for this purpose and the parameter of the ~.each()~ method is a function (an anonymous function or a named function)
+   - ~.each()~ allows you to perform one or more statements on each of the items in the selection of elements that is returned by a selector
+   - ~.each()~ takes one argument: a function containing the statements you want to run on each element (e.g. ~$('li').each(function() {})~
+   - You first get the matched set by using ~$()~, you then call ~.each()~ to apply the same code to each element in the selection, and then the function is run for each of the items in the list
+   - As the ~.each()~ method goes through the elements in a selection, you can access the current element using the ~this~ keyword and you will often see ~$(this)~ which uses the ~this~ keyword to create a new jQuery selection containing the current element allowing you to use jQuery methods on the current element
+   - Note that you can access the current element using the keyword ~this~ and if you need to access properties of the node then it is better to use plain JS (more efficient) but if you need to use jQuery methods then that is when you create a jQuery object (~$(this)~)
+   - Finally, ~.each()~ accepts a parameter, this parameter wil indicate the index of the element in the set, the matched set will be a zero-based index and thus it will start at 0 and go from there
+     
+** Section 7.14: Event Methods, Event Object, & Event Handlers
+   - The ~.on()~ method is used to handle all events but behind the scenes jQuery handles all of the cross-browser issues seen in the previous chapter
+   - Using the ~.on()~ method is no different than using any other jQuery method: you use a selector to create a jQuery selection and then you use the ~.on()~ to indicate which event you want to respond to and the function then adds an event listener to each element in the selection
+   - ~.on()~ was introdcued in v1.7 of jQuery and prior to that jQuery would use separate methods for each event, e.g. ~.click()~, ~.focus()~, etc. but now ~.on()~ is only used
+   - For example,
 
-** Section 7.14: Event Methods & The Event Object
+   #+BEGIN_SRC javascript
+     $('li').on('click', function() {
+	 $(this).addClass('complete');
+     });
+   #+END_SRC
 
-** Section 7.15: Event Handlers & Event Listeners
+   - In the example, we first get the selected items or matched set and then using the ~.on()~ method we specify, in the first argument, the event we want to respond to and the second argument we have the code we want to run when the event occurs on any element in the matched set
+   - The function in the second argument can be a named function or an anonymous function
+   - Almost all browsers events work with ~.on()~ and jQuery even has their own custom-built events like ~ready~ which is not a native DOM event but is a jQuery event that fires whenever the page is ready and ready to be worked with
+   - You may be able to also specify multiple events in the 1st parameter which will fire the same function, you specify the events in the 1st parameter separated by a space in between them
+
+   - Every event handling functions receives an ~event~ object and it has methods and properties to the event that occured
+   - Just like the JS event object, the jQuery event object has properties and methods that tell you more about the event that took place
+   - If you look at the function that is called when the event occurs, the event object is named in parentheses and this named is used within the function to refer the event object
+   - For example,
+     
+   #+BEGIN_SRC javascript
+     $('li').on('click', function(e) {
+	 eventType = e.Type;
+     });
+   #+END_SRC
+
+   - In the example above, we gave the event object a parameter name, we then use that name in the function to reference the event object, and then we can access the properties and methods of the object using the familiar dot notation (member operator)
+   - Some properties include ~type~ (type of event, e.g. click, mouseover, etc.), ~which~ (button or key that was pressed), ~data~ (object literal containing extra info passed to the function), and more
+   - Some methods include ~.preventDefault()~ and ~.stopPropagation()~, and more
+
+   - The ~.on()~ method has two optional properties that let you: (1) filter the matched set to only respond to events that happend on a set of elements and (2) pass extra info into the event handler using object literal notation
+   - The actual syntax of the ~.on()~ method is as follows:
+
+   #+BEGIN_SRC javascript
+     .on(events [, selector] [, data], function(e));
+   #+END_SRC
+
+   - The first argument is the event you want to respond to and if you want to respond to more than one event then you can provide a space-separated list of event names (e.g. 'focus click')
+   - The second argument is optional and this allows you to further filter the matched set to only respond to the event happening on a subset of the initial jQuery selection, this was great for event delegation because now you can filter its descendants as well and event handlers would be for the ancestor but listen on its descendants thus having event delegation
+   - The third argument is also optional and you can pass extra info to the function that is called when the event is triggered and the info is passed along with the event object
+   - So the third argument takes in an object literal and you can access that info via the event object (~e.data~) and access the properties in the object literal by using the dot operator and using the same name in ~e.data~ as in the object literal
+   - The fourth argument is the function that should be run when the specified events occur on one of the elements in the matched set (or filtered matched set)
+   - And finally, the event object is automatically passed to the function but in order to use it you must give the function a parameter name for the event object
+   - Before jQuery v1.7 the ~.delegate()~ function would be used to add event handlers for the parent and listen to the events on the child but was replaced since v1.7+ with ~.on()~
+
+** Section 7.15: Animation
+   - When you start using jQuery, the effects methods can enhance your web page with transitions and movement
+   - With jQuery you can make content animate fading in and out, slide them up and down, or hide them or show them
+   - When an element that was previously hidden is shown, faded in, or slides into view, the other elements on the page may move to make space for it
+   - When an element is hidden, has been faded out, or has slid out of view, the other elements on the page can move into the space these elements took up
+   - Methods with ~toggle~ in their name will look at the current state of the element (whether it is visible or hidden) and will switch to the opposite state
+   - However, most of these animations can be done in CSS and it best to use CSS for animations because it is faster than jQuery
+
+   | Method           | Description                                                                                             |
+   |------------------+---------------------------------------------------------------------------------------------------------|
+   | ~.show()~        | Displays selected elements                                                                              |
+   | ~.hide()~        | Hides selected elements                                                                                 |
+   | ~.toggle()~      | Toggles between showing and hiding selected elements                                                    |
+   | ~.fadeIn()~      | Fades in selected elements making them opaque                                                           |
+   | ~.fadeOut()~     | Fades out selected elements making them transparent                                                     |
+   | ~.fadeTo()~      | Changes opacity of selected elements                                                                    |
+   | ~.fadeToggle()~  | Hides or shows selected elements by changing their opacity (the opposite of their current state)        |
+   | ~.slideUp()~     | Hides selected elements with a sliding motion                                                           |
+   | ~.slideDown()~   | Shows selected elements with a sliding motion                                                           |
+   | ~.slideToggle()~ | Hides or shows selected elements with a sliding motion (in the opposite direction to its current state) |
+   | ~.delay()~       | Delays execution of subsequent items in queue                                                           |
+   | ~.stop()~        | Stops an animation if it is currently running                                                           |
+   | ~.animate()~     | Creates custom animations                                                                               |
+
+   - The ~.animate()~ method allows you to create some of your own effects and animations by changing CSS properties
+   - You can animate any CSS property whose value can be represented as a number (e.g. height, width, font-size, etc.) but not those whose value would be a string (e.g. font-family, text-transform, etc.)
+   - CSS properties inside the method is written using camelCase notation so the first word is all lowercase and each subsequent word starts with an uppercase character (e.g. ~border-top-left-radius~ would become ~borderTopLeftRadius~)
+   - The ~.animate()~ function accepts 4 arguments, the first argument is the object literal and then 3 optional arguments
+   - The CSS properties are specified in the object literal (e.g. ~{opacity: 0.0}~)
+   - After the second argument is optional and it is the speed parameter which indicates the duration of the animation in milliseconds (it can also take the keywords "slow" and "fast")
+   - The third argument is optional and it is the easing parameter, it can have two values: "linear" (the speed of animation is uniform) or "swing" (speeds up in the middle of the transition and is slower at the start and end) and if no value is specified then "swing" is used by default
+   - The fourth argument is optional and it is called complete, it is used to call a function that should run when the animation has finished, this is known as a callback function, so it can be a named function or an anonymous function
+   - For example,
+
+   #+BEGIN_SRC javascript
+     $('li').on('click', function(){ // add event handler when list item is clicked
+	 $(this).animate({ // animate list item
+	     opacity: 0.0, // make it disappear
+	     paddingLeft: '+=80' // make it move to right like if it is leaving
+	 }, 500, 'swing', function(){ // when animation finished actually remove the list item from DOM
+	     $(this).remove();    
+	 });
+     });
+   #+END_SRC
+
+   - To animate between two colors, rather than using ~.animate()~ method you can instead use the jQuery's jQuery-color plugin
+
+** Section 7.16: Traversing the DOM
+   - When you have made a jQuery selection, you can use these methods to access other element nodes relative to the initial selection
+
+   | Method         | Selector | Description                                               |
+   |----------------+----------+-----------------------------------------------------------|
+   | ~.find(<>)~    | Required | All elements within current selection that match selector |
+   | ~.closest(<>)~ | Required | Nearest ancestor (not just parent) that matches selector  |
+   | ~.parent()~    | Optional | Direct parent of current selection                        |
+   | ~.parents()~   | Optional | All parents of current selection                          |
+   | ~.children()~  | Optional | All children of current selection                         |
+   | ~.siblings()~  | Optional | All siblings of current selection                         |
+   | ~.next()~      | Optional | Next sibling of current element                           |
+   | ~.nextAll()~   | Optional | All subsequent siblings of current element                |
+   | ~.prev()~      | Optional | Previous sibling of current element                       |
+   | ~.prevAll()~   | Optional | All previous siblings of current element                  |
+
+   - Each method finds elements that have a different relationship to those that are in the current selection (e.g., parents or children of the current selection)
+   - The ~.find()~ and ~.closest()~ methods both require a CSS-style selector as an argument while the other methods the CSS-style selector is optional
+   - But if a selector is provided, both the method and selector must match in order for the element to be added to the new selection
+   - For example, if you start with a selection that contains one list item, you could create a new selection containing the other items from the list using the ~.siblings()~ method
+   - If you added a selector into the method such as this: ~.siblings('.important')~ then it would find only siblings with a class attribute whose value included "important"
+   - If the original selection contains multiple elements, these methods all work on all of the elements in the selection (which can result in quite an odd selection of elements) so you may need to narrow down your initial selection before traversing the DOM
+   - Behind the scenes, jQuery will handle the cross-browser inconsistencies involved in traversing the DOM 9such as whitespace nodes being added by some browsers)
+
+** Section 7.17: Add & Filtering Elements in a Selection
+   - Once you have a jQuery selection, you can add more elements to it or you can filter the selection to work with a subset of the elements
+
+   | Method      | Description                                                                                                     |
+   |-------------+-----------------------------------------------------------------------------------------------------------------|
+   | ~.add()~    | Adds new content to the items in the existing selection and places the resulting content in a new jQuery object |
+   | ~.filter()~ | Finds elements in the matched set that in turn match a second selector                                          |
+   | ~.find()~   | Finds descendants of elements in the matched set that match a selector                                          |
    
 * Keywords
 | Term | Definition |
@@ -291,5 +456,7 @@
   - *Q*: Does the ~$().on()~ function accept anonymous functions and named functions?
          - Yes they accept anonymous functions and they also accepted named functions
 	 - Both anonymous functions and named functions also accept the event object inside the ~on()~ jQuery method
+
+  - *Q*: What is the difference between ~.filter()~ and ~.find()~?
     
 * Summary
