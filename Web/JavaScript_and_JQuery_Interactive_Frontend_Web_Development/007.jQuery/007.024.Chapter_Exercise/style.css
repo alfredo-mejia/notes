@@ -1,0 +1,66 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+}
+
+main {
+    width: 100%;;
+    text-align: center;
+}
+
+.quantity {
+    background-color: grey;
+    border: 1px solid white;
+    color: white;
+    display: inline-block;
+    width: fit-content;
+    padding: 0.5%;
+    border-radius: 50%;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+    list-style: none;
+}
+
+li {
+    padding: 1%;
+    border: 1px solid rgb(190, 190, 190);
+}
+
+.active {
+    background-color: rgb(255, 123, 0);
+    font-size: larger;
+}
+
+.complete {
+    background-color: gray;
+    font-size: larger;
+}
+
+button {
+    border-radius: 5px;
+    font-size: medium;
+    color: white;
+    background-color: rgb(207, 48, 0);
+    border: 0;
+    padding: 5px;
+    margin: 5px;
+}
+
+input {
+    font-size: large;
+    border: 0;
+    padding: 7px;
+    margin: 5px;
+    min-width: 25%;
+}

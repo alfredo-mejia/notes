@@ -432,11 +432,207 @@
 ** Section 7.17: Add & Filtering Elements in a Selection
    - Once you have a jQuery selection, you can add more elements to it or you can filter the selection to work with a subset of the elements
 
-   | Method      | Description                                                                                                     |
-   |-------------+-----------------------------------------------------------------------------------------------------------------|
-   | ~.add()~    | Adds new content to the items in the existing selection and places the resulting content in a new jQuery object |
-   | ~.filter()~ | Finds elements in the matched set that in turn match a second selector                                          |
-   | ~.find()~   | Finds descendants of elements in the matched set that match a selector                                          |
+   | Method / Selector   | Description                                                                                                     |
+   |---------------------+-----------------------------------------------------------------------------------------------------------------|
+   | ~.add()~            | Adds new content to the items in the existing selection and places the resulting content in a new jQuery object |
+   | ~.filter()~         | Finds elements in the matched set that in turn match a second selector                                          |
+   | ~.find()~           | Finds descendants of elements in the matched set that match a selector                                          |
+   | ~.not()~ / ~:not()~ | Finds elements that do not match the selector                                                                   |
+   | ~.has()~ / ~:has()~ | Finds elements from the matched set that have a descendant that matches the selector                            |
+   | ~:contains()~       | Selects all elements that contain the text specified (parameter is case sensitive)                              |
+   | ~.is()~             | Checks whether current selection matches a condition (returns boolean)                                          |
+
+   - Note that ~$('li').not('.hot').addClass('cool')~ is equivalent to ~$('li:not(.hot)').addClass('cool')~
+   - The ~.add()~ method allows you to add a new selection to an existing one
+   - The functions take a selector as a parameter and either add to your existing matched set, find a new matched set, or filters the matched set
+   - The items that begin with a colon can be used wherever you would use a CSS-style selector, so in the selector you append the colon and function name along with any additional selector
+   - The ~:not()~ and ~:has()~ selectors take another CSS-style selector as a parameter and the ~:contains()~ lets you find elements that contain specific text
+   - The ~:is()~ method lets you use another selector to check whether the current selection matches a condition and if it does then it will return true otherwise it will return false (this is helpful in conditional statements)
+
+** Section 7.18: Finding Items by Order
+   - Each item returned by a jQuery selector is given an index number which can be used to filter the selection
+   - The jQuery object is sometimes referred to as being an array-like object because it assigns a number to each of the elements that is returned by a selector
+   - That number is an index number which means it starts at 0
+   - You can filter the selected elements based on this number using methods or these additional CSS-style selectors that jQuery has added
+   - Methods are applied to the jQuery selection, whereas selectors are used as part of the CSS-style selector
+   - For example, if you run ~$('li')~, each list item that is returned to a jQuery object will have index starting from zero, so if you run ~$('li').eq(2)~ it will get the list item with an index of 2, if you run ~$('li:lt(2)')~ then it will get list items with an index less than 2
+   
+   | Method / Selector | Description                                              |
+   |-------------------+----------------------------------------------------------|
+   | ~.eq()~           | The element that matches the index number                |
+   | ~:lt()~           | Elements with an inde less than the number specified     |
+   | ~:gt()~           | Elements with an index greater than the number specified |
+
+** Section 7.19: Working with Forms
+   - jQuery has selectors that are designed specifically to work with forms, however, they are not always the quickest way to select elements
+   - Selectors for Form Elements:
+
+   | Selector    | Description                                                                                                                                                                 |
+   |-------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | ~:button~   | ~<button>~ and ~<input>~ eleemnts whose ~type~ attribute has a value of button                                                                                              |
+   | ~:checkbox~ | ~<input>~ elements whose ~type~ attribute has a value of ~checkbox~ (note that you might get better performance with ~$('[type="checkbox"]')~                               |
+   | ~:checked~  | Checked elements from checkboxes and radio buttons (see ~:selected~ for select boxes)                                                                                       |
+   | ~:disabled~ | All elements that have been disabled                                                                                                                                        |
+   | ~:enabled~  | All elements that are enabled                                                                                                                                               |
+   | ~:focus~    | Element that currently has focus (note that you can get better performance with ~$(document.activeElement)~                                                                 |
+   | ~:file~     | All elements that are file inputs                                                                                                                                           |
+   | ~:image~    | All image inputs (note that you get better performance with ~[type="image"]~                                                                                                |
+   | ~:input~    | All ~<button>~, ~<input>~, ~<selector>~, and ~<textarea>~ elements (note that you get better performance from selecting elements then using ~.filter(":input")~             |
+   | ~:password~ | All password inputs (note that you get better performance using ~$('input:password')~                                                                                       |
+   | ~:radio~    | All radio inputs (to select a group of radio buttons you can use ~$('input[name="gender"]:radio')~                                                                          |
+   | ~:reset~    | All inputs that are reset buttons                                                                                                                                           |
+   | ~:selected~ | All elements that are selected (note that you get better performance using a CSS selector inside the ~.filter()~ method, e.g. ~.filter(":selected")~                        |
+   | ~:submit~   | ~<button>~ and ~<input>~ elements whose ~type~ attribute has a value of ~submit~ (note that you will get better performance using ~[type="submit"]~                         |
+   | ~:text~     | Selects ~<input>~ elements with a ~type~ attribute whose value is text or whose type attribute is not present (you will likely get better performance from ~('input:text')~ |
+
+   - If you use one of these selectors on its own, jQuery will examine each element in the document to find a match, thus it will use jQuery code which is not as fast as CSS selectors
+   - Therefore, you should narrow down the part of the document the script needs to look through by placing an element name or other jQuery selector before using the selectors shown in the table above
+   - You can also access elements in a form using the same selectors used to pick any element in jQuery (this option could be faster)
+   - Because jQuery handles whitespace nodes for you, it is easy to traverse between form elements using jQuery compared to using plain JS
+   - Other methods:
+
+   | Method          | Description                                                                                                                                                                    |
+   |-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | ~.val()~        | Primarily used with ~<input>~, ~<select>~, and ~<textarea>~ elements, it can be used to get the value of the first element in a matched set or update the value of all of them |
+   | ~.filter()~     | Used to filter a jQuery selection using a second selector (espeically form-specific filters)                                                                                   |
+   | ~.is()~         | Often used with filters to check whether a form input is selected / checked                                                                                                    |
+   | ~$.isNumeric()~ | Checks whether the value represents a numeric value and returns a boolean (e.g. ~$.isNumeric("2")~, ~$.isNumeric(+2)~, ~$.isNumeric(4.4)~, ~$.isNumeric(0xFF)~, etc.)          |
+
+   - The ~.val()~ method gets the value of the first ~<input>~, ~<select>~, or ~<textarea>~ element in a jQuery selection and it can also be used to set the value for all matching elements
+   - The ~.filter()~ and ~.is()~ methods are commonly used with form elements and we discussed these methods previously
+   - The ~$.isNumeric()~ is a global method and it is not used on a jQuery selection but rather the value you want to test is passed as an argument
+   - Events (works with the method ~.on()~):
+
+   | Events   | Description                                         |
+   |----------+-----------------------------------------------------|
+   | ~blur~   | When an element loses focus                         |
+   | ~change~ | When the value of an input changes                  |
+   | ~focus~  | When an element gains focus                         |
+   | ~select~ | When the option for a ~<select>~ element is changed |
+   | ~submit~ | When a form is submitted                            |
+   
+   - These events correspond to JS events that you might use to trigger functions, as with other jQuery code, jQuery handles any inconsistencies between browsers when dealing with these events
+   - jQuery also makes it easier to work with a group of elements such as radio buttons, checkboxes, and the options in a select box because once you have selected the elements you can simply apply individual methods to each of them without having to write a loop
+   - When submitting a form there is also a helpfu method called ~.serialize()~ which we will learn more about later
+
+** Section 7.20: Cutting & Copying Elements
+   - Once you have a jQuery selection, you can use these methods to remove those elements or make a copy of them
+
+   | Method      | Description                                                                                                                                                                                                                                                                                              |
+   |-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | ~.remove()~ | Removes matched elements from DOM tree (including any descendants and text nodes)                                                                                                                                                                                                                        |
+   | ~.detach()~ | Same as ~.remove()~ but keeps a copy of them in memory                                                                                                                                                                                                                                                   |
+   | ~.empty()~  | Removes child nodes and descendants from any elements in matched set (child data and event handlers are also removed)                                                                                                                                                                                    |
+   | ~.unwrap()~ | Removes parents of matched set, leaving matched elements, and now the grandparent becomes the new parent of the matched elements (while the old parent is removed along with any data and event handlers)                                                                                                |
+   | ~.clone()~  | Creates a copy of the matched set (including any descendants and text nodes), by default clone does not copy data or event handlers (you must specify true in the argument if you want that), and the clone is not automatically added to DOM, you must also added it to DOM if you want it to be in DOM |
+
+   - The ~.remove()~ method deletes the matched elements and all of their descendants from the DOM tree
+   - The ~.detach()~ method also removes the matched elements and all of their descendants from the DOM tree; however, it retains any event handlers and any other associated jQuery data so they can be inserted back into the page
+   - The ~.empty()~ (remove children) and ~.unwrap()~ (remove parent) methods remove elements in relation to the current selection
+   - The ~.clone()~ method creates a copy of the matched set of elements and any descendants and if you use this method on elements that have an id attribute then you will need to update the id attribute otherwise it would no longer be unique (if you want event handlers to be cloned too then you should add true as an argument to clone)
+
+** Section 7.21: Dimensions
+
+*** Section 7.21.1: Box Dimensions
+    | Method               | Retrieve or Set | Description                                      |
+    |----------------------+-----------------+--------------------------------------------------|
+    | ~.height()~          | Both            | Height of box (no margin, no border, no padding) |
+    | ~.width()~           | Both            | Width of box (no margin, no border, no padding)  |
+    | ~.innerHeight()~     | Retrieve        | Height of box plus padding                       |
+    | ~.innerWidth()~      | Retrieve        | Width of box plus padding                        |
+    | ~.outerHeight()~     | Retrieve        | Height of box plus padding and border            |
+    | ~.outerWidth()~      | Retrieve        | Width of box plus padding and border             |
+    | ~.outerHeight(true)~ | Retrieve        | Height of box plus padding, border, and margin   |
+    | ~.outerWidth(true)~  | Retrieve        | Width of box plus padding, border, and margin    |
+   
+    - The methods above allow you to discover or update the width and height of all boxes on the page
+    - CSS treats each element on a web page as if it were in its own box and a box can have padding, a border, and a margin
+    - If you set the width or height of the box in CSS, it does not include any padding, border, or margin - they are added to the dimensions
+    - The methods above allow you to retrieve the width and height of the first element in the matched set and the first two methods shown above allow you to update the dimensions of all boxes in the matched set
+    - The other methods give you different measurements depending on whether you want to include padding, border. and margin
+    - ~.outerHeight()~ and ~.outerWidth()~ take a parameter of true if you want the margin included
+    - When retrieving the dimensions these methods return a number in pixels
+    - You can use percentages when setting the dimensions but keep in mind percentage widths are always relative to the parent’s width (not the previous width of the element)
+    - Measurements in percentages or ems should be given as a string with the suffix '%' or 'em' but pixels do not require a suffix and are not enclosed in quotes
+
+*** Section 7.21.2: Window & Page Dimensions
+    | Method          | Description                                                                                                                                                                                                         |
+    |-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | ~.height()~     | Height of the jQuery selection                                                                                                                                                                                      |
+    | ~.width()~      | Width of the jQuery selection                                                                                                                                                                                       |
+    | ~.scrollLeft()~ | Gets the horizontal position of the scroll bar for the first element in the jQuery selection or sets the horizontal scroll bar position for matched nodes                                                           |
+    | ~.scrollTop()~  | Gets the vertical position of the scroll bar for the first element in the jQuery selection or sets the vertical scroll bar position ofr matched nodes                                                               |
+    | ~.offset()~     | Gets or sets coordinates of the element relative to the top left-hand corner of the ~document~ object                                                                                                               |
+    | ~.position()~   | Gets or sets coordinates of the element relative to any ancestor that has been take out of normal flow (using CSS box offsets) and if no ancestor is out of normal flow then it will return the same as ~.offset()~ |
+
+    - ~.height()~ and ~.width()~ can also be used on a jQuery selection containing the ~window~ or ~document~ objects
+    - The browser can display scroll bars if the height or width of a box's content is larger than its allocated space or the current page represented by the document object is larger than the dimensions of the browser window's viewable area (viewport)
+    - The ~.scrollLeft()~ and ~.scrollTop()~ methods allow you to get and set the position of the scroll bars
+    - When retrieving dimensions, these methods return a number in pixels
+    - The ~.offset()~ and ~.position()~ methods can be used to determine the position of elements on the page, it helps to determine the position of the an element: within the page and in relation to an ancestor that is offset from normal flow
+    - ~.offset()~ and ~.position()~ returns an object that has two properties: ~top~ (position from the top of the document or containing element) and ~left~ (position from the left of the document or containing element)
+    - As with other jQuery methods, when used to retrieve information, they return the co-ordinates of the first element in the matched set
+    - If they are used to set the position of elements, they will update the position of all elements in the matched set (putting them in the same spot)
+    - To get the offset or position, store the object that is returned by these methods in a variable and then use the ~left~ or ~top~ properties of the object to retrieve their position
+
+** Section 7.22: Ways to Include jQuery
+   - In addition to hosting the jQuery file with the rest of your website, you can also use a version that is hosted by other companies however it is good to still include a fallback version if the original file fails to load
+   - A content delivery network (CDN) is a series of servers spread out around the world to serve static files (such as HTML, CSS, JS, images, audio, video, etc.) quickly
+   - CDN tries to find the server nearest to you and then sends the files from that server so the data does not travel far and take a lot of time
+   - When including jQuery in your pages, you can try to load it from one of these CDNs and then check if it is loaded and if not you can include a version that is stored on your own server (as a fallback)
+   - This is outdated, but before, protocol relative URL is when you omit the protocol when specifying a URL so instead of ~https://www.google.com~ we can do ~//www.google.com~ with only two forward slashes
+   - This lets the browser know of protocol relative URL which tells it to use the same protocol as the current page either HTTP or HTTPS
+   - This was helpful back in the day because you can make your resources (images, scripts, etc.) work on both HTTP or HTTPS without mixing content and not hardcoding the protocol
+   - However that is outdated since we have now since defaulted to HTTPS and we should always use HTTPS in releases
+   - After loading the jQuery file from a CDN, we then add another small script to check if ~window.jQuery~ returns true otherwise you the load and use your local file
+
+*** Section 7.22.1: Where to Place Your Script
+    - The position of ~<script>~ elements can affect how quickly a web page seems to load
+    - In the early days, developers were told to place the scripts in the ~<head>~ of the page however this can make the pages seem slower to load (because it waits for the script to load and then loads whatever is after which is the ~<body>~)
+    - Your web page may use files from several different servers and locations, and usually a browser will collect up to two files at a time from each different server, but when a browser starts to download a JS file it stops all other downloads and pauses laying out the page until the script has finished loading and been processed
+    - Thus if you place the script at the end of the page before closing ~</body>~ tag it will not affect the rendering of the rest of the page (now in modern browsers there are new ways to not prevent the browser from rendering)
+    - If the script tries to access an element before it has loaded, it causes an error
+    - Where possible do consider using alternatives to scripts, so instead of using JS for animations try to use CSS for animations, instead of trying to modify CSS with JS, create attributes in HTML, add some CSS properties, and toggle them in JS
+    - Let JS be the last resort and try to use less JS
+    - If you place a script tag in the head (without using any newer techniques) it may load your page slowly and at that time DOM won't be loaded so you will need to add an event listener like ~load~ or ~DOMContentLoaded~ to trigger the rest of the script
+    - If you need to use it in the ~<head>~ the script tag should be just before the closing ~</head>~ tag
+    - This is also the case if you put the script inside the body, it may slow down the page (due to the script loading), and the rest of the body (after the script) will still not be loaded
+    - Without using any new techniques the best place is before the ~</body>~ tag because everything would have been loaded and rendered so it won't block anything because most of it, if not all, has been loaded including the DOM so no event handler is needed
+
+** Section 7.23: jQuery Documentation & More
+   - For jQuery documentation we can visit: https://api.jquery.com
+   - The documentation site lists each method and property available to use along with any new functionality or deprecated functionality added to the latest versions
+   - jQuery has hundreds of plugins and these plugins are scripts that extend the functionality of the jQuery library (basically plugins offer functionality that is not included in the jQuery library)
+   - To view the old plugins (which most are not being actively developed no more) visit https://plugins.jquery.com
+   - jQuery is an example of what programmers call a JS library, it is a JS file that you can include in your page which then lets you use the functions, objects, methods, and properties it contains
+   - The concept of a library is that you can "borrow" or use its code (functions, objects, methods, and properties) from one file in another script
+   - The problem with libraries is that it may contain code that you might not need so it adds bloat to your website causing your website to be slower so you can either strip down the library or write your own lite library
+   - If you use multiple libraries then take into consideration that ~$()~ might be used by multiple libraries (e.g. jQuery and prototype.js) so we have to try our best to avoid conflicts
+   - One way is to include jQuery library after other libraries in HTML (thus jQuery's ~$~ will take precedence) and you use the jQuery method ~.noConflict()~ at the start of the script which tells jQuery to release ~$~ shortcut so that other scripts can use it then you use the full name rather than the shortcut
+   - You can also wrap your script with jQuery in an IIFE (immediately invoked function expression) and still use ~$~ or you can specify your own alias instead of ~$()~
+   - Another way is to include jQuery before other libraries (thus the other libraries' ~$~ will take precedence) and ~$~ will have the meaning defined in the other library so there is no need to call ~.noConflict()~ because it will have no effect but then you *have* to continue to use the full function name ~jQuery()~ because ~$~ is already taken by the other libraries
+   - You can create a scoped alias ~$~ inside the ~.ready()~ method by passing the ~$~ as an argument to the anonymous function called by the ~.ready()~ method so now inside the anonymous function ~$~ can be used instead of ~jQuery()~ because the alias has a scope and there is also scope precedence
+
+** Section 7.24: Chapter Exercise
+   - We are going to create another TODO list app but now using jQuery
+   - Here are the requirements:
+     1. There is a single tab with active and completed items
+     2. The heading must specify the amount of "active" items
+     3. The user can click on a button called "new item" which will make a form appear to add a new item (animate the new item to the top of the list)
+     4. Once a new item has been added the form will disappear and "new item" button will reappear
+     5. Users can click on an active item to mark as complete which will move the item to the bottom of the list and change the background color
+     6. Users can click on a completed item to remove it from the list
+     7. Use event delegation when clicking on the list items (if active then move to the bottom of list, update counter, and mark it as complete, if complete then fade it out and remove it from the list)
+   - [[file:./007.024.Chapter_Exercise/index.html][Here is the chapter exercise]]
+
+** Section 7.25: Summary
+   - jQuery is a JS file you include in your website
+   - Once included, it makes it faster and easier to write cross-browser JS based on two steps:
+     1. Using CSS-style selectors to collect one or more nodes from the DOM tree
+     2. Using jQuery's built-in methods to work with the elements in that selection
+   - jQuery's CSS-style selector syntax makes it easier to select elements to work with and it also has methods that make it easier to traverse the DOM
+   - jQuery makes it easier to handle events because the event methods work across all browsers
+   - jQuery offers methods that make it quick and simple to achieve a range of tasks that JS programmers commonly need to perform
    
 * Keywords
 | Term | Definition |
@@ -457,6 +653,25 @@
          - Yes they accept anonymous functions and they also accepted named functions
 	 - Both anonymous functions and named functions also accept the event object inside the ~on()~ jQuery method
 
-  - *Q*: What is the difference between ~.filter()~ and ~.find()~?
+  - *Q*: What is the difference between ~.filter()~, ~.find()~, and ~.has()~?
+         - ~.filter()~ filters the matched set it does not check the descendants of the matched set
+	 - For example, let's say we have a list and we get the list items ~$('li')~ so we run ~.filter('.someClass')~ it will filter the list items to only the list items with that class name
+	 - If the list items have children with that class it will *not* get them because filter only "filters" out the matched set not the descendants
+	 - ~.find()~ finds the elements that match the selector in its descendants
+	 - ~.find()~ does not try to match the selector with the matched set because that is not the purpose of the function instead it only looks at the match set's descendants
+	 - For example, let's say we get the list items and only the list items have a specific class and we run ~$('li').find('.someClass')~ then it will return an empty jQuery object
+	 - Now let's say along with the list items some of its children have the same class so now ~$('li').find('.someClass')~ will return a jQuery object with only the elements in its descendants (children) with that class (not the list items themselves)
+	 - So ~.filter()~ "filters" out the matched set only by using the selector while ~.find()~ will "find" the elements in its descendants of the matched set using the selector
+	 - ~.has()~ is another filter but now it filter based on the descendants have the selector
+	 - If so, then the matching set will be kept
+	 - For example, if we run ~$('li').has('.someClass')~ then it will keep any list items that have a descendant with the class "someClass" while find will return the descendant elements with that class
+	 - So ~.has()~ filters the matched set based on the selector matching its descendants while ~.find()~ will find the descendants of the matched set matching the selector
+
+  - *Q*: What is the difference between ~.remove()~ and ~.detach()~
+         - ~.remove()~ removes the selected elements from the DOM and also removes all associated data and event handlers (anything added with ~.on()~ or ~.data()~)
+	 - ~.remove()~ is used when you completely want to remove it from the DOM and do not plan on it using it again
+	 - ~.detach()~ also removes selected elements from the DOM but preserves all data and event handlers associated with the elements
+	 - ~.detach()~ is used whenever you need to temporary remove your element but insert the element at a later time
+	 - Thus ~.detach()~ disappears from DOM but keeps it data so whenever you add back to DOM everything still works as before (events and data are still intact)
     
 * Summary

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-25 Sun 23:00 -->
+<!-- 2025-05-29 Thu 23:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7: Query</title>
@@ -194,6 +194,38 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
@@ -202,30 +234,66 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7a39ce9">Navigation</a></li>
-<li><a href="#org7985c45">Notes</a>
+<li><a href="#orgfa8f8b5">Navigation</a></li>
+<li><a href="#orga3cae9f">Notes</a>
 <ul>
-<li><a href="#org02b5c61">Section 7.1: Introduction</a></li>
-<li><a href="#org555a4f4">Section 7.2: What is jQuery?</a>
+<li><a href="#org7df8d35">Section 7.1: Introduction</a></li>
+<li><a href="#org5ec7480">Section 7.2: What is jQuery?</a>
 <ul>
-<li><a href="#orgbc7622b">Section 7.2.1: Finding Elements using CSS-Style Selectors</a></li>
-<li><a href="#org4b36b39">Section 7.2.2: Do SOmething with Elements using jQuery Methods</a></li>
-<li><a href="#org7a2972a">Section 7.2.3: A jQuery Example</a></li>
+<li><a href="#orgacbc556">Section 7.2.1: Finding Elements using CSS-Style Selectors</a></li>
+<li><a href="#orgb4d4e89">Section 7.2.2: Do SOmething with Elements using jQuery Methods</a></li>
+<li><a href="#orgbad2259">Section 7.2.3: A jQuery Example</a></li>
 </ul>
 </li>
-<li><a href="#org3448b2f">Section 7.3: Why Use jQuery?</a></li>
+<li><a href="#org25c8ee4">Section 7.3: Why Use jQuery?</a></li>
+<li><a href="#orgab44fd8">Section 7.4: Finding Elements</a></li>
+<li><a href="#orgcf85e5e">Section 7.5: jQuery Methods</a></li>
+<li><a href="#orgd8798be">Section 7.6: jQuery Objects</a></li>
+<li><a href="#org269f06c">Section 7.7: Looping &amp; Chaining</a></li>
+<li><a href="#org000f752">Section 7.8: Checking a Page is Ready to Work With</a></li>
+<li><a href="#orgb9f829f">Section 7.9: Getting Element Content</a></li>
+<li><a href="#orge2b65dc">Section 7.10: Updating &amp; Inserting Elements</a>
+<ul>
+<li><a href="#orgb6c785d">Section 7.10.1: Updating Elements</a></li>
+<li><a href="#orgad051b4">Section 7.10.2: Inserting Elements</a></li>
 </ul>
 </li>
-<li><a href="#org4ea16c4">Keywords</a></li>
-<li><a href="#org581ad45">Questions</a></li>
-<li><a href="#org501c267">Summary</a></li>
+<li><a href="#orgeb020eb">Section 7.11: Getting &amp; Setting Attribute Values</a></li>
+<li><a href="#orgf953be1">Section 7.12: Getting &amp; Setting CSS Properties</a></li>
+<li><a href="#orgda0fdaa">Section 7.13: Working with Every Element in a Selection</a></li>
+<li><a href="#orgf43bfc4">Section 7.14: Event Methods, Event Object, &amp; Event Handlers</a></li>
+<li><a href="#orgd6b190e">Section 7.15: Animation</a></li>
+<li><a href="#org0192c1f">Section 7.16: Traversing the DOM</a></li>
+<li><a href="#org39375de">Section 7.17: Add &amp; Filtering Elements in a Selection</a></li>
+<li><a href="#org017f18f">Section 7.18: Finding Items by Order</a></li>
+<li><a href="#orgefbba58">Section 7.19: Working with Forms</a></li>
+<li><a href="#orgdd5089c">Section 7.20: Cutting &amp; Copying Elements</a></li>
+<li><a href="#orge441ea6">Section 7.21: Dimensions</a>
+<ul>
+<li><a href="#org6ecb323">Section 7.21.1: Box Dimensions</a></li>
+<li><a href="#org6690098">Section 7.21.2: Window &amp; Page Dimensions</a></li>
+</ul>
+</li>
+<li><a href="#orga114805">Section 7.22: Ways to Include jQuery</a>
+<ul>
+<li><a href="#orgc906a8f">Section 7.22.1: Where to Place Your Script</a></li>
+</ul>
+</li>
+<li><a href="#orgb1c5c0a">Section 7.23: jQuery Documentation &amp; More</a></li>
+<li><a href="#org9a80dff">Section 7.24: Chapter Exercise</a></li>
+<li><a href="#org47d76d6">Section 7.25: Summary</a></li>
+</ul>
+</li>
+<li><a href="#org9b20437">Keywords</a></li>
+<li><a href="#orgde3e5f8">Questions</a></li>
+<li><a href="#org2a35e54">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7a39ce9" class="outline-2">
-<h2 id="org7a39ce9">Navigation</h2>
-<div class="outline-text-2" id="text-org7a39ce9">
+<div id="outline-container-orgfa8f8b5" class="outline-2">
+<h2 id="orgfa8f8b5">Navigation</h2>
+<div class="outline-text-2" id="text-orgfa8f8b5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -272,13 +340,13 @@
 </div>
 </div>
 
-<div id="outline-container-org7985c45" class="outline-2">
-<h2 id="org7985c45">Notes</h2>
-<div class="outline-text-2" id="text-org7985c45">
+<div id="outline-container-orga3cae9f" class="outline-2">
+<h2 id="orga3cae9f">Notes</h2>
+<div class="outline-text-2" id="text-orga3cae9f">
 </div>
-<div id="outline-container-org02b5c61" class="outline-3">
-<h3 id="org02b5c61">Section 7.1: Introduction</h3>
-<div class="outline-text-3" id="text-org02b5c61">
+<div id="outline-container-org7df8d35" class="outline-3">
+<h3 id="org7df8d35">Section 7.1: Introduction</h3>
+<div class="outline-text-3" id="text-org7df8d35">
 <ul class="org-ul">
 <li>jQuery offers a simple way to achieve a variety of common JavaScript tasks quickly and consistently across all major browsers and without any fallback code needed</li>
 <li>It is simpler to access elements using jQuery's CSS-style selectors than it is using DOM queries (the selectors are more flexible and powerful)</li>
@@ -288,18 +356,18 @@
 </div>
 </div>
 
-<div id="outline-container-org555a4f4" class="outline-3">
-<h3 id="org555a4f4">Section 7.2: What is jQuery?</h3>
-<div class="outline-text-3" id="text-org555a4f4">
+<div id="outline-container-org5ec7480" class="outline-3">
+<h3 id="org5ec7480">Section 7.2: What is jQuery?</h3>
+<div class="outline-text-3" id="text-org5ec7480">
 <ul class="org-ul">
 <li>jQuery is a JS file that you include in your web pages</li>
 <li>jQuery lets you find elements using CSS-style selectors and then do something with the elements using jQuery methods</li>
 </ul>
 </div>
 
-<div id="outline-container-orgbc7622b" class="outline-4">
-<h4 id="orgbc7622b">Section 7.2.1: Finding Elements using CSS-Style Selectors</h4>
-<div class="outline-text-4" id="text-orgbc7622b">
+<div id="outline-container-orgacbc556" class="outline-4">
+<h4 id="orgacbc556">Section 7.2.1: Finding Elements using CSS-Style Selectors</h4>
+<div class="outline-text-4" id="text-orgacbc556">
 <ul class="org-ul">
 <li>A function called <code>jQuery()</code> lets you find one or more elements in the page</li>
 <li>This function creates an object called <code>jQuery</code> which holds references to those elements</li>
@@ -312,9 +380,9 @@
 </div>
 </div>
 
-<div id="outline-container-org4b36b39" class="outline-4">
-<h4 id="org4b36b39">Section 7.2.2: Do SOmething with Elements using jQuery Methods</h4>
-<div class="outline-text-4" id="text-org4b36b39">
+<div id="outline-container-orgb4d4e89" class="outline-4">
+<h4 id="orgb4d4e89">Section 7.2.2: Do SOmething with Elements using jQuery Methods</h4>
+<div class="outline-text-4" id="text-orgb4d4e89">
 <ul class="org-ul">
 <li><code>jQuery</code> object has many methods that you can use to work with the elements you select, these methods represent tasks that you commonly need to perform with elements</li>
 <li>After using <code>jQuery()</code> the object and the elements it contains is referred to as a <b>matched set</b> or a <b>jQuery selection</b></li>
@@ -326,9 +394,9 @@
 </div>
 </div>
 
-<div id="outline-container-org7a2972a" class="outline-4">
-<h4 id="org7a2972a">Section 7.2.3: A jQuery Example</h4>
-<div class="outline-text-4" id="text-org7a2972a">
+<div id="outline-container-orgbad2259" class="outline-4">
+<h4 id="orgbad2259">Section 7.2.3: A jQuery Example</h4>
+<div class="outline-text-4" id="text-orgbad2259">
 <ul class="org-ul">
 <li>To use jQuery you need to include the jQuery script into your web page</li>
 <li>Once jQuery is added you can then import your own JS file that would be using jQuery</li>
@@ -358,22 +426,1672 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org3448b2f" class="outline-3">
-<h3 id="org3448b2f">Section 7.3: Why Use jQuery?</h3>
-<div class="outline-text-3" id="text-org3448b2f">
+<div id="outline-container-org25c8ee4" class="outline-3">
+<h3 id="org25c8ee4">Section 7.3: Why Use jQuery?</h3>
+<div class="outline-text-3" id="text-org25c8ee4">
 <ul class="org-ul">
 <li>jQuery does not do anything you cannot achieve with pure JS, it is a JS file at the end but it can make coding simpler</li>
 <li>This is outdated but before selecting the elements you wanted was hard because older browsers did not support the lastest methods for selecting elements and IE did not treat whitespace as text nodes like the other browsers</li>
 <li>This makes it hard to select the right elements across all major browsers so jQuery instead uses CSS selectors to select elements because CSS selectors are fast at selecting elements, are more accurate about which elements to select, require less code (compared to older DOM methods), and is already used by most front-end developers</li>
-<li></li>
+<li>In addition, jQuery adds extra selectors or extends the set of CSS selectors to offer greater functionality (these extensions are part of jQuery and do not work in CSS) such as <code>:contains("text")</code> which matches elements that contain the specified text</li>
+<li>DOM has their own CSS selector functions called <code>querySelector()</code> and <code>querySelectorAll()</code> but when they were introduced these methods were not supported by older browsers</li>
+<li>jQuery has methods that offer web developers simpler ways to perform common tasks such as loop through elements, add or remove elements from the DOM tree, handle events, fade elements into / out of view, and handle ajax requests, thus writing less code to achieve those tasks</li>
+<li>jQuery also offers chaining of methods, so once you have selected some elements, this allows you to apply multiple methods to the same selection</li>
+<li>jQuery is cross-browser compatible so instead of writing cross-browser fallback code, jQuery uses feature detection to find the best way to achieve a task by using conditional statements such as if the browser supports this then do this, if not check if it supports this, if not resort to last option (similar to checking if the browser supported methods in the previous chapter)</li>
+<li>During the time, jQuery was building a lot of code to support IE6, 7, and 8 (older browsers) and starting with jQuery 2.0 support for older browsers would be dropped but a lot of people still used older browsers at the time so the jQuery team decided to maintain two parallel versions of jQuery: jQuery 1.9+ and jQuery 2.0+</li>
+<li>This book is outdated and we are now in jQuery 3.0+ with no plans to ever release jQuery 4.0</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgab44fd8" class="outline-3">
+<h3 id="orgab44fd8">Section 7.4: Finding Elements</h3>
+<div class="outline-text-3" id="text-orgab44fd8">
+<ul class="org-ul">
+<li>With jQuery you select elements using CSS-style selectors but jQuery also offers some extra selectors that are not part of CSS</li>
+
+<li><b>Basic Selectors:</b></li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">CSS or jQuery</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>*</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Selects all elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>element</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">All elements with that element name</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>#id</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Elements whose <code>id</code> attribute has thevalue specified</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.class</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Elements whose <code>class</code> attribute has the value specified</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>selector1, selector2</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Elements that match more than one selector (see also the <code>.add()</code> method which is more efficient when combining selections)</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><b>Hierarchy Selector</b></li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">CSS or jQuery</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>ancestor descendant</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">An element that is a descendant of another element (e.g. <code>li a</code>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>parent &gt; child</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">An element that is a direct child of another element (you can use <code>*</code> in the place of the child to select all child elements of the specified parent)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>previous + next</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Adjacent sibling selector only selectors elements that are immediately followed by the previous element</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>previous ~ siblings</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Sibling selector will select any elements that are a sibling of the previous element</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><b>Basic Filters</b></li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">CSS or jQuery</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>:not(selector)</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">All elements except the one in the selector (e.g. <code>div:not('#summary')</code>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:first</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">The first element from the selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:last</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">The last element from the selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:even</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">Elements with an even index number in the selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:odd</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">Elements with an odd index number in the selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:eq(index)</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">Elements with an index number equal to the one in the parameter</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:gt(index)</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">Elements with an index number greater than the parameter</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:lt(index)</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">Elements with an index number less than the parameter</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:header</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All <code>&lt;h1&gt; - &lt;h6&gt;</code> elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:animated</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">Elements that are currently being animated</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:focus</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">The element that currently has focus</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><b>Content Filters</b></li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">CSS or jQuery</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>:contains('text')</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">Elements that contain the specified text as a parameter</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:empty</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All elements that have no children</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:parent</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All elements that have a child node (can be text or element)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:has(selector)</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">Elements that contain at least one element that matches the selector (e.g. <code>div:has(p)</code> matches all <code>div</code> elements that contain a <code>&lt;p&gt;</code> element)</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><b>Visibility Filters</b></li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">CSS or jQuery</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>:hidden</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">Selects all elements that are hidden</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:visible</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All elements that consume space in the layout of the page, not selected if <code>:display:none; height / width: 0;</code> or ancestor is hidden and selected if <code>visibility: hidden; opacity: 0</code> because they would take up space in the layout</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><b>Child Filters</b></li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">CSS or jQuery</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>:nth-child(expr)</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Selects the nth child but it uses a 1-based index</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:first-child</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Selects the first child from the current selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:last-child</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Selects the last child from the current selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:only-child</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Selects the only child of the element only when there is only a child in the element</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><b>Attribute Filters</b></li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">CSS or jQuery</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>[attribute]</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Element that carry the specified attribute (with any value)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[attribute='value']</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Elements that carry the specified attribute with the specified value</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[attribute!='value']</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">Elements that carry the specified attribute but not the specified value</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[attribute^='value']</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">The value of the attribute begins with this value</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[attribute$='value']</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">The value of the attribute ends with this value</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[attribute*='value']</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">The value should appear somewhere in the attribute value</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[attribute \vert ='value']</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Equal to given string or starting with string and followed by a hyphen</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[attribute~='value']</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">The value should be one of the values in a space separated list</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[attribute][attribute2]</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">Elements that match all of the selectors</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><b>Form Selectors</b></li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">CSS or jQuery</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>:input</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All input elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:text</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All text inputs</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:password</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All password inputs</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:radio</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All radio buttons</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:checkbox</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All checkboxes</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:submit</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All submit buttons</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:image</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All <code>&lt;img&gt;</code> elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:reset</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All reset buttons</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:button</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All <code>&lt;button&gt;</code> elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:file</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All file inputs</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:selected</code></td>
+<td class="org-left">jQuery</td>
+<td class="org-left">All selected items from drop-down lists</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:enabled</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">All enabled form elements (which is the default for all form elements)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:disabled</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">All disabled form elements (using the HTML <code>disabled</code> attribute)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:checked</code></td>
+<td class="org-left">CSS</td>
+<td class="org-left">All checked radio buttons or checkboxes</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>When you select one or more elements, a jQuery object is returned and it is known as a matched set of a jQuery selection</li>
+<li>If a selector returns one element, the jQuery object contains a reference to just one element node</li>
+<li>If a selector returns several elements, the jQuery object contains references to each element</li>
+<li>Each element is given an index number and the index number starts at zero</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcf85e5e" class="outline-3">
+<h3 id="orgcf85e5e">Section 7.5: jQuery Methods</h3>
+<div class="outline-text-3" id="text-orgcf85e5e">
+<ul class="org-ul">
+<li>Once you have made a selection of elements then you can now call methods to do some task on the selected elements</li>
+<li>You often see jQuery method <b>names</b> (not the actual code) written starting with a period (<code>.</code>) before the name to highlight that those methods are part of the jQuery object and not JS methods or some other object's methods</li>
+<li>When you make a selection the jQuery object has a property called <code>length</code> which will return the number of elements in the object</li>
+<li>If the jQuery selection did not find any matching elements, you will not get an error by calling any of these methods because they simply won't do or return anything</li>
+<li>There are also methods that are specifically designed to work with Ajax (which lets you refresh part of the page rather than an entire page)</li>
+<li>So once we have selected the elements we want (and they are in a jQuery object), the jQuery methods perform tasks on those elements</li>
+<li>These methods:
+<ul class="org-ul">
+<li>Get or change content of elements, attributes, and text nodes (content filters)</li>
+<li>Find and select elements to work with &amp; traverse in the DOM</li>
+<li>Get or update the dimensions or position of a box (dimension / position)</li>
+<li>Add effects and animation to parts of the page (effects &amp; animation)</li>
+<li>Create event listeners for each element in the selection (events)</li>
+</ul></li>
+<li>To find all the methods available in jQuery for the latest version, visit: <a href="https://api.jquery.com">https://api.jquery.com</a></li>
+<li>Some jQuery methods both retrieve info from, and update the contents of, elements, but they do not always apply to all elements</li>
+<li>If a jQuery selection holds more than one element and a method is used to get info from the selected elements, it will retrieve info from only the first element in the matched set</li>
+<li>For example, let's say we have a list and we select the listed items <code>$('li')</code> and it returns multiple list items, so when we use the <code>.html()</code> method to get info from each element, it will return the content of the first element in the matched set</li>
+<li>To get a different element you can use the methods to traverse or filter the selection or we can write a more specific selector</li>
+<li>To get the content of all of the elements, one way to do so is by the <code>.each()</code> method</li>
+<li>If a jQuery selections holds more than one element and a method is used to update information on the page then it will update all of the elements in the matched set not just the first one</li>
+<li>When you use the <code>.html()</code> method to update the elements, it will replace the contents of each element in the matched set</li>
+<li>To update just one element you can use methods to traverse or filter the selection or write a more specific selector</li>
+<li>So when a method is used on a selection to get information it will only retrieve info only from the first element but if a method is used on a selection to update info then it will update the info for all elements</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd8798be" class="outline-3">
+<h3 id="orgd8798be">Section 7.6: jQuery Objects</h3>
+<div class="outline-text-3" id="text-orgd8798be">
+<ul class="org-ul">
+<li>When you create a selection with jQuery, it stores a reference to the corresponding nodes in the DOM tree, it does not create copies of them</li>
+<li>jQuery object is an array-like object because it stores a list of the elements in the same order that they appear in the HTML document (thus preserving the order unlike other objects where the order of the properties is not usually preserved)</li>
+<li>As you have seen, when HTML pages load, the browser creates a model of the page in memory</li>
+<li>When you create a jQuery selection, the jQuery object holds references to the already existing elements in the DOM so it does not create a copy of them (it uses the references to the already existing elements in the DOM)</li>
+<li>When programmers say that a variable or object is storing a reference to something, what it is doing is storing the <i>location</i>, a piece of info, in the browser's memory</li>
+<li>To create a jQuery object it takes time, processing resources, and memory because the interpreter must: find the matching nodes in the DOM tree, create the jQuery object, and store references to the nodes in the jQuery object</li>
+<li>So if the code needs to use the same selection more than once it is better to use the same jQUery object again rather than repeat the above process</li>
+<li>To do this, you store a reference to the jQuery object in a variable, thus in a sense you are caching a jQuery object by having a variable store the reference to the jQuery object</li>
+<li>Note that when a variable contains a jQuery object, it is often given a name beginning with the <code>$</code> symbol to help differentiate it from other variables in your script</li>
+<li>Caching jQuery selections is similar to the idea of storing a reference to a DOM node once you have made a DOM query</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org269f06c" class="outline-3">
+<h3 id="org269f06c">Section 7.7: Looping &amp; Chaining</h3>
+<div class="outline-text-3" id="text-org269f06c">
+<ul class="org-ul">
+<li>In plain JS, if you wanted to do the same thing to several elements, you would need to write code to loop through all of the elements you selected</li>
+<li>With jQuery when a selector returns multiple elements, you can update all of them using the one method and there is no need to use a loop</li>
+<li>For example <code>$('li.em').addClass('seasonal');</code> this method is going to add to the class attribute for all the elements that are found using the selector (doesn't matter if there are one or many)</li>
+<li>The ability to update all of the elements in the jQuery selection is known as <b>implicit iteration</b></li>
+<li>When you want to get information from a series of elements you use <code>.each()</code> method rather than writing a loop (more on it later)</li>
+<li>If you want to use more than one jQuery method on the same selection of elements, you can list several methods at a time using dot notation to separate each one (for example <code>$('li').hide().deplay(500).fadeIn(1400);</code>)</li>
+<li>Thus the methods act on the same selection of elements and this process of placing several methods in the same selector is referred to as <b>chaining</b></li>
+<li>Most methods used to update the jQuery selection can be chained however the methods that retrieve info from the DOM (or about the browser) cannot be chained</li>
+<li>If one of the method in the chain does not work then the rest will not run either</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org000f752" class="outline-3">
+<h3 id="org000f752">Section 7.8: Checking a Page is Ready to Work With</h3>
+<div class="outline-text-3" id="text-org000f752">
+<ul class="org-ul">
+<li>jQuery's <code>.ready()</code> method checks that the page is ready for your code to work with</li>
+<li>For example, <code>$(document).ready(function() {});</code> this creates a jQuery object represent the page and when the page is ready, the function inside the parentheses of the <code>.ready()</code> method is run</li>
+<li>As with plain JS, if the browser has yet constructed the DOM tree then jQuery will not be able to select elements from it so you either use the <code>.ready()</code> function or you place the script at the end of the page just before the closing <code>&lt;/body&gt;</code> tag (because that point the elements will have been loaded into the DOM tree)</li>
+<li>A shortcut for the ready event method on the document object is the following: <code>$(function() {});</code></li>
+<li>The shorthand above is more commonly used than <code>$(document).ready()</code> and benefit of using an anonymous function to contain all of jQuery code is that it creates function-level scope for its variables so it prevents naming collisions with other scripts that might use the same variable names</li>
+<li>jQuery had a <code>.load()</code> method as it fired on the <code>load</code> event but this has been replaced by the <code>.on()</code> method, recall that the load event fires after the page and all of its resources have loaded so you should use this <code>.on()</code> method when your script relies on assets to have loaded (e.g. show dimensions of an image)</li>
+<li>The <code>.on()</code> method works in all browsers and provides function-level scope for the variables it contains</li>
+<li>jQuery's <code>.ready()</code> method checks if the browser supports the <code>DOMContentLoaded</code> event because it fires as soon as the DOM is loaded and it does not wait for other assets to finish loading making the page appear to load faster</li>
+<li>jQuery will use an event listener for <code>DOMContentLoaded</code> if the browser supports it but in older browsers jQuery will wait for the <code>load</code> event to fire</li>
+<li>If you were to place the script before the closing body tag then the HTML elements will have been loaded into DOM before your script runs but it is still common for people to use <code>.ready()</code> because it ensures no matter where the script is placed in the HTML the code will always run when the elements have been successfully loaded into DOM</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb9f829f" class="outline-3">
+<h3 id="orgb9f829f">Section 7.9: Getting Element Content</h3>
+<div class="outline-text-3" id="text-orgb9f829f">
+<ul class="org-ul">
+<li>The <code>.html()</code> and <code>.text()</code> methods both retrieve and update the content of elements</li>
+<li>When <code>.html()</code> is used to retrieve info from a jQuery selection it retrieves only the HTML inside the first element in the matched set along with any of its descendants (so if the selection has child HTML elements, it will return all the HTML for that selection)</li>
+<li>When <code>.text()</code> method is used to retrieve the text from a jQuery selection it returns the content from every element in the jQuery selection, along with the text from any descendants</li>
+<li><code>.text()</code> returns all of the text content of the selected elements as a single string with no HTML tags and no structure it is just concatenated text</li>
+<li><code>.text()</code> returns whitespace characters that are included inside the HTML elements but not the whitespace characters that separate the HTML elements (e.g. <code>&lt;li&gt;Test \n New Line&lt;/li&gt; &lt;li&gt;Test2&lt;/li&gt;</code> will return "Test \n New LineTest2" notice how the end of the first list item does not include space to the start of the next list item)</li>
+<li>To get the content from <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> elements use the <code>.val()</code> method (more about it later)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge2b65dc" class="outline-3">
+<h3 id="orge2b65dc">Section 7.10: Updating &amp; Inserting Elements</h3>
+<div class="outline-text-3" id="text-orge2b65dc">
+</div>
+<div id="outline-container-orgb6c785d" class="outline-4">
+<h4 id="orgb6c785d">Section 7.10.1: Updating Elements</h4>
+<div class="outline-text-4" id="text-orgb6c785d">
+<ul class="org-ul">
+<li>There are four methods that update the content of all elements in a jQuery selection:
+<ul class="org-ul">
+<li><code>.html()</code>: Gives every elment in the matched set the same new content and the new content may include HTML</li>
+<li><code>.text()</code>: Gives every element in the matched set the same new text content and any markup would be shown as text</li>
+<li><code>.replaceWith()</code>: Replaces every element in a matched set with new content and it also returns the replaced elements (this method replaces the selected elements entirely with new content, either HTML, a DOM element, or another jQuery element and inserts the new content in their place keeping the same position in the DOM)</li>
+<li><code>.remove()</code>: Removes all of the elements in the matched set</li>
+</ul></li>
+
+<li>When the <code>.html()</code> and <code>.text()</code> methods are used as setters (to update content) they will replace the content of each element in the matched set along with any content and child elements</li>
+<li>The <code>.replaceWith()</code> and <code>.remove()</code> methods replace and remove the elements they match as well as their content and any child elements</li>
+<li>The <code>.html()</code> and <code>.replaceWith()</code> methods can take a string as a parameter and the string can be stored in a variable and contain markup while <code>.text()</code> also takes a string as a parameter but the markup would be treated as text</li>
+<li><code>.remove()</code> only has 1 optional parameter and that is a selector to filter which matched elements to remove</li>
+<li>When you add markup to the DOM, be sure to escape all untrusted content properly on the server because both <code>.html()</code> and <code>.replaceWith()</code> methods carry the same security risks as using the DOM's <code>innerHTML</code> property</li>
+<li>If you want to use and amend the content of the current selection, these methods can take a function as a parameter and then this function can be used to create new content</li>
+<li>For example, if you want the existing html to be inside <code>&lt;em&gt;</code> tags so you take a function as an argument and in that function you return a new string with <code>&lt;em&gt;</code> tags but inside those tags will have the text of the element</li>
+<li>To access the current element's properties and methods, you use <code>$(this)</code> and thus you can get the HTML or text by running <code>$(this).text()</code> or <code>$(this).html()</code> and place it in-between the <code>&lt;em&gt;</code> tags and return the string</li>
+<li>So return indicates that the content should be returned by the function and replace the html, replace with, or replace the text and this refers to the current element so <code>$(this)</code> places that element in a new jQuery object so that you can use jQuery methods on it</li>
+<li>Thus when updating the content of an element you can use a string, a variable, or a function</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgad051b4" class="outline-4">
+<h4 id="orgad051b4">Section 7.10.2: Inserting Elements</h4>
+<div class="outline-text-4" id="text-orgad051b4">
+<ul class="org-ul">
+<li>Inserting new elements involves two steps:
+<ol class="org-ol">
+<li>Create the new elements in a jQuery object</li>
+<li>Use a method to insert the content into the page</li>
+</ol></li>
+<li>To create a new jQuery object you simply pass a string with markup into the <code>jQuery()</code> function</li>
+<li>For example, <code>$('&lt;li&gt;')</code> creates an empty <code>&lt;li&gt;</code> element and stores it in a jQuery object</li>
+<li>Another example, <code>$('&lt;li class="new"&gt;item&lt;/li&gt;')</code>, this creates a jQuery object with a <code>&lt;li&gt;</code> element that has a class attribute and some text</li>
+<li>Once you have a variable holding the new content, you can use the following methods to add the content to the DOM tree:
+<ul class="org-ul">
+<li><code>.before()</code>: Inserts content before the selected elements</li>
+<li><code>.after()</code>: Inserts content after the selected elements</li>
+<li><code>.prepend()</code>: Inserts content inside the selected elements after the opening tag</li>
+<li><code>.append()</code>: Inserts content inside the selected elements before the closing tag</li>
+<li><code>.prependTo()</code>: Inserts the selected elements inside the argument element after the opening tag</li>
+<li><code>.appendTo()</code>: Inserts the selected elements inside the argument element after the closing tag</li>
+</ul></li>
+<li>Thus you can create new jQuery objects to hold text and markup and then you can add the object to the DOM tree</li>
+<li>If you create a selection that returns multiple elements then the methods above (<code>before()</code>, <code>after()</code>, etc.) will add the same content to each of the elements in the matched set</li>
+<li>When adding content to the DOM, make sure you have escaped all untrusted content properly on the server</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4ea16c4" class="outline-2">
-<h2 id="org4ea16c4">Keywords</h2>
-<div class="outline-text-2" id="text-org4ea16c4">
+<div id="outline-container-orgeb020eb" class="outline-3">
+<h3 id="orgeb020eb">Section 7.11: Getting &amp; Setting Attribute Values</h3>
+<div class="outline-text-3" id="text-orgeb020eb">
+<ul class="org-ul">
+<li>You can create attributes or access and update their contents using the following four methods
+<ul class="org-ul">
+<li><code>.attr()</code>: This method can get or set a specified attribute and its value, to get the value of an attribute, you specify the name of the attribute as the argument (e.g. <code>$('li').attr('id')</code>) and to update the value of an attribute you specify both the attribute name and its new value (e.g. <code>$('li').attr('id', 'new-id')</code>)</li>
+<li><code>.removeAttr()</code>: This method removes a specified attribute and its value, you specify the name of the attribute as an argument (e.g. <code>$('li').removeAttr('id')</code>)</li>
+<li><code>.addClass()</code>: This methods adds a new value to the existing value of the class attribute and it does not overwrite existing values</li>
+<li><code>.removeClass()</code>: This method removes a value from the class attribute leaving any other class names within that attribute intact</li>
+</ul></li>
+<li>You can work with any attribute on any element using <code>attr()</code> and <code>removeAttr()</code> methods</li>
+<li>If you use the <code>attr()</code> method to update an attribute that does not exist then it will create the attribute and give it the specified value</li>
+<li>The value of the <code>class</code> attribute can hold more than one class name each separated by a space</li>
+<li>The <code>addClass()</code> and <code>removeClass()</code> methods are powerful because they let you add or remove an individual class name within the value of the class attribute and they do not affect any other class names</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf953be1" class="outline-3">
+<h3 id="orgf953be1">Section 7.12: Getting &amp; Setting CSS Properties</h3>
+<div class="outline-text-3" id="text-orgf953be1">
+<ul class="org-ul">
+<li>The <code>.css()</code> method lets you retrieve and set the values of CSS properties</li>
+<li>To get the value of a CSS property, you indicate which property you want to retrieve in parentheses (e.g. <code>$('li').css('background-color');</code>) and if the matched set contains more than element it will return the value from the first element</li>
+<li>To set the values of a CSS property, you specify the property name as the first argument in the parentheses then a comma, followed by its value as the second argument (e.g. <code>$(li).css('background-color', '#272727');</code>), this will update every element in the matched set</li>
+<li>You can also specify multiple properties in the same method using object literal notation where properties and values are placed in curly braces, a colon is used to separate property names from their values, and a comma separates each pair (but there is not one after the last pair)</li>
+<li>For example,</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">$('li').css({
+    'background-color': '#272727',
+    'font-family': 'Courier'
+});
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>When dealing with dimensions that are specified in pixels, you can increase and decreases the values using the <code>+=</code> and <code>-=</code> operators (e.g. <code>$('li').css('padding-left', '+=20')</code>)</li>
+<li>Note that it is better to change the value of a class attribute to trigger new CSS rules in the style sheet rather than to change CSS properties from within the JS file itself</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgda0fdaa" class="outline-3">
+<h3 id="orgda0fdaa">Section 7.13: Working with Every Element in a Selection</h3>
+<div class="outline-text-3" id="text-orgda0fdaa">
+<ul class="org-ul">
+<li>jQuery allows you to recreate the functionality of a loop on a selection of elements using the <code>.each()</code> method</li>
+<li>Although there are many jQuery methods that update all of the elements in a matched set without the need for a loop, however, there are times when you want to loop through each of the elements in the section often because you are trying to get info from each element in the matched set or you want to perform a series of actions on each of the elements</li>
+<li>The <code>.each()</code> method is provided for this purpose and the parameter of the <code>.each()</code> method is a function (an anonymous function or a named function)</li>
+<li><code>.each()</code> allows you to perform one or more statements on each of the items in the selection of elements that is returned by a selector</li>
+<li><code>.each()</code> takes one argument: a function containing the statements you want to run on each element (e.g. <code>$('li').each(function() {})</code></li>
+<li>You first get the matched set by using <code>$()</code>, you then call <code>.each()</code> to apply the same code to each element in the selection, and then the function is run for each of the items in the list</li>
+<li>As the <code>.each()</code> method goes through the elements in a selection, you can access the current element using the <code>this</code> keyword and you will often see <code>$(this)</code> which uses the <code>this</code> keyword to create a new jQuery selection containing the current element allowing you to use jQuery methods on the current element</li>
+<li>Note that you can access the current element using the keyword <code>this</code> and if you need to access properties of the node then it is better to use plain JS (more efficient) but if you need to use jQuery methods then that is when you create a jQuery object (<code>$(this)</code>)</li>
+<li>Finally, <code>.each()</code> accepts a parameter, this parameter wil indicate the index of the element in the set, the matched set will be a zero-based index and thus it will start at 0 and go from there</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf43bfc4" class="outline-3">
+<h3 id="orgf43bfc4">Section 7.14: Event Methods, Event Object, &amp; Event Handlers</h3>
+<div class="outline-text-3" id="text-orgf43bfc4">
+<ul class="org-ul">
+<li>The <code>.on()</code> method is used to handle all events but behind the scenes jQuery handles all of the cross-browser issues seen in the previous chapter</li>
+<li>Using the <code>.on()</code> method is no different than using any other jQuery method: you use a selector to create a jQuery selection and then you use the <code>.on()</code> to indicate which event you want to respond to and the function then adds an event listener to each element in the selection</li>
+<li><code>.on()</code> was introdcued in v1.7 of jQuery and prior to that jQuery would use separate methods for each event, e.g. <code>.click()</code>, <code>.focus()</code>, etc. but now <code>.on()</code> is only used</li>
+<li>For example,</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">$('li').on('click', function() {
+    $(this).addClass('complete');
+});
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>In the example, we first get the selected items or matched set and then using the <code>.on()</code> method we specify, in the first argument, the event we want to respond to and the second argument we have the code we want to run when the event occurs on any element in the matched set</li>
+<li>The function in the second argument can be a named function or an anonymous function</li>
+<li>Almost all browsers events work with <code>.on()</code> and jQuery even has their own custom-built events like <code>ready</code> which is not a native DOM event but is a jQuery event that fires whenever the page is ready and ready to be worked with</li>
+<li>You may be able to also specify multiple events in the 1st parameter which will fire the same function, you specify the events in the 1st parameter separated by a space in between them</li>
+
+<li>Every event handling functions receives an <code>event</code> object and it has methods and properties to the event that occured</li>
+<li>Just like the JS event object, the jQuery event object has properties and methods that tell you more about the event that took place</li>
+<li>If you look at the function that is called when the event occurs, the event object is named in parentheses and this named is used within the function to refer the event object</li>
+<li>For example,</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">$('li').on('click', function(e) {
+    eventType = e.Type;
+});
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>In the example above, we gave the event object a parameter name, we then use that name in the function to reference the event object, and then we can access the properties and methods of the object using the familiar dot notation (member operator)</li>
+<li>Some properties include <code>type</code> (type of event, e.g. click, mouseover, etc.), <code>which</code> (button or key that was pressed), <code>data</code> (object literal containing extra info passed to the function), and more</li>
+<li>Some methods include <code>.preventDefault()</code> and <code>.stopPropagation()</code>, and more</li>
+
+<li>The <code>.on()</code> method has two optional properties that let you: (1) filter the matched set to only respond to events that happend on a set of elements and (2) pass extra info into the event handler using object literal notation</li>
+<li>The actual syntax of the <code>.on()</code> method is as follows:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">.on(events [, selector] [, data], function(e));
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The first argument is the event you want to respond to and if you want to respond to more than one event then you can provide a space-separated list of event names (e.g. 'focus click')</li>
+<li>The second argument is optional and this allows you to further filter the matched set to only respond to the event happening on a subset of the initial jQuery selection, this was great for event delegation because now you can filter its descendants as well and event handlers would be for the ancestor but listen on its descendants thus having event delegation</li>
+<li>The third argument is also optional and you can pass extra info to the function that is called when the event is triggered and the info is passed along with the event object</li>
+<li>So the third argument takes in an object literal and you can access that info via the event object (<code>e.data</code>) and access the properties in the object literal by using the dot operator and using the same name in <code>e.data</code> as in the object literal</li>
+<li>The fourth argument is the function that should be run when the specified events occur on one of the elements in the matched set (or filtered matched set)</li>
+<li>And finally, the event object is automatically passed to the function but in order to use it you must give the function a parameter name for the event object</li>
+<li>Before jQuery v1.7 the <code>.delegate()</code> function would be used to add event handlers for the parent and listen to the events on the child but was replaced since v1.7+ with <code>.on()</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd6b190e" class="outline-3">
+<h3 id="orgd6b190e">Section 7.15: Animation</h3>
+<div class="outline-text-3" id="text-orgd6b190e">
+<ul class="org-ul">
+<li>When you start using jQuery, the effects methods can enhance your web page with transitions and movement</li>
+<li>With jQuery you can make content animate fading in and out, slide them up and down, or hide them or show them</li>
+<li>When an element that was previously hidden is shown, faded in, or slides into view, the other elements on the page may move to make space for it</li>
+<li>When an element is hidden, has been faded out, or has slid out of view, the other elements on the page can move into the space these elements took up</li>
+<li>Methods with <code>toggle</code> in their name will look at the current state of the element (whether it is visible or hidden) and will switch to the opposite state</li>
+<li>However, most of these animations can be done in CSS and it best to use CSS for animations because it is faster than jQuery</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.show()</code></td>
+<td class="org-left">Displays selected elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.hide()</code></td>
+<td class="org-left">Hides selected elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.toggle()</code></td>
+<td class="org-left">Toggles between showing and hiding selected elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.fadeIn()</code></td>
+<td class="org-left">Fades in selected elements making them opaque</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.fadeOut()</code></td>
+<td class="org-left">Fades out selected elements making them transparent</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.fadeTo()</code></td>
+<td class="org-left">Changes opacity of selected elements</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.fadeToggle()</code></td>
+<td class="org-left">Hides or shows selected elements by changing their opacity (the opposite of their current state)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.slideUp()</code></td>
+<td class="org-left">Hides selected elements with a sliding motion</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.slideDown()</code></td>
+<td class="org-left">Shows selected elements with a sliding motion</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.slideToggle()</code></td>
+<td class="org-left">Hides or shows selected elements with a sliding motion (in the opposite direction to its current state)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.delay()</code></td>
+<td class="org-left">Delays execution of subsequent items in queue</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.stop()</code></td>
+<td class="org-left">Stops an animation if it is currently running</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.animate()</code></td>
+<td class="org-left">Creates custom animations</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>The <code>.animate()</code> method allows you to create some of your own effects and animations by changing CSS properties</li>
+<li>You can animate any CSS property whose value can be represented as a number (e.g. height, width, font-size, etc.) but not those whose value would be a string (e.g. font-family, text-transform, etc.)</li>
+<li>CSS properties inside the method is written using camelCase notation so the first word is all lowercase and each subsequent word starts with an uppercase character (e.g. <code>border-top-left-radius</code> would become <code>borderTopLeftRadius</code>)</li>
+<li>The <code>.animate()</code> function accepts 4 arguments, the first argument is the object literal and then 3 optional arguments</li>
+<li>The CSS properties are specified in the object literal (e.g. <code>{opacity: 0.0}</code>)</li>
+<li>After the second argument is optional and it is the speed parameter which indicates the duration of the animation in milliseconds (it can also take the keywords "slow" and "fast")</li>
+<li>The third argument is optional and it is the easing parameter, it can have two values: "linear" (the speed of animation is uniform) or "swing" (speeds up in the middle of the transition and is slower at the start and end) and if no value is specified then "swing" is used by default</li>
+<li>The fourth argument is optional and it is called complete, it is used to call a function that should run when the animation has finished, this is known as a callback function, so it can be a named function or an anonymous function</li>
+<li>For example,</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">$('li').on('click', function(){ // add event handler when list item is clicked
+    $(this).animate({ // animate list item
+        opacity: 0.0, // make it disappear
+        paddingLeft: '+=80' // make it move to right like if it is leaving
+    }, 500, 'swing', function(){ // when animation finished actually remove the list item from DOM
+        $(this).remove();    
+    });
+});
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>To animate between two colors, rather than using <code>.animate()</code> method you can instead use the jQuery's jQuery-color plugin</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0192c1f" class="outline-3">
+<h3 id="org0192c1f">Section 7.16: Traversing the DOM</h3>
+<div class="outline-text-3" id="text-org0192c1f">
+<ul class="org-ul">
+<li>When you have made a jQuery selection, you can use these methods to access other element nodes relative to the initial selection</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method</th>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.find(&lt;&gt;)</code></td>
+<td class="org-left">Required</td>
+<td class="org-left">All elements within current selection that match selector</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.closest(&lt;&gt;)</code></td>
+<td class="org-left">Required</td>
+<td class="org-left">Nearest ancestor (not just parent) that matches selector</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.parent()</code></td>
+<td class="org-left">Optional</td>
+<td class="org-left">Direct parent of current selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.parents()</code></td>
+<td class="org-left">Optional</td>
+<td class="org-left">All parents of current selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.children()</code></td>
+<td class="org-left">Optional</td>
+<td class="org-left">All children of current selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.siblings()</code></td>
+<td class="org-left">Optional</td>
+<td class="org-left">All siblings of current selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.next()</code></td>
+<td class="org-left">Optional</td>
+<td class="org-left">Next sibling of current element</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.nextAll()</code></td>
+<td class="org-left">Optional</td>
+<td class="org-left">All subsequent siblings of current element</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.prev()</code></td>
+<td class="org-left">Optional</td>
+<td class="org-left">Previous sibling of current element</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.prevAll()</code></td>
+<td class="org-left">Optional</td>
+<td class="org-left">All previous siblings of current element</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Each method finds elements that have a different relationship to those that are in the current selection (e.g., parents or children of the current selection)</li>
+<li>The <code>.find()</code> and <code>.closest()</code> methods both require a CSS-style selector as an argument while the other methods the CSS-style selector is optional</li>
+<li>But if a selector is provided, both the method and selector must match in order for the element to be added to the new selection</li>
+<li>For example, if you start with a selection that contains one list item, you could create a new selection containing the other items from the list using the <code>.siblings()</code> method</li>
+<li>If you added a selector into the method such as this: <code>.siblings('.important')</code> then it would find only siblings with a class attribute whose value included "important"</li>
+<li>If the original selection contains multiple elements, these methods all work on all of the elements in the selection (which can result in quite an odd selection of elements) so you may need to narrow down your initial selection before traversing the DOM</li>
+<li>Behind the scenes, jQuery will handle the cross-browser inconsistencies involved in traversing the DOM 9such as whitespace nodes being added by some browsers)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org39375de" class="outline-3">
+<h3 id="org39375de">Section 7.17: Add &amp; Filtering Elements in a Selection</h3>
+<div class="outline-text-3" id="text-org39375de">
+<ul class="org-ul">
+<li>Once you have a jQuery selection, you can add more elements to it or you can filter the selection to work with a subset of the elements</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method / Selector</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.add()</code></td>
+<td class="org-left">Adds new content to the items in the existing selection and places the resulting content in a new jQuery object</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.filter()</code></td>
+<td class="org-left">Finds elements in the matched set that in turn match a second selector</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.find()</code></td>
+<td class="org-left">Finds descendants of elements in the matched set that match a selector</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.not()</code> / <code>:not()</code></td>
+<td class="org-left">Finds elements that do not match the selector</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.has()</code> / <code>:has()</code></td>
+<td class="org-left">Finds elements from the matched set that have a descendant that matches the selector</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:contains()</code></td>
+<td class="org-left">Selects all elements that contain the text specified (parameter is case sensitive)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.is()</code></td>
+<td class="org-left">Checks whether current selection matches a condition (returns boolean)</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Note that <code>$('li').not('.hot').addClass('cool')</code> is equivalent to <code>$('li:not(.hot)').addClass('cool')</code></li>
+<li>The <code>.add()</code> method allows you to add a new selection to an existing one</li>
+<li>The functions take a selector as a parameter and either add to your existing matched set, find a new matched set, or filters the matched set</li>
+<li>The items that begin with a colon can be used wherever you would use a CSS-style selector, so in the selector you append the colon and function name along with any additional selector</li>
+<li>The <code>:not()</code> and <code>:has()</code> selectors take another CSS-style selector as a parameter and the <code>:contains()</code> lets you find elements that contain specific text</li>
+<li>The <code>:is()</code> method lets you use another selector to check whether the current selection matches a condition and if it does then it will return true otherwise it will return false (this is helpful in conditional statements)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org017f18f" class="outline-3">
+<h3 id="org017f18f">Section 7.18: Finding Items by Order</h3>
+<div class="outline-text-3" id="text-org017f18f">
+<ul class="org-ul">
+<li>Each item returned by a jQuery selector is given an index number which can be used to filter the selection</li>
+<li>The jQuery object is sometimes referred to as being an array-like object because it assigns a number to each of the elements that is returned by a selector</li>
+<li>That number is an index number which means it starts at 0</li>
+<li>You can filter the selected elements based on this number using methods or these additional CSS-style selectors that jQuery has added</li>
+<li>Methods are applied to the jQuery selection, whereas selectors are used as part of the CSS-style selector</li>
+<li>For example, if you run <code>$('li')</code>, each list item that is returned to a jQuery object will have index starting from zero, so if you run <code>$('li').eq(2)</code> it will get the list item with an index of 2, if you run <code>$('li:lt(2)')</code> then it will get list items with an index less than 2</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method / Selector</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.eq()</code></td>
+<td class="org-left">The element that matches the index number</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:lt()</code></td>
+<td class="org-left">Elements with an inde less than the number specified</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:gt()</code></td>
+<td class="org-left">Elements with an index greater than the number specified</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgefbba58" class="outline-3">
+<h3 id="orgefbba58">Section 7.19: Working with Forms</h3>
+<div class="outline-text-3" id="text-orgefbba58">
+<ul class="org-ul">
+<li>jQuery has selectors that are designed specifically to work with forms, however, they are not always the quickest way to select elements</li>
+<li>Selectors for Form Elements:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Selector</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>:button</code></td>
+<td class="org-left"><code>&lt;button&gt;</code> and <code>&lt;input&gt;</code> eleemnts whose <code>type</code> attribute has a value of button</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:checkbox</code></td>
+<td class="org-left"><code>&lt;input&gt;</code> elements whose <code>type</code> attribute has a value of <code>checkbox</code> (note that you might get better performance with <code>$('[type="checkbox"]')</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:checked</code></td>
+<td class="org-left">Checked elements from checkboxes and radio buttons (see <code>:selected</code> for select boxes)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:disabled</code></td>
+<td class="org-left">All elements that have been disabled</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:enabled</code></td>
+<td class="org-left">All elements that are enabled</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:focus</code></td>
+<td class="org-left">Element that currently has focus (note that you can get better performance with <code>$(document.activeElement)</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:file</code></td>
+<td class="org-left">All elements that are file inputs</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:image</code></td>
+<td class="org-left">All image inputs (note that you get better performance with <code>[type="image"]</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:input</code></td>
+<td class="org-left">All <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;selector&gt;</code>, and <code>&lt;textarea&gt;</code> elements (note that you get better performance from selecting elements then using <code>.filter(":input")</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:password</code></td>
+<td class="org-left">All password inputs (note that you get better performance using <code>$('input:password')</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:radio</code></td>
+<td class="org-left">All radio inputs (to select a group of radio buttons you can use <code>$('input[name="gender"]:radio')</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:reset</code></td>
+<td class="org-left">All inputs that are reset buttons</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:selected</code></td>
+<td class="org-left">All elements that are selected (note that you get better performance using a CSS selector inside the <code>.filter()</code> method, e.g. <code>.filter(":selected")</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:submit</code></td>
+<td class="org-left"><code>&lt;button&gt;</code> and <code>&lt;input&gt;</code> elements whose <code>type</code> attribute has a value of <code>submit</code> (note that you will get better performance using <code>[type="submit"]</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>:text</code></td>
+<td class="org-left">Selects <code>&lt;input&gt;</code> elements with a <code>type</code> attribute whose value is text or whose type attribute is not present (you will likely get better performance from <code>('input:text')</code></td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>If you use one of these selectors on its own, jQuery will examine each element in the document to find a match, thus it will use jQuery code which is not as fast as CSS selectors</li>
+<li>Therefore, you should narrow down the part of the document the script needs to look through by placing an element name or other jQuery selector before using the selectors shown in the table above</li>
+<li>You can also access elements in a form using the same selectors used to pick any element in jQuery (this option could be faster)</li>
+<li>Because jQuery handles whitespace nodes for you, it is easy to traverse between form elements using jQuery compared to using plain JS</li>
+<li>Other methods:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.val()</code></td>
+<td class="org-left">Primarily used with <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, and <code>&lt;textarea&gt;</code> elements, it can be used to get the value of the first element in a matched set or update the value of all of them</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.filter()</code></td>
+<td class="org-left">Used to filter a jQuery selection using a second selector (espeically form-specific filters)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.is()</code></td>
+<td class="org-left">Often used with filters to check whether a form input is selected / checked</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$.isNumeric()</code></td>
+<td class="org-left">Checks whether the value represents a numeric value and returns a boolean (e.g. <code>$.isNumeric("2")</code>, <code>$.isNumeric(+2)</code>, <code>$.isNumeric(4.4)</code>, <code>$.isNumeric(0xFF)</code>, etc.)</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>The <code>.val()</code> method gets the value of the first <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, or <code>&lt;textarea&gt;</code> element in a jQuery selection and it can also be used to set the value for all matching elements</li>
+<li>The <code>.filter()</code> and <code>.is()</code> methods are commonly used with form elements and we discussed these methods previously</li>
+<li>The <code>$.isNumeric()</code> is a global method and it is not used on a jQuery selection but rather the value you want to test is passed as an argument</li>
+<li>Events (works with the method <code>.on()</code>):</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Events</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>blur</code></td>
+<td class="org-left">When an element loses focus</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>change</code></td>
+<td class="org-left">When the value of an input changes</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>focus</code></td>
+<td class="org-left">When an element gains focus</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>select</code></td>
+<td class="org-left">When the option for a <code>&lt;select&gt;</code> element is changed</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>submit</code></td>
+<td class="org-left">When a form is submitted</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>These events correspond to JS events that you might use to trigger functions, as with other jQuery code, jQuery handles any inconsistencies between browsers when dealing with these events</li>
+<li>jQuery also makes it easier to work with a group of elements such as radio buttons, checkboxes, and the options in a select box because once you have selected the elements you can simply apply individual methods to each of them without having to write a loop</li>
+<li>When submitting a form there is also a helpfu method called <code>.serialize()</code> which we will learn more about later</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdd5089c" class="outline-3">
+<h3 id="orgdd5089c">Section 7.20: Cutting &amp; Copying Elements</h3>
+<div class="outline-text-3" id="text-orgdd5089c">
+<ul class="org-ul">
+<li>Once you have a jQuery selection, you can use these methods to remove those elements or make a copy of them</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.remove()</code></td>
+<td class="org-left">Removes matched elements from DOM tree (including any descendants and text nodes)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.detach()</code></td>
+<td class="org-left">Same as <code>.remove()</code> but keeps a copy of them in memory</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.empty()</code></td>
+<td class="org-left">Removes child nodes and descendants from any elements in matched set (child data and event handlers are also removed)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.unwrap()</code></td>
+<td class="org-left">Removes parents of matched set, leaving matched elements, and now the grandparent becomes the new parent of the matched elements (while the old parent is removed along with any data and event handlers)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.clone()</code></td>
+<td class="org-left">Creates a copy of the matched set (including any descendants and text nodes), by default clone does not copy data or event handlers (you must specify true in the argument if you want that), and the clone is not automatically added to DOM, you must also added it to DOM if you want it to be in DOM</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>The <code>.remove()</code> method deletes the matched elements and all of their descendants from the DOM tree</li>
+<li>The <code>.detach()</code> method also removes the matched elements and all of their descendants from the DOM tree; however, it retains any event handlers and any other associated jQuery data so they can be inserted back into the page</li>
+<li>The <code>.empty()</code> (remove children) and <code>.unwrap()</code> (remove parent) methods remove elements in relation to the current selection</li>
+<li>The <code>.clone()</code> method creates a copy of the matched set of elements and any descendants and if you use this method on elements that have an id attribute then you will need to update the id attribute otherwise it would no longer be unique (if you want event handlers to be cloned too then you should add true as an argument to clone)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge441ea6" class="outline-3">
+<h3 id="orge441ea6">Section 7.21: Dimensions</h3>
+<div class="outline-text-3" id="text-orge441ea6">
+</div>
+<div id="outline-container-org6ecb323" class="outline-4">
+<h4 id="org6ecb323">Section 7.21.1: Box Dimensions</h4>
+<div class="outline-text-4" id="text-org6ecb323">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method</th>
+<th scope="col" class="org-left">Retrieve or Set</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.height()</code></td>
+<td class="org-left">Both</td>
+<td class="org-left">Height of box (no margin, no border, no padding)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.width()</code></td>
+<td class="org-left">Both</td>
+<td class="org-left">Width of box (no margin, no border, no padding)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.innerHeight()</code></td>
+<td class="org-left">Retrieve</td>
+<td class="org-left">Height of box plus padding</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.innerWidth()</code></td>
+<td class="org-left">Retrieve</td>
+<td class="org-left">Width of box plus padding</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.outerHeight()</code></td>
+<td class="org-left">Retrieve</td>
+<td class="org-left">Height of box plus padding and border</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.outerWidth()</code></td>
+<td class="org-left">Retrieve</td>
+<td class="org-left">Width of box plus padding and border</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.outerHeight(true)</code></td>
+<td class="org-left">Retrieve</td>
+<td class="org-left">Height of box plus padding, border, and margin</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.outerWidth(true)</code></td>
+<td class="org-left">Retrieve</td>
+<td class="org-left">Width of box plus padding, border, and margin</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>The methods above allow you to discover or update the width and height of all boxes on the page</li>
+<li>CSS treats each element on a web page as if it were in its own box and a box can have padding, a border, and a margin</li>
+<li>If you set the width or height of the box in CSS, it does not include any padding, border, or margin - they are added to the dimensions</li>
+<li>The methods above allow you to retrieve the width and height of the first element in the matched set and the first two methods shown above allow you to update the dimensions of all boxes in the matched set</li>
+<li>The other methods give you different measurements depending on whether you want to include padding, border. and margin</li>
+<li><code>.outerHeight()</code> and <code>.outerWidth()</code> take a parameter of true if you want the margin included</li>
+<li>When retrieving the dimensions these methods return a number in pixels</li>
+<li>You can use percentages when setting the dimensions but keep in mind percentage widths are always relative to the parent’s width (not the previous width of the element)</li>
+<li>Measurements in percentages or ems should be given as a string with the suffix '%' or 'em' but pixels do not require a suffix and are not enclosed in quotes</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6690098" class="outline-4">
+<h4 id="org6690098">Section 7.21.2: Window &amp; Page Dimensions</h4>
+<div class="outline-text-4" id="text-org6690098">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.height()</code></td>
+<td class="org-left">Height of the jQuery selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.width()</code></td>
+<td class="org-left">Width of the jQuery selection</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.scrollLeft()</code></td>
+<td class="org-left">Gets the horizontal position of the scroll bar for the first element in the jQuery selection or sets the horizontal scroll bar position for matched nodes</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.scrollTop()</code></td>
+<td class="org-left">Gets the vertical position of the scroll bar for the first element in the jQuery selection or sets the vertical scroll bar position ofr matched nodes</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.offset()</code></td>
+<td class="org-left">Gets or sets coordinates of the element relative to the top left-hand corner of the <code>document</code> object</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.position()</code></td>
+<td class="org-left">Gets or sets coordinates of the element relative to any ancestor that has been take out of normal flow (using CSS box offsets) and if no ancestor is out of normal flow then it will return the same as <code>.offset()</code></td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><code>.height()</code> and <code>.width()</code> can also be used on a jQuery selection containing the <code>window</code> or <code>document</code> objects</li>
+<li>The browser can display scroll bars if the height or width of a box's content is larger than its allocated space or the current page represented by the document object is larger than the dimensions of the browser window's viewable area (viewport)</li>
+<li>The <code>.scrollLeft()</code> and <code>.scrollTop()</code> methods allow you to get and set the position of the scroll bars</li>
+<li>When retrieving dimensions, these methods return a number in pixels</li>
+<li>The <code>.offset()</code> and <code>.position()</code> methods can be used to determine the position of elements on the page, it helps to determine the position of the an element: within the page and in relation to an ancestor that is offset from normal flow</li>
+<li><code>.offset()</code> and <code>.position()</code> returns an object that has two properties: <code>top</code> (position from the top of the document or containing element) and <code>left</code> (position from the left of the document or containing element)</li>
+<li>As with other jQuery methods, when used to retrieve information, they return the co-ordinates of the first element in the matched set</li>
+<li>If they are used to set the position of elements, they will update the position of all elements in the matched set (putting them in the same spot)</li>
+<li>To get the offset or position, store the object that is returned by these methods in a variable and then use the <code>left</code> or <code>top</code> properties of the object to retrieve their position</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga114805" class="outline-3">
+<h3 id="orga114805">Section 7.22: Ways to Include jQuery</h3>
+<div class="outline-text-3" id="text-orga114805">
+<ul class="org-ul">
+<li>In addition to hosting the jQuery file with the rest of your website, you can also use a version that is hosted by other companies however it is good to still include a fallback version if the original file fails to load</li>
+<li>A content delivery network (CDN) is a series of servers spread out around the world to serve static files (such as HTML, CSS, JS, images, audio, video, etc.) quickly</li>
+<li>CDN tries to find the server nearest to you and then sends the files from that server so the data does not travel far and take a lot of time</li>
+<li>When including jQuery in your pages, you can try to load it from one of these CDNs and then check if it is loaded and if not you can include a version that is stored on your own server (as a fallback)</li>
+<li>This is outdated, but before, protocol relative URL is when you omit the protocol when specifying a URL so instead of <code>https://www.google.com</code> we can do <code>//www.google.com</code> with only two forward slashes</li>
+<li>This lets the browser know of protocol relative URL which tells it to use the same protocol as the current page either HTTP or HTTPS</li>
+<li>This was helpful back in the day because you can make your resources (images, scripts, etc.) work on both HTTP or HTTPS without mixing content and not hardcoding the protocol</li>
+<li>However that is outdated since we have now since defaulted to HTTPS and we should always use HTTPS in releases</li>
+<li>After loading the jQuery file from a CDN, we then add another small script to check if <code>window.jQuery</code> returns true otherwise you the load and use your local file</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc906a8f" class="outline-4">
+<h4 id="orgc906a8f">Section 7.22.1: Where to Place Your Script</h4>
+<div class="outline-text-4" id="text-orgc906a8f">
+<ul class="org-ul">
+<li>The position of <code>&lt;script&gt;</code> elements can affect how quickly a web page seems to load</li>
+<li>In the early days, developers were told to place the scripts in the <code>&lt;head&gt;</code> of the page however this can make the pages seem slower to load (because it waits for the script to load and then loads whatever is after which is the <code>&lt;body&gt;</code>)</li>
+<li>Your web page may use files from several different servers and locations, and usually a browser will collect up to two files at a time from each different server, but when a browser starts to download a JS file it stops all other downloads and pauses laying out the page until the script has finished loading and been processed</li>
+<li>Thus if you place the script at the end of the page before closing <code>&lt;/body&gt;</code> tag it will not affect the rendering of the rest of the page (now in modern browsers there are new ways to not prevent the browser from rendering)</li>
+<li>If the script tries to access an element before it has loaded, it causes an error</li>
+<li>Where possible do consider using alternatives to scripts, so instead of using JS for animations try to use CSS for animations, instead of trying to modify CSS with JS, create attributes in HTML, add some CSS properties, and toggle them in JS</li>
+<li>Let JS be the last resort and try to use less JS</li>
+<li>If you place a script tag in the head (without using any newer techniques) it may load your page slowly and at that time DOM won't be loaded so you will need to add an event listener like <code>load</code> or <code>DOMContentLoaded</code> to trigger the rest of the script</li>
+<li>If you need to use it in the <code>&lt;head&gt;</code> the script tag should be just before the closing <code>&lt;/head&gt;</code> tag</li>
+<li>This is also the case if you put the script inside the body, it may slow down the page (due to the script loading), and the rest of the body (after the script) will still not be loaded</li>
+<li>Without using any new techniques the best place is before the <code>&lt;/body&gt;</code> tag because everything would have been loaded and rendered so it won't block anything because most of it, if not all, has been loaded including the DOM so no event handler is needed</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb1c5c0a" class="outline-3">
+<h3 id="orgb1c5c0a">Section 7.23: jQuery Documentation &amp; More</h3>
+<div class="outline-text-3" id="text-orgb1c5c0a">
+<ul class="org-ul">
+<li>For jQuery documentation we can visit: <a href="https://api.jquery.com">https://api.jquery.com</a></li>
+<li>The documentation site lists each method and property available to use along with any new functionality or deprecated functionality added to the latest versions</li>
+<li>jQuery has hundreds of plugins and these plugins are scripts that extend the functionality of the jQuery library (basically plugins offer functionality that is not included in the jQuery library)</li>
+<li>To view the old plugins (which most are not being actively developed no more) visit <a href="https://plugins.jquery.com">https://plugins.jquery.com</a></li>
+<li>jQuery is an example of what programmers call a JS library, it is a JS file that you can include in your page which then lets you use the functions, objects, methods, and properties it contains</li>
+<li>The concept of a library is that you can "borrow" or use its code (functions, objects, methods, and properties) from one file in another script</li>
+<li>The problem with libraries is that it may contain code that you might not need so it adds bloat to your website causing your website to be slower so you can either strip down the library or write your own lite library</li>
+<li>If you use multiple libraries then take into consideration that <code>$()</code> might be used by multiple libraries (e.g. jQuery and prototype.js) so we have to try our best to avoid conflicts</li>
+<li>One way is to include jQuery library after other libraries in HTML (thus jQuery's <code>$</code> will take precedence) and you use the jQuery method <code>.noConflict()</code> at the start of the script which tells jQuery to release <code>$</code> shortcut so that other scripts can use it then you use the full name rather than the shortcut</li>
+<li>You can also wrap your script with jQuery in an IIFE (immediately invoked function expression) and still use <code>$</code> or you can specify your own alias instead of <code>$()</code></li>
+<li>Another way is to include jQuery before other libraries (thus the other libraries' <code>$</code> will take precedence) and <code>$</code> will have the meaning defined in the other library so there is no need to call <code>.noConflict()</code> because it will have no effect but then you <b>have</b> to continue to use the full function name <code>jQuery()</code> because <code>$</code> is already taken by the other libraries</li>
+<li>You can create a scoped alias <code>$</code> inside the <code>.ready()</code> method by passing the <code>$</code> as an argument to the anonymous function called by the <code>.ready()</code> method so now inside the anonymous function <code>$</code> can be used instead of <code>jQuery()</code> because the alias has a scope and there is also scope precedence</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9a80dff" class="outline-3">
+<h3 id="org9a80dff">Section 7.24: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org9a80dff">
+<ul class="org-ul">
+<li>We are going to create another TODO list app but now using jQuery</li>
+<li>Here are the requirements:
+<ol class="org-ol">
+<li>There is a single tab with active and completed items</li>
+<li>The heading must specify the amount of "active" items</li>
+<li>The user can click on a button called "new item" which will make a form appear to add a new item (animate the new item to the top of the list)</li>
+<li>Once a new item has been added the form will disappear and "new item" button will reappear</li>
+<li>Users can click on an active item to mark as complete which will move the item to the bottom of the list and change the background color</li>
+<li>Users can click on a completed item to remove it from the list</li>
+<li>Use event delegation when clicking on the list items (if active then move to the bottom of list, update counter, and mark it as complete, if complete then fade it out and remove it from the list)</li>
+</ol></li>
+<li><a href="./007.024.Chapter_Exercise/index.html">Here is the chapter exercise</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org47d76d6" class="outline-3">
+<h3 id="org47d76d6">Section 7.25: Summary</h3>
+<div class="outline-text-3" id="text-org47d76d6">
+<ul class="org-ul">
+<li>jQuery is a JS file you include in your website</li>
+<li>Once included, it makes it faster and easier to write cross-browser JS based on two steps:
+<ol class="org-ol">
+<li>Using CSS-style selectors to collect one or more nodes from the DOM tree</li>
+<li>Using jQuery's built-in methods to work with the elements in that selection</li>
+</ol></li>
+<li>jQuery's CSS-style selector syntax makes it easier to select elements to work with and it also has methods that make it easier to traverse the DOM</li>
+<li>jQuery makes it easier to handle events because the event methods work across all browsers</li>
+<li>jQuery offers methods that make it quick and simple to achieve a range of tasks that JS programmers commonly need to perform</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b20437" class="outline-2">
+<h2 id="org9b20437">Keywords</h2>
+<div class="outline-text-2" id="text-org9b20437">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -398,9 +2116,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org581ad45" class="outline-2">
-<h2 id="org581ad45">Questions</h2>
-<div class="outline-text-2" id="text-org581ad45">
+<div id="outline-container-orgde3e5f8" class="outline-2">
+<h2 id="orgde3e5f8">Questions</h2>
+<div class="outline-text-2" id="text-orgde3e5f8">
 <ul class="org-ul">
 <li><b>Q</b>: How is <code>$()</code> shorthand for <code>jQuery()</code>?
 <ul class="org-ul">
@@ -418,12 +2136,37 @@ $("li").on("click", function(){ $(this).remove(); });
 <li>Yes they accept anonymous functions and they also accepted named functions</li>
 <li>Both anonymous functions and named functions also accept the event object inside the <code>on()</code> jQuery method</li>
 </ul></li>
+
+<li><b>Q</b>: What is the difference between <code>.filter()</code>, <code>.find()</code>, and <code>.has()</code>?
+<ul class="org-ul">
+<li><code>.filter()</code> filters the matched set it does not check the descendants of the matched set</li>
+<li>For example, let's say we have a list and we get the list items <code>$('li')</code> so we run <code>.filter('.someClass')</code> it will filter the list items to only the list items with that class name</li>
+<li>If the list items have children with that class it will <b>not</b> get them because filter only "filters" out the matched set not the descendants</li>
+<li><code>.find()</code> finds the elements that match the selector in its descendants</li>
+<li><code>.find()</code> does not try to match the selector with the matched set because that is not the purpose of the function instead it only looks at the match set's descendants</li>
+<li>For example, let's say we get the list items and only the list items have a specific class and we run <code>$('li').find('.someClass')</code> then it will return an empty jQuery object</li>
+<li>Now let's say along with the list items some of its children have the same class so now <code>$('li').find('.someClass')</code> will return a jQuery object with only the elements in its descendants (children) with that class (not the list items themselves)</li>
+<li>So <code>.filter()</code> "filters" out the matched set only by using the selector while <code>.find()</code> will "find" the elements in its descendants of the matched set using the selector</li>
+<li><code>.has()</code> is another filter but now it filter based on the descendants have the selector</li>
+<li>If so, then the matching set will be kept</li>
+<li>For example, if we run <code>$('li').has('.someClass')</code> then it will keep any list items that have a descendant with the class "someClass" while find will return the descendant elements with that class</li>
+<li>So <code>.has()</code> filters the matched set based on the selector matching its descendants while <code>.find()</code> will find the descendants of the matched set matching the selector</li>
+</ul></li>
+
+<li><b>Q</b>: What is the difference between <code>.remove()</code> and <code>.detach()</code>
+<ul class="org-ul">
+<li><code>.remove()</code> removes the selected elements from the DOM and also removes all associated data and event handlers (anything added with <code>.on()</code> or <code>.data()</code>)</li>
+<li><code>.remove()</code> is used when you completely want to remove it from the DOM and do not plan on it using it again</li>
+<li><code>.detach()</code> also removes selected elements from the DOM but preserves all data and event handlers associated with the elements</li>
+<li><code>.detach()</code> is used whenever you need to temporary remove your element but insert the element at a later time</li>
+<li>Thus <code>.detach()</code> disappears from DOM but keeps it data so whenever you add back to DOM everything still works as before (events and data are still intact)</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org501c267" class="outline-2">
-<h2 id="org501c267">Summary</h2>
+<div id="outline-container-org2a35e54" class="outline-2">
+<h2 id="org2a35e54">Summary</h2>
 </div>
 </div>
 </body>
