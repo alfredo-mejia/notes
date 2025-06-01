@@ -37,7 +37,7 @@
     - After using ~jQuery()~ the object and the elements it contains is referred to as a *matched set* or a *jQuery selection*
     - You can then use the methods of the ~jQuery~ object to update the elements it contains
     - For example, the method ~$().addClass()~ adds a new value to the class attribute for all the elements selected (the matched set)
-    - The differences from DOM is that jQuery is corss-browser and does not need to have fallback code
+    - The differences from DOM is that jQuery is cross-browser and does not need to have fallback code
     - Thus selecting elements is simpler (also due to CSS-style syntax and the shorthand of the method ~jQuery()~), add event handlers is also simple because it is cross-browser, methods affect all elements in the matched set without a need of the loop, additional methods are provided for animation, and once you have a set of elements you can apply multiple methods to it
 
 *** Section 7.2.3: A jQuery Example
@@ -635,9 +635,9 @@
    - jQuery offers methods that make it quick and simple to achieve a range of tasks that JS programmers commonly need to perform
    
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term   | Definition |
+|--------+------------|
+| jQuery | jQuery is an open-source JavaScript library, and in addition, jQuery is the name of the function that accepts a string containing a CSS selector which returns a jQuery object with the matched set |
 
 * Questions
   - *Q*: How is ~$()~ shorthand for ~jQuery()~?
@@ -675,3 +675,34 @@
 	 - Thus ~.detach()~ disappears from DOM but keeps it data so whenever you add back to DOM everything still works as before (events and data are still intact)
     
 * Summary
+  - jQuery offers a simple way to achieve a variety of common JS tasks quickly and consistently across all major browsers (e.g. add classes to a matched set, get / set attributes, etc.)
+  - *Note*: jQuery is an outdated library but at the time running common tasks was cumbersome and there were discrepancies between browsers so jQuery was very convenient having a function to handle everything for you but now WHATWG has standardize features between all browsers and has added browser APIs that achieve the same thing as jQuery so now there is no need for jQuery because now it can achieved with plain JS
+  - However, let's continue, jQuery is a JS file that you include in your web pages and it helps you find elements using CSS-style selectors and then you can do some task on the matched set using the jQuery methods
+  - To get the matched set you call the function ~jQuery()~ or ~$()~ (short-hand) and for the argument you pass in a CSS selector and the function will return a jQuery object and inside the object it will hold references (it points to the nodes already in memory in the DOM) to the elements that matched the CSS selector
+  - You can then store the jQuery object in a variable and use its properties or call on further methods
+  - When you are going to use a match set multiple times it is best to store the jQuery object in a variable because using ~jQuery()~ everytime will use unnecessary resources
+  - In addition, jQuery offers additional selectors to offer greater functionality (e.g. get every ~li~ but only that has an index greater than 3)
+  - You can use CSS syntax, in addition to the jQuery selectors (see section 7.4), to find matching elements and return a matched set (a jQuery object)
+  - Once you get a jQuery object you have many methods avaiable to you, these methods can find or change content of elements, attributes, and text nodes, traverse the DOM, find descendant elements, get dimensions, add animations, or add event listeners
+  - Some of jQuery methods return info, update contents, but not all can applied to all elements, some work with some elements while others do not
+  - It is best to look at documentation to see what the method does, what it does it return, and which elements it works on: https://api.jquery.com
+  - The jQuery object that is returned from the function ~jQuery()~ does not actually return copies of the elements but holds references to the elements in the DOM tree
+  - Many of the methods from the jQuery object apply to all elements in the jQuery object which is convenient because you do not need a loop and with jQuery you can call methods after another thus "chaining" the methods 
+  - The methods that retrieve info cannot be used to retrieve the info on elements, when wanting to retrieve info from all elements in the matched set you will need to call ~.each()~ but all other methods work for all elements
+  - There are many methods in jQuery, for example the ~.ready()~ function (~$(document.ready(function() {});~ or ~$(function() {});~) checks that the page is ready for your code to work with instead of having to deal with adding event listeners yourself
+  - There are methods like ~.html()~ to get and set the HTML, ~.text()~ to get or set the text, ~.replaceWith()~ which replaces every element in a matched set, and ~.remove()~ that removes the elements in the matched set
+  - You can also create new jQuery objects like ~$('<li class="new">item</li>')~ with a string that includes markup and then using this new object (or any detached element) you can insert it by using ~.before()~, ~.after()~, ~.prepend()~, ~.append()~, ~.preprendTo()~, and ~.appendTo()~
+  - Other functions can be used to get, set, and remove attributes, classes, and CSS properties
+  - You can iterate the matched set using the ~.each()~ function and give it a function (named or anonymous) and inside the function use the keyword ~this~ to access the current element in the matched set (we can then get the element in a jQuery object ~$(this)~)
+  - In jQuery you can add event listeners using the ~.on()~ function, specify an event, and specify a function with a parameter name for the event object
+  - jQuery will pass an event object to your function and you can get the origianting element that fired the element using ~event.target~ and this can be used for event delegation
+  - jQuery has methods for animations and traversing the DOM as well
+  - jQuery also has methods to filter the matched set or find elements within the descendants of the matched set, and you can event filter selections based on their indices
+  - Every element has an index, so if you do for example ~$('li:gt(3)')~ then every list item will get an index and you want to get the list items that have an index that is greater than 3
+  - jQuery has methods to filter or add to the selector a filter based on indices
+  - jQuey has also methods and selectors specifically to work with forms
+  - jQuery has methods to remove elements (and delete all its data and event listeners) from the DOM tree, or just remove from the DOM tree (but keep its data and event listeners) so it can be added later to the DOM, and has a method to clone elements
+  - jQuery also has methods to get different dimensions of elements, get dimensions of the window, or get the dimensions of the document
+  - To get the jQuery file you can download the file from their website and add it to your own website or you can include it from own of their servers by using the ~<script>~ tag and the source attribute being the address to the server containing the jQuery file
+  - The best place to add JS scripts might be at the end of the the body right before ~</body>~ because by the time the browser reaches the script everything will have been loaded on the screen and in the DOM but you can also add it to the ~<head>~ if you use an event listener (to check for DOM to be ready) or you newer techniques to make your JS file non-blocking so it can continue to render HTML content to the user
+  - Their website https://jquery.com is the best place for any questions and documentation for jQuery
