@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-01 Sun 00:52 -->
+<!-- 2025-06-01 Sun 01:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 7: Query</title>
+<title>Chapter 7: jQuery</title>
 <meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -229,71 +229,71 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Chapter 7: Query</h1>
+<h1 class="title">Chapter 7: jQuery</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgaa29949">Navigation</a></li>
-<li><a href="#orgad7aa0b">Notes</a>
+<li><a href="#org24dadbc">Navigation</a></li>
+<li><a href="#org9aea9ec">Notes</a>
 <ul>
-<li><a href="#orgfda27a4">Section 7.1: Introduction</a></li>
-<li><a href="#org82713ae">Section 7.2: What is jQuery?</a>
+<li><a href="#org51e836f">Section 7.1: Introduction</a></li>
+<li><a href="#org8fa75c7">Section 7.2: What is jQuery?</a>
 <ul>
-<li><a href="#org80d3ae6">Section 7.2.1: Finding Elements using CSS-Style Selectors</a></li>
-<li><a href="#org9935ef8">Section 7.2.2: Do SOmething with Elements using jQuery Methods</a></li>
-<li><a href="#org12c7656">Section 7.2.3: A jQuery Example</a></li>
+<li><a href="#org5b67df3">Section 7.2.1: Finding Elements using CSS-Style Selectors</a></li>
+<li><a href="#orgbda849c">Section 7.2.2: Do SOmething with Elements using jQuery Methods</a></li>
+<li><a href="#orge47ca9e">Section 7.2.3: A jQuery Example</a></li>
 </ul>
 </li>
-<li><a href="#org9fafa25">Section 7.3: Why Use jQuery?</a></li>
-<li><a href="#org149a17c">Section 7.4: Finding Elements</a></li>
-<li><a href="#orge710823">Section 7.5: jQuery Methods</a></li>
-<li><a href="#orga13cd92">Section 7.6: jQuery Objects</a></li>
-<li><a href="#orgaea1faf">Section 7.7: Looping &amp; Chaining</a></li>
-<li><a href="#orgfa652f0">Section 7.8: Checking a Page is Ready to Work With</a></li>
-<li><a href="#org75aee90">Section 7.9: Getting Element Content</a></li>
-<li><a href="#org84e60eb">Section 7.10: Updating &amp; Inserting Elements</a>
+<li><a href="#org1082c2b">Section 7.3: Why Use jQuery?</a></li>
+<li><a href="#org275aeae">Section 7.4: Finding Elements</a></li>
+<li><a href="#org257a736">Section 7.5: jQuery Methods</a></li>
+<li><a href="#orge4db000">Section 7.6: jQuery Objects</a></li>
+<li><a href="#orgdc8293b">Section 7.7: Looping &amp; Chaining</a></li>
+<li><a href="#org7830111">Section 7.8: Checking a Page is Ready to Work With</a></li>
+<li><a href="#org6c122a6">Section 7.9: Getting Element Content</a></li>
+<li><a href="#orgbe70608">Section 7.10: Updating &amp; Inserting Elements</a>
 <ul>
-<li><a href="#orgd8db09c">Section 7.10.1: Updating Elements</a></li>
-<li><a href="#org4f3ae76">Section 7.10.2: Inserting Elements</a></li>
+<li><a href="#orgc7b73c8">Section 7.10.1: Updating Elements</a></li>
+<li><a href="#org9104b48">Section 7.10.2: Inserting Elements</a></li>
 </ul>
 </li>
-<li><a href="#orgf8b0586">Section 7.11: Getting &amp; Setting Attribute Values</a></li>
-<li><a href="#org7a5e7ad">Section 7.12: Getting &amp; Setting CSS Properties</a></li>
-<li><a href="#org1aef00c">Section 7.13: Working with Every Element in a Selection</a></li>
-<li><a href="#org7a4c1b2">Section 7.14: Event Methods, Event Object, &amp; Event Handlers</a></li>
-<li><a href="#org19c8b97">Section 7.15: Animation</a></li>
-<li><a href="#org5410b08">Section 7.16: Traversing the DOM</a></li>
-<li><a href="#org930a615">Section 7.17: Add &amp; Filtering Elements in a Selection</a></li>
-<li><a href="#org8137c6b">Section 7.18: Finding Items by Order</a></li>
-<li><a href="#org2bfaf63">Section 7.19: Working with Forms</a></li>
-<li><a href="#org5069ef1">Section 7.20: Cutting &amp; Copying Elements</a></li>
-<li><a href="#org051e726">Section 7.21: Dimensions</a>
+<li><a href="#orgb2fa4b3">Section 7.11: Getting &amp; Setting Attribute Values</a></li>
+<li><a href="#org42ad8eb">Section 7.12: Getting &amp; Setting CSS Properties</a></li>
+<li><a href="#org9b0e570">Section 7.13: Working with Every Element in a Selection</a></li>
+<li><a href="#org05ccd9e">Section 7.14: Event Methods, Event Object, &amp; Event Handlers</a></li>
+<li><a href="#org9a560b3">Section 7.15: Animation</a></li>
+<li><a href="#org26caee9">Section 7.16: Traversing the DOM</a></li>
+<li><a href="#org8658d81">Section 7.17: Add &amp; Filtering Elements in a Selection</a></li>
+<li><a href="#org624bff1">Section 7.18: Finding Items by Order</a></li>
+<li><a href="#orgbe6ace1">Section 7.19: Working with Forms</a></li>
+<li><a href="#org267ba19">Section 7.20: Cutting &amp; Copying Elements</a></li>
+<li><a href="#orge704817">Section 7.21: Dimensions</a>
 <ul>
-<li><a href="#org41b3358">Section 7.21.1: Box Dimensions</a></li>
-<li><a href="#org1bf6318">Section 7.21.2: Window &amp; Page Dimensions</a></li>
+<li><a href="#org4d26d59">Section 7.21.1: Box Dimensions</a></li>
+<li><a href="#org9520787">Section 7.21.2: Window &amp; Page Dimensions</a></li>
 </ul>
 </li>
-<li><a href="#org62958a3">Section 7.22: Ways to Include jQuery</a>
+<li><a href="#orgbfba645">Section 7.22: Ways to Include jQuery</a>
 <ul>
-<li><a href="#org2dc67c8">Section 7.22.1: Where to Place Your Script</a></li>
+<li><a href="#org38c8266">Section 7.22.1: Where to Place Your Script</a></li>
 </ul>
 </li>
-<li><a href="#org19e753c">Section 7.23: jQuery Documentation &amp; More</a></li>
-<li><a href="#orgbeab4c9">Section 7.24: Chapter Exercise</a></li>
-<li><a href="#orga4ffecf">Section 7.25: Summary</a></li>
+<li><a href="#orgeeb1217">Section 7.23: jQuery Documentation &amp; More</a></li>
+<li><a href="#org8cb77d0">Section 7.24: Chapter Exercise</a></li>
+<li><a href="#orgb757c07">Section 7.25: Summary</a></li>
 </ul>
 </li>
-<li><a href="#org4ebe3aa">Keywords</a></li>
-<li><a href="#orgde34bad">Questions</a></li>
-<li><a href="#org49c3d5c">Summary</a></li>
+<li><a href="#org10cf50f">Keywords</a></li>
+<li><a href="#org7439d62">Questions</a></li>
+<li><a href="#orged9bda0">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgaa29949" class="outline-2">
-<h2 id="orgaa29949">Navigation</h2>
-<div class="outline-text-2" id="text-orgaa29949">
+<div id="outline-container-org24dadbc" class="outline-2">
+<h2 id="org24dadbc">Navigation</h2>
+<div class="outline-text-2" id="text-org24dadbc">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -340,13 +340,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgad7aa0b" class="outline-2">
-<h2 id="orgad7aa0b">Notes</h2>
-<div class="outline-text-2" id="text-orgad7aa0b">
+<div id="outline-container-org9aea9ec" class="outline-2">
+<h2 id="org9aea9ec">Notes</h2>
+<div class="outline-text-2" id="text-org9aea9ec">
 </div>
-<div id="outline-container-orgfda27a4" class="outline-3">
-<h3 id="orgfda27a4">Section 7.1: Introduction</h3>
-<div class="outline-text-3" id="text-orgfda27a4">
+<div id="outline-container-org51e836f" class="outline-3">
+<h3 id="org51e836f">Section 7.1: Introduction</h3>
+<div class="outline-text-3" id="text-org51e836f">
 <ul class="org-ul">
 <li>jQuery offers a simple way to achieve a variety of common JavaScript tasks quickly and consistently across all major browsers and without any fallback code needed</li>
 <li>It is simpler to access elements using jQuery's CSS-style selectors than it is using DOM queries (the selectors are more flexible and powerful)</li>
@@ -356,18 +356,18 @@
 </div>
 </div>
 
-<div id="outline-container-org82713ae" class="outline-3">
-<h3 id="org82713ae">Section 7.2: What is jQuery?</h3>
-<div class="outline-text-3" id="text-org82713ae">
+<div id="outline-container-org8fa75c7" class="outline-3">
+<h3 id="org8fa75c7">Section 7.2: What is jQuery?</h3>
+<div class="outline-text-3" id="text-org8fa75c7">
 <ul class="org-ul">
 <li>jQuery is a JS file that you include in your web pages</li>
 <li>jQuery lets you find elements using CSS-style selectors and then do something with the elements using jQuery methods</li>
 </ul>
 </div>
 
-<div id="outline-container-org80d3ae6" class="outline-4">
-<h4 id="org80d3ae6">Section 7.2.1: Finding Elements using CSS-Style Selectors</h4>
-<div class="outline-text-4" id="text-org80d3ae6">
+<div id="outline-container-org5b67df3" class="outline-4">
+<h4 id="org5b67df3">Section 7.2.1: Finding Elements using CSS-Style Selectors</h4>
+<div class="outline-text-4" id="text-org5b67df3">
 <ul class="org-ul">
 <li>A function called <code>jQuery()</code> lets you find one or more elements in the page</li>
 <li>This function creates an object called <code>jQuery</code> which holds references to those elements</li>
@@ -380,9 +380,9 @@
 </div>
 </div>
 
-<div id="outline-container-org9935ef8" class="outline-4">
-<h4 id="org9935ef8">Section 7.2.2: Do SOmething with Elements using jQuery Methods</h4>
-<div class="outline-text-4" id="text-org9935ef8">
+<div id="outline-container-orgbda849c" class="outline-4">
+<h4 id="orgbda849c">Section 7.2.2: Do SOmething with Elements using jQuery Methods</h4>
+<div class="outline-text-4" id="text-orgbda849c">
 <ul class="org-ul">
 <li><code>jQuery</code> object has many methods that you can use to work with the elements you select, these methods represent tasks that you commonly need to perform with elements</li>
 <li>After using <code>jQuery()</code> the object and the elements it contains is referred to as a <b>matched set</b> or a <b>jQuery selection</b></li>
@@ -394,9 +394,9 @@
 </div>
 </div>
 
-<div id="outline-container-org12c7656" class="outline-4">
-<h4 id="org12c7656">Section 7.2.3: A jQuery Example</h4>
-<div class="outline-text-4" id="text-org12c7656">
+<div id="outline-container-orge47ca9e" class="outline-4">
+<h4 id="orge47ca9e">Section 7.2.3: A jQuery Example</h4>
+<div class="outline-text-4" id="text-orge47ca9e">
 <ul class="org-ul">
 <li>To use jQuery you need to include the jQuery script into your web page</li>
 <li>Once jQuery is added you can then import your own JS file that would be using jQuery</li>
@@ -426,9 +426,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org9fafa25" class="outline-3">
-<h3 id="org9fafa25">Section 7.3: Why Use jQuery?</h3>
-<div class="outline-text-3" id="text-org9fafa25">
+<div id="outline-container-org1082c2b" class="outline-3">
+<h3 id="org1082c2b">Section 7.3: Why Use jQuery?</h3>
+<div class="outline-text-3" id="text-org1082c2b">
 <ul class="org-ul">
 <li>jQuery does not do anything you cannot achieve with pure JS, it is a JS file at the end but it can make coding simpler</li>
 <li>This is outdated but before selecting the elements you wanted was hard because older browsers did not support the lastest methods for selecting elements and IE did not treat whitespace as text nodes like the other browsers</li>
@@ -444,9 +444,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org149a17c" class="outline-3">
-<h3 id="org149a17c">Section 7.4: Finding Elements</h3>
-<div class="outline-text-3" id="text-org149a17c">
+<div id="outline-container-org275aeae" class="outline-3">
+<h3 id="org275aeae">Section 7.4: Finding Elements</h3>
+<div class="outline-text-3" id="text-org275aeae">
 <ul class="org-ul">
 <li>With jQuery you select elements using CSS-style selectors but jQuery also offers some extra selectors that are not part of CSS</li>
 
@@ -960,9 +960,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-orge710823" class="outline-3">
-<h3 id="orge710823">Section 7.5: jQuery Methods</h3>
-<div class="outline-text-3" id="text-orge710823">
+<div id="outline-container-org257a736" class="outline-3">
+<h3 id="org257a736">Section 7.5: jQuery Methods</h3>
+<div class="outline-text-3" id="text-org257a736">
 <ul class="org-ul">
 <li>Once you have made a selection of elements then you can now call methods to do some task on the selected elements</li>
 <li>You often see jQuery method <b>names</b> (not the actual code) written starting with a period (<code>.</code>) before the name to highlight that those methods are part of the jQuery object and not JS methods or some other object's methods</li>
@@ -992,9 +992,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-orga13cd92" class="outline-3">
-<h3 id="orga13cd92">Section 7.6: jQuery Objects</h3>
-<div class="outline-text-3" id="text-orga13cd92">
+<div id="outline-container-orge4db000" class="outline-3">
+<h3 id="orge4db000">Section 7.6: jQuery Objects</h3>
+<div class="outline-text-3" id="text-orge4db000">
 <ul class="org-ul">
 <li>When you create a selection with jQuery, it stores a reference to the corresponding nodes in the DOM tree, it does not create copies of them</li>
 <li>jQuery object is an array-like object because it stores a list of the elements in the same order that they appear in the HTML document (thus preserving the order unlike other objects where the order of the properties is not usually preserved)</li>
@@ -1010,9 +1010,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-orgaea1faf" class="outline-3">
-<h3 id="orgaea1faf">Section 7.7: Looping &amp; Chaining</h3>
-<div class="outline-text-3" id="text-orgaea1faf">
+<div id="outline-container-orgdc8293b" class="outline-3">
+<h3 id="orgdc8293b">Section 7.7: Looping &amp; Chaining</h3>
+<div class="outline-text-3" id="text-orgdc8293b">
 <ul class="org-ul">
 <li>In plain JS, if you wanted to do the same thing to several elements, you would need to write code to loop through all of the elements you selected</li>
 <li>With jQuery when a selector returns multiple elements, you can update all of them using the one method and there is no need to use a loop</li>
@@ -1027,9 +1027,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-orgfa652f0" class="outline-3">
-<h3 id="orgfa652f0">Section 7.8: Checking a Page is Ready to Work With</h3>
-<div class="outline-text-3" id="text-orgfa652f0">
+<div id="outline-container-org7830111" class="outline-3">
+<h3 id="org7830111">Section 7.8: Checking a Page is Ready to Work With</h3>
+<div class="outline-text-3" id="text-org7830111">
 <ul class="org-ul">
 <li>jQuery's <code>.ready()</code> method checks that the page is ready for your code to work with</li>
 <li>For example, <code>$(document).ready(function() {});</code> this creates a jQuery object represent the page and when the page is ready, the function inside the parentheses of the <code>.ready()</code> method is run</li>
@@ -1045,9 +1045,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org75aee90" class="outline-3">
-<h3 id="org75aee90">Section 7.9: Getting Element Content</h3>
-<div class="outline-text-3" id="text-org75aee90">
+<div id="outline-container-org6c122a6" class="outline-3">
+<h3 id="org6c122a6">Section 7.9: Getting Element Content</h3>
+<div class="outline-text-3" id="text-org6c122a6">
 <ul class="org-ul">
 <li>The <code>.html()</code> and <code>.text()</code> methods both retrieve and update the content of elements</li>
 <li>When <code>.html()</code> is used to retrieve info from a jQuery selection it retrieves only the HTML inside the first element in the matched set along with any of its descendants (so if the selection has child HTML elements, it will return all the HTML for that selection)</li>
@@ -1059,13 +1059,13 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org84e60eb" class="outline-3">
-<h3 id="org84e60eb">Section 7.10: Updating &amp; Inserting Elements</h3>
-<div class="outline-text-3" id="text-org84e60eb">
+<div id="outline-container-orgbe70608" class="outline-3">
+<h3 id="orgbe70608">Section 7.10: Updating &amp; Inserting Elements</h3>
+<div class="outline-text-3" id="text-orgbe70608">
 </div>
-<div id="outline-container-orgd8db09c" class="outline-4">
-<h4 id="orgd8db09c">Section 7.10.1: Updating Elements</h4>
-<div class="outline-text-4" id="text-orgd8db09c">
+<div id="outline-container-orgc7b73c8" class="outline-4">
+<h4 id="orgc7b73c8">Section 7.10.1: Updating Elements</h4>
+<div class="outline-text-4" id="text-orgc7b73c8">
 <ul class="org-ul">
 <li>There are four methods that update the content of all elements in a jQuery selection:
 <ul class="org-ul">
@@ -1089,9 +1089,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org4f3ae76" class="outline-4">
-<h4 id="org4f3ae76">Section 7.10.2: Inserting Elements</h4>
-<div class="outline-text-4" id="text-org4f3ae76">
+<div id="outline-container-org9104b48" class="outline-4">
+<h4 id="org9104b48">Section 7.10.2: Inserting Elements</h4>
+<div class="outline-text-4" id="text-org9104b48">
 <ul class="org-ul">
 <li>Inserting new elements involves two steps:
 <ol class="org-ol">
@@ -1118,9 +1118,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-orgf8b0586" class="outline-3">
-<h3 id="orgf8b0586">Section 7.11: Getting &amp; Setting Attribute Values</h3>
-<div class="outline-text-3" id="text-orgf8b0586">
+<div id="outline-container-orgb2fa4b3" class="outline-3">
+<h3 id="orgb2fa4b3">Section 7.11: Getting &amp; Setting Attribute Values</h3>
+<div class="outline-text-3" id="text-orgb2fa4b3">
 <ul class="org-ul">
 <li>You can create attributes or access and update their contents using the following four methods
 <ul class="org-ul">
@@ -1137,9 +1137,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org7a5e7ad" class="outline-3">
-<h3 id="org7a5e7ad">Section 7.12: Getting &amp; Setting CSS Properties</h3>
-<div class="outline-text-3" id="text-org7a5e7ad">
+<div id="outline-container-org42ad8eb" class="outline-3">
+<h3 id="org42ad8eb">Section 7.12: Getting &amp; Setting CSS Properties</h3>
+<div class="outline-text-3" id="text-org42ad8eb">
 <ul class="org-ul">
 <li>The <code>.css()</code> method lets you retrieve and set the values of CSS properties</li>
 <li>To get the value of a CSS property, you indicate which property you want to retrieve in parentheses (e.g. <code>$('li').css('background-color');</code>) and if the matched set contains more than element it will return the value from the first element</li>
@@ -1163,9 +1163,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org1aef00c" class="outline-3">
-<h3 id="org1aef00c">Section 7.13: Working with Every Element in a Selection</h3>
-<div class="outline-text-3" id="text-org1aef00c">
+<div id="outline-container-org9b0e570" class="outline-3">
+<h3 id="org9b0e570">Section 7.13: Working with Every Element in a Selection</h3>
+<div class="outline-text-3" id="text-org9b0e570">
 <ul class="org-ul">
 <li>jQuery allows you to recreate the functionality of a loop on a selection of elements using the <code>.each()</code> method</li>
 <li>Although there are many jQuery methods that update all of the elements in a matched set without the need for a loop, however, there are times when you want to loop through each of the elements in the section often because you are trying to get info from each element in the matched set or you want to perform a series of actions on each of the elements</li>
@@ -1180,9 +1180,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org7a4c1b2" class="outline-3">
-<h3 id="org7a4c1b2">Section 7.14: Event Methods, Event Object, &amp; Event Handlers</h3>
-<div class="outline-text-3" id="text-org7a4c1b2">
+<div id="outline-container-org05ccd9e" class="outline-3">
+<h3 id="org05ccd9e">Section 7.14: Event Methods, Event Object, &amp; Event Handlers</h3>
+<div class="outline-text-3" id="text-org05ccd9e">
 <ul class="org-ul">
 <li>The <code>.on()</code> method is used to handle all events but behind the scenes jQuery handles all of the cross-browser issues seen in the previous chapter</li>
 <li>Using the <code>.on()</code> method is no different than using any other jQuery method: you use a selector to create a jQuery selection and then you use the <code>.on()</code> to indicate which event you want to respond to and the function then adds an event listener to each element in the selection</li>
@@ -1242,9 +1242,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org19c8b97" class="outline-3">
-<h3 id="org19c8b97">Section 7.15: Animation</h3>
-<div class="outline-text-3" id="text-org19c8b97">
+<div id="outline-container-org9a560b3" class="outline-3">
+<h3 id="org9a560b3">Section 7.15: Animation</h3>
+<div class="outline-text-3" id="text-org9a560b3">
 <ul class="org-ul">
 <li>When you start using jQuery, the effects methods can enhance your web page with transitions and movement</li>
 <li>With jQuery you can make content animate fading in and out, slide them up and down, or hide them or show them</li>
@@ -1366,9 +1366,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org5410b08" class="outline-3">
-<h3 id="org5410b08">Section 7.16: Traversing the DOM</h3>
-<div class="outline-text-3" id="text-org5410b08">
+<div id="outline-container-org26caee9" class="outline-3">
+<h3 id="org26caee9">Section 7.16: Traversing the DOM</h3>
+<div class="outline-text-3" id="text-org26caee9">
 <ul class="org-ul">
 <li>When you have made a jQuery selection, you can use these methods to access other element nodes relative to the initial selection</li>
 </ul>
@@ -1465,9 +1465,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org930a615" class="outline-3">
-<h3 id="org930a615">Section 7.17: Add &amp; Filtering Elements in a Selection</h3>
-<div class="outline-text-3" id="text-org930a615">
+<div id="outline-container-org8658d81" class="outline-3">
+<h3 id="org8658d81">Section 7.17: Add &amp; Filtering Elements in a Selection</h3>
+<div class="outline-text-3" id="text-org8658d81">
 <ul class="org-ul">
 <li>Once you have a jQuery selection, you can add more elements to it or you can filter the selection to work with a subset of the elements</li>
 </ul>
@@ -1535,9 +1535,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org8137c6b" class="outline-3">
-<h3 id="org8137c6b">Section 7.18: Finding Items by Order</h3>
-<div class="outline-text-3" id="text-org8137c6b">
+<div id="outline-container-org624bff1" class="outline-3">
+<h3 id="org624bff1">Section 7.18: Finding Items by Order</h3>
+<div class="outline-text-3" id="text-org624bff1">
 <ul class="org-ul">
 <li>Each item returned by a jQuery selector is given an index number which can be used to filter the selection</li>
 <li>The jQuery object is sometimes referred to as being an array-like object because it assigns a number to each of the elements that is returned by a selector</li>
@@ -1581,9 +1581,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org2bfaf63" class="outline-3">
-<h3 id="org2bfaf63">Section 7.19: Working with Forms</h3>
-<div class="outline-text-3" id="text-org2bfaf63">
+<div id="outline-container-orgbe6ace1" class="outline-3">
+<h3 id="orgbe6ace1">Section 7.19: Working with Forms</h3>
+<div class="outline-text-3" id="text-orgbe6ace1">
 <ul class="org-ul">
 <li>jQuery has selectors that are designed specifically to work with forms, however, they are not always the quickest way to select elements</li>
 <li>Selectors for Form Elements:</li>
@@ -1783,9 +1783,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org5069ef1" class="outline-3">
-<h3 id="org5069ef1">Section 7.20: Cutting &amp; Copying Elements</h3>
-<div class="outline-text-3" id="text-org5069ef1">
+<div id="outline-container-org267ba19" class="outline-3">
+<h3 id="org267ba19">Section 7.20: Cutting &amp; Copying Elements</h3>
+<div class="outline-text-3" id="text-org267ba19">
 <ul class="org-ul">
 <li>Once you have a jQuery selection, you can use these methods to remove those elements or make a copy of them</li>
 </ul>
@@ -1841,13 +1841,13 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org051e726" class="outline-3">
-<h3 id="org051e726">Section 7.21: Dimensions</h3>
-<div class="outline-text-3" id="text-org051e726">
+<div id="outline-container-orge704817" class="outline-3">
+<h3 id="orge704817">Section 7.21: Dimensions</h3>
+<div class="outline-text-3" id="text-orge704817">
 </div>
-<div id="outline-container-org41b3358" class="outline-4">
-<h4 id="org41b3358">Section 7.21.1: Box Dimensions</h4>
-<div class="outline-text-4" id="text-org41b3358">
+<div id="outline-container-org4d26d59" class="outline-4">
+<h4 id="org4d26d59">Section 7.21.1: Box Dimensions</h4>
+<div class="outline-text-4" id="text-org4d26d59">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1930,9 +1930,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org1bf6318" class="outline-4">
-<h4 id="org1bf6318">Section 7.21.2: Window &amp; Page Dimensions</h4>
-<div class="outline-text-4" id="text-org1bf6318">
+<div id="outline-container-org9520787" class="outline-4">
+<h4 id="org9520787">Section 7.21.2: Window &amp; Page Dimensions</h4>
+<div class="outline-text-4" id="text-org9520787">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1995,9 +1995,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org62958a3" class="outline-3">
-<h3 id="org62958a3">Section 7.22: Ways to Include jQuery</h3>
-<div class="outline-text-3" id="text-org62958a3">
+<div id="outline-container-orgbfba645" class="outline-3">
+<h3 id="orgbfba645">Section 7.22: Ways to Include jQuery</h3>
+<div class="outline-text-3" id="text-orgbfba645">
 <ul class="org-ul">
 <li>In addition to hosting the jQuery file with the rest of your website, you can also use a version that is hosted by other companies however it is good to still include a fallback version if the original file fails to load</li>
 <li>A content delivery network (CDN) is a series of servers spread out around the world to serve static files (such as HTML, CSS, JS, images, audio, video, etc.) quickly</li>
@@ -2011,9 +2011,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </ul>
 </div>
 
-<div id="outline-container-org2dc67c8" class="outline-4">
-<h4 id="org2dc67c8">Section 7.22.1: Where to Place Your Script</h4>
-<div class="outline-text-4" id="text-org2dc67c8">
+<div id="outline-container-org38c8266" class="outline-4">
+<h4 id="org38c8266">Section 7.22.1: Where to Place Your Script</h4>
+<div class="outline-text-4" id="text-org38c8266">
 <ul class="org-ul">
 <li>The position of <code>&lt;script&gt;</code> elements can affect how quickly a web page seems to load</li>
 <li>In the early days, developers were told to place the scripts in the <code>&lt;head&gt;</code> of the page however this can make the pages seem slower to load (because it waits for the script to load and then loads whatever is after which is the <code>&lt;body&gt;</code>)</li>
@@ -2031,9 +2031,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org19e753c" class="outline-3">
-<h3 id="org19e753c">Section 7.23: jQuery Documentation &amp; More</h3>
-<div class="outline-text-3" id="text-org19e753c">
+<div id="outline-container-orgeeb1217" class="outline-3">
+<h3 id="orgeeb1217">Section 7.23: jQuery Documentation &amp; More</h3>
+<div class="outline-text-3" id="text-orgeeb1217">
 <ul class="org-ul">
 <li>For jQuery documentation we can visit: <a href="https://api.jquery.com">https://api.jquery.com</a></li>
 <li>The documentation site lists each method and property available to use along with any new functionality or deprecated functionality added to the latest versions</li>
@@ -2051,9 +2051,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-orgbeab4c9" class="outline-3">
-<h3 id="orgbeab4c9">Section 7.24: Chapter Exercise</h3>
-<div class="outline-text-3" id="text-orgbeab4c9">
+<div id="outline-container-org8cb77d0" class="outline-3">
+<h3 id="org8cb77d0">Section 7.24: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org8cb77d0">
 <ul class="org-ul">
 <li>We are going to create another TODO list app but now using jQuery</li>
 <li>Here are the requirements:
@@ -2071,9 +2071,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-orga4ffecf" class="outline-3">
-<h3 id="orga4ffecf">Section 7.25: Summary</h3>
-<div class="outline-text-3" id="text-orga4ffecf">
+<div id="outline-container-orgb757c07" class="outline-3">
+<h3 id="orgb757c07">Section 7.25: Summary</h3>
+<div class="outline-text-3" id="text-orgb757c07">
 <ul class="org-ul">
 <li>jQuery is a JS file you include in your website</li>
 <li>Once included, it makes it faster and easier to write cross-browser JS based on two steps:
@@ -2089,9 +2089,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org4ebe3aa" class="outline-2">
-<h2 id="org4ebe3aa">Keywords</h2>
-<div class="outline-text-2" id="text-org4ebe3aa">
+<div id="outline-container-org10cf50f" class="outline-2">
+<h2 id="org10cf50f">Keywords</h2>
+<div class="outline-text-2" id="text-org10cf50f">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -2116,9 +2116,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-orgde34bad" class="outline-2">
-<h2 id="orgde34bad">Questions</h2>
-<div class="outline-text-2" id="text-orgde34bad">
+<div id="outline-container-org7439d62" class="outline-2">
+<h2 id="org7439d62">Questions</h2>
+<div class="outline-text-2" id="text-org7439d62">
 <ul class="org-ul">
 <li><b>Q</b>: How is <code>$()</code> shorthand for <code>jQuery()</code>?
 <ul class="org-ul">
@@ -2165,9 +2165,9 @@ $("li").on("click", function(){ $(this).remove(); });
 </div>
 </div>
 
-<div id="outline-container-org49c3d5c" class="outline-2">
-<h2 id="org49c3d5c">Summary</h2>
-<div class="outline-text-2" id="text-org49c3d5c">
+<div id="outline-container-orged9bda0" class="outline-2">
+<h2 id="orged9bda0">Summary</h2>
+<div class="outline-text-2" id="text-orged9bda0">
 <ul class="org-ul">
 <li>jQuery offers a simple way to achieve a variety of common JS tasks quickly and consistently across all major browsers (e.g. add classes to a matched set, get / set attributes, etc.)</li>
 <li><b>Note</b>: jQuery is an outdated library but at the time running common tasks was cumbersome and there were discrepancies between browsers so jQuery was very convenient having a function to handle everything for you but now WHATWG has standardize features between all browsers and has added browser APIs that achieve the same thing as jQuery so now there is no need for jQuery because now it can achieved with plain JS</li>
