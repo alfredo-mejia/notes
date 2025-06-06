@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-05 Thu 21:58 -->
+<!-- 2025-06-05 Thu 22:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 8: AJAX &amp; JSON</title>
@@ -202,50 +202,50 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgad29e52">Navigation</a></li>
-<li><a href="#org933334d">Notes</a>
+<li><a href="#org518c439">Navigation</a></li>
+<li><a href="#org9d97505">Notes</a>
 <ul>
-<li><a href="#orgc275ecf">Section 8.1: Introduction</a></li>
-<li><a href="#orgb41e50b">Section 8.2: What, Why, How AJAX?</a>
+<li><a href="#orgdd8ff9b">Section 8.1: Introduction</a></li>
+<li><a href="#orgd9ceb38">Section 8.2: What, Why, How AJAX?</a>
 <ul>
-<li><a href="#org75d029e">Section 8.2.1: What is Ajax?</a></li>
-<li><a href="#org52c5008">Section 8.2.2: Why use Ajax?</a></li>
-<li><a href="#org12aaf21">Section 8.2.3: How AJAX Works?</a></li>
+<li><a href="#org7ca715b">Section 8.2.1: What is Ajax?</a></li>
+<li><a href="#org44b61f3">Section 8.2.2: Why use Ajax?</a></li>
+<li><a href="#org1769c03">Section 8.2.3: How AJAX Works?</a></li>
 </ul>
 </li>
-<li><a href="#orgf21c3e2">Section 8.3: Handling AJAX Requests &amp; Responses</a></li>
-<li><a href="#org2206409">Section 8.4: Data Formats</a>
+<li><a href="#orge87e8b0">Section 8.3: Handling AJAX Requests &amp; Responses</a></li>
+<li><a href="#org4e5e177">Section 8.4: Data Formats</a>
 <ul>
-<li><a href="#org3c5f992">Section 8.4.1: HTML</a></li>
-<li><a href="#orgf9aed30">Section 8.4.2: XML</a></li>
-<li><a href="#orgd6a5223">Section 8.5.3: JSON</a></li>
+<li><a href="#org19ef178">Section 8.4.1: HTML</a></li>
+<li><a href="#orgd07917d">Section 8.4.2: XML</a></li>
+<li><a href="#orgd59d317">Section 8.5.3: JSON</a></li>
 </ul>
 </li>
-<li><a href="#org7ddd132">Section 8.5: Loading HTML with AJAX</a></li>
-<li><a href="#org81cb3c4">Section 8.6: Loading XML with AJAX</a></li>
-<li><a href="#orgd780db6">Section 8.7: Loading JSON with AJAX</a></li>
-<li><a href="#orgf50ebd5">Section 8.8: Data From Other Servers &amp; JSONP</a>
+<li><a href="#org5b4413e">Section 8.5: Loading HTML with AJAX</a></li>
+<li><a href="#org77a27d5">Section 8.6: Loading XML with AJAX</a></li>
+<li><a href="#orge35eb69">Section 8.7: Loading JSON with AJAX</a></li>
+<li><a href="#orgc178a9f">Section 8.8: Data From Other Servers &amp; JSONP</a>
 <ul>
-<li><a href="#org2e92582">Section 8.9: How JSONP Works</a></li>
+<li><a href="#org9fad5ff">Section 8.9: How JSONP Works</a></li>
 </ul>
 </li>
-<li><a href="#org49ec32e">Section 8.10: jQuery and Ajax</a></li>
-<li><a href="#orgd9b73ea">Section 8.11: Submitting Forms with AJAX</a></li>
-<li><a href="#org8b3f264">Section 8.12: Loading JSON &amp; Handling AJAX Errors</a></li>
-<li><a href="#org02d3b57">Section 8.13: Ajax Requests with Fine-Grained Control</a></li>
-<li><a href="#org6c590fb">Section 8.14: Chapter Exercise</a></li>
+<li><a href="#org1f8f446">Section 8.10: jQuery and Ajax</a></li>
+<li><a href="#orgc2b31f5">Section 8.11: Submitting Forms with AJAX</a></li>
+<li><a href="#org495576b">Section 8.12: Loading JSON &amp; Handling AJAX Errors</a></li>
+<li><a href="#org86ecc43">Section 8.13: Ajax Requests with Fine-Grained Control</a></li>
+<li><a href="#org314ec5d">Section 8.14: Chapter Exercise</a></li>
 </ul>
 </li>
-<li><a href="#org64a9600">Keywords</a></li>
-<li><a href="#orgf91392d">Questions</a></li>
-<li><a href="#org0bccf14">Summary</a></li>
+<li><a href="#org96435cd">Keywords</a></li>
+<li><a href="#org58ae0d5">Questions</a></li>
+<li><a href="#org0dba996">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgad29e52" class="outline-2">
-<h2 id="orgad29e52">Navigation</h2>
-<div class="outline-text-2" id="text-orgad29e52">
+<div id="outline-container-org518c439" class="outline-2">
+<h2 id="org518c439">Navigation</h2>
+<div class="outline-text-2" id="text-org518c439">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -292,13 +292,13 @@
 </div>
 </div>
 
-<div id="outline-container-org933334d" class="outline-2">
-<h2 id="org933334d">Notes</h2>
-<div class="outline-text-2" id="text-org933334d">
+<div id="outline-container-org9d97505" class="outline-2">
+<h2 id="org9d97505">Notes</h2>
+<div class="outline-text-2" id="text-org9d97505">
 </div>
-<div id="outline-container-orgc275ecf" class="outline-3">
-<h3 id="orgc275ecf">Section 8.1: Introduction</h3>
-<div class="outline-text-3" id="text-orgc275ecf">
+<div id="outline-container-orgdd8ff9b" class="outline-3">
+<h3 id="orgdd8ff9b">Section 8.1: Introduction</h3>
+<div class="outline-text-3" id="text-orgdd8ff9b">
 <ul class="org-ul">
 <li>Ajax is a technique for loading data into part of a page without having to refresh the entire page</li>
 <li>The data is often sent in a format called JavaScript Object Notation (or JSON)</li>
@@ -310,13 +310,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgb41e50b" class="outline-3">
-<h3 id="orgb41e50b">Section 8.2: What, Why, How AJAX?</h3>
-<div class="outline-text-3" id="text-orgb41e50b">
+<div id="outline-container-orgd9ceb38" class="outline-3">
+<h3 id="orgd9ceb38">Section 8.2: What, Why, How AJAX?</h3>
+<div class="outline-text-3" id="text-orgd9ceb38">
 </div>
-<div id="outline-container-org75d029e" class="outline-4">
-<h4 id="org75d029e">Section 8.2.1: What is Ajax?</h4>
-<div class="outline-text-4" id="text-org75d029e">
+<div id="outline-container-org7ca715b" class="outline-4">
+<h4 id="org7ca715b">Section 8.2.1: What is Ajax?</h4>
+<div class="outline-text-4" id="text-org7ca715b">
 <ul class="org-ul">
 <li>Ajax is being able to pull data from the servers without needing to refresh the whole page</li>
 <li>Examples include:
@@ -333,9 +333,9 @@
 </div>
 </div>
 
-<div id="outline-container-org52c5008" class="outline-4">
-<h4 id="org52c5008">Section 8.2.2: Why use Ajax?</h4>
-<div class="outline-text-4" id="text-org52c5008">
+<div id="outline-container-org44b61f3" class="outline-4">
+<h4 id="org44b61f3">Section 8.2.2: Why use Ajax?</h4>
+<div class="outline-text-4" id="text-org44b61f3">
 <ul class="org-ul">
 <li>Ajax uses an asynchronous processing model which means the user can do other things while the web browser is waiting for the data to load thus speeding up the user experience</li>
 <li>When a browser comes across a <code>&lt;script&gt;</code> tag, it will typically stop processing the rest of the page until it has loaded and processed that script, this is known as a synchronous processing model</li>
@@ -351,9 +351,9 @@
 </div>
 </div>
 
-<div id="outline-container-org12aaf21" class="outline-4">
-<h4 id="org12aaf21">Section 8.2.3: How AJAX Works?</h4>
-<div class="outline-text-4" id="text-org12aaf21">
+<div id="outline-container-org1769c03" class="outline-4">
+<h4 id="org1769c03">Section 8.2.3: How AJAX Works?</h4>
+<div class="outline-text-4" id="text-org1769c03">
 <ul class="org-ul">
 <li>When using Ajax, the browser requests information from a web server and it then processes the server's response and shows it within the page</li>
 <li>Here is the process:
@@ -367,9 +367,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgf21c3e2" class="outline-3">
-<h3 id="orgf21c3e2">Section 8.3: Handling AJAX Requests &amp; Responses</h3>
-<div class="outline-text-3" id="text-orgf21c3e2">
+<div id="outline-container-orge87e8b0" class="outline-3">
+<h3 id="orge87e8b0">Section 8.3: Handling AJAX Requests &amp; Responses</h3>
+<div class="outline-text-3" id="text-orge87e8b0">
 <ul class="org-ul">
 <li>To create an Ajax request, the browsers use the <code>XMLHttpRequest</code> object and when the server responds to the browser's request, the same <code>XMLHttpRequest</code> object will process the result</li>
 <li>The request:</li>
@@ -412,17 +412,17 @@ xhr.send('search=arduino');
 </div>
 </div>
 
-<div id="outline-container-org2206409" class="outline-3">
-<h3 id="org2206409">Section 8.4: Data Formats</h3>
-<div class="outline-text-3" id="text-org2206409">
+<div id="outline-container-org4e5e177" class="outline-3">
+<h3 id="org4e5e177">Section 8.4: Data Formats</h3>
+<div class="outline-text-3" id="text-org4e5e177">
 <ul class="org-ul">
 <li>The response to an Ajax request usually comes in one of 3 formats: HTML, XML, or JSON</li>
 </ul>
 </div>
 
-<div id="outline-container-org3c5f992" class="outline-4">
-<h4 id="org3c5f992">Section 8.4.1: HTML</h4>
-<div class="outline-text-4" id="text-org3c5f992">
+<div id="outline-container-org19ef178" class="outline-4">
+<h4 id="org19ef178">Section 8.4.1: HTML</h4>
+<div class="outline-text-4" id="text-org19ef178">
 <ul class="org-ul">
 <li>When you want to update a section of a web page, it is the simplest way to get data into a page because it is already in HTML</li>
 <li>HTML is easy to write, request, and display and you can often use the HTML directly into your web page (there is no need for further processing)</li>
@@ -431,9 +431,9 @@ xhr.send('search=arduino');
 </div>
 </div>
 
-<div id="outline-container-orgf9aed30" class="outline-4">
-<h4 id="orgf9aed30">Section 8.4.2: XML</h4>
-<div class="outline-text-4" id="text-orgf9aed30">
+<div id="outline-container-orgd07917d" class="outline-4">
+<h4 id="orgd07917d">Section 8.4.2: XML</h4>
+<div class="outline-text-4" id="text-orgd07917d">
 <ul class="org-ul">
 <li>XML looks similar to HTML but the tag names are different because they describe the data that they contain and the syntax is also more strict than HTML</li>
 <li>The benefits of XML is that it is a flexible data format and can represent complex structures, it works well with different platforms and applications, and it is processed using the same DOM methods as HTML</li>
@@ -448,9 +448,9 @@ xhr.send('search=arduino');
 </div>
 </div>
 
-<div id="outline-container-orgd6a5223" class="outline-4">
-<h4 id="orgd6a5223">Section 8.5.3: JSON</h4>
-<div class="outline-text-4" id="text-orgd6a5223">
+<div id="outline-container-orgd59d317" class="outline-4">
+<h4 id="orgd59d317">Section 8.5.3: JSON</h4>
+<div class="outline-text-4" id="text-orgd59d317">
 <ul class="org-ul">
 <li>JavaScript Object Notation (JSON) uses a similar syntax to object literal notation in JS in order to represent data</li>
 <li>JSON can be called from any domain, it is more concise (less verbose) than HTML and XML, and it is commonly used with JS and it is quite popular across web applications</li>
@@ -493,9 +493,9 @@ xhr.send('search=arduino');
 </div>
 </div>
 
-<div id="outline-container-org7ddd132" class="outline-3">
-<h3 id="org7ddd132">Section 8.5: Loading HTML with AJAX</h3>
-<div class="outline-text-3" id="text-org7ddd132">
+<div id="outline-container-org5b4413e" class="outline-3">
+<h3 id="org5b4413e">Section 8.5: Loading HTML with AJAX</h3>
+<div class="outline-text-3" id="text-org5b4413e">
 <ul class="org-ul">
 <li>HTML is the easiest type of data to add into a page using Ajax, the browser renders it just like any other HTML, and the CSS rules for the rest of the page are applied to the new content</li>
 <li>Browsers will only let you use this technique to load HTML that comes from the same domain name as the rest of the page (although there is a way using CORS to get HTML and XML from different domains)</li>
@@ -535,9 +535,9 @@ xhr.send(null);
 </div>
 </div>
 
-<div id="outline-container-org81cb3c4" class="outline-3">
-<h3 id="org81cb3c4">Section 8.6: Loading XML with AJAX</h3>
-<div class="outline-text-3" id="text-org81cb3c4">
+<div id="outline-container-org77a27d5" class="outline-3">
+<h3 id="org77a27d5">Section 8.6: Loading XML with AJAX</h3>
+<div class="outline-text-3" id="text-org77a27d5">
 <ul class="org-ul">
 <li>Requesting XML data is very similr to requesting HTML however processing the data that is returned is more complicated because the XML must be converted into HTML to be shown on the page</li>
 <li>The idea is the same as HTML, create an <code>XMLHttpRequest</code> object, assign a function to the <code>.onload</code> property, call the <code>.open()</code> function with the same type of parameters, and finally call <code>.send()</code> to connect to the server</li>
@@ -572,9 +572,9 @@ xhr.send(null);
 </div>
 </div>
 
-<div id="outline-container-orgd780db6" class="outline-3">
-<h3 id="orgd780db6">Section 8.7: Loading JSON with AJAX</h3>
-<div class="outline-text-3" id="text-orgd780db6">
+<div id="outline-container-orge35eb69" class="outline-3">
+<h3 id="orge35eb69">Section 8.7: Loading JSON with AJAX</h3>
+<div class="outline-text-3" id="text-orge35eb69">
 <ul class="org-ul">
 <li>The request for JSON data uses the same syntax you saw in the requests for HTML and XML data and when the server responds, the JSON will be converted into HTML</li>
 <li>When JSON data is sent from a server to a web browser it is transmitted as a string and when it reaches the browser your script must then convert the string into a JS object (this is known as deserializing an object)</li>
@@ -589,9 +589,9 @@ xhr.send(null);
 </div>
 </div>
 
-<div id="outline-container-orgf50ebd5" class="outline-3">
-<h3 id="orgf50ebd5">Section 8.8: Data From Other Servers &amp; JSONP</h3>
-<div class="outline-text-3" id="text-orgf50ebd5">
+<div id="outline-container-orgc178a9f" class="outline-3">
+<h3 id="orgc178a9f">Section 8.8: Data From Other Servers &amp; JSONP</h3>
+<div class="outline-text-3" id="text-orgc178a9f">
 <ul class="org-ul">
 <li>Ajax works smoothly with data from your own server but for security reasons browsers do not load Ajax responses from other domains (known as cross-domain requests)</li>
 <li>There are 3 common workarounds:
@@ -638,9 +638,9 @@ JSONP (JSON with Padding)
 </ul>
 </div>
 
-<div id="outline-container-org2e92582" class="outline-4">
-<h4 id="org2e92582">Section 8.9: How JSONP Works</h4>
-<div class="outline-text-4" id="text-org2e92582">
+<div id="outline-container-org9fad5ff" class="outline-4">
+<h4 id="org9fad5ff">Section 8.9: How JSONP Works</h4>
+<div class="outline-text-4" id="text-org9fad5ff">
 <ul class="org-ul">
 <li>First, the page must include a function that will process the JSON data that the server sends</li>
 <li>Then a <code>&lt;script&gt;</code> element whose <code>src</code> attribute will request the JSON data from the remote server</li>
@@ -656,9 +656,9 @@ JSONP (JSON with Padding)
 </div>
 </div>
 
-<div id="outline-container-org49ec32e" class="outline-3">
-<h3 id="org49ec32e">Section 8.10: jQuery and Ajax</h3>
-<div class="outline-text-3" id="text-org49ec32e">
+<div id="outline-container-org1f8f446" class="outline-3">
+<h3 id="org1f8f446">Section 8.10: jQuery and Ajax</h3>
+<div class="outline-text-3" id="text-org1f8f446">
 <ul class="org-ul">
 <li>jQuery provides several methods that handle Ajax requests</li>
 <li>The process involves two steps: maing a request and handling the response</li>
@@ -841,9 +841,9 @@ JSONP (JSON with Padding)
 </div>
 </div>
 
-<div id="outline-container-orgd9b73ea" class="outline-3">
-<h3 id="orgd9b73ea">Section 8.11: Submitting Forms with AJAX</h3>
-<div class="outline-text-3" id="text-orgd9b73ea">
+<div id="outline-container-orgc2b31f5" class="outline-3">
+<h3 id="orgc2b31f5">Section 8.11: Submitting Forms with AJAX</h3>
+<div class="outline-text-3" id="text-orgc2b31f5">
 <ul class="org-ul">
 <li>To send data to the server, you are likely to use the <code>.post()</code> method</li>
 <li>jQuery also provides the <code>.serialize()</code> method to collect form data</li>
@@ -858,9 +858,9 @@ JSONP (JSON with Padding)
 </div>
 </div>
 
-<div id="outline-container-org8b3f264" class="outline-3">
-<h3 id="org8b3f264">Section 8.12: Loading JSON &amp; Handling AJAX Errors</h3>
-<div class="outline-text-3" id="text-org8b3f264">
+<div id="outline-container-org495576b" class="outline-3">
+<h3 id="org495576b">Section 8.12: Loading JSON &amp; Handling AJAX Errors</h3>
+<div class="outline-text-3" id="text-org495576b">
 <ul class="org-ul">
 <li>You can load JSON data using the <code>$.getJSON()</code> method which will retrieve JSON from the same server that the page is from and there are also methods that help you deal with the response if it fails</li>
 <li>To use JSONP you should use the method called <code>$.getScript()</code></li>
@@ -876,9 +876,9 @@ JSONP (JSON with Padding)
 </div>
 </div>
 
-<div id="outline-container-org02d3b57" class="outline-3">
-<h3 id="org02d3b57">Section 8.13: Ajax Requests with Fine-Grained Control</h3>
-<div class="outline-text-3" id="text-org02d3b57">
+<div id="outline-container-org86ecc43" class="outline-3">
+<h3 id="org86ecc43">Section 8.13: Ajax Requests with Fine-Grained Control</h3>
+<div class="outline-text-3" id="text-org86ecc43">
 <ul class="org-ul">
 <li>The <code>$.ajax()</code> method gives you greater control over Ajax requests and behind the scenes this method is used by all of jQuery's Ajax shorthand methods</li>
 <li>Inside the jQuery file, the <code>$.ajax()</code> method is used by the other Ajax helper methods that you have seen so far which are offered as a simpler way of making Ajax requests</li>
@@ -948,9 +948,9 @@ JSONP (JSON with Padding)
 </div>
 </div>
 
-<div id="outline-container-org6c590fb" class="outline-3">
-<h3 id="org6c590fb">Section 8.14: Chapter Exercise</h3>
-<div class="outline-text-3" id="text-org6c590fb">
+<div id="outline-container-org314ec5d" class="outline-3">
+<h3 id="org314ec5d">Section 8.14: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org314ec5d">
 <ul class="org-ul">
 <li>We are going to create a website with 3 columns</li>
 <li>The first column is going to have locations of events</li>
@@ -972,14 +972,15 @@ JSONP (JSON with Padding)
 <li>If you are reading this from the internet this will not work for you because I did not put the server in the internet so it is not running anywhere</li>
 <li>Instead I have placed a video showcasing the project on my website</li>
 <li><b>And</b> I have also added cat pictures from a public API for you to enjoy</li>
+<li><a href="./008.014.Chapter_Exercise/app/index.html">Here is the web application for this chapter</a></li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org64a9600" class="outline-2">
-<h2 id="org64a9600">Keywords</h2>
-<div class="outline-text-2" id="text-org64a9600">
+<div id="outline-container-org96435cd" class="outline-2">
+<h2 id="org96435cd">Keywords</h2>
+<div class="outline-text-2" id="text-org96435cd">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1004,9 +1005,9 @@ JSONP (JSON with Padding)
 </div>
 </div>
 
-<div id="outline-container-orgf91392d" class="outline-2">
-<h2 id="orgf91392d">Questions</h2>
-<div class="outline-text-2" id="text-orgf91392d">
+<div id="outline-container-org58ae0d5" class="outline-2">
+<h2 id="org58ae0d5">Questions</h2>
+<div class="outline-text-2" id="text-org58ae0d5">
 <ul class="org-ul">
 <li><b>Q</b>: How can we retrieve HTML and XML from different domains?</li>
 <li><b>Q</b>: What is CORS (cross-origin)?</li>
@@ -1014,8 +1015,8 @@ JSONP (JSON with Padding)
 </div>
 </div>
 
-<div id="outline-container-org0bccf14" class="outline-2">
-<h2 id="org0bccf14">Summary</h2>
+<div id="outline-container-org0dba996" class="outline-2">
+<h2 id="org0dba996">Summary</h2>
 </div>
 </div>
 </body>

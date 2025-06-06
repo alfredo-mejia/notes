@@ -367,6 +367,7 @@
    - If you are reading this from the internet this will not work for you because I did not put the server in the internet so it is not running anywhere
    - Instead I have placed a video showcasing the project on my website
    - *And* I have also added cat pictures from a public API for you to enjoy
+   - [[file:./008.014.Chapter_Exercise/app/index.html][Here is the web application for this chapter]]
    
 * Keywords
 | Term | Definition |
