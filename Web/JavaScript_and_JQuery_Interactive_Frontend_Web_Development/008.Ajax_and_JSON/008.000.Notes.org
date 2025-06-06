@@ -369,13 +369,49 @@
    - *And* I have also added cat pictures from a public API for you to enjoy
    - [[file:./008.014.Chapter_Exercise/app/index.html][Here is the web application for this chapter]]
    
+
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term            | Definition                                                                                                                                                                                                                                                                        |
+|-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AJAX            | Ajax (Asynchronous JavaScript and XML) is a technique used in web development to create dynamic and interactive web applications, the idea is that with Ajax the web page is able to communicate with a server and update parts of a web without needing to reload the whole page |
+| Deserialization |                                                                                                                                                                                                                                                                                   |
+| Serialization   |                                                                                                                                                                                                                                                                                   |
+| JSONP           |                                                                                                                                                                                                                                                                                   |
 
 * Questions
+  - *Q*: What are the actual "techniques" of Ajax?
   - *Q*: How can we retrieve HTML and XML from different domains?
   - *Q*: What is CORS (cross-origin)?
 
 * Summary
+  - Ajax is technique in web development that allows you to communicate with a server and request and load data without having to refresh the entire page
+  - Ajax might even download data in the background while the user interacts with the web page and this data may not be used immediately, it can be used later on
+  - The server might return data in various formats but the most common are HTML, XML, and JSON
+  - However, the term "Ajax" is no longer used as before because asynchronization is such a fundamental concept of web development that it is no longer considered as a separate technique but a foundation to web development
+  - Nevertheless, for this chapter, we'll continue to use Ajax
+  - Ajax uses an asynchronous (non-blocking) processing model which means the user can do other things while the web browser request and loads data
+  - Typically (without Ajax) the browser stops processing when it encounters a script tag, processes the JS file, requests the data, waits for the results, and then loads the data which then the user can interact with web page this is called a synchronous processing model
+  - In Ajax, we use an asynchronous request so when the data has been returned by the server an event is fired and we use an event listener to capture the event and trigger a function to process the data returned from the server without needing to refresh the entire page or block the user from continuing to use the page
+  - The process has 3 simple steps: (1) the browser sends a request (with data or not) to the server, then (2) the server processes the request and responds with data (HTML, XML, JSON, etc.), and then (3) the browser receives the data sent by the server so an event is fired and triggers a function to process the data
+  - To create an Ajax request, the browsers will use the ~XMLHttpRequest~ object to send the request and same object will process the results
+  - You can add event listeners to this object like the event ~load~ and ~error~, this object will have a property for the status code if the ~load~ event was triggered
+  - The ~XMLHttpRequest~ object can also retrieve the data from one of its property if the server successfully returned data
+  - The ~XMLHttpRequest~ method ~open()~ is used to prepare the request and the ~send()~ method sends out the request to the server
+  - The server can return HTML, XML, or JSON
+  - HTML is an easy format to understand and you can easily insert the HTML into your page without any additional processing (just be careful that you trust the HTML you are inserting into your page) but the downside is that the HTML must already be ready to use and other than web applications HTML does not provide great data portability (without CORS it can only be retrieved from the same domain name as the web page)
+  - XML is markup language that is more strict than HTML but it is more flexible data format and can represent complex structures because it can be customized to any application and have custom tag names, another great thing about it is that it can be processed using the same DOM methods as HTML, it gained wide popularity in the early 200s because it can easily trasfer data between different types of applications but the drawback is that XML can be verbose and require more code to process (without CORS it can only be retrieved from the same domain name)
+  - JSON has been very popular in recent times as it is an easy format using the object literal notation of JS, it has key-value pairs, it can store arrays, objects, strings, numbers, etc., keep in mind JSON is not an object but just plain text that uses the syntax of object literal notation, it can be used throughout various applications and represent a lot of different data but JSON requires some processing from deserializing the data and then figuring out what info does you web app need from the deserialized data (although the book says you can transfer JSON between different domains, I am assuming with JSONP, nowadays JSONP isn't used and CORS is needed to transfer JSON between different domains)
+  - The process to send a request to the server is the same regardless if the server returns HTML, XML, or JSON
+  - You create the ~XMLHttpRequest~ object, you use the ~open()~ method, then you add an event listener, and then you use the ~send()~ method
+  - If the server returned some data (success or not) then the ~load~ function will fire but if the browser had issues contacting the server then the ~error~ event will be fired
+  - To check if the server returned successfully or if it returned but not successfully then you check the status code of the ~XMLHttpRequest~ object (200 is ok, 304 is not modified, 404 is page not found, and 500 is internal error on the server)
+  - This is the same for HTML, XML, JSON
+  - For HTML and JSON to get the data you use the property ~.responseText~ while for XML you use the property ~.responseXML~
+  - However for JSON you need to add an extra step and use the deserializing method ~JSON.parse()~ which will convert the plain text to an object in JS
+  - Whenever you need to send JSON data back to the server you use the serialization method ~JSON.stringify()~ which converts your JS objects into a string in plain text using JSON notation
+  - To get data from different domains without using CORS (which is NOT recommended) is either through a proxy file or JSONP (which is again NOT recommended)
+  - A proxy file can be used by a local program that runs on the same server as your web page, this local program's job is to contact the remote-server and get the info needed and save it in the proxy file, so then the web page can retrieve this info through the proxy file without ever needing to contact the remote server
+  - Another way to get data between domains without CORS is through JSONP, which is you use a script tag (this doesn't require CORS) and the src is going to be an endpoint to your remote server, the remote server will then return JavaScript (executable code) with a function name and a JSON object (technically it is not a JSON object but rather a JS object so there is no need for deserialization) as an argument, this is how data is passed, by the JSON argument, so when the browser receives the JS back from the server, and then the browser will call the function (which should be a local function in one of your local JS files) with the JSON object as the argument so now the function has an argument (data) that was given by the server so in the end your function was triggered with some server data by the server without needing to use CORS
+  - The methods above are not recommended due to security reasons so it is always recommended to use CORS
+  - 
+  - 
