@@ -219,11 +219,18 @@ function startContactPage() {
 
             document.getElementById('name').value = '';
             document.getElementById('message').value = '';
+
+            document.getElementById('name').disabled = false;
+            document.getElementById('message').disabled = false;
         })
         .catch(error => {
             console.log(error);
             document.getElementById('name').value = '';
             document.getElementById('message').value = '';
+
+            document.getElementById('name').disabled = false;
+            document.getElementById('message').disabled = false;
+
             document.getElementById('form-error').classList.remove('hide');
         })
     });
