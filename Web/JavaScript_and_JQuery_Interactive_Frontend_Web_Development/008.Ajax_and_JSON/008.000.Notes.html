@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-19 Wed 14:34 -->
+<!-- 2025-06-05 Thu 21:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Chapter 8: AJAX &amp; JSON</title>
+<meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -192,13 +193,830 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
 </head>
 <body>
 <div id="content" class="content">
+<h1 class="title">Chapter 8: AJAX &amp; JSON</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgad29e52">Navigation</a></li>
+<li><a href="#org933334d">Notes</a>
+<ul>
+<li><a href="#orgc275ecf">Section 8.1: Introduction</a></li>
+<li><a href="#orgb41e50b">Section 8.2: What, Why, How AJAX?</a>
+<ul>
+<li><a href="#org75d029e">Section 8.2.1: What is Ajax?</a></li>
+<li><a href="#org52c5008">Section 8.2.2: Why use Ajax?</a></li>
+<li><a href="#org12aaf21">Section 8.2.3: How AJAX Works?</a></li>
+</ul>
+</li>
+<li><a href="#orgf21c3e2">Section 8.3: Handling AJAX Requests &amp; Responses</a></li>
+<li><a href="#org2206409">Section 8.4: Data Formats</a>
+<ul>
+<li><a href="#org3c5f992">Section 8.4.1: HTML</a></li>
+<li><a href="#orgf9aed30">Section 8.4.2: XML</a></li>
+<li><a href="#orgd6a5223">Section 8.5.3: JSON</a></li>
+</ul>
+</li>
+<li><a href="#org7ddd132">Section 8.5: Loading HTML with AJAX</a></li>
+<li><a href="#org81cb3c4">Section 8.6: Loading XML with AJAX</a></li>
+<li><a href="#orgd780db6">Section 8.7: Loading JSON with AJAX</a></li>
+<li><a href="#orgf50ebd5">Section 8.8: Data From Other Servers &amp; JSONP</a>
+<ul>
+<li><a href="#org2e92582">Section 8.9: How JSONP Works</a></li>
+</ul>
+</li>
+<li><a href="#org49ec32e">Section 8.10: jQuery and Ajax</a></li>
+<li><a href="#orgd9b73ea">Section 8.11: Submitting Forms with AJAX</a></li>
+<li><a href="#org8b3f264">Section 8.12: Loading JSON &amp; Handling AJAX Errors</a></li>
+<li><a href="#org02d3b57">Section 8.13: Ajax Requests with Fine-Grained Control</a></li>
+<li><a href="#org6c590fb">Section 8.14: Chapter Exercise</a></li>
+</ul>
+</li>
+<li><a href="#org64a9600">Keywords</a></li>
+<li><a href="#orgf91392d">Questions</a></li>
+<li><a href="#org0bccf14">Summary</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="date">Created: 2025-02-19 Wed 14:34</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+<div id="outline-container-orgad29e52" class="outline-2">
+<h2 id="orgad29e52">Navigation</h2>
+<div class="outline-text-2" id="text-orgad29e52">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 7: jQuery</td>
+<td class="org-left">&vert; <a href="../007.jQuery/007.000.Notes.html">html</a> &vert; <a href="../007.jQuery/007.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/007.jQuery">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 9: APIs</td>
+<td class="org-left">&vert; <a href="../009.APIs/009.000.Notes.html">html</a> &vert; <a href="../009.APIs/009.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/009.APIs">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org933334d" class="outline-2">
+<h2 id="org933334d">Notes</h2>
+<div class="outline-text-2" id="text-org933334d">
+</div>
+<div id="outline-container-orgc275ecf" class="outline-3">
+<h3 id="orgc275ecf">Section 8.1: Introduction</h3>
+<div class="outline-text-3" id="text-orgc275ecf">
+<ul class="org-ul">
+<li>Ajax is a technique for loading data into part of a page without having to refresh the entire page</li>
+<li>The data is often sent in a format called JavaScript Object Notation (or JSON)</li>
+<li>The ability to load new content into part of a page improves the user experience because the user does not have to wait for an entire page to load if only part of it is being updated</li>
+<li>Ajax allows you to request data from a server and load it without having to refresh the entire page</li>
+<li>Server typically send HTML (for web pages), XML (apps that are older / using legacy systems), or JSON (mostly all apps (apis) use JSON)</li>
+<li>jQuery makes it easier to create Ajax requests and process the data the server returns</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb41e50b" class="outline-3">
+<h3 id="orgb41e50b">Section 8.2: What, Why, How AJAX?</h3>
+<div class="outline-text-3" id="text-orgb41e50b">
+</div>
+<div id="outline-container-org75d029e" class="outline-4">
+<h4 id="org75d029e">Section 8.2.1: What is Ajax?</h4>
+<div class="outline-text-4" id="text-org75d029e">
+<ul class="org-ul">
+<li>Ajax is being able to pull data from the servers without needing to refresh the whole page</li>
+<li>Examples include:
+<ul class="org-ul">
+<li>Google's autocomplete search as you type in keywords</li>
+<li>APIs being able to integrate into your website (e.g. tweets or X posts)</li>
+<li>E-commerce having an automatically updating shopping cart</li>
+<li>Registration on websites can check if usernames are already taken as you type</li>
+</ul></li>
+<li>Sites may also use Ajax to load data behind the scenes so that they can use or show that data later on</li>
+<li>Historically AJAX was an acronym for the technologies used in asynchronous requests, it stood for Asynchronous JavaScript and XML, but since then technologies have moved on and the term Ajax is now used to refer to a group of technologies that offer asynchronous functionality in the browser</li>
+<li>AJAX is a concept and now it is so ubiquitous (everywhere) that the concept seems so obvious that it does not have or need its own term instead asynchronization is incorported in web programming concepts which almost all modern medium to large websites use (the term "AJAX" is not used anymore because it is so incorporated into web programming that we no longer need the term espeically since we moved away from XML and started to use JSON)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org52c5008" class="outline-4">
+<h4 id="org52c5008">Section 8.2.2: Why use Ajax?</h4>
+<div class="outline-text-4" id="text-org52c5008">
+<ul class="org-ul">
+<li>Ajax uses an asynchronous processing model which means the user can do other things while the web browser is waiting for the data to load thus speeding up the user experience</li>
+<li>When a browser comes across a <code>&lt;script&gt;</code> tag, it will typically stop processing the rest of the page until it has loaded and processed that script, this is known as a synchronous processing model</li>
+<li>When a page is loading, if a script needs to collect data from a server then the browser would not just wait for the script to be loaded and processed but it would also have to wait for a server to send the data that the script is going to display</li>
+<li>With Ajax, the browser can request some data from a server and once that data has been requested continue to load the rest of the page and process the user's interactions with the page, this is known as an asynchronous (or non-blocking) processing model</li>
+<li>The browser does not wait for the 3rd party data in order to show the page</li>
+<li>When the server responds with the data an event is fired (like the <code>load</code> event that fires when a page has loaded) and this event can then call a function that processes the data</li>
+<li>Once a page has loaded, if you want to update what the user sees in the browser window you would typically refresh the entire page but this would cause our website to appear slow and not have a positive user experience but with Ajax if you only want to update a part of the page then we can update the content of the elements of interest</li>
+<li>Updating elements instead of refreshing an entire page is done by intercepting an event (such as the user clicking on a link or submitting a form) and requesting the new content from the server using an asynchronous request</li>
+<li>While the data is loading the user can continue to interact with the rest of the page and once the server has responded a special Ajax event will trigger another part of the script that reads the new data from the server and updates just that one part of the page</li>
+<li>Because we do not refresh the whole page, the data will load faster, the user can still use the rest of the page while they wait, and the user has a positive experience because they do not have to wait to see the whole page refresh</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org12aaf21" class="outline-4">
+<h4 id="org12aaf21">Section 8.2.3: How AJAX Works?</h4>
+<div class="outline-text-4" id="text-org12aaf21">
+<ul class="org-ul">
+<li>When using Ajax, the browser requests information from a web server and it then processes the server's response and shows it within the page</li>
+<li>Here is the process:
+<ol class="org-ol">
+<li>Request: The browser requests information / data from the server and the request may contain data that the server needs (e.g. keywords, a registration form, etc.), this is done through an object called <code>XMLHttpRequest</code> to handle Ajax requests (once the request has been made the browser does <b>not</b> wait for the response from the server)</li>
+<li>Server: The server processes the request and responds with data (usually HTML, XML, or JSON), what happens in the server is not part of Ajax, and server-side technologies such as ASP.net, PHP, NodeJS, or Ruby can generate web pages for each user so when there is an Ajax request the server might send back HTML or it might send data in a different format such as JSON or XML (which the browser turns into HTML)</li>
+<li>Response: Once the server sends back the data to the browser and it is finished responding to the request then the browser will fire an event, this event can then be used to trigger a JS function so that the browser processes the content / data and adds it to a part of the page without affecting the rest of the page</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf21c3e2" class="outline-3">
+<h3 id="orgf21c3e2">Section 8.3: Handling AJAX Requests &amp; Responses</h3>
+<div class="outline-text-3" id="text-orgf21c3e2">
+<ul class="org-ul">
+<li>To create an Ajax request, the browsers use the <code>XMLHttpRequest</code> object and when the server responds to the browser's request, the same <code>XMLHttpRequest</code> object will process the result</li>
+<li>The request:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">let xhr = new XMLHttpRequest();
+xhr.open('GET', 'data/test.json', true);
+xhr.send('search=arduino');
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>An instance of the <code>XMLHttpRequest</code> object is created using object constructor notation (it uses the <code>new</code> keyword and stores the object in a variable)</li>
+<li>The <code>XMLHttpRequest</code> object's <code>open()</code> method prepares the request, it has 3 parameters:
+<ol class="org-ol">
+<li>The HTTP method</li>
+<li>The URL of the page that will handle your request</li>
+<li>A boolean indicating if it should asynchronous</li>
+</ol></li>
+<li>The <code>send()</code> method is the one that sends the prepared request to the server and extra info / data can be passed to the server in the parentheses (if no extra info is sent you can use the keyword <code>null</code> or leave it blank)</li>
+
+<li>The response:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">xhr.onload = function() {
+   if (xhr.status === 20) {
+      // Code to process the results from the server
+   }	 
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>When the browser has received and loaded a response from the server the <code>onload</code> event will fire which will trigger a function (it can be named or anonymous)</li>
+<li>The function checks the <code>status</code> property of the object to make sure the server's response was okay (if this property is blank check the setup of the server)</li>
+<li>To support really old browsers you can use jQuery (outdated comment from the book)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2206409" class="outline-3">
+<h3 id="org2206409">Section 8.4: Data Formats</h3>
+<div class="outline-text-3" id="text-org2206409">
+<ul class="org-ul">
+<li>The response to an Ajax request usually comes in one of 3 formats: HTML, XML, or JSON</li>
+</ul>
+</div>
+
+<div id="outline-container-org3c5f992" class="outline-4">
+<h4 id="org3c5f992">Section 8.4.1: HTML</h4>
+<div class="outline-text-4" id="text-org3c5f992">
+<ul class="org-ul">
+<li>When you want to update a section of a web page, it is the simplest way to get data into a page because it is already in HTML</li>
+<li>HTML is easy to write, request, and display and you can often use the HTML directly into your web page (there is no need for further processing)</li>
+<li>The drawbacks of HTML is that the server must produce HTML in a format that is ready to be used on your page, it is not well-suited for use in applications other than web browsers, it does not have good data portability, and the request must come from the same domain (browsers only let Ajax load HTML and XML from the same domain name as the rest of the page)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf9aed30" class="outline-4">
+<h4 id="orgf9aed30">Section 8.4.2: XML</h4>
+<div class="outline-text-4" id="text-orgf9aed30">
+<ul class="org-ul">
+<li>XML looks similar to HTML but the tag names are different because they describe the data that they contain and the syntax is also more strict than HTML</li>
+<li>The benefits of XML is that it is a flexible data format and can represent complex structures, it works well with different platforms and applications, and it is processed using the same DOM methods as HTML</li>
+<li>The drawbacks is that it is considered a verbose language because the tags add a lot of extra characters to the data being sent, the request must come from the same domain as the rest of the page, and it can require a lot of code to proces the result</li>
+
+<li>XML looks a lot like HTML but the tags contain different words and the purpose of the tags is to describe the kind of data that they hold</li>
+<li>Just like HTML is a markup language that can describe structure and semantics of a web page, XML can be used to create markup languages for other types of data (not just web pages), it can be anything from stock reports to medical records</li>
+<li>The tags in an XML file should describe the data they contain so as a result even if you have never seen the code you can sometimes describe the information it holds based on its tags</li>
+<li>XML works on any platform and gained wide popularity in the early 2000s beause it can easily transfer data between different types of applications and it is very flexible data format because it is capable of representing complex data structures</li>
+<li>You can process an XML file using the same DOM methods as HTML or you can use jQuery to easily process XML</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd6a5223" class="outline-4">
+<h4 id="orgd6a5223">Section 8.5.3: JSON</h4>
+<div class="outline-text-4" id="text-orgd6a5223">
+<ul class="org-ul">
+<li>JavaScript Object Notation (JSON) uses a similar syntax to object literal notation in JS in order to represent data</li>
+<li>JSON can be called from any domain, it is more concise (less verbose) than HTML and XML, and it is commonly used with JS and it is quite popular across web applications</li>
+<li>The drawbacks is that the syntax is not forgiving so a missing comma, quote, or colon could break the file, since JSON is JS it can contain malicious content so only use JSON that has been produced by trusted sources</li>
+
+<li>Data can be formatted using JSON and it looks very similar to the object literal syntax but is is not an object, it is just plain text data (not an object)</li>
+<li>The difference may be small but remember HTML is also plain text but the browser converts it into DOM objects, so JSON is not an "object" (a data structure in JS) but instead it is simply plain text like HTML</li>
+<li>You cannot transfer the actual objects over a network instead you send text that is converted into objects by the browser</li>
+<li>JSON example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+   "location": "San Francison, CA",
+   "capacity": 270,
+   "booking": true
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>In JSON, the key should be placed in double quotes (not single quotes)</li>
+<li>The key (or name) is separated from its value by a colon</li>
+<li>Each key / value pair is separated by a comma, however, note that there is no comma after the last key / value pair</li>
+<li>The value can be any of the following data types:
+<ul class="org-ul">
+<li>String</li>
+<li>Number</li>
+<li>Boolean (true or false)</li>
+<li>Array (array of values including objects)</li>
+<li>Object (JSON "object")</li>
+<li>null (this is when the value is empty or missing)</li>
+</ul></li>
+
+<li>JavaScript's JSON object can turn JSON data into a JS object and it can also convert a JS object into a string</li>
+<li><code>JSON.stringify()</code> converts a JS object into a string formatted using JSON (this allows you to send JS objects from a browser to another application)</li>
+<li><code>JSON.parse()</code> processes a string containing JSON data and it converts the JSON data into a JS object ready for the browser to use</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7ddd132" class="outline-3">
+<h3 id="org7ddd132">Section 8.5: Loading HTML with AJAX</h3>
+<div class="outline-text-3" id="text-org7ddd132">
+<ul class="org-ul">
+<li>HTML is the easiest type of data to add into a page using Ajax, the browser renders it just like any other HTML, and the CSS rules for the rest of the page are applied to the new content</li>
+<li>Browsers will only let you use this technique to load HTML that comes from the same domain name as the rest of the page (although there is a way using CORS to get HTML and XML from different domains)</li>
+<li>Whether HTML, XML, or JSON is being returned from the server, the process of setting up the Ajax request and checking whether the file is ready to be worked with is the same, what changes is how you deal with the data that is returned</li>
+<li>When a server responds to any request, it should send back a status message to indicate if it completed the request, the values can be:
+<ul class="org-ul">
+<li>200 (the server has responded and all is ok)</li>
+<li>304 (not modified)</li>
+<li>404 (page not found)</li>
+<li>500 (internal error on the server)</li>
+</ul></li>
+<li>If a server fails to return a <code>status</code> property check the server setup</li>
+<li>Example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">let xhr = new XMLHttpRequest();
+xhr.onload = function() {
+    if (xhr.status === 200) {
+        document.getElementById('content').innerHTML = xhr.responseText;
+    }
+};
+
+xhr.open('GET', 'data/data.html', true);
+xhr.send(null);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>An <code>XMLHttpRequest</code> object is stored in a variable called <code>xhr</code></li>
+<li>The <code>XMLHttpRequest</code> object's <code>open()</code> method prepares the request and it has 3 parameters: (1) HTTP GET or POST to specify how to send the request, (2) the path to the page that will handle the request, and (3) whether or not the request is asynchronous (this is a boolean)</li>
+<li>The <code>onload</code> or <code>open()</code> do not contact the server, the server is contacted until the <code>XMLHttpRequest</code> object calls its <code>send()</code> method (the <code>send()</code> method requires an argument to be passed and if there is no data to send then you can just use null)</li>
+<li>The object's <code>onload</code> event will fire when the server responds and it triggers a function and inside the function a conditional statement is used to check the status message from the server and if it is 200 (indicating the server responded successfully) then you can continue to process the data normally</li>
+<li>Since the response will be HTML, you can use the property <code>xhr.responseText</code> to get the HTML and place it inside a <code>innerHTML</code> property of an element whose HTML will be replaced with the HTML that was returned from the server</li>
+<li>Again recall the security risks of using <code>innerHTML</code> so make sure you trust the HTML you are inserting into your page and escape all content received from the server</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org81cb3c4" class="outline-3">
+<h3 id="org81cb3c4">Section 8.6: Loading XML with AJAX</h3>
+<div class="outline-text-3" id="text-org81cb3c4">
+<ul class="org-ul">
+<li>Requesting XML data is very similr to requesting HTML however processing the data that is returned is more complicated because the XML must be converted into HTML to be shown on the page</li>
+<li>The idea is the same as HTML, create an <code>XMLHttpRequest</code> object, assign a function to the <code>.onload</code> property, call the <code>.open()</code> function with the same type of parameters, and finally call <code>.send()</code> to connect to the server</li>
+<li>The only difference is that inside the function assigned to <code>.onload</code> when the status is 200 then you will need to process XML</li>
+<li>This XML must be turned into HTML in some type of way so you can retrieve the info inside of the XML</li>
+<li>When the server responds with XML, it can be obtained using the <code>responseXML</code> property of the <code>XMLHttpRequest</code> object</li>
+<li>Using <code>responseXML</code> property it can be used to store it in a variable</li>
+<li>Then using that variable, we can use DOM methods to retrieve its information</li>
+<li>For example, let's say we have the following XML:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;events&gt;
+  &lt;event&gt;
+    &lt;location&gt;San Francisco, CA&lt;/location&gt;
+    &lt;date&gt;May 1&lt;/date&gt;
+  &lt;/event&gt;
+  &lt;event&gt;
+    &lt;location&gt;New York, NY&lt;/location&gt;
+    &lt;date&gt;May 30&lt;/date&gt;
+  &lt;/event&gt;
+&lt;/events&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>So now let's say we have the xml in a variable called <code>response</code> so now we can call <code>response.getElementsByTagName('event')</code> which will return a node list which has the two events we see above</li>
+<li>Then we iterate through the node list and continue to use DOM methods to get the info of each event (collecting data stored in their child elements) and placing it into new HTML elements</li>
+<li>Each of those HTML elements is then added to the page</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd780db6" class="outline-3">
+<h3 id="orgd780db6">Section 8.7: Loading JSON with AJAX</h3>
+<div class="outline-text-3" id="text-orgd780db6">
+<ul class="org-ul">
+<li>The request for JSON data uses the same syntax you saw in the requests for HTML and XML data and when the server responds, the JSON will be converted into HTML</li>
+<li>When JSON data is sent from a server to a web browser it is transmitted as a string and when it reaches the browser your script must then convert the string into a JS object (this is known as deserializing an object)</li>
+<li>Deserializing is done by using the <code>JSON.parse()</code> method which is a method of a built-in object called JSON (this is a global object so you can use it without creating an instance of it first)</li>
+<li>Once the string has been parsed your script can access the data in the JS object, just like any other JS object, using the dot notation</li>
+<li>Using the JS object, you can access its properties and use its data to create HTML that can be shown on the page</li>
+<li>The way you add the data from the JS object to the page is up to you, you can create entirely new elements, you can use existing elements, you can replace text, or replace the whole HTML of elements</li>
+<li>The JSON object also has a method called <code>stringify()</code> which converts objects into a string using JSON notation so it can be sent from the browser back to a server (this is known as serializing an object)</li>
+<li>Serializing can be used when the data held in the JS object has changed by some user interaction so in order to update the server you serialize the object and send it back to the server so it can then update the info on the server's end</li>
+<li>To get the JSON from the <code>XMLHttpRequest</code> you use the property <code>responseText</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf50ebd5" class="outline-3">
+<h3 id="orgf50ebd5">Section 8.8: Data From Other Servers &amp; JSONP</h3>
+<div class="outline-text-3" id="text-orgf50ebd5">
+<ul class="org-ul">
+<li>Ajax works smoothly with data from your own server but for security reasons browsers do not load Ajax responses from other domains (known as cross-domain requests)</li>
+<li>There are 3 common workarounds:
+<ol class="org-ol">
+<li>A proxy file on the web server
+<ul class="org-ul">
+<li>The first way to load data from a remote server is to create a file on your server that collects the data from the remote server using a server-side language (e.g. ASP.net, PHP, NodeJS, or Ruby)</li>
+<li>The other pages on your site then request the data from the file on your server (which in turn gets it from the remote server)</li>
+<li>This is called a proxy because it acts on behalf of the server</li>
+</ul></li>
+<li><p>
+JSONP (JSON with Padding)
+</p>
+<ul class="org-ul">
+<li>This involves adding a <code>&lt;script&gt;</code> element into the page which loads a JS file from the server</li>
+<li>The server will return a function call with a JSON / JS object as the argument</li>
+<li>For example, if the url is www.example.com/jsonp, then the server can return the following:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">exampleFunction({
+    "name": "Bob",
+    "age": 30
+});
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The server is returning executable code</li>
+<li>This executable code will call a JS function in your local JS files wtih a JSON object</li>
+<li>You can then added query parameters to the URL to send additional information to the server so it can return a function call with the appropriate JSON object</li>
+<li>Nevertheless, this is a way to get a JSON object from a server into one of your functions</li>
+<li>This works because there are no restrictions on the source of script in a <code>&lt;script&gt;</code> element</li>
+<li>The script contains a call to a function and the JSON-formatted data is provided as an argument to that function</li>
+<li>The function that is called is defined in the page that requests the data and is used to process and display the data</li>
+</ul></li>
+<li>Cross-Origin Resource Sharing
+<ul class="org-ul">
+<li>Every time a browser and server communicate, they send information to each other using HTTP headers</li>
+<li>Cross-Origin Resource Sharing or CORS involves adding extra information to the HTTP headers to let the browser and server know that they should be communicating with each other</li>
+<li>CORS is a W3C specification and only supported by modern browsers, plus it requires setting up HTTP headers on the server</li>
+</ul></li>
+</ol></li>
+</ul>
+</div>
+
+<div id="outline-container-org2e92582" class="outline-4">
+<h4 id="org2e92582">Section 8.9: How JSONP Works</h4>
+<div class="outline-text-4" id="text-org2e92582">
+<ul class="org-ul">
+<li>First, the page must include a function that will process the JSON data that the server sends</li>
+<li>Then a <code>&lt;script&gt;</code> element whose <code>src</code> attribute will request the JSON data from the remote server</li>
+<li>The server returns a JS file that calls the function that processes the data and the JSON data is provided as an argument to that function</li>
+<li>So technically a script is returned from the server which contains a call to the named function that will process the data, this function call is the "padding" in JSONP</li>
+<li>THe JSON-formatted data is sent as an argument to this function in the script returned from the server</li>
+<li>Since technically it is <b>not</b> JSON, it is JavaScript (a JS sciprt), the argument is thus a JavaScript object literal so there is no need to use the JSON object's <code>parse()</code> or <code>stringify()</code> methods when working with JSONP</li>
+<li>The way that normally the server works is that you can specify the name of the function that will process the data that is returned by specifying a query parameter with the function name in the URL (e.g. <code>...example.com/jsonp?callback=myFunction</code>)</li>
+<li>Since the server returns a script, that code could have malicious code, so always load scripts from trusted sources</li>
+<li>It is also a good idea to add timeouts when dealing with external servers and if the server does not respond within the allocated time then an error should be displayed (this is a better approach than to let the user hanging because the server can never return or take a long time)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org49ec32e" class="outline-3">
+<h3 id="org49ec32e">Section 8.10: jQuery and Ajax</h3>
+<div class="outline-text-3" id="text-org49ec32e">
+<ul class="org-ul">
+<li>jQuery provides several methods that handle Ajax requests</li>
+<li>The process involves two steps: maing a request and handling the response</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.load()</code></td>
+<td class="org-left">Loads HTML fragments into an element (simplest method for retrieving data)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$.get()</code></td>
+<td class="org-left">Loads data using the HTTP GET method (used to request data from the server)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$.post()</code></td>
+<td class="org-left">Loads data using the HTTP POST method (used to send data that updates data on the server)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$.getJSON()</code></td>
+<td class="org-left">Loads JSON data using a GET request (used for JSON data)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$.getScript()</code></td>
+<td class="org-left">Loads and executes JS data using GET (used for JS, like JSONP, data)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$.ajax()</code></td>
+<td class="org-left">This method is used to perform all requests (all above methods all use this under the hood)</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>The first 5 methods are shortcuts for the <code>$.ajax()</code> method</li>
+<li>The <code>.load()</code> method operates on a jQuery selection (like most jQuery methods) and it loads new HTML content into the selected elements</li>
+<li>The other methdos are of the global <code>jQuery</code> object which is why they start with <code>$</code>, they only request data from a server and they do not automatically use that data to update the elements of a matched set which is $ symbol is not followed by a selector</li>
+<li>When the server returns data the script needs to indicate what to do with it</li>
+
+<li>When using the <code>.load()</code> method the HTML returned from the server is inserted into a jQuery selection but for the other methods you specify what should be done when the data is returned using the <code>jqXHR</code> object</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Properties / Methods</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.responseText</code></td>
+<td class="org-left">Text-based data returned</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.responseXML</code></td>
+<td class="org-left">XML data returned</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.status</code></td>
+<td class="org-left">Status code</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.statusText</code></td>
+<td class="org-left">Status description (typically used to display information about an error if one occurs)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.done()</code></td>
+<td class="org-left">Code to run if reqest was successful</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.fail()</code></td>
+<td class="org-left">Code to run if request was unsuccessful</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.always()</code></td>
+<td class="org-left">Code to run if request succeeded or failed</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.abort()</code></td>
+<td class="org-left">Halt the communication</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>jQuery has an object called <code>jqXHR</code> which makes it easier to handle the data that is returned from the server</li>
+<li>Because jQuery lets you chain methods you can use the <code>.done()</code>, <code>.fail()</code>, and <code>.always()</code> methods to run different code depending on the outcome of loading the data</li>
+<li>If the content you load via Ajax contains relative URLs (e.g. images and links) those URLs get treated as if they are relative to the original page that was loaded</li>
+<li>If the new HTML is in a different folder from the original page the relative paths could be broken</li>
+<li>In other words, if you load HTML from subfolder 1 into the index file in the main folder, and the HTML from subfolder 1 has a relative URL to an image in subfolder 1 then it will no longer work because it is trying to get the URL relative to the index file now instead of the HTML from subfolder 1</li>
+<li>This is because once you load HTML into your page, the browser does not know or care where the content came from, all it knows is that the new HTML is now part of the existing HTML</li>
+<li>So if the HTML that needs to be loaded is in a different folder from the page that is loading the HTML then the relative paths could be broken</li>
+
+<li>The <code>.load()</code> method is the simplest of the jQuery Ajax methods, it can only be used to load HTML from the server but when the server responds the HTML is then loaded into the jQuery selection for you</li>
+<li>The <code>.load()</code> has the following syntax: <code>$(&lt;selector&gt;).load(&lt;url&gt; &lt;selector&gt;)</code></li>
+<li>You start by selecting the element you want the HTML code to appear inside, then you specify the URL of the HTML page to load, then you specify that you want to load only part of the page (rather than the whole page)</li>
+
+<li>jQuery provides four shorthand methods to handle specific types of Ajax requests</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Method</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>$.get(url [, data][, callback][, type])</code></td>
+<td class="org-left">HTTP GET request for data</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$.post(url [, data][, callback][, type])</code></td>
+<td class="org-left">HTTP POST to update data on the server</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$.getJSON(url [, data][, callback])</code></td>
+<td class="org-left">Loads JSON data using a GET request</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$.getScript(url [, callback])</code></td>
+<td class="org-left">Loads and executes JavaScript (e.g. JSONP) using a GET request</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Note that the url specifies where the data is fetched from, the data provides any extra info to send to the server, the callback indicates the function that should be called when the data is returned, and type shows the type of data to expect from the server</li>
+<li>The methods above are shorthand for <code>$.ajax()</code> method</li>
+<li>These methods do not work on a selection like other jQuery methods (which is why the $ symbol is used)</li>
+<li>They are usually triggered by an event such as the page having loaded or the user interacting with the page (e.g. clicking on a link or submitting a form)</li>
+<li>With an Ajax request, you will often want to send data to the server which will in turn affect what the server sends back to the browser</li>
+<li>You can send data using HTTP GET or POST</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd9b73ea" class="outline-3">
+<h3 id="orgd9b73ea">Section 8.11: Submitting Forms with AJAX</h3>
+<div class="outline-text-3" id="text-orgd9b73ea">
+<ul class="org-ul">
+<li>To send data to the server, you are likely to use the <code>.post()</code> method</li>
+<li>jQuery also provides the <code>.serialize()</code> method to collect form data</li>
+<li>HTTP Post method is often used when sending form data to a server and it has a corresponding function, the <code>.post()</code> method</li>
+<li>The <code>.post()</code> method takes 3 parameters just like the <code>.get()</code> method: (1) the url endpoint of the server that will process the data, (2) the form data that you are sending, and (3) the callback function that will handle the response from the server</li>
+<li>jQuery's <code>.serialize()</code> method selects all the info from the form, puts it into a string ready to send to the server, and encodes the characters that cannot be used in a query string</li>
+<li><code>.serialize()</code> will typically be used on a selection containing a <code>&lt;form&gt;</code> element but it can also be used on individual elements or a subsection of a form</li>
+<li>It will only send successful form controls which means it will not send the controls that have been disabled, the controls where no option has been selected, and the submit button</li>
+<li>On the server-side, when the server handles a form, you might want the server to know whether it was a normal request so the server can return a whole page or if it was an Ajax request so the server can return with just a fragment of the page</li>
+<li>On the server you can check whether a page is being requested by an Ajax call using the <code>X-Requested-With</code> header and if it is set and has a value of <code>XMLHttpRequest</code> then you know that the request was an Ajax request</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8b3f264" class="outline-3">
+<h3 id="org8b3f264">Section 8.12: Loading JSON &amp; Handling AJAX Errors</h3>
+<div class="outline-text-3" id="text-org8b3f264">
+<ul class="org-ul">
+<li>You can load JSON data using the <code>$.getJSON()</code> method which will retrieve JSON from the same server that the page is from and there are also methods that help you deal with the response if it fails</li>
+<li>To use JSONP you should use the method called <code>$.getScript()</code></li>
+<li>Occasionally a request for a web page will fail and Ajax requests are no exception, therefore jQuery provides two methods that can trigger code depending on whether the request was successful or unsuccessful along with a third method that can be triggered in both cases (successful or not)</li>
+<li>There are 3 methods you can chain after <code>$.get()</code>, <code>$.post()</code>, <code>$.getJSON()</code>, and <code>$.ajax()</code> to handle success / failure, and these methods are:
+<ul class="org-ul">
+<li><code>.done()</code>: an event method that fires when the request has successfully completed</li>
+<li><code>.fail()</code>: an event method that fires when the request did not complete successfully</li>
+<li><code>.always()</code>: an event method that fires when the request has completed (whether it was successful or not)</li>
+</ul></li>
+<li>Older scripts may use the <code>.success()</code>, <code>.error()</code>, and <code>.complete()</code> methods instead of these methods (these methods do the same thing but the newer methods have been preferred option since jQuery 1.8)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org02d3b57" class="outline-3">
+<h3 id="org02d3b57">Section 8.13: Ajax Requests with Fine-Grained Control</h3>
+<div class="outline-text-3" id="text-org02d3b57">
+<ul class="org-ul">
+<li>The <code>$.ajax()</code> method gives you greater control over Ajax requests and behind the scenes this method is used by all of jQuery's Ajax shorthand methods</li>
+<li>Inside the jQuery file, the <code>$.ajax()</code> method is used by the other Ajax helper methods that you have seen so far which are offered as a simpler way of making Ajax requests</li>
+<li>However, <code>$.ajax()</code> method offers a greater control over the entire process with over 30 different settings that you can use to control the Ajax request and these settings are provided using object literal notation istead of parameters</li>
+<li>The settings can appear in any order as long as they use valid JS literal notation</li>
+<li>The settings that take a function can use a named function or an anonymous function written inline (inside the JS object literal notation)</li>
+<li><code>$.ajax()</code> does not let you load just one part of the page so the jQuery <code>.find()</code> method is used to select the required part of the page, in other words, you have to specify what you want to update, you can do nothing with the data, refresh the whole page, or just replace contents of part of the page (thus you will use <code>.find()</code> to find the element you want to replace)</li>
+<li>Here are some settings:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Setting</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>type</code></td>
+<td class="org-left">Can take values GET or POST depending on whether the request is made using HTTP GET or POST</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>url</code></td>
+<td class="org-left">The page the request is being sent to</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>data</code></td>
+<td class="org-left">The data that is being sent to the server with the request</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>success</code></td>
+<td class="org-left">A function that runs if the Ajax request completes successfully (similar to the <code>.done()</code> method)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>error</code></td>
+<td class="org-left">A function that runs if there is an error with Ajax request (similar to the <code>.fail()</code> method)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>beforeSend</code></td>
+<td class="org-left">A function (anonymous or named) that is run before the Ajax request starts (e.g. trigger a loading icon)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>complete</code></td>
+<td class="org-left">Runs after success / error events (e.g. removes a loading icon)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>timeout</code></td>
+<td class="org-left">The number of milliseconds to wait before the event should fail</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org6c590fb" class="outline-3">
+<h3 id="org6c590fb">Section 8.14: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org6c590fb">
+<ul class="org-ul">
+<li>We are going to create a website with 3 columns</li>
+<li>The first column is going to have locations of events</li>
+<li>This data will be obtained from a backend server that returns XML</li>
+<li>Whenever you click on the location it will make the second column appear with the schedule of the event</li>
+<li>The second column data will be obtained from a backend server that returns JSON</li>
+<li>Each hour in the schedule will be clickable and whenever it is clicked then more info will appear on the 3rd column</li>
+<li>The 3rd column data will be obtained from the backend server that returns HTML</li>
+<li>So to be concise:
+<ul class="org-ul">
+<li>We have 3 columns</li>
+<li>First we will retrieve all locations from the server (XML format)</li>
+<li>Each location will be clickable</li>
+<li>When user clicks on location it will retrieve the event's schedule on that location from the server (JSON format)</li>
+<li>Each hour's event will be clickable</li>
+<li>When a user clicks on the hour event it will retrieve the hour event description from the server (HTML format)</li>
+</ul></li>
+<li>I am going to create my own backend server to make this work</li>
+<li>If you are reading this from the internet this will not work for you because I did not put the server in the internet so it is not running anywhere</li>
+<li>Instead I have placed a video showcasing the project on my website</li>
+<li><b>And</b> I have also added cat pictures from a public API for you to enjoy</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org64a9600" class="outline-2">
+<h2 id="org64a9600">Keywords</h2>
+<div class="outline-text-2" id="text-org64a9600">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgf91392d" class="outline-2">
+<h2 id="orgf91392d">Questions</h2>
+<div class="outline-text-2" id="text-orgf91392d">
+<ul class="org-ul">
+<li><b>Q</b>: How can we retrieve HTML and XML from different domains?</li>
+<li><b>Q</b>: What is CORS (cross-origin)?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0bccf14" class="outline-2">
+<h2 id="org0bccf14">Summary</h2>
+</div>
 </div>
 </body>
 </html>

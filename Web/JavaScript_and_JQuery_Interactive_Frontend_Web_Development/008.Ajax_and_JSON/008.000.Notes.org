@@ -10,3 +10,371 @@
 | Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
 | Prev  | Chapter 7: jQuery                                           | \vert [[file:../007.jQuery/007.000.Notes.html][html]] \vert [[file:../007.jQuery/007.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/007.jQuery][github]] \vert |
 | Next  | Chapter 9: APIs                                             | \vert [[file:../009.APIs/009.000.Notes.html][html]] \vert [[file:../009.APIs/009.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/009.APIs][github]] \vert |
+
+* Notes
+
+** Section 8.1: Introduction
+   - Ajax is a technique for loading data into part of a page without having to refresh the entire page
+   - The data is often sent in a format called JavaScript Object Notation (or JSON)
+   - The ability to load new content into part of a page improves the user experience because the user does not have to wait for an entire page to load if only part of it is being updated
+   - Ajax allows you to request data from a server and load it without having to refresh the entire page
+   - Server typically send HTML (for web pages), XML (apps that are older / using legacy systems), or JSON (mostly all apps (apis) use JSON)
+   - jQuery makes it easier to create Ajax requests and process the data the server returns
+
+** Section 8.2: What, Why, How AJAX?
+
+*** Section 8.2.1: What is Ajax?
+    - Ajax is being able to pull data from the servers without needing to refresh the whole page
+    - Examples include:
+      - Google's autocomplete search as you type in keywords
+      - APIs being able to integrate into your website (e.g. tweets or X posts)
+      - E-commerce having an automatically updating shopping cart
+      - Registration on websites can check if usernames are already taken as you type
+    - Sites may also use Ajax to load data behind the scenes so that they can use or show that data later on
+    - Historically AJAX was an acronym for the technologies used in asynchronous requests, it stood for Asynchronous JavaScript and XML, but since then technologies have moved on and the term Ajax is now used to refer to a group of technologies that offer asynchronous functionality in the browser
+    - AJAX is a concept and now it is so ubiquitous (everywhere) that the concept seems so obvious that it does not have or need its own term instead asynchronization is incorported in web programming concepts which almost all modern medium to large websites use (the term "AJAX" is not used anymore because it is so incorporated into web programming that we no longer need the term espeically since we moved away from XML and started to use JSON)
+
+*** Section 8.2.2: Why use Ajax?
+    - Ajax uses an asynchronous processing model which means the user can do other things while the web browser is waiting for the data to load thus speeding up the user experience
+    - When a browser comes across a ~<script>~ tag, it will typically stop processing the rest of the page until it has loaded and processed that script, this is known as a synchronous processing model
+    - When a page is loading, if a script needs to collect data from a server then the browser would not just wait for the script to be loaded and processed but it would also have to wait for a server to send the data that the script is going to display
+    - With Ajax, the browser can request some data from a server and once that data has been requested continue to load the rest of the page and process the user's interactions with the page, this is known as an asynchronous (or non-blocking) processing model
+    - The browser does not wait for the 3rd party data in order to show the page
+    - When the server responds with the data an event is fired (like the ~load~ event that fires when a page has loaded) and this event can then call a function that processes the data
+    - Once a page has loaded, if you want to update what the user sees in the browser window you would typically refresh the entire page but this would cause our website to appear slow and not have a positive user experience but with Ajax if you only want to update a part of the page then we can update the content of the elements of interest
+    - Updating elements instead of refreshing an entire page is done by intercepting an event (such as the user clicking on a link or submitting a form) and requesting the new content from the server using an asynchronous request
+    - While the data is loading the user can continue to interact with the rest of the page and once the server has responded a special Ajax event will trigger another part of the script that reads the new data from the server and updates just that one part of the page
+    - Because we do not refresh the whole page, the data will load faster, the user can still use the rest of the page while they wait, and the user has a positive experience because they do not have to wait to see the whole page refresh
+
+*** Section 8.2.3: How AJAX Works?
+    - When using Ajax, the browser requests information from a web server and it then processes the server's response and shows it within the page
+    - Here is the process:
+      1. Request: The browser requests information / data from the server and the request may contain data that the server needs (e.g. keywords, a registration form, etc.), this is done through an object called ~XMLHttpRequest~ to handle Ajax requests (once the request has been made the browser does *not* wait for the response from the server)
+      2. Server: The server processes the request and responds with data (usually HTML, XML, or JSON), what happens in the server is not part of Ajax, and server-side technologies such as ASP.net, PHP, NodeJS, or Ruby can generate web pages for each user so when there is an Ajax request the server might send back HTML or it might send data in a different format such as JSON or XML (which the browser turns into HTML)
+      3. Response: Once the server sends back the data to the browser and it is finished responding to the request then the browser will fire an event, this event can then be used to trigger a JS function so that the browser processes the content / data and adds it to a part of the page without affecting the rest of the page
+
+** Section 8.3: Handling AJAX Requests & Responses
+   - To create an Ajax request, the browsers use the ~XMLHttpRequest~ object and when the server responds to the browser's request, the same ~XMLHttpRequest~ object will process the result
+   - The request:
+
+   #+BEGIN_SRC javascript
+     let xhr = new XMLHttpRequest();
+     xhr.open('GET', 'data/test.json', true);
+     xhr.send('search=arduino');
+   #+END_SRC
+
+   - An instance of the ~XMLHttpRequest~ object is created using object constructor notation (it uses the ~new~ keyword and stores the object in a variable)
+   - The ~XMLHttpRequest~ object's ~open()~ method prepares the request, it has 3 parameters:
+     1. The HTTP method
+     2. The URL of the page that will handle your request
+     3. A boolean indicating if it should asynchronous
+   - The ~send()~ method is the one that sends the prepared request to the server and extra info / data can be passed to the server in the parentheses (if no extra info is sent you can use the keyword ~null~ or leave it blank)
+
+   - The response:
+
+   #+BEGIN_SRC javascript
+     xhr.onload = function() {
+	if (xhr.status === 20) {
+           // Code to process the results from the server
+        }	 
+     }
+   #+END_SRC
+
+   - When the browser has received and loaded a response from the server the ~onload~ event will fire which will trigger a function (it can be named or anonymous)
+   - The function checks the ~status~ property of the object to make sure the server's response was okay (if this property is blank check the setup of the server)
+   - To support really old browsers you can use jQuery (outdated comment from the book)
+
+** Section 8.4: Data Formats
+   - The response to an Ajax request usually comes in one of 3 formats: HTML, XML, or JSON
+
+*** Section 8.4.1: HTML
+    - When you want to update a section of a web page, it is the simplest way to get data into a page because it is already in HTML
+    - HTML is easy to write, request, and display and you can often use the HTML directly into your web page (there is no need for further processing)
+    - The drawbacks of HTML is that the server must produce HTML in a format that is ready to be used on your page, it is not well-suited for use in applications other than web browsers, it does not have good data portability, and the request must come from the same domain (browsers only let Ajax load HTML and XML from the same domain name as the rest of the page)
+
+*** Section 8.4.2: XML
+    - XML looks similar to HTML but the tag names are different because they describe the data that they contain and the syntax is also more strict than HTML
+    - The benefits of XML is that it is a flexible data format and can represent complex structures, it works well with different platforms and applications, and it is processed using the same DOM methods as HTML
+    - The drawbacks is that it is considered a verbose language because the tags add a lot of extra characters to the data being sent, the request must come from the same domain as the rest of the page, and it can require a lot of code to proces the result
+
+    - XML looks a lot like HTML but the tags contain different words and the purpose of the tags is to describe the kind of data that they hold
+    - Just like HTML is a markup language that can describe structure and semantics of a web page, XML can be used to create markup languages for other types of data (not just web pages), it can be anything from stock reports to medical records
+    - The tags in an XML file should describe the data they contain so as a result even if you have never seen the code you can sometimes describe the information it holds based on its tags
+    - XML works on any platform and gained wide popularity in the early 2000s beause it can easily transfer data between different types of applications and it is very flexible data format because it is capable of representing complex data structures
+    - You can process an XML file using the same DOM methods as HTML or you can use jQuery to easily process XML
+      
+*** Section 8.5.3: JSON
+    - JavaScript Object Notation (JSON) uses a similar syntax to object literal notation in JS in order to represent data
+    - JSON can be called from any domain, it is more concise (less verbose) than HTML and XML, and it is commonly used with JS and it is quite popular across web applications
+    - The drawbacks is that the syntax is not forgiving so a missing comma, quote, or colon could break the file, since JSON is JS it can contain malicious content so only use JSON that has been produced by trusted sources
+
+    - Data can be formatted using JSON and it looks very similar to the object literal syntax but is is not an object, it is just plain text data (not an object)
+    - The difference may be small but remember HTML is also plain text but the browser converts it into DOM objects, so JSON is not an "object" (a data structure in JS) but instead it is simply plain text like HTML
+    - You cannot transfer the actual objects over a network instead you send text that is converted into objects by the browser
+    - JSON example:
+
+    #+BEGIN_SRC json
+      {
+         "location": "San Francison, CA",
+         "capacity": 270,
+         "booking": true
+      }
+    #+END_SRC
+
+    - In JSON, the key should be placed in double quotes (not single quotes)
+    - The key (or name) is separated from its value by a colon
+    - Each key / value pair is separated by a comma, however, note that there is no comma after the last key / value pair
+    - The value can be any of the following data types:
+      - String
+      - Number
+      - Boolean (true or false)
+      - Array (array of values including objects)
+      - Object (JSON "object")
+      - null (this is when the value is empty or missing)
+
+    - JavaScript's JSON object can turn JSON data into a JS object and it can also convert a JS object into a string
+    - ~JSON.stringify()~ converts a JS object into a string formatted using JSON (this allows you to send JS objects from a browser to another application)
+    - ~JSON.parse()~ processes a string containing JSON data and it converts the JSON data into a JS object ready for the browser to use
+
+** Section 8.5: Loading HTML with AJAX
+   - HTML is the easiest type of data to add into a page using Ajax, the browser renders it just like any other HTML, and the CSS rules for the rest of the page are applied to the new content
+   - Browsers will only let you use this technique to load HTML that comes from the same domain name as the rest of the page (although there is a way using CORS to get HTML and XML from different domains)
+   - Whether HTML, XML, or JSON is being returned from the server, the process of setting up the Ajax request and checking whether the file is ready to be worked with is the same, what changes is how you deal with the data that is returned
+   - When a server responds to any request, it should send back a status message to indicate if it completed the request, the values can be:
+     - 200 (the server has responded and all is ok)
+     - 304 (not modified)
+     - 404 (page not found)
+     - 500 (internal error on the server)
+   - If a server fails to return a ~status~ property check the server setup
+   - Example:
+
+   #+BEGIN_SRC javascript
+     let xhr = new XMLHttpRequest();
+     xhr.onload = function() {
+	 if (xhr.status === 200) {
+	     document.getElementById('content').innerHTML = xhr.responseText;
+	 }
+     };
+
+     xhr.open('GET', 'data/data.html', true);
+     xhr.send(null);
+   #+END_SRC
+
+   - An ~XMLHttpRequest~ object is stored in a variable called ~xhr~
+   - The ~XMLHttpRequest~ object's ~open()~ method prepares the request and it has 3 parameters: (1) HTTP GET or POST to specify how to send the request, (2) the path to the page that will handle the request, and (3) whether or not the request is asynchronous (this is a boolean)
+   - The ~onload~ or ~open()~ do not contact the server, the server is contacted until the ~XMLHttpRequest~ object calls its ~send()~ method (the ~send()~ method requires an argument to be passed and if there is no data to send then you can just use null)
+   - The object's ~onload~ event will fire when the server responds and it triggers a function and inside the function a conditional statement is used to check the status message from the server and if it is 200 (indicating the server responded successfully) then you can continue to process the data normally
+   - Since the response will be HTML, you can use the property ~xhr.responseText~ to get the HTML and place it inside a ~innerHTML~ property of an element whose HTML will be replaced with the HTML that was returned from the server
+   - Again recall the security risks of using ~innerHTML~ so make sure you trust the HTML you are inserting into your page and escape all content received from the server
+
+** Section 8.6: Loading XML with AJAX
+   - Requesting XML data is very similr to requesting HTML however processing the data that is returned is more complicated because the XML must be converted into HTML to be shown on the page
+   - The idea is the same as HTML, create an ~XMLHttpRequest~ object, assign a function to the ~.onload~ property, call the ~.open()~ function with the same type of parameters, and finally call ~.send()~ to connect to the server
+   - The only difference is that inside the function assigned to ~.onload~ when the status is 200 then you will need to process XML
+   - This XML must be turned into HTML in some type of way so you can retrieve the info inside of the XML
+   - When the server responds with XML, it can be obtained using the ~responseXML~ property of the ~XMLHttpRequest~ object
+   - Using ~responseXML~ property it can be used to store it in a variable
+   - Then using that variable, we can use DOM methods to retrieve its information
+   - For example, let's say we have the following XML:
+
+   #+BEGIN_SRC xml
+     <?xml version="1.0" encoding="utf-8" ?>
+     <events>
+       <event>
+	 <location>San Francisco, CA</location>
+	 <date>May 1</date>
+       </event>
+       <event>
+	 <location>New York, NY</location>
+	 <date>May 30</date>
+       </event>
+     </events>
+   #+END_SRC
+
+   - So now let's say we have the xml in a variable called ~response~ so now we can call ~response.getElementsByTagName('event')~ which will return a node list which has the two events we see above
+   - Then we iterate through the node list and continue to use DOM methods to get the info of each event (collecting data stored in their child elements) and placing it into new HTML elements
+   - Each of those HTML elements is then added to the page
+     
+** Section 8.7: Loading JSON with AJAX
+   - The request for JSON data uses the same syntax you saw in the requests for HTML and XML data and when the server responds, the JSON will be converted into HTML
+   - When JSON data is sent from a server to a web browser it is transmitted as a string and when it reaches the browser your script must then convert the string into a JS object (this is known as deserializing an object)
+   - Deserializing is done by using the ~JSON.parse()~ method which is a method of a built-in object called JSON (this is a global object so you can use it without creating an instance of it first)
+   - Once the string has been parsed your script can access the data in the JS object, just like any other JS object, using the dot notation
+   - Using the JS object, you can access its properties and use its data to create HTML that can be shown on the page
+   - The way you add the data from the JS object to the page is up to you, you can create entirely new elements, you can use existing elements, you can replace text, or replace the whole HTML of elements
+   - The JSON object also has a method called ~stringify()~ which converts objects into a string using JSON notation so it can be sent from the browser back to a server (this is known as serializing an object)
+   - Serializing can be used when the data held in the JS object has changed by some user interaction so in order to update the server you serialize the object and send it back to the server so it can then update the info on the server's end
+   - To get the JSON from the ~XMLHttpRequest~ you use the property ~responseText~
+
+** Section 8.8: Data From Other Servers & JSONP
+   - Ajax works smoothly with data from your own server but for security reasons browsers do not load Ajax responses from other domains (known as cross-domain requests)
+   - There are 3 common workarounds:
+     1. A proxy file on the web server
+	- The first way to load data from a remote server is to create a file on your server that collects the data from the remote server using a server-side language (e.g. ASP.net, PHP, NodeJS, or Ruby)
+	- The other pages on your site then request the data from the file on your server (which in turn gets it from the remote server)
+	- This is called a proxy because it acts on behalf of the server
+     2. JSONP (JSON with Padding)
+	- This involves adding a ~<script>~ element into the page which loads a JS file from the server
+	- The server will return a function call with a JSON / JS object as the argument
+	- For example, if the url is www.example.com/jsonp, then the server can return the following:
+
+	#+BEGIN_SRC javascript
+	  exampleFunction({
+	      "name": "Bob",
+	      "age": 30
+	  });
+	#+END_SRC
+
+	- The server is returning executable code
+	- This executable code will call a JS function in your local JS files wtih a JSON object
+	- You can then added query parameters to the URL to send additional information to the server so it can return a function call with the appropriate JSON object
+	- Nevertheless, this is a way to get a JSON object from a server into one of your functions
+	- This works because there are no restrictions on the source of script in a ~<script>~ element
+	- The script contains a call to a function and the JSON-formatted data is provided as an argument to that function
+	- The function that is called is defined in the page that requests the data and is used to process and display the data
+     3. Cross-Origin Resource Sharing
+	- Every time a browser and server communicate, they send information to each other using HTTP headers
+	- Cross-Origin Resource Sharing or CORS involves adding extra information to the HTTP headers to let the browser and server know that they should be communicating with each other
+	- CORS is a W3C specification and only supported by modern browsers, plus it requires setting up HTTP headers on the server
+
+*** Section 8.9: How JSONP Works
+    - First, the page must include a function that will process the JSON data that the server sends
+    - Then a ~<script>~ element whose ~src~ attribute will request the JSON data from the remote server
+    - The server returns a JS file that calls the function that processes the data and the JSON data is provided as an argument to that function
+    - So technically a script is returned from the server which contains a call to the named function that will process the data, this function call is the "padding" in JSONP
+    - THe JSON-formatted data is sent as an argument to this function in the script returned from the server
+    - Since technically it is *not* JSON, it is JavaScript (a JS sciprt), the argument is thus a JavaScript object literal so there is no need to use the JSON object's ~parse()~ or ~stringify()~ methods when working with JSONP
+    - The way that normally the server works is that you can specify the name of the function that will process the data that is returned by specifying a query parameter with the function name in the URL (e.g. ~...example.com/jsonp?callback=myFunction~)
+    - Since the server returns a script, that code could have malicious code, so always load scripts from trusted sources
+    - It is also a good idea to add timeouts when dealing with external servers and if the server does not respond within the allocated time then an error should be displayed (this is a better approach than to let the user hanging because the server can never return or take a long time)
+
+** Section 8.10: jQuery and Ajax
+   - jQuery provides several methods that handle Ajax requests
+   - The process involves two steps: maing a request and handling the response
+
+   | Method          | Description                                                                                 |
+   |-----------------+---------------------------------------------------------------------------------------------|
+   | ~.load()~       | Loads HTML fragments into an element (simplest method for retrieving data)                  |
+   | ~$.get()~       | Loads data using the HTTP GET method (used to request data from the server)                 |
+   | ~$.post()~      | Loads data using the HTTP POST method (used to send data that updates data on the server)   |
+   | ~$.getJSON()~   | Loads JSON data using a GET request (used for JSON data)                                    |
+   | ~$.getScript()~ | Loads and executes JS data using GET (used for JS, like JSONP, data)                        |
+   | ~$.ajax()~      | This method is used to perform all requests (all above methods all use this under the hood) |
+
+   - The first 5 methods are shortcuts for the ~$.ajax()~ method
+   - The ~.load()~ method operates on a jQuery selection (like most jQuery methods) and it loads new HTML content into the selected elements
+   - The other methdos are of the global ~jQuery~ object which is why they start with ~$~, they only request data from a server and they do not automatically use that data to update the elements of a matched set which is $ symbol is not followed by a selector
+   - When the server returns data the script needs to indicate what to do with it
+
+   - When using the ~.load()~ method the HTML returned from the server is inserted into a jQuery selection but for the other methods you specify what should be done when the data is returned using the ~jqXHR~ object
+
+   | Properties / Methods | Description                                                                             |
+   |----------------------+-----------------------------------------------------------------------------------------|
+   | ~.responseText~      | Text-based data returned                                                                |
+   | ~.responseXML~       | XML data returned                                                                       |
+   | ~.status~            | Status code                                                                             |
+   | ~.statusText~        | Status description (typically used to display information about an error if one occurs) |
+   | ~.done()~            | Code to run if reqest was successful                                                    |
+   | ~.fail()~            | Code to run if request was unsuccessful                                                 |
+   | ~.always()~          | Code to run if request succeeded or failed                                              |
+   | ~.abort()~           | Halt the communication                                                                  |
+
+   - jQuery has an object called ~jqXHR~ which makes it easier to handle the data that is returned from the server
+   - Because jQuery lets you chain methods you can use the ~.done()~, ~.fail()~, and ~.always()~ methods to run different code depending on the outcome of loading the data
+   - If the content you load via Ajax contains relative URLs (e.g. images and links) those URLs get treated as if they are relative to the original page that was loaded
+   - If the new HTML is in a different folder from the original page the relative paths could be broken
+   - In other words, if you load HTML from subfolder 1 into the index file in the main folder, and the HTML from subfolder 1 has a relative URL to an image in subfolder 1 then it will no longer work because it is trying to get the URL relative to the index file now instead of the HTML from subfolder 1
+   - This is because once you load HTML into your page, the browser does not know or care where the content came from, all it knows is that the new HTML is now part of the existing HTML
+   - So if the HTML that needs to be loaded is in a different folder from the page that is loading the HTML then the relative paths could be broken
+
+   - The ~.load()~ method is the simplest of the jQuery Ajax methods, it can only be used to load HTML from the server but when the server responds the HTML is then loaded into the jQuery selection for you
+   - The ~.load()~ has the following syntax: ~$(<selector>).load(<url> <selector>)~
+   - You start by selecting the element you want the HTML code to appear inside, then you specify the URL of the HTML page to load, then you specify that you want to load only part of the page (rather than the whole page)
+
+   - jQuery provides four shorthand methods to handle specific types of Ajax requests
+
+   | Method                                     | Description                                                    |
+   |--------------------------------------------+----------------------------------------------------------------|
+   | ~$.get(url [, data][, callback][, type])~  | HTTP GET request for data                                      |
+   | ~$.post(url [, data][, callback][, type])~ | HTTP POST to update data on the server                         |
+   | ~$.getJSON(url [, data][, callback])~      | Loads JSON data using a GET request                            |
+   | ~$.getScript(url [, callback])~            | Loads and executes JavaScript (e.g. JSONP) using a GET request |
+
+   - Note that the url specifies where the data is fetched from, the data provides any extra info to send to the server, the callback indicates the function that should be called when the data is returned, and type shows the type of data to expect from the server
+   - The methods above are shorthand for ~$.ajax()~ method
+   - These methods do not work on a selection like other jQuery methods (which is why the $ symbol is used)
+   - They are usually triggered by an event such as the page having loaded or the user interacting with the page (e.g. clicking on a link or submitting a form)
+   - With an Ajax request, you will often want to send data to the server which will in turn affect what the server sends back to the browser
+   - You can send data using HTTP GET or POST
+
+** Section 8.11: Submitting Forms with AJAX
+   - To send data to the server, you are likely to use the ~.post()~ method
+   - jQuery also provides the ~.serialize()~ method to collect form data
+   - HTTP Post method is often used when sending form data to a server and it has a corresponding function, the ~.post()~ method
+   - The ~.post()~ method takes 3 parameters just like the ~.get()~ method: (1) the url endpoint of the server that will process the data, (2) the form data that you are sending, and (3) the callback function that will handle the response from the server
+   - jQuery's ~.serialize()~ method selects all the info from the form, puts it into a string ready to send to the server, and encodes the characters that cannot be used in a query string
+   - ~.serialize()~ will typically be used on a selection containing a ~<form>~ element but it can also be used on individual elements or a subsection of a form
+   - It will only send successful form controls which means it will not send the controls that have been disabled, the controls where no option has been selected, and the submit button
+   - On the server-side, when the server handles a form, you might want the server to know whether it was a normal request so the server can return a whole page or if it was an Ajax request so the server can return with just a fragment of the page
+   - On the server you can check whether a page is being requested by an Ajax call using the ~X-Requested-With~ header and if it is set and has a value of ~XMLHttpRequest~ then you know that the request was an Ajax request
+
+** Section 8.12: Loading JSON & Handling AJAX Errors
+   - You can load JSON data using the ~$.getJSON()~ method which will retrieve JSON from the same server that the page is from and there are also methods that help you deal with the response if it fails
+   - To use JSONP you should use the method called ~$.getScript()~
+   - Occasionally a request for a web page will fail and Ajax requests are no exception, therefore jQuery provides two methods that can trigger code depending on whether the request was successful or unsuccessful along with a third method that can be triggered in both cases (successful or not)
+   - There are 3 methods you can chain after ~$.get()~, ~$.post()~, ~$.getJSON()~, and ~$.ajax()~ to handle success / failure, and these methods are:
+     - ~.done()~: an event method that fires when the request has successfully completed
+     - ~.fail()~: an event method that fires when the request did not complete successfully
+     - ~.always()~: an event method that fires when the request has completed (whether it was successful or not)
+   - Older scripts may use the ~.success()~, ~.error()~, and ~.complete()~ methods instead of these methods (these methods do the same thing but the newer methods have been preferred option since jQuery 1.8)
+
+** Section 8.13: Ajax Requests with Fine-Grained Control
+   - The ~$.ajax()~ method gives you greater control over Ajax requests and behind the scenes this method is used by all of jQuery's Ajax shorthand methods
+   - Inside the jQuery file, the ~$.ajax()~ method is used by the other Ajax helper methods that you have seen so far which are offered as a simpler way of making Ajax requests
+   - However, ~$.ajax()~ method offers a greater control over the entire process with over 30 different settings that you can use to control the Ajax request and these settings are provided using object literal notation istead of parameters
+   - The settings can appear in any order as long as they use valid JS literal notation
+   - The settings that take a function can use a named function or an anonymous function written inline (inside the JS object literal notation)
+   - ~$.ajax()~ does not let you load just one part of the page so the jQuery ~.find()~ method is used to select the required part of the page, in other words, you have to specify what you want to update, you can do nothing with the data, refresh the whole page, or just replace contents of part of the page (thus you will use ~.find()~ to find the element you want to replace)
+   - Here are some settings:
+
+   | Setting      | Description                                                                                              |
+   |--------------+----------------------------------------------------------------------------------------------------------|
+   | ~type~       | Can take values GET or POST depending on whether the request is made using HTTP GET or POST              |
+   | ~url~        | The page the request is being sent to                                                                    |
+   | ~data~       | The data that is being sent to the server with the request                                               |
+   | ~success~    | A function that runs if the Ajax request completes successfully (similar to the ~.done()~ method)        |
+   | ~error~      | A function that runs if there is an error with Ajax request (similar to the ~.fail()~ method)            |
+   | ~beforeSend~ | A function (anonymous or named) that is run before the Ajax request starts (e.g. trigger a loading icon) |
+   | ~complete~   | Runs after success / error events (e.g. removes a loading icon)                                          |
+   | ~timeout~    | The number of milliseconds to wait before the event should fail                                          |
+
+** Section 8.14: Chapter Exercise
+   - We are going to create a website with 3 columns
+   - The first column is going to have locations of events
+   - This data will be obtained from a backend server that returns XML
+   - Whenever you click on the location it will make the second column appear with the schedule of the event
+   - The second column data will be obtained from a backend server that returns JSON
+   - Each hour in the schedule will be clickable and whenever it is clicked then more info will appear on the 3rd column
+   - The 3rd column data will be obtained from the backend server that returns HTML
+   - So to be concise:
+     - We have 3 columns
+     - First we will retrieve all locations from the server (XML format)
+     - Each location will be clickable
+     - When user clicks on location it will retrieve the event's schedule on that location from the server (JSON format)
+     - Each hour's event will be clickable
+     - When a user clicks on the hour event it will retrieve the hour event description from the server (HTML format)
+   - I am going to create my own backend server to make this work
+   - If you are reading this from the internet this will not work for you because I did not put the server in the internet so it is not running anywhere
+   - Instead I have placed a video showcasing the project on my website
+   - *And* I have also added cat pictures from a public API for you to enjoy
+   
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*: How can we retrieve HTML and XML from different domains?
+  - *Q*: What is CORS (cross-origin)?
+
+* Summary
