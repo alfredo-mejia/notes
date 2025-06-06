@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 8 Exercise: Company Events</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../main.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1><span class="title-removable">Chapter 8 Exercise: </span>Contact</h1>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="cats.html">Cats</a></li>
+          <li><a href="contact.html" class="activeLink">Contact</a></li>
+        </ul>
+      </nav>
+      <hr />
+    </header>
+
+    <main>
+      <form id="contact-form">
+        <fieldset>
+          <legend>Contact Form</legend>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="" required />
+          <br />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="" required ></textarea>
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </main>
+
+    <div id="form-error" class="hide">
+      <h3>Error</h3>
+      <p>Sorry! Something went wrong with the server.</p>
+    </div>
+
+    <div id="form-success" class="hide">
+      <h3>Success</h3>
+      <p>Your form was successfully submitted.</p>
+    </div>
+  </body>
+</html>
