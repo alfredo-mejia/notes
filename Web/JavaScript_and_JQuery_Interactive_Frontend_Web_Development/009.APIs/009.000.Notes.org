@@ -13,12 +13,190 @@
 
 * Notes
 
+** Section 9.1: Introduction
+   - User interfaces allow humans to interact with programs and API (Application Programming Interfaces (APIs) let programs (including scripts) talk to each other
+   - Browsers, scripts, websites, and other applications frequently open up some of their functionality so that programmers can interact with them
+   - For example,
+     - DOM is an API which the browser exposes to the scripts so it can access and update contents on the web page
+     - jQuery is a library (collection of code) but it provides its own API (an interface) to interact and use the functionality of the library (e.g. ~$()~ is part of the jQuery API because with this function it gives scripts a way to use their library)
+     - Many social media websites provide APIs to get some type of data from their website
+   - You do not need to know how the other script or program achieves its task; you only need to know what the API does, how to ask it to do something, and how to understand its replies
+   - You do not always need to know how a script or program works as long as you know how to ask it to do something and how to process its response (so the questions you ask and format of the answers form the API)
+   - If there is a script or program that offers functionality you need consider using it rather than writing something from scratch but first understand what the API allows you to do (e.g. DOM API allow you to access and update content on a web page, social media sites allow you to access some type of data from their site, etc.)
+   - When you know what the API allows you to do then you can decide if it is the right tool for the job
+   - Then you need to know how to access the functionality of the API in order to use it (e.g. DOM API is built in, jQuery API comes from the jQuery script file, other APIs might be used differently)
+   - Finally, you need to know how to ask the API to do something and the format in which you should expect any replies (e.g. JS APIs need you to call a function, create an object, and access properties and mehtods)
+   - So APIs have 3 fundamental parts: understand what the API does, understand how to access the API, and understand the syntax to call the API and expected results from the API
+
+** Section 9.2: JavaScript APIs
+   - When you write code that uses the new JS APIs (or any other new feature in a web browser), you may need to check if the browser supports that feature before your code tries to use it
+   - In the new JS APIs, browsers usually use objects to implement new functionality
+   - So it is possible to check whether a browser supports an object using a conditional statement using the following syntax:
+     
+   #+BEGIN_SRC javascript
+     if (navigator.geolocation) {
+	 // suports it
+     }
+
+     else {
+	 // does not support it
+     }
+   #+END_SRC
+
+   - Note that this is just an example and ~navigator~ is one of the browser's global objects exposed via an API but we are checking if ~geolocation~ object is supported
+   - However, at the time of the book, there were cross-browser issues with using this type of feature detection as shown above
+   - Instead the book recommends a library called Modernizr which is a script you can use in your pages to tell whether the browser supports features in HTML, CSS, and JS
+   - You can get Modernizr from their website but the cool thing about Modernizr is that they allow you to choose which features you want to test and only download the script that only has the capabilities of checking the features you have selected
+   - This makes the script small and custom because you do not want to test for features that you do not use as it would slow your site down
+   - When you include the Modernizr script in your page, it adds an object called ~Modernizr~ which tests whether the browser supports the features that you specified that it should test for by having each feature you want it to test as a property of ~Modernizr~ and the property values are a boolean (true or false) value that will tell you if a feature is supported
+   - For example, you can do ~if (Modernizr.geolocation)~ so if it returns true then geolocation is supported otherwise it is not supported
+
+*** Section 9.2.1: Geolocation API
+    - The user's location can be requested using the geolocation API
+    - Browsers that implement the geolocation API let users share their location with websites
+    - The location data is provided in the form of longitude and latitude points
+    - There are several ways for the browser to determine its location including using data from its IP address, wireless network connection, cell towers, or GPS hardware
+    - In some devices, the geolocation API can give you more data along with longitude and latitude
+    - The geolocation API is available by default in any browser that supports it (just like the DOM API is available)
+    - Browsers that support geolocation allow users to turn the feature on and off so if it is on then the browser will ask if they want to share data for each individual web site that requests that info
+    - The way in which the browser asks the user if they will share their location differs from one browser to the next and one device to the next
+    - The geolocation API relies on an object called ~geolocation~ and if you want to try and make use of the user's location, first you need to check if the browser supports this object
+      - Use a conditional check to see if the browser supports geolocation
+      - If geolocation is supported then the browser returns a truthy value and the first set of statements run and request the user's location using the ~geolocation~ object's ~getCurrentPosition()~ method
+      - If geolocation is not supported then a second set of statements is run
+    - Once you call the ~getCurrentPosition()~ method the code continues onto the next line because it is an asynchronous request (similar to Ajax) so the user does not have to wait and can continue to use the web app
+    - The method has two parameters: ~getCurrentPosition(success, fail)~
+      - success: the name of a function or anonymous function to call if the longitude and latitude are successfully returned and this function should have a parameter for the object ~position~ because the callback will automatically be called with an argument which is an object called ~position~ which holds the user's location
+      - fail: callback function (name or anonymous) that is called if the details cannot be obtained and this function will be called automatically with an argument which is an object called ~PositionError~ containing details about the error
+    - So there are 3 objects to work with geolocation API: ~geolocation~, ~position~, and ~positionError~
+    - Here is an example:
+
+    #+BEGIN_SRC javascript
+      navigator.geolocation.getCurrentPosition(
+	  function (position) {
+	      console.log("Latitude: ", position.coords.latitude);
+	  },
+
+	  function (error) { // PositionError object
+	      console.log("Error: ", error.message);
+	  }
+      );
+    #+END_SRC
+
+    - ~geolocation~ object: Used to request location data, it is a child of the ~navigator~ object
+    - ~getCurrentPosition(success, fail, options)~ method: Requests the position of the user end and if the user permits returns the user's latitude / longitude plus other location information (success & fail are callback functions)
+    - ~Position~ object: A ~Position~ object is sent to the success callback function and it has a child object called ~coords~ whose properties hold the user's location and that object has further properties such as ~coords.latitude~, ~coords.longitude~, ~coords.accuracy~, ~coords.altitude~, etc. while some properties are required (meaning they will be present in the ~coords~ object) other properties are optional (may not be present or have null values) and may depend on the device's capabilities
+    - ~PositionError~ object: If location is not determined this object is passed to the fail callback function which also has properties such as ~PositionError.code~ and ~PositionError.message~
+
+*** Section 9.2.2: Web Storage API: Storing Data in Browsers
+    - Web storage lets you store data in the browser and there are two different types of storage: local and session storage
+    - Before cookies were the main mechanism for storing info in the browser but cookies have several limitations including:
+      - Not able to hold much data
+      - Sent to the server every time you request a page from that domain
+      - Not considered secure
+    - However there is now a storage object (introduced with HTML5 and its other web techologies)
+    - There are two different flavors of the storage object: ~localStorage~ and ~sessionStorage~
+    - Both use the same methods and properties but the differences are how long the data is stored for and whether all tabs can access the data that is being stored
+    - ~localStorage~ can store data even when you close a window / tab and it can have other windows / tabs access the data
+    - ~sessionStorage~ can store data but it *cannot* be stored when a window / tab is closed and *not* all windows / tabs can access the data
+    - Commonly browsers store 5 MB of data per domain in a storage object and if a site tries to store more than 5MB of data then the browser will usually ask the user whether they want to allow this site to store more info (never rely on users agreeing to give a site more space)
+    - The data is stored as properties of the storage objects using key / value pairs and the value in the pair is always a string
+    - To protect the information that a websites stores in these storage objects, browsers employ a same origin policy which means data can only be access by other pages in the same domain
+    - The four parts of the URL must match: protocol (http or https), subdomain (before the domain name such as maps in maps.google.com or www in www.google.com), domain (google.com, facebook.com, etc.) and the port number
+    - There are other ways to store data such as the FileSystem API (file system) and client side databases such as the Web SQL database
+    - Both of these objects are implemented on the ~window~ object so you do not need to prefix the method names with any other object name (since ~window~ is already the default global object)
+    - To save an item into the storage object you use the ~setItem()~ method which takes two parameters: the name of the key and the value associated with it
+    - To retrieve a value from the storage object you use the ~getItem()~ method passing it the key
+    - Data for the storage objects is stored and accessed in a synchronous manner so all other processing stops while the script accesses or saves the data (so if a lot data is regularly accessed or stored the site can appear slower to use)
+    - You can also set and retrieve keys and values of the storage objects using dot notation (e.g. ~localStorage.age = 12~)
+    - Storage objects are commonly used to store JSON-formatted data by using JSON object's ~parse()~ method and ~stringify()~ method
+    - So you can use the following methods for both ~localStorage~ and ~sessionStorage~:
+      - ~setItem(key, value)~: Creates a new key / value pair
+      - ~getItem(key)~: Gets the value for the specified key
+      - ~removeItem(key)~: Removes the key / value pair for the specified key
+      - ~clear()~: Clears all information from the storage object
+      - ~length~ (property): Number of keys
+    - ~sessionStorage~ may be better suited for info that changes frequently (e.g. each time the user visits the site they log in or location data) or if the info is personal and should not be viewed by other users on the devices
+    - ~localStorage~ is best suited for info that only changes at set intervals (e.g. price lists) and the user may want to come back and use again (e.g. saving preferences / settings)
+
+*** Section 9.2.3: History API & PushState
+    - If you move from one to another the browser's history remembers which pages you visited
+    - So each tab or window in the browser keeps its own history of pages you have viewed so when you visit a new page in that tab or window, the URL is added to the list of pages you have visited in the history
+    - Because of the history, you can use the back and forward buttons in a browser to move between pages you have visited in that tab or window
+    - However on sites that use Ajax to load information, the URL is not automatically updated and the back button might not show the last thing the user was actually viewing
+    - The ~history~ object inside the history API can be used to fix the problem by using the browser's history stack with the methods ~pushState()~ and ~replaceState()~ (and addition extra info can be stored with each item)
+    - So now using the ~history~ object when an Ajax request is made the user can be shown the right content when they press back or forward buttons
+    - The browser keeps the user's history in something called the *history stack* so as you enter new addresses new URLs are added to the stack
+    - This history stack is a pile of states (one on top of the other) where state refers to the condition that something is in at a particular time
+    - So the methods ~pushState()~ adds an entry to the ~history~ object while ~replaceState()~ updates the current entry
+    - Because the ~history~ object is a child of the ~window~ object you can use its name directly in the script such as ~history.pushState()~ instead of ~window.history.pushState()~
+    - Both methods take up 3 parameters: state, title, url (e.g. ~history.pushState(state, title, url)~
+      - State: Information that is stored with each item in the history stack and it can be retrieved when you back to that page
+      - Title: Ignored by most browsers but it is intended to represent the title of the new history entry
+      - URL: The url that you want the browser to show for this page (it must be on the same origin as the current URL and it should show the correct content if the user goes back to that url)
+    - Adding content to the browser history is only part of the solution but the other half is loading the right content when the user presses the back or forward buttons so to help show the right content the ~onpopstate~ event fires whenever the user requests a new page
+    - The ~onpopstate~ event is used to trigger a function that will load the appropriate content into the page and there are two ways to determine what content should be loaded into the page: the ~location~ object (which represents the browser's location bar) and the ~state~ information in the ~history~ object
+    - If you use the ~location~ object then whenever the user presess back or forward the address bar will update itself and you can get the URL for the page that should be loaded using ~location.pathname~ (~location~ object is a child of ~window~)
+    - Or you can use the state saved when the method ~pushState()~ was called since it stores data for that page you can use it to store JSON-formatted data and the data can then be loaded directly into the page (this is often used when new content loads data rather than a traditional web page)
+    - So the history API lets you access and update the browser history but only for pages the user visited on your site
+    - Even if the visitor is not taken to a new page in the browser window (e.g. only a part of the page is updated using Ajax), you can modify the history object to ensure that the back and forward buttons work as the user would expect them to on non-Ajax pages
+    - Here are some properties, events, and methods of the ~history~ object:
+      - ~history.back()~: takes you back in the history stack
+      - ~history.forward()~: takes you forward in the history stack
+      - ~history.go()~: takes you to a specific page in the history by specifying a number relative to where you are which is index zero, so ~.go(1)~ is like clicking forward and ~.go(-1)~ is like clicking back
+      - ~history.pushState()~: Adds an item to the history stack
+      - ~history.replaceState()~: Does the same as ~pushState()~ except it modifies the current history entry
+      - ~length~ (property): Tells you how many items are in the history object
+      - ~window.onpopstate~ (event): Used to handle the user moving backwards or forwards
+
+** Section 9.3: jQuery UI
+   - There are hundreds of scripts available for free on the web and many of the scripts have an API you need to use to get them to work for you
+   - Using someone else's library may be good because that means you do not need to make it yourself and do more work but also make sure the library is trustworthy so see if it has been updated fairly recently, what are the library's future plans, the JS is separate from HTML, and it has been reviewed by other people
+   - jQuery plugins are additional code and scripts that add methods to extend the ~jQuery~ object
+   - When you use these plugins, first you include the jQuery script, followed by the plugin script then you begin using jQuery and the jQuery plugins by using the new methods offering new functionality that was not in the original jQuery script
+   - The jQuery foundation maintain its own set of jQuery plugins called jQuery UI which help create user interfaces
+   - jQuery UI is a suite of jQuery plugins that extends jQuery with a set of methods to create: widgets (such as accordions and tabs), effects (make elements appear and disappear), and interactions (such as drag and drop functionality)
+   - jQuery UI comes with a set of themes that help control how the plugins look on the page or for even finer control on how jQuery plugins look in the browser you can also use the *theme roller* which gives you more precise control over the appearance of the elements
+   - To use jQuery UI, you must include jQuery in your page and then you must include the jQuery UI script after the jQuery file
+   - To download the file and view how to use the library and its syntax, visit its official website: https://jqueryui.com
+   - Note that when a jQuery plugin has settings that vary each time it is used, it is common to pass the settings in an object literal
+
+** Section 9.4: AngularJS
+   - Another library but it is very different than jQuery and its purpose is to make it easier to develop web apps (e.g. allows you to access and update contents of a page without writing code to handle events, select elements, or update the content of an element)
+   - AngularJS is a framework that makes it easier to create web apps, specifically web apps that write, read, update, and delete data in a database on a server
+   - Angular is based on a software development called model view controller or MVC (it is actually a variant on MVC not strict MVC)
+   - To use AngularJS, you first include the ~angular.js~ script into your page and now you have a set of tools available to you (just like jQuery)
+   - The point of MVC is that it separates out parts of a web application in the same way that front-end developers should separate content (e.g. HTML is content, CSS is presentation0, and JS is behavior)
+   - AngularJS is more of a MVVM (Model-View-ViewModel) because the controller does not really "control" the view directly instead it configures the scope and Angular's binding takes care of the rest and there is no strict enforcement of separation between Model, View, and Controller
+   - AngularJS uses two-way data binding which means when the model changes the view updates and when the view (user input) changes then the model updates which makes it feel like the model and view are tightly linked and the controller just sets things up and responds to events
+   - So the view is what the user sees and this is the HTML page but the great thing about AngularJS is that it allows you to create templates with spaces for particular types of content such as dynamic values so the value can change in HTML
+   - Then in the view (HTML) if the user does some change, AngularJS notices these changes through events fired, captures those changes, and propagate them all the way to the model and updates the model
+   - There can be different views of the same data (e.g. one for users and one for administrators)
+   - The ViewModel (or controller) will update the view if there are changes to the model and will update the model if there are changes in the view, this task of keeping data synchronized between the two is known as data binding (e.g. if a form in the view is updated then it reflects the changes and updates the server)
+   - In a web app, the Model is usually stored in the database and managed by a server-side code that can access and update the model
+   - So when the model has been changed, change notifications are sent to the ViewModel and this info can be passed onto the View to keep it updated
+   - So here is how it works:
+     - In the frontend, AngularJS has templates in HTML that can hold dynamic data (instead of hardcoding some data so this data can be fetched from the db or obtained elsewhere like user input in the web page)
+     - In the frontend, when the user changes the view (e.g. a textbox or clicks a button, etc.) AngularJS uses the event fired to propagate the changes to the ViewModel and then to the actual Model in the backend
+     - In the backend, when the model changes, AngularJS has no way to determine if the model has changed unless it uses some techniques like polling (which it does not) so instead it does "dirty checking" which basically means whenever the view is changed in the frontend, then it checks if any model has changed and propagate that to the view but if no changes happen in the view then it will never check the model even if it did change
+   - This is why the ViewModel is not necessarily a controller because it just binds data (data in HTML is bound to the model and data in the model is bound to the HTML view) while a controller is much more in charge of the data such as handling the data in some way instead of just binding it
+   - To learn more visit the documentation for AngularJS: https://angularjs.org
+   - However, AngularJS seems to be outdated and now Angular is used (https://angular.dev)
+   - Templates and the MVC model are important to AngularJS, now in modern libraries, many still use templates to dynamically insert data (instead of hardcoding or having to write JS code to write dynamic code onto the page) but web development has moved away from the MVC architecture in favor of component based architectures
+       
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term                                    | Definition |
+|-----------------------------------------+------------|
+| Application Programming Interface (API) |            |
+| jQuery UI                               |            |
+| AngularJS                               |            |
+| Model View Controller (MVC)             |            |
 
 * Questions
-  - *Q*:
+  - *Q*: What is model view controller (MVC)?
+
+  - *Q*: What are attribute directives in HTML tags?
+
+  - *Q*: What is component-based architecture and what are the downsides of MVC architecture?
 
 * Summary
