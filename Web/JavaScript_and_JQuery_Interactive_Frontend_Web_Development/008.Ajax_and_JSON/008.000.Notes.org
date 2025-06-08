@@ -250,7 +250,7 @@
 
 ** Section 8.10: jQuery and Ajax
    - jQuery provides several methods that handle Ajax requests
-   - The process involves two steps: maing a request and handling the response
+   - The process involves two steps: making a request and handling the response
 
    | Method          | Description                                                                                 |
    |-----------------+---------------------------------------------------------------------------------------------|
@@ -368,20 +368,54 @@
    - Instead I have placed a video showcasing the project on my website
    - *And* I have also added cat pictures from a public API for you to enjoy
    - [[file:./008.014.Chapter_Exercise/app/index.html][Here is the web application for this chapter]]
+
+** Section 8.15: Chapter Summary
+   - Ajax refers to a group of technologies that allow you to update just one part of the page (rather than reload a whole page)
+   - You can incorporate HTML, XML, or JSON data into your pages
+   - To load JSON from a different domain, you can use JSONP (outdated, instead use CORS) but only if the code is from a trusted source
+   - jQuery has methods that make it easier to use Ajax
+   - ~.load()~ is the simplest way to load HTML into your pages and allows you to update just a part of the page
+   - ~.ajax()~ is more powerful and more complex, however, there are several shorthand methods available with jQuery
+   - It is important to consider how the site will work if the user does not have JS enabled or if the page is not able to access the data from a server
    
 
 * Keywords
-| Term            | Definition                                                                                                                                                                                                                                                                        |
-|-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AJAX            | Ajax (Asynchronous JavaScript and XML) is a technique used in web development to create dynamic and interactive web applications, the idea is that with Ajax the web page is able to communicate with a server and update parts of a web without needing to reload the whole page |
-| Deserialization |                                                                                                                                                                                                                                                                                   |
-| Serialization   |                                                                                                                                                                                                                                                                                   |
-| JSONP           |                                                                                                                                                                                                                                                                                   |
+| Term            | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AJAX            | Ajax (Asynchronous JavaScript and XML) is a technique used in web development to create dynamic and interactive web applications, the idea is that with Ajax the web page is able to communicate with a server and update parts of a web without needing to reload the whole page                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Deserialization | Converting data from a stored or transmitted format back into a usable object or data structure in memory, in JS there is a method called ~JSON.parse()~ which basically takes in JSON (plain text) and converts it into an object literal in JS so now it is no longer plain text but rather a JS object                                                                                                                                                                                                                                                                                                                                                                                     |
+| Serialization   | Serialization is the process of converting data or objects into a format that can be stored or transmitted and later reconstructed (deserialized) back into the original form (used often to convert data into formats that can be easily transmitted over the networks) so in JS there is a ~JSON.stringify()~ method that converts a JS object literal into a plain text string in JSON format (recall JSON is plain text that just uses object literal syntax)                                                                                                                                                                                                                             |
+| JSONP           | JSONP stands for JSON with Padding and it is a technique used to get around the browser’s same-origin policy limitation by using a script tag and then using the src tag to point to the server's endpoint but instead of the server returning JSON, HTML, or XML, it will return plain text but the type will be ~application/javascript~ in other words it is returning JS code and the browser will treat it as such due to the script tag and this JS code will have a function call to one of the local JS function with a JS object literal as the argument and inside the object literal will be the data that the server actually wants to the return to the web app via the function |
 
 * Questions
   - *Q*: What are the actual "techniques" of Ajax?
-  - *Q*: How can we retrieve HTML and XML from different domains?
+         - So Ajax is a technique used in web development that allows web pages to request data from a server and update parts of the page without reloading the entire page
+	 - Ajax enhances user experience, makes web apps faster and interactive, and reduces bandwidth because the web pages does not need to reload entirely
+	 - Despite its name (Asynchronous JavaScript and XML), AJAX is really a development approach that combines several existing technologies (from JS and JS APIs exposed to us by the browser to the server accepting the requests) to create dynamic and responsive web applications
+	 - So Ajax is a technique in the sense of an approach using a set of technologies (apis and servers) to complete that approach
+	 - What is the approach? Well the approach is to load data asynchronously and avoid full page reloads in order to improve user experience
+	   
+  - *Q*: How can we retrieve data (HTML, XML, and JSON) from different domains?
+         - By default browsers enforce a security restriction called same-origin policy meaning you cannot make requests to a different domain (origin) than where the page was loaded from
+	 - To allow for cross-domain requests servers use a protocol called CORS
+	 - CORS is a protocol that basically the server returns the request with a ~Access-Control-Allow-Origin: https://...~ in the header and browser sees this and allows for the response to be read
+	 - CORS is the only correct and secure method for cross-origin requests, you can use JSONP or a proxy file / server but that can had security vulnerabilities to your web app
+    
   - *Q*: What is CORS (cross-origin)?
+         - Cross-Origin Resource Sharing, is a mechanism that allows web servers to control which origins (domains) can access their resources
+	 - It works by adding HTTP headers that inform the browser whether a cross-origin request is permitted
+	 - Here is how it works:
+	   1. Browser sends a request to a domain
+	      a. If domain is the same origin as the web page then allow it to send the request
+	      b. If the domain is different then do a cors check after receiving the response from the server
+	   2. The server returns the header ~Access-Control-Allow-Origin~ with the *domain of the frontend web app (requester)* or a wildcard that includes the domain of the frontend
+	      a. The server can return the header but the domain that it allows may *not* include the domain of the requester
+	      b. Or the server may not even have the header ~Access-Control-Allow-Origin~
+	      c. So 3 possible scenarios, (1) it has the header with the domain of the web app, (2) it has the header without the domain of the web app or (3) it does not have the header
+	   3. Once the browser receives the request from the server, it does a CORS check
+	      a. It first tries to see if ~Access-Control-Allow-Origin~ is in the header, if so, then continue, otherwise the request is finished, the browser does not the let JS code to access the response, and a CORS error is printed onto the console
+	      b. If ~Access-Control-Allow-Origin~ is present but it does not have the domain of the web app then the request is finished, the browser does not let the JS code to access the response and a CORS error is printed
+	      c. If ~Access-Control-Allow-Origin~ is present and the domain of the web app is also present then the browser allows the JS code to get access to the response body (may that be a status of 200, 300, 400, or 500) and then your JS code can do what it needs to do with the response body
 
 * Summary
   - Ajax is technique in web development that allows you to communicate with a server and request and load data without having to refresh the entire page
@@ -410,8 +444,12 @@
   - However for JSON you need to add an extra step and use the deserializing method ~JSON.parse()~ which will convert the plain text to an object in JS
   - Whenever you need to send JSON data back to the server you use the serialization method ~JSON.stringify()~ which converts your JS objects into a string in plain text using JSON notation
   - To get data from different domains without using CORS (which is NOT recommended) is either through a proxy file or JSONP (which is again NOT recommended)
-  - A proxy file can be used by a local program that runs on the same server as your web page, this local program's job is to contact the remote-server and get the info needed and save it in the proxy file, so then the web page can retrieve this info through the proxy file without ever needing to contact the remote server
+  - A proxy file can be used by a local program that runs on the same server as your web page, this local program's job is to contact the remote-server and get the info needed and save it in the proxy file, so then the web page can retrieve this info through the proxy file without ever needing to contact the remote server (instead of a proxy file you can make it as a proxy server)
   - Another way to get data between domains without CORS is through JSONP, which is you use a script tag (this doesn't require CORS) and the src is going to be an endpoint to your remote server, the remote server will then return JavaScript (executable code) with a function name and a JSON object (technically it is not a JSON object but rather a JS object so there is no need for deserialization) as an argument, this is how data is passed, by the JSON argument, so when the browser receives the JS back from the server, and then the browser will call the function (which should be a local function in one of your local JS files) with the JSON object as the argument so now the function has an argument (data) that was given by the server so in the end your function was triggered with some server data by the server without needing to use CORS
   - The methods above are not recommended due to security reasons so it is always recommended to use CORS
-  - 
-  - 
+  - jQuery has many methods to handle Ajax requests but most shorthand functions use jQuery's ~.ajax()~ function 
+  - With jQuery you can sumbit forms by using jQuery's ~.serialize()~ method to collect form data and send the data using the ~.post()~ method
+  - You can also load JSON data using the ~$.getJSON()~ method and after these methods in jQuery you can chain ~.done()~, ~.fail()~, and / or ~.always()~
+  - jQuery has many methods that are easy to use for Ajax but the main method is ~.ajax()~ which allows you to specify various options or "settings"
+  - These settings are passed to ~.ajax()~ as properties in a single object literal so it instead of taking parameters it takes a single object literal with properties representing the settings for ajax
+    
