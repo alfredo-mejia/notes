@@ -183,6 +183,44 @@
    - To learn more visit the documentation for AngularJS: https://angularjs.org
    - However, AngularJS seems to be outdated and now Angular is used (https://angular.dev)
    - Templates and the MVC model are important to AngularJS, now in modern libraries, many still use templates to dynamically insert data (instead of hardcoding or having to write JS code to write dynamic code onto the page) but web development has moved away from the MVC architecture in favor of component based architectures
+
+** Section 9.5: Google Maps API
+   - Many large websites expose their APIs that allow you to access and update the data on their sites including Facebook, Google, and Twitter
+   - By exposing some of the functionality of their platforms these companies are advertising their sites and encouraging people back to them and in turn increasing their total amount of activity and revenue
+   - Typically you can access several of these platform APIs by including a script they provide in your page and this sciprt will typically create an object (just like jQuery) and in turn that object will have methods and properties that you can use to access the data on the platform or even update the data on the platform
+   - Nowadays libraries and other platform APIs are obtained from through other ways than simple script added to your page, it can be obtained through HTTP APIs or through a package manager like npm
+   - Most sites that offer an API will also provide documentation that explains how to use its objects, methods, and properties along with some basic examples
+   - The syntax of platform APIs will vary but the documentation can be used to view what each object, method, and property does and have code examples of common tasks completed by the API
+   - Some APIs may even be offered in various programming languages
+   - One famous API is the Google Maps API which allows you to add Google maps to your web pages
+   - The Google Maps API can also allow you to customize the look of the map and what information is shown on them
+   - Here is the official website of the API and take a look at the documentation: https://developers.google.com/maps
+   - Some APIs require that you register and request an API key in order to get data from their servers
+   - An API key is a set of letters and numbers that uniquely identify you to the application so that the owners of the site can track how much you use the API and what you use it for
+   - In the old days, you didn't need an API key if your site called the Google Maps API 25,000 times or less per day but now to use the Google Maps API you need an API key
+   - Once you have included the Google Maps script in your page, you can use their ~maps~ object and let you display Google maps in your pages
+   - The ~maps~ object is stored within an object called ~google~ (this creates scope for all Google objects)
+   - To add a map to your page, you create a new map object using a constructor: ~Map()~
+   - The constructor is part of the ~maps~ object and it has two parameters:
+     - The element into which you want the map drawn, and
+     - A set of map options that control how it is displayed given using object literal notation
+   - The settings that control how the map should look are stored inside another JS object literal and this object literal is created before you call the ~Map()~ constructor
+   - Inside the object literal you can specify the longitude and latitude of the center of the map, the zoom level for the map, the type of map data you want to show, and more
+   - You then pass the object literal as the second argument to the ~Map()~ constructor
+   - To show or hide the controls, specify in the options the control name (e.g. ~zoomControl~, ~scaleControl~, ~mapTypeControl~, etc.) followed by a value of true (to show it) or false (to hide it) - although Google maps tries to prevent overlaps, use judgement to position controls on your map
+   - Each control has its own options object used to control its style and position and this object is included in the options object literal it has the word "Options" after the control name (e.g. ~zoomControlOptions~) and this property inside the options object literal is another object literal with its own properties (e.g. ~let mapOptions = { zoomControl: true, zoomControlOptions: { position: ... }}~)
+   - You may also change the appearance of certain controls by specifying the styling object inside the options object of the control you want to style (e.g. ~zoomControlStyle~ inside of ~zoomControlOptions~)
+   - You can add markers to the Google Map and more using the Google Maps API
+
+** Section 9.6: Chapter Exercise
+
+** Section 9.7: Summary
+   - APIs are used in browsers, scripts, and by websites that share functionality with other programs or sites
+   - APIs let you write code that will make a request, asking another program or script to do something
+   - APIs also specify the format in which the response will be given (so that the response can be understood)
+   - To use an API on your website, you will need to include a script in the relevant web pages
+   - An API's documentation will usually feature tables of objects, methods, and properties
+   - Given that you know how to create an object and call its methods, access its properties, and respond to its events, you should be able to learn any JS API
        
 * Keywords
 | Term                                    | Definition |
