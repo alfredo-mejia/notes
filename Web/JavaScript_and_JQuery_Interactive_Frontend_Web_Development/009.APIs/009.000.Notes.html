@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-19 Wed 14:36 -->
+<!-- 2025-06-11 Wed 23:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Chapter 9: APIs</title>
+<meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -192,13 +193,499 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
 </head>
 <body>
 <div id="content" class="content">
+<h1 class="title">Chapter 9: APIs</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgba6bf1c">Navigation</a></li>
+<li><a href="#org524c29a">Notes</a>
+<ul>
+<li><a href="#org4497f93">Section 9.1: Introduction</a></li>
+<li><a href="#org7d0f3d2">Section 9.2: JavaScript APIs</a>
+<ul>
+<li><a href="#orgec05b80">Section 9.2.1: Geolocation API</a></li>
+<li><a href="#orgfea3a81">Section 9.2.2: Web Storage API: Storing Data in Browsers</a></li>
+<li><a href="#org552a336">Section 9.2.3: History API &amp; PushState</a></li>
+</ul>
+</li>
+<li><a href="#orgeb573ce">Section 9.3: jQuery UI</a></li>
+<li><a href="#orgb076710">Section 9.4: AngularJS</a></li>
+<li><a href="#orge5db425">Section 9.5: Google Maps API</a></li>
+<li><a href="#org2306147">Section 9.6: Chapter Exercise</a></li>
+<li><a href="#orgb69aa78">Section 9.7: Summary</a></li>
+</ul>
+</li>
+<li><a href="#org06dea15">Keywords</a></li>
+<li><a href="#orga2b5c88">Questions</a></li>
+<li><a href="#org571f547">Summary</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="date">Created: 2025-02-19 Wed 14:36</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+<div id="outline-container-orgba6bf1c" class="outline-2">
+<h2 id="orgba6bf1c">Navigation</h2>
+<div class="outline-text-2" id="text-orgba6bf1c">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 8: AJAX &amp; JSON</td>
+<td class="org-left">&vert; <a href="../008.Ajax_and_JSON/008.000.Notes.html">html</a> &vert; <a href="../008.Ajax_and_JSON/008.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/008.Ajax_and_JSON">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 10: Error Handling &amp; Debugging</td>
+<td class="org-left">&vert; <a href="../010.Error_Handling_and_Debugging/010.000.Notes.html">html</a> &vert; <a href="../010.Error_Handling_and_Debugging/010.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/010.Error_Handling_and_Debugging">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org524c29a" class="outline-2">
+<h2 id="org524c29a">Notes</h2>
+<div class="outline-text-2" id="text-org524c29a">
+</div>
+<div id="outline-container-org4497f93" class="outline-3">
+<h3 id="org4497f93">Section 9.1: Introduction</h3>
+<div class="outline-text-3" id="text-org4497f93">
+<ul class="org-ul">
+<li>User interfaces allow humans to interact with programs and API (Application Programming Interfaces (APIs) let programs (including scripts) talk to each other</li>
+<li>Browsers, scripts, websites, and other applications frequently open up some of their functionality so that programmers can interact with them</li>
+<li>For example,
+<ul class="org-ul">
+<li>DOM is an API which the browser exposes to the scripts so it can access and update contents on the web page</li>
+<li>jQuery is a library (collection of code) but it provides its own API (an interface) to interact and use the functionality of the library (e.g. <code>$()</code> is part of the jQuery API because with this function it gives scripts a way to use their library)</li>
+<li>Many social media websites provide APIs to get some type of data from their website</li>
+</ul></li>
+<li>You do not need to know how the other script or program achieves its task; you only need to know what the API does, how to ask it to do something, and how to understand its replies</li>
+<li>You do not always need to know how a script or program works as long as you know how to ask it to do something and how to process its response (so the questions you ask and format of the answers form the API)</li>
+<li>If there is a script or program that offers functionality you need consider using it rather than writing something from scratch but first understand what the API allows you to do (e.g. DOM API allow you to access and update content on a web page, social media sites allow you to access some type of data from their site, etc.)</li>
+<li>When you know what the API allows you to do then you can decide if it is the right tool for the job</li>
+<li>Then you need to know how to access the functionality of the API in order to use it (e.g. DOM API is built in, jQuery API comes from the jQuery script file, other APIs might be used differently)</li>
+<li>Finally, you need to know how to ask the API to do something and the format in which you should expect any replies (e.g. JS APIs need you to call a function, create an object, and access properties and mehtods)</li>
+<li>So APIs have 3 fundamental parts: understand what the API does, understand how to access the API, and understand the syntax to call the API and expected results from the API</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7d0f3d2" class="outline-3">
+<h3 id="org7d0f3d2">Section 9.2: JavaScript APIs</h3>
+<div class="outline-text-3" id="text-org7d0f3d2">
+<ul class="org-ul">
+<li>When you write code that uses the new JS APIs (or any other new feature in a web browser), you may need to check if the browser supports that feature before your code tries to use it</li>
+<li>In the new JS APIs, browsers usually use objects to implement new functionality</li>
+<li>So it is possible to check whether a browser supports an object using a conditional statement using the following syntax:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">if (navigator.geolocation) {
+    // suports it
+}
+
+else {
+    // does not support it
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Note that this is just an example and <code>navigator</code> is one of the browser's global objects exposed via an API but we are checking if <code>geolocation</code> object is supported</li>
+<li>However, at the time of the book, there were cross-browser issues with using this type of feature detection as shown above</li>
+<li>Instead the book recommends a library called Modernizr which is a script you can use in your pages to tell whether the browser supports features in HTML, CSS, and JS</li>
+<li>You can get Modernizr from their website but the cool thing about Modernizr is that they allow you to choose which features you want to test and only download the script that only has the capabilities of checking the features you have selected</li>
+<li>This makes the script small and custom because you do not want to test for features that you do not use as it would slow your site down</li>
+<li>When you include the Modernizr script in your page, it adds an object called <code>Modernizr</code> which tests whether the browser supports the features that you specified that it should test for by having each feature you want it to test as a property of <code>Modernizr</code> and the property values are a boolean (true or false) value that will tell you if a feature is supported</li>
+<li>For example, you can do <code>if (Modernizr.geolocation)</code> so if it returns true then geolocation is supported otherwise it is not supported</li>
+</ul>
+</div>
+
+<div id="outline-container-orgec05b80" class="outline-4">
+<h4 id="orgec05b80">Section 9.2.1: Geolocation API</h4>
+<div class="outline-text-4" id="text-orgec05b80">
+<ul class="org-ul">
+<li>The user's location can be requested using the geolocation API</li>
+<li>Browsers that implement the geolocation API let users share their location with websites</li>
+<li>The location data is provided in the form of longitude and latitude points</li>
+<li>There are several ways for the browser to determine its location including using data from its IP address, wireless network connection, cell towers, or GPS hardware</li>
+<li>In some devices, the geolocation API can give you more data along with longitude and latitude</li>
+<li>The geolocation API is available by default in any browser that supports it (just like the DOM API is available)</li>
+<li>Browsers that support geolocation allow users to turn the feature on and off so if it is on then the browser will ask if they want to share data for each individual web site that requests that info</li>
+<li>The way in which the browser asks the user if they will share their location differs from one browser to the next and one device to the next</li>
+<li>The geolocation API relies on an object called <code>geolocation</code> and if you want to try and make use of the user's location, first you need to check if the browser supports this object
+<ul class="org-ul">
+<li>Use a conditional check to see if the browser supports geolocation</li>
+<li>If geolocation is supported then the browser returns a truthy value and the first set of statements run and request the user's location using the <code>geolocation</code> object's <code>getCurrentPosition()</code> method</li>
+<li>If geolocation is not supported then a second set of statements is run</li>
+</ul></li>
+<li>Once you call the <code>getCurrentPosition()</code> method the code continues onto the next line because it is an asynchronous request (similar to Ajax) so the user does not have to wait and can continue to use the web app</li>
+<li>The method has two parameters: <code>getCurrentPosition(success, fail)</code>
+<ul class="org-ul">
+<li>success: the name of a function or anonymous function to call if the longitude and latitude are successfully returned and this function should have a parameter for the object <code>position</code> because the callback will automatically be called with an argument which is an object called <code>position</code> which holds the user's location</li>
+<li>fail: callback function (name or anonymous) that is called if the details cannot be obtained and this function will be called automatically with an argument which is an object called <code>PositionError</code> containing details about the error</li>
+</ul></li>
+<li>So there are 3 objects to work with geolocation API: <code>geolocation</code>, <code>position</code>, and <code>positionError</code></li>
+<li>Here is an example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript">navigator.geolocation.getCurrentPosition(
+    function (position) {
+        console.log("Latitude: ", position.coords.latitude);
+    },
+
+    function (error) { // PositionError object
+        console.log("Error: ", error.message);
+    }
+);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><code>geolocation</code> object: Used to request location data, it is a child of the <code>navigator</code> object</li>
+<li><code>getCurrentPosition(success, fail, options)</code> method: Requests the position of the user end and if the user permits returns the user's latitude / longitude plus other location information (success &amp; fail are callback functions)</li>
+<li><code>Position</code> object: A <code>Position</code> object is sent to the success callback function and it has a child object called <code>coords</code> whose properties hold the user's location and that object has further properties such as <code>coords.latitude</code>, <code>coords.longitude</code>, <code>coords.accuracy</code>, <code>coords.altitude</code>, etc. while some properties are required (meaning they will be present in the <code>coords</code> object) other properties are optional (may not be present or have null values) and may depend on the device's capabilities</li>
+<li><code>PositionError</code> object: If location is not determined this object is passed to the fail callback function which also has properties such as <code>PositionError.code</code> and <code>PositionError.message</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfea3a81" class="outline-4">
+<h4 id="orgfea3a81">Section 9.2.2: Web Storage API: Storing Data in Browsers</h4>
+<div class="outline-text-4" id="text-orgfea3a81">
+<ul class="org-ul">
+<li>Web storage lets you store data in the browser and there are two different types of storage: local and session storage</li>
+<li>Before cookies were the main mechanism for storing info in the browser but cookies have several limitations including:
+<ul class="org-ul">
+<li>Not able to hold much data</li>
+<li>Sent to the server every time you request a page from that domain</li>
+<li>Not considered secure</li>
+</ul></li>
+<li>However there is now a storage object (introduced with HTML5 and its other web techologies)</li>
+<li>There are two different flavors of the storage object: <code>localStorage</code> and <code>sessionStorage</code></li>
+<li>Both use the same methods and properties but the differences are how long the data is stored for and whether all tabs can access the data that is being stored</li>
+<li><code>localStorage</code> can store data even when you close a window / tab and it can have other windows / tabs access the data</li>
+<li><code>sessionStorage</code> can store data but it <b>cannot</b> be stored when a window / tab is closed and <b>not</b> all windows / tabs can access the data</li>
+<li>Commonly browsers store 5 MB of data per domain in a storage object and if a site tries to store more than 5MB of data then the browser will usually ask the user whether they want to allow this site to store more info (never rely on users agreeing to give a site more space)</li>
+<li>The data is stored as properties of the storage objects using key / value pairs and the value in the pair is always a string</li>
+<li>To protect the information that a websites stores in these storage objects, browsers employ a same origin policy which means data can only be access by other pages in the same domain</li>
+<li>The four parts of the URL must match: protocol (http or https), subdomain (before the domain name such as maps in maps.google.com or www in www.google.com), domain (google.com, facebook.com, etc.) and the port number</li>
+<li>There are other ways to store data such as the FileSystem API (file system) and client side databases such as the Web SQL database</li>
+<li>Both of these objects are implemented on the <code>window</code> object so you do not need to prefix the method names with any other object name (since <code>window</code> is already the default global object)</li>
+<li>To save an item into the storage object you use the <code>setItem()</code> method which takes two parameters: the name of the key and the value associated with it</li>
+<li>To retrieve a value from the storage object you use the <code>getItem()</code> method passing it the key</li>
+<li>Data for the storage objects is stored and accessed in a synchronous manner so all other processing stops while the script accesses or saves the data (so if a lot data is regularly accessed or stored the site can appear slower to use)</li>
+<li>You can also set and retrieve keys and values of the storage objects using dot notation (e.g. <code>localStorage.age = 12</code>)</li>
+<li>Storage objects are commonly used to store JSON-formatted data by using JSON object's <code>parse()</code> method and <code>stringify()</code> method</li>
+<li>So you can use the following methods for both <code>localStorage</code> and <code>sessionStorage</code>:
+<ul class="org-ul">
+<li><code>setItem(key, value)</code>: Creates a new key / value pair</li>
+<li><code>getItem(key)</code>: Gets the value for the specified key</li>
+<li><code>removeItem(key)</code>: Removes the key / value pair for the specified key</li>
+<li><code>clear()</code>: Clears all information from the storage object</li>
+<li><code>length</code> (property): Number of keys</li>
+</ul></li>
+<li><code>sessionStorage</code> may be better suited for info that changes frequently (e.g. each time the user visits the site they log in or location data) or if the info is personal and should not be viewed by other users on the devices</li>
+<li><code>localStorage</code> is best suited for info that only changes at set intervals (e.g. price lists) and the user may want to come back and use again (e.g. saving preferences / settings)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org552a336" class="outline-4">
+<h4 id="org552a336">Section 9.2.3: History API &amp; PushState</h4>
+<div class="outline-text-4" id="text-org552a336">
+<ul class="org-ul">
+<li>If you move from one to another the browser's history remembers which pages you visited</li>
+<li>So each tab or window in the browser keeps its own history of pages you have viewed so when you visit a new page in that tab or window, the URL is added to the list of pages you have visited in the history</li>
+<li>Because of the history, you can use the back and forward buttons in a browser to move between pages you have visited in that tab or window</li>
+<li>However on sites that use Ajax to load information, the URL is not automatically updated and the back button might not show the last thing the user was actually viewing</li>
+<li>The <code>history</code> object inside the history API can be used to fix the problem by using the browser's history stack with the methods <code>pushState()</code> and <code>replaceState()</code> (and addition extra info can be stored with each item)</li>
+<li>So now using the <code>history</code> object when an Ajax request is made the user can be shown the right content when they press back or forward buttons</li>
+<li>The browser keeps the user's history in something called the <b>history stack</b> so as you enter new addresses new URLs are added to the stack</li>
+<li>This history stack is a pile of states (one on top of the other) where state refers to the condition that something is in at a particular time</li>
+<li>So the methods <code>pushState()</code> adds an entry to the <code>history</code> object while <code>replaceState()</code> updates the current entry</li>
+<li>Because the <code>history</code> object is a child of the <code>window</code> object you can use its name directly in the script such as <code>history.pushState()</code> instead of <code>window.history.pushState()</code></li>
+<li>Both methods take up 3 parameters: state, title, url (e.g. <code>history.pushState(state, title, url)</code>
+<ul class="org-ul">
+<li>State: Information that is stored with each item in the history stack and it can be retrieved when you back to that page</li>
+<li>Title: Ignored by most browsers but it is intended to represent the title of the new history entry</li>
+<li>URL: The url that you want the browser to show for this page (it must be on the same origin as the current URL and it should show the correct content if the user goes back to that url)</li>
+</ul></li>
+<li>Adding content to the browser history is only part of the solution but the other half is loading the right content when the user presses the back or forward buttons so to help show the right content the <code>onpopstate</code> event fires whenever the user requests a new page</li>
+<li>The <code>onpopstate</code> event is used to trigger a function that will load the appropriate content into the page and there are two ways to determine what content should be loaded into the page: the <code>location</code> object (which represents the browser's location bar) and the <code>state</code> information in the <code>history</code> object</li>
+<li>If you use the <code>location</code> object then whenever the user presess back or forward the address bar will update itself and you can get the URL for the page that should be loaded using <code>location.pathname</code> (<code>location</code> object is a child of <code>window</code>)</li>
+<li>Or you can use the state saved when the method <code>pushState()</code> was called since it stores data for that page you can use it to store JSON-formatted data and the data can then be loaded directly into the page (this is often used when new content loads data rather than a traditional web page)</li>
+<li>So the history API lets you access and update the browser history but only for pages the user visited on your site</li>
+<li>Even if the visitor is not taken to a new page in the browser window (e.g. only a part of the page is updated using Ajax), you can modify the history object to ensure that the back and forward buttons work as the user would expect them to on non-Ajax pages</li>
+<li>Here are some properties, events, and methods of the <code>history</code> object:
+<ul class="org-ul">
+<li><code>history.back()</code>: takes you back in the history stack</li>
+<li><code>history.forward()</code>: takes you forward in the history stack</li>
+<li><code>history.go()</code>: takes you to a specific page in the history by specifying a number relative to where you are which is index zero, so <code>.go(1)</code> is like clicking forward and <code>.go(-1)</code> is like clicking back</li>
+<li><code>history.pushState()</code>: Adds an item to the history stack</li>
+<li><code>history.replaceState()</code>: Does the same as <code>pushState()</code> except it modifies the current history entry</li>
+<li><code>length</code> (property): Tells you how many items are in the history object</li>
+<li><code>window.onpopstate</code> (event): Used to handle the user moving backwards or forwards</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeb573ce" class="outline-3">
+<h3 id="orgeb573ce">Section 9.3: jQuery UI</h3>
+<div class="outline-text-3" id="text-orgeb573ce">
+<ul class="org-ul">
+<li>There are hundreds of scripts available for free on the web and many of the scripts have an API you need to use to get them to work for you</li>
+<li>Using someone else's library may be good because that means you do not need to make it yourself and do more work but also make sure the library is trustworthy so see if it has been updated fairly recently, what are the library's future plans, the JS is separate from HTML, and it has been reviewed by other people</li>
+<li>jQuery plugins are additional code and scripts that add methods to extend the <code>jQuery</code> object</li>
+<li>When you use these plugins, first you include the jQuery script, followed by the plugin script then you begin using jQuery and the jQuery plugins by using the new methods offering new functionality that was not in the original jQuery script</li>
+<li>The jQuery foundation maintain its own set of jQuery plugins called jQuery UI which help create user interfaces</li>
+<li>jQuery UI is a suite of jQuery plugins that extends jQuery with a set of methods to create: widgets (such as accordions and tabs), effects (make elements appear and disappear), and interactions (such as drag and drop functionality)</li>
+<li>jQuery UI comes with a set of themes that help control how the plugins look on the page or for even finer control on how jQuery plugins look in the browser you can also use the <b>theme roller</b> which gives you more precise control over the appearance of the elements</li>
+<li>To use jQuery UI, you must include jQuery in your page and then you must include the jQuery UI script after the jQuery file</li>
+<li>To download the file and view how to use the library and its syntax, visit its official website: <a href="https://jqueryui.com">https://jqueryui.com</a></li>
+<li>Note that when a jQuery plugin has settings that vary each time it is used, it is common to pass the settings in an object literal</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb076710" class="outline-3">
+<h3 id="orgb076710">Section 9.4: AngularJS</h3>
+<div class="outline-text-3" id="text-orgb076710">
+<ul class="org-ul">
+<li>Another library but it is very different than jQuery and its purpose is to make it easier to develop web apps (e.g. allows you to access and update contents of a page without writing code to handle events, select elements, or update the content of an element)</li>
+<li>AngularJS is a framework that makes it easier to create web apps, specifically web apps that write, read, update, and delete data in a database on a server</li>
+<li>Angular is based on a software development called model view controller or MVC (it is actually a variant on MVC not strict MVC)</li>
+<li>To use AngularJS, you first include the <code>angular.js</code> script into your page and now you have a set of tools available to you (just like jQuery)</li>
+<li>The point of MVC is that it separates out parts of a web application in the same way that front-end developers should separate content (e.g. HTML is content, CSS is presentation0, and JS is behavior)</li>
+<li>AngularJS is more of a MVVM (Model-View-ViewModel) because the controller does not really "control" the view directly instead it configures the scope and Angular's binding takes care of the rest and there is no strict enforcement of separation between Model, View, and Controller</li>
+<li>AngularJS uses two-way data binding which means when the model changes the view updates and when the view (user input) changes then the model updates which makes it feel like the model and view are tightly linked and the controller just sets things up and responds to events</li>
+<li>So the view is what the user sees and this is the HTML page but the great thing about AngularJS is that it allows you to create templates with spaces for particular types of content such as dynamic values so the value can change in HTML</li>
+<li>Then in the view (HTML) if the user does some change, AngularJS notices these changes through events fired, captures those changes, and propagate them all the way to the model and updates the model</li>
+<li>There can be different views of the same data (e.g. one for users and one for administrators)</li>
+<li>The ViewModel (or controller) will update the view if there are changes to the model and will update the model if there are changes in the view, this task of keeping data synchronized between the two is known as data binding (e.g. if a form in the view is updated then it reflects the changes and updates the server)</li>
+<li>In a web app, the Model is usually stored in the database and managed by a server-side code that can access and update the model</li>
+<li>So when the model has been changed, change notifications are sent to the ViewModel and this info can be passed onto the View to keep it updated</li>
+<li>So here is how it works:
+<ul class="org-ul">
+<li>In the frontend, AngularJS has templates in HTML that can hold dynamic data (instead of hardcoding some data so this data can be fetched from the db or obtained elsewhere like user input in the web page)</li>
+<li>In the frontend, when the user changes the view (e.g. a textbox or clicks a button, etc.) AngularJS uses the event fired to propagate the changes to the ViewModel and then to the actual Model in the backend</li>
+<li>In the backend, when the model changes, AngularJS has no way to determine if the model has changed unless it uses some techniques like polling (which it does not) so instead it does "dirty checking" which basically means whenever the view is changed in the frontend, then it checks if any model has changed and propagate that to the view but if no changes happen in the view then it will never check the model even if it did change</li>
+</ul></li>
+<li>This is why the ViewModel is not necessarily a controller because it just binds data (data in HTML is bound to the model and data in the model is bound to the HTML view) while a controller is much more in charge of the data such as handling the data in some way instead of just binding it</li>
+<li>To learn more visit the documentation for AngularJS: <a href="https://angularjs.org">https://angularjs.org</a></li>
+<li>However, AngularJS seems to be outdated and now Angular is used (<a href="https://angular.dev">https://angular.dev</a>)</li>
+<li>Templates and the MVC model are important to AngularJS, now in modern libraries, many still use templates to dynamically insert data (instead of hardcoding or having to write JS code to write dynamic code onto the page) but web development has moved away from the MVC architecture in favor of component based architectures</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge5db425" class="outline-3">
+<h3 id="orge5db425">Section 9.5: Google Maps API</h3>
+<div class="outline-text-3" id="text-orge5db425">
+<ul class="org-ul">
+<li>Many large websites expose their APIs that allow you to access and update the data on their sites including Facebook, Google, and Twitter</li>
+<li>By exposing some of the functionality of their platforms these companies are advertising their sites and encouraging people back to them and in turn increasing their total amount of activity and revenue</li>
+<li>Typically you can access several of these platform APIs by including a script they provide in your page and this sciprt will typically create an object (just like jQuery) and in turn that object will have methods and properties that you can use to access the data on the platform or even update the data on the platform</li>
+<li>Nowadays libraries and other platform APIs are obtained from through other ways than simple script added to your page, it can be obtained through HTTP APIs or through a package manager like npm</li>
+<li>Most sites that offer an API will also provide documentation that explains how to use its objects, methods, and properties along with some basic examples</li>
+<li>The syntax of platform APIs will vary but the documentation can be used to view what each object, method, and property does and have code examples of common tasks completed by the API</li>
+<li>Some APIs may even be offered in various programming languages</li>
+<li>One famous API is the Google Maps API which allows you to add Google maps to your web pages</li>
+<li>The Google Maps API can also allow you to customize the look of the map and what information is shown on them</li>
+<li>Here is the official website of the API and take a look at the documentation: <a href="https://developers.google.com/maps">https://developers.google.com/maps</a></li>
+<li>Some APIs require that you register and request an API key in order to get data from their servers</li>
+<li>An API key is a set of letters and numbers that uniquely identify you to the application so that the owners of the site can track how much you use the API and what you use it for</li>
+<li>In the old days, you didn't need an API key if your site called the Google Maps API 25,000 times or less per day but now to use the Google Maps API you need an API key</li>
+<li>Once you have included the Google Maps script in your page, you can use their <code>maps</code> object and let you display Google maps in your pages</li>
+<li>The <code>maps</code> object is stored within an object called <code>google</code> (this creates scope for all Google objects)</li>
+<li>To add a map to your page, you create a new map object using a constructor: <code>Map()</code></li>
+<li>The constructor is part of the <code>maps</code> object and it has two parameters:
+<ul class="org-ul">
+<li>The element into which you want the map drawn, and</li>
+<li>A set of map options that control how it is displayed given using object literal notation</li>
+</ul></li>
+<li>The settings that control how the map should look are stored inside another JS object literal and this object literal is created before you call the <code>Map()</code> constructor</li>
+<li>Inside the object literal you can specify the longitude and latitude of the center of the map, the zoom level for the map, the type of map data you want to show, and more</li>
+<li>You then pass the object literal as the second argument to the <code>Map()</code> constructor</li>
+<li>To show or hide the controls, specify in the options the control name (e.g. <code>zoomControl</code>, <code>scaleControl</code>, <code>mapTypeControl</code>, etc.) followed by a value of true (to show it) or false (to hide it) - although Google maps tries to prevent overlaps, use judgement to position controls on your map</li>
+<li>Each control has its own options object used to control its style and position and this object is included in the options object literal it has the word "Options" after the control name (e.g. <code>zoomControlOptions</code>) and this property inside the options object literal is another object literal with its own properties (e.g. <code>let mapOptions = { zoomControl: true, zoomControlOptions: { position: ... }}</code>)</li>
+<li>You may also change the appearance of certain controls by specifying the styling object inside the options object of the control you want to style (e.g. <code>zoomControlStyle</code> inside of <code>zoomControlOptions</code>)</li>
+<li>You can add markers to the Google Map and more using the Google Maps API</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2306147" class="outline-3">
+<h3 id="org2306147">Section 9.6: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org2306147">
+<ul class="org-ul">
+<li>This chapter inspired me to do a project that required more effort</li>
+<li>I am going to do a project called Populus meaning "the people" in latin which will use the decennial data obtained by the U.S. Census Bureau</li>
+<li>The web app will have an interactive map that can easily extract and visualize information from the decennial data</li>
+<li>The user will have control of what they want to see</li>
+<li>To view the entire requirements, you can start at the Product Requirements: <a href="https://github.com/alfredo-mejia/populus/wiki/Product-Requirements">https://github.com/alfredo-mejia/populus/wiki/Product-Requirements</a></li>
+<li>Here is the repo: <a href="https://github.com/alfredo-mejia/populus">https://github.com/alfredo-mejia/populus</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb69aa78" class="outline-3">
+<h3 id="orgb69aa78">Section 9.7: Summary</h3>
+<div class="outline-text-3" id="text-orgb69aa78">
+<ul class="org-ul">
+<li>APIs are used in browsers, scripts, and by websites that share functionality with other programs or sites</li>
+<li>APIs let you write code that will make a request, asking another program or script to do something</li>
+<li>APIs also specify the format in which the response will be given (so that the response can be understood)</li>
+<li>To use an API on your website, you will need to include a script in the relevant web pages</li>
+<li>An API's documentation will usually feature tables of objects, methods, and properties</li>
+<li>Given that you know how to create an object and call its methods, access its properties, and respond to its events, you should be able to learn any JS API</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org06dea15" class="outline-2">
+<h2 id="org06dea15">Keywords</h2>
+<div class="outline-text-2" id="text-org06dea15">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Application Programming Interface (API)</td>
+<td class="org-left">An API is a set of rules to allow to software applications to communicate, in essence, the API is the tool or software that acts as the intermediary allowing both applications to talk to each other and exchange information</td>
+</tr>
+
+<tr>
+<td class="org-left">jQuery UI</td>
+<td class="org-left">jQuery UI is a JS library built on top of jQuery that helps create user interface interactions, effects, widgets, and themes (you need jQuery to use jQuery UI)</td>
+</tr>
+
+<tr>
+<td class="org-left">AngularJS</td>
+<td class="org-left">AngularJS is a JS framework that was created by Google to build dynamic and interactive single-page web applications by providing a set of tools like data binding, directives, dependency injection, and templating to help build client-side applications</td>
+</tr>
+
+<tr>
+<td class="org-left">Model View Controller (MVC)</td>
+<td class="org-left">MVC is a design pattern used for organizing and structuring applications, it tries to separate the application's logic into 3 components: Model, View, and Controller each having its own responsibilities and tasks and by separating the logic into 3 parts it helps organize the code and maintain the code</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga2b5c88" class="outline-2">
+<h2 id="orga2b5c88">Questions</h2>
+<div class="outline-text-2" id="text-orga2b5c88">
+<ul class="org-ul">
+<li><b>Q</b>: What is model view controller (MVC)?
+<ul class="org-ul">
+<li>MVC is a design pattern used for organizing and structuring applications</li>
+<li>It separates the application into 3 main components: Model, View, and Controller</li>
+<li>By separating into 3 components it helps organize the code, maintain the code, and scale the code easily</li>
+<li>The model represents the data and business logic of the application</li>
+<li>The model is responsible for managing the data such as retrieving data, handling business rules like validation, and notifying the controller and view when data changes</li>
+<li>The view is the user interface of the application and it displays the data to the user and allows them to interact with the application</li>
+<li>The view gets its data from the model and views do not contain any logic, their whole job is to simply display the data</li>
+<li>The controller acts as an intermediary between the model and the view</li>
+<li>The controller processes user input (e.g. clicks and submissions), it retrieves the data, manipulate the data if needed, and updates the view</li>
+<li>So we have 3 components: view (display data), controller (handle any changes in the view or model), and the model (get the data and apply any business logic)</li>
+<li>The view displays the data, the controller is responsible of handling UI events, handling the request to accomodate what the user is doing in the UI, thus the controller may request data or modify the request of data, the model gets the request from the controller, applies any business logic and returns the data, and when the controller gets it back it applies any logic that it needs to safely display it back to the UI</li>
+<li>The view displays the data, the controller ensures it handles the inputs from the user in the view and calls the model API to specify what data it needs and when the data comes back it is passed along to the view, and the model applys any checks before getting and sending the data back to the controller</li>
+<li>MVC was a popular architecture design but over the years have lost favor to other modern architectures</li>
+</ul></li>
+
+<li><b>Q</b>: What are attribute directives in HTML tags?
+<ul class="org-ul">
+<li>"Attribute directives" are AngularJS term coined for their specific custom attributes</li>
+<li>Recall that custom attributes can be added to any HTML tag and it can be processed in JS</li>
+<li>What Angular does is that it creates these custom attributes called "attribute directives"</li>
+<li>These attribute directives which are simply custom attributes are added to the templates</li>
+<li>Once Angular processes these templates to create the final HTML files that will be in the browser, it applies any attribute directive logic</li>
+<li>Then in final HTML it shows the affects of these attribute directives</li>
+</ul></li>
+
+<li><b>Q</b>: What is component-based architecture and what are the downsides of MVC architecture?
+<ul class="org-ul">
+<li>Component based architecture is a design approach where an application's frontend is built by resuable pieces called components</li>
+<li>These components are self contained unit with its own HTML or template, JS logic, and CSS</li>
+<li>Each component manages its own state and lifecyle and communicates with other components via inputs, outputs, or shared services</li>
+<li>You start to build the app by creating components which are the atomic part, then you create other components with existing components, eventually nesting these components into a single component made up of multiple components which turns out to be the web app</li>
+<li>The great thing of components is that you can test components individually, you can maintain each component individually, you can reuse each component, you keep each component separate, and allows you to scale your project</li>
+<li>In a way, we are building very small web apps with each component because each component has its HTML, its CSS, and its JS</li>
+<li>The downside of MVC is that the view, model, and controller are all separate so if you wanted to reuse a small part of the web app you will need to reusue parts of the view, model, and controller whereas in components they are together into a single component</li>
+<li>In addition as the MVC gets larger it is harder to understand what each piece of the web app accomplishes but with components since components tend to be small or made up of other components you can eventually figure out what each component does</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org571f547" class="outline-2">
+<h2 id="org571f547">Summary</h2>
+<div class="outline-text-2" id="text-org571f547">
+<ul class="org-ul">
+<li>Application Programming Interfaces (APIs) are a set of software and tools that allow applications, including scripts, communicate with each other</li>
+<li>Some examples of an API are the DOM API because they allow our scripts to communicate with the browser, the jQuery API because they allow our script to communicate with the jQuery library, and many others are used throughout the world</li>
+<li>To use an API, you do not need to know how it does the task or how it works, as long as you know what it does, how to call it, and what to expect back then you should be able to use APIs</li>
+<li>So APIs have 3 fundamental parts: understand what the API does, understand how to access the API, and understand the syntax to call the API and the expected results from the API</li>
+<li>If there is a trusted API that you can use instead of wirting your own code then use it, it will save you time</li>
+<li>Some new APIs may not be supported by your browser so if the API is new it is always good to check if the browser supports the API object (typically APIs have a global object to use the API from) by using a conditional statement following the syntax: <code>if (apiobject)</code></li>
+<li>There is a library called Modernizr which helps you determine which JS APIs are supported in your browser but it does something very similar like the conditional statement we showed in the line above</li>
+<li>In this chapter, we went over the geolocation api which requests the user's location, the web storage api which allows scripts to store local storage or session storage, and the history API which allow you to explore and manipulate the history stack</li>
+<li>The geolocation api, web storage api, and history api are all browser JS APIs</li>
+<li>In this chapter we also went over the jQuery UI, the AngularJS framework, and the Google Maps API</li>
+<li>The technologies above are outdated and typically APIs are not needed to be studied because when you use them you will be looking at documentation</li>
+</ul>
+</div>
+</div>
 </div>
 </body>
 </html>

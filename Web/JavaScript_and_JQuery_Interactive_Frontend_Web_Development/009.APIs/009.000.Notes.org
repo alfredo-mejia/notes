@@ -213,6 +213,12 @@
    - You can add markers to the Google Map and more using the Google Maps API
 
 ** Section 9.6: Chapter Exercise
+   - This chapter inspired me to do a project that required more effort
+   - I am going to do a project called Populus meaning "the people" in latin which will use the decennial data obtained by the U.S. Census Bureau
+   - The web app will have an interactive map that can easily extract and visualize information from the decennial data
+   - The user will have control of what they want to see
+   - To view the entire requirements, you can start at the Product Requirements: https://github.com/alfredo-mejia/populus/wiki/Product-Requirements
+   - Here is the repo: https://github.com/alfredo-mejia/populus   
 
 ** Section 9.7: Summary
    - APIs are used in browsers, scripts, and by websites that share functionality with other programs or sites
@@ -223,18 +229,56 @@
    - Given that you know how to create an object and call its methods, access its properties, and respond to its events, you should be able to learn any JS API
        
 * Keywords
-| Term                                    | Definition |
-|-----------------------------------------+------------|
-| Application Programming Interface (API) |            |
-| jQuery UI                               |            |
-| AngularJS                               |            |
-| Model View Controller (MVC)             |            |
+| Term                                    | Definition                                                                                                                                                                                                                                                                                                     |
+|-----------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Application Programming Interface (API) | An API is a set of rules to allow to software applications to communicate, in essence, the API is the tool or software that acts as the intermediary allowing both applications to talk to each other and exchange information                                                                                 |
+| jQuery UI                               | jQuery UI is a JS library built on top of jQuery that helps create user interface interactions, effects, widgets, and themes (you need jQuery to use jQuery UI)                                                                                                                                                |
+| AngularJS                               | AngularJS is a JS framework that was created by Google to build dynamic and interactive single-page web applications by providing a set of tools like data binding, directives, dependency injection, and templating to help build client-side applications                                                    |
+| Model View Controller (MVC)             | MVC is a design pattern used for organizing and structuring applications, it tries to separate the application's logic into 3 components: Model, View, and Controller each having its own responsibilities and tasks and by separating the logic into 3 parts it helps organize the code and maintain the code |
 
 * Questions
   - *Q*: What is model view controller (MVC)?
-
+         - MVC is a design pattern used for organizing and structuring applications
+	 - It separates the application into 3 main components: Model, View, and Controller
+	 - By separating into 3 components it helps organize the code, maintain the code, and scale the code easily
+	 - The model represents the data and business logic of the application
+	 - The model is responsible for managing the data such as retrieving data, handling business rules like validation, and notifying the controller and view when data changes
+	 - The view is the user interface of the application and it displays the data to the user and allows them to interact with the application
+	 - The view gets its data from the model and views do not contain any logic, their whole job is to simply display the data
+	 - The controller acts as an intermediary between the model and the view
+	 - The controller processes user input (e.g. clicks and submissions), it retrieves the data, manipulate the data if needed, and updates the view
+	 - So we have 3 components: view (display data), controller (handle any changes in the view or model), and the model (get the data and apply any business logic)
+	 - The view displays the data, the controller is responsible of handling UI events, handling the request to accomodate what the user is doing in the UI, thus the controller may request data or modify the request of data, the model gets the request from the controller, applies any business logic and returns the data, and when the controller gets it back it applies any logic that it needs to safely display it back to the UI
+	 - The view displays the data, the controller ensures it handles the inputs from the user in the view and calls the model API to specify what data it needs and when the data comes back it is passed along to the view, and the model applys any checks before getting and sending the data back to the controller
+         - MVC was a popular architecture design but over the years have lost favor to other modern architectures
+	   
   - *Q*: What are attribute directives in HTML tags?
+         - "Attribute directives" are AngularJS term coined for their specific custom attributes
+	 - Recall that custom attributes can be added to any HTML tag and it can be processed in JS
+	 - What Angular does is that it creates these custom attributes called "attribute directives"
+	 - These attribute directives which are simply custom attributes are added to the templates
+	 - Once Angular processes these templates to create the final HTML files that will be in the browser, it applies any attribute directive logic
+	 - Then in final HTML it shows the affects of these attribute directives
 
   - *Q*: What is component-based architecture and what are the downsides of MVC architecture?
+         - Component based architecture is a design approach where an application's frontend is built by resuable pieces called components
+	 - These components are self contained unit with its own HTML or template, JS logic, and CSS
+	 - Each component manages its own state and lifecyle and communicates with other components via inputs, outputs, or shared services
+	 - You start to build the app by creating components which are the atomic part, then you create other components with existing components, eventually nesting these components into a single component made up of multiple components which turns out to be the web app
+	 - The great thing of components is that you can test components individually, you can maintain each component individually, you can reuse each component, you keep each component separate, and allows you to scale your project
+	 - In a way, we are building very small web apps with each component because each component has its HTML, its CSS, and its JS
+	 - The downside of MVC is that the view, model, and controller are all separate so if you wanted to reuse a small part of the web app you will need to reusue parts of the view, model, and controller whereas in components they are together into a single component
+	 - In addition as the MVC gets larger it is harder to understand what each piece of the web app accomplishes but with components since components tend to be small or made up of other components you can eventually figure out what each component does
 
 * Summary
+  - Application Programming Interfaces (APIs) are a set of software and tools that allow applications, including scripts, communicate with each other
+  - Some examples of an API are the DOM API because they allow our scripts to communicate with the browser, the jQuery API because they allow our script to communicate with the jQuery library, and many others are used throughout the world
+  - To use an API, you do not need to know how it does the task or how it works, as long as you know what it does, how to call it, and what to expect back then you should be able to use APIs
+  - So APIs have 3 fundamental parts: understand what the API does, understand how to access the API, and understand the syntax to call the API and the expected results from the API
+  - If there is a trusted API that you can use instead of wirting your own code then use it, it will save you time
+  - Some new APIs may not be supported by your browser so if the API is new it is always good to check if the browser supports the API object (typically APIs have a global object to use the API from) by using a conditional statement following the syntax: ~if (apiobject)~
+  - There is a library called Modernizr which helps you determine which JS APIs are supported in your browser but it does something very similar like the conditional statement we showed in the line above
+  - In this chapter, we went over the geolocation api which requests the user's location, the web storage api which allows scripts to store local storage or session storage, and the history API which allow you to explore and manipulate the history stack
+  - The geolocation api, web storage api, and history api are all browser JS APIs
+  - In this chapter we also went over the jQuery UI, the AngularJS framework, and the Google Maps API
+  - The technologies above are outdated and typically APIs are not needed to be studied because when you use them you will be looking at documentation
