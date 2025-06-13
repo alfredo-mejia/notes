@@ -1,0 +1,160 @@
+#+title: Chapter 10: Error Handling & Debugging
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
+| Prev  | Chapter 9: APIs                                             | \vert [[file:../009.APIs/009.000.Notes.html][html]] \vert [[file:../009.APIs/009.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/009.APIs][github]] \vert |
+| Next  | Chapter 11: Content Panels                                  | \vert [[file:../011.Content_Panels/011.000.Notes.html][html]] \vert [[file:../011.Content_Panels/011.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/011.Content_Panels][github]] \vert |
+
+* Notes
+
+** Section 10.1: Introduction
+   - When you write JS code, do not expect to write perfectly the first time
+   - Programming is like problem solving: you are given a puzzle and not only do you have to solve it but you also need to create instructions that allow the computer to solve it too
+   - Nobody gets it right the first attempt so the error messages that a browser gives can help you determine what went wrong in your JavaScript and how you can fix it
+
+** Section 10.2: Order of Execution
+   - To find the source of an error, it helps to know how scripts are processed
+   - The order in which statements are executed can be complex and some tasks cannot complete until another statement or function has been run
+   - The JS interpreter uses the concept of execution contexts and there is one global execution context and each function creates a new execution context
+   - This new execution context correspond to the variable scope
+   - Every statement in a script lives in one of three execution contexts:
+     - *Global Context*: Code that is in the script but not in a function (there is only one global context in any page)
+     - *Function Context*: Code that is being run within a function (each function has its own function context)
+     - *Eval Context*: Text is executed like code in an internal function called ~eval()~ (not covered in this book)
+   - The first two execution contexts correspond with the notion of scope:
+     - *Global Scope*: If a variable is declared outisde a function then it can be used anywhere because it has global scope
+     - *Function-Level Scope*: When a variable is declared within a function then it can only be used within that function because the variable has function-level scope
+
+** Section 10.3: The Stack
+   - The JS interpreter processes one line of code at a time so when a statement needs data from another function, it stacks or piles the new function on top of the current task
+   - When a statement has to call some other code in order to do its job, then the new task goes to the top of the pile of things to do
+   - Once the new task has been performed, the interpreter can go back to the task in hand, and discard the finished task
+   - Each time a new item is added to the stack it creates a new execution context so variables defined in a function (or execution context) are only available in that function
+   - If a function gets called a second time, the variables can have different values this time around
+
+** Section 10.4: Execution Context & Hoisting
+   - Each time a script enters a new execution context, there are two phases of activity:
+     - Prepare: The new scope is created and variables, functions, and arguments are created
+     - Execute: Now it can assign values to variables, references functions and run their code, and execute statements
+   - Understanding the two phases above can help with the concept called *hoisting*
+   - Because of *hoisting* we are able to call functions before they have been declared (if they were created using function declarations and not function expressions) and assign a value to a variable that has not yet been declared
+   - In the preparation phase it is often described as taking all of the variables and functions and hositing them to the top of the execution context, or you can think of them as having been "prepared"
+   - Each execution context also creates its own variables object and this object contains details of all of the variables, functions, and parameters for that execution context
+   - So whenever you call a function that is declared after the call then hoisting is the reason it works and no error is thrown because since both statements are in the same context they are treated like the function was declared first and then called afterwards
+   - If the statements were in different exeuction contexts then it would no longer work
+   - In the interpreter, each execution context has its own variables object and it holds the variables, functions, and parameters available within it
+   - Each execution context can also access its parent's variables object
+   - Functions in JS are said to have lexical scope meaning they are linked to the object they were defined within
+   - So for each execution context, the scope is the current execution context's variables object plus the variables object for each parent execution context
+   - Imagine each function is a nesting doll so the children can ask the parents for info in their variables but the parents cannot get variables from their children so each child will get the same answer from the same parent
+   - In other words a function has the scope of its current execution context's variables object *and* all of its parent's variables object
+   - If a variable is not found in the variables object for the current execution context, it can then look in the variables object of the parent execution context and so on until there are no more parents (it reached the global execution context)
+   - It is worth knowing that looking further up the stack can affect performance so ideally you create variables inside the functions that use them
+   - Each time a function is called, it gets its own execution context and variables object
+   - Note that this is only the case if the function is *defined* inside the function being called, for example, if function A has function B defined inside function A and function A calls function B then function B can access the variables of function A
+   - However, if function B is defined outside function A, and function A calls function B, then function B cannot access the variables in function A (unless variables are passed as arguments)
+   - So each time an outer functions calls an inner function (and defined inside the outer function), then the inner function can have a new variables object but the variables in the outer function remain the same
+   - Note that you cannot access this specifically ~variables~ object from your code, it is something the interpreter is creating and using behind the scenes, instead you can simply access the parent's variables by specifying their regular variable names in the child function
+
+** Section 10.5: Errors
+   - If a JS statement generates an error then it throws an exception and at that point the interpreter stops and looks for the exception-handling code
+   - If you are anticipating that something in your code may cause an error, you can use a set of statements to handle the error (more about it later)
+   - Handling errors are important because if the error is not handled the script will just stop processing, the script may crash, and user will not know why so exception-handling code should inform users when there is a problem
+   - When an exception is thrown, the interpreter stops and checks the current execution context for exception-handling code (e.g. function A calls function B and function B has an error then it will stop and try to find error handling code in function B first)
+   - If an error happens in a function and the function does not have an exception handler then the interpreter goes to the line of code that called the function (the function with the error - e.g. function B has the error, no error handling in function B, then it goes to where it was called in function A)
+   - Then the interpreter checks for error-handling code in that function, if none is found, it continues to the next level (e.g. whatever function called function A), checking to see if there is code to handle the error in that execution context, and this can continue until it reaches the global context where it would have to terminate the script and create an ~Error~ object
+   - So it is going through the stack looking for error-handling code until it gets to the global context and if there is still no error handler then the script stops running and the ~Error~ object is created
+   - Error objects can help you find where your mistakes are and browsers have tools to help you read them
+   - When an ~Error~ object is created, it will contain the following properties:
+     - ~name~: Type of error
+     - ~message~: Description
+     - ~fileNumber~: Name of the JS file
+     - ~lineNumber~: Line number of error
+   - When there is an error you can see the ~Error~ properties in the JS coneole / error console of the browser
+   - There are 9 built-in error objects in JS, here are the error objects:
+
+   | Error                      | Description                                                                                                                                                       |
+   |----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | ~Error~                    | Generic error object (which is the template or portotype of all other built-in error objects)                                                                     |
+   | ~SyntaxError~              | Syntax of the language has not been followed                                                                                                                      |
+   | ~TypeError~                | An unexpected data type that cannot be coerced (in other words a variable or parameter is not of a valid type)                                                    |
+   | ~URIError~                 | Occurs when ~encodeURI()~ or ~decodeURI()~ are passed invalid parameters (used incorrectly)                                                                       |
+   | ~AggregateError~           | Single error representing multiple errors need to be reported by an operation wrapped in one                                                                      |
+   | ~EvalError~                | ~eval()~ used incorrectly                                                                                                                                         |
+   | ~RangeError~               | Numbers not in an acceptable range (a parameter or variable is outside its valid range)                                                                           |
+   | ~ReferenceError~           | Deferencing an invalid reference (tried to reference a variable that is not declared or out of scope)                                                             |
+   | ~InternalError~            | Internal error in the JS engine (e.g. too much recursion)                                                                                                         |
+   | ~NaN~ (NOT A ERROR OBJECT) | Perform a mathematical operating using a value that is not a number results of a value of NaN which is not an error (included it here because it is a common bug) |
+
+*** Section 10.5.1: Dealing with the Errors
+    - If an error occurs while writing a script, you will need to debug the code, track down the source of the error, and fix the issue
+    - Every modern browser has developer tools to help you debug your code and identify the issue
+    - In addition, you can handle errors gracefully using ~try~, ~catch~, ~throw~, and ~finally~ statements because sometimes an error may occur in the script for a reason beyond your control (e.g. using an API and the server does not respond)
+    - Thus it is important to write error-handling code to take care of poptential errors that are out of your control
+
+** Section 10.6: Debugging
+   - Debugging is about deduction: eliminating potential causes of an error
+   - You try to narrow down where the problem might be and then look for clues
+   - First, try to narrow down the area where the problem seems to be so look at the error message and find the relevant script that caused the problem, the line number where it became a problem for the interpreter (the cause of the error may be earlier in a script but this is the point at which the script could not continue), and the type of error (although the underlying cause of the error may be different)
+   - To further narrow down the area, check which parts of the script is running without issue and write messages to the console to tell you how far your script has executed to eventually find where it stopped and by writing these messgaes you will eventually reach to a point where your messages are displaying because the script has stopped due to the error
+   - To further narrow down the issue, you can use breakpoints and place the breakpoints where things are going wrong (breakpoints let you pause execution and inspect the values that are stored in the variables)
+   - If you are still stuck then one suggestion would be to talk out loud to another programmer and explain to them the situation and the error that has been happening and they can possibly give you pointers or you, yourself, may realize something that you haven't noticed or seen before
+   - Once you think you might know the area in which your problem is located, you can then try to find the actual line of code that is causing the error
+   - When you have a set of breakpoints, you can see if the variables around them have the values you would expect them to have and if they do not have the values you expect then backtrace your code and discover where did it go wrong
+   - Break down / break out parts of the code to test smaller pieces of the functionality by writing values of variables into the console, call functions from the console to check if they are returning what you would expect them to, and check if objects exist and have methods / properties that you think they do
+   - Check the number of parameters for a function or the number of items in an array
+   - And be prepared to repeat the whole process if the error is the result of multiple bugs or if after resolving one error another error appears
+   - When the problem is hard to find, it is advised to keep notes of what you have tested and what the result was so you can keep track of what has been tested and what has not been tested (keeping notes can make you feel less overwhelmed and help you solve the issue faster)
+
+*** Section 10.6.1: Browser Dev Tools & JavaScript Console
+    - The JS console will tell you when there is a problem with a script and where to look for the problem and what kind of issue it seems to be
+    - The JS console is just one of several developer tools that are found in all modern browsers
+    - When you are debugging errors it can help if you look at the error in more than one browser as they can show you different error messages
+    - The console will show you when there is an error in your script and it also displays the line where it became a problem for the interpreter (does not always indicate where the error is only show where it became a problem for the interpreter)
+    - An error can stop a script from running so once one error is fixed then other code that hasn't been ran can be run (after the fix) and that code can also have errors and bugs
+    - You can also just type code into the console and it will show you a result
+    - In the console, each time you write a line the interpreter may respond (e.g. when you create a variable it may write out the value of the variable that has been just created)
+    - Any variable that you create in the console will be remembered until you clear the console
+    - Using the console may be a quick and handy way to test your code by calling functions from your script directly from the console (as long as the function has global scope and already loaded into the page)
+
+*** Section 10.6.2: Console API
+    - Browsers that have a console have a ~console~ object which has several methods that your script can use to display data in the console ([[https://developer.mozilla.org/en-US/docs/Web/API/Console_API][documentation regarding Console API]])
+    - We already use the console API, for example, ~console.log()~ method is part of the console API and it can write data from a script to the console
+    - Using the console API and writing messages to the console can help you determine how far a script has run and what values it has received
+    - Writing out variables lets you see what values the interpreter holds for them during runtime (help you check that you are getting the values you expect)
+    - The ~console.log()~ method can write several values to the console at the same time, each separated by a comma
+    - In addition to ~console.log()~ there are more methods to output to the console
+    - The new methods help differentiate between the types of messages you write to the console and each method uses various icons and / or colors to distinguish them, here are the methods:
+      - ~console.info()~: can be used for general information
+      - ~console.warn()~: can be used for warnings
+      - ~console.error()~: can be used to hold errors
+    - This technique is particularly helpful to show the nature of the information that you writing to the screen
+    - If you want to write a set of related data to the console, you can use the ~console.group()~ method to group messages and you can expand or contract the results in the console
+    - The way it works is that the grouping starts whereever it calls ~console.group()~ and ends when it encounters a call for ~console.groupEnd()~ so whatever console method is written in between those two methods will be grouped in the browser console
+    - In browsers that support it, the ~console.table()~ method lets you output a table showing: objects & arrays tht contain other objects or arrays (for objects it will show all the properties and for the array it will show the items in the array)
+    - Being able to display objects and arrays in a table is useful especially data that is coming from a third party
+    - ~console.assert()~ method can test if a condition is met and write to the console only if the expression evaluates to false
+    - The first argument is the expression and the second argument is the message you want to display if the expression is evaluated to false
+    - Any console messages used for debugging should always be removed from your script before you use it on a live site
+
+*** Section 10.6.3: Breakpoints
+    
+* Keywords
+| Term              | Definition |
+|-------------------+------------|
+| Execution Context |            |
+| Stack             |            |
+| Hoisting          |            |
+
+* Questions
+  - *Q*: What is a execution context?
+
+  - *Q*: What is hoisting?
+
+* Summary
