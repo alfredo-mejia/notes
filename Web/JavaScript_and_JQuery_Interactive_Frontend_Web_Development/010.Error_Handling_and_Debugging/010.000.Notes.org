@@ -144,6 +144,93 @@
     - Any console messages used for debugging should always be removed from your script before you use it on a live site
 
 *** Section 10.6.3: Breakpoints
+    - You can pause the execution of a script on any line using breakpoints and then you can check the values stored in variables at that point in time
+    - If you set multiple breakpoints, you can step through them one-by-one to see where values change and a problem might occur
+    - When you have set breakpoints, you will see that the debugger lets you step through the code line by line and see the values of variables as your script progresses
+    - When you are doing this, if the debugger comes across a function, it will move onto the next line after the function (it does not move to where the function is defined), this is called stepping over a function
+    - If you want to, it is possible to tell the debugger to step into a function to see what is happening inside the function
+    - You can indicate that a breakpoint should be triggered only if a condition that you specify is met and the condition can use existing variables
+    - You can create a breakpoint in your code by simply using the ~debugger~ keyword
+    - When the developer tools are open and this keyword is encountered then it will automatically create a breakpoint
+    - You can also place the debugger keyword within a conditional statement so that it only triggers the breakpoint if the condition is met
+    - However, it is important to note that, you should always remove these statements before your code goes live as this could stop running the page if a user has the developer tools open
+    - If you have a developer server, your debugging code can be placed in conditional statements that check whether it is running on a specific server and thus the debugging code only runs if it is on the specified server
+
+** Section 10.7: Handling Exceptions
+   - If you know your code might fail, use ~try~, ~catch~, and ~finally~ (each one is given its own code block with curly braces)
+   - ~Try~ Block:
+     - First, you specify the code that you think might throw an exception within the ~try~ block (inside the try's curly braces)
+     - If an exception occurs in this section of code, control is automatically passed to the corresponding ~catch~ block
+     - The ~try~ clause must be used in this type of error handling code and it should always have either a ~catch~, ~finally~, or both
+     - If you use a ~continue~, ~break~, or ~return~ keyword inside a ~try~, it will go the ~finally~ option
+   - ~Catch~ Block:
+     - If the ~try~ code block throws an excpetion, catch steps in with an alternative set of code (inside its curly braces)
+     - It has one parameter: the error object
+     - Ahthough the parameter is optional, you are not handling the error if you do not catch an error
+     - The ability to catch an error can be very helpful if there is an issue on a live website
+     - It lets you tell users that something has gone wrong rather than not informing them why the site stopped working
+   - ~Finally~ Block:
+     - The contents of the finally code block will run either way - whether the ~try~ block succeeded or failed
+     - It will even run if a ~return~ keyword is used in the ~try~ or ~catch~ block and it is sometimes used to clean up after the previous two clauses
+     - Think of these methods as the ~.done()~, ~.fail()~, and ~.always()~ methods in jQuery
+     - You can nest checks inside each other (place another ~try~ inside a ~catch~) but be aware that it can affect performance of a script
+
+** Section 10.8: Throwing Errors
+   - If you know something might cause a problem for your script, you can generate your own errors before the interpreter creates them
+   - To create your own error, you use the following syntax: ~throw new Error('message');~
+   - The syntax above creates a new ~Error~ object (using the default ~Error~ object) and the parameter is the message you want associated with the error (the message should be as descriptive as possible)
+   - Being able to throw an error at the time you know there might be a problem can be better than letting that data cause errors or bugs further into the script
+   - If you are working with data from a third party, you may come across problems such as:
+     - JSON that contains a formatting error
+     - Numeric data that occasionally has a non-numeric value
+     - An error from a remote server
+     - A set of information with one missing value
+   - Bad data might not cause an error in the script right away but could cause a problem later on
+   - It is always best to thrown an error straight away because it can be much harder to find the source of the problem if the data causes an error in a different part of the script (with the actual issue being somewhere else)
+   - If you try to use a string in a mathematical operation (other than addition), you do not get an error, you get a special value called NaN (not a number)
+   - It is always a good idea to check for NaN (some sort of validation) or throw an error for NaN and handling that error thrown
+
+** Section 10.9: Debugging Tips & Common Errors
+   - Tips for debugging scripts:
+     - Try in multiple browsers because some errors are browser specific so you can determine which browser is causing a problem
+     - Add multiple messages to the console to see how far your code runs and where does the script stop (and hence the messages stop printing)
+     - Remove parts of code little by little until the script successfully works and do the process in reverse and add the code little by little until it breaks again (by using comments you can remove code easily and quickly)
+     - Think of the problem out loud or explain the problem out loud to a peer and while saying the problem the peer or yourself might find the potential issue
+     - Search the problem on the internet
+     - Use an online code playground to paste some of your code and run your code to figure out the issue
+     - Use validation tools
+   - Common errors in scripts:
+     - JS is case sensitive so check capitalization
+     - Always declare variables that need scope because with no ~var~ or ~let~ then it becomes a global variable that can be overwritten by your script or another included script
+     - If you cannot access a variable then check if it is out of scope
+     - Do not use reserved words or dashes in variable names
+     - Check that your single / double quotes match properly
+     - Check that you have escaped quotes in variable values
+     - Check in the HTML that values of your ~id~ attributes are unique
+     - Every statement should end in a semicolon
+     - Check that there are no missing closing braces or parentheses
+     - Check that there are no commas before the ending of a curly brace or parentheses
+     - Always use parentheses to surround a condition that you are testing
+     - Check the script is not missing a parameter when calling a function
+     - ~undefined~ is not the same as ~null~ (~null~ is for objects while ~undefined~ is for properties, methods, and variables)
+     - Check that your script has loaded (especially CDN files)
+     - Look for conflicts between different script files
+     - Use ~==~ or ~===~ to compare values and not ~=~ because that is the assignment operator
+     - If you are checking whether values match then try to use strict comparison to check datatypes at the same time (use ~===~ instead of ~==~)
+     - Inside a ~switch~ statement, the values are *not* loosely typed so their type will not be coerced
+     - Once there is a match in a switch statement, all expressions will be executed until the next ~break~ or ~return~ statement is executed
+     - The ~replace()~ method only replaces the first match so if you want to replace all occurrences use the global flag
+     - If you are using the ~parseInt()~ method you might need to pass a radix (the number of unique digits including zero used to represent the number)
+
+** Section 10.10: Chapter Exercise
+   - No chapter exercise for this chapter
+
+** Section 10.11: Summary
+   - If you understand execution contexts (which have two stages) and stacks, you are more likely to find the error in your code
+   - Debugging is the process of finding errors and it involves a process of deduction
+   - The console helps narrow down the area in which the error is located so you can try to find the exact location and error
+   - JS has 9 different types of errors and each type of error creates its own error object which can tell you its line number and its description of the error
+   - If you know that you may get an error, you can handle it gracefully using the ~try~, ~catch~, and ~finally~ statements (you can also use these statements to give your uses helpful feedback)
     
 * Keywords
 | Term              | Definition |
