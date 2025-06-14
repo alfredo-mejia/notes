@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-19 Wed 14:37 -->
+<!-- 2025-06-14 Sat 17:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Chapter 10: Error Handling &amp; Debugging</title>
+<meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -192,13 +193,587 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
 </head>
 <body>
 <div id="content" class="content">
+<h1 class="title">Chapter 10: Error Handling &amp; Debugging</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org02d5d8b">Navigation</a></li>
+<li><a href="#org3df97ce">Notes</a>
+<ul>
+<li><a href="#org5e280da">Section 10.1: Introduction</a></li>
+<li><a href="#org1667430">Section 10.2: Order of Execution</a></li>
+<li><a href="#org851e761">Section 10.3: The Stack</a></li>
+<li><a href="#orga58f799">Section 10.4: Execution Context &amp; Hoisting</a></li>
+<li><a href="#orgba411a1">Section 10.5: Errors</a>
+<ul>
+<li><a href="#org8d74358">Section 10.5.1: Dealing with the Errors</a></li>
+</ul>
+</li>
+<li><a href="#org7bf692a">Section 10.6: Debugging</a>
+<ul>
+<li><a href="#orgc092e56">Section 10.6.1: Browser Dev Tools &amp; JavaScript Console</a></li>
+<li><a href="#org917189f">Section 10.6.2: Console API</a></li>
+<li><a href="#orgd8b3e07">Section 10.6.3: Breakpoints</a></li>
+</ul>
+</li>
+<li><a href="#org2488195">Section 10.7: Handling Exceptions</a></li>
+<li><a href="#org4616395">Section 10.8: Throwing Errors</a></li>
+<li><a href="#orgcf78372">Section 10.9: Debugging Tips &amp; Common Errors</a></li>
+<li><a href="#org21cf267">Section 10.10: Chapter Exercise</a></li>
+<li><a href="#org095f8db">Section 10.11: Summary</a></li>
+</ul>
+</li>
+<li><a href="#orgb35509b">Keywords</a></li>
+<li><a href="#org2ab0c1b">Questions</a></li>
+<li><a href="#org74ddd76">Summary</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="date">Created: 2025-02-19 Wed 14:37</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+<div id="outline-container-org02d5d8b" class="outline-2">
+<h2 id="org02d5d8b">Navigation</h2>
+<div class="outline-text-2" id="text-org02d5d8b">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 9: APIs</td>
+<td class="org-left">&vert; <a href="../009.APIs/009.000.Notes.html">html</a> &vert; <a href="../009.APIs/009.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/009.APIs">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 11: Content Panels</td>
+<td class="org-left">&vert; <a href="../011.Content_Panels/011.000.Notes.html">html</a> &vert; <a href="../011.Content_Panels/011.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/011.Content_Panels">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org3df97ce" class="outline-2">
+<h2 id="org3df97ce">Notes</h2>
+<div class="outline-text-2" id="text-org3df97ce">
+</div>
+<div id="outline-container-org5e280da" class="outline-3">
+<h3 id="org5e280da">Section 10.1: Introduction</h3>
+<div class="outline-text-3" id="text-org5e280da">
+<ul class="org-ul">
+<li>When you write JS code, do not expect to write perfectly the first time</li>
+<li>Programming is like problem solving: you are given a puzzle and not only do you have to solve it but you also need to create instructions that allow the computer to solve it too</li>
+<li>Nobody gets it right the first attempt so the error messages that a browser gives can help you determine what went wrong in your JavaScript and how you can fix it</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1667430" class="outline-3">
+<h3 id="org1667430">Section 10.2: Order of Execution</h3>
+<div class="outline-text-3" id="text-org1667430">
+<ul class="org-ul">
+<li>To find the source of an error, it helps to know how scripts are processed</li>
+<li>The order in which statements are executed can be complex and some tasks cannot complete until another statement or function has been run</li>
+<li>The JS interpreter uses the concept of execution contexts and there is one global execution context and each function creates a new execution context</li>
+<li>This new execution context correspond to the variable scope</li>
+<li>Every statement in a script lives in one of three execution contexts:
+<ul class="org-ul">
+<li><b>Global Context</b>: Code that is in the script but not in a function (there is only one global context in any page)</li>
+<li><b>Function Context</b>: Code that is being run within a function (each function has its own function context)</li>
+<li><b>Eval Context</b>: Text is executed like code in an internal function called <code>eval()</code> (not covered in this book)</li>
+</ul></li>
+<li>The first two execution contexts correspond with the notion of scope:
+<ul class="org-ul">
+<li><b>Global Scope</b>: If a variable is declared outisde a function then it can be used anywhere because it has global scope</li>
+<li><b>Function-Level Scope</b>: When a variable is declared within a function then it can only be used within that function because the variable has function-level scope</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org851e761" class="outline-3">
+<h3 id="org851e761">Section 10.3: The Stack</h3>
+<div class="outline-text-3" id="text-org851e761">
+<ul class="org-ul">
+<li>The JS interpreter processes one line of code at a time so when a statement needs data from another function, it stacks or piles the new function on top of the current task</li>
+<li>When a statement has to call some other code in order to do its job, then the new task goes to the top of the pile of things to do</li>
+<li>Once the new task has been performed, the interpreter can go back to the task in hand, and discard the finished task</li>
+<li>Each time a new item is added to the stack it creates a new execution context so variables defined in a function (or execution context) are only available in that function</li>
+<li>If a function gets called a second time, the variables can have different values this time around</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga58f799" class="outline-3">
+<h3 id="orga58f799">Section 10.4: Execution Context &amp; Hoisting</h3>
+<div class="outline-text-3" id="text-orga58f799">
+<ul class="org-ul">
+<li>Each time a script enters a new execution context, there are two phases of activity:
+<ul class="org-ul">
+<li>Prepare: The new scope is created and variables, functions, and arguments are created</li>
+<li>Execute: Now it can assign values to variables, references functions and run their code, and execute statements</li>
+</ul></li>
+<li>Understanding the two phases above can help with the concept called <b>hoisting</b></li>
+<li>Because of <b>hoisting</b> we are able to call functions before they have been declared (if they were created using function declarations and not function expressions) and assign a value to a variable that has not yet been declared</li>
+<li>In the preparation phase it is often described as taking all of the variables and functions and hositing them to the top of the execution context, or you can think of them as having been "prepared"</li>
+<li>Each execution context also creates its own variables object and this object contains details of all of the variables, functions, and parameters for that execution context</li>
+<li>So whenever you call a function that is declared after the call then hoisting is the reason it works and no error is thrown because since both statements are in the same context they are treated like the function was declared first and then called afterwards</li>
+<li>If the statements were in different exeuction contexts then it would no longer work</li>
+<li>In the interpreter, each execution context has its own variables object and it holds the variables, functions, and parameters available within it</li>
+<li>Each execution context can also access its parent's variables object</li>
+<li>Functions in JS are said to have lexical scope meaning they are linked to the object they were defined within</li>
+<li>So for each execution context, the scope is the current execution context's variables object plus the variables object for each parent execution context</li>
+<li>Imagine each function is a nesting doll so the children can ask the parents for info in their variables but the parents cannot get variables from their children so each child will get the same answer from the same parent</li>
+<li>In other words a function has the scope of its current execution context's variables object <b>and</b> all of its parent's variables object</li>
+<li>If a variable is not found in the variables object for the current execution context, it can then look in the variables object of the parent execution context and so on until there are no more parents (it reached the global execution context)</li>
+<li>It is worth knowing that looking further up the stack can affect performance so ideally you create variables inside the functions that use them</li>
+<li>Each time a function is called, it gets its own execution context and variables object</li>
+<li>Note that this is only the case if the function is <b>defined</b> inside the function being called, for example, if function A has function B defined inside function A and function A calls function B then function B can access the variables of function A</li>
+<li>However, if function B is defined outside function A, and function A calls function B, then function B cannot access the variables in function A (unless variables are passed as arguments)</li>
+<li>So each time an outer functions calls an inner function (and defined inside the outer function), then the inner function can have a new variables object but the variables in the outer function remain the same</li>
+<li>Note that you cannot access this specifically <code>variables</code> object from your code, it is something the interpreter is creating and using behind the scenes, instead you can simply access the parent's variables by specifying their regular variable names in the child function</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgba411a1" class="outline-3">
+<h3 id="orgba411a1">Section 10.5: Errors</h3>
+<div class="outline-text-3" id="text-orgba411a1">
+<ul class="org-ul">
+<li>If a JS statement generates an error then it throws an exception and at that point the interpreter stops and looks for the exception-handling code</li>
+<li>If you are anticipating that something in your code may cause an error, you can use a set of statements to handle the error (more about it later)</li>
+<li>Handling errors are important because if the error is not handled the script will just stop processing, the script may crash, and user will not know why so exception-handling code should inform users when there is a problem</li>
+<li>When an exception is thrown, the interpreter stops and checks the current execution context for exception-handling code (e.g. function A calls function B and function B has an error then it will stop and try to find error handling code in function B first)</li>
+<li>If an error happens in a function and the function does not have an exception handler then the interpreter goes to the line of code that called the function (the function with the error - e.g. function B has the error, no error handling in function B, then it goes to where it was called in function A)</li>
+<li>Then the interpreter checks for error-handling code in that function, if none is found, it continues to the next level (e.g. whatever function called function A), checking to see if there is code to handle the error in that execution context, and this can continue until it reaches the global context where it would have to terminate the script and create an <code>Error</code> object</li>
+<li>So it is going through the stack looking for error-handling code until it gets to the global context and if there is still no error handler then the script stops running and the <code>Error</code> object is created</li>
+<li>Error objects can help you find where your mistakes are and browsers have tools to help you read them</li>
+<li>When an <code>Error</code> object is created, it will contain the following properties:
+<ul class="org-ul">
+<li><code>name</code>: Type of error</li>
+<li><code>message</code>: Description</li>
+<li><code>fileName</code>: Name of the JS file</li>
+<li><code>lineNumber</code>: Line number of error</li>
+</ul></li>
+<li>When there is an error you can see the <code>Error</code> properties in the JS coneole / error console of the browser</li>
+<li>There are 9 built-in error objects in JS, here are the error objects:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Error</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>Error</code></td>
+<td class="org-left">Generic error object (which is the template or portotype of all other built-in error objects)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SyntaxError</code></td>
+<td class="org-left">Syntax of the language has not been followed</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>TypeError</code></td>
+<td class="org-left">An unexpected data type that cannot be coerced (in other words a variable or parameter is not of a valid type)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>URIError</code></td>
+<td class="org-left">Occurs when <code>encodeURI()</code> or <code>decodeURI()</code> are passed invalid parameters (used incorrectly)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>AggregateError</code></td>
+<td class="org-left">Single error representing multiple errors need to be reported by an operation wrapped in one</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>EvalError</code></td>
+<td class="org-left"><code>eval()</code> used incorrectly</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>RangeError</code></td>
+<td class="org-left">Numbers not in an acceptable range (a parameter or variable is outside its valid range)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ReferenceError</code></td>
+<td class="org-left">Deferencing an invalid reference (tried to reference a variable that is not declared or out of scope)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>InternalError</code></td>
+<td class="org-left">Internal error in the JS engine (e.g. too much recursion)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>NaN</code> (NOT A ERROR OBJECT)</td>
+<td class="org-left">Perform a mathematical operating using a value that is not a number results of a value of NaN which is not an error (included it here because it is a common bug)</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-org8d74358" class="outline-4">
+<h4 id="org8d74358">Section 10.5.1: Dealing with the Errors</h4>
+<div class="outline-text-4" id="text-org8d74358">
+<ul class="org-ul">
+<li>If an error occurs while writing a script, you will need to debug the code, track down the source of the error, and fix the issue</li>
+<li>Every modern browser has developer tools to help you debug your code and identify the issue</li>
+<li>In addition, you can handle errors gracefully using <code>try</code>, <code>catch</code>, <code>throw</code>, and <code>finally</code> statements because sometimes an error may occur in the script for a reason beyond your control (e.g. using an API and the server does not respond)</li>
+<li>Thus it is important to write error-handling code to take care of poptential errors that are out of your control</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7bf692a" class="outline-3">
+<h3 id="org7bf692a">Section 10.6: Debugging</h3>
+<div class="outline-text-3" id="text-org7bf692a">
+<ul class="org-ul">
+<li>Debugging is about deduction: eliminating potential causes of an error</li>
+<li>You try to narrow down where the problem might be and then look for clues</li>
+<li>First, try to narrow down the area where the problem seems to be so look at the error message and find the relevant script that caused the problem, the line number where it became a problem for the interpreter (the cause of the error may be earlier in a script but this is the point at which the script could not continue), and the type of error (although the underlying cause of the error may be different)</li>
+<li>To further narrow down the area, check which parts of the script is running without issue and write messages to the console to tell you how far your script has executed to eventually find where it stopped and by writing these messgaes you will eventually reach to a point where your messages are displaying because the script has stopped due to the error</li>
+<li>To further narrow down the issue, you can use breakpoints and place the breakpoints where things are going wrong (breakpoints let you pause execution and inspect the values that are stored in the variables)</li>
+<li>If you are still stuck then one suggestion would be to talk out loud to another programmer and explain to them the situation and the error that has been happening and they can possibly give you pointers or you, yourself, may realize something that you haven't noticed or seen before</li>
+<li>Once you think you might know the area in which your problem is located, you can then try to find the actual line of code that is causing the error</li>
+<li>When you have a set of breakpoints, you can see if the variables around them have the values you would expect them to have and if they do not have the values you expect then backtrace your code and discover where did it go wrong</li>
+<li>Break down / break out parts of the code to test smaller pieces of the functionality by writing values of variables into the console, call functions from the console to check if they are returning what you would expect them to, and check if objects exist and have methods / properties that you think they do</li>
+<li>Check the number of parameters for a function or the number of items in an array</li>
+<li>And be prepared to repeat the whole process if the error is the result of multiple bugs or if after resolving one error another error appears</li>
+<li>When the problem is hard to find, it is advised to keep notes of what you have tested and what the result was so you can keep track of what has been tested and what has not been tested (keeping notes can make you feel less overwhelmed and help you solve the issue faster)</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc092e56" class="outline-4">
+<h4 id="orgc092e56">Section 10.6.1: Browser Dev Tools &amp; JavaScript Console</h4>
+<div class="outline-text-4" id="text-orgc092e56">
+<ul class="org-ul">
+<li>The JS console will tell you when there is a problem with a script and where to look for the problem and what kind of issue it seems to be</li>
+<li>The JS console is just one of several developer tools that are found in all modern browsers</li>
+<li>When you are debugging errors it can help if you look at the error in more than one browser as they can show you different error messages</li>
+<li>The console will show you when there is an error in your script and it also displays the line where it became a problem for the interpreter (does not always indicate where the error is only show where it became a problem for the interpreter)</li>
+<li>An error can stop a script from running so once one error is fixed then other code that hasn't been ran can be run (after the fix) and that code can also have errors and bugs</li>
+<li>You can also just type code into the console and it will show you a result</li>
+<li>In the console, each time you write a line the interpreter may respond (e.g. when you create a variable it may write out the value of the variable that has been just created)</li>
+<li>Any variable that you create in the console will be remembered until you clear the console</li>
+<li>Using the console may be a quick and handy way to test your code by calling functions from your script directly from the console (as long as the function has global scope and already loaded into the page)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org917189f" class="outline-4">
+<h4 id="org917189f">Section 10.6.2: Console API</h4>
+<div class="outline-text-4" id="text-org917189f">
+<ul class="org-ul">
+<li>Browsers that have a console have a <code>console</code> object which has several methods that your script can use to display data in the console (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Console_API">documentation regarding Console API</a>)</li>
+<li>We already use the console API, for example, <code>console.log()</code> method is part of the console API and it can write data from a script to the console</li>
+<li>Using the console API and writing messages to the console can help you determine how far a script has run and what values it has received</li>
+<li>Writing out variables lets you see what values the interpreter holds for them during runtime (help you check that you are getting the values you expect)</li>
+<li>The <code>console.log()</code> method can write several values to the console at the same time, each separated by a comma</li>
+<li>In addition to <code>console.log()</code> there are more methods to output to the console</li>
+<li>The new methods help differentiate between the types of messages you write to the console and each method uses various icons and / or colors to distinguish them, here are the methods:
+<ul class="org-ul">
+<li><code>console.info()</code>: can be used for general information</li>
+<li><code>console.warn()</code>: can be used for warnings</li>
+<li><code>console.error()</code>: can be used to hold errors</li>
+</ul></li>
+<li>This technique is particularly helpful to show the nature of the information that you writing to the screen</li>
+<li>If you want to write a set of related data to the console, you can use the <code>console.group()</code> method to group messages and you can expand or contract the results in the console</li>
+<li>The way it works is that the grouping starts whereever it calls <code>console.group()</code> and ends when it encounters a call for <code>console.groupEnd()</code> so whatever console method is written in between those two methods will be grouped in the browser console</li>
+<li>In browsers that support it, the <code>console.table()</code> method lets you output a table showing: objects &amp; arrays tht contain other objects or arrays (for objects it will show all the properties and for the array it will show the items in the array)</li>
+<li>Being able to display objects and arrays in a table is useful especially data that is coming from a third party</li>
+<li><code>console.assert()</code> method can test if a condition is met and write to the console only if the expression evaluates to false</li>
+<li>The first argument is the expression and the second argument is the message you want to display if the expression is evaluated to false</li>
+<li>Any console messages used for debugging should always be removed from your script before you use it on a live site</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd8b3e07" class="outline-4">
+<h4 id="orgd8b3e07">Section 10.6.3: Breakpoints</h4>
+<div class="outline-text-4" id="text-orgd8b3e07">
+<ul class="org-ul">
+<li>You can pause the execution of a script on any line using breakpoints and then you can check the values stored in variables at that point in time</li>
+<li>If you set multiple breakpoints, you can step through them one-by-one to see where values change and a problem might occur</li>
+<li>When you have set breakpoints, you will see that the debugger lets you step through the code line by line and see the values of variables as your script progresses</li>
+<li>When you are doing this, if the debugger comes across a function, it will move onto the next line after the function (it does not move to where the function is defined), this is called stepping over a function</li>
+<li>If you want to, it is possible to tell the debugger to step into a function to see what is happening inside the function</li>
+<li>You can indicate that a breakpoint should be triggered only if a condition that you specify is met and the condition can use existing variables</li>
+<li>You can create a breakpoint in your code by simply using the <code>debugger</code> keyword</li>
+<li>When the developer tools are open and this keyword is encountered then it will automatically create a breakpoint</li>
+<li>You can also place the debugger keyword within a conditional statement so that it only triggers the breakpoint if the condition is met</li>
+<li>However, it is important to note that, you should always remove these statements before your code goes live as this could stop running the page if a user has the developer tools open</li>
+<li>If you have a developer server, your debugging code can be placed in conditional statements that check whether it is running on a specific server and thus the debugging code only runs if it is on the specified server</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2488195" class="outline-3">
+<h3 id="org2488195">Section 10.7: Handling Exceptions</h3>
+<div class="outline-text-3" id="text-org2488195">
+<ul class="org-ul">
+<li>If you know your code might fail, use <code>try</code>, <code>catch</code>, and <code>finally</code> (each one is given its own code block with curly braces)</li>
+<li><code>Try</code> Block:
+<ul class="org-ul">
+<li>First, you specify the code that you think might throw an exception within the <code>try</code> block (inside the try's curly braces)</li>
+<li>If an exception occurs in this section of code, control is automatically passed to the corresponding <code>catch</code> block</li>
+<li>The <code>try</code> clause must be used in this type of error handling code and it should always have either a <code>catch</code>, <code>finally</code>, or both</li>
+<li>If you use a <code>continue</code>, <code>break</code>, or <code>return</code> keyword inside a <code>try</code>, it will go the <code>finally</code> option</li>
+</ul></li>
+<li><code>Catch</code> Block:
+<ul class="org-ul">
+<li>If the <code>try</code> code block throws an excpetion, catch steps in with an alternative set of code (inside its curly braces)</li>
+<li>It has one parameter: the error object</li>
+<li>Ahthough the parameter is optional, you are not handling the error if you do not catch an error</li>
+<li>The ability to catch an error can be very helpful if there is an issue on a live website</li>
+<li>It lets you tell users that something has gone wrong rather than not informing them why the site stopped working</li>
+</ul></li>
+<li><code>Finally</code> Block:
+<ul class="org-ul">
+<li>The contents of the finally code block will run either way - whether the <code>try</code> block succeeded or failed</li>
+<li>It will even run if a <code>return</code> keyword is used in the <code>try</code> or <code>catch</code> block and it is sometimes used to clean up after the previous two clauses</li>
+<li>Think of these methods as the <code>.done()</code>, <code>.fail()</code>, and <code>.always()</code> methods in jQuery</li>
+<li>You can nest checks inside each other (place another <code>try</code> inside a <code>catch</code>) but be aware that it can affect performance of a script</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4616395" class="outline-3">
+<h3 id="org4616395">Section 10.8: Throwing Errors</h3>
+<div class="outline-text-3" id="text-org4616395">
+<ul class="org-ul">
+<li>If you know something might cause a problem for your script, you can generate your own errors before the interpreter creates them</li>
+<li>To create your own error, you use the following syntax: <code>throw new Error('message');</code></li>
+<li>The syntax above creates a new <code>Error</code> object (using the default <code>Error</code> object) and the parameter is the message you want associated with the error (the message should be as descriptive as possible)</li>
+<li>Being able to throw an error at the time you know there might be a problem can be better than letting that data cause errors or bugs further into the script</li>
+<li>If you are working with data from a third party, you may come across problems such as:
+<ul class="org-ul">
+<li>JSON that contains a formatting error</li>
+<li>Numeric data that occasionally has a non-numeric value</li>
+<li>An error from a remote server</li>
+<li>A set of information with one missing value</li>
+</ul></li>
+<li>Bad data might not cause an error in the script right away but could cause a problem later on</li>
+<li>It is always best to thrown an error straight away because it can be much harder to find the source of the problem if the data causes an error in a different part of the script (with the actual issue being somewhere else)</li>
+<li>If you try to use a string in a mathematical operation (other than addition), you do not get an error, you get a special value called NaN (not a number)</li>
+<li>It is always a good idea to check for NaN (some sort of validation) or throw an error for NaN and handling that error thrown</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcf78372" class="outline-3">
+<h3 id="orgcf78372">Section 10.9: Debugging Tips &amp; Common Errors</h3>
+<div class="outline-text-3" id="text-orgcf78372">
+<ul class="org-ul">
+<li>Tips for debugging scripts:
+<ul class="org-ul">
+<li>Try in multiple browsers because some errors are browser specific so you can determine which browser is causing a problem</li>
+<li>Add multiple messages to the console to see how far your code runs and where does the script stop (and hence the messages stop printing)</li>
+<li>Remove parts of code little by little until the script successfully works and do the process in reverse and add the code little by little until it breaks again (by using comments you can remove code easily and quickly)</li>
+<li>Think of the problem out loud or explain the problem out loud to a peer and while saying the problem the peer or yourself might find the potential issue</li>
+<li>Search the problem on the internet</li>
+<li>Use an online code playground to paste some of your code and run your code to figure out the issue</li>
+<li>Use validation tools</li>
+</ul></li>
+<li>Common errors in scripts:
+<ul class="org-ul">
+<li>JS is case sensitive so check capitalization</li>
+<li>Always declare variables that need scope because with no <code>var</code> or <code>let</code> then it becomes a global variable that can be overwritten by your script or another included script</li>
+<li>If you cannot access a variable then check if it is out of scope</li>
+<li>Do not use reserved words or dashes in variable names</li>
+<li>Check that your single / double quotes match properly</li>
+<li>Check that you have escaped quotes in variable values</li>
+<li>Check in the HTML that values of your <code>id</code> attributes are unique</li>
+<li>Every statement should end in a semicolon</li>
+<li>Check that there are no missing closing braces or parentheses</li>
+<li>Check that there are no commas before the ending of a curly brace or parentheses</li>
+<li>Always use parentheses to surround a condition that you are testing</li>
+<li>Check the script is not missing a parameter when calling a function</li>
+<li><code>undefined</code> is not the same as <code>null</code> (<code>null</code> is for objects while <code>undefined</code> is for properties, methods, and variables)</li>
+<li>Check that your script has loaded (especially CDN files)</li>
+<li>Look for conflicts between different script files</li>
+<li>Use <code>==</code> or <code>===</code> to compare values and not <code>=</code> because that is the assignment operator</li>
+<li>If you are checking whether values match then try to use strict comparison to check datatypes at the same time (use <code>===</code> instead of <code>==</code>)</li>
+<li>Inside a <code>switch</code> statement, the values are <b>not</b> loosely typed so their type will not be coerced</li>
+<li>Once there is a match in a switch statement, all expressions will be executed until the next <code>break</code> or <code>return</code> statement is executed</li>
+<li>The <code>replace()</code> method only replaces the first match so if you want to replace all occurrences use the global flag</li>
+<li>If you are using the <code>parseInt()</code> method you might need to pass a radix (the number of unique digits including zero used to represent the number)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org21cf267" class="outline-3">
+<h3 id="org21cf267">Section 10.10: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org21cf267">
+<ul class="org-ul">
+<li>No chapter exercise for this chapter</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org095f8db" class="outline-3">
+<h3 id="org095f8db">Section 10.11: Summary</h3>
+<div class="outline-text-3" id="text-org095f8db">
+<ul class="org-ul">
+<li>If you understand execution contexts (which have two stages) and stacks, you are more likely to find the error in your code</li>
+<li>Debugging is the process of finding errors and it involves a process of deduction</li>
+<li>The console helps narrow down the area in which the error is located so you can try to find the exact location and error</li>
+<li>JS has 9 different types of errors and each type of error creates its own error object which can tell you its line number and its description of the error</li>
+<li>If you know that you may get an error, you can handle it gracefully using the <code>try</code>, <code>catch</code>, and <code>finally</code> statements (you can also use these statements to give your uses helpful feedback)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb35509b" class="outline-2">
+<h2 id="orgb35509b">Keywords</h2>
+<div class="outline-text-2" id="text-orgb35509b">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Execution Context</td>
+<td class="org-left">In JS, the execution context refers to the environment in which the code is evaluated and executed, it contains info about the variables, functions, and the value of <code>this</code> that are available during the execution of a piece of code, so there are 3 main types of execution contexts global (default or base context, it is created when JS engine starts executing your script), function execution context (whenever a function is invoked, a new execution context is created for that function), and eval execution context (rarely used but created when JS code is executed inside an <code>eval()</code> function)</td>
+</tr>
+
+<tr>
+<td class="org-left">Stack</td>
+<td class="org-left">A stack is a data structure that uses Last In, First out (LIFO) principle, so in JS the call stack is a special kind of stack that JS engine uses to keep track of function calls during execution so each time a function is called a new execution context is created and pushed onto the stack and when the function finishes the execution context is popped off the stack</td>
+</tr>
+
+<tr>
+<td class="org-left">Hoisting</td>
+<td class="org-left">Hoisting in JS is a mechanism where variable and function declarations are moved to the top of their containing scope during the compile phase (before the code executes) so basically JS "hoists" (lift / raise) the declarations (not initializations) to the top of the current scope so they are available for use even before they appear in code</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org2ab0c1b" class="outline-2">
+<h2 id="org2ab0c1b">Questions</h2>
+<div class="outline-text-2" id="text-org2ab0c1b">
+<ul class="org-ul">
+<li><b>Q</b>: What is a execution context?
+<ul class="org-ul">
+<li>An execution context in JS refers to the environment in which a piece of JS code is evaluated and executed, holding info about variables, functions, the value of <code>this</code>, and other important elements while the code runs</li>
+<li>In JS, each execution context is tied to a scope which forms part of the "environment"</li>
+<li>The environment is the set of all the resources available to a specific block of code including variables, functions, the value of <code>this</code>, and the scope chain (a mechanism in JS that allows it to look up variables when they are accessed inside a function or any other block of code)</li>
+<li>These execution context have 3 types: global execution context, function execution context, and eval execution context</li>
+<li>The execution context is stored in an object and then pushed to the call stack</li>
+<li>At the bottom of the call stack is the global execution context and as functions or <code>eval()</code> are called these execution contexts are pushed to the call stack</li>
+<li>Whenever a function calls another function but that function is not declared inside the caller function then the callee function is still a child of the caller function but it does not have the scope of the variables of the caller function (only when it is declared inside the caller function)</li>
+</ul></li>
+
+<li><b>Q</b>: What is hoisting?
+<ul class="org-ul">
+<li>Hoisting is a JS mechanism where variable declarations and function declarations are moved to the top of their containing scope during creation phase (prep-work done by the JS engine) (before the code is executed), however, <b>only the declarations</b> are hoisted (lifed / raised to the top) and not the initializations</li>
+<li>Although JS is a interpreted language and has no "compliation" like Java or C++, in modern JS engines, these engines do a lot of preparation work these including hoisting, optimizations, JIT (just-in-time) compilation, and more</li>
+<li>So before your script is run, the JS engine does some sort of parsing and creating before running your script and one of those steps is hoisting (lifting / raising) the declarations to the top of their scope without changing or moving your statements where you initialized the variables or called the function</li>
+<li>This is the reason why you can assign variables or call functions before they are declared, while you write the script your initialization statements / function calls may not see the declaration yet, after the steps done by the JS engine and moving the declarations, when it reaches your initialization statements / function calls the declarations will have been run before so the engine would be able to see it and use it</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org74ddd76" class="outline-2">
+<h2 id="org74ddd76">Summary</h2>
+<div class="outline-text-2" id="text-org74ddd76">
+<ul class="org-ul">
+<li>When writing JS code, you will encounter bugs and errors, nobody writes perfect code</li>
+<li>The order of execution is important and the JS engine uses a concept called execution context</li>
+<li>There is a global execution context and a new execution context is created each time a function is called or when <code>eval()</code> is called</li>
+<li>The execution context correspond to the variable scope, so for the global execution context it correspond to the global scope, and the function context correspond to its function scope</li>
+<li>To keep track of execution context the JS engine uses a call stack where is a data structure that uses the LAST IN FIRST OUT principle so at the base is the global execution context and each time a function is called the execution context is pushed onto the stack and when the function is finished it removes it from the stack</li>
+<li>The call stack is how the JS engine keeps track of the execution contexts</li>
+<li>When one function calls another function then the callee function is able to access the execution context (variables, etc.) of the caller function only if the callee function is declared inside the callee function</li>
+<li>If the callee function is declared outside then it does not have access to its parent execution context because of scope, scope and execution contexts are very related to each other</li>
+<li>The JS engine does some prep-work before it executes the code and one of the prep-steps is hositing</li>
+<li>Hoisting is a mechanism done by the JS engine where it moves all the variable and function declarations and "hoists" or lifts them up to the start of their scope so this is why you can initialize or call a function or variable before they are declared because the JS engine will move the declarations to have them before initialization</li>
+<li>There are 9 different types of errors that JS can generate: a generic error, a syntax error, a URI error, an aggregate error, a eval error, a range error, a reference error, and an internal error</li>
+<li>Whenever something goes wrong in JS, it may produce an error object of one of the types shown above, this error object will have properties related the error such as a name, a message (description) of the error, the file name, and the line number</li>
+<li>When an error is produced by JS and not caught then you can see it in the browser console</li>
+<li>To find the error, you first try to locate where the error is coming from and use breakpoints, error messages, console print statements, etc. to find where the error is coming from</li>
+<li>There is an API called Console API which allows you to print various data in various forms in the browser console to help you debug your error</li>
+<li>You may add breakpoints in the developer console in the browser as well to stop your execution and view the state of your variables</li>
+<li>You can even run JS code in the console to call functions in your script or create temporary variables to help debug the issue</li>
+<li>Once you find the issue you try to solve it but keep in mind solving one issue can produce other issues because when an error is encountered the rest of the code is not run so there could be potential errors in the code that has yet to run</li>
+<li>You can handle the errors gracefully in your code by using the <code>try</code>, <code>catch</code>, and <code>finally</code> code blocks</li>
+<li>In the <code>try</code> block you specify the code you think might or is possible to throw an error</li>
+<li>Then in the <code>catch</code> you try to catch the error, the <code>catch</code> block has one parameter which is the error object, it is optional but you should always use it because you want to know what type of error is produced and what is the description and where did it happen</li>
+<li>The <code>finally</code> code block will run either way, whether the <code>try</code> block succeeded or failed</li>
+<li>If you use <code>continue</code>, <code>break</code>, or <code>return</code> inside a <code>try</code> or <code>catch</code> block it will automatically go the <code>finally</code> option because <code>finally</code> will be executed always regardless of what happens inside <code>try</code> or <code>catch</code> even encountering those keywords</li>
+<li>You may even want to throw your own errors for issues / bugs that may not produce a JS error</li>
+<li>The syntax to throw an error is the following: <code>throw new Error('message');</code></li>
+<li>Each error thrown either by the JS engine or by your code will try to find a try-catch block in that function and if none are found it will slowly go up the stack to find the try-catch block and if none are found that is when the browser throws the error and stops the script</li>
+<li>Sometimes some issues may not throw an error but when you know an issue may arise on something you can't control like a 3rd party, it is always a good idea to throw an error and try to handle the error gracefully</li>
+<li>One example could be throwing an error when NaN is encountered, since NaN is a value, it will not throw an error so you throw your own error, but the other ways to manage NaN but it shows you possible scenarios to throw errors even if the browser doesn't generate a JS error</li>
+<li>There are mamny tips for debugging such as trying in multiple browsers, commenting out code little by little, adding console messages and more</li>
+<li>Common mistakes for errors are syntax errors (casing, mispelling, etc.), always check the variables scope, do not use reserved words as variables, use strict comparison operators, and more</li>
+</ul>
+</div>
+</div>
 </div>
 </body>
 </html>

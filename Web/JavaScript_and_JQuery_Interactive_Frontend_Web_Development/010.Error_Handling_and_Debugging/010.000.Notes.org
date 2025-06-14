@@ -74,7 +74,7 @@
    - When an ~Error~ object is created, it will contain the following properties:
      - ~name~: Type of error
      - ~message~: Description
-     - ~fileNumber~: Name of the JS file
+     - ~fileName~: Name of the JS file
      - ~lineNumber~: Line number of error
    - When there is an error you can see the ~Error~ properties in the JS coneole / error console of the browser
    - There are 9 built-in error objects in JS, here are the error objects:
@@ -233,15 +233,56 @@
    - If you know that you may get an error, you can handle it gracefully using the ~try~, ~catch~, and ~finally~ statements (you can also use these statements to give your uses helpful feedback)
     
 * Keywords
-| Term              | Definition |
-|-------------------+------------|
-| Execution Context |            |
-| Stack             |            |
-| Hoisting          |            |
+| Term              | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|-------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Execution Context | In JS, the execution context refers to the environment in which the code is evaluated and executed, it contains info about the variables, functions, and the value of ~this~ that are available during the execution of a piece of code, so there are 3 main types of execution contexts global (default or base context, it is created when JS engine starts executing your script), function execution context (whenever a function is invoked, a new execution context is created for that function), and eval execution context (rarely used but created when JS code is executed inside an ~eval()~ function) |
+| Stack             | A stack is a data structure that uses Last In, First out (LIFO) principle, so in JS the call stack is a special kind of stack that JS engine uses to keep track of function calls during execution so each time a function is called a new execution context is created and pushed onto the stack and when the function finishes the execution context is popped off the stack                                                                                                                                                                                                                                     |
+| Hoisting          | Hoisting in JS is a mechanism where variable and function declarations are moved to the top of their containing scope during the compile phase (before the code executes) so basically JS "hoists" (lift / raise) the declarations (not initializations) to the top of the current scope so they are available for use even before they appear in code                                                                                                                                                                                                                                                             |
 
 * Questions
   - *Q*: What is a execution context?
+         - An execution context in JS refers to the environment in which a piece of JS code is evaluated and executed, holding info about variables, functions, the value of ~this~, and other important elements while the code runs
+	 - In JS, each execution context is tied to a scope which forms part of the "environment"
+	 - The environment is the set of all the resources available to a specific block of code including variables, functions, the value of ~this~, and the scope chain (a mechanism in JS that allows it to look up variables when they are accessed inside a function or any other block of code)
+	 - These execution context have 3 types: global execution context, function execution context, and eval execution context
+	 - The execution context is stored in an object and then pushed to the call stack
+	 - At the bottom of the call stack is the global execution context and as functions or ~eval()~ are called these execution contexts are pushed to the call stack
+	 - Whenever a function calls another function but that function is not declared inside the caller function then the callee function is still a child of the caller function but it does not have the scope of the variables of the caller function (only when it is declared inside the caller function)
 
   - *Q*: What is hoisting?
+         - Hoisting is a JS mechanism where variable declarations and function declarations are moved to the top of their containing scope during creation phase (prep-work done by the JS engine) (before the code is executed), however, *only the declarations* are hoisted (lifed / raised to the top) and not the initializations
+	 - Although JS is a interpreted language and has no "compliation" like Java or C++, in modern JS engines, these engines do a lot of preparation work these including hoisting, optimizations, JIT (just-in-time) compilation, and more
+	 - So before your script is run, the JS engine does some sort of parsing and creating before running your script and one of those steps is hoisting (lifting / raising) the declarations to the top of their scope without changing or moving your statements where you initialized the variables or called the function
+	 - This is the reason why you can assign variables or call functions before they are declared, while you write the script your initialization statements / function calls may not see the declaration yet, after the steps done by the JS engine and moving the declarations, when it reaches your initialization statements / function calls the declarations will have been run before so the engine would be able to see it and use it
 
 * Summary
+  - When writing JS code, you will encounter bugs and errors, nobody writes perfect code
+  - The order of execution is important and the JS engine uses a concept called execution context
+  - There is a global execution context and a new execution context is created each time a function is called or when ~eval()~ is called
+  - The execution context correspond to the variable scope, so for the global execution context it correspond to the global scope, and the function context correspond to its function scope
+  - To keep track of execution context the JS engine uses a call stack where is a data structure that uses the LAST IN FIRST OUT principle so at the base is the global execution context and each time a function is called the execution context is pushed onto the stack and when the function is finished it removes it from the stack
+  - The call stack is how the JS engine keeps track of the execution contexts
+  - When one function calls another function then the callee function is able to access the execution context (variables, etc.) of the caller function only if the callee function is declared inside the callee function
+  - If the callee function is declared outside then it does not have access to its parent execution context because of scope, scope and execution contexts are very related to each other
+  - The JS engine does some prep-work before it executes the code and one of the prep-steps is hositing
+  - Hoisting is a mechanism done by the JS engine where it moves all the variable and function declarations and "hoists" or lifts them up to the start of their scope so this is why you can initialize or call a function or variable before they are declared because the JS engine will move the declarations to have them before initialization
+  - There are 9 different types of errors that JS can generate: a generic error, a syntax error, a URI error, an aggregate error, a eval error, a range error, a reference error, and an internal error
+  - Whenever something goes wrong in JS, it may produce an error object of one of the types shown above, this error object will have properties related the error such as a name, a message (description) of the error, the file name, and the line number
+  - When an error is produced by JS and not caught then you can see it in the browser console
+  - To find the error, you first try to locate where the error is coming from and use breakpoints, error messages, console print statements, etc. to find where the error is coming from
+  - There is an API called Console API which allows you to print various data in various forms in the browser console to help you debug your error
+  - You may add breakpoints in the developer console in the browser as well to stop your execution and view the state of your variables
+  - You can even run JS code in the console to call functions in your script or create temporary variables to help debug the issue
+  - Once you find the issue you try to solve it but keep in mind solving one issue can produce other issues because when an error is encountered the rest of the code is not run so there could be potential errors in the code that has yet to run
+  - You can handle the errors gracefully in your code by using the ~try~, ~catch~, and ~finally~ code blocks
+  - In the ~try~ block you specify the code you think might or is possible to throw an error
+  - Then in the ~catch~ you try to catch the error, the ~catch~ block has one parameter which is the error object, it is optional but you should always use it because you want to know what type of error is produced and what is the description and where did it happen
+  - The ~finally~ code block will run either way, whether the ~try~ block succeeded or failed
+  - If you use ~continue~, ~break~, or ~return~ inside a ~try~ or ~catch~ block it will automatically go the ~finally~ option because ~finally~ will be executed always regardless of what happens inside ~try~ or ~catch~ even encountering those keywords
+  - You may even want to throw your own errors for issues / bugs that may not produce a JS error
+  - The syntax to throw an error is the following: ~throw new Error('message');~
+  - Each error thrown either by the JS engine or by your code will try to find a try-catch block in that function and if none are found it will slowly go up the stack to find the try-catch block and if none are found that is when the browser throws the error and stops the script
+  - Sometimes some issues may not throw an error but when you know an issue may arise on something you can't control like a 3rd party, it is always a good idea to throw an error and try to handle the error gracefully
+  - One example could be throwing an error when NaN is encountered, since NaN is a value, it will not throw an error so you throw your own error, but the other ways to manage NaN but it shows you possible scenarios to throw errors even if the browser doesn't generate a JS error
+  - There are mamny tips for debugging such as trying in multiple browsers, commenting out code little by little, adding console messages and more
+  - Common mistakes for errors are syntax errors (casing, mispelling, etc.), always check the variables scope, do not use reserved words as variables, use strict comparison operators, and more
