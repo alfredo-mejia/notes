@@ -100,7 +100,7 @@
       - If the user had clicked on another image since the one that just loaded, the ~request~ variable would no longer match the ~src~ variable and the image should not be shown (meaning ~request~ only holds the source of the most recent thumbnail cliked so when an image loads it compares the image's source and ~request~ if they match then display the image, otherwise an image that was not recent has been loaded and the browser should *not* display it)
     - To cache the images so whenever the user goes back to an image we do not need to create a new ~<img>~ element, the book provides a simple object called ~cache~
     - The idea of the ~cache~ object is that every time a new ~<img>~ element is created, it will be added to the ~cache~ object
-    - That way, each time an image is requested the code can check if the correspond ~<img>~ element is already in teh cache rather than creating it again (and simply just use the image element that is in the cache)
+    - That way, each time an image is requested the code can check if the correspond ~<img>~ element is already in teh cache rather than creating it again (and just simply use the image element that is in the cache)
 
 * Keywords
 | Term           | Definition |
