@@ -13,10 +13,100 @@
 
 * Notes
 
+** Section 11.1: Introduction
+   - Content panels allow you to showcase extra information within a limited space
+   - There are different types of panels:
+     - *Accordion*: An accordion features titles which, when clicked, expand to show a larger panel of content
+     - *Model Window*: When you click on a link for a model window (or "lightbox"), a hidden panel will be displayed
+     - *Responsive Slider*: The slider allows you to show panels of content that slide into view as the user navigates between them
+     - *Tabbed Panel*: Tabs automatically show one panel, but when you click on another tab, the panel is changed
+     - *Photo Viewer*: Photo viewers display different images within the same space when the user clicks on the thumbnails
+
+** Section 11.2: Separation of Concerns & Accessibility
+   - Always separate your HTML, CSS, and JS
+   - HTML is responsible for structuring content, CSS is responsible for presentation, and JS is responsible for behavior
+   - Separation produces code that is easier to maintain and reuse
+   - For example, instead of adding event listeners in HTML, add them in JS
+   - Instead of styling the elements in JS, simply change the classes, and specify the class in CSS
+   - When writing any script, you should think about those who might be using a web page in differnet situations than you
+   - Whenever a user can interact with an element, if it is a link then use ~<a>~ or if it acts like a button then use a button
+   - Both links and buttons gain focus, so users can move between the focusable elements using the Tab key or other non-mouse solution
+   - Although any element can become focusable by setting its ~tabindex~ attribute, only ~<a>~ elements and some input elements fire a ~click~ event when users press the Enter key on their keyboard (the ~ARIA role="button"~ attribute will not simulate this event)
+   - Some of the panels mentioned above hide their content by default and this content would be inaccessible to visitors that do not have JS enabled so one solution would be to add a class called ~no-js~ to the opening ~<html>~ tag and, in JS, remove the class so if JS is enabled it will remove the class and work as intended but if JS is disabled then the class will stay and styling options can be added to the class to show all hidden content
+
+** Section 11.3: Accordion
+   - When you click on the title of an accordion, its corresponding panel expands to reveal the content
+   - An accordion is ususally created within an unordered list (in a ~<ul>~ element) and each ~<li>~ element is a new item in the accordion
+   - Each ~<li>~ contains a visible label (e.g. ~<button>~) and a hidden pannel holding the content (e.g. ~<div>~)
+   - Clicking a label prompts the associated panel to be shown or to be hidden if it is in view
+   - To just hide or show a panel you could change the value of the ~class~ attribute on the associated panel (triggering a new CSS rule to show or hide it)
+   - HTML5 introduces ~<details>~ and ~<summary>~ elements to create a similar effect
+   - So when the page loads, CSS rules are used to hide the panels, then clicking a label prompts the hidden panel and follows it to animate and reveal its full height, and by clicking on the label again it would hide the panel
+   - You could animate the panel from showing to hiding and vice versa
+
+** Section 11.4: Tabbed Panel
+   - When you click on one of the tabs, its corresponding panel is shown, tabbed panels look a little like index cards
+   - You should be able to see all of the tabs but only one tab should be active and only the panel that corresponds to the active tab should be shown (all other panels should be hidden)
+   - The tabs are typically created using an unordered list and each ~<li>~ element represents a tab and within each tab is a link
+   - The panels are outside the ~<ul>~ and follow the unordered list that holds the tabs and each panel is stored in a ~<div>~
+   - To associate the tab to the panel the link in the tab like all links, has an ~href~ attribute and the panel has an ~id~ attribute
+   - Thus the ~href~ attribute in the links and the ~id~ attributes in the divs have the same value and it is the same principle as creating a link to another location within an HTML page
+   - So the panel that is active is shown and the panels that are non-active are hidden
+   - In JS, on a click on a single tab can trigger the class "active" to be replaced by "non-active" and on the targeted tab, replace the class "non-active" with "active"
+   - In the click event, it will also make active the panel that corresponds to the tab by its adding an "active" class to it and hide all other panels by adding a "non-active" class (or using some other selector e.g. no class) to the rest of the panels
+   - CSS classes can be used to show the list side-by-side, show which tab is active, and hide or show panels
+
+** Section 11.5: Modal Window
+   - A model window is any type of content that appears "in front of" the rest of the page's content and it must be "closed" before the rest of the page can be interacted with
+   - The content for the modal window will typically sit within the page but it is hidden when the page loads using CSS
+   - JS then takes that content and displays it inside ~<div>~ elements that create the modal window on top of the existing page
+   - Sometimes modal windows will dim out the rest of the page behind them and they can be designed to either appear automatically when the page has finished loading or they can be triggered by the user interacting with the page
+   - The book gives an example of a model window object called ~modal~ which has 3 methods you can use to create modal windows:
+     - ~open()~: opens a modal window
+     - ~close()~: closes the window
+     - ~center()~: centers it on the page
+   - The ~modal~ object uses a module pattern which is a popular way to write code that contains both public and private logic
+   - A design pattern is a term programmers use to describe a common approach to solving a range of programming tasks
+   - Thus the ~modal~ object can be used in other scripts and it can use its public methods: ~open()~, ~close()~, and ~center()~ but users do not need to access the variables that create the HTML, CSS, or other JS behavior, so they remain private
+   - All the users of the script need to know is what does the public methods achieve and how to use them
+   - Using modules to build parts of an application has benefits like it helps organize code, test and resue individual parts of the app, and it creates scope preventing variable / method names clashing with other scripts
+   - For example, in our ~modal~ object, you can specify the content that you want the modal window to contain as a parameter and you can also specify its width and height
+   - To setup your modal window, you can have a container around the modal window, then inside the container you can have another container for the content being added to the page, and then you can have a button to remove / close the modal window
+   - The ~z-index~ of the modal window must be very high so that it appears on top of any other content
+
+** Section 11.6: Photo Viewer
+   - The photo viewer is an example of an image gallery so when you click on a thumbnail, the main photo is replaced with a new image
+   - The HTML for the photo viewer consists of:
+     - One large ~<div>~ element that will hold the main picture (the images that sit in the ~<div>~ are centered and scaled down if necessary to fit wtihin the allocated area)
+     - A second ~<div>~ element that holds a set of thumbnails that show the other images you can view (these thumbnails sit inside links and the ~href~ attribute on those links point to the larger versions of their images)
+   - When you click on a thumbnail, an event listener triggers an anonymous function that:
+     - Looks at the value of the ~href~ attribute (which points to the large image)
+     - Creates a new ~<img>~ element to hold that image
+     - Makes it invisible
+     - Adds it to the big ~<div>~ element
+     - Once the image has loaded, a function called ~crossfade()~ is used to fade between the existing image and the new one that has been requested
+   - One suggestion can be to add a class of ~is-loading~ when images are loading so then CSS can display an animated loading gif while the images load and when the image has loaded the class ~is-loading~ is removed
+
+*** Section 11.6.1: Asynchronous Loading & Caching Images
+    - The larger images are only loaded into the page when the user clicks on a thumbnail and the script waits for the image to fully load before displaying it
+    - Because larger images take longer to load, if a user clicks on two different images in quick succession:
+      - The second image could load faster than the first one and be displayed in the browser
+      - So when the first image loads, the second image can be replaced by the first image the user click on and can confuse the users and think the wrong image has loaded
+    - The solution is then when the user clicks on a thumbnail:
+      - A function-level variable called ~src~ stores the path to this image
+      - A global variable called ~request~ is also updated with the path to this image
+      - An event handler is set to call an anonymous function when /this/ image has loaded
+      - When the image loads, the event handler checks if the ~src~ variable (which holds the path to /this/ image) matches the ~request~ variable
+      - If the user had clicked on another image since the one that just loaded, the ~request~ variable would no longer match the ~src~ variable and the image should not be shown (meaning ~request~ only holds the source of the most recent thumbnail cliked so when an image loads it compares the image's source and ~request~ if they match then display the image, otherwise an image that was not recent has been loaded and the browser should *not* display it)
+    - To cache the images so whenever the user goes back to an image we do not need to create a new ~<img>~ element, the book provides a simple object called ~cache~
+    - The idea of the ~cache~ object is that every time a new ~<img>~ element is created, it will be added to the ~cache~ object
+    - That way, each time an image is requested the code can check if the correspond ~<img>~ element is already in teh cache rather than creating it again (and simply just use the image element that is in the cache)
+
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term           | Definition |
+|----------------+------------|
+| Design Pattern |            |
+| Module Pattern |            |
 
 * Questions
   - *Q*: 
