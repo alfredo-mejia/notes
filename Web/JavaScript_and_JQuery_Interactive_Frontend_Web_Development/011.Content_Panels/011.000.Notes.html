@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-17 Tue 23:15 -->
+<!-- 2025-06-18 Wed 15:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 11: Content Panels</title>
@@ -202,35 +202,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2fd3c3d">Navigation</a></li>
-<li><a href="#org2d09ac7">Notes</a>
+<li><a href="#org042e715">Navigation</a></li>
+<li><a href="#org6667316">Notes</a>
 <ul>
-<li><a href="#org784bcbd">Section 11.1: Introduction</a></li>
-<li><a href="#orgfa89442">Section 11.2: Separation of Concerns &amp; Accessibility</a></li>
-<li><a href="#orgca7cafa">Section 11.3: Accordion</a></li>
-<li><a href="#orgc343a7a">Section 11.4: Tabbed Panel</a></li>
-<li><a href="#orge8b3209">Section 11.5: Modal Window</a></li>
-<li><a href="#orgbd71ae7">Section 11.6: Photo Viewer</a>
+<li><a href="#org043e6fe">Section 11.1: Introduction</a></li>
+<li><a href="#orgdf055ea">Section 11.2: Separation of Concerns &amp; Accessibility</a></li>
+<li><a href="#org2f5bc60">Section 11.3: Accordion</a></li>
+<li><a href="#orgfbb2cd4">Section 11.4: Tabbed Panel</a></li>
+<li><a href="#org91499c8">Section 11.5: Modal Window</a></li>
+<li><a href="#org7f23f2a">Section 11.6: Photo Viewer</a>
 <ul>
-<li><a href="#org0c3f883">Section 11.6.1: Asynchronous Loading &amp; Caching Images</a></li>
+<li><a href="#org7273a9c">Section 11.6.1: Asynchronous Loading &amp; Caching Images</a></li>
 </ul>
 </li>
-<li><a href="#org81fb1b8">Section 11.7: Responsive Slider</a></li>
-<li><a href="#orga9495e8">Section 11.8: Creating a jQuery Plugin</a></li>
-<li><a href="#org255216c">Section 11.9: Chapter Exercise</a></li>
-<li><a href="#org288f971">Section 11.10: Summary</a></li>
+<li><a href="#org56ab8aa">Section 11.7: Responsive Slider</a></li>
+<li><a href="#orgc46b114">Section 11.8: Creating a jQuery Plugin</a></li>
+<li><a href="#orgc5470ca">Section 11.9: Chapter Exercise</a></li>
+<li><a href="#orga507801">Section 11.10: Summary</a></li>
 </ul>
 </li>
-<li><a href="#orgd22e89f">Keywords</a></li>
-<li><a href="#org5280faf">Questions</a></li>
-<li><a href="#org043cf29">Summary</a></li>
+<li><a href="#org425767c">Keywords</a></li>
+<li><a href="#org015a90c">Questions</a></li>
+<li><a href="#orga81758d">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2fd3c3d" class="outline-2">
-<h2 id="org2fd3c3d">Navigation</h2>
-<div class="outline-text-2" id="text-org2fd3c3d">
+<div id="outline-container-org042e715" class="outline-2">
+<h2 id="org042e715">Navigation</h2>
+<div class="outline-text-2" id="text-org042e715">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -277,19 +277,19 @@
 </div>
 </div>
 
-<div id="outline-container-org2d09ac7" class="outline-2">
-<h2 id="org2d09ac7">Notes</h2>
-<div class="outline-text-2" id="text-org2d09ac7">
+<div id="outline-container-org6667316" class="outline-2">
+<h2 id="org6667316">Notes</h2>
+<div class="outline-text-2" id="text-org6667316">
 </div>
-<div id="outline-container-org784bcbd" class="outline-3">
-<h3 id="org784bcbd">Section 11.1: Introduction</h3>
-<div class="outline-text-3" id="text-org784bcbd">
+<div id="outline-container-org043e6fe" class="outline-3">
+<h3 id="org043e6fe">Section 11.1: Introduction</h3>
+<div class="outline-text-3" id="text-org043e6fe">
 <ul class="org-ul">
 <li>Content panels allow you to showcase extra information within a limited space</li>
 <li>There are different types of panels:
 <ul class="org-ul">
 <li><b>Accordion</b>: An accordion features titles which, when clicked, expand to show a larger panel of content</li>
-<li><b>Model Window</b>: When you click on a link for a model window (or "lightbox"), a hidden panel will be displayed</li>
+<li><b>Model Window</b>: When you click on a link for a modal window (or "lightbox"), a hidden panel will be displayed</li>
 <li><b>Responsive Slider</b>: The slider allows you to show panels of content that slide into view as the user navigates between them</li>
 <li><b>Tabbed Panel</b>: Tabs automatically show one panel, but when you click on another tab, the panel is changed</li>
 <li><b>Photo Viewer</b>: Photo viewers display different images within the same space when the user clicks on the thumbnails</li>
@@ -298,9 +298,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgfa89442" class="outline-3">
-<h3 id="orgfa89442">Section 11.2: Separation of Concerns &amp; Accessibility</h3>
-<div class="outline-text-3" id="text-orgfa89442">
+<div id="outline-container-orgdf055ea" class="outline-3">
+<h3 id="orgdf055ea">Section 11.2: Separation of Concerns &amp; Accessibility</h3>
+<div class="outline-text-3" id="text-orgdf055ea">
 <ul class="org-ul">
 <li>Always separate your HTML, CSS, and JS</li>
 <li>HTML is responsible for structuring content, CSS is responsible for presentation, and JS is responsible for behavior</li>
@@ -316,9 +316,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgca7cafa" class="outline-3">
-<h3 id="orgca7cafa">Section 11.3: Accordion</h3>
-<div class="outline-text-3" id="text-orgca7cafa">
+<div id="outline-container-org2f5bc60" class="outline-3">
+<h3 id="org2f5bc60">Section 11.3: Accordion</h3>
+<div class="outline-text-3" id="text-org2f5bc60">
 <ul class="org-ul">
 <li>When you click on the title of an accordion, its corresponding panel expands to reveal the content</li>
 <li>An accordion is ususally created within an unordered list (in a <code>&lt;ul&gt;</code> element) and each <code>&lt;li&gt;</code> element is a new item in the accordion</li>
@@ -332,9 +332,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgc343a7a" class="outline-3">
-<h3 id="orgc343a7a">Section 11.4: Tabbed Panel</h3>
-<div class="outline-text-3" id="text-orgc343a7a">
+<div id="outline-container-orgfbb2cd4" class="outline-3">
+<h3 id="orgfbb2cd4">Section 11.4: Tabbed Panel</h3>
+<div class="outline-text-3" id="text-orgfbb2cd4">
 <ul class="org-ul">
 <li>When you click on one of the tabs, its corresponding panel is shown, tabbed panels look a little like index cards</li>
 <li>You should be able to see all of the tabs but only one tab should be active and only the panel that corresponds to the active tab should be shown (all other panels should be hidden)</li>
@@ -350,9 +350,9 @@
 </div>
 </div>
 
-<div id="outline-container-orge8b3209" class="outline-3">
-<h3 id="orge8b3209">Section 11.5: Modal Window</h3>
-<div class="outline-text-3" id="text-orge8b3209">
+<div id="outline-container-org91499c8" class="outline-3">
+<h3 id="org91499c8">Section 11.5: Modal Window</h3>
+<div class="outline-text-3" id="text-org91499c8">
 <ul class="org-ul">
 <li>A model window is any type of content that appears "in front of" the rest of the page's content and it must be "closed" before the rest of the page can be interacted with</li>
 <li>The content for the modal window will typically sit within the page but it is hidden when the page loads using CSS</li>
@@ -376,9 +376,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgbd71ae7" class="outline-3">
-<h3 id="orgbd71ae7">Section 11.6: Photo Viewer</h3>
-<div class="outline-text-3" id="text-orgbd71ae7">
+<div id="outline-container-org7f23f2a" class="outline-3">
+<h3 id="org7f23f2a">Section 11.6: Photo Viewer</h3>
+<div class="outline-text-3" id="text-org7f23f2a">
 <ul class="org-ul">
 <li>The photo viewer is an example of an image gallery so when you click on a thumbnail, the main photo is replaced with a new image</li>
 <li>The HTML for the photo viewer consists of:
@@ -398,9 +398,9 @@
 </ul>
 </div>
 
-<div id="outline-container-org0c3f883" class="outline-4">
-<h4 id="org0c3f883">Section 11.6.1: Asynchronous Loading &amp; Caching Images</h4>
-<div class="outline-text-4" id="text-org0c3f883">
+<div id="outline-container-org7273a9c" class="outline-4">
+<h4 id="org7273a9c">Section 11.6.1: Asynchronous Loading &amp; Caching Images</h4>
+<div class="outline-text-4" id="text-org7273a9c">
 <ul class="org-ul">
 <li>The larger images are only loaded into the page when the user clicks on a thumbnail and the script waits for the image to fully load before displaying it</li>
 <li>Because larger images take longer to load, if a user clicks on two different images in quick succession:
@@ -424,9 +424,9 @@
 </div>
 </div>
 
-<div id="outline-container-org81fb1b8" class="outline-3">
-<h3 id="org81fb1b8">Section 11.7: Responsive Slider</h3>
-<div class="outline-text-3" id="text-org81fb1b8">
+<div id="outline-container-org56ab8aa" class="outline-3">
+<h3 id="org56ab8aa">Section 11.7: Responsive Slider</h3>
+<div class="outline-text-3" id="text-org56ab8aa">
 <ul class="org-ul">
 <li>A slider positions a series of items next to each other but only shows one at a time and then the images slide from one to the next</li>
 <li>The slider loads several panels but only shows one at a time</li>
@@ -447,9 +447,9 @@
 </div>
 </div>
 
-<div id="outline-container-orga9495e8" class="outline-3">
-<h3 id="orga9495e8">Section 11.8: Creating a jQuery Plugin</h3>
-<div class="outline-text-3" id="text-orga9495e8">
+<div id="outline-container-orgc46b114" class="outline-3">
+<h3 id="orgc46b114">Section 11.8: Creating a jQuery Plugin</h3>
+<div class="outline-text-3" id="text-orgc46b114">
 <ul class="org-ul">
 <li>jQuery plugins allow you to add new methods to jQuery without customizing the library itself</li>
 <li>You can turn any function into a plugin if it:
@@ -489,9 +489,9 @@
 </div>
 </div>
 
-<div id="outline-container-org255216c" class="outline-3">
-<h3 id="org255216c">Section 11.9: Chapter Exercise</h3>
-<div class="outline-text-3" id="text-org255216c">
+<div id="outline-container-orgc5470ca" class="outline-3">
+<h3 id="orgc5470ca">Section 11.9: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-orgc5470ca">
 <ul class="org-ul">
 <li>Inspired by 960 Grid System (<a href="https://960.gs">https://960.gs</a>), Unsemantic (<a href="https://unsemantic.com">https://unsemantic.com</a>), Bootstrap (<a href="https://getbootstrap.com">https://getbootstrap.com</a>), Bulma (<a href="https://bulma.io">https://bulma.io</a>), this chapter, and many more, I decided to create my own CSS framework</li>
 <li>My CSS framework will be called Martha (<a href="https://github.com/alfredo-mejia/martha">https://github.com/alfredo-mejia/martha</a>)</li>
@@ -506,9 +506,9 @@
 </div>
 </div>
 
-<div id="outline-container-org288f971" class="outline-3">
-<h3 id="org288f971">Section 11.10: Summary</h3>
-<div class="outline-text-3" id="text-org288f971">
+<div id="outline-container-orga507801" class="outline-3">
+<h3 id="orga507801">Section 11.10: Summary</h3>
+<div class="outline-text-3" id="text-orga507801">
 <ul class="org-ul">
 <li>Content panels offer ways to show more content within a limited area</li>
 <li>Popular types of content panels include accordions, tabs, photo viewers, modal windows, and sliders</li>
@@ -521,9 +521,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgd22e89f" class="outline-2">
-<h2 id="orgd22e89f">Keywords</h2>
-<div class="outline-text-2" id="text-orgd22e89f">
+<div id="outline-container-org425767c" class="outline-2">
+<h2 id="org425767c">Keywords</h2>
+<div class="outline-text-2" id="text-org425767c">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -541,29 +541,64 @@
 <tbody>
 <tr>
 <td class="org-left">Design Pattern</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">A design pattern is a reusable, general solution to a commonly occuring problem within a given context (some examples include <code>Singleton</code>, <code>Adapter</code>, <code>Observer</code>, and more)</td>
 </tr>
 
 <tr>
 <td class="org-left">Module Pattern</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">A module pattern is a design pattern used to organize and encapsulate code in JS helping to create private and public code in the module pattern to encapsulate functionality and avoid polluting the global namespace</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org5280faf" class="outline-2">
-<h2 id="org5280faf">Questions</h2>
-<div class="outline-text-2" id="text-org5280faf">
+<div id="outline-container-org015a90c" class="outline-2">
+<h2 id="org015a90c">Questions</h2>
+<div class="outline-text-2" id="text-org015a90c">
 <ul class="org-ul">
-<li><b>Q</b>:</li>
+<li><b>Q</b>: Are the <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> HTML tags' purpose actually for accordions?
+<ul class="org-ul">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details">Mozilla Web Docs - Details Tag</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/summary">Mozilla Web Docs - Summary Tag</a></li>
+<li>According to the Mozilla docs, it says "the <code>&lt;details&gt;</code> HTML element creates a disclosure widget in which information is visible only when the widget is toggled into an open state and a summary or label must be provided using the <code>&lt;summary&gt;</code> element</li>
+<li>According to the Mozilla docs, it says "the <code>&lt;summary&gt;</code> HTML element specifies a summary, caption, or legender for a <code>&lt;details&gt;</code> element's disclosure box thus clicking the <code>&lt;summary&gt;</code> element toggles the state of the parent <code>&lt;details&gt;</code> element open and closed</li>
+<li>These tags can be used at any time to create an accordion</li>
+<li>However, according to the <a href="https://html.spec.whatwg.org/multipage/interactive-elements.html">HTML specifications</a>, the details tag contains "additional information or controls"</li>
+<li>This means that semantically the <code>&lt;details&gt;</code> tag contains content that is non-essential to the user, the content is optional, supplementary, or user-discretionary, and the user can choose to read it later</li>
+<li><code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> are <b>semantic</b> tags, not visual components, so if you want accordions for some other reason than the purpose of <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> it is best to use JS to make UI accordions</li>
+<li>One accordion correspond to one <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> tag, if you want more than one then you need to have multiple <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code></li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org043cf29" class="outline-2">
-<h2 id="org043cf29">Summary</h2>
+<div id="outline-container-orga81758d" class="outline-2">
+<h2 id="orga81758d">Summary</h2>
+<div class="outline-text-2" id="text-orga81758d">
+<ul class="org-ul">
+<li>Content panels allow you to showcase extra information within a limit space</li>
+<li>There are different types of panels:
+<ul class="org-ul">
+<li>Accordions (click a label and a larger panel of content shows up)</li>
+<li>Modal Window (a modal window takes center stage of the website and shows the hidden panel)</li>
+<li>Responsive Slider (shows panels of content as a slide show)</li>
+<li>Tabbed Panel (show panels as index cards and as you click on another tab a different content panel will take the old content panel's place)</li>
+<li>Photo Viewer (shows different images within the same space when the user clicks on thumbnails)</li>
+</ul></li>
+<li>We always want to separate HTML, CSS, and JS</li>
+<li>We also must take in mind, if a user does not have JS enabled, how can we show the hidden content that would have appeared if JS was enabled</li>
+<li>We have to make our website accessible for those users who have JS disabled</li>
+<li>You can make an accordion using an unordered list and inside each list item there is a button and a hidden content panel that will show up whenever the button is clicked</li>
+<li>You can also use <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> which are used for additional information</li>
+<li>To make a tabbed panel you would use a horizontal unordered list that will have a link to a content div outside the list and this content div will appear or disappear (if replaced) depending on what was clicked</li>
+<li>The modal window is a <code>&lt;div&gt;</code> element that uses some JS to center it in the webpage and place it on top of the rest of the webpage to give it an effect of being on top of the rest of the webpage</li>
+<li>The photo viewer also use a couple <code>&lt;div&gt;</code> elements with JS but in the book it gives an example of caching images, since images may take a while to load, the book demonstrates to only replace an old image  when the new image is ready or to add a loading gif while it loads(so the image space won't be blank)</li>
+<li>The idea is to cache the images so when the user returns to an already seen image it is faster to load</li>
+<li>A responsive slider also use a couple of <code>&lt;div&gt;</code> elements but the whole functionality relies in JS moving the slides</li>
+<li>Finally, the book goes over how to create jQuery plugin by using jQuery's <code>.fn</code> object, the plugin function must accept a jQuery object and return a jQuery object</li>
+</ul>
+</div>
 </div>
 </div>
 </body>

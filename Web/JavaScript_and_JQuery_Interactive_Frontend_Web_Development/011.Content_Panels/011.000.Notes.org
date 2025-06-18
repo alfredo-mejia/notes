@@ -17,7 +17,7 @@
    - Content panels allow you to showcase extra information within a limited space
    - There are different types of panels:
      - *Accordion*: An accordion features titles which, when clicked, expand to show a larger panel of content
-     - *Model Window*: When you click on a link for a model window (or "lightbox"), a hidden panel will be displayed
+     - *Model Window*: When you click on a link for a modal window (or "lightbox"), a hidden panel will be displayed
      - *Responsive Slider*: The slider allows you to show panels of content that slide into view as the user navigates between them
      - *Tabbed Panel*: Tabs automatically show one panel, but when you click on another tab, the panel is changed
      - *Photo Viewer*: Photo viewers display different images within the same space when the user clicks on the thumbnails
@@ -167,10 +167,37 @@
 * Keywords
 | Term           | Definition |
 |----------------+------------|
-| Design Pattern |            |
-| Module Pattern |            |
+| Design Pattern | A design pattern is a reusable, general solution to a commonly occuring problem within a given context (some examples include ~Singleton~, ~Adapter~, ~Observer~, and more) |
+| Module Pattern | A module pattern is a design pattern used to organize and encapsulate code in JS helping to create private and public code in the module pattern to encapsulate functionality and avoid polluting the global namespace |
 
 * Questions
-  - *Q*: 
-
+  - *Q*: Are the ~<details>~ and ~<summary>~ HTML tags' purpose actually for accordions?
+         - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details][Mozilla Web Docs - Details Tag]]
+         - [[https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/summary][Mozilla Web Docs - Summary Tag]]
+	 - According to the Mozilla docs, it says "the ~<details>~ HTML element creates a disclosure widget in which information is visible only when the widget is toggled into an open state and a summary or label must be provided using the ~<summary>~ element
+	 - According to the Mozilla docs, it says "the ~<summary>~ HTML element specifies a summary, caption, or legender for a ~<details>~ element's disclosure box thus clicking the ~<summary>~ element toggles the state of the parent ~<details>~ element open and closed
+	 - These tags can be used at any time to create an accordion
+	 - However, according to the [[https://html.spec.whatwg.org/multipage/interactive-elements.html][HTML specifications]], the details tag contains "additional information or controls"
+	 - This means that semantically the ~<details>~ tag contains content that is non-essential to the user, the content is optional, supplementary, or user-discretionary, and the user can choose to read it later
+	 - ~<details>~ and ~<summary>~ are *semantic* tags, not visual components, so if you want accordions for some other reason than the purpose of ~<details>~ and ~<summary>~ it is best to use JS to make UI accordions
+	 - One accordion correspond to one ~<details>~ and ~<summary>~ tag, if you want more than one then you need to have multiple ~<details>~ and ~<summary>~
+	   
 * Summary
+  - Content panels allow you to showcase extra information within a limit space
+  - There are different types of panels:
+    - Accordions (click a label and a larger panel of content shows up)
+    - Modal Window (a modal window takes center stage of the website and shows the hidden panel)
+    - Responsive Slider (shows panels of content as a slide show)
+    - Tabbed Panel (show panels as index cards and as you click on another tab a different content panel will take the old content panel's place)
+    - Photo Viewer (shows different images within the same space when the user clicks on thumbnails)
+  - We always want to separate HTML, CSS, and JS
+  - We also must take in mind, if a user does not have JS enabled, how can we show the hidden content that would have appeared if JS was enabled
+  - We have to make our website accessible for those users who have JS disabled
+  - You can make an accordion using an unordered list and inside each list item there is a button and a hidden content panel that will show up whenever the button is clicked
+  - You can also use ~<details>~ and ~<summary>~ which are used for additional information
+  - To make a tabbed panel you would use a horizontal unordered list that will have a link to a content div outside the list and this content div will appear or disappear (if replaced) depending on what was clicked
+  - The modal window is a ~<div>~ element that uses some JS to center it in the webpage and place it on top of the rest of the webpage to give it an effect of being on top of the rest of the webpage
+  - The photo viewer also use a couple ~<div>~ elements with JS but in the book it gives an example of caching images, since images may take a while to load, the book demonstrates to only replace an old image  when the new image is ready or to add a loading gif while it loads(so the image space won't be blank)
+  - The idea is to cache the images so when the user returns to an already seen image it is faster to load
+  - A responsive slider also use a couple of ~<div>~ elements but the whole functionality relies in JS moving the slides
+  - Finally, the book goes over how to create jQuery plugin by using jQuery's ~.fn~ object, the plugin function must accept a jQuery object and return a jQuery object
