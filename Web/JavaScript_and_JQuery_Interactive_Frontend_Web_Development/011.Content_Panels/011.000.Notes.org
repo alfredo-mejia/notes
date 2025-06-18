@@ -102,6 +102,68 @@
     - The idea of the ~cache~ object is that every time a new ~<img>~ element is created, it will be added to the ~cache~ object
     - That way, each time an image is requested the code can check if the correspond ~<img>~ element is already in teh cache rather than creating it again (and just simply use the image element that is in the cache)
 
+** Section 11.7: Responsive Slider
+   - A slider positions a series of items next to each other but only shows one at a time and then the images slide from one to the next
+   - The slider loads several panels but only shows one at a time
+   - It also provides buttons that allow users to navigate between each of the slides and a timer to move them automatically after a set interval
+   - In the HTML, the entire slider is contained within a ~<div>~ element whose ~class~ attribute has a vlaue of ~slider-viewer~ and in turn the slider needs two further ~<div>~ elements, a container for the slides and a container for the buttons
+   - Inside the container for the slides, the container has a class value of ~slide-group~ and inside the container each indvidual slide is in another ~<div>~ element
+   - The container for the buttons has a class attribute of ~slide-buttons~ and the buttons are added by the script
+   - So when the page first loads, the CSS hides all of the slides which takes them out of normal flow and then the CSS sets the ~display~ property of the first slide to ~block~ to make it visible
+   - The script then goes through each slide and assigns an index number to that slide and adds a button for it under the slide group
+   - The index numbers allow the script to identify each indivdual slide
+   - To keep track of which slide is currently being shown, the script uses a variable called ~currentIndex~ (holding the index number of the current slide)
+   - When the page loads, this index is ~0~, so it shows the first slide and it also needs to know which slide it is moving to which is stored in a variable called ~newSlide~
+   - When it comes to moving between the slides (and creating the sliding effect), if the index number of the new slide is higher than the index number of the current slide, then the new slide is placed to the right of the group
+   - As the visible slide is animated to the left, the new slide automatically starts to come into view, taking its place
+   - If the index number of the new slide is lower than the current index, then the new slide is placed to the left of the current slide and as it is animated to the right, the new slide starts to come into view
+   - After the animation, the hidden slides are placed behind the one that is currently active
+
+** Section 11.8: Creating a jQuery Plugin
+   - jQuery plugins allow you to add new methods to jQuery without customizing the library itself
+   - You can turn any function into a plugin if it:
+     - Manipulates a jQuery selection
+     - Can return a jQuery selection
+   - The basic concept is that you:
+     - Pass it a set of DOM elements in a jQuery selection
+     - Manipulate the DOM elements using the jQuery plugin code
+     - Return the jQuery object so that other functions can be chained off it
+   - Adding a method to jQuery:
+     - jQuery has an object called ~.fn~ which helps you extend the functionality of jQuery
+     - Plugins are written as methods that are added to the ~.fn~ object
+     - Parameters that can be passed to the function are placed inside the parentheses on the first line (function declaration)
+   - Returning the jQuery selection to chain methods:
+     - jQuery works by collecting a set of elements and storing them in a jQuery object
+     - The jQuery object's methods can be used to alter the selected elements
+     - Because jQuery lets you chain multiple methods to the same selection, once the plugin has done its job it should return the selection for the next method
+     - The selection is returned using ~return this;~ because return sends a value back from a function and this refers to the selection that was passed in
+   - Protecting the namespace:
+     - jQuery is not the only JS library to use ~$~ as a shorthand, so the plugin code lives in an IIFE, which creates function-level scope for the code in the plugin
+     - On the first line below, the IIFE has one named parameter ~$~ and on the last line when the function is invoked the ~jQuery~ object is passed to the immediately invoked function expression and thus then you can use ~$~ inside the function as shorthand
+     - Thus inside the plugin, the parameter ~$~ acts like a variable name (it references the ~jQuery~ object containing the set of elements that the plugin is supposed to be working with)
+   - If you want to pass in more values into the plugin, it is typically done using a single parameter called options
+   - When the function is called, the options parameter contains an object literal
+   - The object can contain a set of key / value pairs for the different options
+
+** Section 11.9: Chapter Exercise
+   - Inspired by 960 Grid System (https://960.gs), Unsemantic (https://unsemantic.com), Bootstrap (https://getbootstrap.com), Bulma (https://bulma.io), this chapter, and many more, I decided to create my own CSS framework
+   - My CSS framework will be called Martha (https://github.com/alfredo-mejia/martha)
+   - The name is inspired by the first CSS framework I ever used which was Bulma
+   - This framework will be using CSS and JS
+   - The JS framework is mostly used to support the CSS and add visual animations and interactions
+   - The CSS portion will include a layout system, simple animations, styling for lists, tables, and more
+   - The JS portion will further add animations, like content panels disappearing and appearing based on button clicks, a slider of images, and more
+   - This chapter inspired me becauuse as we went over content panels (e.g. accordions, sliders, modals, etc.) it made me realize, as I develop more web applications having my very own framework would be cool and useful but it would also help me learn more about CSS and JS 
+   - This chapter goes over, "how to create a jQuery plugin", but I am going to take it one step further and create a whole CSS framework called Martha
+
+** Section 11.10: Summary
+   - Content panels offer ways to show more content within a limited area
+   - Popular types of content panels include accordions, tabs, photo viewers, modal windows, and sliders
+   - As with all website code, it is advisable to separate content (HTML), presentation (CSS), and behavior (JS) into different files
+   - You can create objects to represent the functionality you want (as with the modal window)
+   - You can turn functions into jQuery plugins that allow you to re-use code and share it with others
+   - Immediately invoked function expressions (IIFEs) are used to contain scope and prevent naming collisions
+
 * Keywords
 | Term           | Definition |
 |----------------+------------|

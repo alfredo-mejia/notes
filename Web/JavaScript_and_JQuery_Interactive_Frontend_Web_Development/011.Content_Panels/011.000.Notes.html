@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-19 Wed 14:38 -->
+<!-- 2025-06-17 Tue 23:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Chapter 11: Content Panels</title>
+<meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -192,13 +193,378 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
 </head>
 <body>
 <div id="content" class="content">
+<h1 class="title">Chapter 11: Content Panels</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2fd3c3d">Navigation</a></li>
+<li><a href="#org2d09ac7">Notes</a>
+<ul>
+<li><a href="#org784bcbd">Section 11.1: Introduction</a></li>
+<li><a href="#orgfa89442">Section 11.2: Separation of Concerns &amp; Accessibility</a></li>
+<li><a href="#orgca7cafa">Section 11.3: Accordion</a></li>
+<li><a href="#orgc343a7a">Section 11.4: Tabbed Panel</a></li>
+<li><a href="#orge8b3209">Section 11.5: Modal Window</a></li>
+<li><a href="#orgbd71ae7">Section 11.6: Photo Viewer</a>
+<ul>
+<li><a href="#org0c3f883">Section 11.6.1: Asynchronous Loading &amp; Caching Images</a></li>
+</ul>
+</li>
+<li><a href="#org81fb1b8">Section 11.7: Responsive Slider</a></li>
+<li><a href="#orga9495e8">Section 11.8: Creating a jQuery Plugin</a></li>
+<li><a href="#org255216c">Section 11.9: Chapter Exercise</a></li>
+<li><a href="#org288f971">Section 11.10: Summary</a></li>
+</ul>
+</li>
+<li><a href="#orgd22e89f">Keywords</a></li>
+<li><a href="#org5280faf">Questions</a></li>
+<li><a href="#org043cf29">Summary</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="date">Created: 2025-02-19 Wed 14:38</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+<div id="outline-container-org2fd3c3d" class="outline-2">
+<h2 id="org2fd3c3d">Navigation</h2>
+<div class="outline-text-2" id="text-org2fd3c3d">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 10: Error Handling &amp; Debugging</td>
+<td class="org-left">&vert; <a href="../010.Error_Handling_and_Debugging/010.000.Notes.html">html</a> &vert; <a href="../010.Error_Handling_and_Debugging/010.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/010.Error_Handling_and_Debugging">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 12: Filtering, Searching, &amp; Sorting</td>
+<td class="org-left">&vert; <a href="../012.Filtering_Searching_and_Sorting/012.000.Notes.html">html</a> &vert; <a href="../012.Filtering_Searching_and_Sorting/012.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/012.Filtering_Searching_and_Sorting">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org2d09ac7" class="outline-2">
+<h2 id="org2d09ac7">Notes</h2>
+<div class="outline-text-2" id="text-org2d09ac7">
+</div>
+<div id="outline-container-org784bcbd" class="outline-3">
+<h3 id="org784bcbd">Section 11.1: Introduction</h3>
+<div class="outline-text-3" id="text-org784bcbd">
+<ul class="org-ul">
+<li>Content panels allow you to showcase extra information within a limited space</li>
+<li>There are different types of panels:
+<ul class="org-ul">
+<li><b>Accordion</b>: An accordion features titles which, when clicked, expand to show a larger panel of content</li>
+<li><b>Model Window</b>: When you click on a link for a model window (or "lightbox"), a hidden panel will be displayed</li>
+<li><b>Responsive Slider</b>: The slider allows you to show panels of content that slide into view as the user navigates between them</li>
+<li><b>Tabbed Panel</b>: Tabs automatically show one panel, but when you click on another tab, the panel is changed</li>
+<li><b>Photo Viewer</b>: Photo viewers display different images within the same space when the user clicks on the thumbnails</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfa89442" class="outline-3">
+<h3 id="orgfa89442">Section 11.2: Separation of Concerns &amp; Accessibility</h3>
+<div class="outline-text-3" id="text-orgfa89442">
+<ul class="org-ul">
+<li>Always separate your HTML, CSS, and JS</li>
+<li>HTML is responsible for structuring content, CSS is responsible for presentation, and JS is responsible for behavior</li>
+<li>Separation produces code that is easier to maintain and reuse</li>
+<li>For example, instead of adding event listeners in HTML, add them in JS</li>
+<li>Instead of styling the elements in JS, simply change the classes, and specify the class in CSS</li>
+<li>When writing any script, you should think about those who might be using a web page in differnet situations than you</li>
+<li>Whenever a user can interact with an element, if it is a link then use <code>&lt;a&gt;</code> or if it acts like a button then use a button</li>
+<li>Both links and buttons gain focus, so users can move between the focusable elements using the Tab key or other non-mouse solution</li>
+<li>Although any element can become focusable by setting its <code>tabindex</code> attribute, only <code>&lt;a&gt;</code> elements and some input elements fire a <code>click</code> event when users press the Enter key on their keyboard (the <code>ARIA role="button"</code> attribute will not simulate this event)</li>
+<li>Some of the panels mentioned above hide their content by default and this content would be inaccessible to visitors that do not have JS enabled so one solution would be to add a class called <code>no-js</code> to the opening <code>&lt;html&gt;</code> tag and, in JS, remove the class so if JS is enabled it will remove the class and work as intended but if JS is disabled then the class will stay and styling options can be added to the class to show all hidden content</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgca7cafa" class="outline-3">
+<h3 id="orgca7cafa">Section 11.3: Accordion</h3>
+<div class="outline-text-3" id="text-orgca7cafa">
+<ul class="org-ul">
+<li>When you click on the title of an accordion, its corresponding panel expands to reveal the content</li>
+<li>An accordion is ususally created within an unordered list (in a <code>&lt;ul&gt;</code> element) and each <code>&lt;li&gt;</code> element is a new item in the accordion</li>
+<li>Each <code>&lt;li&gt;</code> contains a visible label (e.g. <code>&lt;button&gt;</code>) and a hidden pannel holding the content (e.g. <code>&lt;div&gt;</code>)</li>
+<li>Clicking a label prompts the associated panel to be shown or to be hidden if it is in view</li>
+<li>To just hide or show a panel you could change the value of the <code>class</code> attribute on the associated panel (triggering a new CSS rule to show or hide it)</li>
+<li>HTML5 introduces <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements to create a similar effect</li>
+<li>So when the page loads, CSS rules are used to hide the panels, then clicking a label prompts the hidden panel and follows it to animate and reveal its full height, and by clicking on the label again it would hide the panel</li>
+<li>You could animate the panel from showing to hiding and vice versa</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc343a7a" class="outline-3">
+<h3 id="orgc343a7a">Section 11.4: Tabbed Panel</h3>
+<div class="outline-text-3" id="text-orgc343a7a">
+<ul class="org-ul">
+<li>When you click on one of the tabs, its corresponding panel is shown, tabbed panels look a little like index cards</li>
+<li>You should be able to see all of the tabs but only one tab should be active and only the panel that corresponds to the active tab should be shown (all other panels should be hidden)</li>
+<li>The tabs are typically created using an unordered list and each <code>&lt;li&gt;</code> element represents a tab and within each tab is a link</li>
+<li>The panels are outside the <code>&lt;ul&gt;</code> and follow the unordered list that holds the tabs and each panel is stored in a <code>&lt;div&gt;</code></li>
+<li>To associate the tab to the panel the link in the tab like all links, has an <code>href</code> attribute and the panel has an <code>id</code> attribute</li>
+<li>Thus the <code>href</code> attribute in the links and the <code>id</code> attributes in the divs have the same value and it is the same principle as creating a link to another location within an HTML page</li>
+<li>So the panel that is active is shown and the panels that are non-active are hidden</li>
+<li>In JS, on a click on a single tab can trigger the class "active" to be replaced by "non-active" and on the targeted tab, replace the class "non-active" with "active"</li>
+<li>In the click event, it will also make active the panel that corresponds to the tab by its adding an "active" class to it and hide all other panels by adding a "non-active" class (or using some other selector e.g. no class) to the rest of the panels</li>
+<li>CSS classes can be used to show the list side-by-side, show which tab is active, and hide or show panels</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge8b3209" class="outline-3">
+<h3 id="orge8b3209">Section 11.5: Modal Window</h3>
+<div class="outline-text-3" id="text-orge8b3209">
+<ul class="org-ul">
+<li>A model window is any type of content that appears "in front of" the rest of the page's content and it must be "closed" before the rest of the page can be interacted with</li>
+<li>The content for the modal window will typically sit within the page but it is hidden when the page loads using CSS</li>
+<li>JS then takes that content and displays it inside <code>&lt;div&gt;</code> elements that create the modal window on top of the existing page</li>
+<li>Sometimes modal windows will dim out the rest of the page behind them and they can be designed to either appear automatically when the page has finished loading or they can be triggered by the user interacting with the page</li>
+<li>The book gives an example of a model window object called <code>modal</code> which has 3 methods you can use to create modal windows:
+<ul class="org-ul">
+<li><code>open()</code>: opens a modal window</li>
+<li><code>close()</code>: closes the window</li>
+<li><code>center()</code>: centers it on the page</li>
+</ul></li>
+<li>The <code>modal</code> object uses a module pattern which is a popular way to write code that contains both public and private logic</li>
+<li>A design pattern is a term programmers use to describe a common approach to solving a range of programming tasks</li>
+<li>Thus the <code>modal</code> object can be used in other scripts and it can use its public methods: <code>open()</code>, <code>close()</code>, and <code>center()</code> but users do not need to access the variables that create the HTML, CSS, or other JS behavior, so they remain private</li>
+<li>All the users of the script need to know is what does the public methods achieve and how to use them</li>
+<li>Using modules to build parts of an application has benefits like it helps organize code, test and resue individual parts of the app, and it creates scope preventing variable / method names clashing with other scripts</li>
+<li>For example, in our <code>modal</code> object, you can specify the content that you want the modal window to contain as a parameter and you can also specify its width and height</li>
+<li>To setup your modal window, you can have a container around the modal window, then inside the container you can have another container for the content being added to the page, and then you can have a button to remove / close the modal window</li>
+<li>The <code>z-index</code> of the modal window must be very high so that it appears on top of any other content</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbd71ae7" class="outline-3">
+<h3 id="orgbd71ae7">Section 11.6: Photo Viewer</h3>
+<div class="outline-text-3" id="text-orgbd71ae7">
+<ul class="org-ul">
+<li>The photo viewer is an example of an image gallery so when you click on a thumbnail, the main photo is replaced with a new image</li>
+<li>The HTML for the photo viewer consists of:
+<ul class="org-ul">
+<li>One large <code>&lt;div&gt;</code> element that will hold the main picture (the images that sit in the <code>&lt;div&gt;</code> are centered and scaled down if necessary to fit wtihin the allocated area)</li>
+<li>A second <code>&lt;div&gt;</code> element that holds a set of thumbnails that show the other images you can view (these thumbnails sit inside links and the <code>href</code> attribute on those links point to the larger versions of their images)</li>
+</ul></li>
+<li>When you click on a thumbnail, an event listener triggers an anonymous function that:
+<ul class="org-ul">
+<li>Looks at the value of the <code>href</code> attribute (which points to the large image)</li>
+<li>Creates a new <code>&lt;img&gt;</code> element to hold that image</li>
+<li>Makes it invisible</li>
+<li>Adds it to the big <code>&lt;div&gt;</code> element</li>
+<li>Once the image has loaded, a function called <code>crossfade()</code> is used to fade between the existing image and the new one that has been requested</li>
+</ul></li>
+<li>One suggestion can be to add a class of <code>is-loading</code> when images are loading so then CSS can display an animated loading gif while the images load and when the image has loaded the class <code>is-loading</code> is removed</li>
+</ul>
+</div>
+
+<div id="outline-container-org0c3f883" class="outline-4">
+<h4 id="org0c3f883">Section 11.6.1: Asynchronous Loading &amp; Caching Images</h4>
+<div class="outline-text-4" id="text-org0c3f883">
+<ul class="org-ul">
+<li>The larger images are only loaded into the page when the user clicks on a thumbnail and the script waits for the image to fully load before displaying it</li>
+<li>Because larger images take longer to load, if a user clicks on two different images in quick succession:
+<ul class="org-ul">
+<li>The second image could load faster than the first one and be displayed in the browser</li>
+<li>So when the first image loads, the second image can be replaced by the first image the user click on and can confuse the users and think the wrong image has loaded</li>
+</ul></li>
+<li>The solution is then when the user clicks on a thumbnail:
+<ul class="org-ul">
+<li>A function-level variable called <code>src</code> stores the path to this image</li>
+<li>A global variable called <code>request</code> is also updated with the path to this image</li>
+<li>An event handler is set to call an anonymous function when <i>this</i> image has loaded</li>
+<li>When the image loads, the event handler checks if the <code>src</code> variable (which holds the path to <i>this</i> image) matches the <code>request</code> variable</li>
+<li>If the user had clicked on another image since the one that just loaded, the <code>request</code> variable would no longer match the <code>src</code> variable and the image should not be shown (meaning <code>request</code> only holds the source of the most recent thumbnail cliked so when an image loads it compares the image's source and <code>request</code> if they match then display the image, otherwise an image that was not recent has been loaded and the browser should <b>not</b> display it)</li>
+</ul></li>
+<li>To cache the images so whenever the user goes back to an image we do not need to create a new <code>&lt;img&gt;</code> element, the book provides a simple object called <code>cache</code></li>
+<li>The idea of the <code>cache</code> object is that every time a new <code>&lt;img&gt;</code> element is created, it will be added to the <code>cache</code> object</li>
+<li>That way, each time an image is requested the code can check if the correspond <code>&lt;img&gt;</code> element is already in teh cache rather than creating it again (and just simply use the image element that is in the cache)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org81fb1b8" class="outline-3">
+<h3 id="org81fb1b8">Section 11.7: Responsive Slider</h3>
+<div class="outline-text-3" id="text-org81fb1b8">
+<ul class="org-ul">
+<li>A slider positions a series of items next to each other but only shows one at a time and then the images slide from one to the next</li>
+<li>The slider loads several panels but only shows one at a time</li>
+<li>It also provides buttons that allow users to navigate between each of the slides and a timer to move them automatically after a set interval</li>
+<li>In the HTML, the entire slider is contained within a <code>&lt;div&gt;</code> element whose <code>class</code> attribute has a vlaue of <code>slider-viewer</code> and in turn the slider needs two further <code>&lt;div&gt;</code> elements, a container for the slides and a container for the buttons</li>
+<li>Inside the container for the slides, the container has a class value of <code>slide-group</code> and inside the container each indvidual slide is in another <code>&lt;div&gt;</code> element</li>
+<li>The container for the buttons has a class attribute of <code>slide-buttons</code> and the buttons are added by the script</li>
+<li>So when the page first loads, the CSS hides all of the slides which takes them out of normal flow and then the CSS sets the <code>display</code> property of the first slide to <code>block</code> to make it visible</li>
+<li>The script then goes through each slide and assigns an index number to that slide and adds a button for it under the slide group</li>
+<li>The index numbers allow the script to identify each indivdual slide</li>
+<li>To keep track of which slide is currently being shown, the script uses a variable called <code>currentIndex</code> (holding the index number of the current slide)</li>
+<li>When the page loads, this index is <code>0</code>, so it shows the first slide and it also needs to know which slide it is moving to which is stored in a variable called <code>newSlide</code></li>
+<li>When it comes to moving between the slides (and creating the sliding effect), if the index number of the new slide is higher than the index number of the current slide, then the new slide is placed to the right of the group</li>
+<li>As the visible slide is animated to the left, the new slide automatically starts to come into view, taking its place</li>
+<li>If the index number of the new slide is lower than the current index, then the new slide is placed to the left of the current slide and as it is animated to the right, the new slide starts to come into view</li>
+<li>After the animation, the hidden slides are placed behind the one that is currently active</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga9495e8" class="outline-3">
+<h3 id="orga9495e8">Section 11.8: Creating a jQuery Plugin</h3>
+<div class="outline-text-3" id="text-orga9495e8">
+<ul class="org-ul">
+<li>jQuery plugins allow you to add new methods to jQuery without customizing the library itself</li>
+<li>You can turn any function into a plugin if it:
+<ul class="org-ul">
+<li>Manipulates a jQuery selection</li>
+<li>Can return a jQuery selection</li>
+</ul></li>
+<li>The basic concept is that you:
+<ul class="org-ul">
+<li>Pass it a set of DOM elements in a jQuery selection</li>
+<li>Manipulate the DOM elements using the jQuery plugin code</li>
+<li>Return the jQuery object so that other functions can be chained off it</li>
+</ul></li>
+<li>Adding a method to jQuery:
+<ul class="org-ul">
+<li>jQuery has an object called <code>.fn</code> which helps you extend the functionality of jQuery</li>
+<li>Plugins are written as methods that are added to the <code>.fn</code> object</li>
+<li>Parameters that can be passed to the function are placed inside the parentheses on the first line (function declaration)</li>
+</ul></li>
+<li>Returning the jQuery selection to chain methods:
+<ul class="org-ul">
+<li>jQuery works by collecting a set of elements and storing them in a jQuery object</li>
+<li>The jQuery object's methods can be used to alter the selected elements</li>
+<li>Because jQuery lets you chain multiple methods to the same selection, once the plugin has done its job it should return the selection for the next method</li>
+<li>The selection is returned using <code>return this;</code> because return sends a value back from a function and this refers to the selection that was passed in</li>
+</ul></li>
+<li>Protecting the namespace:
+<ul class="org-ul">
+<li>jQuery is not the only JS library to use <code>$</code> as a shorthand, so the plugin code lives in an IIFE, which creates function-level scope for the code in the plugin</li>
+<li>On the first line below, the IIFE has one named parameter <code>$</code> and on the last line when the function is invoked the <code>jQuery</code> object is passed to the immediately invoked function expression and thus then you can use <code>$</code> inside the function as shorthand</li>
+<li>Thus inside the plugin, the parameter <code>$</code> acts like a variable name (it references the <code>jQuery</code> object containing the set of elements that the plugin is supposed to be working with)</li>
+</ul></li>
+<li>If you want to pass in more values into the plugin, it is typically done using a single parameter called options</li>
+<li>When the function is called, the options parameter contains an object literal</li>
+<li>The object can contain a set of key / value pairs for the different options</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org255216c" class="outline-3">
+<h3 id="org255216c">Section 11.9: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org255216c">
+<ul class="org-ul">
+<li>Inspired by 960 Grid System (<a href="https://960.gs">https://960.gs</a>), Unsemantic (<a href="https://unsemantic.com">https://unsemantic.com</a>), Bootstrap (<a href="https://getbootstrap.com">https://getbootstrap.com</a>), Bulma (<a href="https://bulma.io">https://bulma.io</a>), this chapter, and many more, I decided to create my own CSS framework</li>
+<li>My CSS framework will be called Martha (<a href="https://github.com/alfredo-mejia/martha">https://github.com/alfredo-mejia/martha</a>)</li>
+<li>The name is inspired by the first CSS framework I ever used which was Bulma</li>
+<li>This framework will be using CSS and JS</li>
+<li>The JS framework is mostly used to support the CSS and add visual animations and interactions</li>
+<li>The CSS portion will include a layout system, simple animations, styling for lists, tables, and more</li>
+<li>The JS portion will further add animations, like content panels disappearing and appearing based on button clicks, a slider of images, and more</li>
+<li>This chapter inspired me becauuse as we went over content panels (e.g. accordions, sliders, modals, etc.) it made me realize, as I develop more web applications having my very own framework would be cool and useful but it would also help me learn more about CSS and JS</li>
+<li>This chapter goes over, "how to create a jQuery plugin", but I am going to take it one step further and create a whole CSS framework called Martha</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org288f971" class="outline-3">
+<h3 id="org288f971">Section 11.10: Summary</h3>
+<div class="outline-text-3" id="text-org288f971">
+<ul class="org-ul">
+<li>Content panels offer ways to show more content within a limited area</li>
+<li>Popular types of content panels include accordions, tabs, photo viewers, modal windows, and sliders</li>
+<li>As with all website code, it is advisable to separate content (HTML), presentation (CSS), and behavior (JS) into different files</li>
+<li>You can create objects to represent the functionality you want (as with the modal window)</li>
+<li>You can turn functions into jQuery plugins that allow you to re-use code and share it with others</li>
+<li>Immediately invoked function expressions (IIFEs) are used to contain scope and prevent naming collisions</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd22e89f" class="outline-2">
+<h2 id="orgd22e89f">Keywords</h2>
+<div class="outline-text-2" id="text-orgd22e89f">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Design Pattern</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Module Pattern</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org5280faf" class="outline-2">
+<h2 id="org5280faf">Questions</h2>
+<div class="outline-text-2" id="text-org5280faf">
+<ul class="org-ul">
+<li><b>Q</b>:</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org043cf29" class="outline-2">
+<h2 id="org043cf29">Summary</h2>
+</div>
 </div>
 </body>
 </html>
