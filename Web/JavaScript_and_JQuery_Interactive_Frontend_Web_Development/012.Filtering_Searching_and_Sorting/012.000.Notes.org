@@ -1,0 +1,33 @@
+#+title: Chapter 12: Filtering, Searching, & Sorting
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                                       | Links                                   |
+|-------+-------------------------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                                  | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | JavaScript & JQuery - Interactive Front-end Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development][github]] \vert |
+| Prev  | Chapter 11: Content Panels                                  | \vert [[file:../011.Content_Panels/011.000.Notes.html][html]] \vert [[file:../011.Content_Panels/011.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/011.Content_Panels][github]] \vert |
+| Next  | Chapter 12: Form Enhancement & Validation                   | \vert [[file:../013.Form_Enhancement_and_Validation/013.000.Notes.html][html]] \vert [[file:../013.Form_Enhancement_and_Validation/013.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/013.Form_Enhancement_and_Validation][github]] \vert |
+
+* Notes
+
+** Section 12.1: Introduction
+   - If your pages contain a lot of data, there are 3 techniques that you can use to help your users to find the content they are looking for:
+     - *Filtering*: Filtering lets you reduce a set of values by selecting the ones that meet stated criteria
+     - *Search*: Search lets you show the items that match one or more words the user specifies
+     - *Sorting*: Sorting lets you reorder a set of items on the page based on criteria (e.g. alphabetically)
+   - Before dealing with filtering, searching, and sorting, you have to consider how you are going to store the data that you are working with, one option could use arrays to hold data objects (and each object has its own properties / data)
+
+** Section 12.2: JavaScript Array Methods
+   
+* Keywords
+| Term | Definition |
+|------+------------|
+|      |            |
+
+* Questions
+  - *Q*:
+
+* Summary
