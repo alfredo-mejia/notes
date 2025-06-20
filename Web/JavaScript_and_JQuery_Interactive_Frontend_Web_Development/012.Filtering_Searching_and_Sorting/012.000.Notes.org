@@ -21,6 +21,73 @@
    - Before dealing with filtering, searching, and sorting, you have to consider how you are going to store the data that you are working with, one option could use arrays to hold data objects (and each object has its own properties / data)
 
 ** Section 12.2: JavaScript Array Methods
+   - An array is a kind of object and an array has various methods and properties
+   - Arrays are often used to store complex data including other objects
+   - Each item in an array is sometimes called an element or item (however don't associate the word "element" with the HTML elements, it is something unrelated)
+   - Some methods of an array are:
+     - ~push()~: adds one or more items to the end of the array and returns the number of items in it
+     - ~unshift()~: adds one or more items to the start of the array and returns new length of it
+     - ~pop()~: removes last element from array and returns the element
+     - ~shift()~: removes first element from array and returns the element
+     - ~forEach()~: executes a function once for each element in array
+     - ~some()~: checks if some elements in array pass a test specified by a function
+     - ~every()~: checks if all elements in array pass a test specified by a function
+     - ~concat()~: creates new array containing this array and other array / values
+     - ~filter()~: creates new array with elements that pass a test specified by a function
+     - ~sort()~: reorders items in array using a function (called a compare function)
+     - ~reverse()~: reverses order of items in array
+     - ~map()~: calls a function on each element in array & creates a new array with results
+
+*** Section 12.2.1: Filtering
+    - Filtering lets you reduce a set of values
+    - Filtering allows you to create a subset of data that meets certain criteria
+    - The array object has two methods that are very useful for filtering data (~forEach()~ and ~filter()~) and as they filter the data, the items that pass a test are added to a new array
+    - The ~forEach()~ method loops through the array and applies the same function to every item in it
+    - ~forEach()~ is very flexible because the function can perform any kind of processing with the items in an array (not just filtering)
+    - The anonymous function in the ~forEach()~ acts as a filter because it can check if it satifies the filter criteria or not, and if so, it can add them (the filtered results) to a new array
+    - When using ~forEach()~, the named or anonymous function given can have a parameter and this parameter represents the current single item in the array which you can use in your function
+    - The ~filter()~ method also accepts a function which is applied to each item in the array but this function only returns ~true~ or ~false~
+    - If the ~filter()~ method returns true then the method adds the item to a new array, otherwise it is not added to the new array
+    - The ~filter()~ syntax is slightly simpler than ~forEach()~ but it is only meant to be used to filter data
+    - The function inside ~filter()~ also accepts a parameter and that parameter represents the current item in the iteration
+    - If you let users filter the contents of a page, you can build all of the HTML content and then show and hide the relevant parts as the user interacts with the filters
+    - So instead of creating HTML elements that fit the criteria of the filters instead you create the HTML elements for all items in the array and show or hide items as the filters are inputted and processed (thus you do not need to delete or create HTML elements but simply show or hide them and thus take less resources)
+
+** Section 12.3: jQuery Collections
+   - jQuery collections are array-like objects representing DOM elements
+   - jQuery has similar methods to an array for modifying the elements
+   - After calling the jQuery collections methods, you can use or chain other jQuery methods on the selection returned from the collection methods
+   - jQuery Collections methods are:
+     - ~.add()~: adds elements to a set of matched elements
+     - ~.not()~: removes elements from a set of matched elements
+     - ~.each()~: applies same function to each element in a matched set
+     - ~.filter()~: reduces number of elements in a matched set to those that either match a selector or pass a test specified by a function
+     - ~.toArray()~: converts a jQuery collection to an array of DOM elements, so now it becomes an array of objects and you can use the methods shown above
+
+** Section 12.4: ECMAScript
+   - ECMAScript is the specifications that JavaScript is based upon
+   - EMCAScript is the official name for standardized version of JS, EMCAScript is not JS, EMCAScript is the specifications and JS is the implementation of that specification
+   - ECMA International is the standard body that looks after the language and discuss any new features and browser manufacturers often add features beyond the ECMA specs (typically agreed upon in WHATWG, W3C, or individual vendors)
+   - This is why some older browsers may not support the latest features (and only work with newer / modern browsers)
+   - There is a script to help with older browsers not supporting new features and it can be found here: https://github.com/es-shims/es6-shim
+   - This script reproduces their functionality for legacy browsers
+
+** Section 12.5: Arrays vs Objects
+   - In order to represent complex data you might need several objects
+   - Groups of objects can be stored in arrays or as properties of other objects so when deciding which approach to use, consider how you will use the data
+   - Arrays:
+     - When the order of the objects is important, they should be stored in an array because each item in an array is given an index number (key-value pairs in objects are not ordered)
+     - Note that the index number can change if objects are added / removed
+     - Arrays also have properties and methods that help when working with a sequence of items (e.g. ~sort()~ method reorders items in an array and ~length~ property counts the number of items)
+     - To retrieve data from an array of objects, you can use the index number for the object
+     - To add / remove objects in an array, you can use array methods
+     - To iterate over the items in an array you can use ~forEach()~
+   - Objects:
+     - When you want to access objects using their name, they work well as properties of another object (because you would not need to iterate through all objects to find that object as you would in an array)
+     - But note that each property must have a unique name (e.g. you cannot have two properties called ~Casey~ and ~Camille~ within the same object)
+     - To retrieve data from an object stored as a property of another object, you can use the object's name (e.g. ~obj.propertyName~)
+     - To remove / delete an object (since it is a property) from another object, you can use the ~delete~ keyword or erase its content with a blank string
+     - To iterate over child objects you can use the builtin method ~Object.keys(myObj)~ to retrieve the name of all the properties (children) from the object
    
 * Keywords
 | Term | Definition |
@@ -28,6 +95,6 @@
 |      |            |
 
 * Questions
-  - *Q*:
+  - *Q*: 
 
 * Summary
