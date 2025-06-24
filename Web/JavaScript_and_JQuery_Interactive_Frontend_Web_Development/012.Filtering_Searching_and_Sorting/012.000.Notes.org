@@ -52,7 +52,11 @@
     - The function inside ~filter()~ also accepts a parameter and that parameter represents the current item in the iteration
     - If you let users filter the contents of a page, you can build all of the HTML content and then show and hide the relevant parts as the user interacts with the filters
     - So instead of creating HTML elements that fit the criteria of the filters instead you create the HTML elements for all items in the array and show or hide items as the filters are inputted and processed (thus you do not need to delete or create HTML elements but simply show or hide them and thus take less resources)
-
+    - To filter elements that are "not so easy to filter" like images, you use something called ~data-tags~
+    - These tags are stored as a HTML attribute on each of the ~<img>~ elements since HTML5 allows you to store any data with an any element using an attribute that starts with the word ~data-~
+    - The values of the ~data-tags~ are comma-separated (technically in JS, it is one big value but with commas you can split the string more easily) , for example, I could have data tag like ~data-color="green, purple, orange"~
+    - So the images can have multiple values inside their data tag and then you can filter the image elements based on the value of their data tags
+      
 ** Section 12.3: jQuery Collections
    - jQuery collections are array-like objects representing DOM elements
    - jQuery has similar methods to an array for modifying the elements
@@ -88,6 +92,15 @@
      - To retrieve data from an object stored as a property of another object, you can use the object's name (e.g. ~obj.propertyName~)
      - To remove / delete an object (since it is a property) from another object, you can use the ~delete~ keyword or erase its content with a blank string
      - To iterate over child objects you can use the builtin method ~Object.keys(myObj)~ to retrieve the name of all the properties (children) from the object
+
+** Section 12.6: Search
+   - Search is like filtering but you show only results that match a search term
+   - In the book example, we have images and each image has some "tags", these tags can be added to the ~alt~ text and the ~alt~ text can be used to search the images
+   - So the "live search" works by searching or looking through the ~alt~ text of images and as you type the images are narrowed down to match the search criteria
+   - This feature does some NLP technique either an exact match whose ~alt~ text contains the search term or whose ~alt~ text is similar to the search time
+
+** Section 12.7: Sorting
+   - 
    
 * Keywords
 | Term | Definition |
@@ -95,6 +108,6 @@
 |      |            |
 
 * Questions
-  - *Q*: 
+  - *Q*: What are HTML data tags?
 
 * Summary
