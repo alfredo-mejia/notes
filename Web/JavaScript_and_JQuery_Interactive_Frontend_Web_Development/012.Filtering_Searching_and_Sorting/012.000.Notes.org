@@ -100,14 +100,94 @@
    - This feature does some NLP technique either an exact match whose ~alt~ text contains the search term or whose ~alt~ text is similar to the search time
 
 ** Section 12.7: Sorting
-   - 
+   - Sorting involves taking a set of values and reordering them
+   - Computers often need detailed instructions about how to sort data
+   - The Array object has the ~sort()~ method and when you sort an array using the ~sort()~ method, you change the order of the items it holds
+   - Remember that the elements in an array have an index number, so sorting can be compared to changing the index numbers of the items in the array
+   - By default, the ~sort()~ method orders items lexicographically (it is the same order dictionaries use - e.g. [1, 2, 124, 14] --> [1, 124, 14, 2])
+   - Lexicographic order is as follows:
+     1. Look at the first letter and order words by the first letter (when talking about letters, it can also apply to numbers)
+     2. If two words share the same first letter, order those words by the second letter
+     3. If two words share the same first two letters, order those words by the third letter, etc.
+   - To sort items in a different way, you can write a compare function
+     - The compare function compares two values at a time and returns a number
+     - The number it returns is then used to rearrange the items in the array
+     - The ~sort()~ method only ever compares two values at a time and it determines whether value ~a~ should appear before or after value ~b~
+     - Because only two values are compared at a time, the ~sort()~ method may need to compare each value in the array with several other values in the array
+     - ~sort()~ can have an anonymous or a named function as a parameter and this function is called a compare function and it lets you create rules to determine whether value ~a~ should come before or after value ~b~
+     - A compare function should return a number and that number indicates which of the two items should come first
+     - The ~sort()~ method will determine which values it needs to compare to ensure the array is ordered correctly, you just have to write the compare function so that it returns a number that reflects the order in which you want items to appear
+     - *Less than zero*: This indicates that it should show ~a~ before ~b~
+     - *Equal to zero*: Indicates that the items should remain in the same order
+     - *Greater than zero*: Indicates that it should show ~b~ before ~a~
+
+*** Section 12.7.1: How Sorting Works
+    - The actual sorting algorithm depends on the browser's implementation (the JS engine)
+    - The only thing we have control is the condition of which the sorting algorithm uses to determine if a value comes before or after another value or stays in the same position (since the sorting algorithm compares two values at a time)
+    - However, the actual sorting algorithm (how it selects the two values in the array to compare) depends on the browser's implementation
+    - The algorithm can vary per browser and per data type of the values in the array, but some algorithms include: QuickSort, Introsort, MergeSort, SelectionSort, AVLSort, and Timsort
+    - These algorithms are used to sort the items while using your compare function to compare two values and determine keep the same position or put one value before the other
+
+*** Section 12.7.2: Sorting Dates
+    - Dates need to be converted into a ~Date~ object so that they can then be compared using ~<~ and ~>~ operators
+    - If the dates are held as strings then the compare function needs to create a ~Date~ object from the string so that the two dates can be compared using the ~<~ and ~>~ operators
+    - Once they have been converted into a ~Date~ object, JS stores the date as the number of milliseconds since the 1st January 1970
+    - With the date stored as a number, two dates can be compared in the same way that numbers are compared
+
+*** Section 12.7.3: Sorting a Table
+    - Each row of the table can be stored in an array
+    - When users click on a heading, it triggers an anonymous function to sort the contents of the array which contains the table rows
+    - The rows are sorted in ascending / descending order using the data in that column of which the heading was clicked
+    - Clicking the same header again will toggle between ascending / descending order based on the column data of which the heading was clicked
+    - Each column can contain different types of data compared to other columns
+    - The type of data can be specified in the HTML ~<th>~ element using a data tag
+    - Each type of data needs a different compare function
+    - The comapre function will also only use the column of which it was clicked on, for example, let's say we have a 2D array, or an array of objects, where the object represents the row and the array is the array of rows
+    - Whenever we click on a column header, we will use a compare function that only uses the property of the object that corresponds to the column clicked because we are trying to sort based on the column that was clicked and no other column
+    - If another column was clicked then we will only use the property since we only want to sort the objects based on that column, the whole array will be sorted by only using certain properties of the object based on the column clicked
+
+** Section 12.8: Chapter Exercise
+   - For this chapter exercise, we will get the "Average Interest Rates on U.S Securities" from the U.S Treasury using their API
+   - [[https://fiscaldata.treasury.gov/datasets/average-interest-rates-treasury-securities/average-interest-rates-on-u-s-treasury-securities][Here]] is the documentation of the API
+   - The data will be shown in a tabluar form
+   - Each row will show the average interest rates on a monthly basis on some type of security
+   - The average interest rates will be shown on marketable securities such as Treasury Bills, Notes, Bonds, etc. and non-marketable securities such as domestic series, foreign series, etc.
+   - Each row will have a record date, a security type description (marketable vs. non-marketable), a security description (treasury bils, bonds, domestic series, etc.) and average interest rate amount
+   - The table will have filters to filter the rows by either marketable or non-marketable and / or the type of security such as treasury bills, bonds, etc.
+   - In addition to the filters, the table will be able sort the rows by date (record date), alphabetically (for the securities), and numerically (for the interest rates)
+   - Finally, the user would be able to search for a specific security, date, or interest rate
+   - The filters, sorting, and searching mechanisms can be used all together, separately or a combination of each
+
+** Section 12.9: Summary
+   - Arrays are commonly used to store a set of objects
+   - Arrays have helpful methods that allow you to add, remove, filter, and sort the items they contain
+   - Filtering lets you remove items and only show a subset of them based on a selected criteria
+   - Filters often rely on custom functions to check whether items match your criteria
+   - Search lets you filter based upon data the user enters
+   - Sorting allows you to reorder the items in an array
+   - If you want to control the order in which items are sorted, you can use a compare function
+   - To support older browsers, you can use a shim script (a script that has the new JS features that have not been or will not be implemented in older browsers but modern browsers have improved at supporting modern web standards)
    
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term    | Definition |
+|---------+------------|
+| Sorting |            |
 
 * Questions
   - *Q*: What are HTML data tags?
+
+  - *Q*: What is sorting by lexicographically?
+
+  - *Q*: How does QickSort work?
+
+  - *Q*: How does Introsort work?
+
+  - *Q*: How does MergeSort work?
+
+  - *Q*: How does SelectionSort work?
+
+  - *Q*: How does AVLSort work?
+
+  - *Q*: How does Timsort work?
 
 * Summary
