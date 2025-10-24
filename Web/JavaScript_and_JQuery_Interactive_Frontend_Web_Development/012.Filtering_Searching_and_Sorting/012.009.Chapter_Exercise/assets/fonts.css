@@ -1,0 +1,422 @@
+/* Default heading sizes and font-weights (assuming 16px root font) */
+
+/*font-weight: 100; !* Thin *!*/
+/*font-weight: 300; !* Light *!*/
+/*font-weight: 400; !* Normal *!*/
+/*font-weight: 500; !* Medium *!*/
+/*font-weight: 600; !* Semi-bold *!*/
+/*font-weight: 700; !* Bold *!*/
+/*font-weight: 800; !* Extra-bold *!*/
+/*font-weight: 900; !* Black (very bold) *!*/
+
+/* h1 - 2em    (~32px),    font-weight: bold (700) */
+/* h2 - 1.5em  (~24px),    font-weight: bold (700) */
+/* h3 - 1.17em (~18.72px), font-weight: bold (700) */
+/* h4 - 1em    (~16px),    font-weight: bold (700) */
+/* h5 - 0.83em (~13.28px), font-weight: bold (700) */
+/* h6 - 0.67em (~10.72px), font-weight: bold (700) */
+
+/* body - 1em (16px), font-weight: normal (400) */
+
+/** HEADERS **/
+.inter-h1{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #080A0E;
+}
+
+.inter-h2{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 2rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #080A0E;
+}
+
+.inter-h3{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.75rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #080A0E;
+}
+
+.inter-h4{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #080A0E;
+}
+
+.inter-h5{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #080A0E;
+}
+
+.inter-h6{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #080A0E;
+}
+
+/** BODY XS **/
+
+.inter-body-xs-default {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.5rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-xs-secondary {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.5rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-xs-disable {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.5rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY XS LIGHT**/
+
+.inter-body-xs-default-light {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.5rem;
+    font-weight: 300;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-xs-secondary-light {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.5rem;
+    font-weight: 300;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-xs-disable-light {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.5rem;
+    font-weight: 300;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY XS BOLD **/
+
+.inter-body-xs-default-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.5rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-xs-secondary-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.5rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-xs-disable-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.5rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY SM **/
+
+.inter-body-sm-default {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-sm-secondary {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-sm-disable {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY SM LIGHT**/
+
+.inter-body-sm-default-light {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.75rem;
+    font-weight: 300;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-sm-secondary-light {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.75rem;
+    font-weight: 300;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-sm-disable-light {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.75rem;
+    font-weight: 300;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY SM BOLD **/
+
+.inter-body-sm-default-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-sm-secondary-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-sm-disable-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY Regular (M) **/
+
+.inter-body-default {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-secondary {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-disable {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY Regular (M) **/
+
+.inter-body-default-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-secondary-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-disable-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY LG **/
+
+.inter-body-lg-default {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.25rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-lg-secondary {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.25rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-lg-disable {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.25rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY LG BOLD **/
+
+.inter-body-lg-default-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-lg-secondary-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-lg-disable-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY XL **/
+
+.inter-body-xl-default {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-xl-secondary {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-xl-disable {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}
+
+/** BODY XL BOLD **/
+
+.inter-body-xl-default-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(11, 15, 21, 100);
+}
+
+.inter-body-xl-secondary-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.inter-body-xl-disable-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(11, 15, 21, 0.38);
+}

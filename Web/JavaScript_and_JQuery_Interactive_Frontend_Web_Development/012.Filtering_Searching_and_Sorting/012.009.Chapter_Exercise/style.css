@@ -5,12 +5,97 @@ body {
     text-align: center;
 }
 
-div {
-    border: 1px solid black;
+.table-container {
+    /* Makes the table container scrollable and centers it*/
+    width: 80%;
+    overflow-x: auto;
+    margin: auto;
+
+    /* background color */
+    background-color: #F7F9FD;
+    /*border: 1px solid #BDC4C7;*/
 }
 
-svg {
-    width: 25px;
-    vertical-align: middle;
-    border: 1px solid pink;
+table {
+    border-collapse: collapse;
+}
+
+thead {
+    /*border: 1px solid #BDC4C7;*/
+}
+
+#table-header {
+    white-space: nowrap;
+}
+
+th {
+    padding: 0.5em 2em;
+    border: 1px solid #BDC4C7;
+}
+
+.icons-wrapper {
+    margin-left: 1em;
+}
+
+.button-icon {
+    color: rgba(44, 44, 53, 0.82);
+    border: none;
+    background: none;
+}
+
+#display-filter-cell {
+    padding: 0.5em; /*TODO Change top / bottom margin to 1em whenever filters or sort are added */
+    text-align: left;
+    height: fit-content;
+}
+
+.display-filter {
+    margin: 0.5em 0;
+    padding: 0.5em;
+    background-color: rgba(203, 218, 255, 0.8);
+    border-radius: 1em;
+    display: inline-block;
+}
+
+.display-filter > button {
+    margin: 0;
+}
+
+.display-filter > button:hover {
+    color: red;
+}
+
+.display-filter > span {
+    margin: 0;
+}
+
+tbody > tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+tbody > tr:nth-child(even) {
+    background-color: #F3F5F7;
+}
+
+td {
+    border: 1px solid #BDC4C7;
+    padding: 0.5em 2em;
+}
+
+tfoot > tr {
+    background-color: #FFFFFF;
+}
+
+#div-table-footer-cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#current-page {
+    border: 1px solid #BDC4C7;
+}
+
+#page-selector {
+    margin-left: 1em;
 }
