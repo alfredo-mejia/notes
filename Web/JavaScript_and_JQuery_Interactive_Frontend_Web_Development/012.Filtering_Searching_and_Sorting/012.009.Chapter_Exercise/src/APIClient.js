@@ -35,8 +35,8 @@ class APIClient {
 
         this.#currentPageNumber = 1;
         this.#pageSize = this.#defaultPageSize;
-        this.#filters = [];
-        this.#sorting = [];
+        this.#filters = new Map();
+        this.#sorting = new Map();
 
         this.#debugMode = debugMode;
     }
@@ -112,7 +112,14 @@ class APIClient {
      * @returns {string}
      */
     getFilters() {
-        return this.#filters.join(",");
+        let filters = [];
+
+        for (const [fieldName, fieldNameMap] of this.#filters) {
+            for (const [operator, value] of fieldNameMap) {
+                filters.push(`${fieldName}:${operator}:${value}`);
+            }
+        }
+        return filters.join(",");
     }
 
     /**
@@ -120,7 +127,16 @@ class APIClient {
      * @returns {string}
      */
     getSorting() {
-        return this.#sorting.join(",");
+        let sorting = [];
+        for (const [fieldName, order] of this.#sorting) {
+            if (order === "asc") {
+                sorting.push(`${fieldName}`);
+            }
+            else {
+                sorting.push(`-${fieldName}`);
+            }
+        }
+        return sorting.join(",");
     }
 
     /**
@@ -201,15 +217,17 @@ class APIClient {
 
     /**
      * Function adds a filter to the class.
-     * The filter is added to the filter's array.
-     * The filter's array is used in another function to be later added to the URL.
-     * The filter has the format of: {fieldName}:{operator}:{value}
+     * The filter is added to the filter's map.
+     * The filter's map is used in another function to be later added to the URL.
+     * The filter has the format of: {fieldName}:{operator}:{value} which is constructed in another function.
      * The value is formatted and validated based on the Field.
      * If the value is not valid based on the Field, an error is thrown.
      * If the operator is "in", the value is formatted as a comma-separated list of values.
      * If the operator is "in", the value argument must be an array.
      * The instance is returned so it can be chained with other methods.
-     * The filter is added only if it does not already exist.
+     * The filter is added, and if an existing filter exists with the same operator, then the value is replaced.
+     * Multiple filters can be for the same field but with different operators.
+     * However, only one filter can be for the same field and the same operator.
      * The instance is returned so it can be chained with other methods.
      * @param {Field} field
      * @param {string} operator
@@ -232,13 +250,17 @@ class APIClient {
             throw new Error("Field name is invalid.");
         }
 
-        if (this.#filters.some(filter => filter.split(":")[0] === fieldName)) {
+        // Check if the field name is present
+        if (!this.#filters.has(fieldName)) {
             if (this.#debugMode) {
-                console.log(`Filter for field ${fieldName} already exists. Skipping.`);
+                console.log(`Field name: ${fieldName} not found. Creating new filter.`);
             }
 
-            return this;
+            this.#filters.set(fieldName, new Map());
         }
+
+        // Get field name map
+        const fieldNameMap = this.#filters.get(fieldName);
 
         let operators = FieldRegistry.getFilterOperators();
         operator = extractLowercaseString(operator);
@@ -247,6 +269,7 @@ class APIClient {
             throw new Error("Operator is invalid.");
         }
 
+        // Format value
         if (operator === "in") {
             if (!Array.isArray(value)) {
                 throw new Error("Value is not an array. It needs to be an array with the \"in\" operator.");
@@ -274,7 +297,15 @@ class APIClient {
             value = formattedValue;
         }
 
-        this.#filters.push(`${fieldName}:${operator}:${value}`);
+        if (fieldNameMap.has(operator) && this.#debugMode) {
+            const oldValue = fieldNameMap.get(operator);
+            console.log(`Operator: ${operator} found. Placing old value ${oldValue} with new value ${value}`);
+        }
+        else {
+            console.log(`Operator: ${operator} not found. Adding new operator.`);
+        }
+
+        fieldNameMap.set(operator, value);
 
         return this;
     }
@@ -282,14 +313,13 @@ class APIClient {
     /**
      * Function adds a sort to the class.
      * The sort is added to the sort's array.
-     * The sort's array is used in another function to be later added to the URL.
-     * The sort has the format of: {fieldName} or {-fieldName}
+     * The sort's map is used in another function to be later added to the URL.
+     * The sort has the format of: {fieldName} or {-fieldName} which is constructed in another function.
      * The order is either "asc" or "desc".
      * If the order is "asc", the sort is added as {fieldName}.
      * If the order is "desc", the sort is added as {-fieldName}.
      * The instance is returned so it can be chained with other methods.
-     * The sort is added only if it does not already exist.
-     * If the sort already exists, the sort is skipped and not added (so no duplicates will show up).
+     * If the sort already exists, the sort replaces the old value with the new value.
      * The instance is returned so it can be chained with other methods.
      * @param {Field} field
      * @param {string} order
@@ -309,13 +339,6 @@ class APIClient {
             throw new Error("Field name is invalid.");
         }
 
-        if (this.#sorting.includes(fieldName) || this.#sorting.includes(`-${fieldName}`)) {
-            if (this.#debugMode) {
-                console.log(`Sorting for field ${fieldName} already exists. Skipping.`);
-            }
-            return this;
-        }
-
         let operators = FieldRegistry.getSortOperators();
         order = extractLowercaseString(order);
 
@@ -323,12 +346,17 @@ class APIClient {
             throw new Error("Order operator is invalid.");
         }
 
+        if (this.#sorting.has(fieldName) && this.#debugMode) {
+            console.log(`Field name: ${fieldName} already exists in sorting. 
+            Replace old value ${this.#sorting.get(fieldName)} with new value ${order}.`);
+        }
+
         if (order === "asc") {
-            this.#sorting.push(`${fieldName}`);
+            this.#sorting.set(fieldName, order);
         }
 
         else {
-            this.#sorting.push(`-${fieldName}`);
+            this.#sorting.set(fieldName, order);
         }
 
         return this;
@@ -340,7 +368,7 @@ class APIClient {
      * @returns {APIClient}
      */
     clearFilters() {
-        this.#filters = [];
+        this.#filters.clear();
 
         return this;
     }
@@ -351,7 +379,7 @@ class APIClient {
      * @returns {APIClient}
      */
     clearSorting() {
-        this.#sorting = [];
+        this.#sorting.clear();
 
         return this;
     }

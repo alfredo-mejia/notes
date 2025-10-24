@@ -784,6 +784,10 @@ test("APIClient #buildURL()", async (testObject) => {
         assert.strictEqual(url, myURL);
 
         api.addFilter(fieldRegistry.getRegisteredField("record_date"), "eq", "02/15/2001");
+        params.delete("filter");
+        params.append("filter", "record_date:eq:2001-02-15");
+
+        myURL = URL + "?" + params.toString();
         url = api.getURL();
         assert.strictEqual(url, myURL);
 
@@ -903,6 +907,7 @@ test("APIClient #buildURL()", async (testObject) => {
 
         assert.strictEqual(url, myURL);
 
+        api.addSorting(fieldRegistry.getRegisteredField("record_date"), "desc");
         api.addSorting(fieldRegistry.getRegisteredField("record_date"), "asc");
         url = api.getURL();
         assert.strictEqual(url, myURL);
@@ -1081,7 +1086,17 @@ test("APIClient #buildURL()", async (testObject) => {
 
 
         api.addFilter(fieldRegistry.getRegisteredField("record_date"), "lt", "12/31/2002");
+        api.addSorting(fieldRegistry.getRegisteredField("record_date"), "asc");
         api.addSorting(fieldRegistry.getRegisteredField("record_date"), "desc");
+
+        params.delete("sort");
+        params.delete("filter");
+
+        params.append("filter", "record_date:gt:2002-01-31,record_date:lt:2002-12-31");
+        params.append("sort", "-record_date");
+        myURL = URL + "?" + params.toString();
+
+        url = api.getURL();
 
         assert.strictEqual(url, myURL);
 
@@ -1091,7 +1106,7 @@ test("APIClient #buildURL()", async (testObject) => {
         params.delete("filter");
         params.delete("sort");
 
-        params.append("filter", "record_date:gt:2002-01-31,src_line_nbr:gt:10");
+        params.append("filter", "record_date:gt:2002-01-31,record_date:lt:2002-12-31,src_line_nbr:gt:10");
         params.append("sort", "-record_date,src_line_nbr");
 
         myURL = URL + "?" + params.toString();
@@ -1103,7 +1118,7 @@ test("APIClient #buildURL()", async (testObject) => {
         params.delete("filter");
         params.delete("sort");
 
-        params.append("filter", "record_date:gt:2002-01-31,src_line_nbr:gt:10,record_fiscal_quarter:in:(1,4)");
+        params.append("filter", "record_date:gt:2002-01-31,record_date:lt:2002-12-31,src_line_nbr:gt:10,record_fiscal_quarter:in:(1,4)");
         params.append("sort", "-record_date,src_line_nbr");
 
         myURL = URL + "?" + params.toString();
@@ -1115,68 +1130,68 @@ test("APIClient #buildURL()", async (testObject) => {
                 const myData = {
                     "data": [
                         {
-                            "record_date": "2025-09-30",
-                            "security_type_desc": "Non-marketable",
-                            "security_desc": "State and Local Government Series",
-                            "avg_interest_rate_amt": "3.461",
-                            "src_line_nbr": "11",
-                            "record_fiscal_year": "2025",
-                            "record_fiscal_quarter": "4",
-                            "record_calendar_year": "2025",
-                            "record_calendar_quarter": "3",
-                            "record_calendar_month": "09",
-                            "record_calendar_day": "30"
-                        },
-                        {
-                            "record_date": "2025-09-30",
+                            "record_date": "2002-11-30",
                             "security_type_desc": "Non-marketable",
                             "security_desc": "United States Savings Securities",
-                            "avg_interest_rate_amt": "3.397",
-                            "src_line_nbr": "12",
-                            "record_fiscal_year": "2025",
-                            "record_fiscal_quarter": "4",
-                            "record_calendar_year": "2025",
-                            "record_calendar_quarter": "3",
-                            "record_calendar_month": "09",
+                            "avg_interest_rate_amt": "6.150",
+                            "src_line_nbr": "11",
+                            "record_fiscal_year": "2003",
+                            "record_fiscal_quarter": "1",
+                            "record_calendar_year": "2002",
+                            "record_calendar_quarter": "4",
+                            "record_calendar_month": "11",
                             "record_calendar_day": "30"
                         },
                         {
-                            "record_date": "2025-09-30",
+                            "record_date": "2002-11-30",
                             "security_type_desc": "Non-marketable",
                             "security_desc": "United States Savings Inflation Securities",
-                            "avg_interest_rate_amt": "3.822",
-                            "src_line_nbr": "13",
-                            "record_fiscal_year": "2025",
-                            "record_fiscal_quarter": "4",
-                            "record_calendar_year": "2025",
-                            "record_calendar_quarter": "3",
-                            "record_calendar_month": "09",
+                            "avg_interest_rate_amt": "2.841",
+                            "src_line_nbr": "12",
+                            "record_fiscal_year": "2003",
+                            "record_fiscal_quarter": "1",
+                            "record_calendar_year": "2002",
+                            "record_calendar_quarter": "4",
+                            "record_calendar_month": "11",
                             "record_calendar_day": "30"
                         },
                         {
-                            "record_date": "2025-09-30",
+                            "record_date": "2002-11-30",
                             "security_type_desc": "Non-marketable",
                             "security_desc": "Government Account Series",
-                            "avg_interest_rate_amt": "3.162",
-                            "src_line_nbr": "14",
-                            "record_fiscal_year": "2025",
-                            "record_fiscal_quarter": "4",
-                            "record_calendar_year": "2025",
-                            "record_calendar_quarter": "3",
-                            "record_calendar_month": "09",
+                            "avg_interest_rate_amt": "5.879",
+                            "src_line_nbr": "13",
+                            "record_fiscal_year": "2003",
+                            "record_fiscal_quarter": "1",
+                            "record_calendar_year": "2002",
+                            "record_calendar_quarter": "4",
+                            "record_calendar_month": "11",
                             "record_calendar_day": "30"
                         },
                         {
-                            "record_date": "2025-09-30",
+                            "record_date": "2002-11-30",
                             "security_type_desc": "Non-marketable",
-                            "security_desc": "Government Account Series Inflation Securities",
-                            "avg_interest_rate_amt": "1.241",
+                            "security_desc": "Total Non-marketable",
+                            "avg_interest_rate_amt": "5.835",
+                            "src_line_nbr": "14",
+                            "record_fiscal_year": "2003",
+                            "record_fiscal_quarter": "1",
+                            "record_calendar_year": "2002",
+                            "record_calendar_quarter": "4",
+                            "record_calendar_month": "11",
+                            "record_calendar_day": "30"
+                        },
+                        {
+                            "record_date": "2002-11-30",
+                            "security_type_desc": "Interest-bearing Debt",
+                            "security_desc": "Total Interest-bearing Debt",
+                            "avg_interest_rate_amt": "5.150",
                             "src_line_nbr": "15",
-                            "record_fiscal_year": "2025",
-                            "record_fiscal_quarter": "4",
-                            "record_calendar_year": "2025",
-                            "record_calendar_quarter": "3",
-                            "record_calendar_month": "09",
+                            "record_fiscal_year": "2003",
+                            "record_fiscal_quarter": "1",
+                            "record_calendar_year": "2002",
+                            "record_calendar_quarter": "4",
+                            "record_calendar_month": "11",
                             "record_calendar_day": "30"
                         }
                     ],
@@ -1221,15 +1236,15 @@ test("APIClient #buildURL()", async (testObject) => {
                             "record_calendar_month": "MM",
                             "record_calendar_day": "DD"
                         },
-                        "total-count": 885,
-                        "total-pages": 177
+                        "total-count": 28,
+                        "total-pages": 6
                     },
                     "links": {
                         "self": "&page%5Bnumber%5D=1&page%5Bsize%5D=5",
                         "first": "&page%5Bnumber%5D=1&page%5Bsize%5D=5",
                         "prev": null,
                         "next": "&page%5Bnumber%5D=2&page%5Bsize%5D=5",
-                        "last": "&page%5Bnumber%5D=177&page%5Bsize%5D=5"
+                        "last": "&page%5Bnumber%5D=6&page%5Bsize%5D=5"
                     }
                 };
 
@@ -1397,6 +1412,16 @@ test("APIClient addFilter()", async testObject => {
                 .getFilters(),
             "record_date:gt:2002-01-31,src_line_nbr:lt:1,record_fiscal_quarter:in:(1,4)"
         );
+
+        assert.strictEqual(
+            new APIClient()
+                .addFilter(fieldRegistry.getRegisteredField("record_date"), "gt", "01/31/2002")
+                .addFilter(fieldRegistry.getRegisteredField("record_date"), "gt", "03/30/2002")
+                .addFilter(fieldRegistry.getRegisteredField("record_date"), "lt", "05/30/2002")
+                .addFilter(fieldRegistry.getRegisteredField("record_date"), "lt", "06/30/2002")
+                .getFilters(),
+            "record_date:gt:2002-03-30,record_date:lt:2002-06-30"
+        );
     })
 });
 
@@ -1447,6 +1472,14 @@ test("APIClient addSorting()", async testObject => {
                 .addSorting(fieldRegistry.getRegisteredField("src_line_nbr"), "asc")
                 .getSorting(),
             "-record_date,src_line_nbr"
+        );
+
+        assert.strictEqual(
+            new APIClient()
+                .addSorting(fieldRegistry.getRegisteredField("record_date"), "asc")
+                .addSorting(fieldRegistry.getRegisteredField("record_date"), "desc")
+                .getSorting(),
+            "-record_date"
         );
     });
 });
