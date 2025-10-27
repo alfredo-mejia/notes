@@ -10,6 +10,7 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap">
     <link rel="stylesheet" href="assets/fonts.css" />
+    <script type="module" src="main.js" defer></script>
     <title>Chapter 12 Exercise</title>
 </head>
 <body>
@@ -20,97 +21,108 @@
     <div class="table-container">
         <table>
             <thead class="inter-body-sm-secondary">
+
             <tr id="table-header">
                 <th><span>No.</span></th>
+
                 <th>
-                    <span>Record Date</span>
+                    <span id="record_date-header" class="header-title">Record Date</span>
                     <span class="icons-wrapper">
-                        <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-eye"></i></button>
+                        <button class="button-icon sort-button"><i class="fa-solid fa-sort"></i></button>
+                        <button class="button-icon filter-button calendar-filter-button"><i class="fa-solid fa-filter"></i></button>
+                        <button class="button-icon visibility-button"><i class="fa-solid fa-eye"></i></button>
                     </span>
                 </th>
+
                 <th>
-                    <span>Security Type</span>
+                    <span id="security_type_desc-header" class="header-title">Security Type</span>
                     <span class="icons-wrapper">
-                        <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-eye"></i></button>
+                        <button class="button-icon sort-button"><i class="fa-solid fa-sort"></i></button>
+                        <button class="button-icon filter-button string-filter-button"><i class="fa-solid fa-filter"></i></button>
+                        <button class="button-icon visibility-button"><i class="fa-solid fa-eye"></i></button>
                     </span>
                 </th>
+
                 <th>
-                    <span>Security Description</span>
+                    <span id="security_desc-header" class="header-title">Security Description</span>
                     <span class="icons-wrapper">
-                        <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-eye"></i></button>
+                        <button class="button-icon sort-button"><i class="fa-solid fa-sort"></i></button>
+                        <button class="button-icon filter-button string-filter-button"><i class="fa-solid fa-filter"></i></button>
+                        <button class="button-icon visibility-button"><i class="fa-solid fa-eye"></i></button>
                     </span>
                 </th>
+
                 <th>
-                    <span>Average Interest Rate</span>
+                    <span id="avg_interest_rate_amt-header" class="header-title">Average Interest Rate</span>
                     <span class="icons-wrapper">
-                        <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-eye"></i></button>
+                        <button class="button-icon sort-button"><i class="fa-solid fa-sort"></i></button>
+                        <button class="button-icon filter-button float-filter-button"><i class="fa-solid fa-filter"></i></button>
+                        <button class="button-icon visibility-button"><i class="fa-solid fa-eye"></i></button>
                     </span>
                 </th>
+
                 <th>
-                    <span>Fiscal Year</span>
+                    <span id="record_fiscal_year-header" class="header-title">Fiscal Year</span>
                     <span class="icons-wrapper">
-                        <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-eye"></i></button>
+                        <button class="button-icon sort-button"><i class="fa-solid fa-sort"></i></button>
+                        <button class="button-icon filter-button integer-filter-button"><i class="fa-solid fa-filter"></i></button>
+                        <button class="button-icon visibility-button"><i class="fa-solid fa-eye"></i></button>
                     </span>
                 </th>
+
                 <th>
-                    <span>Fiscal Quarter</span>
+                    <span id="record_fiscal_quarter-header" class="header-title">Fiscal Quarter</span>
                     <span class="icons-wrapper">
-                        <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-eye"></i></button>
+                        <button class="button-icon sort-button"><i class="fa-solid fa-sort"></i></button>
+                        <button class="button-icon filter-button integer-filter-button"><i class="fa-solid fa-filter"></i></button>
+                        <button class="button-icon visibility-button"><i class="fa-solid fa-eye"></i></button>
                     </span>
                 </th>
+
                 <th>
-                    <span>Calendar Year</span>
+                    <span id="record_calendar_year-header" class="header-title">Calendar Year</span>
                     <span class="icons-wrapper">
-                        <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-eye"></i></button>
+                        <button class="button-icon sort-button"><i class="fa-solid fa-sort"></i></button>
+                        <button class="button-icon filter-button integer-filter-button"><i class="fa-solid fa-filter"></i></button>
+                        <button class="button-icon visibility-button"><i class="fa-solid fa-eye"></i></button>
                     </span>
                 </th>
+
                 <th>
-                    <span>Calendar Quarter</span>
+                    <span id="record_calendar_quarter-header" class="header-title">Calendar Quarter</span>
                     <span class="icons-wrapper">
-                        <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-eye"></i></button>
+                        <button class="button-icon sort-button"><i class="fa-solid fa-sort"></i></button>
+                        <button class="button-icon filter-button integer-filter-button"><i class="fa-solid fa-filter"></i></button>
+                        <button class="button-icon visibility-button"><i class="fa-solid fa-eye"></i></button>
                     </span>
                 </th>
+
                 <th>
-                    <span>Calendar Month</span>
+                    <span id="record_calendar_month-header" class="header-title">Calendar Month</span>
                     <span class="icons-wrapper">
-                        <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-eye"></i></button>
+                        <button class="button-icon sort-button"><i class="fa-solid fa-sort"></i></button>
+                        <button class="button-icon filter-button integer-filter-button"><i class="fa-solid fa-filter"></i></button>
+                        <button class="button-icon visibility-button"><i class="fa-solid fa-eye"></i></button>
                     </span>
                 </th>
+
                 <th>
-                    <span>Calendar Day</span>
+                    <span id="record_calendar_day-header" class="header-title">Calendar Day</span>
                     <span class="icons-wrapper">
-                        <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                        <button class="button-icon"><i class="fa-solid fa-eye"></i></button>
+                        <button class="button-icon sort-button"><i class="fa-solid fa-sort"></i></button>
+                        <button class="button-icon filter-button integer-filter-button"><i class="fa-solid fa-filter"></i></button>
+                        <button class="button-icon visibility-button"><i class="fa-solid fa-eye"></i></button>
                     </span>
                 </th>
             </tr>
 
-            <tr id="display-filter-row">
-                <td colspan="11" id="display-filter-cell">
+            <tr id="display-option-row">
+                <td colspan="11" id="display-option-cell">
                     <button class="button-icon"><i class="fa-solid fa-sort"></i></button>
                     /
                     <button class="button-icon"><i class="fa-solid fa-filter"></i></button>
-                    <span class="inter-body-sm-disable">No filters or sorts</span>
-<!--                    <span class="display-filter">-->
+                    <span id="display-option-placeHolder" class="inter-body-sm-disable">No filters or sorts</span>
+<!--                    <span class="display-option">-->
 <!--                        <button class="button-icon"><i class="fa-solid fa-x"></i></button>-->
 <!--                        <span>record_date:eq:2001-31-01</span>-->
 <!--                    </span>-->
@@ -118,168 +130,49 @@
             </tr>
             </thead>
 
-            <tbody class="inter-body-sm-default">
-                <tr>
-                    <td>1</td>
-                    <td>01/31/2000</td>
-                    <td>Marketable</td>
-                    <td>Treasury Notes</td>
-                    <td>6.096%</td>
-                    <td>2001</td>
-                    <td>2</td>
-                    <td>2001</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>31</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>01/31/2000</td>
-                    <td>Marketable</td>
-                    <td>Treasury Notes</td>
-                    <td>6.096%</td>
-                    <td>2001</td>
-                    <td>2</td>
-                    <td>2001</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>31</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>01/31/2000</td>
-                    <td>Marketable</td>
-                    <td>Treasury Notes</td>
-                    <td>6.096%</td>
-                    <td>2001</td>
-                    <td>2</td>
-                    <td>2001</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>31</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>01/31/2000</td>
-                    <td>Marketable</td>
-                    <td>Treasury Notes</td>
-                    <td>6.096%</td>
-                    <td>2001</td>
-                    <td>2</td>
-                    <td>2001</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>31</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>01/31/2000</td>
-                    <td>Marketable</td>
-                    <td>Treasury Notes</td>
-                    <td>6.096%</td>
-                    <td>2001</td>
-                    <td>2</td>
-                    <td>2001</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>31</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>01/31/2000</td>
-                    <td>Marketable</td>
-                    <td>Treasury Notes</td>
-                    <td>6.096%</td>
-                    <td>2001</td>
-                    <td>2</td>
-                    <td>2001</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>31</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>01/31/2000</td>
-                    <td>Marketable</td>
-                    <td>Treasury Notes</td>
-                    <td>6.096%</td>
-                    <td>2001</td>
-                    <td>2</td>
-                    <td>2001</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>31</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>01/31/2000</td>
-                    <td>Marketable</td>
-                    <td>Treasury Notes</td>
-                    <td>6.096%</td>
-                    <td>2001</td>
-                    <td>2</td>
-                    <td>2001</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>31</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>01/31/2000</td>
-                    <td>Marketable</td>
-                    <td>Treasury Notes</td>
-                    <td>6.096%</td>
-                    <td>2001</td>
-                    <td>2</td>
-                    <td>2001</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>31</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>01/31/2000</td>
-                    <td>Marketable</td>
-                    <td>Treasury Notes</td>
-                    <td>6.096%</td>
-                    <td>2001</td>
-                    <td>2</td>
-                    <td>2001</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>31</td>
-                </tr>
+            <tbody id="table-body" class="inter-body-sm-default">
+<!--                <tr>-->
+<!--                    <td>1</td>-->
+<!--                    <td>01/31/2000</td>-->
+<!--                    <td>Marketable</td>-->
+<!--                    <td>Treasury Notes</td>-->
+<!--                    <td>6.096%</td>-->
+<!--                    <td>2001</td>-->
+<!--                    <td>2</td>-->
+<!--                    <td>2001</td>-->
+<!--                    <td>1</td>-->
+<!--                    <td>1</td>-->
+<!--                    <td>31</td>-->
+<!--                </tr>-->
             </tbody>
 
             <tfoot>
                 <tr>
                     <td colspan="11">
                         <div id="div-table-footer-cell">
-                            <span class="inter-body-sm-disable">
+                            <span id="showing-numbers-container" class="inter-body-sm-disable">
                                 Showing
-                                <span class="inter-body-sm-default">1</span>
+                                <span id="start-number" class="inter-body-sm-default">0</span>
                                 -
-                                <span class="inter-body-sm-default">10</span>
+                                <span id="end-number" class="inter-body-sm-default">0</span>
                                 rows of
-                                <span class="inter-body-sm-default">1000</span>
+                                <span id="total-number" class="inter-body-sm-default">0</span>
                                 rows
                             </span>
                             <span>
                                 <span>
                                     <label for="rows-per-page-input" class="inter-body-sm-disable">Rows Per Page</label>
-                                    <input id="rows-per-page-input" type="number" min="1" max="100" value="10">
+                                    <input id="rows-per-page-input" type="number" min="1" max="1000" value="50">
                                 </span>
 
                                 <span id="page-selector">
-                                    <button class="button-icon"><i class="fa-solid fa-arrow-left"></i></button>
-
-                                    <button class="button-icon">1</button>
-                                    <span class="button-icon"><i class="fa-solid fa-ellipsis"></i></span>
-                                    <button id="current-page" class="button-icon">10</button>
-                                    <span class="button-icon"><i class="fa-solid fa-ellipsis"></i></span>
-                                    <button class="button-icon">100</button>
-                                    <button class="button-icon"><i class="fa-solid fa-arrow-right"></i></button>
-
+                                    <button id="left-arrow" class="button-icon arrow"><i class="fa-solid fa-arrow-left"></i></button>
+                                    <button id="left-number" class="button-icon number">0</button>
+                                    <span id="left-ellipsis" class="button-icon"><i class="fa-solid fa-ellipsis"></i></span>
+                                    <input id="current-page-input" type="text" value="0">
+                                    <span id="right-ellipsis" class="button-icon"><i class="fa-solid fa-ellipsis"></i></span>
+                                    <button id="right-number" class="button-icon number">0</button>
+                                    <button id="right-arrow" class="button-icon arrow"><i class="fa-solid fa-arrow-right"></i></button>
                                 </span>
                             </span>
                         </div>
@@ -288,5 +181,299 @@
             </tfoot>
         </table>
     </div>
+
+    <form id="record_date-input-popup" class="inter-body-sm-disable input-popup">
+        <div id="record_date-input-x-container" class="input-x-container">
+            <span>Record Date Filter</span>
+            <button class="button-icon pop-up-x-button"><i class="fa-solid fa-x"></i></button>
+        </div>
+
+        <div id="record_date-input-container" class="input-container">
+            <label for="record_date-input">Select Date</label>
+            <input type="date" id="record_date-input" class="inter-body-sm-disable" name="record_date" required/>
+        </div>
+
+        <div id="record_date-input-operator-container" class="input-operator-container">
+            <label for="record_date-input-operator">Select Operator</label>
+            <select id="record_date-input-operator" class="inter-body-sm-disable" name="operator" required>
+                <option value="eq" selected>Equal</option>
+                <option value="gt">Greater Than</option>
+                <option value="lt">Less Than</option>
+                <option value="gte">Greater Than or Equal</option>
+                <option value="lte">Less Than or Equal</option>
+            </select>
+        </div>
+
+        <div id="record_date-input-submit-container" class="input-submit-container">
+            <button class="inter-body-sm-disable submit-button">
+                <i class="fa-solid fa-check"></i>
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <form id="security_type_desc-input-popup" class="inter-body-sm-disable input-popup">
+        <div id="security_type_desc-input-x-container" class="input-x-container">
+            <span>Security Type Desc</span>
+            <button class="button-icon pop-up-x-button"><i class="fa-solid fa-x"></i></button>
+        </div>
+
+        <div id="security_type_desc-input-container" class="input-container">
+            <label for="security_type_desc-input">Enter</label>
+            <input type="text" id="security_type_desc-input" class="inter-body-sm-disable" name="security_type_desc" required/>
+        </div>
+
+        <div id="security_type_desc-input-operator-container" class="input-operator-container">
+            <label for="security_type_desc-input-operator">Select Operator</label>
+            <select id="security_type_desc-input-operator" class="inter-body-sm-disable" name="operator" required>
+                <option value="eq" selected>Equal</option>
+                <option value="in">In (Comma Separated)</option>
+            </select>
+        </div>
+
+        <div id="security_type_desc-input-submit-container" class="input-submit-container">
+            <button class="inter-body-sm-disable submit-button">
+                <i class="fa-solid fa-check"></i>
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <form id="security_desc-input-popup" class="inter-body-sm-disable input-popup">
+        <div id="security_desc-input-x-container" class="input-x-container">
+            <span>Security Desc Filter</span>
+            <button class="button-icon pop-up-x-button"><i class="fa-solid fa-x"></i></button>
+        </div>
+
+        <div id="security_desc-input-container" class="input-container">
+            <label for="security_desc-input">Enter</label>
+            <input type="text" id="security_desc-input" class="inter-body-sm-disable" name="security_desc" required/>
+        </div>
+
+        <div id="security_desc-input-operator-container" class="input-operator-container">
+            <label for="security_desc-input-operator">Select Operator</label>
+            <select id="security_desc-input-operator" class="inter-body-sm-disable" name="operator" required>
+                <option value="eq" selected>Equal</option>
+                <option value="in">In (Comma Separated)</option>
+            </select>
+        </div>
+
+        <div id="security_desc-input-submit-container" class="input-submit-container">
+            <button class="inter-body-sm-disable submit-button">
+                <i class="fa-solid fa-check"></i>
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <form id="avg_interest_rate_amt-input-popup" class="inter-body-sm-disable input-popup">
+        <div id="avg_interest_rate_amt-input-x-container" class="input-x-container">
+            <span>Average Interest Rate Filter</span>
+            <button class="button-icon pop-up-x-button"><i class="fa-solid fa-x"></i></button>
+        </div>
+
+        <div id="avg_interest_rate_amt-input-container" class="input-container">
+            <label for="avg_interest_rate_amt-input">Enter</label>
+            <input type="number" step="0.001" min="0" id="avg_interest_rate_amt-input" class="inter-body-sm-disable" name="avg_interest_rate_amt" required/>
+        </div>
+
+        <div id="avg_interest_rate_amt-input-operator-container" class="input-operator-container">
+            <label for="avg_interest_rate_amt-input-operator">Select Operator</label>
+            <select id="avg_interest_rate_amt-input-operator" class="inter-body-sm-disable" name="operator" required>
+                <option value="eq" selected>Equal</option>
+                <option value="gt">Greater Than</option>
+                <option value="lt">Less Than</option>
+                <option value="gte">Greater Than or Equal</option>
+                <option value="lte">Less Than or Equal</option>
+            </select>
+        </div>
+
+        <div id="avg_interest_rate_amt-input-submit-container" class="input-submit-container">
+            <button class="inter-body-sm-disable submit-button">
+                <i class="fa-solid fa-check"></i>
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <form id="record_fiscal_year-input-popup" class="inter-body-sm-disable input-popup">
+        <div id="record_fiscal_year-input-x-container" class="input-x-container">
+            <span>Fiscal Year Filter</span>
+            <button class="button-icon pop-up-x-button"><i class="fa-solid fa-x"></i></button>
+        </div>
+
+        <div id="record_fiscal_year-input-container" class="input-container">
+            <label for="record_fiscal_year-input">Enter</label>
+            <input type="number" min="1000" max="9999" id="record_fiscal_year-input" class="inter-body-sm-disable" name="record_fiscal_year" required/>
+        </div>
+
+        <div id="record_fiscal_year-input-operator-container" class="input-operator-container">
+            <label for="record_fiscal_year-input-operator">Select Operator</label>
+            <select id="record_fiscal_year-input-operator" class="inter-body-sm-disable" name="operator" required>
+                <option value="eq" selected>Equal</option>
+                <option value="gt">Greater Than</option>
+                <option value="lt">Less Than</option>
+                <option value="gte">Greater Than or Equal</option>
+                <option value="lte">Less Than or Equal</option>
+            </select>
+        </div>
+
+        <div id="record_fiscal_year-input-submit-container" class="input-submit-container">
+            <button class="inter-body-sm-disable submit-button">
+                <i class="fa-solid fa-check"></i>
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <form id="record_fiscal_quarter-input-popup" class="inter-body-sm-disable input-popup">
+        <div id="record_fiscal_quarter-input-x-container" class="input-x-container">
+            <span>Fiscal Quarter Filter</span>
+            <button class="button-icon pop-up-x-button"><i class="fa-solid fa-x"></i></button>
+        </div>
+
+        <div id="record_fiscal_quarter-input-container" class="input-container">
+            <label for="record_fiscal_quarter-input">Enter</label>
+            <input type="number" min="1" max="4" id="record_fiscal_quarter-input" class="inter-body-sm-disable" name="record_fiscal_quarter" required/>
+        </div>
+
+        <div id="record_fiscal_quarter-input-operator-container" class="input-operator-container">
+            <label for="record_fiscal_quarter-input-operator">Select Operator</label>
+            <select id="record_fiscal_quarter-input-operator" class="inter-body-sm-disable" name="operator" required>
+                <option value="eq" selected>Equal</option>
+                <option value="gt">Greater Than</option>
+                <option value="lt">Less Than</option>
+                <option value="gte">Greater Than or Equal</option>
+                <option value="lte">Less Than or Equal</option>
+            </select>
+        </div>
+
+        <div id="record_fiscal_quarter-input-submit-container" class="input-submit-container">
+            <button class="inter-body-sm-disable submit-button">
+                <i class="fa-solid fa-check"></i>
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <form id="record_calendar_year-input-popup" class="inter-body-sm-disable input-popup">
+        <div id="record_calendar_year-input-x-container" class="input-x-container">
+            <span>Calendar Year Filter</span>
+            <button class="button-icon pop-up-x-button"><i class="fa-solid fa-x"></i></button>
+        </div>
+
+        <div id="record_calendar_year-input-container" class="input-container">
+            <label for="record_calendar_year-input">Enter</label>
+            <input type="number" min="1000" max="9999" id="record_calendar_year-input" class="inter-body-sm-disable" name="record_calendar_year" required/>
+        </div>
+
+        <div id="record_calendar_year-input-operator-container" class="input-operator-container">
+            <label for="record_calendar_year-input-operator">Select Operator</label>
+            <select id="record_calendar_year-input-operator" class="inter-body-sm-disable" name="operator" required>
+                <option value="eq" selected>Equal</option>
+                <option value="gt">Greater Than</option>
+                <option value="lt">Less Than</option>
+                <option value="gte">Greater Than or Equal</option>
+                <option value="lte">Less Than or Equal</option>
+            </select>
+        </div>
+
+        <div id="record_calendar_year-input-submit-container" class="input-submit-container">
+            <button class="inter-body-sm-disable submit-button">
+                <i class="fa-solid fa-check"></i>
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <form id="record_calendar_quarter-input-popup" class="inter-body-sm-disable input-popup">
+        <div id="record_calendar_quarter-input-x-container" class="input-x-container">
+            <span>Calendar Quarter Filter</span>
+            <button class="button-icon pop-up-x-button"><i class="fa-solid fa-x"></i></button>
+        </div>
+
+        <div id="record_calendar_quarter-input-container" class="input-container">
+            <label for="record_calendar_quarter-input">Enter</label>
+            <input type="number" min="1" max="4" id="record_calendar_quarter-input" class="inter-body-sm-disable" name="record_calendar_quarter" required/>
+        </div>
+
+        <div id="record_calendar_quarter-input-operator-container" class="input-operator-container">
+            <label for="record_calendar_quarter-input-operator">Select Operator</label>
+            <select id="record_calendar_quarter-input-operator" class="inter-body-sm-disable" name="operator" required>
+                <option value="eq" selected>Equal</option>
+                <option value="gt">Greater Than</option>
+                <option value="lt">Less Than</option>
+                <option value="gte">Greater Than or Equal</option>
+                <option value="lte">Less Than or Equal</option>
+            </select>
+        </div>
+
+        <div id="record_calendar_quarter-input-submit-container" class="input-submit-container">
+            <button class="inter-body-sm-disable submit-button">
+                <i class="fa-solid fa-check"></i>
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <form id="record_calendar_month-input-popup" class="inter-body-sm-disable input-popup">
+        <div id="record_calendar_month-input-x-container" class="input-x-container">
+            <span>Calendar Month Filter</span>
+            <button class="button-icon pop-up-x-button"><i class="fa-solid fa-x"></i></button>
+        </div>
+
+        <div id="record_calendar_month-input-container" class="input-container">
+            <label for="record_fiscal_year-input">Enter</label>
+            <input type="number" min="1" max="12" id="record_calendar_month-input" class="inter-body-sm-disable" name="record_calendar_month" required/>
+        </div>
+
+        <div id="record_calendar_month-input-operator-container" class="input-operator-container">
+            <label for="record_calendar_month-input-operator">Select Operator</label>
+            <select id="record_calendar_month-input-operator" class="inter-body-sm-disable" name="operator" required>
+                <option value="eq" selected>Equal</option>
+                <option value="gt">Greater Than</option>
+                <option value="lt">Less Than</option>
+                <option value="gte">Greater Than or Equal</option>
+                <option value="lte">Less Than or Equal</option>
+            </select>
+        </div>
+
+        <div id="record_calendar_month-input-submit-container" class="input-submit-container">
+            <button class="inter-body-sm-disable submit-button">
+                <i class="fa-solid fa-check"></i>
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <form id="record_calendar_day-input-popup" class="inter-body-sm-disable input-popup">
+        <div id="record_calendar_day-input-x-container" class="input-x-container">
+            <span>Calendar Day Filter</span>
+            <button class="button-icon pop-up-x-button"><i class="fa-solid fa-x"></i></button>
+        </div>
+
+        <div id="record_calendar_day-input-container" class="input-container">
+            <label for="record_calendar_day-input">Enter</label>
+            <input type="number" min="1" max="31" id="record_calendar_day-input" class="inter-body-sm-disable" name="record_calendar_day" required/>
+        </div>
+
+        <div id="record_calendar_day-input-operator-container" class="input-operator-container">
+            <label for="record_calendar_day-input-operator">Select Operator</label>
+            <select id="record_calendar_day-input-operator" class="inter-body-sm-disable" name="operator" required>
+                <option value="eq" selected>Equal</option>
+                <option value="gt">Greater Than</option>
+                <option value="lt">Less Than</option>
+                <option value="gte">Greater Than or Equal</option>
+                <option value="lte">Less Than or Equal</option>
+            </select>
+        </div>
+
+        <div id="record_calendar_day-input-submit-container" class="input-submit-container">
+            <button class="inter-body-sm-disable submit-button">
+                <i class="fa-solid fa-check"></i>
+                Submit
+            </button>
+        </div>
+    </form>
 </body>
 </html>

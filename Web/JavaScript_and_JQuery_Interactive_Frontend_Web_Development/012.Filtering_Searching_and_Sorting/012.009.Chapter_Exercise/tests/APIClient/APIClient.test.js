@@ -1535,3 +1535,35 @@ test("APIClient Clear Functions", testObject => {
     assert.strictEqual(api.getPageSize(), 50);
     assert.strictEqual(api.getPageNumber(), 1);
 });
+
+test("APIClient removeFilter() and removeSorting()", async testObject => {
+    await testObject.test("Removing Filters", () => {
+        const api = new APIClient();
+        const fieldRegistry = new FieldRegistry(true);
+        fieldRegistry.initAllFields();
+
+        api.addFilter(fieldRegistry.getRegisteredField("record_date"), "gt", "01/31/2002");
+        api.removeFilter(fieldRegistry.getRegisteredField("record_date"), "gt");
+        api.removeFilter(fieldRegistry.getRegisteredField("record_date"), "gt");
+
+        assert.strictEqual(api.getFilters(), "");
+
+        api.addFilter(fieldRegistry.getRegisteredField("record_date"), "gt", "01/31/2002");
+        assert.strictEqual(api.getFilters(), "record_date:gt:2002-01-31");
+    });
+
+    await testObject.test("Removing Sorting", () => {
+        const api = new APIClient();
+        const fieldRegistry = new FieldRegistry(true);
+        fieldRegistry.initAllFields();
+
+        api.addSorting(fieldRegistry.getRegisteredField("record_date"), "desc");
+        api.removeSorting(fieldRegistry.getRegisteredField("record_date"));
+        api.removeSorting(fieldRegistry.getRegisteredField("record_date"));
+
+        assert.strictEqual(api.getSorting(), "");
+
+        api.addSorting(fieldRegistry.getRegisteredField("record_date"), "desc");
+        assert.strictEqual(api.getSorting(), "-record_date");
+    });
+});

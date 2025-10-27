@@ -111,15 +111,29 @@ class APIClient {
      * Functions joins all the filters of the class into a single string and returns it
      * @returns {string}
      */
-    getFilters() {
+    getFilters(delimiter = "") {
         let filters = [];
 
         for (const [fieldName, fieldNameMap] of this.#filters) {
             for (const [operator, value] of fieldNameMap) {
+                if (operator === "in" && delimiter !== "") {
+                    const newValue = value.replace(",", delimiter);
+                    filters.push(`${fieldName}:${operator}:${newValue}`);
+                    continue;
+                }
+
                 filters.push(`${fieldName}:${operator}:${value}`);
             }
         }
         return filters.join(",");
+    }
+
+    /**
+     * Function returns the filter's map based on the current state of the class.
+     * @returns {Map}
+     */
+    getFiltersMap() {
+        return this.#filters;
     }
 
     /**
@@ -137,6 +151,14 @@ class APIClient {
             }
         }
         return sorting.join(",");
+    }
+
+    /**
+     * Function returns the sorting's map based on the current state of the class.
+     * @returns {Map}
+     */
+    getSortingMap() {
+        return this.#sorting;
     }
 
     /**
@@ -301,7 +323,7 @@ class APIClient {
             const oldValue = fieldNameMap.get(operator);
             console.log(`Operator: ${operator} found. Placing old value ${oldValue} with new value ${value}`);
         }
-        else {
+        else if (this.#debugMode) {
             console.log(`Operator: ${operator} not found. Adding new operator.`);
         }
 
@@ -357,6 +379,89 @@ class APIClient {
 
         else {
             this.#sorting.set(fieldName, order);
+        }
+
+        return this;
+    }
+
+    /**
+     * Function removes a filter from the class
+     * The instance is returned so it can be chained with other methods.
+     * If no filter exists with the same field and operator, then nothing happens.
+     * @param {Field} field
+     * @param {string} operator
+     * @returns {APIClient}
+     */
+    removeFilter(field, operator) {
+        if (!(field instanceof Field)) {
+            throw new Error("Argument Field is not an instance of class Field.");
+        }
+
+        let fieldName = extractLowercaseString(field.getName());
+
+        if (isEmptyString(fieldName)) {
+            throw new Error("Field name is invalid.");
+        }
+
+        let operators = FieldRegistry.getFilterOperators();
+        operator = extractLowercaseString(operator);
+
+        if (isEmptyString(operator) || !operators.includes(operator)) {
+            throw new Error("Order operator is invalid.");
+        }
+
+        if (this.#filters.has(fieldName)) {
+            const fieldNameMap = this.#filters.get(fieldName);
+            if (fieldNameMap.has(operator)) {
+                if (this.#debugMode) {
+                    console.log(`Field: ${fieldName}, Operator: ${operator}, Value: ${fieldNameMap[operator]} found.
+                    Removing filter.`)
+                }
+                fieldNameMap.delete(operator);
+                if (fieldNameMap.size === 0) {
+                    this.#filters.delete(fieldName);
+                }
+            }
+        }
+
+        else {
+            if (this.#debugMode) {
+                console.log(`Field name: ${fieldName} not found in filters. No filter to remove.`);
+            }
+        }
+
+        return this;
+    }
+
+    /**
+     * Function removes a sort from the class
+     * The instance is returned so it can be chained with other methods.
+     * When no sort exists with the same field, then nothing happens.
+     * @param {Field} field
+     * @returns {APIClient}
+     */
+    removeSorting(field) {
+        if (!(field instanceof Field)) {
+            throw new Error("Argument Field is not an instance of class Field.");
+        }
+
+        let fieldName = extractLowercaseString(field.getName());
+        if (isEmptyString(fieldName)) {
+            throw new Error("Field name is invalid.");
+        }
+
+        if (this.#sorting.has(fieldName)) {
+            if (this.#debugMode) {
+                console.log(`Field name: ${fieldName}, Order: ${this.#sorting[fieldName]} found in sorting. 
+                Removing sort.`);
+            }
+            this.#sorting.delete(fieldName);
+        }
+
+        else {
+            if (this.#debugMode) {
+                console.log(`Field name: ${fieldName} not found in sorting. No sort to remove.`);
+            }
         }
 
         return this;

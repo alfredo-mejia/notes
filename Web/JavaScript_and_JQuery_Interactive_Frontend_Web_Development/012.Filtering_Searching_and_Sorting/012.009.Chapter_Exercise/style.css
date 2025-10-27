@@ -7,9 +7,10 @@ body {
 
 .table-container {
     /* Makes the table container scrollable and centers it*/
-    width: 80%;
+    max-width: 80%;
+    width: fit-content;
     overflow-x: auto;
-    margin: auto;
+    margin: 2em auto;
 
     /* background color */
     background-color: #F7F9FD;
@@ -18,10 +19,11 @@ body {
 
 table {
     border-collapse: collapse;
+    border: 1px solid #BDC4C7;
 }
 
 thead {
-    /*border: 1px solid #BDC4C7;*/
+    border: 1px solid #BDC4C7;
 }
 
 #table-header {
@@ -43,30 +45,30 @@ th {
     background: none;
 }
 
-#display-filter-cell {
+#display-option-cell {
     padding: 0.5em; /*TODO Change top / bottom margin to 1em whenever filters or sort are added */
     text-align: left;
     height: fit-content;
 }
 
-.display-filter {
-    margin: 0.5em 0;
+.display-option {
+    margin: 0.5em;
     padding: 0.5em;
-    background-color: rgba(203, 218, 255, 0.8);
+    background-color: rgba(216, 228, 253, 0.8);
     border-radius: 1em;
     display: inline-block;
 }
 
-.display-filter > button {
+.display-option > button {
     margin: 0;
 }
 
-.display-filter > button:hover {
+.display-option > button:hover {
     color: red;
 }
 
-.display-filter > span {
-    margin: 0;
+.display-option > span {
+    margin: 0.1em 0.25em;
 }
 
 tbody > tr:nth-child(odd) {
@@ -92,10 +94,77 @@ tfoot > tr {
     justify-content: space-between;
 }
 
-#current-page {
-    border: 1px solid #BDC4C7;
+#div-table-footer-cell > span {
+    margin: 0 1em;
 }
 
 #page-selector {
     margin-left: 1em;
+}
+
+#current-page-input {
+    padding: 0.1em 0.25em;
+    width: 2em;
+    text-align: center;
+    border: 1px solid #BDC4C7;
+    color: rgba(44, 44, 53, 0.82);
+}
+
+.input-popup {
+    position: absolute;
+    /*padding: 1em;*/
+    z-index: 1000;
+    background-color: #F3F5F7;
+    border: 1px solid #BDC4C7;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.2);
+    display: none;
+    text-align: left;
+    margin: 0.5em 0;
+}
+
+.input-popup > input {
+    border: 1px solid #BDC4C7;
+    border-radius: 0.5em;
+}
+
+.input-popup > div {
+    margin: 1em;
+}
+
+.input-submit-container {
+    text-align: right;
+}
+
+.submit-button {
+    border: 1px solid rgba(255, 237, 237, 0.8);
+    background-color: rgba(235, 255, 252, 0.8);
+    padding: 0.5em 1em;
+    border-radius: 0.75em;
+    margin: 0.5em;
+}
+
+.input-x-container {
+    text-align: right;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-x-container > button:hover {
+    color: red;
+}
+
+.input-container {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+#page-selector > button:hover {
+    color: red;
+}
+
+#page-selector > button:disabled:hover {
+    color: rgba(44, 44, 53, 0.82) !important;
 }
