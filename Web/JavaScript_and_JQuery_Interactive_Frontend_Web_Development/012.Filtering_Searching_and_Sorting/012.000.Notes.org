@@ -158,6 +158,16 @@
    - Finally, the user would be able to search for a specific security, date, or interest rate
    - The filters, sorting, and searching mechanisms can be used all together, separately or a combination of each
 
+*** Section 12.8.1: Completing Chapter Exercise (!UPDATE!)
+    - After completing the chapter exericse I realized that a "small" chapter exercise can have a lot of features to it
+    - I wanted to implement sorting, filters, visibility, and table navigation buttons
+    - Each button needs their own event listeners and be able to manage state
+    - For example, whenever you add or remove a filter the number of rows change
+    - At first I was trying to take my time and add comments and test cases but I soon realized it was taking much longer than expected
+    - So I rushed the project and there may be some small bugs from edge cases but for the most part I think the small web app works well
+    - The code can definitely be improved but I learned a lot while building this website
+    - I used a lot of skills learned from the HTML book and this book as well
+
 ** Section 12.9: Summary
    - Arrays are commonly used to store a set of objects
    - Arrays have helpful methods that allow you to add, remove, filter, and sort the items they contain
@@ -169,18 +179,35 @@
    - To support older browsers, you can use a shim script (a script that has the new JS features that have not been or will not be implemented in older browsers but modern browsers have improved at supporting modern web standards)
    
 * Keywords
-| Term    | Definition |
-|---------+------------|
-| Sorting |            |
+| Term      | Definition                                                                                                  |
+|-----------+-------------------------------------------------------------------------------------------------------------|
+| Sorting   | The process of arranging items in a specific order                                                          |
+| Filtering | The process of selectively extracting or hiding specific data from a larger set based on a certain criteria |
 
 * Questions
   - *Q*: What are HTML data tags?
+         - Data tags are custom and arbitrary attributes that can be directly embeded into HTML elements
+	 - For example: ~<h1 data-custom-name="value"></element>~
+	 - All custom data attributes must begin with the ~data-~ prefix (this ensures they do not conflict with any standard HTML attributes)
+	 - Following the ~data-~ prefix, you can use any valid custom name, often using hyphens to separate words
+	 - The attribute can hold any string value
+	 - Then using JS, you can access ~data-*~ attributes using the ~dataset~ property of an HTML element, which provides a convenient way to work with these attributes in a camelCase format
+	 - Data tags allow for custom attributes in HTML elements
 
   - *Q*: What is sorting by lexicographically?
+         - Sorting lexicographically (lexical order or dictionary order) involves arranging elements (strings, words, or sequences of numbers) based on character by character comparison similar to how words are ordered in a dictionary
+	 - Elements are compared from left to right, character by character, at corresponding positions
+	 - Example sorting: [1, 2, 10] -> [1, 10, 2]
 
   - *Q*: How does QickSort work?
+         - You have an array
+	 1. Choose a pivot by selecting an element from the array as the pivot (first, last, random, middle, etc.)
+	 2. Rearrange the array so that all elements smaller than the pivot are to its left and all elements greater than the pivot are to its right (one iteration is complete)
+	 3. Recursively sort the subarrays applying the same process to the subarray left of the pivot and the subarray to the right of the pivot
+	 4. The recursion stops when the subarray has zero or one element
 
   - *Q*: How does Introsort work?
+         - 
 
   - *Q*: How does MergeSort work?
 

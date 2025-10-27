@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-19 Wed 14:39 -->
+<!-- 2025-10-27 Mon 03:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Chapter 12: Filtering, Searching, &amp; Sorting</title>
+<meta name="author" content="Alfredo Mejia" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -192,13 +193,449 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
 </head>
 <body>
 <div id="content" class="content">
+<h1 class="title">Chapter 12: Filtering, Searching, &amp; Sorting</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org6e4af8c">Navigation</a></li>
+<li><a href="#orgde137b1">Notes</a>
+<ul>
+<li><a href="#orgf56eed6">Section 12.1: Introduction</a></li>
+<li><a href="#org5c010cb">Section 12.2: JavaScript Array Methods</a>
+<ul>
+<li><a href="#org0ba0550">Section 12.2.1: Filtering</a></li>
+</ul>
+</li>
+<li><a href="#org84f2001">Section 12.3: jQuery Collections</a></li>
+<li><a href="#org8aa2bb1">Section 12.4: ECMAScript</a></li>
+<li><a href="#orgeca4e0f">Section 12.5: Arrays vs Objects</a></li>
+<li><a href="#org8cfca99">Section 12.6: Search</a></li>
+<li><a href="#orgd51117a">Section 12.7: Sorting</a>
+<ul>
+<li><a href="#orgbf1c563">Section 12.7.1: How Sorting Works</a></li>
+<li><a href="#orgf7d586f">Section 12.7.2: Sorting Dates</a></li>
+<li><a href="#org2e84769">Section 12.7.3: Sorting a Table</a></li>
+</ul>
+</li>
+<li><a href="#org7b485ac">Section 12.8: Chapter Exercise</a>
+<ul>
+<li><a href="#org830d051">Section 12.8.1: Completing Chapter Exercise (!UPDATE!)</a></li>
+</ul>
+</li>
+<li><a href="#orgccbdef5">Section 12.9: Summary</a></li>
+</ul>
+</li>
+<li><a href="#org3dc0899">Keywords</a></li>
+<li><a href="#orgdaecb6b">Questions</a></li>
+<li><a href="#org4079109">Summary</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="date">Created: 2025-02-19 Wed 14:39</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+<div id="outline-container-org6e4af8c" class="outline-2">
+<h2 id="org6e4af8c">Navigation</h2>
+<div class="outline-text-2" id="text-org6e4af8c">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nav</th>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Index</td>
+<td class="org-left">Notes Home</td>
+<td class="org-left">&vert; <a href="../../../index.html">html</a> &vert; <a href="../../../index.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Home</td>
+<td class="org-left">JavaScript &amp; JQuery - Interactive Front-end Web Development</td>
+<td class="org-left">&vert; <a href="../000.Home.html">html</a> &vert; <a href="../000.Home.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prev</td>
+<td class="org-left">Chapter 11: Content Panels</td>
+<td class="org-left">&vert; <a href="../011.Content_Panels/011.000.Notes.html">html</a> &vert; <a href="../011.Content_Panels/011.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/011.Content_Panels">github</a> &vert;</td>
+</tr>
+
+<tr>
+<td class="org-left">Next</td>
+<td class="org-left">Chapter 12: Form Enhancement &amp; Validation</td>
+<td class="org-left">&vert; <a href="../013.Form_Enhancement_and_Validation/013.000.Notes.html">html</a> &vert; <a href="../013.Form_Enhancement_and_Validation/013.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/013.Form_Enhancement_and_Validation">github</a> &vert;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgde137b1" class="outline-2">
+<h2 id="orgde137b1">Notes</h2>
+<div class="outline-text-2" id="text-orgde137b1">
+</div>
+<div id="outline-container-orgf56eed6" class="outline-3">
+<h3 id="orgf56eed6">Section 12.1: Introduction</h3>
+<div class="outline-text-3" id="text-orgf56eed6">
+<ul class="org-ul">
+<li>If your pages contain a lot of data, there are 3 techniques that you can use to help your users to find the content they are looking for:
+<ul class="org-ul">
+<li><b>Filtering</b>: Filtering lets you reduce a set of values by selecting the ones that meet stated criteria</li>
+<li><b>Search</b>: Search lets you show the items that match one or more words the user specifies</li>
+<li><b>Sorting</b>: Sorting lets you reorder a set of items on the page based on criteria (e.g. alphabetically)</li>
+</ul></li>
+<li>Before dealing with filtering, searching, and sorting, you have to consider how you are going to store the data that you are working with, one option could use arrays to hold data objects (and each object has its own properties / data)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5c010cb" class="outline-3">
+<h3 id="org5c010cb">Section 12.2: JavaScript Array Methods</h3>
+<div class="outline-text-3" id="text-org5c010cb">
+<ul class="org-ul">
+<li>An array is a kind of object and an array has various methods and properties</li>
+<li>Arrays are often used to store complex data including other objects</li>
+<li>Each item in an array is sometimes called an element or item (however don't associate the word "element" with the HTML elements, it is something unrelated)</li>
+<li>Some methods of an array are:
+<ul class="org-ul">
+<li><code>push()</code>: adds one or more items to the end of the array and returns the number of items in it</li>
+<li><code>unshift()</code>: adds one or more items to the start of the array and returns new length of it</li>
+<li><code>pop()</code>: removes last element from array and returns the element</li>
+<li><code>shift()</code>: removes first element from array and returns the element</li>
+<li><code>forEach()</code>: executes a function once for each element in array</li>
+<li><code>some()</code>: checks if some elements in array pass a test specified by a function</li>
+<li><code>every()</code>: checks if all elements in array pass a test specified by a function</li>
+<li><code>concat()</code>: creates new array containing this array and other array / values</li>
+<li><code>filter()</code>: creates new array with elements that pass a test specified by a function</li>
+<li><code>sort()</code>: reorders items in array using a function (called a compare function)</li>
+<li><code>reverse()</code>: reverses order of items in array</li>
+<li><code>map()</code>: calls a function on each element in array &amp; creates a new array with results</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org0ba0550" class="outline-4">
+<h4 id="org0ba0550">Section 12.2.1: Filtering</h4>
+<div class="outline-text-4" id="text-org0ba0550">
+<ul class="org-ul">
+<li>Filtering lets you reduce a set of values</li>
+<li>Filtering allows you to create a subset of data that meets certain criteria</li>
+<li>The array object has two methods that are very useful for filtering data (<code>forEach()</code> and <code>filter()</code>) and as they filter the data, the items that pass a test are added to a new array</li>
+<li>The <code>forEach()</code> method loops through the array and applies the same function to every item in it</li>
+<li><code>forEach()</code> is very flexible because the function can perform any kind of processing with the items in an array (not just filtering)</li>
+<li>The anonymous function in the <code>forEach()</code> acts as a filter because it can check if it satifies the filter criteria or not, and if so, it can add them (the filtered results) to a new array</li>
+<li>When using <code>forEach()</code>, the named or anonymous function given can have a parameter and this parameter represents the current single item in the array which you can use in your function</li>
+<li>The <code>filter()</code> method also accepts a function which is applied to each item in the array but this function only returns <code>true</code> or <code>false</code></li>
+<li>If the <code>filter()</code> method returns true then the method adds the item to a new array, otherwise it is not added to the new array</li>
+<li>The <code>filter()</code> syntax is slightly simpler than <code>forEach()</code> but it is only meant to be used to filter data</li>
+<li>The function inside <code>filter()</code> also accepts a parameter and that parameter represents the current item in the iteration</li>
+<li>If you let users filter the contents of a page, you can build all of the HTML content and then show and hide the relevant parts as the user interacts with the filters</li>
+<li>So instead of creating HTML elements that fit the criteria of the filters instead you create the HTML elements for all items in the array and show or hide items as the filters are inputted and processed (thus you do not need to delete or create HTML elements but simply show or hide them and thus take less resources)</li>
+<li>To filter elements that are "not so easy to filter" like images, you use something called <code>data-tags</code></li>
+<li>These tags are stored as a HTML attribute on each of the <code>&lt;img&gt;</code> elements since HTML5 allows you to store any data with an any element using an attribute that starts with the word <code>data-</code></li>
+<li>The values of the <code>data-tags</code> are comma-separated (technically in JS, it is one big value but with commas you can split the string more easily) , for example, I could have data tag like <code>data-color="green, purple, orange"</code></li>
+<li>So the images can have multiple values inside their data tag and then you can filter the image elements based on the value of their data tags</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org84f2001" class="outline-3">
+<h3 id="org84f2001">Section 12.3: jQuery Collections</h3>
+<div class="outline-text-3" id="text-org84f2001">
+<ul class="org-ul">
+<li>jQuery collections are array-like objects representing DOM elements</li>
+<li>jQuery has similar methods to an array for modifying the elements</li>
+<li>After calling the jQuery collections methods, you can use or chain other jQuery methods on the selection returned from the collection methods</li>
+<li>jQuery Collections methods are:
+<ul class="org-ul">
+<li><code>.add()</code>: adds elements to a set of matched elements</li>
+<li><code>.not()</code>: removes elements from a set of matched elements</li>
+<li><code>.each()</code>: applies same function to each element in a matched set</li>
+<li><code>.filter()</code>: reduces number of elements in a matched set to those that either match a selector or pass a test specified by a function</li>
+<li><code>.toArray()</code>: converts a jQuery collection to an array of DOM elements, so now it becomes an array of objects and you can use the methods shown above</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8aa2bb1" class="outline-3">
+<h3 id="org8aa2bb1">Section 12.4: ECMAScript</h3>
+<div class="outline-text-3" id="text-org8aa2bb1">
+<ul class="org-ul">
+<li>ECMAScript is the specifications that JavaScript is based upon</li>
+<li>EMCAScript is the official name for standardized version of JS, EMCAScript is not JS, EMCAScript is the specifications and JS is the implementation of that specification</li>
+<li>ECMA International is the standard body that looks after the language and discuss any new features and browser manufacturers often add features beyond the ECMA specs (typically agreed upon in WHATWG, W3C, or individual vendors)</li>
+<li>This is why some older browsers may not support the latest features (and only work with newer / modern browsers)</li>
+<li>There is a script to help with older browsers not supporting new features and it can be found here: <a href="https://github.com/es-shims/es6-shim">https://github.com/es-shims/es6-shim</a></li>
+<li>This script reproduces their functionality for legacy browsers</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgeca4e0f" class="outline-3">
+<h3 id="orgeca4e0f">Section 12.5: Arrays vs Objects</h3>
+<div class="outline-text-3" id="text-orgeca4e0f">
+<ul class="org-ul">
+<li>In order to represent complex data you might need several objects</li>
+<li>Groups of objects can be stored in arrays or as properties of other objects so when deciding which approach to use, consider how you will use the data</li>
+<li>Arrays:
+<ul class="org-ul">
+<li>When the order of the objects is important, they should be stored in an array because each item in an array is given an index number (key-value pairs in objects are not ordered)</li>
+<li>Note that the index number can change if objects are added / removed</li>
+<li>Arrays also have properties and methods that help when working with a sequence of items (e.g. <code>sort()</code> method reorders items in an array and <code>length</code> property counts the number of items)</li>
+<li>To retrieve data from an array of objects, you can use the index number for the object</li>
+<li>To add / remove objects in an array, you can use array methods</li>
+<li>To iterate over the items in an array you can use <code>forEach()</code></li>
+</ul></li>
+<li>Objects:
+<ul class="org-ul">
+<li>When you want to access objects using their name, they work well as properties of another object (because you would not need to iterate through all objects to find that object as you would in an array)</li>
+<li>But note that each property must have a unique name (e.g. you cannot have two properties called <code>Casey</code> and <code>Camille</code> within the same object)</li>
+<li>To retrieve data from an object stored as a property of another object, you can use the object's name (e.g. <code>obj.propertyName</code>)</li>
+<li>To remove / delete an object (since it is a property) from another object, you can use the <code>delete</code> keyword or erase its content with a blank string</li>
+<li>To iterate over child objects you can use the builtin method <code>Object.keys(myObj)</code> to retrieve the name of all the properties (children) from the object</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8cfca99" class="outline-3">
+<h3 id="org8cfca99">Section 12.6: Search</h3>
+<div class="outline-text-3" id="text-org8cfca99">
+<ul class="org-ul">
+<li>Search is like filtering but you show only results that match a search term</li>
+<li>In the book example, we have images and each image has some "tags", these tags can be added to the <code>alt</code> text and the <code>alt</code> text can be used to search the images</li>
+<li>So the "live search" works by searching or looking through the <code>alt</code> text of images and as you type the images are narrowed down to match the search criteria</li>
+<li>This feature does some NLP technique either an exact match whose <code>alt</code> text contains the search term or whose <code>alt</code> text is similar to the search time</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd51117a" class="outline-3">
+<h3 id="orgd51117a">Section 12.7: Sorting</h3>
+<div class="outline-text-3" id="text-orgd51117a">
+<ul class="org-ul">
+<li>Sorting involves taking a set of values and reordering them</li>
+<li>Computers often need detailed instructions about how to sort data</li>
+<li>The Array object has the <code>sort()</code> method and when you sort an array using the <code>sort()</code> method, you change the order of the items it holds</li>
+<li>Remember that the elements in an array have an index number, so sorting can be compared to changing the index numbers of the items in the array</li>
+<li>By default, the <code>sort()</code> method orders items lexicographically (it is the same order dictionaries use - e.g. [1, 2, 124, 14] &#x2013;&gt; [1, 124, 14, 2])</li>
+<li>Lexicographic order is as follows:
+<ol class="org-ol">
+<li>Look at the first letter and order words by the first letter (when talking about letters, it can also apply to numbers)</li>
+<li>If two words share the same first letter, order those words by the second letter</li>
+<li>If two words share the same first two letters, order those words by the third letter, etc.</li>
+</ol></li>
+<li>To sort items in a different way, you can write a compare function
+<ul class="org-ul">
+<li>The compare function compares two values at a time and returns a number</li>
+<li>The number it returns is then used to rearrange the items in the array</li>
+<li>The <code>sort()</code> method only ever compares two values at a time and it determines whether value <code>a</code> should appear before or after value <code>b</code></li>
+<li>Because only two values are compared at a time, the <code>sort()</code> method may need to compare each value in the array with several other values in the array</li>
+<li><code>sort()</code> can have an anonymous or a named function as a parameter and this function is called a compare function and it lets you create rules to determine whether value <code>a</code> should come before or after value <code>b</code></li>
+<li>A compare function should return a number and that number indicates which of the two items should come first</li>
+<li>The <code>sort()</code> method will determine which values it needs to compare to ensure the array is ordered correctly, you just have to write the compare function so that it returns a number that reflects the order in which you want items to appear</li>
+<li><b>Less than zero</b>: This indicates that it should show <code>a</code> before <code>b</code></li>
+<li><b>Equal to zero</b>: Indicates that the items should remain in the same order</li>
+<li><b>Greater than zero</b>: Indicates that it should show <code>b</code> before <code>a</code></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-orgbf1c563" class="outline-4">
+<h4 id="orgbf1c563">Section 12.7.1: How Sorting Works</h4>
+<div class="outline-text-4" id="text-orgbf1c563">
+<ul class="org-ul">
+<li>The actual sorting algorithm depends on the browser's implementation (the JS engine)</li>
+<li>The only thing we have control is the condition of which the sorting algorithm uses to determine if a value comes before or after another value or stays in the same position (since the sorting algorithm compares two values at a time)</li>
+<li>However, the actual sorting algorithm (how it selects the two values in the array to compare) depends on the browser's implementation</li>
+<li>The algorithm can vary per browser and per data type of the values in the array, but some algorithms include: QuickSort, Introsort, MergeSort, SelectionSort, AVLSort, and Timsort</li>
+<li>These algorithms are used to sort the items while using your compare function to compare two values and determine keep the same position or put one value before the other</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf7d586f" class="outline-4">
+<h4 id="orgf7d586f">Section 12.7.2: Sorting Dates</h4>
+<div class="outline-text-4" id="text-orgf7d586f">
+<ul class="org-ul">
+<li>Dates need to be converted into a <code>Date</code> object so that they can then be compared using <code>&lt;</code> and <code>&gt;</code> operators</li>
+<li>If the dates are held as strings then the compare function needs to create a <code>Date</code> object from the string so that the two dates can be compared using the <code>&lt;</code> and <code>&gt;</code> operators</li>
+<li>Once they have been converted into a <code>Date</code> object, JS stores the date as the number of milliseconds since the 1st January 1970</li>
+<li>With the date stored as a number, two dates can be compared in the same way that numbers are compared</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2e84769" class="outline-4">
+<h4 id="org2e84769">Section 12.7.3: Sorting a Table</h4>
+<div class="outline-text-4" id="text-org2e84769">
+<ul class="org-ul">
+<li>Each row of the table can be stored in an array</li>
+<li>When users click on a heading, it triggers an anonymous function to sort the contents of the array which contains the table rows</li>
+<li>The rows are sorted in ascending / descending order using the data in that column of which the heading was clicked</li>
+<li>Clicking the same header again will toggle between ascending / descending order based on the column data of which the heading was clicked</li>
+<li>Each column can contain different types of data compared to other columns</li>
+<li>The type of data can be specified in the HTML <code>&lt;th&gt;</code> element using a data tag</li>
+<li>Each type of data needs a different compare function</li>
+<li>The comapre function will also only use the column of which it was clicked on, for example, let's say we have a 2D array, or an array of objects, where the object represents the row and the array is the array of rows</li>
+<li>Whenever we click on a column header, we will use a compare function that only uses the property of the object that corresponds to the column clicked because we are trying to sort based on the column that was clicked and no other column</li>
+<li>If another column was clicked then we will only use the property since we only want to sort the objects based on that column, the whole array will be sorted by only using certain properties of the object based on the column clicked</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7b485ac" class="outline-3">
+<h3 id="org7b485ac">Section 12.8: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org7b485ac">
+<ul class="org-ul">
+<li>For this chapter exercise, we will get the "Average Interest Rates on U.S Securities" from the U.S Treasury using their API</li>
+<li><a href="https://fiscaldata.treasury.gov/datasets/average-interest-rates-treasury-securities/average-interest-rates-on-u-s-treasury-securities">Here</a> is the documentation of the API</li>
+<li>The data will be shown in a tabluar form</li>
+<li>Each row will show the average interest rates on a monthly basis on some type of security</li>
+<li>The average interest rates will be shown on marketable securities such as Treasury Bills, Notes, Bonds, etc. and non-marketable securities such as domestic series, foreign series, etc.</li>
+<li>Each row will have a record date, a security type description (marketable vs. non-marketable), a security description (treasury bils, bonds, domestic series, etc.) and average interest rate amount</li>
+<li>The table will have filters to filter the rows by either marketable or non-marketable and / or the type of security such as treasury bills, bonds, etc.</li>
+<li>In addition to the filters, the table will be able sort the rows by date (record date), alphabetically (for the securities), and numerically (for the interest rates)</li>
+<li>Finally, the user would be able to search for a specific security, date, or interest rate</li>
+<li>The filters, sorting, and searching mechanisms can be used all together, separately or a combination of each</li>
+</ul>
+</div>
+
+<div id="outline-container-org830d051" class="outline-4">
+<h4 id="org830d051">Section 12.8.1: Completing Chapter Exercise (!UPDATE!)</h4>
+<div class="outline-text-4" id="text-org830d051">
+<ul class="org-ul">
+<li>After completing the chapter exericse I realized that a "small" chapter exercise can have a lot of features to it</li>
+<li>I wanted to implement sorting, filters, visibility, and table navigation buttons</li>
+<li>Each button needs their own event listeners and be able to manage state</li>
+<li>For example, whenever you add or remove a filter the number of rows change</li>
+<li>At first I was trying to take my time and add comments and test cases but I soon realized it was taking much longer than expected</li>
+<li>So I rushed the project and there may be some small bugs from edge cases but for the most part I think the small web app works well</li>
+<li>The code can definitely be improved but I learned a lot while building this website</li>
+<li>I used a lot of skills learned from the HTML book and this book as well</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgccbdef5" class="outline-3">
+<h3 id="orgccbdef5">Section 12.9: Summary</h3>
+<div class="outline-text-3" id="text-orgccbdef5">
+<ul class="org-ul">
+<li>Arrays are commonly used to store a set of objects</li>
+<li>Arrays have helpful methods that allow you to add, remove, filter, and sort the items they contain</li>
+<li>Filtering lets you remove items and only show a subset of them based on a selected criteria</li>
+<li>Filters often rely on custom functions to check whether items match your criteria</li>
+<li>Search lets you filter based upon data the user enters</li>
+<li>Sorting allows you to reorder the items in an array</li>
+<li>If you want to control the order in which items are sorted, you can use a compare function</li>
+<li>To support older browsers, you can use a shim script (a script that has the new JS features that have not been or will not be implemented in older browsers but modern browsers have improved at supporting modern web standards)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3dc0899" class="outline-2">
+<h2 id="org3dc0899">Keywords</h2>
+<div class="outline-text-2" id="text-org3dc0899">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Term</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Sorting</td>
+<td class="org-left">The process of arranging items in a specific order</td>
+</tr>
+
+<tr>
+<td class="org-left">Filtering</td>
+<td class="org-left">The process of selectively extracting or hiding specific data from a larger set based on a certain criteria</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgdaecb6b" class="outline-2">
+<h2 id="orgdaecb6b">Questions</h2>
+<div class="outline-text-2" id="text-orgdaecb6b">
+<ul class="org-ul">
+<li><b>Q</b>: What are HTML data tags?
+<ul class="org-ul">
+<li>Data tags are custom and arbitrary attributes that can be directly embeded into HTML elements</li>
+<li>For example: <code>&lt;h1 data-custom-name="value"&gt;&lt;/element&gt;</code></li>
+<li>All custom data attributes must begin with the <code>data-</code> prefix (this ensures they do not conflict with any standard HTML attributes)</li>
+<li>Following the <code>data-</code> prefix, you can use any valid custom name, often using hyphens to separate words</li>
+<li>The attribute can hold any string value</li>
+<li>Then using JS, you can access <code>data-*</code> attributes using the <code>dataset</code> property of an HTML element, which provides a convenient way to work with these attributes in a camelCase format</li>
+<li>Data tags allow for custom attributes in HTML elements</li>
+</ul></li>
+
+<li><b>Q</b>: What is sorting by lexicographically?
+<ul class="org-ul">
+<li>Sorting lexicographically (lexical order or dictionary order) involves arranging elements (strings, words, or sequences of numbers) based on character by character comparison similar to how words are ordered in a dictionary</li>
+<li>Elements are compared from left to right, character by character, at corresponding positions</li>
+<li>Example sorting: [1, 2, 10] -&gt; [1, 10, 2]</li>
+</ul></li>
+
+<li><b>Q</b>: How does QickSort work?
+<ul class="org-ul">
+<li>You have an array</li>
+<li>Choose a pivot by selecting an element from the array as the pivot (first, last, random, middle, etc.)</li>
+<li>Rearrange the array so that all elements smaller than the pivot are to its left and all elements greater than the pivot are to its right (one iteration is complete)</li>
+<li>Recursively sort the subarrays applying the same process to the subarray left of the pivot and the subarray to the right of the pivot</li>
+<li>The recursion stops when the subarray has zero or one element</li>
+</ul></li>
+
+<li><b>Q</b>: How does Introsort work?
+<ul class="org-ul">
+<li></li>
+</ul></li>
+
+<li><b>Q</b>: How does MergeSort work?</li>
+
+<li><b>Q</b>: How does SelectionSort work?</li>
+
+<li><b>Q</b>: How does AVLSort work?</li>
+
+<li><b>Q</b>: How does Timsort work?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4079109" class="outline-2">
+<h2 id="org4079109">Summary</h2>
+</div>
 </div>
 </body>
 </html>
