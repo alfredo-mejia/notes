@@ -157,6 +157,7 @@
    - In addition to the filters, the table will be able sort the rows by date (record date), alphabetically (for the securities), and numerically (for the interest rates)
    - Finally, the user would be able to search for a specific security, date, or interest rate
    - The filters, sorting, and searching mechanisms can be used all together, separately or a combination of each
+   - [[file:./012.009.Chapter_Exercise/index.html][Here]] is the web app created for this chapter exercise
 
 *** Section 12.8.1: Completing Chapter Exercise (!UPDATE!)
     - After completing the chapter exericse I realized that a "small" chapter exercise can have a lot of features to it
