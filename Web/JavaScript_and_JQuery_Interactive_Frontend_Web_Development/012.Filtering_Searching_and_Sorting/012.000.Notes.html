@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-10-27 Mon 23:27 -->
+<!-- 2025-10-27 Mon 23:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 12: Filtering, Searching, &amp; Sorting</title>
@@ -202,44 +202,44 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5807b89">Navigation</a></li>
-<li><a href="#orge449fb4">Notes</a>
+<li><a href="#org5830456">Navigation</a></li>
+<li><a href="#org3c00a69">Notes</a>
 <ul>
-<li><a href="#org6e87ff6">Section 12.1: Introduction</a></li>
-<li><a href="#org6c8542b">Section 12.2: JavaScript Array Methods</a>
+<li><a href="#orgc6914ad">Section 12.1: Introduction</a></li>
+<li><a href="#orgd62a3b3">Section 12.2: JavaScript Array Methods</a>
 <ul>
-<li><a href="#org487bb01">Section 12.2.1: Filtering</a></li>
+<li><a href="#org33e24a2">Section 12.2.1: Filtering</a></li>
 </ul>
 </li>
-<li><a href="#org10c08ae">Section 12.3: jQuery Collections</a></li>
-<li><a href="#org1b611ca">Section 12.4: ECMAScript</a></li>
-<li><a href="#org8b56ce8">Section 12.5: Arrays vs Objects</a></li>
-<li><a href="#org1eaf98a">Section 12.6: Search</a></li>
-<li><a href="#orge74e239">Section 12.7: Sorting</a>
+<li><a href="#orgb818340">Section 12.3: jQuery Collections</a></li>
+<li><a href="#orge6de341">Section 12.4: ECMAScript</a></li>
+<li><a href="#orgaeb3f33">Section 12.5: Arrays vs Objects</a></li>
+<li><a href="#org3e22525">Section 12.6: Search</a></li>
+<li><a href="#orgf4b0044">Section 12.7: Sorting</a>
 <ul>
-<li><a href="#orgcbc7e60">Section 12.7.1: How Sorting Works</a></li>
-<li><a href="#org572b581">Section 12.7.2: Sorting Dates</a></li>
-<li><a href="#orgcf9b142">Section 12.7.3: Sorting a Table</a></li>
+<li><a href="#orga801b1a">Section 12.7.1: How Sorting Works</a></li>
+<li><a href="#orgff26861">Section 12.7.2: Sorting Dates</a></li>
+<li><a href="#orgd05e5db">Section 12.7.3: Sorting a Table</a></li>
 </ul>
 </li>
-<li><a href="#org0445ae9">Section 12.8: Chapter Exercise</a>
+<li><a href="#org3a353fc">Section 12.8: Chapter Exercise</a>
 <ul>
-<li><a href="#orgc1f5ead">Section 12.8.1: Completing Chapter Exercise (!UPDATE!)</a></li>
+<li><a href="#orge9e9017">Section 12.8.1: Completing Chapter Exercise (!UPDATE!)</a></li>
 </ul>
 </li>
-<li><a href="#org8adc50b">Section 12.9: Summary</a></li>
+<li><a href="#org31b7c29">Section 12.9: Summary</a></li>
 </ul>
 </li>
-<li><a href="#org380d605">Keywords</a></li>
-<li><a href="#org9c49e51">Questions</a></li>
-<li><a href="#org09999d8">Summary</a></li>
+<li><a href="#orgd0d9ed7">Keywords</a></li>
+<li><a href="#org0a65859">Questions</a></li>
+<li><a href="#org8d86c89">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5807b89" class="outline-2">
-<h2 id="org5807b89">Navigation</h2>
-<div class="outline-text-2" id="text-org5807b89">
+<div id="outline-container-org5830456" class="outline-2">
+<h2 id="org5830456">Navigation</h2>
+<div class="outline-text-2" id="text-org5830456">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -278,7 +278,7 @@
 
 <tr>
 <td class="org-left">Next</td>
-<td class="org-left">Chapter 12: Form Enhancement &amp; Validation</td>
+<td class="org-left">Chapter 13: Form Enhancement &amp; Validation</td>
 <td class="org-left">&vert; <a href="../013.Form_Enhancement_and_Validation/013.000.Notes.html">html</a> &vert; <a href="../013.Form_Enhancement_and_Validation/013.000.Notes.html">org</a> &vert; <a href="https://github.com/alfredo-mejia/notes/tree/main/Web/JavaScript_and_JQuery_Interactive_Frontend_Web_Development/013.Form_Enhancement_and_Validation">github</a> &vert;</td>
 </tr>
 </tbody>
@@ -286,13 +286,13 @@
 </div>
 </div>
 
-<div id="outline-container-orge449fb4" class="outline-2">
-<h2 id="orge449fb4">Notes</h2>
-<div class="outline-text-2" id="text-orge449fb4">
+<div id="outline-container-org3c00a69" class="outline-2">
+<h2 id="org3c00a69">Notes</h2>
+<div class="outline-text-2" id="text-org3c00a69">
 </div>
-<div id="outline-container-org6e87ff6" class="outline-3">
-<h3 id="org6e87ff6">Section 12.1: Introduction</h3>
-<div class="outline-text-3" id="text-org6e87ff6">
+<div id="outline-container-orgc6914ad" class="outline-3">
+<h3 id="orgc6914ad">Section 12.1: Introduction</h3>
+<div class="outline-text-3" id="text-orgc6914ad">
 <ul class="org-ul">
 <li>If your pages contain a lot of data, there are 3 techniques that you can use to help your users to find the content they are looking for:
 <ul class="org-ul">
@@ -305,9 +305,9 @@
 </div>
 </div>
 
-<div id="outline-container-org6c8542b" class="outline-3">
-<h3 id="org6c8542b">Section 12.2: JavaScript Array Methods</h3>
-<div class="outline-text-3" id="text-org6c8542b">
+<div id="outline-container-orgd62a3b3" class="outline-3">
+<h3 id="orgd62a3b3">Section 12.2: JavaScript Array Methods</h3>
+<div class="outline-text-3" id="text-orgd62a3b3">
 <ul class="org-ul">
 <li>An array is a kind of object and an array has various methods and properties</li>
 <li>Arrays are often used to store complex data including other objects</li>
@@ -330,9 +330,9 @@
 </ul>
 </div>
 
-<div id="outline-container-org487bb01" class="outline-4">
-<h4 id="org487bb01">Section 12.2.1: Filtering</h4>
-<div class="outline-text-4" id="text-org487bb01">
+<div id="outline-container-org33e24a2" class="outline-4">
+<h4 id="org33e24a2">Section 12.2.1: Filtering</h4>
+<div class="outline-text-4" id="text-org33e24a2">
 <ul class="org-ul">
 <li>Filtering lets you reduce a set of values</li>
 <li>Filtering allows you to create a subset of data that meets certain criteria</li>
@@ -356,9 +356,9 @@
 </div>
 </div>
 
-<div id="outline-container-org10c08ae" class="outline-3">
-<h3 id="org10c08ae">Section 12.3: jQuery Collections</h3>
-<div class="outline-text-3" id="text-org10c08ae">
+<div id="outline-container-orgb818340" class="outline-3">
+<h3 id="orgb818340">Section 12.3: jQuery Collections</h3>
+<div class="outline-text-3" id="text-orgb818340">
 <ul class="org-ul">
 <li>jQuery collections are array-like objects representing DOM elements</li>
 <li>jQuery has similar methods to an array for modifying the elements</li>
@@ -375,9 +375,9 @@
 </div>
 </div>
 
-<div id="outline-container-org1b611ca" class="outline-3">
-<h3 id="org1b611ca">Section 12.4: ECMAScript</h3>
-<div class="outline-text-3" id="text-org1b611ca">
+<div id="outline-container-orge6de341" class="outline-3">
+<h3 id="orge6de341">Section 12.4: ECMAScript</h3>
+<div class="outline-text-3" id="text-orge6de341">
 <ul class="org-ul">
 <li>ECMAScript is the specifications that JavaScript is based upon</li>
 <li>EMCAScript is the official name for standardized version of JS, EMCAScript is not JS, EMCAScript is the specifications and JS is the implementation of that specification</li>
@@ -389,9 +389,9 @@
 </div>
 </div>
 
-<div id="outline-container-org8b56ce8" class="outline-3">
-<h3 id="org8b56ce8">Section 12.5: Arrays vs Objects</h3>
-<div class="outline-text-3" id="text-org8b56ce8">
+<div id="outline-container-orgaeb3f33" class="outline-3">
+<h3 id="orgaeb3f33">Section 12.5: Arrays vs Objects</h3>
+<div class="outline-text-3" id="text-orgaeb3f33">
 <ul class="org-ul">
 <li>In order to represent complex data you might need several objects</li>
 <li>Groups of objects can be stored in arrays or as properties of other objects so when deciding which approach to use, consider how you will use the data</li>
@@ -416,9 +416,9 @@
 </div>
 </div>
 
-<div id="outline-container-org1eaf98a" class="outline-3">
-<h3 id="org1eaf98a">Section 12.6: Search</h3>
-<div class="outline-text-3" id="text-org1eaf98a">
+<div id="outline-container-org3e22525" class="outline-3">
+<h3 id="org3e22525">Section 12.6: Search</h3>
+<div class="outline-text-3" id="text-org3e22525">
 <ul class="org-ul">
 <li>Search is like filtering but you show only results that match a search term</li>
 <li>In the book example, we have images and each image has some "tags", these tags can be added to the <code>alt</code> text and the <code>alt</code> text can be used to search the images</li>
@@ -428,9 +428,9 @@
 </div>
 </div>
 
-<div id="outline-container-orge74e239" class="outline-3">
-<h3 id="orge74e239">Section 12.7: Sorting</h3>
-<div class="outline-text-3" id="text-orge74e239">
+<div id="outline-container-orgf4b0044" class="outline-3">
+<h3 id="orgf4b0044">Section 12.7: Sorting</h3>
+<div class="outline-text-3" id="text-orgf4b0044">
 <ul class="org-ul">
 <li>Sorting involves taking a set of values and reordering them</li>
 <li>Computers often need detailed instructions about how to sort data</li>
@@ -459,9 +459,9 @@
 </ul>
 </div>
 
-<div id="outline-container-orgcbc7e60" class="outline-4">
-<h4 id="orgcbc7e60">Section 12.7.1: How Sorting Works</h4>
-<div class="outline-text-4" id="text-orgcbc7e60">
+<div id="outline-container-orga801b1a" class="outline-4">
+<h4 id="orga801b1a">Section 12.7.1: How Sorting Works</h4>
+<div class="outline-text-4" id="text-orga801b1a">
 <ul class="org-ul">
 <li>The actual sorting algorithm depends on the browser's implementation (the JS engine)</li>
 <li>The only thing we have control is the condition of which the sorting algorithm uses to determine if a value comes before or after another value or stays in the same position (since the sorting algorithm compares two values at a time)</li>
@@ -472,9 +472,9 @@
 </div>
 </div>
 
-<div id="outline-container-org572b581" class="outline-4">
-<h4 id="org572b581">Section 12.7.2: Sorting Dates</h4>
-<div class="outline-text-4" id="text-org572b581">
+<div id="outline-container-orgff26861" class="outline-4">
+<h4 id="orgff26861">Section 12.7.2: Sorting Dates</h4>
+<div class="outline-text-4" id="text-orgff26861">
 <ul class="org-ul">
 <li>Dates need to be converted into a <code>Date</code> object so that they can then be compared using <code>&lt;</code> and <code>&gt;</code> operators</li>
 <li>If the dates are held as strings then the compare function needs to create a <code>Date</code> object from the string so that the two dates can be compared using the <code>&lt;</code> and <code>&gt;</code> operators</li>
@@ -484,9 +484,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgcf9b142" class="outline-4">
-<h4 id="orgcf9b142">Section 12.7.3: Sorting a Table</h4>
-<div class="outline-text-4" id="text-orgcf9b142">
+<div id="outline-container-orgd05e5db" class="outline-4">
+<h4 id="orgd05e5db">Section 12.7.3: Sorting a Table</h4>
+<div class="outline-text-4" id="text-orgd05e5db">
 <ul class="org-ul">
 <li>Each row of the table can be stored in an array</li>
 <li>When users click on a heading, it triggers an anonymous function to sort the contents of the array which contains the table rows</li>
@@ -503,9 +503,9 @@
 </div>
 </div>
 
-<div id="outline-container-org0445ae9" class="outline-3">
-<h3 id="org0445ae9">Section 12.8: Chapter Exercise</h3>
-<div class="outline-text-3" id="text-org0445ae9">
+<div id="outline-container-org3a353fc" class="outline-3">
+<h3 id="org3a353fc">Section 12.8: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org3a353fc">
 <ul class="org-ul">
 <li>For this chapter exercise, we will get the "Average Interest Rates on U.S Securities" from the U.S Treasury using their API</li>
 <li><a href="https://fiscaldata.treasury.gov/datasets/average-interest-rates-treasury-securities/average-interest-rates-on-u-s-treasury-securities">Here</a> is the documentation of the API</li>
@@ -521,9 +521,9 @@
 </ul>
 </div>
 
-<div id="outline-container-orgc1f5ead" class="outline-4">
-<h4 id="orgc1f5ead">Section 12.8.1: Completing Chapter Exercise (!UPDATE!)</h4>
-<div class="outline-text-4" id="text-orgc1f5ead">
+<div id="outline-container-orge9e9017" class="outline-4">
+<h4 id="orge9e9017">Section 12.8.1: Completing Chapter Exercise (!UPDATE!)</h4>
+<div class="outline-text-4" id="text-orge9e9017">
 <ul class="org-ul">
 <li>After completing the chapter exericse I realized that a "small" chapter exercise can have a lot of features to it</li>
 <li>I wanted to implement sorting, filters, visibility, and table navigation buttons</li>
@@ -538,9 +538,9 @@
 </div>
 </div>
 
-<div id="outline-container-org8adc50b" class="outline-3">
-<h3 id="org8adc50b">Section 12.9: Summary</h3>
-<div class="outline-text-3" id="text-org8adc50b">
+<div id="outline-container-org31b7c29" class="outline-3">
+<h3 id="org31b7c29">Section 12.9: Summary</h3>
+<div class="outline-text-3" id="text-org31b7c29">
 <ul class="org-ul">
 <li>Arrays are commonly used to store a set of objects</li>
 <li>Arrays have helpful methods that allow you to add, remove, filter, and sort the items they contain</li>
@@ -555,9 +555,9 @@
 </div>
 </div>
 
-<div id="outline-container-org380d605" class="outline-2">
-<h2 id="org380d605">Keywords</h2>
-<div class="outline-text-2" id="text-org380d605">
+<div id="outline-container-orgd0d9ed7" class="outline-2">
+<h2 id="orgd0d9ed7">Keywords</h2>
+<div class="outline-text-2" id="text-orgd0d9ed7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -587,9 +587,9 @@
 </div>
 </div>
 
-<div id="outline-container-org9c49e51" class="outline-2">
-<h2 id="org9c49e51">Questions</h2>
-<div class="outline-text-2" id="text-org9c49e51">
+<div id="outline-container-org0a65859" class="outline-2">
+<h2 id="org0a65859">Questions</h2>
+<div class="outline-text-2" id="text-org0a65859">
 <ul class="org-ul">
 <li><b>Q</b>: What are HTML data tags?
 <ul class="org-ul">
@@ -687,9 +687,9 @@
 </div>
 </div>
 
-<div id="outline-container-org09999d8" class="outline-2">
-<h2 id="org09999d8">Summary</h2>
-<div class="outline-text-2" id="text-org09999d8">
+<div id="outline-container-org8d86c89" class="outline-2">
+<h2 id="org8d86c89">Summary</h2>
+<div class="outline-text-2" id="text-org8d86c89">
 <ul class="org-ul">
 <li>To find content you can either filter, search, or sort</li>
 <li>To store the data you can use data objects, arrays, or both</li>
