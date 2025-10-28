@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-10-27 Mon 03:17 -->
+<!-- 2025-10-27 Mon 23:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 12: Filtering, Searching, &amp; Sorting</title>
@@ -202,44 +202,44 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfa530a1">Navigation</a></li>
-<li><a href="#org4b86f58">Notes</a>
+<li><a href="#org5807b89">Navigation</a></li>
+<li><a href="#orge449fb4">Notes</a>
 <ul>
-<li><a href="#orgd202d84">Section 12.1: Introduction</a></li>
-<li><a href="#org5a53631">Section 12.2: JavaScript Array Methods</a>
+<li><a href="#org6e87ff6">Section 12.1: Introduction</a></li>
+<li><a href="#org6c8542b">Section 12.2: JavaScript Array Methods</a>
 <ul>
-<li><a href="#orgd8d7a41">Section 12.2.1: Filtering</a></li>
+<li><a href="#org487bb01">Section 12.2.1: Filtering</a></li>
 </ul>
 </li>
-<li><a href="#org836a2d0">Section 12.3: jQuery Collections</a></li>
-<li><a href="#orgf4f9891">Section 12.4: ECMAScript</a></li>
-<li><a href="#orga4da031">Section 12.5: Arrays vs Objects</a></li>
-<li><a href="#orgbc35bd0">Section 12.6: Search</a></li>
-<li><a href="#org2d421b2">Section 12.7: Sorting</a>
+<li><a href="#org10c08ae">Section 12.3: jQuery Collections</a></li>
+<li><a href="#org1b611ca">Section 12.4: ECMAScript</a></li>
+<li><a href="#org8b56ce8">Section 12.5: Arrays vs Objects</a></li>
+<li><a href="#org1eaf98a">Section 12.6: Search</a></li>
+<li><a href="#orge74e239">Section 12.7: Sorting</a>
 <ul>
-<li><a href="#org348dbb4">Section 12.7.1: How Sorting Works</a></li>
-<li><a href="#orge9297b0">Section 12.7.2: Sorting Dates</a></li>
-<li><a href="#org1089bfc">Section 12.7.3: Sorting a Table</a></li>
+<li><a href="#orgcbc7e60">Section 12.7.1: How Sorting Works</a></li>
+<li><a href="#org572b581">Section 12.7.2: Sorting Dates</a></li>
+<li><a href="#orgcf9b142">Section 12.7.3: Sorting a Table</a></li>
 </ul>
 </li>
-<li><a href="#orgdcc673d">Section 12.8: Chapter Exercise</a>
+<li><a href="#org0445ae9">Section 12.8: Chapter Exercise</a>
 <ul>
-<li><a href="#org1b2c6fe">Section 12.8.1: Completing Chapter Exercise (!UPDATE!)</a></li>
+<li><a href="#orgc1f5ead">Section 12.8.1: Completing Chapter Exercise (!UPDATE!)</a></li>
 </ul>
 </li>
-<li><a href="#org186fb45">Section 12.9: Summary</a></li>
+<li><a href="#org8adc50b">Section 12.9: Summary</a></li>
 </ul>
 </li>
-<li><a href="#org41538c8">Keywords</a></li>
-<li><a href="#org2f35abe">Questions</a></li>
-<li><a href="#org5241966">Summary</a></li>
+<li><a href="#org380d605">Keywords</a></li>
+<li><a href="#org9c49e51">Questions</a></li>
+<li><a href="#org09999d8">Summary</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgfa530a1" class="outline-2">
-<h2 id="orgfa530a1">Navigation</h2>
-<div class="outline-text-2" id="text-orgfa530a1">
+<div id="outline-container-org5807b89" class="outline-2">
+<h2 id="org5807b89">Navigation</h2>
+<div class="outline-text-2" id="text-org5807b89">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -286,13 +286,13 @@
 </div>
 </div>
 
-<div id="outline-container-org4b86f58" class="outline-2">
-<h2 id="org4b86f58">Notes</h2>
-<div class="outline-text-2" id="text-org4b86f58">
+<div id="outline-container-orge449fb4" class="outline-2">
+<h2 id="orge449fb4">Notes</h2>
+<div class="outline-text-2" id="text-orge449fb4">
 </div>
-<div id="outline-container-orgd202d84" class="outline-3">
-<h3 id="orgd202d84">Section 12.1: Introduction</h3>
-<div class="outline-text-3" id="text-orgd202d84">
+<div id="outline-container-org6e87ff6" class="outline-3">
+<h3 id="org6e87ff6">Section 12.1: Introduction</h3>
+<div class="outline-text-3" id="text-org6e87ff6">
 <ul class="org-ul">
 <li>If your pages contain a lot of data, there are 3 techniques that you can use to help your users to find the content they are looking for:
 <ul class="org-ul">
@@ -305,9 +305,9 @@
 </div>
 </div>
 
-<div id="outline-container-org5a53631" class="outline-3">
-<h3 id="org5a53631">Section 12.2: JavaScript Array Methods</h3>
-<div class="outline-text-3" id="text-org5a53631">
+<div id="outline-container-org6c8542b" class="outline-3">
+<h3 id="org6c8542b">Section 12.2: JavaScript Array Methods</h3>
+<div class="outline-text-3" id="text-org6c8542b">
 <ul class="org-ul">
 <li>An array is a kind of object and an array has various methods and properties</li>
 <li>Arrays are often used to store complex data including other objects</li>
@@ -330,9 +330,9 @@
 </ul>
 </div>
 
-<div id="outline-container-orgd8d7a41" class="outline-4">
-<h4 id="orgd8d7a41">Section 12.2.1: Filtering</h4>
-<div class="outline-text-4" id="text-orgd8d7a41">
+<div id="outline-container-org487bb01" class="outline-4">
+<h4 id="org487bb01">Section 12.2.1: Filtering</h4>
+<div class="outline-text-4" id="text-org487bb01">
 <ul class="org-ul">
 <li>Filtering lets you reduce a set of values</li>
 <li>Filtering allows you to create a subset of data that meets certain criteria</li>
@@ -356,9 +356,9 @@
 </div>
 </div>
 
-<div id="outline-container-org836a2d0" class="outline-3">
-<h3 id="org836a2d0">Section 12.3: jQuery Collections</h3>
-<div class="outline-text-3" id="text-org836a2d0">
+<div id="outline-container-org10c08ae" class="outline-3">
+<h3 id="org10c08ae">Section 12.3: jQuery Collections</h3>
+<div class="outline-text-3" id="text-org10c08ae">
 <ul class="org-ul">
 <li>jQuery collections are array-like objects representing DOM elements</li>
 <li>jQuery has similar methods to an array for modifying the elements</li>
@@ -375,9 +375,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgf4f9891" class="outline-3">
-<h3 id="orgf4f9891">Section 12.4: ECMAScript</h3>
-<div class="outline-text-3" id="text-orgf4f9891">
+<div id="outline-container-org1b611ca" class="outline-3">
+<h3 id="org1b611ca">Section 12.4: ECMAScript</h3>
+<div class="outline-text-3" id="text-org1b611ca">
 <ul class="org-ul">
 <li>ECMAScript is the specifications that JavaScript is based upon</li>
 <li>EMCAScript is the official name for standardized version of JS, EMCAScript is not JS, EMCAScript is the specifications and JS is the implementation of that specification</li>
@@ -389,9 +389,9 @@
 </div>
 </div>
 
-<div id="outline-container-orga4da031" class="outline-3">
-<h3 id="orga4da031">Section 12.5: Arrays vs Objects</h3>
-<div class="outline-text-3" id="text-orga4da031">
+<div id="outline-container-org8b56ce8" class="outline-3">
+<h3 id="org8b56ce8">Section 12.5: Arrays vs Objects</h3>
+<div class="outline-text-3" id="text-org8b56ce8">
 <ul class="org-ul">
 <li>In order to represent complex data you might need several objects</li>
 <li>Groups of objects can be stored in arrays or as properties of other objects so when deciding which approach to use, consider how you will use the data</li>
@@ -416,9 +416,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgbc35bd0" class="outline-3">
-<h3 id="orgbc35bd0">Section 12.6: Search</h3>
-<div class="outline-text-3" id="text-orgbc35bd0">
+<div id="outline-container-org1eaf98a" class="outline-3">
+<h3 id="org1eaf98a">Section 12.6: Search</h3>
+<div class="outline-text-3" id="text-org1eaf98a">
 <ul class="org-ul">
 <li>Search is like filtering but you show only results that match a search term</li>
 <li>In the book example, we have images and each image has some "tags", these tags can be added to the <code>alt</code> text and the <code>alt</code> text can be used to search the images</li>
@@ -428,9 +428,9 @@
 </div>
 </div>
 
-<div id="outline-container-org2d421b2" class="outline-3">
-<h3 id="org2d421b2">Section 12.7: Sorting</h3>
-<div class="outline-text-3" id="text-org2d421b2">
+<div id="outline-container-orge74e239" class="outline-3">
+<h3 id="orge74e239">Section 12.7: Sorting</h3>
+<div class="outline-text-3" id="text-orge74e239">
 <ul class="org-ul">
 <li>Sorting involves taking a set of values and reordering them</li>
 <li>Computers often need detailed instructions about how to sort data</li>
@@ -459,9 +459,9 @@
 </ul>
 </div>
 
-<div id="outline-container-org348dbb4" class="outline-4">
-<h4 id="org348dbb4">Section 12.7.1: How Sorting Works</h4>
-<div class="outline-text-4" id="text-org348dbb4">
+<div id="outline-container-orgcbc7e60" class="outline-4">
+<h4 id="orgcbc7e60">Section 12.7.1: How Sorting Works</h4>
+<div class="outline-text-4" id="text-orgcbc7e60">
 <ul class="org-ul">
 <li>The actual sorting algorithm depends on the browser's implementation (the JS engine)</li>
 <li>The only thing we have control is the condition of which the sorting algorithm uses to determine if a value comes before or after another value or stays in the same position (since the sorting algorithm compares two values at a time)</li>
@@ -472,9 +472,9 @@
 </div>
 </div>
 
-<div id="outline-container-orge9297b0" class="outline-4">
-<h4 id="orge9297b0">Section 12.7.2: Sorting Dates</h4>
-<div class="outline-text-4" id="text-orge9297b0">
+<div id="outline-container-org572b581" class="outline-4">
+<h4 id="org572b581">Section 12.7.2: Sorting Dates</h4>
+<div class="outline-text-4" id="text-org572b581">
 <ul class="org-ul">
 <li>Dates need to be converted into a <code>Date</code> object so that they can then be compared using <code>&lt;</code> and <code>&gt;</code> operators</li>
 <li>If the dates are held as strings then the compare function needs to create a <code>Date</code> object from the string so that the two dates can be compared using the <code>&lt;</code> and <code>&gt;</code> operators</li>
@@ -484,9 +484,9 @@
 </div>
 </div>
 
-<div id="outline-container-org1089bfc" class="outline-4">
-<h4 id="org1089bfc">Section 12.7.3: Sorting a Table</h4>
-<div class="outline-text-4" id="text-org1089bfc">
+<div id="outline-container-orgcf9b142" class="outline-4">
+<h4 id="orgcf9b142">Section 12.7.3: Sorting a Table</h4>
+<div class="outline-text-4" id="text-orgcf9b142">
 <ul class="org-ul">
 <li>Each row of the table can be stored in an array</li>
 <li>When users click on a heading, it triggers an anonymous function to sort the contents of the array which contains the table rows</li>
@@ -503,9 +503,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgdcc673d" class="outline-3">
-<h3 id="orgdcc673d">Section 12.8: Chapter Exercise</h3>
-<div class="outline-text-3" id="text-orgdcc673d">
+<div id="outline-container-org0445ae9" class="outline-3">
+<h3 id="org0445ae9">Section 12.8: Chapter Exercise</h3>
+<div class="outline-text-3" id="text-org0445ae9">
 <ul class="org-ul">
 <li>For this chapter exercise, we will get the "Average Interest Rates on U.S Securities" from the U.S Treasury using their API</li>
 <li><a href="https://fiscaldata.treasury.gov/datasets/average-interest-rates-treasury-securities/average-interest-rates-on-u-s-treasury-securities">Here</a> is the documentation of the API</li>
@@ -521,9 +521,9 @@
 </ul>
 </div>
 
-<div id="outline-container-org1b2c6fe" class="outline-4">
-<h4 id="org1b2c6fe">Section 12.8.1: Completing Chapter Exercise (!UPDATE!)</h4>
-<div class="outline-text-4" id="text-org1b2c6fe">
+<div id="outline-container-orgc1f5ead" class="outline-4">
+<h4 id="orgc1f5ead">Section 12.8.1: Completing Chapter Exercise (!UPDATE!)</h4>
+<div class="outline-text-4" id="text-orgc1f5ead">
 <ul class="org-ul">
 <li>After completing the chapter exericse I realized that a "small" chapter exercise can have a lot of features to it</li>
 <li>I wanted to implement sorting, filters, visibility, and table navigation buttons</li>
@@ -538,9 +538,9 @@
 </div>
 </div>
 
-<div id="outline-container-org186fb45" class="outline-3">
-<h3 id="org186fb45">Section 12.9: Summary</h3>
-<div class="outline-text-3" id="text-org186fb45">
+<div id="outline-container-org8adc50b" class="outline-3">
+<h3 id="org8adc50b">Section 12.9: Summary</h3>
+<div class="outline-text-3" id="text-org8adc50b">
 <ul class="org-ul">
 <li>Arrays are commonly used to store a set of objects</li>
 <li>Arrays have helpful methods that allow you to add, remove, filter, and sort the items they contain</li>
@@ -555,9 +555,9 @@
 </div>
 </div>
 
-<div id="outline-container-org41538c8" class="outline-2">
-<h2 id="org41538c8">Keywords</h2>
-<div class="outline-text-2" id="text-org41538c8">
+<div id="outline-container-org380d605" class="outline-2">
+<h2 id="org380d605">Keywords</h2>
+<div class="outline-text-2" id="text-org380d605">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -587,9 +587,9 @@
 </div>
 </div>
 
-<div id="outline-container-org2f35abe" class="outline-2">
-<h2 id="org2f35abe">Questions</h2>
-<div class="outline-text-2" id="text-org2f35abe">
+<div id="outline-container-org9c49e51" class="outline-2">
+<h2 id="org9c49e51">Questions</h2>
+<div class="outline-text-2" id="text-org9c49e51">
 <ul class="org-ul">
 <li><b>Q</b>: What are HTML data tags?
 <ul class="org-ul">
@@ -620,22 +620,106 @@
 
 <li><b>Q</b>: How does Introsort work?
 <ul class="org-ul">
-<li></li>
+<li>Introsort begins with quicksort and if the recursion depth goes more than a particular limit it switches to Heapsort</li>
+<li>If the number of elements is small then it switches to insertion sort</li>
+<li>The way it works is that it starts with QuickSort</li>
+<li>So it chooses a pivot and partitions the array around the pivot</li>
+<li>QuickSort continues and Introsort monitors how deep the recursion goes</li>
+<li>Introsort has a maximum recursion depth, if the recursion exceeds this threshold then Introsort switches from QuickSort to HeapSort</li>
+<li>Introsort also checks the size of the partitions if the size of the subarray becomes sufficiently small then it switches to Insertion Sort</li>
 </ul></li>
 
-<li><b>Q</b>: How does MergeSort work?</li>
+<li><b>Q</b>: How does MergeSort work?
+<ul class="org-ul">
+<li>Merge sort works by recursively dividing a list into smaller sublists until each sublist contains only one element and then merging these sorted sublists back together in order</li>
+<li>It is a divide and conquer algorithm where the "divide" step splits the list and the "conquer" step merges the sorted sublists back together</li>
+<li>Here are the steps:</li>
+<li>Divide the input list into two halves until each sublist contains only a single element as a single-element list is considered sorted</li>
+<li>Once the list is fully divided, two sorted sublists are merged into a single sorted list and to merge two sublists you compare the first element of each list and add the smaller one to the new, merged list</li>
+<li>This process repeats, taking the smaller element from the front of the two sublists and adding it to the merged list until all elements from both sublists are included and this merge-and-sort process continues combining the sorted sublists at each level until the entire list is merged back into a single fully sorted list</li>
+</ul></li>
 
-<li><b>Q</b>: How does SelectionSort work?</li>
+<li><b>Q</b>: How does SelectionSort work?
+<ul class="org-ul">
+<li>SelectionSort sorts an array by repeatedly selecting the smallest (or largest) element from the unsorted portion of the array and swapping it with the first unsorted element</li>
+<li>Find the smallest element in the array and swap it with the first element (the array is now divided into two parts, the sorted part and the unsorted section, the first element is considered the sorted part)</li>
+<li>Then we continue to the second element (or the first element of the unsorted part of the array) and we find the smallest element among the remaining elements in the unsorted part and swap it with the second element (now the first two elements are sorted and the rest are unsorted)</li>
+<li>We continue to the third element (or the first element of the unsorted part of the array) and we repeat the process until we have sorted the entire array (or moved all the way to the end of the array)</li>
+</ul></li>
 
-<li><b>Q</b>: How does AVLSort work?</li>
+<li><b>Q</b>: How does AVLSort work?
+<ul class="org-ul">
+<li>The first step is to build a AVL tree</li>
+<li>AVL tree is a self-balancing BST tree</li>
+<li>So you select an element in the array and add it to the BST tree</li>
+<li>Remember the BST tree properties:
+<ul class="org-ul">
+<li>All nodes in the left subtree of a node contains values strictly less than the node's value</li>
+<li>All nodes in the right subtree of a node contains values strictly greater than the node's value</li>
+</ul></li>
+<li>After any insertion or deletion, the AVL tree checks if the balance factor (the difference in height between the left and right subtrees) of any node is greater than 1 or less than -1 and if it is then the tree performs rotations (single or double) to rebalance itself ensuring the AVL property is maintained</li>
+<li>Once the AVL tree is constructed and balanced, an in-order traversal is performed to retrieve the elements in sorted order</li>
+<li>The nodes are visited by left, root, right and thus the elements are retrieved in ascending order</li>
+</ul></li>
 
-<li><b>Q</b>: How does Timsort work?</li>
+<li><b>Q</b>: How does Timsort work?
+<ul class="org-ul">
+<li>Timesort works by combining the best of merge sort and insertion sort</li>
+<li>Identify runs
+<ul class="org-ul">
+<li>Timesort begins by dividing the array into runs - subarrays that are either already sorted or will be made sorted by insertion sort</li>
+<li>A run is a consecutive sequence of elements that are either strictly increasing or strictly decreasing</li>
+<li>If the run is decreasing, Timesort will reverse it to make it increasing</li>
+<li>The idea is to identify chunks of data that are already ordered or nearly ordered since sorting these smaller chunks will be faster than sorting the entire array in one go</li>
+</ul></li>
+<li>Use Insertion Sort on Small Runs
+<ul class="org-ul">
+<li>Timesort uses a fixed minimum run size (typically 32 elements) and if a run is smaller than this threshold, Timesort will extend it by using insertion sort with the following elements</li>
+<li>Since timesort analyze elements one-by-one from left to right (for runs), if it sees that the run (runs are ordered elements so the min is always two elements since that can always be considered asc or desc) is small it continues until it reaches the run size and then sorts the selected elements using insertion sort</li>
+</ul></li>
+<li>Merge Runs using Merge Sort
+<ul class="org-ul">
+<li>After the initial runs are created and small runs are sorted , Timesort proceeds by merging the runs into larger sorted subarrays using a merge sort approach</li>
+<li>The sorted runs are merged together iteratively until the entire array is sorted using merge sort</li>
+</ul></li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5241966" class="outline-2">
-<h2 id="org5241966">Summary</h2>
+<div id="outline-container-org09999d8" class="outline-2">
+<h2 id="org09999d8">Summary</h2>
+<div class="outline-text-2" id="text-org09999d8">
+<ul class="org-ul">
+<li>To find content you can either filter, search, or sort</li>
+<li>To store the data you can use data objects, arrays, or both</li>
+<li>JavaScript arrays has various methods that can affect the array</li>
+<li>One of the methods is <code>filter()</code> which allows you to reduce a set of values by creating a subset of data that meets certain criteria</li>
+<li>You create the criteria by passing an anonymous function to <code>filter()</code> which is applied to each item in the array but this function only returns <code>true</code> or <code>false</code></li>
+<li>If the filter method returns treu then the method adds the item to a new array, otherwise it is not added to the new array</li>
+<li>To filter elements that are "not so easy to filter" like images, you can use something called <code>data-tags</code></li>
+<li><code>data-tags</code> are stored as HTML attributes on the HTML elements</li>
+<li><code>data-tags</code> are custom and aribitrary attributes that can be directly embedded into HTML and then using JS you can access <code>data-*</code> attributes using the <code>dataset</code> property of an HTML element</li>
+<li>jQuery collections are array-like objects representing DOM elements and jQuery has similar methods to an array for modifying the elements and after calling the jQuery collection methods you can use or chain other jQuery methods on the selection returned from the collection methods</li>
+<li>EMCAScript is the official name for the standardized version of JS, EMCAScript is not JS, EMCAScript is the specifications and JS is the implementation of that specification</li>
+<li>EMCA International is the standard body that looks after the language and discuss with any new features and browser manufacturers often add features beyond the ECMA specs (typically agreed upon in WHATWG, W3C, or individual vendors)</li>
+<li>There is a script called es6-shim that helps produce new features in legacy browsers (but not very relevant in today's age)</li>
+<li>Groups of objects can be stored in arrays or as properties of other objects so when deciding which approach to use, consider how you will use the data</li>
+<li>Arrays are good when order is important, arrays are easy to retrieve using indices, and easy to iterate</li>
+<li>Objects are good when you need to access data by name, remove or delete other objects, and iterate over child objects</li>
+<li>Search is like filtering but you show only results that match a search term</li>
+<li>Sorting involves taking a set of values and reordering them and computers often need detailed instructions about how to sort data</li>
+<li>You can use the array method <code>sort()</code> which order items lexicographically or you can create your own sort function</li>
+<li>The <code>sort()</code> method can also take a function argument, this argument is a function that determines the order of the elements, the function must have two parameters (to compare both elements) and must return a neg value when a should come before b, a pos value when b should come before a, or 0 when both are equal</li>
+<li>Depending on the function, it creates a new rule for the sorting method to follow</li>
+<li>My chapter exercise was getting data from the U.S. Treasury Fiscal Data and I was able to use their API for the Average Interest Rates on U.S. Treasury Securities</li>
+<li>The data was placed into a table and the table had buttons to filter based on user input and sort based on data fields to filter and sort rows</li>
+<li>The table was also able to hide or unhide columns</li>
+<li>So sorting is a process of arranging items in a specific order while filtering is the process of selectively extracting or hiding specific data from a larger set based on a certain criteria</li>
+<li>Lexicographically sorting involves arranging elements based on character by character comparison similar to how words are ordered in a dictionary so <code>[1, 2, 13]</code> becomes <code>[1, 13, 2]</code></li>
+<li>There are many sorting algorithms such as QuickSort, IntroSort, MergeSort, InsertionSort, SelectionSort, AVLSort, TimeSort, and more</li>
+</ul>
+</div>
 </div>
 </div>
 </body>

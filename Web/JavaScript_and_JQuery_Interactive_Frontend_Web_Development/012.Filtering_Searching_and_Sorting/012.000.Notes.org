@@ -208,14 +208,78 @@
 	 4. The recursion stops when the subarray has zero or one element
 
   - *Q*: How does Introsort work?
-         - 
+         - Introsort begins with quicksort and if the recursion depth goes more than a particular limit it switches to Heapsort
+	 - If the number of elements is small then it switches to insertion sort
+	 - The way it works is that it starts with QuickSort
+	 - So it chooses a pivot and partitions the array around the pivot
+	 - QuickSort continues and Introsort monitors how deep the recursion goes
+	 - Introsort has a maximum recursion depth, if the recursion exceeds this threshold then Introsort switches from QuickSort to HeapSort
+	 - Introsort also checks the size of the partitions if the size of the subarray becomes sufficiently small then it switches to Insertion Sort
 
   - *Q*: How does MergeSort work?
+         - Merge sort works by recursively dividing a list into smaller sublists until each sublist contains only one element and then merging these sorted sublists back together in order
+	 - It is a divide and conquer algorithm where the "divide" step splits the list and the "conquer" step merges the sorted sublists back together
+	 - Here are the steps:
+	 1. Divide the input list into two halves until each sublist contains only a single element as a single-element list is considered sorted
+	 2. Once the list is fully divided, two sorted sublists are merged into a single sorted list and to merge two sublists you compare the first element of each list and add the smaller one to the new, merged list
+	 3. This process repeats, taking the smaller element from the front of the two sublists and adding it to the merged list until all elements from both sublists are included and this merge-and-sort process continues combining the sorted sublists at each level until the entire list is merged back into a single fully sorted list
 
   - *Q*: How does SelectionSort work?
+         - SelectionSort sorts an array by repeatedly selecting the smallest (or largest) element from the unsorted portion of the array and swapping it with the first unsorted element
+	 1. Find the smallest element in the array and swap it with the first element (the array is now divided into two parts, the sorted part and the unsorted section, the first element is considered the sorted part)
+	 2. Then we continue to the second element (or the first element of the unsorted part of the array) and we find the smallest element among the remaining elements in the unsorted part and swap it with the second element (now the first two elements are sorted and the rest are unsorted)
+	 3. We continue to the third element (or the first element of the unsorted part of the array) and we repeat the process until we have sorted the entire array (or moved all the way to the end of the array)
 
   - *Q*: How does AVLSort work?
-
+         - The first step is to build a AVL tree
+	 - AVL tree is a self-balancing BST tree
+	 - So you select an element in the array and add it to the BST tree
+	 - Remember the BST tree properties:
+	   - All nodes in the left subtree of a node contains values strictly less than the node's value
+	   - All nodes in the right subtree of a node contains values strictly greater than the node's value
+	 - After any insertion or deletion, the AVL tree checks if the balance factor (the difference in height between the left and right subtrees) of any node is greater than 1 or less than -1 and if it is then the tree performs rotations (single or double) to rebalance itself ensuring the AVL property is maintained
+	 - Once the AVL tree is constructed and balanced, an in-order traversal is performed to retrieve the elements in sorted order
+	 - The nodes are visited by left, root, right and thus the elements are retrieved in ascending order
+	   	   
   - *Q*: How does Timsort work?
+         - Timesort works by combining the best of merge sort and insertion sort
+	 1. Identify runs
+	    - Timesort begins by dividing the array into runs - subarrays that are either already sorted or will be made sorted by insertion sort
+	    - A run is a consecutive sequence of elements that are either strictly increasing or strictly decreasing
+	    - If the run is decreasing, Timesort will reverse it to make it increasing
+	    - The idea is to identify chunks of data that are already ordered or nearly ordered since sorting these smaller chunks will be faster than sorting the entire array in one go
+	 2. Use Insertion Sort on Small Runs
+	    - Timesort uses a fixed minimum run size (typically 32 elements) and if a run is smaller than this threshold, Timesort will extend it by using insertion sort with the following elements
+	    - Since timesort analyze elements one-by-one from left to right (for runs), if it sees that the run (runs are ordered elements so the min is always two elements since that can always be considered asc or desc) is small it continues until it reaches the run size and then sorts the selected elements using insertion sort
+	 3. Merge Runs using Merge Sort
+	    - After the initial runs are created and small runs are sorted , Timesort proceeds by merging the runs into larger sorted subarrays using a merge sort approach
+	    - The sorted runs are merged together iteratively until the entire array is sorted using merge sort
 
 * Summary
+  - To find content you can either filter, search, or sort
+  - To store the data you can use data objects, arrays, or both
+  - JavaScript arrays has various methods that can affect the array
+  - One of the methods is ~filter()~ which allows you to reduce a set of values by creating a subset of data that meets certain criteria
+  - You create the criteria by passing an anonymous function to ~filter()~ which is applied to each item in the array but this function only returns ~true~ or ~false~
+  - If the filter method returns treu then the method adds the item to a new array, otherwise it is not added to the new array
+  - To filter elements that are "not so easy to filter" like images, you can use something called ~data-tags~
+  - ~data-tags~ are stored as HTML attributes on the HTML elements
+  - ~data-tags~ are custom and aribitrary attributes that can be directly embedded into HTML and then using JS you can access ~data-*~ attributes using the ~dataset~ property of an HTML element
+  - jQuery collections are array-like objects representing DOM elements and jQuery has similar methods to an array for modifying the elements and after calling the jQuery collection methods you can use or chain other jQuery methods on the selection returned from the collection methods
+  - EMCAScript is the official name for the standardized version of JS, EMCAScript is not JS, EMCAScript is the specifications and JS is the implementation of that specification
+  - EMCA International is the standard body that looks after the language and discuss with any new features and browser manufacturers often add features beyond the ECMA specs (typically agreed upon in WHATWG, W3C, or individual vendors)
+  - There is a script called es6-shim that helps produce new features in legacy browsers (but not very relevant in today's age)
+  - Groups of objects can be stored in arrays or as properties of other objects so when deciding which approach to use, consider how you will use the data
+  - Arrays are good when order is important, arrays are easy to retrieve using indices, and easy to iterate
+  - Objects are good when you need to access data by name, remove or delete other objects, and iterate over child objects
+  - Search is like filtering but you show only results that match a search term
+  - Sorting involves taking a set of values and reordering them and computers often need detailed instructions about how to sort data
+  - You can use the array method ~sort()~ which order items lexicographically or you can create your own sort function
+  - The ~sort()~ method can also take a function argument, this argument is a function that determines the order of the elements, the function must have two parameters (to compare both elements) and must return a neg value when a should come before b, a pos value when b should come before a, or 0 when both are equal
+  - Depending on the function, it creates a new rule for the sorting method to follow
+  - My chapter exercise was getting data from the U.S. Treasury Fiscal Data and I was able to use their API for the Average Interest Rates on U.S. Treasury Securities
+  - The data was placed into a table and the table had buttons to filter based on user input and sort based on data fields to filter and sort rows
+  - The table was also able to hide or unhide columns
+  - So sorting is a process of arranging items in a specific order while filtering is the process of selectively extracting or hiding specific data from a larger set based on a certain criteria
+  - Lexicographically sorting involves arranging elements based on character by character comparison similar to how words are ordered in a dictionary so ~[1, 2, 13]~ becomes ~[1, 13, 2]~
+  - There are many sorting algorithms such as QuickSort, IntroSort, MergeSort, InsertionSort, SelectionSort, AVLSort, TimeSort, and more
