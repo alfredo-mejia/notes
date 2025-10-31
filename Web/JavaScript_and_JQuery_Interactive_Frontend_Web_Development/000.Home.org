@@ -41,4 +41,11 @@
 [[https://javascriptbook.com/][JavaScript & JQuery Official Website]]
 
 * Final Thoughts
-/Not Finished Yet/
+After finishing JavaScript & JQuery I realized how much I've learned from this book. Before this book, I knew very little JavaScript. I could use my programming knowledge to deduce the language and make some sense but I never bothered to use JavaScript because I was not comfortable with using it.
+The book was a very easy read with many easy to follow examples. The author was able to clearly explain the basic programming concepts in JavaScript, explain concepts like event listeners, and explain libraries like jQuery.
+The biggest takeaway from the book is that it made me familiar with JS syntax, event listeners, and API fetch calls. I already knew programming concepts from my background but was not familiar with JS syntax. I wasn't sure what ~() => ()~ meant, didn't know how to use event listeners for each object, and did not know how to call fetch calls and use asynchronoztion functions.
+I had to get what I learned from the HTML & CSS book and apply it here too. For example, I had to learn how to get such elements in JS and even some elements like buttons and input forms have a lot of events that can be triggered by certain events.
+I also learned about jQuery. Although jQuery is used less nowadays it made learn jQuery syntax and made me realize why it is becoming obsolete due to the new functions / features introduced in ES6.
+At first, I didn't like the book because it didn't have chapter exercises, questions, or no way to test what we learned. But I soon started to create small chapter exercises to test my knowledge and realized how much of the book's knowledge I was applying and retaining.
+There may be some outdate content in the book but for the most part vanilla JS has not changed from what is shown in the book. This book is great to learn vanilla JS which is a great starting point to JS, TypeScript, and other web technologies.
+So in the end, I learned a lot and would definitely recommend to anyone who wants to learn JavaScript.
