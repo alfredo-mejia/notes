@@ -13,12 +13,193 @@
 
 * Notes
 
+** Section 13.1: Introduction
+   - Forms allow you to collect information from visitors and JavaScript can help you get the right information from them
+   - Since JS was created, it has been used to enhance and validate forms
+   - Enhancements make forms easier to use and validation checks whether the user has provided the right information before submitting the form (if not, it provides feedback to the user)
+   - Form enhancement, HTML5 form elements, and form validation are all topics covered in this chapter
+
+** Section 13.2: Helper Functions
+   - Forms use a lot of event handlers and you can use jQuery to deal with cross-browser event handling
+   - In the old days, Internet Explorer used a different event model than other browsers so if you do not want to include the entire jQuery script just to handle events in the older verions of IE, then you need to write your own fallback code to handle the events
+   - Instead of writing the same fallback code every time you need an event handler, you can write the fallback code once in a helper function, and then call that function every time you need to add an event handler to a page
+   - This function can check if ~addEventListener()~ is in the element of interest, if not, then we call ~attachEvent()~
+   - However, since the ~attachEvent()~ does not pass the event object to the callback function, what the example code in the book does, is that it creates a method in the element and assigns it to the callback function
+   - So now the element has the callback function, it then creates another method in the element, and this new method is calling the callback function and it passes the event object as an argument which is obtained by the ~window~ object
+   - Finally, the ~attachEvent()~ is called and as the callback function it puts in the method created that calls the initial callback with the event object as the argument
+
+** Section 13.3: The Form Element
+   - The ~<form>~ element has different properties, methods, and events than some of the other elements
+   - It has:
+     - ~action~: The URL the form is submitted to
+     - ~method~: If it is to be sent via ~GET~ or ~POST~
+     - ~name~: Rarely used, more common to select a form y the value of its ~id~ attribute
+     - ~elements~: A collection of the elements in the form that users can interact with (they can be accessed via index numbers or the values of their ~name~ attributes)
+     - ~submit()~: This has the same effect as clicking the submit button on a form
+     - ~reset()~: Resets the form to the initial values it had when the page loaded
+     - ~submit~: Event fires when the form is submitted
+     - ~reset~: Event fires when the form is reset
+
+   - The ~document~ object has something called the ~forms collection~ and the forms collection holds a reference to each of the ~<form>~ elements that appear on a page
+   - Each item in a collection is given an index number (a number starting at 0, like an array), so for example, to access the second form using its index number it would be something like: ~document.forms[1];~
+   - You can also access a form using the value of its ~name~ attribute, for example, to select a form whose name attribute has a value of "login" it would be: ~document.forms.login~
+   - Each form element in the page also has an ~elements.collection~ as it holds all of the forms controls within that form and each item in the elements collection can also be accessed by index number or by the value of its ~name~ attribute
+   - For example, to access the second form on the page and select the first form control within it, it would be like: ~document.forms[1].elements[0]~
+   - Another example of selecting the seconf form on the page and then selecting the element whose ~name~ attribute has a value of ~password~ from that form: ~document.forms[1].elements.password~
+   - Note that index numbers in a collection of elements can change if the markup of a page is altered so the use of index numbers ties a script to the HTML markup (thus does NOT achieve a separation of concerns)
+
+** Section 13.4: Form Controls
+   - Each type of form control uses a different combination of the properties, methods, and events
+   - Note that the methods can be used to simulate how a user would interact with the form controls
+   - Properties:
+     - ~value~: In a text input, it is the text the user entered; otherwise, it is the value of the ~value~ attribute
+     - ~type~: When a form control has been created using the ~<input>~ element, this defines the ~type~ of the form element (e.g. ~text~, ~password~, etc.)
+     - ~name~: Gets or sets the value of the ~name~ attribute
+     - ~defaultValue~: The initial value of a text box or text area when the page is rendered
+     - ~form~: The form that the control belongs to
+     - ~disabled~: Disables the ~<form>~ element
+     - ~checked~: Indicates which checkbox or radio buttons have been checked (this property is a boolean; in JS it will have a value of ~true~ if checked)
+     - ~defaultChecked~: Whether the checkbox or radio button was checked or not when the page loaded
+     - ~selected~: Indicates that an item from a select box has been selected (boolean - ~true~ if selected)
+
+   - Methods:
+     - ~focus()~: Gives an element focus
+     - ~blur()~: Removes focus from an element
+     - ~select()~: Selects and highlights text content of an element (e.g, text inputs, text areas, and passwords)
+     - ~click()~: Triggers a ~click~ event upon buttons, checkboxes, and file upload (also triggers a ~submit~ event on a submit button and the ~reset~ event on a reset button)
+
+   - Events:
+     - ~blur~: When the user leaves a field
+     - ~focus~: When the user enters a field
+     - ~click~: When the user clicks on an element
+     - ~change~: When the value of an element changes
+     - ~input~: When the value of ~<input>~ or ~<textarea>~ element changes
+     - ~keydown~, ~keyup~, ~keypress~: When the user interacts with a keyboard
+
+** Section 13.5: Select Boxes
+   - The ~<select>~ element is more complex than the other form controls
+   - Its DOM node has a number of extra properties and methods
+   - Its ~<option>~ elements contain the values a user can select
+   - The ~<select>~ element also has some extra properties and methods that are specific to it
+   - If you want to work with the individual options the user can select from, a collection of ~<option>~ elements is available
+   - Propeties of ~<select>~:
+     - ~options~: A collection of all the ~<option>~ elements
+     - ~selectedIndex~: Index number of the option that is currently option
+     - ~length~: Number of options
+     - ~multiple~: Allows users to select multiple options from the select box (rarely used because the user-experience is not very good)
+     - ~selectedOptions~: A collection of all the selected ~<option>~ elements
+   - Methods of ~<select>~:
+     - ~add(option, before)~: Adds an item to the list (the first parameter is the new option and the second is the element it should go before and if no value is given, the item will be added to the end of the options)
+     - ~remove(index)~: Removes an item from the list (has only one parameter - the index number of the option to be removed)
+
+** Section 13.6: HTML5 Elements & Attributes
+   - HTML5 adds form elements and attributes to perform tasks that has previously been performed by JavaScript, however, their appearance can vary a lot between different browsers (especially their error messages)
+   - Attributes:
+     - ~autofocus~: Gives focus to this element when the page is loaded
+     - ~placeholder~: Content of this attribute is shown in the ~<input>~
+     - ~required~: Checks the field has a value - could be text entered or an option selected
+     - ~min~: Minimum permitted number
+     - ~max~: Maximum permitted number
+     - ~step~: Intervals by which numbers should increase or decrease
+     - ~value~: Default value for a number when the control first loads on the page
+     - ~autocomplete~: On by default - shows list of past entries (disable for credit card numbers / sensitive data)
+     - ~pattern~: Lets you to specify a regular expression to validate a value
+     - ~nonvalidate~: Used on the ~<form>~ element to disable the HTML5 built-in form validation
+   - Outdated, but polyfill is a script that provides functionality you may expect a browser to support by default (so a polyfill script may help support new features in older browsers) - this isn't an issue anymore as browsers tend to be standardized with features
+   - Before, a conditional loader was common, which will let you load different files depending on whether a condition returns true or false
+   - This allows developers to only load polyfill scripts when the user's browser does not support certain features
+
+** Section 13.7: Form Validation
+   - Validation is the process of checking whether a value meets certain rules (e.g. a password has a minimum number of characters)
+   - Validation tells the users if there is a problem with the values they entered so that they can correct the form before they resubmit it
+   - Validation on the browser helps receive input in the format needed, it is faster to do browser validation than server validation, and it saves resources on the server
+   - The validation done by the browser will be triggered by the submit event (not click or any other event)
+   - Regex is often used to check for patterns in strings and helps validate user input and can be tested using ~regexExpression.test(str)~ which returns true or false meaning if the pattern was found or not in the string
+   - So regex expressions can search for characters that form a pattern and they can also replace those characters with new ones
+
+** Section 13.8: Code Dependencies & Reusue
+   - It is always best practice to avoid writing duplicate code and reusing code when possible
+   - Try to use the DRY principle: don't repeat yourself
+   - Whenever a script depends on another script the script it uses is referred to as a dependency to the JS file that uses it
+   - Code reuse may lead to smaller scripts and more code dependencies
+
+** Section 13.9: Chapter Exercise
+   - We are going to create a form similar to the chapter example
+   - This form will have the following properties:
+     - Name: text
+     - Email: email
+     - Password: password
+     - Confirm Password: password
+     - Birthdate: date
+     - Short Bio: textarea
+     - Parental Consent: Checkbox
+   - The form will not be submitted to any server
+   - The form will only check for the validity of the inputs
+   - Name is required and must be at 3 characters
+   - Email is required must be a valid text in a email format
+   - Password is required and must be at least 8 characters, contain a number, a lowercase, a uppercase, and a special character such as: !, -, _, #, $, %
+   - Password and confirm password must match
+   - Birthdate must be a valid birthdate
+   - Short bio is required and must be at least 10 characters but no more than 140 characters
+   - Parental Consent must be checked if user is younger than 13
+   - Unlike the chapter example where validation occurs only when the form is submitted
+   - The validation in my exercise will be performed as the user enters the input and/or goes out focus of the input, as well as submitting the form
+   - This allows the user to see any errors before even submitting the form, thus saving time and hopefully giving the user a better user experience
+   - [[file:./013.009.Chapter_Exercise/index.html][Here]] is my chapter exercise
+
+** Section 13.10: Summary
+   - Form enhancements make your form easier to use
+   - Validation lets you give users feedback before the form data is sent to the server
+   - HTML5 introduced new form controls which feature validation (only works in modern or mobile browsers)
+   - HTML5 inputs and their validation messages look different in various browsers
+   - You can use JavaScript to offer the same functionality as the new HTML5 elements in all browsers (and control how they appear in all browsers)
+   - Libraries like jQuery UI help create forms that look the same across different browsers
+   - Regular expressions help you find patterns of characters in a string
+        
 * Keywords
-| Term | Definition |
-|------+------------|
-|      |            |
+| Term            | Definition                                                                                                                                                                                                                                                                                                                                           |
+|-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Form validation | The process of ensuring that the user-submitted data is accurate, complete, and in the correct form, preventing incorrect or malicious input from being processed                                                                                                                                                                                    |
+| Code Dependency | A code dependency is a piece of software that a program relies on to run (e.g. if program A needs program B then program B is a code dependency for program A)                                                                                                                                                                                       |
+| DRY Principle   | DRY means Don't Repeat Yourself and it is a software development best practice that advocates for every piece of knowledge to have a single, unambiguous, authoritative representation within a system (basically reduce redundancy by consolidating duplicate code and logic into a single, reusable location such as a function, class, or module) |
 
 * Questions
-  - *Q*:
+  - *Q*: In JavaScript, do you place code dependencies in the HTML file as ~<script>~ tags before the script that needs it or do you use the ~import~ inside the JS file?
+         - Traditionally, JavaScript didn't have a built-in module system so to use code dependencies you would have to add them by using the ~<script>~ tag in HTML
+	 - The browser would load each file in the order they appeared, so dependencies had to come first
+	 - This was common around the 2000s to the early 2010s
+	 - JavaScript finally got native modules (ES Modules or "ESM") standardized in 2015 (ES6) and fully supported in browsers a few years later
+	 - So now you can use the keyword ~import~ in your JavaScript to load a code dependency (especially if using npm as your package manager) and the module system handles dependencies
+	 - Using the module system you declare imports directly in your JS files and only your script in HTML using the ~<script>~ tag and the attribute ~type~ with the value of ~module~
+	   
+  - *Q*: Can dependencies loop exist in JS? What if script A imports script B and script B imports script C and script C imports script A?
+         - Loop dependencies can exist and can cause problems
+	 - When ES modules are loaded, the browser builds a dependency graph and if it detects a circular dependency:
+	   - It creates module objects for each file
+	   - It starts executing the modules in order (so if A imports B then it loads B but if B imports C then it loads C but if C imports A then it loads A but A is already loading so partially or uninitialized modules are given)
+	   - If a module tries to import something that hasn't finished loading yet (because of the loop), it gets an incomplete version - often undefined for functions or variables that haven't been initialized yet
+	 - So it is best to avoid circular dependencies by restructing the modules so the dependency graph is one-directional, the extracted shared logic is placed into a new module such as ~utils.js~ that multiple files can import or sometimes use lazy imports (e.g. import inside a function) to delay loading until needed
 
 * Summary
+  - Forms allow you to collect info from visitors and JS can help validate the form and the user's input
+  - Validation is the process of checking whether a value meets certain rules
+  - Helper functions can be used to help provide functionality in older browsers and add event listeners so that the forms behave and interact the same regardless of browser
+  - The ~<form>~ element has different properties, methods, and events than some of the other elements, it has ~action~, ~method~, ~name~, ~submit()~, ~reset()~, and more
+  - You can get all the forms in a document by getting the forms collection by using something like: ~document.forms~ (which returns a collection of forms)
+  - Then using a single form you can collect the form's elements using ~document.forms[0].elements~ which returns a collection of elements in the form which holds all of the forms controls within that form
+  - Each item in the elements collection can also be accessed by the index number or by the value of its ~name~ attribute
+  - Each type of form control uses a different combination of the properties, methods, and events and there are some methods that can be used to simulate how a user would interact with the form controls such as ~focus()~, ~blur()~, ~select()~, and ~click()~
+  - ~<select>~ element has extra properties and methods such as ~options~ (collection of all the ~<option>~ elements), ~selectedIndex~ (index number of the option that is currently option), ~length~ (number of options), ~selectedOptions~ (a collection of all the selected ~<option>~ elements), and more
+  - HTML5 has many form elements and attributes to perform validation tasks (previously it was done by JavaScript) but their appearance can vary between different browsers
+  - Attributes like ~required~, ~min~, ~max~, ~autocomplete~, etc. are all attributes introduced in HTML5 which can help validate input elements without the need of JS
+  - The last topic to cover is the DRY principle and code dependencies
+  - DRY is don't repeat yourself so try to reuse code as much as possible
+  - That means using libraries and code dependencies (other code)
+  - Whenever a script depends on another script the script it uses is referred to as a dependency to the JS file that uses it
+  - Code reuse may lead to smaller scripts and more code dependencies
+  - However, when using code dependencies you have to be careful for loop dependencies
+  - The browser creates a dependency graph and if there are any loops then issues may arise
+  - The best way to solve this is to try and create a one-direction dependency graph, use lazy imports, or create one module with shared logic to break the loop
+  - There two ways to import code dependencies, the older version is to add them by using the ~<script>~ tag in the HTML file and the browser would load each file in the order they appeared so the dependencies must come first in the HTML file
+  - Or the newer option would be to use the keyword ~import~ in your JavaScript file to load a code dependency and the module system handles the dependencies
+  - Only your script would be added using the ~<script>~ tag and the attribute ~type~ with the value of ~module~ to work since all dependencies would be imported in your script by the ~import~ keyword and the module system
