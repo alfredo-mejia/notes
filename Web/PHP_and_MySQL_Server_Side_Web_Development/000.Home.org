@@ -1,0 +1,56 @@
+#+title: PHP & MySQL - Server Side Web Development
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                         | Links                                   |
+|-------+-----------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                    | \vert [[file:../../index.html][html]] \vert [[file:../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | PHP & MySQL - Server Side Web Development     | \vert [[file:./000.Home.html][html]] \vert [[file:./000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development][github]] \vert |
+| Next  | Chapter 1: Variables, Expressions & Operators | \vert [[file:./001.Variables_Expressions_and_Operators/001.000.Notes.html][html]] \vert [[file:./001.Variables_Expressions_and_Operators/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/001.Variables_Expressions_and_Operators][github]] \vert |
+
+* Book Details
+| Title     | PHP & MySQL - Server Side Web Development |
+| Edition   |                                           |
+| Author    | Jon Duckett                               |
+| Publisher | John Wiley & Sons, Inc.                   |
+| Year      | 2022                                      |
+| ISBN      | 978-1-119-14922-4                         |
+
+* Contents
+| Chapter | Title                              | Links                                   |
+|---------+------------------------------------+-----------------------------------------|
+|       1 | Variables, Expressions & Operators | \vert [[file:./001.Variables_Expressions_and_Operators/001.000.Notes.html][html]] \vert [[file:./001.Variables_Expressions_and_Operators/001.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/001.Variables_Expressions_and_Operators][github]] \vert |
+|       2 | Control Structures                 | \vert [[file:./002.Control_Structures/002.000.Notes.html][html]] \vert [[file:./002.Control_Structures/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/002.Control_Structures][github]] \vert |
+|       3 | Functions                          | \vert [[file:./003.Functions/003.000.Notes.html][html]] \vert [[file:./003.Functions/003.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/003.Functions][github]] \vert |
+|       4 | Objects & Classes                  | \vert [[file:./004.Objects_and_Classes/004.000.Notes.html][html]] \vert [[file:./004.Objects_and_Classes/004.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/004.Objects_and_Classes][github]] \vert |
+|       5 | Built-In Functions                 | \vert [[file:./005.Built_In_Functions/005.000.Notes.html][html]] \vert [[file:./005.Built_In_Functions/005.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/005.Built_In_Functions][github]] \vert |
+|       6 | Getting Data From Browsers         | \vert [[file:./006.Getting_Data_From_Browsers/006.000.Notes.html][html]] \vert [[file:./006.Getting_Data_From_Browsers/006.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/006.Getting_Data_From_Browsers][github]] \vert |
+|       7 | Images & Files                     | \vert [[file:./007.Images_and_Files/007.000.Notes.html][html]] \vert [[file:./007.Images_and_Files/007.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/007.Images_and_Files][github]] \vert |
+|       8 | Dates & Times                      | \vert [[file:./008.Dates_and_Times/008.000.Notes.html][html]] \vert [[file:./008.Dates_and_Times/008.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/008.Dates_and_Times][github]] \vert |
+|       9 | Cookies & Sessions                 | \vert [[file:./009.Cookies_and_Sessions/009.000.Notes.html][html]] \vert [[file:./009.Cookies_and_Sessions/009.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/009.Cookies_and_Sessions][github]] \vert |
+|      10 | Error Handling                     | \vert [[file:./010.Error_Handling/010.000.Notes.html][html]] \vert [[file:./010.Error_Handling/010.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/010.Error_Handling][github]] \vert |
+|      11 | Structured Query Language          | \vert [[file:./011.Structured_Query_Language/011.000.Notes.html][html]] \vert [[file:./011.Structured_Query_Language/011.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/011.Structured_Query_Language][github]] \vert |
+|      12 | Get & Show Data From a Database    | \vert [[file:./012.Get_and_Show_Data_From_A_Database/012.000.Notes.html][html]] \vert [[file:./012.Get_and_Show_Data_From_A_Database/012.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/012.Get_and_Show_Data_From_A_Database][github]] \vert |
+|      13 | Updating Data in a Database        | \vert [[file:./013.Updating_Data_in_a_Database/013.000.Notes.html][html]] \vert [[file:./013.Updating_Data_in_a_Database/013.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/013.Updating_Data_in_a_Database][github]] \vert |
+|      14 | Refactoring & Dependency Injection | \vert [[file:./014.Refactoring_and_Dependency_Injection/014.000.Notes.html][html]] \vert [[file:./014.Refactoring_and_Dependency_Injection/014.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/014.Refactoring_and_Dependency_Injection][github]] \vert |
+|      15 | Namespaces & Libraries             | \vert [[file:./015.Namespaces_and_Libraries/015.000.Notes.html][html]] \vert [[file:./015.Namespaces_and_Libraries/015.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/015.Namespaces_and_Libraries][github]] \vert |
+|      16 | Membership                         | \vert [[file:./016.Membership/016.000.Notes.html][html]] \vert [[file:./016.Membership/016.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/016.Membership][github]] \vert |
+|      17 | Adding Functionality               | \vert [[file:./017.Adding_Functionality/017.000.Notes.html][html]] \vert [[file:./017.Adding_Functionality/017.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/017.Adding_Functionality][github]] \vert |
+
+* Resources
+
+[[https://phpandmysql.com][PHP & MySQL Official Book Website]]
+
+* Final Thoughts
+
+You might be asking why is this book under the "Web" section if PHP is a programming language and MySQL is a database. Surely these technologies can be grouped under some other folder.
+However, context matters, and PHP is an open-sourced scripting programming language that is mainly used in web development.
+Simple web applications can be divided into 3 components: the frontend (what the browser sees such as HTML, CSS, and CSS), the backend (what the frontend interacts with), and a database.
+MySQL will be the database we will be using. MySQL is open-source just like PHP but it is not required when building a web application. You may use any database of your choosing, open-source or not.
+This can be Oracle, Postgres, or any other database. So going back to the original question, why is this book under the web section.
+This is because after learning HTML, CSS, and JS we have learned how to build the frontend of web applications. Now we need to learn how to build the backend.
+The backend of an application can use different technologies, it does not need to be PHP and MySQL. However, in our case, we will start with PHP & MySQL.
+So, this book is in the web section because now we are going to build the backend of a web app, the backend will introduce new functionality to our web app than just using HTML, CSS, and JS. 
+

@@ -1,0 +1,32 @@
+#+title: Chapter 1: Variables, Expressions & Operators
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                     | Links                                   |
+|-------+-------------------------------------------+-----------------------------------------|
+| Index | Notes Home                                | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | PHP & MySQL - Server Side Web Development | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Next  | Chapter 2: Control Structures             | \vert [[file:../002.Control_Structures/002.000.Notes.html][html]] \vert [[file:../002.Control_Structures/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/002.Control_Structures][github]] \vert |
+
+* Notes
+
+** Section 1.1: Introduction
+   - PHP is a programming language that was designed to run on a web server so that when someone requests a web page, the server can generate an HTML page to send back to that specific user
+   - This means that pages can be tailored to individual people which is a requirement for any site that allows users to perform tasks such as register or log in, making purchases, or even searching within the website
+   - PHP was designed to work with databases like MySQL which can store data such as the content of the pages the site displays, the products a site sells, or details about members of the site
+   - Using PHP, web pages can allow members to update the data stored in the database such as content management systems, online shops, or social networks
+   - Websites that store their information that is displayed in a database are called database-driven websites
+
+** Section 1.2: Static vs. Dynamic Websites     
+     
+* Keywords
+| Term                     | Definition |
+|--------------------------+------------|
+| Database-driver Websites |            |
+
+* Questions
+  - *Q*: Does PHP return a HTML file that is already created or does PHP generate a HTML file and return that file to the client? Or can PHP do both?
+
+* Summary

@@ -1,0 +1,12 @@
+#+title: Chapter 3: Functions
+#+author: Alfredo Mejia
+#+options: num:nil html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" /> <style>body {margin: 5%} h1,h2,h3,h4,h5,h6 {margin-top: 3%} .content ul:not(:first-child) {margin-top: 0.25em}}</style>
+
+* Navigation
+| Nav   | Title                                  | Links                                   |
+|-------+----------------------------------------+-----------------------------------------|
+| Index | Notes Home                             | \vert [[file:../../../index.html][html]] \vert [[file:../../../index.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main][github]] \vert |
+| Home  | HTML & CSS - Design and Build Websites | \vert [[file:../000.Home.html][html]] \vert [[file:../000.Home.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/HTML_and_CSS_Design_and_Build_Websites][github]] \vert |
+| Prev  | Chapter 2: Control Structures          | \vert [[file:../002.Control_Structures/002.000.Notes.html][html]] \vert [[file:../002.Control_Structures/002.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/002.Control_Structures][github]] \vert |
+| Next  | Chapter 4: Objects & Classes           | \vert [[file:../004.Objects_and_Classes/004.000.Notes.html][html]] \vert [[file:../004.Objects_and_Classes/004.000.Notes.org][org]] \vert [[https://github.com/alfredo-mejia/notes/tree/main/Web/PHP_and_MySQL_Server_Side_Web_Development/004.Objects_and_Classes][github]] \vert |
